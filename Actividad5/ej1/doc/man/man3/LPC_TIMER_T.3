@@ -1,0 +1,110 @@
+.TH "LPC_TIMER_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_TIMER_T \- 32-bit Standard timer register block structure  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <timer_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTC\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPC\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMR\fP [4]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCR\fP [4]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEMR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [12]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTCR\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+32-bit Standard timer register block structure 
+.PP
+Definición en la línea 47 del archivo timer_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t CCR"
+Capture Control Register\&. The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated when a capture takes place\&. 
+.PP
+Definición en la línea 55 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CR[4]"
+Capture Register\&. CR is loaded with the value of TC when there is an event on the CAPn\&.0 input\&. 
+.PP
+Definición en la línea 56 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTCR"
+Count Control Register\&. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting\&. 
+.PP
+Definición en la línea 59 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t EMR"
+External Match Register\&. The EMR controls the external match pins MATn\&.0-3 (MAT0\&.0-3 and MAT1\&.0-3 respectively)\&. 
+.PP
+Definición en la línea 57 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t IR"
+< TIMERn Structure Interrupt Register\&. The IR can be written to clear interrupts\&. The IR can be read to identify which of eight possible interrupt sources are pending\&. 
+.PP
+Definición en la línea 48 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MCR"
+Match Control Register\&. The MCR is used to control if an interrupt is generated and if the TC is reset when a Match occurs\&. 
+.PP
+Definición en la línea 53 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MR[4]"
+Match Register\&. MR can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC\&. 
+.PP
+Definición en la línea 54 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PC"
+Prescale Counter\&. The 32 bit PC is a counter which is incremented to the value stored in PR\&. When the value in PR is reached, the TC is incremented and the PC is cleared\&. The PC is observable and controllable through the bus interface\&. 
+.PP
+Definición en la línea 52 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PR"
+Prescale Register\&. The Prescale Counter (below) is equal to this value, the next clock increments the TC and clears the PC\&. 
+.PP
+Definición en la línea 51 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[12]"
+
+.PP
+Definición en la línea 58 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TC"
+Timer Counter\&. The 32 bit TC is incremented every PR+1 cycles of PCLK\&. The TC is controlled through the TCR\&. 
+.PP
+Definición en la línea 50 del archivo timer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TCR"
+Timer Control Register\&. The TCR is used to control the Timer Counter functions\&. The Timer Counter can be disabled or reset through the TCR\&. 
+.PP
+Definición en la línea 49 del archivo timer_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

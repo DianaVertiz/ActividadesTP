@@ -1,0 +1,956 @@
+.TH "GPIO_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GPIO_18XX_43XX \- CHIP: LPC18xx/43xx GPIO driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_GPIO_T\fP"
+.br
+.RI "\fIGPIO port register block structure\&. \fP"
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_GPIO_Init\fP (\fBLPC_GPIO_T\fP *pGPIO)"
+.br
+.RI "\fIInitialize GPIO block\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPIO_DeInit\fP (\fBLPC_GPIO_T\fP *pGPIO)"
+.br
+.RI "\fIDe-Initialize GPIO block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_WritePortBit\fP (\fBLPC_GPIO_T\fP *pGPIO, uint32_t port, uint8_t pin, bool setting)"
+.br
+.RI "\fISet a GPIO port/bit state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinState\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin, bool setting)"
+.br
+.RI "\fISet a GPIO pin state via the GPIO byte register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIO_ReadPortBit\fP (\fBLPC_GPIO_T\fP *pGPIO, uint32_t port, uint8_t pin)"
+.br
+.RI "\fIRead a GPIO state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIO_GetPinState\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fIGet a GPIO pin state via the GPIO byte register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_WriteDirBit\fP (\fBLPC_GPIO_T\fP *pGPIO, uint32_t port, uint8_t bit, bool setting)"
+.br
+.RI "\fISet a GPIO direction\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinDIROutput\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fISet GPIO direction for a single GPIO pin to an output\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinDIRInput\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fISet GPIO direction for a single GPIO pin to an input\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinDIR\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin, bool output)"
+.br
+.RI "\fISet GPIO direction for a single GPIO pin\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIO_ReadDirBit\fP (\fBLPC_GPIO_T\fP *pGPIO, uint32_t port, uint8_t bit)"
+.br
+.RI "\fIRead a GPIO direction (out or in) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIO_GetPinDIR\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fIGet GPIO direction for a single GPIO pin\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetDir\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t portNum, uint32_t bitValue, uint8_t out)"
+.br
+.RI "\fISet Direction for a GPIO port\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortDIROutput\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fISet GPIO direction for a all selected GPIO pins to an output\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortDIRInput\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fISet GPIO direction for a all selected GPIO pins to an input\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortDIR\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pinMask, bool outSet)"
+.br
+.RI "\fISet GPIO direction for a all selected GPIO pins to an input or output\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_GetPortDIR\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port)"
+.br
+.RI "\fIGet GPIO direction for a all GPIO pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortMask\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t mask)"
+.br
+.RI "\fISet GPIO port mask value for GPIO masked read and write\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_GetPortMask\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port)"
+.br
+.RI "\fIGet GPIO port mask value used for GPIO masked read and write\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t value)"
+.br
+.RI "\fISet all GPIO raw pin states (regardless of masking) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_GetPortValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port)"
+.br
+.RI "\fIGet all GPIO raw pin states (regardless of masking) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetMaskedPortValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t value)"
+.br
+.RI "\fISet all GPIO pin states, but mask via the MASKP0 register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_GetMaskedPortValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port)"
+.br
+.RI "\fIGet all GPIO pin statesm but mask via the MASKP0 register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t portNum, uint32_t bitValue)"
+.br
+.RI "\fISet a GPIO port/bit to the high state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortOutHigh\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pins)"
+.br
+.RI "\fISet selected GPIO output pins to the high state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinOutHigh\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fISet an individual GPIO output pin to the high state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_ClearValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t portNum, uint32_t bitValue)"
+.br
+.RI "\fISet a GPIO port/bit to the low state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortOutLow\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pins)"
+.br
+.RI "\fISet selected GPIO output pins to the low state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinOutLow\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fISet an individual GPIO output pin to the low state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortToggle\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pins)"
+.br
+.RI "\fIToggle selected GPIO output pins to the opposite state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinToggle\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fIToggle an individual GPIO output pin to the opposite state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_ReadValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t portNum)"
+.br
+.RI "\fIRead current bit states for the selected port\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_ClearValue (\fBLPC_GPIO_T\fP * pGPIO, uint8_t portNum, uint32_t bitValue)"
+
+.PP
+Set a GPIO port/bit to the low state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIportNum\fP : port number 
+.br
+\fIbitValue\fP : bit(s) in the port to set low 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Any bit set as a '0' will not have it's state changed\&. This only applies to ports configured as an output\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 421 del archivo gpio_18xx_43xx\&.h\&.
+.SS "void Chip_GPIO_DeInit (\fBLPC_GPIO_T\fP * pGPIO)"
+
+.PP
+De-Initialize GPIO block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 56 del archivo gpio_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_GPIO_GetMaskedPortValue (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port)"
+
+.PP
+Get all GPIO pin statesm but mask via the MASKP0 register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current (masked) state of all GPIO pins 
+.RE
+.PP
+
+.PP
+Definición en la línea 364 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP bool Chip_GPIO_GetPinDIR (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint8_t pin)"
+
+.PP
+Get GPIO direction for a single GPIO pin\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpin\fP : GPIO pin to get direction for 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+true if the GPIO is an output, false if input 
+.RE
+.PP
+
+.PP
+Definición en la línea 209 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP bool Chip_GPIO_GetPinState (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint8_t pin)"
+
+.PP
+Get a GPIO pin state via the GPIO byte register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpin\fP : GPIO pin to get state for 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+true if the GPIO is high, false if low 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function replaces \fBChip_GPIO_ReadPortBit()\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 121 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_GPIO_GetPortDIR (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port)"
+
+.PP
+Get GPIO direction for a all GPIO pins\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+a bitfield containing the input and output states for each pin 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+For pins 0\&.\&.n, a high state in a bit corresponds to an output state for the same pin, while a low state corresponds to an input state\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 290 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_GPIO_GetPortMask (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port)"
+
+.PP
+Get GPIO port mask value used for GPIO masked read and write\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : port Number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Returns value set with the \fBChip_GPIO_SetPortMask()\fP function\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+A high bit in the return value indicates that that GPIO pin for the port cannot be set using the masked write function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 318 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_GPIO_GetPortValue (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port)"
+
+.PP
+Get all GPIO raw pin states (regardless of masking) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current (raw) state of all GPIO pins 
+.RE
+.PP
+
+.PP
+Definición en la línea 341 del archivo gpio_18xx_43xx\&.h\&.
+.SS "void Chip_GPIO_Init (\fBLPC_GPIO_T\fP * pGPIO)"
+
+.PP
+Initialize GPIO block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 51 del archivo gpio_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP bool Chip_GPIO_ReadDirBit (\fBLPC_GPIO_T\fP * pGPIO, uint32_t port, uint8_t bit)"
+
+.PP
+Read a GPIO direction (out or in) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO port to read 
+.br
+\fIbit\fP : GPIO bit to read 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+true of the GPIO is an output, false if input 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+It is recommended to use the \fBChip_GPIO_GetPinDIR()\fP function instead\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 197 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP bool Chip_GPIO_ReadPortBit (\fBLPC_GPIO_T\fP * pGPIO, uint32_t port, uint8_t pin)"
+
+.PP
+Read a GPIO state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO port to read 
+.br
+\fIpin\fP : GPIO pin to read 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+true of the GPIO is high, false if low 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+It is recommended to use the \fBChip_GPIO_GetPinState()\fP function instead\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 108 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_GPIO_ReadValue (\fBLPC_GPIO_T\fP * pGPIO, uint8_t portNum)"
+
+.PP
+Read current bit states for the selected port\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIportNum\fP : port number to read 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current value of GPIO port 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The current states of the bits for the port are read, regardless of whether the GPIO port bits are input or output\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 490 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetDir (\fBLPC_GPIO_T\fP * pGPIO, uint8_t portNum, uint32_t bitValue, uint8_t out)"
+
+.PP
+Set Direction for a GPIO port\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIportNum\fP : port Number 
+.br
+\fIbitValue\fP : GPIO bit to set 
+.br
+\fIout\fP : Direction value, 0 = input, !0 = output 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Bits set to '0' are not altered\&. It is recommended to use the \fBChip_GPIO_SetPortDIR()\fP function instead\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 224 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetMaskedPortValue (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint32_t value)"
+
+.PP
+Set all GPIO pin states, but mask via the MASKP0 register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIvalue\fP : Value to set all GPIO pin states (0\&.\&.n) to 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 353 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPinDIR (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint8_t pin, bool output)"
+
+.PP
+Set GPIO direction for a single GPIO pin\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpin\fP : GPIO pin to set direction for 
+.br
+\fIoutput\fP : true for output, false for input 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 179 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPinDIRInput (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint8_t pin)"
+
+.PP
+Set GPIO direction for a single GPIO pin to an input\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpin\fP : GPIO pin to set direction on as input 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 166 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPinDIROutput (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint8_t pin)"
+
+.PP
+Set GPIO direction for a single GPIO pin to an output\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpin\fP : GPIO pin to set direction on as output 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 154 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPinOutHigh (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint8_t pin)"
+
+.PP
+Set an individual GPIO output pin to the high state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip' 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpin\fP : pin number (0\&.\&.n) to set high 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Any bit set as a '0' will not have it's state changed\&. This only applies to ports configured as an output\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 407 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPinOutLow (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint8_t pin)"
+
+.PP
+Set an individual GPIO output pin to the low state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpin\fP : pin number (0\&.\&.n) to set low 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Any bit set as a '0' will not have it's state changed\&. This only applies to ports configured as an output\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 449 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPinState (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint8_t pin, bool setting)"
+
+.PP
+Set a GPIO pin state via the GPIO byte register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpin\fP : GPIO pin to set 
+.br
+\fIsetting\fP : true for high, false for low 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function replaces \fBChip_GPIO_WritePortBit()\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 95 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPinToggle (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint8_t pin)"
+
+.PP
+Toggle an individual GPIO output pin to the opposite state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpin\fP : pin number (0\&.\&.n) to toggle 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Any bit set as a '0' will not have it's state changed\&. This only applies to ports configured as an output\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 477 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPortDIR (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint32_t pinMask, bool outSet)"
+
+.PP
+Set GPIO direction for a all selected GPIO pins to an input or output\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpinMask\fP : GPIO pin mask to set direction on (bits 0\&.\&.b for pins 0\&.\&.n) 
+.br
+\fIoutSet\fP : Direction value, false = set as inputs, true = set as outputs 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Sets multiple GPIO pins to the input direction, each bit's position that is high sets the corresponding pin number for that bit to an input\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 272 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPortDIRInput (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint32_t pinMask)"
+
+.PP
+Set GPIO direction for a all selected GPIO pins to an input\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpinMask\fP : GPIO pin mask to set direction on as input (bits 0\&.\&.b for pins 0\&.\&.n) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Sets multiple GPIO pins to the input direction, each bit's position that is high sets the corresponding pin number for that bit to an input\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 257 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPortDIROutput (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint32_t pinMask)"
+
+.PP
+Set GPIO direction for a all selected GPIO pins to an output\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpinMask\fP : GPIO pin mask to set direction on as output (bits 0\&.\&.b for pins 0\&.\&.n) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Sets multiple GPIO pins to the output direction, each bit's position that is high sets the corresponding pin number for that bit to an output\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 243 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPortMask (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint32_t mask)"
+
+.PP
+Set GPIO port mask value for GPIO masked read and write\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : port Number 
+.br
+\fImask\fP : Mask value for read and write (only low bits are enabled) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Controls which bits are set or unset when using the masked GPIO read and write functions\&. A low state indicates the pin is settable and readable via the masked write and read functions\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 305 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPortOutHigh (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint32_t pins)"
+
+.PP
+Set selected GPIO output pins to the high state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpins\fP : pins (0\&.\&.n) to set high 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Any bit set as a '0' will not have it's state changed\&. This only applies to ports configured as an output\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 393 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPortOutLow (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint32_t pins)"
+
+.PP
+Set selected GPIO output pins to the low state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpins\fP : pins (0\&.\&.n) to set low 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Any bit set as a '0' will not have it's state changed\&. This only applies to ports configured as an output\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 435 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPortToggle (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint32_t pins)"
+
+.PP
+Toggle selected GPIO output pins to the opposite state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIpins\fP : pins (0\&.\&.n) to toggle 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Any bit set as a '0' will not have it's state changed\&. This only applies to ports configured as an output\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 463 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetPortValue (\fBLPC_GPIO_T\fP * pGPIO, uint8_t port, uint32_t value)"
+
+.PP
+Set all GPIO raw pin states (regardless of masking) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO Port number where \fIpin\fP is located 
+.br
+\fIvalue\fP : Value to set all GPIO pin states (0\&.\&.n) to 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 330 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_SetValue (\fBLPC_GPIO_T\fP * pGPIO, uint8_t portNum, uint32_t bitValue)"
+
+.PP
+Set a GPIO port/bit to the high state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIportNum\fP : port number 
+.br
+\fIbitValue\fP : bit(s) in the port to set high 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Any bit set as a '0' will not have it's state changed\&. This only applies to ports configured as an output\&. It is recommended to use the \fBChip_GPIO_SetPortOutHigh()\fP function instead\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 379 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_WriteDirBit (\fBLPC_GPIO_T\fP * pGPIO, uint32_t port, uint8_t bit, bool setting)"
+
+.PP
+Set a GPIO direction\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO port to set 
+.br
+\fIbit\fP : GPIO bit to set 
+.br
+\fIsetting\fP : true for output, false for input 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+It is recommended to use the \fBChip_GPIO_SetPinDIROutput()\fP, \fBChip_GPIO_SetPinDIRInput()\fP or \fBChip_GPIO_SetPinDIR()\fP functions instead of this function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 137 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIO_WritePortBit (\fBLPC_GPIO_T\fP * pGPIO, uint32_t port, uint8_t pin, bool setting)"
+
+.PP
+Set a GPIO port/bit state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIO\fP : The base of GPIO peripheral on the chip 
+.br
+\fIport\fP : GPIO port to set 
+.br
+\fIpin\fP : GPIO pin to set 
+.br
+\fIsetting\fP : true for high, false for low 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 81 del archivo gpio_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

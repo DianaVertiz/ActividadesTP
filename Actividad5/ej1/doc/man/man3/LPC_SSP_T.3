@@ -1,0 +1,96 @@
+.TH "LPC_SSP_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_SSP_T \- SSP register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ssp_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCR0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCR1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCPSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIMSC\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRIS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMIS\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBICR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMACR\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+SSP register block structure\&. 
+.PP
+Definición en la línea 47 del archivo ssp_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t CPSR"
+Clock Prescale Register 
+.PP
+Definición en la línea 52 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CR0"
+< SSPn Structure Control Register 0\&. Selects the serial clock rate, bus type, and data size\&. 
+.PP
+Definición en la línea 48 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CR1"
+Control Register 1\&. Selects master/slave and other modes\&. 
+.PP
+Definición en la línea 49 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMACR"
+SSPn DMA control register 
+.PP
+Definición en la línea 57 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DR"
+Data Register\&. Writes fill the transmit FIFO, and reads empty the receive FIFO\&. 
+.PP
+Definición en la línea 50 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t ICR"
+SSPICR Interrupt Clear Register 
+.PP
+Definición en la línea 56 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t IMSC"
+Interrupt Mask Set and Clear Register 
+.PP
+Definición en la línea 53 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t MIS"
+Masked Interrupt Status Register 
+.PP
+Definición en la línea 55 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RIS"
+Raw Interrupt Status Register 
+.PP
+Definición en la línea 54 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t SR"
+Status Register 
+.PP
+Definición en la línea 51 del archivo ssp_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

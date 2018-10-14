@@ -1,0 +1,82 @@
+.TH "LPC_RGU_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_RGU_T \- RGU register structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <rgu_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [64]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBRESET_CTRL\fP [2]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRESET_STATUS\fP [4]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED2\fP [12]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESET_ACTIVE_STATUS\fP [2]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED3\fP [170]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRESET_EXT_STAT\fP [\fBRGU_LAST_RST\fP+1]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+RGU register structure\&. 
+.PP
+Definición en la línea 103 del archivo rgu_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__I\fP uint32_t RESERVED0[64]"
+< RGU Structure 
+.PP
+Definición en la línea 104 del archivo rgu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1[2]"
+
+.PP
+Definición en la línea 106 del archivo rgu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED2[12]"
+
+.PP
+Definición en la línea 108 del archivo rgu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED3[170]"
+
+.PP
+Definición en la línea 110 del archivo rgu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESET_ACTIVE_STATUS[2]"
+Reset active status register 0, 1 
+.PP
+Definición en la línea 109 del archivo rgu_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t RESET_CTRL[2]"
+Reset control register 0,1 
+.PP
+Definición en la línea 105 del archivo rgu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RESET_EXT_STAT[\fBRGU_LAST_RST\fP+1]"
+Reset external status registers 
+.PP
+Definición en la línea 111 del archivo rgu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RESET_STATUS[4]"
+Reset status register 0 to 3 
+.PP
+Definición en la línea 107 del archivo rgu_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

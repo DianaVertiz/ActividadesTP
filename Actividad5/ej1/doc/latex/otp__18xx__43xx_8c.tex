@@ -1,0 +1,44 @@
+\hypertarget{otp__18xx__43xx_8c}{}\section{Referencia del Archivo otp\+\_\+18xx\+\_\+43xx.\+c}
+\label{otp__18xx__43xx_8c}\index{otp\+\_\+18xx\+\_\+43xx.\+c@{otp\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{otp__18xx__43xx_8c_ae89217c6df7f4222bb461e372b67ab89}{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE}~0x10400100
+\item 
+\#define \hyperlink{otp__18xx__43xx_8c_add31218a693743115f1f7312da7c9f11}{O\+T\+P\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET}~0x1
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{group___o_t_p__18_x_x__43_x_x_ga511e3cb6017233783efebf0c9675cc97}{Chip\+\_\+\+O\+T\+P\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize for O\+TP Controller functions. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___o_t_p__18_x_x__43_x_x_gafefbdff9c8b9d1f5dd79a8dff3a44e08}{Chip\+\_\+\+O\+T\+P\+\_\+\+Prog\+Boot\+Src} (\hyperlink{group___o_t_p__18_x_x__43_x_x_gada36d39d34c8821f0416a852faa926f6}{C\+H\+I\+P\+\_\+\+O\+T\+P\+\_\+\+B\+O\+O\+T\+\_\+\+S\+R\+C\+\_\+T} Boot\+Src)
+\begin{DoxyCompactList}\small\item\em Program boot source in O\+TP Controller. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___o_t_p__18_x_x__43_x_x_gac6f321b6c7c397b3338c3ebe81d4d01f}{Chip\+\_\+\+O\+T\+P\+\_\+\+Prog\+J\+T\+A\+G\+Dis} (void)
+\begin{DoxyCompactList}\small\item\em Program the J\+T\+AG bit in O\+TP Controller. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___o_t_p__18_x_x__43_x_x_ga040917e9f2de58ca6cbff2993a5232b9}{Chip\+\_\+\+O\+T\+P\+\_\+\+Prog\+U\+S\+B\+ID} (uint32\+\_\+t Product\+ID, uint32\+\_\+t Vendor\+ID)
+\begin{DoxyCompactList}\small\item\em Program U\+SB ID in O\+TP Controller. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___o_t_p__18_x_x__43_x_x_gae9fc592f60829d5aefd72c9dbe83a58a}{Chip\+\_\+\+O\+T\+P\+\_\+\+Prog\+G\+P\+Word} (uint32\+\_\+t Word\+Num, uint32\+\_\+t Data, uint32\+\_\+t Mask)
+\begin{DoxyCompactList}\small\item\em Program O\+TP GP Word memory. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___o_t_p__18_x_x__43_x_x_gab94e93611ec4efa732ad045c471d646c}{Chip\+\_\+\+O\+T\+P\+\_\+\+Prog\+Key} (uint32\+\_\+t Key\+Num, uint8\+\_\+t $\ast$key)
+\begin{DoxyCompactList}\small\item\em Program A\+ES Key. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___o_t_p__18_x_x__43_x_x_gaabb646c42cbd57630ec23816c115a7a0}{Chip\+\_\+\+O\+T\+P\+\_\+\+Gen\+Rand} (void)
+\begin{DoxyCompactList}\small\item\em Generate Random Number using HW Random Number Generator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{otp\+\_\+18xx\+\_\+43xx.\+c@{otp\+\_\+18xx\+\_\+43xx.\+c}!B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE@{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE}}
+\index{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE@{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE}!otp\+\_\+18xx\+\_\+43xx.\+c@{otp\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE}{BOOTROM_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE~0x10400100}\hypertarget{otp__18xx__43xx_8c_ae89217c6df7f4222bb461e372b67ab89}{}\label{otp__18xx__43xx_8c_ae89217c6df7f4222bb461e372b67ab89}
+
+
+Definición en la línea 38 del archivo otp\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{otp\+\_\+18xx\+\_\+43xx.\+c@{otp\+\_\+18xx\+\_\+43xx.\+c}!O\+T\+P\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET@{O\+T\+P\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET}}
+\index{O\+T\+P\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET@{O\+T\+P\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET}!otp\+\_\+18xx\+\_\+43xx.\+c@{otp\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{O\+T\+P\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET}{OTP_API_TABLE_OFFSET}}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+T\+P\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET~0x1}\hypertarget{otp__18xx__43xx_8c_add31218a693743115f1f7312da7c9f11}{}\label{otp__18xx__43xx_8c_add31218a693743115f1f7312da7c9f11}
+
+
+Definición en la línea 39 del archivo otp\+\_\+18xx\+\_\+43xx.\+c.
+

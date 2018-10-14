@@ -1,0 +1,80 @@
+.TH "ring_buffer.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ring_buffer.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'lpc_types\&.h'\fP
+.br
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBRINGBUFF_T\fP"
+.br
+.RI "\fIRing buffer structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRB_VHEAD\fP(rb)   (*(volatile uint32_t *) &(rb)\->head)"
+.br
+.ti -1c
+.RI "#define \fBRB_VTAIL\fP(rb)   (*(volatile uint32_t *) &(rb)\->tail)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "int \fBRingBuffer_Init\fP (\fBRINGBUFF_T\fP *RingBuff, void *buffer, int itemSize, int count)"
+.br
+.RI "\fIInitialize ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBRingBuffer_Flush\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIResets the ring buffer to empty\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_GetSize\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn size the ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_GetCount\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn number of items in the ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_GetFree\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn number of free items in the ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_IsFull\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn number of items in the ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_IsEmpty\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn empty status of ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_Insert\fP (\fBRINGBUFF_T\fP *RingBuff, const void *data)"
+.br
+.RI "\fIInsert a single item into ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_InsertMult\fP (\fBRINGBUFF_T\fP *RingBuff, const void *data, int num)"
+.br
+.RI "\fIInsert an array of items into ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_Pop\fP (\fBRINGBUFF_T\fP *RingBuff, void *data)"
+.br
+.RI "\fIPop an item from the ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_PopMult\fP (\fBRINGBUFF_T\fP *RingBuff, void *data, int num)"
+.br
+.RI "\fIPop an array of items from the ring buffer\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

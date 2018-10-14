@@ -1,0 +1,69 @@
+\hypertarget{uart__18xx__43xx_8c}{}\section{Referencia del Archivo uart\+\_\+18xx\+\_\+43xx.\+c}
+\label{uart__18xx__43xx_8c}\index{uart\+\_\+18xx\+\_\+43xx.\+c@{uart\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} void \hyperlink{uart__18xx__43xx_8c_a250da66117563793dbcdb06b6c8b9bd9}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+A\+B\+Int\+Handler} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT)
+\item 
+void \hyperlink{group___u_a_r_t__18_x_x__43_x_x_gaf024084be4068e407aab7c30e105f7af}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Init} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT)
+\begin{DoxyCompactList}\small\item\em Initializes the p\+U\+A\+RT peripheral. \end{DoxyCompactList}\item 
+void \hyperlink{group___u_a_r_t__18_x_x__43_x_x_gaa18c4ebd4be27643e6f848472e778989}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT)
+\begin{DoxyCompactList}\small\item\em De-\/initializes the p\+U\+A\+RT peripheral. \end{DoxyCompactList}\item 
+int \hyperlink{group___u_a_r_t__18_x_x__43_x_x_gacbd726b1450510892272857e43854c4c}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Send} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, const void $\ast$data, int num\+Bytes)
+\begin{DoxyCompactList}\small\item\em Transmit a byte array through the U\+A\+RT peripheral (non-\/blocking) \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_ga89136caac2e14c55151f527ac02daaff}{Flag\+Status} \hyperlink{group___u_a_r_t__18_x_x__43_x_x_ga1b5b93f60a5b0a28e5af5f3f3311bcba}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Check\+Busy} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT)
+\begin{DoxyCompactList}\small\item\em Check whether if U\+A\+RT is busy or not. \end{DoxyCompactList}\item 
+int \hyperlink{group___u_a_r_t__18_x_x__43_x_x_gad2e45d820abdd0e1790ebd61938c100a}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Send\+Blocking} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, const void $\ast$data, int num\+Bytes)
+\begin{DoxyCompactList}\small\item\em Transmit a byte array through the U\+A\+RT peripheral (blocking) \end{DoxyCompactList}\item 
+int \hyperlink{group___u_a_r_t__18_x_x__43_x_x_ga06dd61ee7d8483847fea746978cb1c93}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Read} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, void $\ast$data, int num\+Bytes)
+\begin{DoxyCompactList}\small\item\em Read data through the U\+A\+RT peripheral (non-\/blocking) \end{DoxyCompactList}\item 
+int \hyperlink{group___u_a_r_t__18_x_x__43_x_x_ga2b256d39f2fde9f8b923a2f341f5fea3}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Read\+Blocking} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, void $\ast$data, int num\+Bytes)
+\begin{DoxyCompactList}\small\item\em Read data through the U\+A\+RT peripheral (blocking) \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___u_a_r_t__18_x_x__43_x_x_ga19f24dcf53316cbfb204003f506d5be5}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Set\+Baud} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, uint32\+\_\+t baudrate)
+\begin{DoxyCompactList}\small\item\em Sets best dividers to get a target bit rate (without fractional divider) \end{DoxyCompactList}\item 
+void \hyperlink{group___u_a_r_t__18_x_x__43_x_x_gafdd19a312a2bed6ff1ccb47d5b68c248}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+R\+X\+Int\+Handler\+RB} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, \hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$p\+RB)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT receive-\/only interrupt handler for ring buffers. \end{DoxyCompactList}\item 
+void \hyperlink{group___u_a_r_t__18_x_x__43_x_x_ga74df5e39960a1535118fcfe2fbe90d30}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+T\+X\+Int\+Handler\+RB} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, \hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$p\+RB)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT transmit-\/only interrupt handler for ring buffers. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___u_a_r_t__18_x_x__43_x_x_ga6ed43ed19b9d2a32ece3e50bc2f651a9}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Send\+RB} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, \hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$p\+RB, const void $\ast$data, int bytes)
+\begin{DoxyCompactList}\small\item\em Populate a transmit ring buffer and start U\+A\+RT transmit. \end{DoxyCompactList}\item 
+int \hyperlink{group___u_a_r_t__18_x_x__43_x_x_gab54219751466a0fa8d9e75f8689ac99d}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Read\+RB} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, \hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$p\+RB, void $\ast$data, int bytes)
+\begin{DoxyCompactList}\small\item\em Copy data from a receive ring buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group___u_a_r_t__18_x_x__43_x_x_ga8ab537af48951658e60af145690b656e}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+I\+R\+Q\+R\+B\+Handler} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, \hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$p\+R\+X\+RB, \hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$p\+T\+X\+RB)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT receive/transmit interrupt handler for ring buffers. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___u_a_r_t__18_x_x__43_x_x_gaf8be13555496e013bb747c19134db9e1}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Set\+Baud\+F\+DR} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, uint32\+\_\+t baud)
+\begin{DoxyCompactList}\small\item\em Sets best dividers to get a target bit rate (with fractional divider) \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_ga89136caac2e14c55151f527ac02daaff}{Flag\+Status} \hyperlink{group___u_a_r_t__18_x_x__43_x_x_ga6d1d74a73290b145868a88e6b5635093}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Get\+A\+B\+E\+O\+Status} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT)
+\begin{DoxyCompactList}\small\item\em Returns the Auto Baud status. \end{DoxyCompactList}\item 
+void \hyperlink{group___u_a_r_t__18_x_x__43_x_x_ga9aa733f176891043bb1dd4d87940187f}{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+A\+B\+Cmd} (\hyperlink{struct_l_p_c___u_s_a_r_t___t}{L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$p\+U\+A\+RT, uint32\+\_\+t mode, bool autorestart, \hyperlink{group___l_p_c___types___public___types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{Functional\+State} New\+State)
+\begin{DoxyCompactList}\small\item\em Start/stop autobaud operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} volatile \hyperlink{group___l_p_c___types___public___types_ga89136caac2e14c55151f527ac02daaff}{Flag\+Status} \hyperlink{uart__18xx__43xx_8c_af0b5aac778623ccf167ee802940883b7}{A\+Bsync\+Sts} = \hyperlink{group___l_p_c___types___public___types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\index{uart\+\_\+18xx\+\_\+43xx.\+c@{uart\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+U\+A\+R\+T\+\_\+\+A\+B\+Int\+Handler@{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+A\+B\+Int\+Handler}}
+\index{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+A\+B\+Int\+Handler@{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+A\+B\+Int\+Handler}!uart\+\_\+18xx\+\_\+43xx.\+c@{uart\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+U\+A\+R\+T\+\_\+\+A\+B\+Int\+Handler(\+L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+\+T $\ast$p\+U\+A\+R\+T)}{Chip_UART_ABIntHandler(LPC_USART_T *pUART)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} void Chip\+\_\+\+U\+A\+R\+T\+\_\+\+A\+B\+Int\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+U\+S\+A\+R\+T\+\_\+T} $\ast$}]{p\+U\+A\+RT}
+\end{DoxyParamCaption}
+)}\hypertarget{uart__18xx__43xx_8c_a250da66117563793dbcdb06b6c8b9bd9}{}\label{uart__18xx__43xx_8c_a250da66117563793dbcdb06b6c8b9bd9}
+
+
+Definición en la línea 73 del archivo uart\+\_\+18xx\+\_\+43xx.\+c.
+
+
+
+\subsection{Documentación de las variables}
+\index{uart\+\_\+18xx\+\_\+43xx.\+c@{uart\+\_\+18xx\+\_\+43xx.\+c}!A\+Bsync\+Sts@{A\+Bsync\+Sts}}
+\index{A\+Bsync\+Sts@{A\+Bsync\+Sts}!uart\+\_\+18xx\+\_\+43xx.\+c@{uart\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{A\+Bsync\+Sts}{ABsyncSts}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} volatile {\bf Flag\+Status} A\+Bsync\+Sts = {\bf R\+E\+S\+ET}}\hypertarget{uart__18xx__43xx_8c_af0b5aac778623ccf167ee802940883b7}{}\label{uart__18xx__43xx_8c_af0b5aac778623ccf167ee802940883b7}
+
+
+Definición en la línea 39 del archivo uart\+\_\+18xx\+\_\+43xx.\+c.
+

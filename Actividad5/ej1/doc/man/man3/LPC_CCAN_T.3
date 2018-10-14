@@ -1,0 +1,187 @@
+.TH "LPC_CCAN_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_CCAN_T \- CCAN Controller Area Network register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ccan_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCNTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBEC\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTEST\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBRPE\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP"
+.br
+.ti -1c
+.RI "\fBCCAN_IF_T\fP \fBIF\fP [2]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED2\fP [8]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTXREQ1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTXREQ2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED3\fP [6]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBND1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBND2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED4\fP [6]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBIR1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBIR2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED5\fP [6]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMSGV1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMSGV2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED6\fP [6]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCLKDIV\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+CCAN Controller Area Network register block structure\&. 
+.PP
+Definición en la línea 65 del archivo ccan_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t BRPE"
+Baud rate prescaler extension register 
+.PP
+Definición en la línea 72 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t BT"
+Bit timing register 
+.PP
+Definición en la línea 69 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CLKDIV"
+CAN clock divider register 
+.PP
+Definición en la línea 88 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CNTL"
+< C_CAN Structure CAN control 
+.PP
+Definición en la línea 66 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t EC"
+Error counter 
+.PP
+Definición en la línea 68 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBCCAN_IF_T\fP IF[2]"
+
+.PP
+Definición en la línea 74 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INT"
+Interrupt register 
+.PP
+Definición en la línea 70 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t IR1"
+Interrupt pending 1 
+.PP
+Definición en la línea 82 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t IR2"
+Interrupt pending 2 
+.PP
+Definición en la línea 83 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t MSGV1"
+Message valid 1 
+.PP
+Definición en la línea 85 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t MSGV2"
+Message valid 2 
+.PP
+Definición en la línea 86 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t ND1"
+New data 1 
+.PP
+Definición en la línea 79 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t ND2"
+New data 2 
+.PP
+Definición en la línea 80 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0"
+
+.PP
+Definición en la línea 73 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED2[8]"
+
+.PP
+Definición en la línea 75 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED3[6]"
+
+.PP
+Definición en la línea 78 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED4[6]"
+
+.PP
+Definición en la línea 81 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED5[6]"
+
+.PP
+Definición en la línea 84 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED6[6]"
+
+.PP
+Definición en la línea 87 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STAT"
+Status register 
+.PP
+Definición en la línea 67 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TEST"
+Test register 
+.PP
+Definición en la línea 71 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t TXREQ1"
+Transmission request 1 
+.PP
+Definición en la línea 76 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t TXREQ2"
+Transmission request 2 
+.PP
+Definición en la línea 77 del archivo ccan_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,396 @@
+.TH "WWDT_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WWDT_18XX_43XX \- CHIP: LPC18xx/43xx Windowed Watchdog driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_WWDT_T\fP"
+.br
+.RI "\fIWindowed Watchdog register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBWATCHDOG_WINDOW_SUPPORT\fP"
+.br
+.ti -1c
+.RI "#define \fBWDT_OSC\fP   (\fBCGU_IRC_FREQ\fP)"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_BITMASK\fP   ((uint32_t) 0x1F)"
+.br
+.RI "\fIWatchdog Mode register definitions\&. \fP"
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDEN\fP   ((uint32_t) (1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDRESET\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDTOF\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDINT\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDPROTECT\fP   ((uint32_t) (1 << 4))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_WWDT_Init\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIInitialize the Watchdog timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_WWDT_DeInit\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIShutdown the Watchdog timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_SetTimeOut\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t timeout)"
+.br
+.RI "\fISet WDT timeout constant value used for feed\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_Feed\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIFeed watchdog timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_SetWarning\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t timeout)"
+.br
+.RI "\fISet WWDT warning interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_SetWindow\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t timeout)"
+.br
+.RI "\fISet WWDT window time\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_SetOption\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t options)"
+.br
+.RI "\fIEnable watchdog timer options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_UnsetOption\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t options)"
+.br
+.RI "\fIDisable/clear watchdog timer options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_Start\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIEnable WWDT activity\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_WWDT_GetStatus\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIRead WWDT status flag\&. \fP"
+.ti -1c
+.RI "void \fBChip_WWDT_ClearStatusFlag\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t status)"
+.br
+.RI "\fIClear WWDT interrupt status flags\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_WWDT_GetCurrentCount\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIGet the current value of WDT\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define WATCHDOG_WINDOW_SUPPORT"
+
+.PP
+Definición en la línea 44 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "#define WDT_OSC   (\fBCGU_IRC_FREQ\fP)"
+WDT oscillator frequency value 
+.PP
+Definición en la línea 47 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "#define WWDT_WDMOD_BITMASK   ((uint32_t) 0x1F)"
+
+.PP
+Watchdog Mode register definitions\&. Watchdog Mode Bitmask 
+.PP
+Definición en la línea 68 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "#define WWDT_WDMOD_WDEN   ((uint32_t) (1 << 0))"
+WWDT interrupt enable bit 
+.PP
+Definición en la línea 70 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "#define WWDT_WDMOD_WDINT   ((uint32_t) (1 << 3))"
+WDT Time Out flag bit 
+.PP
+Definición en la línea 76 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "#define WWDT_WDMOD_WDPROTECT   ((uint32_t) (1 << 4))"
+WWDT Protect flag bit 
+.PP
+Definición en la línea 78 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "#define WWDT_WDMOD_WDRESET   ((uint32_t) (1 << 1))"
+WWDT interrupt enable bit 
+.PP
+Definición en la línea 72 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "#define WWDT_WDMOD_WDTOF   ((uint32_t) (1 << 2))"
+WWDT time out flag bit 
+.PP
+Definición en la línea 74 del archivo wwdt_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_WWDT_ClearStatusFlag (\fBLPC_WWDT_T\fP * pWWDT, uint32_t status)"
+
+.PP
+Clear WWDT interrupt status flags\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.br
+\fIstatus\fP : Or'ed value of status flag(s) that you want to clear, should be:
+.IP "\(bu" 2
+WWDT_WDMOD_WDTOF: Clear watchdog timeout flag
+.IP "\(bu" 2
+WWDT_WDMOD_WDINT: Clear watchdog warning flag 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 68 del archivo wwdt_18xx_43xx\&.c\&.
+.SS "void Chip_WWDT_DeInit (\fBLPC_WWDT_T\fP * pWWDT)"
+
+.PP
+Shutdown the Watchdog timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 63 del archivo wwdt_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_WWDT_Feed (\fBLPC_WWDT_T\fP * pWWDT)"
+
+.PP
+Feed watchdog timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+If this function isn't called, a watchdog timer warning will occur\&. After the warning, a timeout will occur if a feed has happened\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 112 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_WWDT_GetCurrentCount (\fBLPC_WWDT_T\fP * pWWDT)"
+
+.PP
+Get the current value of WDT\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+current value of WDT 
+.RE
+.PP
+
+.PP
+Definición en la línea 214 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_WWDT_GetStatus (\fBLPC_WWDT_T\fP * pWWDT)"
+
+.PP
+Read WWDT status flag\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Watchdog status, an Or'ed value of WWDT_WDMOD_* 
+.RE
+.PP
+
+.PP
+Definición en la línea 194 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "void Chip_WWDT_Init (\fBLPC_WWDT_T\fP * pWWDT)"
+
+.PP
+Initialize the Watchdog timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 51 del archivo wwdt_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_WWDT_SetOption (\fBLPC_WWDT_T\fP * pWWDT, uint32_t options)"
+
+.PP
+Enable watchdog timer options\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.br
+\fIoptions\fP : An or'ed set of options of values WWDT_WDMOD_WDEN, WWDT_WDMOD_WDRESET, and WWDT_WDMOD_WDPROTECT 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+You can enable more than one option at once (ie, WWDT_WDMOD_WDRESET | WWDT_WDMOD_WDPROTECT), but use the WWDT_WDMOD_WDEN after all other options are set (or unset) with no other options\&. If WWDT_WDMOD_LOCK is used, it cannot be unset\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 159 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_WWDT_SetTimeOut (\fBLPC_WWDT_T\fP * pWWDT, uint32_t timeout)"
+
+.PP
+Set WDT timeout constant value used for feed\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.br
+\fItimeout\fP : WDT timeout in ticks, between WWDT_TICKS_MIN and WWDT_TICKS_MAX 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definición en la línea 100 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_WWDT_SetWarning (\fBLPC_WWDT_T\fP * pWWDT, uint32_t timeout)"
+
+.PP
+Set WWDT warning interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.br
+\fItimeout\fP : WDT warning in ticks, between 0 and 1023 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This is the number of ticks after the watchdog interrupt that the warning interrupt will be generated\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 127 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_WWDT_SetWindow (\fBLPC_WWDT_T\fP * pWWDT, uint32_t timeout)"
+
+.PP
+Set WWDT window time\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.br
+\fItimeout\fP : WDT timeout in ticks, between WWDT_TICKS_MIN and WWDT_TICKS_MAX 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The watchdog timer must be fed between the timeout from the \fBChip_WWDT_SetTimeOut()\fP function and this function, with this function defining the last tick before the watchdog window interrupt occurs\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 141 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_WWDT_Start (\fBLPC_WWDT_T\fP * pWWDT)"
+
+.PP
+Enable WWDT activity\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 183 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_WWDT_UnsetOption (\fBLPC_WWDT_T\fP * pWWDT, uint32_t options)"
+
+.PP
+Disable/clear watchdog timer options\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpWWDT\fP : The base of WatchDog Timer peripheral on the chip 
+.br
+\fIoptions\fP : An or'ed set of options of values WWDT_WDMOD_WDEN, WWDT_WDMOD_WDRESET, and WWDT_WDMOD_WDPROTECT 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+You can disable more than one option at once (ie, WWDT_WDMOD_WDRESET | WWDT_WDMOD_WDTOF)\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 173 del archivo wwdt_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

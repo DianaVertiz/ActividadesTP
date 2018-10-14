@@ -1,0 +1,7 @@
+19:16:13 **** Clean-only build of configuration Debug for project TP1_ej1 ****
+make clean 
+rm -rf  ./main.o  ./main.d  TP1_ej1
+ 
+
+19:16:13 Build Finished (took 430ms)
+

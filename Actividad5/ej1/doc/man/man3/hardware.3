@@ -1,0 +1,818 @@
+.TH "hardware" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hardware \- Hardware
+.SS "Archivos"
+
+.in +1c
+.ti -1c
+.RI "archivo \fBhardware\&.h\fP"
+.br
+.RI "\fIDeclaraciones de funciones y constantes simbólicas correspondientes con la EDU-CIAA NXP\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPORT_PIN_LED1\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPIN_LED1\fP   0x0A"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_LED2\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPIN_LED2\fP   0x0B"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_LED3\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPIN_LED3\fP   0x0C"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_RGB\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPIN_RGB_RED\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBPIN_RGB_GRN\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_RGB_BLU\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_LED1\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_LED1\fP   0x0E"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_LED2\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_LED2\fP   0x0B"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_LED3\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_LED3\fP   0x0C"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_RGB\fP   0x05"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_RED\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_GRN\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_BLU\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_KEY1\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_KEY1\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_KEY2\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_KEY2\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_KEY3\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_KEY3\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_KEY4\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_KEY4\fP   0x06"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_KEY1\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_KEY1\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_KEY2\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_KEY2\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_KEY3\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_KEY3\fP   0x09"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_KEY4\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_KEY4\fP   0x09"
+.br
+.ti -1c
+.RI "#define \fBnext_led\fP(x)   ((x) = (x) << 1)"
+.br
+.RI "\fIEstablece el siguiente valor en la enumeración \fBboardLeds\fP\&. \fP"
+.ti -1c
+.RI "#define \fBprev_led\fP(x)   ((x) = (x) >> 1)"
+.br
+.RI "\fIEstablece el valor previo en la enumeración \fBboardLeds\fP\&. \fP"
+.ti -1c
+.RI "#define \fBfirst_led\fP   \fBLed_Rojo\fP"
+.br
+.RI "\fILas definiciones fistLed, middleLed y lastLed permiten encender los leds en secuencia desde el rgb Azul al led 3 (de middleLed a lastLed) o la secuencia rojo, verde, azul al led 3 (utilizando de firstLed a lastLed)\&. Estas definiciones permiten realizar operaciones como: \fP"
+.ti -1c
+.RI "#define \fBmiddle_led\fP   \fBLed_Azul\fP"
+.br
+.ti -1c
+.RI "#define \fBlast_led\fP   \fBled3\fP"
+.br
+.ti -1c
+.RI "#define \fBledOn\fP(gpioPort,  gpioPin)   \fBChip_GPIO_SetPinState\fP(\fBLPC_GPIO_PORT\fP, gpioPort, gpioPin, \fBTRUE\fP)"
+.br
+.RI "\fIEnciende un led\&. \fP"
+.ti -1c
+.RI "#define \fBledOff\fP(gpioPort,  gpioPin)   \fBChip_GPIO_SetPinState\fP(\fBLPC_GPIO_PORT\fP, gpioPort, gpioPin, \fBFALSE\fP)"
+.br
+.RI "\fIApaga un led\&. \fP"
+.ti -1c
+.RI "#define \fBledToggle\fP(gpioPort,  gpioPin)   \fBChip_GPIO_SetPinToggle\fP(\fBLPC_GPIO_PORT\fP, gpioPort, gpioPin)"
+.br
+.RI "\fIModifica el estado de un led particular (lo apaga si está encendido o lo enciende si está apagado)\&. \fP"
+.ti -1c
+.RI "#define \fBdelayMs\fP(x)   \fBStopWatch_DelayMs\fP(x)"
+.br
+.RI "\fIGenera un delay de x milisegundos utilizando las primitivas del módulo 'stopwatch' de lpcOpen\&. \fP"
+.ti -1c
+.RI "#define \fBdelayUs\fP(x)   \fBStopWatch_DelayUs\fP(x)"
+.br
+.RI "\fIGenera un delay de x microsegundos utilizando las primitivas del módulo 'stopwatch' de lpcOpen\&. \fP"
+.ti -1c
+.RI "#define \fBBUFFSize\fP   512"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBboardKeys\fP { \fBkey1\fP =1, \fBkey2\fP =2, \fBkey3\fP =4, \fBkey4\fP =8 }
+.RI "\fIEnumeración utilizada para identificar los pulsadores presentes en la EDU-CIAA NXP\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBrgbLeds\fP { \fBLed_Rojo\fP = 1, \fBLed_Verde\fP = 2, \fBLed_Azul\fP = 4 }
+.RI "\fIEnumeración asociada a los terminales de los leds RGB\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBboardLeds\fP { \fBled4\fP = Led_Rojo, \fBled5\fP = Led_Verde, \fBled6\fP = Led_Azul, \fBled1\fP = 8, \fBled2\fP = 16, \fBled3\fP = 32 }
+.RI "\fIEnumeración utilizada para identificar los leds presentes en la EDU-CIAA NXP\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBsystemInit\fP (void)"
+.br
+.RI "\fIInicializa los módulos básicos de la EDU-CIAA NXP\&. \fP"
+.ti -1c
+.RI "unsigned int \fBserialWrite\fP (const uint8_t *data, unsigned int dataLen)"
+.br
+.RI "\fICarga una cadena de caracteres para ser enviada a través de la USART\&. Debe considerarse que la transmisión se realiza sin bloqueo y a través de interrupciones\&. Para eso, esta función invoca a Chip_UART_SendRB, la cuál copia la cadena en un buffer circular e inicia la transmición del primer caracter\&. Una vez disparada la interrupción que indica la finalización del envío, continúa con el siguiente caracter hasta que se completa la transmición de la cadena\&. \fP"
+.ti -1c
+.RI "unsigned int \fBserialRead\fP (uint8_t *data, unsigned int maxData)"
+.br
+.RI "\fIObtiene los caracteres disponibles en el buffer circular asociado al flujo de entrada de caracteres ('lee el puerto')\&. \fP"
+.ti -1c
+.RI "void \fBUART2_IRQHandler\fP (void)"
+.br
+.RI "\fIFunción implementada para procesar las interrupciones del puerto de comunicaciones serie\&. Esta función invoca a Chip_UART_IRQRBHandler de modo de gestionar la asignación de los caracteres recibidos en la cola circular asociada a la entrada y continuar la transmisión de los datos asociados a la cola circular de salida\&. \fP"
+.ti -1c
+.RI "void \fBsetLedFromMsk\fP (uint8_t msk)"
+.br
+.RI "\fIEnciend o apaga un led según la máscara dada como argumento\&. \fP"
+.ti -1c
+.RI "void \fBwaitKeyPress\fP (\fBboardKeys\fP key)"
+.br
+.RI "\fIEspera a que se presione la tecla indicada a partir del argumento utilizado\&. \fP"
+.ti -1c
+.RI "uint8_t \fBgetKeyPressed\fP (void)"
+.br
+.RI "\fIRetorna una máscara con el estado de las teclas\&. Si una tecla está presionada, retorna un bit en alto y si está suelta un bit en bajo\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const uint32_t \fBExtRateIn\fP = 0"
+.br
+.RI "\fIClock rate on the CLKIN pin This value is defined externally to the chip layer and contains the value in Hz for the CLKIN pin for the board\&. If this pin isn't used, this rate can be 0\&. \fP"
+.ti -1c
+.RI "const uint32_t \fBOscRateIn\fP = 12000000"
+.br
+.RI "\fISystem oscillator rate This value is defined externally to the chip layer and contains the value in Hz for the external oscillator for the board\&. If using the internal oscillator, this rate can be 0\&. \fP"
+.in -1c
+.in +1c
+.ti -1c
+.RI "const uint32_t \fBExtRateIn\fP"
+.br
+.RI "\fIClock rate on the CLKIN pin This value is defined externally to the chip layer and contains the value in Hz for the CLKIN pin for the board\&. If this pin isn't used, this rate can be 0\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define BUFFSize   512"
+Cantidad máxima de valores a alojar en el buffer de entrada y en el de salida 
+.PP
+Definición en la línea 14 del archivo hardware\&.c\&.
+.SS "#define delayMs(x)   \fBStopWatch_DelayMs\fP(x)"
+
+.PP
+Genera un delay de x milisegundos utilizando las primitivas del módulo 'stopwatch' de lpcOpen\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIx\fP Cantidad de milisegundos de espera\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 264 del archivo hardware\&.h\&.
+.SS "#define delayUs(x)   \fBStopWatch_DelayUs\fP(x)"
+
+.PP
+Genera un delay de x microsegundos utilizando las primitivas del módulo 'stopwatch' de lpcOpen\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIx\fP Cantidad de microsegundos de espera\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 271 del archivo hardware\&.h\&.
+.SS "#define first_led   \fBLed_Rojo\fP"
+
+.PP
+Las definiciones fistLed, middleLed y lastLed permiten encender los leds en secuencia desde el rgb Azul al led 3 (de middleLed a lastLed) o la secuencia rojo, verde, azul al led 3 (utilizando de firstLed a lastLed)\&. Estas definiciones permiten realizar operaciones como: 
+.PP
+.nf
+1 boardLeds ledCnt;
+2 
+3 for (ledCnt = middle_led; ledCnt <= last_led; next_led(ledCnt))
+4 {
+5   setLedFromMsk(ledCnt);
+6   delayMs(250);
+7 }
+
+.fi
+.PP
+.PP
+O, utilizando todos los colores del led RGB:
+.PP
+.PP
+.nf
+1 boardLeds ledCnt;
+2 
+3 for (ledCnt = first_led; ledCnt <= last_led; next_led(ledCnt))
+4 {
+5   setLedFromMsk(ledCnt);
+6   delayMs(250);
+7 }
+.fi
+.PP
+Identificación del primer led 
+.PP
+Definición en la línea 133 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_BLU   0x02"
+Identificación del pin asociado al color azul del LED RGB del módulo GPIO 
+.PP
+Definición en la línea 37 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_GRN   0x01"
+Identificación del pin asociado al color verde del LED RGB del módulo GPIO 
+.PP
+Definición en la línea 36 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_KEY1   0x04"
+Identificación del pin asociado al pulsador 1 del módulo GPIO 
+.PP
+Definición en la línea 49 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_KEY2   0x08"
+Identificación del pin asociado al pulsador 2 del módulo GPIO 
+.PP
+Definición en la línea 51 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_KEY3   0x09"
+Identificación del pin asociado al pulsador 3 del módulo GPIO 
+.PP
+Definición en la línea 53 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_KEY4   0x09"
+Identificación del pin asociado al pulsador 4 del módulo GPIO 
+.PP
+Definición en la línea 55 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_LED1   0x0E"
+Identificación del pin asociado al led 1 del módulo GPIO 
+.PP
+Definición en la línea 28 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_LED2   0x0B"
+Identificación del pin asociado al led 2 del módulo GPIO 
+.PP
+Definición en la línea 30 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_LED3   0x0C"
+Identificación del pin asociado al led 3 del módulo GPIO 
+.PP
+Definición en la línea 32 del archivo hardware\&.h\&.
+.SS "#define GPIO_PIN_RED   0x00"
+Identificación del pin asociado al color rojo del LED RGB del módulo GPIO 
+.PP
+Definición en la línea 35 del archivo hardware\&.h\&.
+.SS "#define GPIO_PORT_KEY1   0x00"
+Puerto del módulo GPIO asociado al pulsador 1 
+.PP
+Definición en la línea 48 del archivo hardware\&.h\&.
+.SS "#define GPIO_PORT_KEY2   0x00"
+Puerto del módulo GPIO asociado al pulsador 2 
+.PP
+Definición en la línea 50 del archivo hardware\&.h\&.
+.SS "#define GPIO_PORT_KEY3   0x00"
+Puerto del módulo GPIO asociado al pulsador 3 
+.PP
+Definición en la línea 52 del archivo hardware\&.h\&.
+.SS "#define GPIO_PORT_KEY4   0x01"
+Puerto del módulo GPIO asociado al pulsador 4 
+.PP
+Definición en la línea 54 del archivo hardware\&.h\&.
+.SS "#define GPIO_PORT_LED1   0x00"
+Puerto del módulo GPIO asociado al led 1 
+.PP
+Definición en la línea 27 del archivo hardware\&.h\&.
+.SS "#define GPIO_PORT_LED2   0x01"
+Puerto del módulo GPIO asociado al led 2 
+.PP
+Definición en la línea 29 del archivo hardware\&.h\&.
+.SS "#define GPIO_PORT_LED3   0x01"
+Puerto del módulo GPIO asociado al led 3 
+.PP
+Definición en la línea 31 del archivo hardware\&.h\&.
+.SS "#define GPIO_PORT_RGB   0x05"
+Puerto del módulo GPIO asociado al led RGB 
+.PP
+Definición en la línea 34 del archivo hardware\&.h\&.
+.SS "#define last_led   \fBled3\fP"
+Identificación del último led\&. Véase \fBfirst_led\fP 
+.PP
+Definición en la línea 135 del archivo hardware\&.h\&.
+.SS "#define ledOff(gpioPort, gpioPin)   \fBChip_GPIO_SetPinState\fP(\fBLPC_GPIO_PORT\fP, gpioPort, gpioPin, \fBFALSE\fP)"
+
+.PP
+Apaga un led\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIgpioPort\fP Identificación del puerto vinculado al led de interés a través del módulo gpio\&. Pueden utilizarce como valor de este argumento las constantes simbólicas:
+.IP "\(bu" 2
+GPIO_PORT_LED1
+.IP "\(bu" 2
+GPIO_PORT_LED2
+.IP "\(bu" 2
+GPIO_PORT_LED3
+.IP "\(bu" 2
+GPIO_PORT_RGB 
+.PP
+.br
+\fIgpioPin\fP Identificación del pin asociado al led que se desea accionar a través del módulo GPIO\&. Pueden utilizarce como valor de este argumento las constantes simbólicas:
+.IP "\(bu" 2
+GPIO_PIN_LED1
+.IP "\(bu" 2
+GPIO_PIN_LED2
+.IP "\(bu" 2
+GPIO_PIN_LED3
+.IP "\(bu" 2
+GPIO_PIN_RED
+.IP "\(bu" 2
+GPIO_PIN_GRN
+.IP "\(bu" 2
+GPIO_PIN_BLU 
+.PP
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Esta es una macro para invocar de modo indirecto a la función \fIChip_GPIO_SetPinState\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 227 del archivo hardware\&.h\&.
+.SS "#define ledOn(gpioPort, gpioPin)   \fBChip_GPIO_SetPinState\fP(\fBLPC_GPIO_PORT\fP, gpioPort, gpioPin, \fBTRUE\fP)"
+
+.PP
+Enciende un led\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIgpioPort\fP Identificación del puerto vinculado al led de interés a través del módulo gpio\&. Pueden utilizarce como valor de este argumento las constantes simbólicas:
+.IP "\(bu" 2
+GPIO_PORT_LED1
+.IP "\(bu" 2
+GPIO_PORT_LED2
+.IP "\(bu" 2
+GPIO_PORT_LED3
+.IP "\(bu" 2
+GPIO_PORT_RGB 
+.PP
+.br
+\fIgpioPin\fP Identificación del pin asociado al led que se desea accionar a través del módulo GPIO\&. Pueden utilizarce como valor de este argumento las constantes simbólicas:
+.IP "\(bu" 2
+GPIO_PIN_LED1
+.IP "\(bu" 2
+GPIO_PIN_LED2
+.IP "\(bu" 2
+GPIO_PIN_LED3
+.IP "\(bu" 2
+GPIO_PIN_RED
+.IP "\(bu" 2
+GPIO_PIN_GRN
+.IP "\(bu" 2
+GPIO_PIN_BLU 
+.PP
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Esta es una macro para invocar de modo indirecto a la función \fIChip_GPIO_SetPinState\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 206 del archivo hardware\&.h\&.
+.SS "#define ledToggle(gpioPort, gpioPin)   \fBChip_GPIO_SetPinToggle\fP(\fBLPC_GPIO_PORT\fP, gpioPort, gpioPin)"
+
+.PP
+Modifica el estado de un led particular (lo apaga si está encendido o lo enciende si está apagado)\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIgpioPort\fP Identificación del puerto vinculado al led de interés a través del módulo gpio\&. Pueden utilizarce como valor de este argumento las constantes simbólicas:
+.IP "\(bu" 2
+GPIO_PORT_LED1
+.IP "\(bu" 2
+GPIO_PORT_LED2
+.IP "\(bu" 2
+GPIO_PORT_LED3
+.IP "\(bu" 2
+GPIO_PORT_RGB 
+.PP
+.br
+\fIgpioPin\fP Identificación del pin asociado al led que se desea accionar a través del módulo GPIO\&. Pueden utilizarce como valor de este argumento las constantes simbólicas:
+.IP "\(bu" 2
+GPIO_PIN_LED1
+.IP "\(bu" 2
+GPIO_PIN_LED2
+.IP "\(bu" 2
+GPIO_PIN_LED3
+.IP "\(bu" 2
+GPIO_PIN_RED
+.IP "\(bu" 2
+GPIO_PIN_GRN
+.IP "\(bu" 2
+GPIO_PIN_BLU 
+.PP
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Esta es una macro para invocar de modo indirecto a la función \fIChip_GPIO_SetPinState\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 248 del archivo hardware\&.h\&.
+.SS "#define middle_led   \fBLed_Azul\fP"
+Identificación del led intermedio\&. Véase \fBfirst_led\fP 
+.PP
+Definición en la línea 134 del archivo hardware\&.h\&.
+.SS "#define next_led(x)   ((x) = (x) << 1)"
+
+.PP
+Establece el siguiente valor en la enumeración \fBboardLeds\fP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIx\fP Variable de tipo boardLeds que contiene un valor de la enumeración, al terminar la ejecución de la macro contendrá el valor del siguiente elemento\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Esta macro no realiza ningún tipo de control de rango, por lo que previo a su invocación se deberá asegurar que el valor contenido es menor a lastLed\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 96 del archivo hardware\&.h\&.
+.SS "#define PIN_KEY1   0x00"
+Pin del puerto asociado al pulsador 1 
+.PP
+Definición en la línea 40 del archivo hardware\&.h\&.
+.SS "#define PIN_KEY2   0x01"
+Pin del puerto asociado al pulsador 2 
+.PP
+Definición en la línea 42 del archivo hardware\&.h\&.
+.SS "#define PIN_KEY3   0x02"
+Pin del puerto asociado al pulsador 3 
+.PP
+Definición en la línea 44 del archivo hardware\&.h\&.
+.SS "#define PIN_KEY4   0x06"
+Pin del puerto asociado al pulsador 4 
+.PP
+Definición en la línea 46 del archivo hardware\&.h\&.
+.SS "#define PIN_LED1   0x0A"
+Pin del puerto 2 asociado al led 1 
+.PP
+Definición en la línea 16 del archivo hardware\&.h\&.
+.SS "#define PIN_LED2   0x0B"
+Pin del puerto 2 asociado al led 2 
+.PP
+Definición en la línea 18 del archivo hardware\&.h\&.
+.SS "#define PIN_LED3   0x0C"
+Pin del puerto 2 asociado al led 3 
+.PP
+Definición en la línea 20 del archivo hardware\&.h\&.
+.SS "#define PIN_RGB_BLU   0x02"
+Pin del puerto 2 asociado al color azul del led RGB 
+.PP
+Definición en la línea 25 del archivo hardware\&.h\&.
+.SS "#define PIN_RGB_GRN   0x01"
+Pin del puerto 2 asociado al color verde del led RGB 
+.PP
+Definición en la línea 24 del archivo hardware\&.h\&.
+.SS "#define PIN_RGB_RED   0x00"
+Pin del puerto 2 asociado al color rojo del led RGB 
+.PP
+Definición en la línea 23 del archivo hardware\&.h\&.
+.SS "#define PORT_PIN_KEY1   0x01"
+Puerto del microcontrolador asociado al pulsador 1 
+.PP
+Definición en la línea 39 del archivo hardware\&.h\&.
+.SS "#define PORT_PIN_KEY2   0x01"
+Puerto del microcontrolador asociado al pulsador 2 
+.PP
+Definición en la línea 41 del archivo hardware\&.h\&.
+.SS "#define PORT_PIN_KEY3   0x01"
+Puerto del microcontrolador asociado al pulsador 3 
+.PP
+Definición en la línea 43 del archivo hardware\&.h\&.
+.SS "#define PORT_PIN_KEY4   0x01"
+Puerto del microcontrolador asociado al pulsador 4 
+.PP
+Definición en la línea 45 del archivo hardware\&.h\&.
+.SS "#define PORT_PIN_LED1   0x02"
+Puerto del microcontrolador asociado al led1 
+.PP
+Definición en la línea 15 del archivo hardware\&.h\&.
+.SS "#define PORT_PIN_LED2   0x02"
+Puerto del microcontrolador asociado al led2 
+.PP
+Definición en la línea 17 del archivo hardware\&.h\&.
+.SS "#define PORT_PIN_LED3   0x02"
+Puerto del microcontrolador asociado al led3 
+.PP
+Definición en la línea 19 del archivo hardware\&.h\&.
+.SS "#define PORT_PIN_RGB   0x02"
+Puerto del microcontrolador asociado al led RGB\&. Si bien utiliza 3 pines, están todos en el mismo puerto 
+.PP
+Definición en la línea 22 del archivo hardware\&.h\&.
+.SS "#define prev_led(x)   ((x) = (x) >> 1)"
+
+.PP
+Establece el valor previo en la enumeración \fBboardLeds\fP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIx\fP Variable de tipo boardLeds que contiene un valor de la enumeración, al terminar la ejecución de la macro contendrá el valor previo elemento contenido originalmente\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Esta macro no realiza ningún tipo de control de rango, por lo que previo a su invocación se deberá asegurar que el valor contenido es mayor a firstLed\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 104 del archivo hardware\&.h\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBboardKeys\fP"
+
+.PP
+Enumeración utilizada para identificar los pulsadores presentes en la EDU-CIAA NXP\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIkey1 \fP\fP
+Tecla 1 (TEC1) 
+.TP
+\fB\fIkey2 \fP\fP
+Tecla 2 (TEC2) 
+.TP
+\fB\fIkey3 \fP\fP
+Tecla 3 (TEC3) 
+.TP
+\fB\fIkey4 \fP\fP
+Tecla 4 (TEC4) 
+.PP
+Definición en la línea 60 del archivo hardware\&.h\&.
+.SS "enum \fBboardLeds\fP"
+
+.PP
+Enumeración utilizada para identificar los leds presentes en la EDU-CIAA NXP\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIled4 \fP\fP
+Led rojo (RGB) 
+.TP
+\fB\fIled5 \fP\fP
+Led verde (RGB) 
+.TP
+\fB\fIled6 \fP\fP
+Led zul (RGB) 
+.TP
+\fB\fIled1 \fP\fP
+Led 1 
+.TP
+\fB\fIled2 \fP\fP
+Led 2 
+.TP
+\fB\fIled3 \fP\fP
+Led 3 
+.PP
+Definición en la línea 80 del archivo hardware\&.h\&.
+.SS "enum \fBrgbLeds\fP"
+
+.PP
+Enumeración asociada a los terminales de los leds RGB\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fILed_Rojo \fP\fP
+Identificación del terminal asociado al color rojo 
+.TP
+\fB\fILed_Verde \fP\fP
+Identificación del terminal asociado al color verde 
+.TP
+\fB\fILed_Azul \fP\fP
+Identificación del terminal asociado al color azul 
+.PP
+Definición en la línea 71 del archivo hardware\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "uint8_t getKeyPressed (void)"
+
+.PP
+Retorna una máscara con el estado de las teclas\&. Si una tecla está presionada, retorna un bit en alto y si está suelta un bit en bajo\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+El estado de la primer tecla en el bit menos significativo, el de la segunda tecla en el bit siguiente y así sucesivamente\&. Véase \fBboardKeys\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 150 del archivo hardware\&.c\&.
+.SS "unsigned int serialRead (uint8_t * data, unsigned int maxData)"
+
+.PP
+Obtiene los caracteres disponibles en el buffer circular asociado al flujo de entrada de caracteres ('lee el puerto')\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIdata\fP Cadena de caracteres donde se alojaran tantos como \fBmaxData\fP elementos\&. 
+.br
+\fImaxData\fP Cantidad de caracteres máxima a copiar del buffer circular asociado a los datos de entrada\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Cantidad de caracteres retornados\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Esta función solo invoca a Chip_UART_ReadRB\&. Si no hay datos disponibles en el buffer circular asociado a la entrada, esta función retornará cero (0)\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 102 del archivo hardware\&.c\&.
+.SS "unsigned int serialWrite (const uint8_t * data, unsigned int dataLen)"
+
+.PP
+Carga una cadena de caracteres para ser enviada a través de la USART\&. Debe considerarse que la transmisión se realiza sin bloqueo y a través de interrupciones\&. Para eso, esta función invoca a Chip_UART_SendRB, la cuál copia la cadena en un buffer circular e inicia la transmición del primer caracter\&. Una vez disparada la interrupción que indica la finalización del envío, continúa con el siguiente caracter hasta que se completa la transmición de la cadena\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIdata\fP Cadena de caracteres a transmitir\&. 
+.br
+\fIdataLen\fP Longitud de la cadena de caracteres a transmitir\&. Este parámetro puede ser directamente obtenido a través de la función strlen si se trabaja con cadenas de caracteres terminadas en null\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+La cantidad de caractereres copiados para ser transmitidos\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Podría darse que la longitud de la cadena de caracteres que se desea alojar se de mayor longitud que el espacio disponible en el buffer circular\&. Si este fuese el caso, esta función esperará (modo bloqueante) a que sea posible alojar todas la cadena dada antes de retornar\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 85 del archivo hardware\&.c\&.
+.SS "void setLedFromMsk (uint8_t msk)"
+
+.PP
+Enciend o apaga un led según la máscara dada como argumento\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fImsk\fP Máscara de bits donde el primer bit está asociado al led uno, el segundo al led dos, el tercero al led tres, el cuarto al color rojo del RGB, quinto al color verde y sexto al color azul\&. Esta máscara puede conformarce utilizando la enumeración \fBboardLeds\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 107 del archivo hardware\&.c\&.
+.SS "void systemInit (void)"
+
+.PP
+Inicializa los módulos básicos de la EDU-CIAA NXP\&. Los módulos configurados por esta función son:
+.IP "\(bu" 2
+Oscilador principal: Establece la configuración para utilizar el cristal externo incorporado en la placa\&.
+.IP "\(bu" 2
+USART: configura la USART2 utilizando interrupciones (115200/8/N/1)\&. La configuración utilizada es transparente al usuario, la que el resultado del uso de interrupciones permite el envío y la recepción de caracteres sin bloqueo\&. La gestión de la información debe realizarce utilizando Chip_UART_SendRB y Chip_UART_ReadRB o serialWrite y serialRead\&.
+.IP "\(bu" 2
+GPIO Leds: configura los pines asociados a los leds como salidas, estableciendo como valor inicial 'apagado'
+.IP "\(bu" 2
+GPIO teclas: configura los pines asociadas a las teclas como entradas\&. 
+.PP
+
+.PP
+Definición en la línea 22 del archivo hardware\&.c\&.
+.SS "void UART2_IRQHandler (void)"
+
+.PP
+Función implementada para procesar las interrupciones del puerto de comunicaciones serie\&. Esta función invoca a Chip_UART_IRQRBHandler de modo de gestionar la asignación de los caracteres recibidos en la cola circular asociada a la entrada y continuar la transmisión de los datos asociados a la cola circular de salida\&. 
+.PP
+Definición en la línea 79 del archivo hardware\&.c\&.
+.SS "void waitKeyPress (\fBboardKeys\fP key)"
+
+.PP
+Espera a que se presione la tecla indicada a partir del argumento utilizado\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIkey\fP Tecla que se espera sea pulsada\&. El argumento puede ser uno de los miembros de la enumeración boardKeys (key1, key2, key3, key4)\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 128 del archivo hardware\&.c\&.
+.SH "Documentación de las variables"
+.PP 
+.SS "const uint32_t ExtRateIn = 0"
+
+.PP
+Clock rate on the CLKIN pin This value is defined externally to the chip layer and contains the value in Hz for the CLKIN pin for the board\&. If this pin isn't used, this rate can be 0\&. Frecuencia de clock externa inyectada al microcontrolador\&. No utilizado en las CIAA\&. 
+.PP
+Definición en la línea 11 del archivo hardware\&.c\&.
+.SS "const uint32_t ExtRateIn"
+
+.PP
+Clock rate on the CLKIN pin This value is defined externally to the chip layer and contains the value in Hz for the CLKIN pin for the board\&. If this pin isn't used, this rate can be 0\&. Frecuencia de clock externa inyectada al microcontrolador\&. No utilizado en las CIAA\&. 
+.PP
+Definición en la línea 11 del archivo hardware\&.c\&.
+.SS "const uint32_t OscRateIn = 12000000"
+
+.PP
+System oscillator rate This value is defined externally to the chip layer and contains the value in Hz for the external oscillator for the board\&. If using the internal oscillator, this rate can be 0\&. Frecuencia del oscilador externo incorporado en la CIAA-NXP\&. 
+.PP
+Definición en la línea 12 del archivo hardware\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

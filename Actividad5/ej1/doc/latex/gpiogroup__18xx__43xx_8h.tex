@@ -1,0 +1,39 @@
+\hypertarget{gpiogroup__18xx__43xx_8h}{}\section{Referencia del Archivo gpiogroup\+\_\+18xx\+\_\+43xx.\+h}
+\label{gpiogroup__18xx__43xx_8h}\index{gpiogroup\+\_\+18xx\+\_\+43xx.\+h@{gpiogroup\+\_\+18xx\+\_\+43xx.\+h}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T}
+\begin{DoxyCompactList}\small\item\em G\+P\+IO grouped interrupt register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_gaf15160a16e7ec36a9046ad41d9b5e85b}{G\+P\+I\+O\+G\+R\+\_\+\+I\+NT}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_ga99839b878e80485d41a8ed02c16a9aaf}{G\+P\+I\+O\+G\+R\+\_\+\+C\+O\+MB}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_gad93f80c7a388c505b90dd0a8daa2f6b4}{G\+P\+I\+O\+G\+R\+\_\+\+T\+R\+IG}~(1 $<$$<$ 2)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_gacb2b28673be061951f30cac631015be1}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Clear\+Int\+Status} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group)
+\begin{DoxyCompactList}\small\item\em Clear interrupt pending status for the selected group. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} bool \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_ga1f34e79048a85055093d15d67294a86f}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Get\+Int\+Status} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group)
+\begin{DoxyCompactList}\small\item\em Returns current G\+P\+IO group inetrrupt pending status. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_ga11ad479a890f736ae3479e69d8381d16}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Select\+Or\+Mode} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group)
+\begin{DoxyCompactList}\small\item\em Selected G\+P\+IO group functionality for trigger on any pin in group (OR mode) \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_gab829f4b04c6e3359b7ed5ce18f3a57a0}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Select\+And\+Mode} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group)
+\begin{DoxyCompactList}\small\item\em Selected G\+P\+IO group functionality for trigger on all matching pins in group (A\+ND mode) \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_ga996008a6e3c8855e718f4be1964bcf95}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Select\+Edge\+Mode} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group)
+\begin{DoxyCompactList}\small\item\em Selected G\+P\+IO group functionality edge trigger mode. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_ga89fb32921cee3e7f32d13eb039f211a4}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Select\+Level\+Mode} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group)
+\begin{DoxyCompactList}\small\item\em Selected G\+P\+IO group functionality level trigger mode. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_ga230ad2c0745d1be272cbea3ac83a5925}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Select\+Low\+Level} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group, uint8\+\_\+t port, uint32\+\_\+t pin\+Mask)
+\begin{DoxyCompactList}\small\item\em Set selected pins for the group and port to low level trigger. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_ga8d2f30138917327117d2cecb9c1c50fb}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Select\+High\+Level} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group, uint8\+\_\+t port, uint32\+\_\+t pin\+Mask)
+\begin{DoxyCompactList}\small\item\em Set selected pins for the group and port to high level trigger. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_gac23132a059cba44f07718b6d3fe38a3f}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Disable\+Group\+Pins} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group, uint8\+\_\+t port, uint32\+\_\+t pin\+Mask)
+\begin{DoxyCompactList}\small\item\em Disabled selected pins for the group interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___g_p_i_o_g_p__18_x_x__43_x_x_ga177072f557d0b74c6a1ab6d7f11674c7}{Chip\+\_\+\+G\+P\+I\+O\+G\+P\+\_\+\+Enable\+Group\+Pins} (\hyperlink{struct_l_p_c___g_p_i_o_g_r_o_u_p_i_n_t___t}{L\+P\+C\+\_\+\+G\+P\+I\+O\+G\+R\+O\+U\+P\+I\+N\+T\+\_\+T} $\ast$p\+G\+P\+I\+O\+G\+P\+I\+NT, uint8\+\_\+t group, uint8\+\_\+t port, uint32\+\_\+t pin\+Mask)
+\begin{DoxyCompactList}\small\item\em Enable selected pins for the group interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}

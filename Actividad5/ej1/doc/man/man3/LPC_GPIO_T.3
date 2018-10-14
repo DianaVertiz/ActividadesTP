@@ -1,0 +1,89 @@
+.TH "LPC_GPIO_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_GPIO_T \- GPIO port register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <gpio_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBB\fP [128][32]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBW\fP [32][32]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDIR\fP [32]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMASK\fP [32]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPIN\fP [32]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMPIN\fP [32]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSET\fP [32]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCLR\fP [32]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBNOT\fP [32]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+GPIO port register block structure\&. 
+.PP
+Definición en la línea 47 del archivo gpio_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint8_t B[128][32]"
+< GPIO_PORT Structure Offset 0x0000: Byte pin registers ports 0 to n; pins PIOn_0 to PIOn_31 
+.PP
+Definición en la línea 48 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CLR[32]"
+Offset 0x2280: Clear port n 
+.PP
+Definición en la línea 55 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DIR[32]"
+Offset 0x2000: Direction registers port n 
+.PP
+Definición en la línea 50 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MASK[32]"
+Offset 0x2080: Mask register port n 
+.PP
+Definición en la línea 51 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MPIN[32]"
+Offset 0x2180: Masked port register port n 
+.PP
+Definición en la línea 53 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t NOT[32]"
+Offset 0x2300: Toggle port n 
+.PP
+Definición en la línea 56 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PIN[32]"
+Offset 0x2100: Portpin register port n 
+.PP
+Definición en la línea 52 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SET[32]"
+Offset 0x2200: Write: Set register for port n Read: output bits for port n 
+.PP
+Definición en la línea 54 del archivo gpio_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t W[32][32]"
+Offset 0x1000: Word pin registers port 0 to n 
+.PP
+Definición en la línea 49 del archivo gpio_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

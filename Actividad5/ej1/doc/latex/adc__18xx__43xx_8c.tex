@@ -1,0 +1,102 @@
+\hypertarget{adc__18xx__43xx_8c}{}\section{Referencia del Archivo adc\+\_\+18xx\+\_\+43xx.\+c}
+\label{adc__18xx__43xx_8c}\index{adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint8\+\_\+t \hyperlink{adc__18xx__43xx_8c_a4f78d83197621aba61146de0d2ac07ad}{get\+Full\+Conv\+Clk} (void)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{chip__clocks_8h_a45bb23228b9831321626c103ada7c60b}{C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} \hyperlink{adc__18xx__43xx_8c_a1572bd1815362795dd2baf086dae03d9}{Chip\+\_\+\+A\+D\+C\+\_\+\+Get\+Clock\+Index} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} uint8\+\_\+t \hyperlink{adc__18xx__43xx_8c_a4f05dad648b8fb141b7454037c1a96e5}{get\+Clk\+Div} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, bool burst\+Mode, uint32\+\_\+t adc\+Rate, uint8\+\_\+t clks)
+\item 
+void \hyperlink{adc__18xx__43xx_8c_a4797a87bc88aa9cc910b6c527ed340f3}{set\+Start\+Mode} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, uint8\+\_\+t start\+\_\+mode)
+\item 
+\hyperlink{group___l_p_c___types___public___types_ga67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{adc__18xx__43xx_8c_a8edc226a08b05b47c994049bcd00c60c}{read\+Adc\+Val} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, uint8\+\_\+t channel, uint16\+\_\+t $\ast$data)
+\item 
+void \hyperlink{group___a_d_c__18_x_x__43_x_x_ga459b17621657a66281f2bc9baae3626c}{Chip\+\_\+\+A\+D\+C\+\_\+\+Init} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, \hyperlink{struct_a_d_c___c_l_o_c_k___s_e_t_u_p___t}{A\+D\+C\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+E\+T\+U\+P\+\_\+T} $\ast$A\+D\+C\+Setup)
+\begin{DoxyCompactList}\small\item\em Initialize the A\+DC peripheral and the A\+DC setup structure to default value. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_d_c__18_x_x__43_x_x_ga749cff51066bd49acaca0497d78f3332}{Chip\+\_\+\+A\+D\+C\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Shutdown A\+DC. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_ga67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{group___a_d_c__18_x_x__43_x_x_gab6374a3aa75b052970c472ee2e9f600e}{Chip\+\_\+\+A\+D\+C\+\_\+\+Read\+Value} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, uint8\+\_\+t channel, uint16\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Read the A\+DC value from a channel. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_ga89136caac2e14c55151f527ac02daaff}{Flag\+Status} \hyperlink{group___a_d_c__18_x_x__43_x_x_ga182ae98a23007564b3eaeb61a31ac553}{Chip\+\_\+\+A\+D\+C\+\_\+\+Read\+Status} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, uint8\+\_\+t channel, uint32\+\_\+t Status\+Type)
+\begin{DoxyCompactList}\small\item\em Read the A\+DC channel status. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_d_c__18_x_x__43_x_x_gac0bf9a8d016bcd88866d4ae59b1ca78c}{Chip\+\_\+\+A\+D\+C\+\_\+\+Int\+\_\+\+Set\+Channel\+Cmd} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, uint8\+\_\+t channel, \hyperlink{group___l_p_c___types___public___types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{Functional\+State} New\+State)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable interrupt for A\+DC channel. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_d_c__18_x_x__43_x_x_ga951b5b680e4d3be64c83fc6e1caf644d}{Chip\+\_\+\+A\+D\+C\+\_\+\+Set\+Start\+Mode} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, \hyperlink{group___a_d_c__18_x_x__43_x_x_ga68aae5a89b4dabc910e457a00e57ea8c}{A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+M\+O\+D\+E\+\_\+T} mode, \hyperlink{group___a_d_c__18_x_x__43_x_x_ga18d12879b004e16af3b47467a2d81d56}{A\+D\+C\+\_\+\+E\+D\+G\+E\+\_\+\+C\+F\+G\+\_\+T} Edge\+Option)
+\begin{DoxyCompactList}\small\item\em Select the mode starting the AD conversion. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_d_c__18_x_x__43_x_x_gae1629ea72c61a224e69e55f7699b7810}{Chip\+\_\+\+A\+D\+C\+\_\+\+Set\+Sample\+Rate} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, \hyperlink{struct_a_d_c___c_l_o_c_k___s_e_t_u_p___t}{A\+D\+C\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+E\+T\+U\+P\+\_\+T} $\ast$A\+D\+C\+Setup, uint32\+\_\+t rate)
+\begin{DoxyCompactList}\small\item\em Set the A\+DC Sample rate. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_d_c__18_x_x__43_x_x_ga8d536c4e7b6be7e6f1a77b69e5fbf1eb}{Chip\+\_\+\+A\+D\+C\+\_\+\+Set\+Resolution} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, \hyperlink{struct_a_d_c___c_l_o_c_k___s_e_t_u_p___t}{A\+D\+C\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+E\+T\+U\+P\+\_\+T} $\ast$A\+D\+C\+Setup, \hyperlink{group___a_d_c__18_x_x__43_x_x_ga515c7ef9570ef08b29f55cd880e2e452}{A\+D\+C\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+T} resolution)
+\begin{DoxyCompactList}\small\item\em Set the A\+DC accuracy bits. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_d_c__18_x_x__43_x_x_gaf2fd510be97c2747ed3c53c132a45e15}{Chip\+\_\+\+A\+D\+C\+\_\+\+Enable\+Channel} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, \hyperlink{group___a_d_c__18_x_x__43_x_x_ga30ee7058bc7cc1daff718b29b42bed4e}{A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+T} channel, \hyperlink{group___l_p_c___types___public___types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{Functional\+State} New\+State)
+\begin{DoxyCompactList}\small\item\em Enable or disable the A\+DC channel on A\+DC peripheral. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_d_c__18_x_x__43_x_x_gaa9890ccee17bea824b2af26e5bb2f1d6}{Chip\+\_\+\+A\+D\+C\+\_\+\+Set\+Burst\+Cmd} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, \hyperlink{group___l_p_c___types___public___types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{Functional\+State} New\+State)
+\begin{DoxyCompactList}\small\item\em Enable burst mode. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_ga67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{group___a_d_c__18_x_x__43_x_x_ga5dc774072fa55b145e57a25c1a146535}{Chip\+\_\+\+A\+D\+C\+\_\+\+Read\+Byte} (\hyperlink{struct_l_p_c___a_d_c___t}{L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$p\+A\+DC, \hyperlink{group___a_d_c__18_x_x__43_x_x_ga30ee7058bc7cc1daff718b29b42bed4e}{A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+T} channel, uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Read the A\+DC value and convert it to 8bits value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\index{adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+A\+D\+C\+\_\+\+Get\+Clock\+Index@{Chip\+\_\+\+A\+D\+C\+\_\+\+Get\+Clock\+Index}}
+\index{Chip\+\_\+\+A\+D\+C\+\_\+\+Get\+Clock\+Index@{Chip\+\_\+\+A\+D\+C\+\_\+\+Get\+Clock\+Index}!adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+A\+D\+C\+\_\+\+Get\+Clock\+Index(\+L\+P\+C\+\_\+\+A\+D\+C\+\_\+\+T $\ast$p\+A\+D\+C)}{Chip_ADC_GetClockIndex(LPC_ADC_T *pADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} Chip\+\_\+\+A\+D\+C\+\_\+\+Get\+Clock\+Index (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$}]{p\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{adc__18xx__43xx_8c_a1572bd1815362795dd2baf086dae03d9}{}\label{adc__18xx__43xx_8c_a1572bd1815362795dd2baf086dae03d9}
+
+
+Definición en la línea 53 del archivo adc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}!get\+Clk\+Div@{get\+Clk\+Div}}
+\index{get\+Clk\+Div@{get\+Clk\+Div}!adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{get\+Clk\+Div(\+L\+P\+C\+\_\+\+A\+D\+C\+\_\+\+T $\ast$p\+A\+D\+C, bool burst\+Mode, uint32\+\_\+t adc\+Rate, uint8\+\_\+t clks)}{getClkDiv(LPC_ADC_T *pADC, bool burstMode, uint32_t adcRate, uint8_t clks)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} uint8\+\_\+t get\+Clk\+Div (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$}]{p\+A\+DC, }
+\item[{bool}]{burst\+Mode, }
+\item[{uint32\+\_\+t}]{adc\+Rate, }
+\item[{uint8\+\_\+t}]{clks}
+\end{DoxyParamCaption}
+)}\hypertarget{adc__18xx__43xx_8c_a4f05dad648b8fb141b7454037c1a96e5}{}\label{adc__18xx__43xx_8c_a4f05dad648b8fb141b7454037c1a96e5}
+
+
+Definición en la línea 68 del archivo adc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}!get\+Full\+Conv\+Clk@{get\+Full\+Conv\+Clk}}
+\index{get\+Full\+Conv\+Clk@{get\+Full\+Conv\+Clk}!adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{get\+Full\+Conv\+Clk(void)}{getFullConvClk(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint8\+\_\+t get\+Full\+Conv\+Clk (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{adc__18xx__43xx_8c_a4f78d83197621aba61146de0d2ac07ad}{}\label{adc__18xx__43xx_8c_a4f78d83197621aba61146de0d2ac07ad}
+
+
+Definición en la línea 47 del archivo adc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}!read\+Adc\+Val@{read\+Adc\+Val}}
+\index{read\+Adc\+Val@{read\+Adc\+Val}!adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{read\+Adc\+Val(\+L\+P\+C\+\_\+\+A\+D\+C\+\_\+\+T $\ast$p\+A\+D\+C, uint8\+\_\+t channel, uint16\+\_\+t $\ast$data)}{readAdcVal(LPC_ADC_T *pADC, uint8_t channel, uint16_t *data)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Status} read\+Adc\+Val (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$}]{p\+A\+DC, }
+\item[{uint8\+\_\+t}]{channel, }
+\item[{uint16\+\_\+t $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{adc__18xx__43xx_8c_a8edc226a08b05b47c994049bcd00c60c}{}\label{adc__18xx__43xx_8c_a8edc226a08b05b47c994049bcd00c60c}
+
+
+Definición en la línea 102 del archivo adc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}!set\+Start\+Mode@{set\+Start\+Mode}}
+\index{set\+Start\+Mode@{set\+Start\+Mode}!adc\+\_\+18xx\+\_\+43xx.\+c@{adc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{set\+Start\+Mode(\+L\+P\+C\+\_\+\+A\+D\+C\+\_\+\+T $\ast$p\+A\+D\+C, uint8\+\_\+t start\+\_\+mode)}{setStartMode(LPC_ADC_T *pADC, uint8_t start_mode)}}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Start\+Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+D\+C\+\_\+T} $\ast$}]{p\+A\+DC, }
+\item[{uint8\+\_\+t}]{start\+\_\+mode}
+\end{DoxyParamCaption}
+)}\hypertarget{adc__18xx__43xx_8c_a4797a87bc88aa9cc910b6c527ed340f3}{}\label{adc__18xx__43xx_8c_a4797a87bc88aa9cc910b6c527ed340f3}
+
+
+Definición en la línea 94 del archivo adc\+\_\+18xx\+\_\+43xx.\+c.
+

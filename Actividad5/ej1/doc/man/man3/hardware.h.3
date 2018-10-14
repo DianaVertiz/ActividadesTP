@@ -1,0 +1,231 @@
+.TH "hardware.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hardware.h \- Declaraciones de funciones y constantes simbólicas correspondientes con la EDU-CIAA NXP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+\fC#include <stopwatch\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPORT_PIN_LED1\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPIN_LED1\fP   0x0A"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_LED2\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPIN_LED2\fP   0x0B"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_LED3\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPIN_LED3\fP   0x0C"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_RGB\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPIN_RGB_RED\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBPIN_RGB_GRN\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_RGB_BLU\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_LED1\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_LED1\fP   0x0E"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_LED2\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_LED2\fP   0x0B"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_LED3\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_LED3\fP   0x0C"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_RGB\fP   0x05"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_RED\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_GRN\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_BLU\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_KEY1\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_KEY1\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_KEY2\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_KEY2\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_KEY3\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_KEY3\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBPORT_PIN_KEY4\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBPIN_KEY4\fP   0x06"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_KEY1\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_KEY1\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_KEY2\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_KEY2\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_KEY3\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_KEY3\fP   0x09"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PORT_KEY4\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBGPIO_PIN_KEY4\fP   0x09"
+.br
+.ti -1c
+.RI "#define \fBnext_led\fP(x)   ((x) = (x) << 1)"
+.br
+.RI "\fIEstablece el siguiente valor en la enumeración \fBboardLeds\fP\&. \fP"
+.ti -1c
+.RI "#define \fBprev_led\fP(x)   ((x) = (x) >> 1)"
+.br
+.RI "\fIEstablece el valor previo en la enumeración \fBboardLeds\fP\&. \fP"
+.ti -1c
+.RI "#define \fBfirst_led\fP   \fBLed_Rojo\fP"
+.br
+.RI "\fILas definiciones fistLed, middleLed y lastLed permiten encender los leds en secuencia desde el rgb Azul al led 3 (de middleLed a lastLed) o la secuencia rojo, verde, azul al led 3 (utilizando de firstLed a lastLed)\&. Estas definiciones permiten realizar operaciones como: \fP"
+.ti -1c
+.RI "#define \fBmiddle_led\fP   \fBLed_Azul\fP"
+.br
+.ti -1c
+.RI "#define \fBlast_led\fP   \fBled3\fP"
+.br
+.ti -1c
+.RI "#define \fBledOn\fP(gpioPort,  gpioPin)   \fBChip_GPIO_SetPinState\fP(\fBLPC_GPIO_PORT\fP, gpioPort, gpioPin, \fBTRUE\fP)"
+.br
+.RI "\fIEnciende un led\&. \fP"
+.ti -1c
+.RI "#define \fBledOff\fP(gpioPort,  gpioPin)   \fBChip_GPIO_SetPinState\fP(\fBLPC_GPIO_PORT\fP, gpioPort, gpioPin, \fBFALSE\fP)"
+.br
+.RI "\fIApaga un led\&. \fP"
+.ti -1c
+.RI "#define \fBledToggle\fP(gpioPort,  gpioPin)   \fBChip_GPIO_SetPinToggle\fP(\fBLPC_GPIO_PORT\fP, gpioPort, gpioPin)"
+.br
+.RI "\fIModifica el estado de un led particular (lo apaga si está encendido o lo enciende si está apagado)\&. \fP"
+.ti -1c
+.RI "#define \fBdelayMs\fP(x)   \fBStopWatch_DelayMs\fP(x)"
+.br
+.RI "\fIGenera un delay de x milisegundos utilizando las primitivas del módulo 'stopwatch' de lpcOpen\&. \fP"
+.ti -1c
+.RI "#define \fBdelayUs\fP(x)   \fBStopWatch_DelayUs\fP(x)"
+.br
+.RI "\fIGenera un delay de x microsegundos utilizando las primitivas del módulo 'stopwatch' de lpcOpen\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBboardKeys\fP { \fBkey1\fP =1, \fBkey2\fP =2, \fBkey3\fP =4, \fBkey4\fP =8 }
+.RI "\fIEnumeración utilizada para identificar los pulsadores presentes en la EDU-CIAA NXP\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBrgbLeds\fP { \fBLed_Rojo\fP = 1, \fBLed_Verde\fP = 2, \fBLed_Azul\fP = 4 }
+.RI "\fIEnumeración asociada a los terminales de los leds RGB\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBboardLeds\fP { \fBled4\fP = Led_Rojo, \fBled5\fP = Led_Verde, \fBled6\fP = Led_Azul, \fBled1\fP = 8, \fBled2\fP = 16, \fBled3\fP = 32 }
+.RI "\fIEnumeración utilizada para identificar los leds presentes en la EDU-CIAA NXP\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBsystemInit\fP (void)"
+.br
+.RI "\fIInicializa los módulos básicos de la EDU-CIAA NXP\&. \fP"
+.ti -1c
+.RI "unsigned int \fBserialWrite\fP (const uint8_t *data, unsigned int dataLen)"
+.br
+.RI "\fICarga una cadena de caracteres para ser enviada a través de la USART\&. Debe considerarse que la transmisión se realiza sin bloqueo y a través de interrupciones\&. Para eso, esta función invoca a Chip_UART_SendRB, la cuál copia la cadena en un buffer circular e inicia la transmición del primer caracter\&. Una vez disparada la interrupción que indica la finalización del envío, continúa con el siguiente caracter hasta que se completa la transmición de la cadena\&. \fP"
+.ti -1c
+.RI "unsigned int \fBserialRead\fP (uint8_t *data, unsigned int maxData)"
+.br
+.RI "\fIObtiene los caracteres disponibles en el buffer circular asociado al flujo de entrada de caracteres ('lee el puerto')\&. \fP"
+.ti -1c
+.RI "void \fBUART2_IRQHandler\fP (void)"
+.br
+.RI "\fIFunción implementada para procesar las interrupciones del puerto de comunicaciones serie\&. Esta función invoca a Chip_UART_IRQRBHandler de modo de gestionar la asignación de los caracteres recibidos en la cola circular asociada a la entrada y continuar la transmisión de los datos asociados a la cola circular de salida\&. \fP"
+.ti -1c
+.RI "void \fBsetLedFromMsk\fP (uint8_t msk)"
+.br
+.RI "\fIEnciend o apaga un led según la máscara dada como argumento\&. \fP"
+.ti -1c
+.RI "void \fBwaitKeyPress\fP (\fBboardKeys\fP key)"
+.br
+.RI "\fIEspera a que se presione la tecla indicada a partir del argumento utilizado\&. \fP"
+.ti -1c
+.RI "uint8_t \fBgetKeyPressed\fP (void)"
+.br
+.RI "\fIRetorna una máscara con el estado de las teclas\&. Si una tecla está presionada, retorna un bit en alto y si está suelta un bit en bajo\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Declaraciones de funciones y constantes simbólicas correspondientes con la EDU-CIAA NXP\&. 
+
+
+.PP
+\fBFecha:\fP
+.RS 4
+09/07/2018 
+.RE
+.PP
+
+.PP
+Definición en el archivo \fBhardware\&.h\fP\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

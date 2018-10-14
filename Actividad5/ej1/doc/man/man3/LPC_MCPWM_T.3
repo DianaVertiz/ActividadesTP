@@ -1,0 +1,180 @@
+.TH "LPC_MCPWM_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_MCPWM_T \- Motor Control PWM register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mcpwm_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCON\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCON_SET\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCON_CLR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCAPCON\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCAPCON_SET\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCAPCON_CLR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTC\fP [3]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBLIM\fP [3]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAT\fP [3]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCCP\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCAP\fP [3]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTEN\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTEN_SET\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTEN_CLR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCNTCON\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCNTCON_SET\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCNTCON_CLR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTF\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTF_SET\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTF_CLR\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCAP_CLR\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Motor Control PWM register block structure\&. 
+.PP
+Definición en la línea 47 del archivo mcpwm_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__I\fP uint32_t CAP[3]"
+Capture register 
+.PP
+Definición en la línea 59 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CAP_CLR"
+Capture clear address 
+.PP
+Definición en la línea 69 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CAPCON"
+Capture Control read address 
+.PP
+Definición en la línea 51 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CAPCON_CLR"
+Event Control clear address 
+.PP
+Definición en la línea 53 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CAPCON_SET"
+Capture Control set address 
+.PP
+Definición en la línea 52 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CCP"
+Communication Pattern register 
+.PP
+Definición en la línea 58 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CNTCON"
+Count Control read address 
+.PP
+Definición en la línea 63 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CNTCON_CLR"
+Count Control clear address 
+.PP
+Definición en la línea 65 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CNTCON_SET"
+Count Control set address 
+.PP
+Definición en la línea 64 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CON"
+< MCPWM Structure PWM Control read address 
+.PP
+Definición en la línea 48 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CON_CLR"
+PWM Control clear address 
+.PP
+Definición en la línea 50 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CON_SET"
+PWM Control set address 
+.PP
+Definición en la línea 49 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DT"
+Dead time register 
+.PP
+Definición en la línea 57 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTEN"
+Interrupt Enable read address 
+.PP
+Definición en la línea 60 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTEN_CLR"
+Interrupt Enable clear address 
+.PP
+Definición en la línea 62 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTEN_SET"
+Interrupt Enable set address 
+.PP
+Definición en la línea 61 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTF"
+Interrupt flags read address 
+.PP
+Definición en la línea 66 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTF_CLR"
+Interrupt flags clear address 
+.PP
+Definición en la línea 68 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTF_SET"
+Interrupt flags set address 
+.PP
+Definición en la línea 67 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t LIM[3]"
+Limit register 
+.PP
+Definición en la línea 55 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAT[3]"
+Match register 
+.PP
+Definición en la línea 56 del archivo mcpwm_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TC[3]"
+Timer Counter register 
+.PP
+Definición en la línea 54 del archivo mcpwm_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

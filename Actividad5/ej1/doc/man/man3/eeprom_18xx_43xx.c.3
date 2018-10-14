@@ -1,0 +1,46 @@
+.TH "eeprom_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+eeprom_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP void \fBsetClkDiv\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBsetWaitState\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.ti -1c
+.RI "void \fBChip_EEPROM_Init\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIInitializes EEPROM\&. \fP"
+.ti -1c
+.RI "void \fBChip_EEPROM_EraseProgramPage\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIErase/Program an EEPROM page\&. \fP"
+.ti -1c
+.RI "void \fBChip_EEPROM_WaitForIntStatus\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fIWait for interrupt occurs\&. \fP"
+.in -1c
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP void setClkDiv (\fBLPC_EEPROM_T\fP * pEEPROM)"
+
+.PP
+Definición en la línea 47 del archivo eeprom_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void setWaitState (\fBLPC_EEPROM_T\fP * pEEPROM)"
+
+.PP
+Definición en la línea 59 del archivo eeprom_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

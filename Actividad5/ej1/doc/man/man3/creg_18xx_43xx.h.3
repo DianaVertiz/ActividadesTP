@@ -1,0 +1,55 @@
+.TH "creg_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+creg_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_CREG_T\fP"
+.br
+.RI "\fICREG Register Block\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCREG_FLASHTIM_T\fP { \fBFLASHTIM_20MHZ_CPU\fP = 0, \fBFLASHTIM_40MHZ_CPU\fP = 1, \fBFLASHTIM_60MHZ_CPU\fP = 2, \fBFLASHTIM_80MHZ_CPU\fP = 3, \fBFLASHTIM_100MHZ_CPU\fP = 4, \fBFLASHTIM_120MHZ_CPU\fP = 5, \fBFLASHTIM_150MHZ_CPU\fP = 6, \fBFLASHTIM_170MHZ_CPU\fP = 7, \fBFLASHTIM_190MHZ_CPU\fP = 8, \fBFLASHTIM_SAFE_SETTING\fP = 9 }
+.RI "\fIFLASH Access time definitions\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_CREG_OnChipFlashIsPresent\fP (void)"
+.br
+.RI "\fIIdentifies whether on-chip flash is present\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CREG_SetFlashAcceleration\fP (uint32_t Hz)"
+.br
+.RI "\fIConfigures the onboard Flash Accelerator in flash-based LPC18xx/LPC43xx parts\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CREG_SetFLASHAccess\fP (\fBCREG_FLASHTIM_T\fP clks)"
+.br
+.RI "\fISet FLASH memory access time in clocks\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CREG_EnableUSB0Phy\fP (void)"
+.br
+.RI "\fIEnables the USB0 high-speed PHY on LPC18xx/LPC43xx parts\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CREG_DisableUSB0Phy\fP (void)"
+.br
+.RI "\fIDisable the USB0 high-speed PHY on LPC18xx/LPC43xx parts\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CREG_ConfigureBODaR\fP (uint32_t BODVL, uint32_t BORVL)"
+.br
+.RI "\fIConfigures the BOD and Reset on LPC18xx/LPC43xx parts\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

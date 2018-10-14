@@ -1,0 +1,728 @@
+.TH "enet_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+enet_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_ENET_T\fP"
+.br
+.RI "\fI10/100 MII & RMII Ethernet with timestamping register block structure \fP"
+.ti -1c
+.RI "struct \fBENET_TXDESC_T\fP"
+.br
+.RI "\fIStructure of a transmit descriptor (without timestamp) \fP"
+.ti -1c
+.RI "struct \fBENET_ENHTXDESC_T\fP"
+.br
+.RI "\fIStructure of a enhanced transmit descriptor (with timestamp) \fP"
+.ti -1c
+.RI "struct \fBENET_RXDESC_T\fP"
+.br
+.RI "\fIStructure of a receive descriptor (without timestamp) \fP"
+.ti -1c
+.RI "struct \fBENET_ENHRXDESC_T\fP"
+.br
+.RI "\fIStructure of a enhanced receive descriptor (with timestamp) \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAC_CFG_RE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_TE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DF\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_BL\fP(n)   ((n) << 5)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_ACS\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_LUD\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DR\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_IPC\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DM\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_LM\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DO\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_FES\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_PS\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DCRS\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_IFG\fP(n)   ((n) << 17)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_JE\fP   (1 << 20)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_JD\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_WD\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_PR\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_DAIF\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_PM\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_DBF\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_PCF\fP(n)   ((n) << 6)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_SAIF\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_SAF\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_RA\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_GB\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_W\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_CR\fP(n)   ((n) << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_GR\fP(n)   ((n) << 6)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_PA\fP(n)   ((n) << 11)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIID_GDMSK\fP   (0xFFFF)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_FCB\fP   (1 << 0)"
+.br
+.RI "\fIMAC_FLOW_CONTROL register bit defines\&. \fP"
+.ti -1c
+.RI "#define \fBMAC_FC_TFE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_RFE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_UP\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_PLT\fP(n)   ((n) << 4)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_DZPQ\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_PT\fP(n)   ((n) << 16)"
+.br
+.ti -1c
+.RI "#define \fBMAC_VT_VL\fP(n)   ((n) << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_VT_ETC\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_PD\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_MPE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_WFE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_MPR\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_WFR\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_GU\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_WFFRPR\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBMAC_IM_PMT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_ADRH_MO\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBMAC_ADRH_MO\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSENA\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSCFUP\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSINIT\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSUPDT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSTRIG\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSADDR\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSENAL\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSCTRL\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSVER2\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSIPENA\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSIPV6E\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSIPV4E\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSEVNT\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSMSTR\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSCLKT\fP(n)   ((n) << 16)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSENMA\fP   (1 << 18)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_SWR\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_DA\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_DSL\fP(n)   ((n) << 2)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_ATDS\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_PBL\fP(n)   ((n) << 8)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_PR\fP(n)   ((n) << 14)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_FB\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_RPBL\fP(n)   ((n) << 17)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_USP\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_PBL8X\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_AAL\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_MB\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_TXPR\fP   (1 << 27)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_TI\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_TPS\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_TU\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_TJT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_OVF\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_UNF\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_RI\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_RU\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_RPS\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_RWT\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_ETI\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_FBI\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_ERI\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_AIE\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_NIS\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_ALL\fP   (0x1E7FF)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_SR\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_OSF\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_RTC\fP(n)   ((n) << 3)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_FUF\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_FEF\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_ST\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_TTC\fP(n)   ((n) << 14)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_FTF\fP   (1 << 20)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_TSF\fP   (1 << 21)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_DFF\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_RSF\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_DT\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_TIE\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_TSE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_TUE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_TJE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_OVE\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_UNE\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_RIE\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_RUE\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_RSE\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_RWE\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_ETE\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_FBE\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_ERE\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_AIE\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_NIE\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBDMA_MFRM_FMCMSK\fP   (0xFFFF)"
+.br
+.ti -1c
+.RI "#define \fBDMA_MFRM_OC\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBDMA_MFRM_FMA\fP(n)   (((n) & 0x0FFE0000) >> 17)"
+.br
+.ti -1c
+.RI "#define \fBDMA_MFRM_OF\fP   (1 << 28)"
+.br
+.ti -1c
+.RI "#define \fBTDES_DB\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBTDES_UF\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ED\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBTDES_CCMSK\fP(n)   (((n) & 0x000000F0) >> 3)"
+.br
+.ti -1c
+.RI "#define \fBTDES_VF\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBTDES_EC\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBTDES_LC\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NC\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBTDES_LCAR\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBTDES_IPE\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBTDES_FF\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBTDES_JT\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ES\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBTDES_IHE\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBTDES_TTSS\fP   (1 << 17)"
+.br
+.ti -1c
+.RI "#define \fBTDES_OWN\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_IC\fP   (1UL << 30)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_LS\fP   (1 << 29)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_FS\fP   (1 << 28)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_DC\fP   (1 << 27)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_DP\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_TTSE\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_CIC\fP(n)   ((n) << 22)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_TER\fP   (1 << 21)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_TCH\fP   (1 << 20)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_IC\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_FS\fP   (1 << 30)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_LS\fP   (1 << 29)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_CIC\fP(n)   ((n) << 27)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_DC\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_TER\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_TCH\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_DP\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_TTSE\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_BS2\fP(n)   (((n) & 0x3FF) << 11)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_BS1\fP(n)   (((n) & 0x3FF) << 0)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_BS2\fP(n)   (((n) & 0xFFF) << 16)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_BS1\fP(n)   (((n) & 0xFFF) << 0)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ESA\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBRDES_CE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBRDES_DRE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBRDES_RE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBRDES_RWT\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBRDES_FT\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBRDES_LC\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBRDES_TSA\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBRDES_LS\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBRDES_FS\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBRDES_VLAN\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBRDES_OE\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBRDES_LE\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBRDES_SAF\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBRDES_DE\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ES\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBRDES_FLMSK\fP(n)   (((n) & 0x3FFF0000) >> 16)"
+.br
+.ti -1c
+.RI "#define \fBRDES_AFM\fP   (1 << 30)"
+.br
+.ti -1c
+.RI "#define \fBRDES_OWN\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBRDES_DINT\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBRDES_NORM_RER\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBRDES_NORM_RCH\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBRDES_NORM_BS2\fP(n)   (((n) & 0x3FF) << 11)"
+.br
+.ti -1c
+.RI "#define \fBRDES_NORM_BS1\fP(n)   (((n) & 0x3FF) << 0)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_RER\fP   (1 << 15)"
+.br
+.RI "\fIREC_DESC_ENH_T only CTRL field bit defines\&. \fP"
+.ti -1c
+.RI "#define \fBRDES_ENH_RCH\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_BS2\fP(n)   (((n) & 0xFFF) << 16)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_BS1\fP(n)   (((n) & 0xFFF) << 0)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPPL\fP(n)   (((n) & 0x7) >> 2)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPHE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPPLE\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPCSB\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPV4\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPV6\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_MTMSK\fP(n)   (((n) & 0xF) >> 8)"
+.br
+.ti -1c
+.RI "#define \fBEMAC_ETH_MAX_FLEN\fP   (1536)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_Reset\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIResets the ethernet interface\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_SetADDR\fP (\fBLPC_ENET_T\fP *pENET, const uint8_t *macAddr)"
+.br
+.RI "\fISets the address of the interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_SetupMII\fP (\fBLPC_ENET_T\fP *pENET, uint32_t div, uint8_t addr)"
+.br
+.RI "\fISets up the PHY link clock divider and PHY address\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_StartMIIWrite\fP (\fBLPC_ENET_T\fP *pENET, uint8_t reg, uint16_t data)"
+.br
+.RI "\fIStarts a PHY write via the MII\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_StartMIIRead\fP (\fBLPC_ENET_T\fP *pENET, uint8_t reg)"
+.br
+.RI "\fIStarts a PHY read via the MII\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_ENET_IsMIIBusy\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIReturns MII link (PHY) busy status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint16_t \fBChip_ENET_ReadMIIData\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIReturns the value read from the PHY\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_TXEnable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIEnables ethernet transmit\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_TXDisable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIDisables ethernet transmit\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_RXEnable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIEnables ethernet packet reception\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_RXDisable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIDisables ethernet packet reception\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_RMIIEnable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIEnable RMII ethernet operation\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_MIIEnable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIEnable MII ethernet operation\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_SetDuplex\fP (\fBLPC_ENET_T\fP *pENET, bool full)"
+.br
+.RI "\fISets full or half duplex for the interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_SetSpeed\fP (\fBLPC_ENET_T\fP *pENET, bool speed100)"
+.br
+.RI "\fISets speed for the interface\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_InitDescriptors\fP (\fBLPC_ENET_T\fP *pENET, \fBENET_ENHTXDESC_T\fP *pTXDescs, \fBENET_ENHRXDESC_T\fP *pRXDescs)"
+.br
+.RI "\fIConfigures the initial ethernet descriptors\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_RXStart\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIStarts receive polling of RX descriptors\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_TXStart\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIStarts transmit polling of TX descriptors\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_Init\fP (\fBLPC_ENET_T\fP *pENET, uint32_t phyAddr)"
+.br
+.RI "\fIInitialize ethernet interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_DeInit\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIDe-initialize the ethernet interface\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,145 @@
+.TH "LCD_CONFIG_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LCD_CONFIG_T \- A structure for LCD Configuration\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <lcd_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBHBP\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBHFP\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBHSW\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBPPL\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBVBP\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBVFP\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBVSW\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBLPP\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBIOE\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBIPC\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBIHS\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBIVS\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBACB\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBBPP\fP"
+.br
+.ti -1c
+.RI "\fBLCD_PANEL_OPT_T\fP \fBLCD\fP"
+.br
+.ti -1c
+.RI "\fBLCD_COLOR_FORMAT_OPT_T\fP \fBcolor_format\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBDual\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+A structure for LCD Configuration\&. 
+.PP
+Definición en la línea 122 del archivo lcd_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint8_t ACB"
+AC bias frequency in clocks (not used) 
+.PP
+Definición en la línea 135 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t BPP"
+Maximum bits per pixel the display supports 
+.PP
+Definición en la línea 136 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBLCD_COLOR_FORMAT_OPT_T\fP color_format"
+BGR or RGB 
+.PP
+Definición en la línea 138 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t Dual"
+Dual panel, 1 = dual panel display 
+.PP
+Definición en la línea 139 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t HBP"
+Horizontal back porch in clocks 
+.PP
+Definición en la línea 123 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t HFP"
+Horizontal front porch in clocks 
+.PP
+Definición en la línea 124 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t HSW"
+HSYNC pulse width in clocks 
+.PP
+Definición en la línea 125 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t IHS"
+Invert HSYNC, 1 = invert 
+.PP
+Definición en la línea 133 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t IOE"
+Invert output enable, 1 = invert 
+.PP
+Definición en la línea 131 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t IPC"
+Invert panel clock, 1 = invert 
+.PP
+Definición en la línea 132 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t IVS"
+Invert VSYNC, 1 = invert 
+.PP
+Definición en la línea 134 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBLCD_PANEL_OPT_T\fP LCD"
+LCD panel type 
+.PP
+Definición en la línea 137 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint16_t LPP"
+Lines per panel 
+.PP
+Definición en la línea 130 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint16_t PPL"
+Pixels per line 
+.PP
+Definición en la línea 126 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t VBP"
+Vertical back porch in clocks 
+.PP
+Definición en la línea 127 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t VFP"
+Vertical front porch in clocks 
+.PP
+Definición en la línea 128 del archivo lcd_18xx_43xx\&.h\&.
+.SS "uint8_t VSW"
+VSYNC pulse width in clocks 
+.PP
+Definición en la línea 129 del archivo lcd_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

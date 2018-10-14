@@ -1,0 +1,86 @@
+\hypertarget{lcd__18xx__43xx_8h}{}\section{Referencia del Archivo lcd\+\_\+18xx\+\_\+43xx.\+h}
+\label{lcd__18xx__43xx_8h}\index{lcd\+\_\+18xx\+\_\+43xx.\+h@{lcd\+\_\+18xx\+\_\+43xx.\+h}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T}
+\begin{DoxyCompactList}\small\item\em L\+CD Controller register block structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_l_c_d___p_a_l_e_t_t_e___e_n_t_r_y___t}{L\+C\+D\+\_\+\+P\+A\+L\+E\+T\+T\+E\+\_\+\+E\+N\+T\+R\+Y\+\_\+T}
+\begin{DoxyCompactList}\small\item\em L\+CD Palette entry format. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_l_c_d___c_o_n_f_i_g___t}{L\+C\+D\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T}
+\begin{DoxyCompactList}\small\item\em A structure for L\+CD Configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_gae2537e91c439a06b08c27e63c8639fd8}{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+F\+U\+F\+IM}~0x2
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_gafc1a133f89801ad8c911d73e213d7349}{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+L\+N\+B\+U\+IM}~0x4
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_ga6c78481d9b993bd0247c53e5b182ab49}{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+V\+C\+O\+M\+P\+IM}~0x8
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_ga806f8a96720000a09b6de988d3d46291}{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+B\+E\+R\+IM}~0x10
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_ga1ccec80860d0fac10278a3b13092152b}{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+LE}~\hyperlink{group___l_p_c___types___public___macros_ga7ee022f5e5a971a8324e4b7572d49170}{\+\_\+\+B\+IT}(0)
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_gade9e578fe44d385674e0b9f932bf8bdb}{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+P\+WR}~\hyperlink{group___l_p_c___types___public___macros_ga7ee022f5e5a971a8324e4b7572d49170}{\+\_\+\+B\+IT}(11)
+\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___l_c_d__18_x_x__43_x_x_gaceee4b8b7afdc1a97b365dc2feb4ecca}{L\+C\+D\+\_\+\+P\+A\+N\+E\+L\+\_\+\+O\+P\+T\+\_\+T} \{ \hyperlink{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa00e3399b074ff76827ba4bb796daf3b6}{L\+C\+D\+\_\+\+T\+FT} = 0x02, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaad2639cf608d91ec46b6cf2ce7a490494}{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+4} = 0x01, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa92d1598a61d705cd7e2b2f0829977d33}{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+8} = 0x05, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa015be97b134328f3b44403b8c28fa85e}{L\+C\+D\+\_\+\+C\+S\+TN} = 0x00
+ \}\begin{DoxyCompactList}\small\item\em L\+CD Panel type. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___l_c_d__18_x_x__43_x_x_gac365c31cd880844cf31747394cd0f93a}{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+O\+P\+T\+\_\+T} \{ \hyperlink{group___l_c_d__18_x_x__43_x_x_ggac365c31cd880844cf31747394cd0f93aaaece371e0b75415f8d1827920f5c5a9e}{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+GB} = 0, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggac365c31cd880844cf31747394cd0f93aad4dec73fcfd38460506c7c9d244f2149}{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+B\+GR}
+ \}\begin{DoxyCompactList}\small\item\em L\+CD Color Format. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___l_c_d__18_x_x__43_x_x_gacd66e01df306369e87e482a36a2cc66b}{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T} \{ \hyperlink{group___l_c_d__18_x_x__43_x_x_ggacd66e01df306369e87e482a36a2cc66ba5d1d44bda3d01e8e1c9a001bc1b56a28}{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+32x32} = 0, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggacd66e01df306369e87e482a36a2cc66ba68245535ad3b833e1cef4bee16deb95f}{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+64x64}
+ \}\begin{DoxyCompactList}\small\item\em L\+CD Cursor Size. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga1674713116e590f51d61ea5d69d58314}{Chip\+\_\+\+L\+C\+D\+\_\+\+Init} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, \hyperlink{struct_l_c_d___c_o_n_f_i_g___t}{L\+C\+D\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$L\+C\+D\+\_\+\+Config\+Struct)
+\begin{DoxyCompactList}\small\item\em Initialize the L\+CD controller. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga5f0cb4fb4a8dbd4544ec3686fede73a5}{Chip\+\_\+\+L\+C\+D\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Shutdown the L\+CD controller. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga06f07608827fe9ee120be6540922d16e}{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+On} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Power-\/on the L\+CD Panel (power pin) \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga993223c458c548b5e05705a9a5895228}{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+Off} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Power-\/off the L\+CD Panel (power pin) \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga0828ea4978cdb0864d0f6bbfa7dcb49a}{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable the L\+CD Controller. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga935c17635c088e252344243bc4e83436}{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable the L\+CD Controller. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga86f17bd80f2c8694226942d7fb44fcfc}{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+U\+P\+Frame\+Buffer} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, void $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Set L\+CD Upper Panel Frame Buffer for Single Panel or Upper Panel Frame Buffer for Dual Panel. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga6e45f8254b1962e58245f769466e9295}{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+L\+P\+Frame\+Buffer} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, void $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Set L\+CD Lower Panel Frame Buffer for Dual Panel. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga160098404c8f66943767ee93e8fb575e}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Config} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, \hyperlink{group___l_c_d__18_x_x__43_x_x_gacd66e01df306369e87e482a36a2cc66b}{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T} cursor\+\_\+size, bool sync)
+\begin{DoxyCompactList}\small\item\em Configure Cursor. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga70b227f6b0291dda72ec239ec34466a0}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Enable} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint8\+\_\+t cursor\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Enable Cursor. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_gac4c6ed11a22b83ceed1d2666f1e12b5a}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Disable} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint8\+\_\+t cursor\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Disable Cursor. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga164119b0cf9ee7d42cf1be435c60e4f5}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette0} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t palette\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Load Cursor Palette. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga164cb1b18309b45884abfa32b511105e}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette1} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t palette\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Load Cursor Palette. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga8aeda292a8476655f32568003be7a098}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Pos} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Set Cursor Position. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga87c4b7b85b63f40255f2e716321d5879}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Clip} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Set Cursor Clipping Position. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga25198b7b084a884217163cbc681ceac4}{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable\+Ints} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t ints)
+\begin{DoxyCompactList}\small\item\em Enable Controller Interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga98d2df2f7630bce1ca9e6af19f8c8426}{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable\+Ints} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t ints)
+\begin{DoxyCompactList}\small\item\em Disable Controller Interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga895dd5e12a15f0a30ab17054747ce9f7}{Chip\+\_\+\+L\+C\+D\+\_\+\+Clear\+Ints} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t ints)
+\begin{DoxyCompactList}\small\item\em Clear Controller Interrupt. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga51c750babdecc5a01beff92f32b431af}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Write\+Image} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint8\+\_\+t cursor\+\_\+num, void $\ast$Image)
+\begin{DoxyCompactList}\small\item\em Write Cursor Image into Internal Cursor Image Buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_gaca363a0ae6e47d7bba4d0c51b99b0c8a}{Chip\+\_\+\+L\+C\+D\+\_\+\+Load\+Palette} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, void $\ast$palette)
+\begin{DoxyCompactList}\small\item\em Load L\+CD Palette. \end{DoxyCompactList}\end{DoxyCompactItemize}

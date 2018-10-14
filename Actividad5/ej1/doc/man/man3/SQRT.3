@@ -1,0 +1,76 @@
+.TH "SQRT" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SQRT \- Square Root
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBarm_status\fP \fBarm_sqrt_q31\fP (\fBq31_t\fP in, \fBq31_t\fP *pOut)"
+.br
+.RI "\fIQ31 square root function\&. \fP"
+.ti -1c
+.RI "\fBarm_status\fP \fBarm_sqrt_q15\fP (\fBq15_t\fP in, \fBq15_t\fP *pOut)"
+.br
+.RI "\fIQ15 square root function\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Computes the square root of a number\&. There are separate functions for Q15, Q31, and floating-point data types\&. The square root function is computed using the Newton-Raphson algorithm\&. This is an iterative algorithm of the form: 
+.PP
+.nf
+
+     x1 = x0 - f(x0)/f'(x0)
+.fi
+.PP
+ where \fCx1\fP is the current estimate, \fCx0\fP is the previous estimate, and \fCf'(x0)\fP is the derivative of \fCf()\fP evaluated at \fCx0\fP\&. For the square root function, the algorithm reduces to: 
+.PP
+.nf
+
+    x0 = in/2                         [initial guess]
+    x1 = 1/2 * ( x0 + in / x0)        [each iteration]
+.fi
+.PP
+ 
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBarm_status\fP arm_sqrt_q15 (\fBq15_t\fP in, \fBq15_t\fP * pOut)"
+
+.PP
+Q15 square root function\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIin\fP input value\&. The range of the input value is [0 +1) or 0x0000 to 0x7FFF\&. 
+.br
+\fI*pOut\fP square root of input value\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The function returns ARM_MATH_SUCCESS if input value is positive value or ARM_MATH_ARGUMENT_ERROR if \fCin\fP is negative value and returns zero output for negative values\&. 
+.RE
+.PP
+
+.SS "\fBarm_status\fP arm_sqrt_q31 (\fBq31_t\fP in, \fBq31_t\fP * pOut)"
+
+.PP
+Q31 square root function\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIin\fP input value\&. The range of the input value is [0 +1) or 0x00000000 to 0x7FFFFFFF\&. 
+.br
+\fI*pOut\fP square root of input value\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The function returns ARM_MATH_SUCCESS if input value is positive value or ARM_MATH_ARGUMENT_ERROR if \fCin\fP is negative value and returns zero output for negative values\&. 
+.RE
+.PP
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

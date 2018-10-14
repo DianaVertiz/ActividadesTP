@@ -1,0 +1,51 @@
+.TH "rgu_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rgu_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_RGU_T\fP"
+.br
+.RI "\fIRGU register structure\&. \fP"
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBCHIP_RGU_RST\fP \fBCHIP_RGU_RST_T\fP"
+.br
+.RI "\fIRGU reset enumerations\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_RGU_RST\fP { \fBRGU_CORE_RST\fP, \fBRGU_PERIPH_RST\fP, \fBRGU_MASTER_RST\fP, \fBRGU_WWDT_RST\fP = 4, \fBRGU_CREG_RST\fP, \fBRGU_BUS_RST\fP = 8, \fBRGU_SCU_RST\fP, \fBRGU_M0SUB_RST\fP = 12, \fBRGU_M3_RST\fP, \fBRGU_LCD_RST\fP = 16, \fBRGU_USB0_RST\fP, \fBRGU_USB1_RST\fP, \fBRGU_DMA_RST\fP, \fBRGU_SDIO_RST\fP, \fBRGU_EMC_RST\fP, \fBRGU_ETHERNET_RST\fP, \fBRGU_FLASHA_RST\fP = 25, \fBRGU_EEPROM_RST\fP = 27, \fBRGU_GPIO_RST\fP, \fBRGU_FLASHB_RST\fP, \fBRGU_TIMER0_RST\fP = 32, \fBRGU_TIMER1_RST\fP, \fBRGU_TIMER2_RST\fP, \fBRGU_TIMER3_RST\fP, \fBRGU_RITIMER_RST\fP, \fBRGU_SCT_RST\fP, \fBRGU_MOTOCONPWM_RST\fP, \fBRGU_QEI_RST\fP, \fBRGU_ADC0_RST\fP, \fBRGU_ADC1_RST\fP, \fBRGU_DAC_RST\fP, \fBRGU_UART0_RST\fP = 44, \fBRGU_UART1_RST\fP, \fBRGU_UART2_RST\fP, \fBRGU_UART3_RST\fP, \fBRGU_I2C0_RST\fP, \fBRGU_I2C1_RST\fP, \fBRGU_SSP0_RST\fP, \fBRGU_SSP1_RST\fP, \fBRGU_I2S_RST\fP, \fBRGU_SPIFI_RST\fP, \fBRGU_CAN1_RST\fP, \fBRGU_CAN0_RST\fP, \fBRGU_LAST_RST\fP = 63 }
+.RI "\fIRGU reset enumerations\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RGU_TriggerReset\fP (\fBCHIP_RGU_RST_T\fP ResetNumber)"
+.br
+.RI "\fITrigger a peripheral reset for the selected peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_RGU_InReset\fP (\fBCHIP_RGU_RST_T\fP ResetNumber)"
+.br
+.RI "\fIChecks the reset status of a peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RGU_ClearReset\fP (\fBCHIP_RGU_RST_T\fP ResetNumber)"
+.br
+.RI "\fIClears reset for the selected peripheral\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

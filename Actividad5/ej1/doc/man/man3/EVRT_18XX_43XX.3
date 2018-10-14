@@ -1,0 +1,326 @@
+.TH "EVRT_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EVRT_18XX_43XX \- CHIP: LPC18xx/43xx Event router driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_EVRT_T\fP"
+.br
+.RI "\fIEvent Router register structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPARAM_EVRT_SOURCE\fP(n)"
+.br
+.RI "\fIMacro for checking for a valid EVRT source\&. \fP"
+.ti -1c
+.RI "#define \fBPARAM_EVRT_SOURCE_ACTIVE_TYPE\fP(n)"
+.br
+.RI "\fIMacro for checking for a valid EVRT state type\&. \fP"
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBCHIP_EVRT_SRC\fP \fBCHIP_EVRT_SRC_T\fP"
+.br
+.RI "\fIEVRT input sources\&. \fP"
+.ti -1c
+.RI "typedef enum \fBCHIP_EVRT_SRC_ACTIVE\fP \fBCHIP_EVRT_SRC_ACTIVE_T\fP"
+.br
+.RI "\fIEVRT input state detecting type\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_EVRT_SRC\fP { \fBEVRT_SRC_WAKEUP0\fP, \fBEVRT_SRC_WAKEUP1\fP, \fBEVRT_SRC_WAKEUP2\fP, \fBEVRT_SRC_WAKEUP3\fP, \fBEVRT_SRC_ATIMER\fP, \fBEVRT_SRC_RTC\fP, \fBEVRT_SRC_BOD1\fP, \fBEVRT_SRC_WWDT\fP, \fBEVRT_SRC_ETHERNET\fP, \fBEVRT_SRC_USB0\fP, \fBEVRT_SRC_USB1\fP, \fBEVRT_SRC_SDIO\fP, \fBEVRT_SRC_CCAN\fP, \fBEVRT_SRC_COMBINE_TIMER2\fP, \fBEVRT_SRC_COMBINE_TIMER6\fP, \fBEVRT_SRC_QEI\fP, \fBEVRT_SRC_COMBINE_TIMER14\fP, \fBEVRT_SRC_RESERVED1\fP, \fBEVRT_SRC_RESERVED2\fP, \fBEVRT_SRC_RESET\fP, \fBEVRT_SRC_BOD_RESET\fP, \fBEVRT_SRC_DEEP_POWER_DOWN\fP }
+.RI "\fIEVRT input sources\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBCHIP_EVRT_SRC_ACTIVE\fP { \fBEVRT_SRC_ACTIVE_LOW_LEVEL\fP, \fBEVRT_SRC_ACTIVE_HIGH_LEVEL\fP, \fBEVRT_SRC_ACTIVE_FALLING_EDGE\fP, \fBEVRT_SRC_ACTIVE_RISING_EDGE\fP }
+.RI "\fIEVRT input state detecting type\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_EVRT_Init\fP (void)"
+.br
+.RI "\fIInitialize the EVRT\&. \fP"
+.ti -1c
+.RI "void \fBChip_EVRT_ConfigIntSrcActiveType\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src, \fBCHIP_EVRT_SRC_ACTIVE_T\fP type)"
+.br
+.RI "\fISet up the type of interrupt type for a source to EVRT\&. \fP"
+.ti -1c
+.RI "\fBIntStatus\fP \fBChip_EVRT_IsSourceInterrupting\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src)"
+.br
+.RI "\fICheck if a source is sending interrupt to EVRT\&. \fP"
+.ti -1c
+.RI "void \fBChip_EVRT_SetUpIntSrc\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src, \fBFunctionalState\fP state)"
+.br
+.RI "\fIEnable or disable interrupt sources to EVRT\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EVRT_DeInit\fP (void)"
+.br
+.RI "\fIDe-initializes the EVRT peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EVRT_ClrPendIntSrc\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src)"
+.br
+.RI "\fIClear pending interrupt EVRT source\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define PARAM_EVRT_SOURCE(n)"
+\fBValor:\fP
+.PP
+.nf
+((n == EVRT_SRC_WAKEUP0) || (n == EVRT_SRC_WAKEUP1) \
+                                 || (n == EVRT_SRC_WAKEUP2) || (n == EVRT_SRC_WAKEUP3) \
+                                 || (n == EVRT_SRC_ATIMER) || (n == EVRT_SRC_RTC) \
+                                 || (n == EVRT_SRC_BOD1) || (n == EVRT_SRC_WWDT) \
+                                 || (n == EVRT_SRC_ETHERNET) || (n == EVRT_SRC_USB0) \
+                                 || (n == EVRT_SRC_USB1) || (n == EVRT_SRC_CCAN) || (n == EVRT_SRC_SDIO) \
+                                 || (n == EVRT_SRC_COMBINE_TIMER2) || (n == EVRT_SRC_COMBINE_TIMER6) \
+                                 || (n == EVRT_SRC_QEI) || (n == EVRT_SRC_COMBINE_TIMER14) \
+                                 || (n == EVRT_SRC_RESET) || (n == EVRT_SRC_BOD_RESET) || (n == EVRT_SRC_DEEP_POWER_DOWN)) \
+.fi
+.PP
+Macro for checking for a valid EVRT source\&. 
+.PP
+Definición en la línea 90 del archivo evrt_18xx_43xx\&.h\&.
+.SS "#define PARAM_EVRT_SOURCE_ACTIVE_TYPE(n)"
+\fBValor:\fP
+.PP
+.nf
+((n == EVRT_SRC_ACTIVE_LOW_LEVEL) || (n == EVRT_SRC_ACTIVE_HIGH_LEVEL) \
+                                          || (n == EVRT_SRC_ACTIVE_FALLING_EDGE) || (n == EVRT_SRC_ACTIVE_RISING_EDGE))
+.fi
+.PP
+Macro for checking for a valid EVRT state type\&. 
+.PP
+Definición en la línea 113 del archivo evrt_18xx_43xx\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef enum \fBCHIP_EVRT_SRC_ACTIVE\fP  \fBCHIP_EVRT_SRC_ACTIVE_T\fP"
+
+.PP
+EVRT input state detecting type\&. 
+.SS "typedef enum \fBCHIP_EVRT_SRC\fP  \fBCHIP_EVRT_SRC_T\fP"
+
+.PP
+EVRT input sources\&. 
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBCHIP_EVRT_SRC\fP"
+
+.PP
+EVRT input sources\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIEVRT_SRC_WAKEUP0 \fP\fP
+WAKEUP0 event router source 
+.TP
+\fB\fIEVRT_SRC_WAKEUP1 \fP\fP
+WAKEUP1 event router source 
+.TP
+\fB\fIEVRT_SRC_WAKEUP2 \fP\fP
+WAKEUP2 event router source 
+.TP
+\fB\fIEVRT_SRC_WAKEUP3 \fP\fP
+WAKEUP3 event router source 
+.TP
+\fB\fIEVRT_SRC_ATIMER \fP\fP
+Alarm timer event router source 
+.TP
+\fB\fIEVRT_SRC_RTC \fP\fP
+RTC event router source 
+.TP
+\fB\fIEVRT_SRC_BOD1 \fP\fP
+BOD event router source 
+.TP
+\fB\fIEVRT_SRC_WWDT \fP\fP
+WWDT event router source 
+.TP
+\fB\fIEVRT_SRC_ETHERNET \fP\fP
+Ethernet event router source 
+.TP
+\fB\fIEVRT_SRC_USB0 \fP\fP
+USB0 event router source 
+.TP
+\fB\fIEVRT_SRC_USB1 \fP\fP
+USB1 event router source 
+.TP
+\fB\fIEVRT_SRC_SDIO \fP\fP
+Reserved 
+.TP
+\fB\fIEVRT_SRC_CCAN \fP\fP
+C_CAN event router source 
+.TP
+\fB\fIEVRT_SRC_COMBINE_TIMER2 \fP\fP
+Combined timer 2 event router source 
+.TP
+\fB\fIEVRT_SRC_COMBINE_TIMER6 \fP\fP
+Combined timer 6 event router source 
+.TP
+\fB\fIEVRT_SRC_QEI \fP\fP
+QEI event router source 
+.TP
+\fB\fIEVRT_SRC_COMBINE_TIMER14 \fP\fP
+Combined timer 14 event router source 
+.TP
+\fB\fIEVRT_SRC_RESERVED1 \fP\fP
+Reserved 
+.TP
+\fB\fIEVRT_SRC_RESERVED2 \fP\fP
+Reserved 
+.TP
+\fB\fIEVRT_SRC_RESET \fP\fP
+Reset event router source 
+.TP
+\fB\fIEVRT_SRC_BOD_RESET \fP\fP
+Reset event router source 
+.TP
+\fB\fIEVRT_SRC_DEEP_POWER_DOWN \fP\fP
+Reset event router source 
+.PP
+Definición en la línea 62 del archivo evrt_18xx_43xx\&.h\&.
+.SS "enum \fBCHIP_EVRT_SRC_ACTIVE\fP"
+
+.PP
+EVRT input state detecting type\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIEVRT_SRC_ACTIVE_LOW_LEVEL \fP\fP
+Active low level 
+.TP
+\fB\fIEVRT_SRC_ACTIVE_HIGH_LEVEL \fP\fP
+Active high level 
+.TP
+\fB\fIEVRT_SRC_ACTIVE_FALLING_EDGE \fP\fP
+Active falling edge 
+.TP
+\fB\fIEVRT_SRC_ACTIVE_RISING_EDGE \fP\fP
+Active rising edge 
+.PP
+Definición en la línea 103 del archivo evrt_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EVRT_ClrPendIntSrc (\fBCHIP_EVRT_SRC_T\fP EVRT_Src)"
+
+.PP
+Clear pending interrupt EVRT source\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIEVRT_Src\fP : EVRT source, should be one of CHIP_EVRT_SRC_T type 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 160 del archivo evrt_18xx_43xx\&.h\&.
+.SS "void Chip_EVRT_ConfigIntSrcActiveType (\fBCHIP_EVRT_SRC_T\fP EVRT_Src, \fBCHIP_EVRT_SRC_ACTIVE_T\fP type)"
+
+.PP
+Set up the type of interrupt type for a source to EVRT\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIEVRT_Src\fP : EVRT source, should be one of CHIP_EVRT_SRC_T type 
+.br
+\fItype\fP : EVRT type, should be one of CHIP_EVRT_SRC_ACTIVE_T type 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 65 del archivo evrt_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EVRT_DeInit (void)"
+
+.PP
+De-initializes the EVRT peripheral\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 149 del archivo evrt_18xx_43xx\&.h\&.
+.SS "void Chip_EVRT_Init (void)"
+
+.PP
+Initialize the EVRT\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 51 del archivo evrt_18xx_43xx\&.c\&.
+.SS "\fBIntStatus\fP Chip_EVRT_IsSourceInterrupting (\fBCHIP_EVRT_SRC_T\fP EVRT_Src)"
+
+.PP
+Check if a source is sending interrupt to EVRT\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIEVRT_Src\fP : EVRT source, should be one of CHIP_EVRT_SRC_T type 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+true if the interrupt from the source is pending, otherwise false 
+.RE
+.PP
+
+.PP
+Definición en la línea 105 del archivo evrt_18xx_43xx\&.c\&.
+.SS "void Chip_EVRT_SetUpIntSrc (\fBCHIP_EVRT_SRC_T\fP EVRT_Src, \fBFunctionalState\fP state)"
+
+.PP
+Enable or disable interrupt sources to EVRT\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIEVRT_Src\fP : EVRT source, should be one of CHIP_EVRT_SRC_T type 
+.br
+\fIstate\fP : ENABLE or DISABLE to enable or disable event router source 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 94 del archivo evrt_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

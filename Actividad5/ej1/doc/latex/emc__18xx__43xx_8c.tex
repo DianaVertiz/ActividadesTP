@@ -1,0 +1,114 @@
+\hypertarget{emc__18xx__43xx_8c}{}\section{Referencia del Archivo emc\+\_\+18xx\+\_\+43xx.\+c}
+\label{emc__18xx__43xx_8c}\index{emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{emc__18xx__43xx_8c_a0966fbca28107438e1e131281f7a87ae}{E\+M\+C\+\_\+\+D\+I\+V\+\_\+\+R\+O\+U\+N\+D\+\_\+\+UP}(x,  y)~((x + y -\/ 1) / y)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} uint32\+\_\+t \hyperlink{emc__18xx__43xx_8c_a2e94116ac71d324ebf99de5d2f4bda52}{get\+A\+R\+M\+Peripheral\+ID} (void)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} uint32\+\_\+t \hyperlink{emc__18xx__43xx_8c_ab251503ae0b1423a0a423e9d7254ccbe}{convert\+Timming\+Param} (uint32\+\_\+t E\+M\+C\+\_\+\+Clock, int32\+\_\+t input\+\_\+ns, uint32\+\_\+t adjust)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} uint32\+\_\+t \hyperlink{emc__18xx__43xx_8c_a73ab3b1f4324c63ab01d570230e77ea6}{get\+Cols\+Len} (uint32\+\_\+t Dyn\+Config)
+\item 
+void \hyperlink{emc__18xx__43xx_8c_aaee0a1bdfbf4b5e3212f3ef8498afe4a}{init\+Dyn\+Mem} (\hyperlink{struct_l_p_c___e_m_c___t}{L\+P\+C\+\_\+\+E\+M\+C\+\_\+T} $\ast$p\+E\+MC, \hyperlink{struct_i_p___e_m_c___d_y_n___c_o_n_f_i_g___t}{I\+P\+\_\+\+E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$Dynamic\+\_\+\+Config, uint32\+\_\+t E\+M\+C\+\_\+\+Clock)
+\item 
+void \hyperlink{emc__18xx__43xx_8c_ac263a3e68931d182564bca53b499021b}{init\+Static\+Mem} (\hyperlink{struct_l_p_c___e_m_c___t}{L\+P\+C\+\_\+\+E\+M\+C\+\_\+T} $\ast$p\+E\+MC, \hyperlink{struct_i_p___e_m_c___s_t_a_t_i_c___c_o_n_f_i_g___t}{I\+P\+\_\+\+E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$Static\+\_\+\+Config, uint32\+\_\+t E\+M\+C\+\_\+\+Clock)
+\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga8d91e59911be4b9c0f9de5ea24ac54bb}{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Init} (\hyperlink{struct_i_p___e_m_c___d_y_n___c_o_n_f_i_g___t}{I\+P\+\_\+\+E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$Dynamic\+\_\+\+Config)
+\begin{DoxyCompactList}\small\item\em Dyanmic memory setup. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga321df7291fbf8c56ec0458b50cfa8f33}{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Enable} (uint8\+\_\+t Enable)
+\begin{DoxyCompactList}\small\item\em Enable Dynamic Memory Controller. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga32ea97990abe55ab52630f80f5354f82}{Chip\+\_\+\+E\+M\+C\+\_\+\+Static\+\_\+\+Init} (\hyperlink{struct_i_p___e_m_c___s_t_a_t_i_c___c_o_n_f_i_g___t}{I\+P\+\_\+\+E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$Static\+\_\+\+Config)
+\begin{DoxyCompactList}\small\item\em Static memory setup. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_gaaa94b20dd9a20de6f6cf07c29d21a3f8}{Chip\+\_\+\+E\+M\+C\+\_\+\+Mirror} (uint8\+\_\+t Enable)
+\begin{DoxyCompactList}\small\item\em Mirror C\+S1 to C\+S0 and D\+Y\+C\+S0. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga4d9286ae1156d93abdabdb3a0e22ba01}{Chip\+\_\+\+E\+M\+C\+\_\+\+Enable} (uint8\+\_\+t Enable)
+\begin{DoxyCompactList}\small\item\em Enable E\+MC. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga3b8e25a7ed207f79039ea5929dd6a5ab}{Chip\+\_\+\+E\+M\+C\+\_\+\+Low\+Power\+Mode} (uint8\+\_\+t Enable)
+\begin{DoxyCompactList}\small\item\em Set E\+MC Low\+Power Mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga96af5cbd177432e40c687097f5453480}{Chip\+\_\+\+E\+M\+C\+\_\+\+Init} (uint32\+\_\+t Enable, uint32\+\_\+t Clock\+Ratio, uint32\+\_\+t Endian\+Mode)
+\begin{DoxyCompactList}\small\item\em Initialize E\+MC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}!E\+M\+C\+\_\+\+D\+I\+V\+\_\+\+R\+O\+U\+N\+D\+\_\+\+UP@{E\+M\+C\+\_\+\+D\+I\+V\+\_\+\+R\+O\+U\+N\+D\+\_\+\+UP}}
+\index{E\+M\+C\+\_\+\+D\+I\+V\+\_\+\+R\+O\+U\+N\+D\+\_\+\+UP@{E\+M\+C\+\_\+\+D\+I\+V\+\_\+\+R\+O\+U\+N\+D\+\_\+\+UP}!emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+I\+V\+\_\+\+R\+O\+U\+N\+D\+\_\+\+UP}{EMC_DIV_ROUND_UP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+I\+V\+\_\+\+R\+O\+U\+N\+D\+\_\+\+UP(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~((x + y -\/ 1) / y)}\hypertarget{emc__18xx__43xx_8c_a0966fbca28107438e1e131281f7a87ae}{}\label{emc__18xx__43xx_8c_a0966fbca28107438e1e131281f7a87ae}
+
+
+Definición en la línea 39 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+
+
+\subsection{Documentación de las funciones}
+\index{emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}!convert\+Timming\+Param@{convert\+Timming\+Param}}
+\index{convert\+Timming\+Param@{convert\+Timming\+Param}!emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{convert\+Timming\+Param(uint32\+\_\+t E\+M\+C\+\_\+\+Clock, int32\+\_\+t input\+\_\+ns, uint32\+\_\+t adjust)}{convertTimmingParam(uint32_t EMC_Clock, int32_t input_ns, uint32_t adjust)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} uint32\+\_\+t convert\+Timming\+Param (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{E\+M\+C\+\_\+\+Clock, }
+\item[{int32\+\_\+t}]{input\+\_\+ns, }
+\item[{uint32\+\_\+t}]{adjust}
+\end{DoxyParamCaption}
+)}\hypertarget{emc__18xx__43xx_8c_ab251503ae0b1423a0a423e9d7254ccbe}{}\label{emc__18xx__43xx_8c_ab251503ae0b1423a0a423e9d7254ccbe}
+
+
+Definición en la línea 62 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}!get\+A\+R\+M\+Peripheral\+ID@{get\+A\+R\+M\+Peripheral\+ID}}
+\index{get\+A\+R\+M\+Peripheral\+ID@{get\+A\+R\+M\+Peripheral\+ID}!emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{get\+A\+R\+M\+Peripheral\+I\+D(void)}{getARMPeripheralID(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} uint32\+\_\+t get\+A\+R\+M\+Peripheral\+ID (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{emc__18xx__43xx_8c_a2e94116ac71d324ebf99de5d2f4bda52}{}\label{emc__18xx__43xx_8c_a2e94116ac71d324ebf99de5d2f4bda52}
+
+
+Definición en la línea 51 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}!get\+Cols\+Len@{get\+Cols\+Len}}
+\index{get\+Cols\+Len@{get\+Cols\+Len}!emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{get\+Cols\+Len(uint32\+\_\+t Dyn\+Config)}{getColsLen(uint32_t DynConfig)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} uint32\+\_\+t get\+Cols\+Len (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{Dyn\+Config}
+\end{DoxyParamCaption}
+)}\hypertarget{emc__18xx__43xx_8c_a73ab3b1f4324c63ab01d570230e77ea6}{}\label{emc__18xx__43xx_8c_a73ab3b1f4324c63ab01d570230e77ea6}
+
+
+Definición en la línea 84 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}!init\+Dyn\+Mem@{init\+Dyn\+Mem}}
+\index{init\+Dyn\+Mem@{init\+Dyn\+Mem}!emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{init\+Dyn\+Mem(\+L\+P\+C\+\_\+\+E\+M\+C\+\_\+\+T $\ast$p\+E\+M\+C, I\+P\+\_\+\+E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T $\ast$\+Dynamic\+\_\+\+Config, uint32\+\_\+t E\+M\+C\+\_\+\+Clock)}{initDynMem(LPC_EMC_T *pEMC, IP_EMC_DYN_CONFIG_T *Dynamic_Config, uint32_t EMC_Clock)}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Dyn\+Mem (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+E\+M\+C\+\_\+T} $\ast$}]{p\+E\+MC, }
+\item[{{\bf I\+P\+\_\+\+E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$}]{Dynamic\+\_\+\+Config, }
+\item[{uint32\+\_\+t}]{E\+M\+C\+\_\+\+Clock}
+\end{DoxyParamCaption}
+)}\hypertarget{emc__18xx__43xx_8c_aaee0a1bdfbf4b5e3212f3ef8498afe4a}{}\label{emc__18xx__43xx_8c_aaee0a1bdfbf4b5e3212f3ef8498afe4a}
+
+
+Definición en la línea 103 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}!init\+Static\+Mem@{init\+Static\+Mem}}
+\index{init\+Static\+Mem@{init\+Static\+Mem}!emc\+\_\+18xx\+\_\+43xx.\+c@{emc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{init\+Static\+Mem(\+L\+P\+C\+\_\+\+E\+M\+C\+\_\+\+T $\ast$p\+E\+M\+C, I\+P\+\_\+\+E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T $\ast$\+Static\+\_\+\+Config, uint32\+\_\+t E\+M\+C\+\_\+\+Clock)}{initStaticMem(LPC_EMC_T *pEMC, IP_EMC_STATIC_CONFIG_T *Static_Config, uint32_t EMC_Clock)}}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Static\+Mem (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+E\+M\+C\+\_\+T} $\ast$}]{p\+E\+MC, }
+\item[{{\bf I\+P\+\_\+\+E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$}]{Static\+\_\+\+Config, }
+\item[{uint32\+\_\+t}]{E\+M\+C\+\_\+\+Clock}
+\end{DoxyParamCaption}
+)}\hypertarget{emc__18xx__43xx_8c_ac263a3e68931d182564bca53b499021b}{}\label{emc__18xx__43xx_8c_ac263a3e68931d182564bca53b499021b}
+
+
+Definición en la línea 199 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+

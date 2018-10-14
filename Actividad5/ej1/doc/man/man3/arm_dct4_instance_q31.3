@@ -1,0 +1,75 @@
+.TH "arm_dct4_instance_q31" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+arm_dct4_instance_q31 \- Instance structure for the Q31 DCT4/IDCT4 function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <arm_math\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBN\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBNby2\fP"
+.br
+.ti -1c
+.RI "\fBq31_t\fP \fBnormalize\fP"
+.br
+.ti -1c
+.RI "\fBq31_t\fP * \fBpTwiddle\fP"
+.br
+.ti -1c
+.RI "\fBq31_t\fP * \fBpCosFactor\fP"
+.br
+.ti -1c
+.RI "\fBarm_rfft_instance_q31\fP * \fBpRfft\fP"
+.br
+.ti -1c
+.RI "\fBarm_cfft_radix4_instance_q31\fP * \fBpCfft\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Instance structure for the Q31 DCT4/IDCT4 function\&. 
+.PP
+Definición en la línea 2291 del archivo arm_math\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint16_t N"
+length of the DCT4\&. 
+.PP
+Definición en la línea 2293 del archivo arm_math\&.h\&.
+.SS "uint16_t Nby2"
+half of the length of the DCT4\&. 
+.PP
+Definición en la línea 2294 del archivo arm_math\&.h\&.
+.SS "\fBq31_t\fP normalize"
+normalizing factor\&. 
+.PP
+Definición en la línea 2295 del archivo arm_math\&.h\&.
+.SS "\fBarm_cfft_radix4_instance_q31\fP* pCfft"
+points to the complex FFT instance\&. 
+.PP
+Definición en la línea 2299 del archivo arm_math\&.h\&.
+.SS "\fBq31_t\fP* pCosFactor"
+points to the cosFactor table\&. 
+.PP
+Definición en la línea 2297 del archivo arm_math\&.h\&.
+.SS "\fBarm_rfft_instance_q31\fP* pRfft"
+points to the real FFT instance\&. 
+.PP
+Definición en la línea 2298 del archivo arm_math\&.h\&.
+.SS "\fBq31_t\fP* pTwiddle"
+points to the twiddle factor table\&. 
+.PP
+Definición en la línea 2296 del archivo arm_math\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

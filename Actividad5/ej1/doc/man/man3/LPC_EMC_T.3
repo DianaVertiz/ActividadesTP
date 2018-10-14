@@ -1,0 +1,481 @@
+.TH "LPC_EMC_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_EMC_T \- External Memory Controller (EMC) register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <emc_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONTROL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSTATUS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONFIG\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [5]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICCONTROL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICREFRESH\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICREADCONFIG\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICRP\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICRAS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICSREX\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICAPR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICDAL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICWR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICRC\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICRFC\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICXSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICRRD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICMRD\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED2\fP [9]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICEXTENDEDWAIT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED3\fP [31]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICCONFIG0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICRASCAS0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED4\fP [6]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICCONFIG1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICRASCAS1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED5\fP [6]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICCONFIG2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICRASCAS2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED6\fP [6]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICCONFIG3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDYNAMICRASCAS3\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED7\fP [38]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICCONFIG0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITWEN0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITOEN0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITRD0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITPAG0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITWR0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITTURN0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED8\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICCONFIG1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITWEN1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITOEN1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITRD1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITPAG1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITWR1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITTURN1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED9\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICCONFIG2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITWEN2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITOEN2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITRD2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITPAG2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITWR2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITTURN2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED10\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICCONFIG3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITWEN3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITOEN3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITRD3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITPAG3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITWR3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATICWAITTURN3\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+External Memory Controller (EMC) register block structure\&. 
+.PP
+Definición en la línea 49 del archivo emc_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t CONFIG"
+Configures operation of the memory controller\&. 
+.PP
+Definición en la línea 52 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CONTROL"
+< EMC Structure Controls operation of the memory controller\&. 
+.PP
+Definición en la línea 50 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICAPR"
+Selects the last-data-out to active command time\&. 
+.PP
+Definición en la línea 61 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICCONFIG0"
+Selects the configuration information for dynamic memory chip select n\&. 
+.PP
+Definición en la línea 72 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICCONFIG1"
+Selects the configuration information for dynamic memory chip select n\&. 
+.PP
+Definición en la línea 75 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICCONFIG2"
+Selects the configuration information for dynamic memory chip select n\&. 
+.PP
+Definición en la línea 78 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICCONFIG3"
+Selects the configuration information for dynamic memory chip select n\&. 
+.PP
+Definición en la línea 81 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICCONTROL"
+Controls dynamic memory operation\&. 
+.PP
+Definición en la línea 54 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICDAL"
+Selects the data-in to active command time\&. 
+.PP
+Definición en la línea 62 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICMRD"
+Selects the load mode register to active command time\&. 
+.PP
+Definición en la línea 68 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICRAS"
+Selects the active to precharge command period\&. 
+.PP
+Definición en la línea 59 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICRASCAS0"
+Selects the RAS and CAS latencies for dynamic memory chip select n\&. 
+.PP
+Definición en la línea 73 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICRASCAS1"
+Selects the RAS and CAS latencies for dynamic memory chip select n\&. 
+.PP
+Definición en la línea 76 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICRASCAS2"
+Selects the RAS and CAS latencies for dynamic memory chip select n\&. 
+.PP
+Definición en la línea 79 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICRASCAS3"
+Selects the RAS and CAS latencies for dynamic memory chip select n\&. 
+.PP
+Definición en la línea 82 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICRC"
+Selects the active to active command period\&. 
+.PP
+Definición en la línea 64 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICREADCONFIG"
+Configures the dynamic memory read strategy\&. 
+.PP
+Definición en la línea 56 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICREFRESH"
+Configures dynamic memory refresh operation\&. 
+.PP
+Definición en la línea 55 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICRFC"
+Selects the auto-refresh period\&. 
+.PP
+Definición en la línea 65 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICRP"
+Selects the precharge command period\&. 
+.PP
+Definición en la línea 58 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICRRD"
+Selects the active bank A to active bank B latency\&. 
+.PP
+Definición en la línea 67 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICSREX"
+Selects the self-refresh exit time\&. 
+.PP
+Definición en la línea 60 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICWR"
+Selects the write recovery time\&. 
+.PP
+Definición en la línea 63 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DYNAMICXSR"
+Selects the exit self-refresh to active command time\&. 
+.PP
+Definición en la línea 66 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[5]"
+
+.PP
+Definición en la línea 53 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1"
+
+.PP
+Definición en la línea 57 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED10"
+
+.PP
+Definición en la línea 107 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED2[9]"
+
+.PP
+Definición en la línea 69 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED3[31]"
+
+.PP
+Definición en la línea 71 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED4[6]"
+
+.PP
+Definición en la línea 74 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED5[6]"
+
+.PP
+Definición en la línea 77 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED6[6]"
+
+.PP
+Definición en la línea 80 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED7[38]"
+
+.PP
+Definición en la línea 83 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED8"
+
+.PP
+Definición en la línea 91 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED9"
+
+.PP
+Definición en la línea 99 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICCONFIG0"
+Selects the memory configuration for static chip select n\&. 
+.PP
+Definición en la línea 84 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICCONFIG1"
+Selects the memory configuration for static chip select n\&. 
+.PP
+Definición en la línea 92 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICCONFIG2"
+Selects the memory configuration for static chip select n\&. 
+.PP
+Definición en la línea 100 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICCONFIG3"
+Selects the memory configuration for static chip select n\&. 
+.PP
+Definición en la línea 108 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICEXTENDEDWAIT"
+Selects time for long static memory read and write transfers\&. 
+.PP
+Definición en la línea 70 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITOEN0"
+Selects the delay from chip select n or address change, whichever is later, to output enable\&. 
+.PP
+Definición en la línea 86 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITOEN1"
+Selects the delay from chip select n or address change, whichever is later, to output enable\&. 
+.PP
+Definición en la línea 94 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITOEN2"
+Selects the delay from chip select n or address change, whichever is later, to output enable\&. 
+.PP
+Definición en la línea 102 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITOEN3"
+Selects the delay from chip select n or address change, whichever is later, to output enable\&. 
+.PP
+Definición en la línea 110 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITPAG0"
+Selects the delay for asynchronous page mode sequential accesses for chip select n\&. 
+.PP
+Definición en la línea 88 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITPAG1"
+Selects the delay for asynchronous page mode sequential accesses for chip select n\&. 
+.PP
+Definición en la línea 96 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITPAG2"
+Selects the delay for asynchronous page mode sequential accesses for chip select n\&. 
+.PP
+Definición en la línea 104 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITPAG3"
+Selects the delay for asynchronous page mode sequential accesses for chip select n\&. 
+.PP
+Definición en la línea 112 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITRD0"
+Selects the delay from chip select n to a read access\&. 
+.PP
+Definición en la línea 87 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITRD1"
+Selects the delay from chip select n to a read access\&. 
+.PP
+Definición en la línea 95 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITRD2"
+Selects the delay from chip select n to a read access\&. 
+.PP
+Definición en la línea 103 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITRD3"
+Selects the delay from chip select n to a read access\&. 
+.PP
+Definición en la línea 111 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITTURN0"
+Selects bus turnaround cycles 
+.PP
+Definición en la línea 90 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITTURN1"
+Selects bus turnaround cycles 
+.PP
+Definición en la línea 98 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITTURN2"
+Selects bus turnaround cycles 
+.PP
+Definición en la línea 106 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITTURN3"
+Selects bus turnaround cycles 
+.PP
+Definición en la línea 114 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITWEN0"
+Selects the delay from chip select n to write enable\&. 
+.PP
+Definición en la línea 85 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITWEN1"
+Selects the delay from chip select n to write enable\&. 
+.PP
+Definición en la línea 93 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITWEN2"
+Selects the delay from chip select n to write enable\&. 
+.PP
+Definición en la línea 101 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITWEN3"
+Selects the delay from chip select n to write enable\&. 
+.PP
+Definición en la línea 109 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITWR0"
+Selects the delay from chip select n to a write access\&. 
+.PP
+Definición en la línea 89 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITWR1"
+Selects the delay from chip select n to a write access\&. 
+.PP
+Definición en la línea 97 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITWR2"
+Selects the delay from chip select n to a write access\&. 
+.PP
+Definición en la línea 105 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATICWAITWR3"
+Selects the delay from chip select n to a write access\&. 
+.PP
+Definición en la línea 113 del archivo emc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t STATUS"
+Provides EMC status information\&. 
+.PP
+Definición en la línea 51 del archivo emc_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

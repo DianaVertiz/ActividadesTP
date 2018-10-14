@@ -1,0 +1,117 @@
+\hypertarget{sdio__18xx__43xx_8c}{}\section{Referencia del Archivo sdio\+\_\+18xx\+\_\+43xx.\+c}
+\label{sdio__18xx__43xx_8c}\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sdio__18xx__43xx_8c_af4d6976278a6d38a17a3e0c91a8f1cbb}{S\+D\+I\+O\+\_\+\+C\+M\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK}~0x\+A146       /$\ast$ Interrupts to be enabled for C\+M\+D $\ast$/
+\item 
+\#define \hyperlink{sdio__18xx__43xx_8c_a238c3acbf5e8df6b8b856dfca7c7caae}{S\+D\+I\+O\+\_\+\+D\+A\+T\+A\+\_\+\+I\+N\+T\+\_\+\+M\+SK}~0x\+B\+E88       /$\ast$ Interrupts to enable for data transfer $\ast$/
+\item 
+\#define \hyperlink{sdio__18xx__43xx_8c_a2b72e4d2ff86daa6fc5aa38327fd2bec}{S\+D\+I\+O\+\_\+\+C\+A\+R\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK}~(1\+U\+L $<$$<$ 16)  /$\ast$ S\+D\+I\+O Card interrupt $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group___s_d_i_o__18_x_x__43_x_x_ga5149b1d9ad72df09f19c32d81673b487}{S\+D\+I\+O\+\_\+\+Card\+\_\+\+Set\+Block\+Size} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t func, uint32\+\_\+t blk\+Size)
+\begin{DoxyCompactList}\small\item\em Sets the block size of a given function. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___s_d_i_o__18_x_x__43_x_x_gaf6da8cc6d310edac956ffdfce32be97c}{S\+D\+I\+O\+\_\+\+Card\+\_\+\+Get\+Block\+Size} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t func)
+\begin{DoxyCompactList}\small\item\em Gets the block size of a given function. \end{DoxyCompactList}\item 
+int \hyperlink{group___s_d_i_o__18_x_x__43_x_x_gab2b52e00bab2f72ab27fca006c48cf19}{S\+D\+I\+O\+\_\+\+Card\+\_\+\+Write\+Data} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t func, uint32\+\_\+t dest\+\_\+addr, const uint8\+\_\+t $\ast$src\+\_\+addr, uint32\+\_\+t size, uint32\+\_\+t flags)
+\begin{DoxyCompactList}\small\item\em Writes stream or block of data to the S\+D\+IO card \mbox{[}Using C\+M\+D53\mbox{]}. \end{DoxyCompactList}\item 
+int \hyperlink{group___s_d_i_o__18_x_x__43_x_x_ga340277ee179263511434895dd79fdd81}{S\+D\+I\+O\+\_\+\+Card\+\_\+\+Read\+Data} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t func, uint8\+\_\+t $\ast$dest\+\_\+addr, uint32\+\_\+t src\+\_\+addr, uint32\+\_\+t size, uint32\+\_\+t flags)
+\begin{DoxyCompactList}\small\item\em Reads stream or block of data from the S\+D\+IO card \mbox{[}Using C\+M\+D53\mbox{]}. \end{DoxyCompactList}\item 
+int \hyperlink{group___s_d_i_o__18_x_x__43_x_x_ga304515a4a0d3e71651e74bbdde07ba3f}{S\+D\+I\+O\+\_\+\+Card\+\_\+\+Enable\+Int} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t func)
+\begin{DoxyCompactList}\small\item\em Enable S\+D\+IO interrupt for a given function. \end{DoxyCompactList}\item 
+int \hyperlink{group___s_d_i_o__18_x_x__43_x_x_gad4d1162fa4a1e5b2b6c9835d20f28fed}{S\+D\+I\+O\+\_\+\+Card\+\_\+\+Disable\+Int} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t func)
+\begin{DoxyCompactList}\small\item\em Disable S\+D\+IO interrupt for a given function. \end{DoxyCompactList}\item 
+int \hyperlink{group___s_d_i_o__18_x_x__43_x_x_ga8d72d28a7c358d7cd0f1595e55a60e7e}{S\+D\+I\+O\+\_\+\+Card\+\_\+\+Init} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Initialize the S\+D\+IO card. \end{DoxyCompactList}\item 
+int \hyperlink{group___s_d_i_o__18_x_x__43_x_x_gac6afe352a20f90e630f5a45b808ddf5d}{S\+D\+I\+O\+\_\+\+Write\+\_\+\+Direct} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t func, uint32\+\_\+t addr, uint32\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write 8-\/\+Bit register from S\+D\+IO register space. \end{DoxyCompactList}\item 
+int \hyperlink{group___s_d_i_o__18_x_x__43_x_x_gab98c1fffe319cb2353c6a220365eca49}{S\+D\+I\+O\+\_\+\+Write\+Read\+\_\+\+Direct} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t func, uint32\+\_\+t addr, uint32\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Write 8-\/\+Bit register from S\+D\+IO register space and read the register back. \end{DoxyCompactList}\item 
+int \hyperlink{group___s_d_i_o__18_x_x__43_x_x_gab87874960f2ffedc091b12a6021c7424}{S\+D\+I\+O\+\_\+\+Read\+\_\+\+Direct} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t func, uint32\+\_\+t addr, uint32\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Read an 8-\/\+Bit register from S\+D\+IO register space. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_d_i_o__18_x_x__43_x_x_ga27a173a6ad1e2d681abaa8e95dddab69}{S\+D\+I\+O\+\_\+\+Setup\+\_\+\+Callback} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, void($\ast$\hyperlink{sdio__18xx__43xx_8c_a9d3ec75d1e15b0334b5f0bef82ada6b0}{wake\+\_\+evt})(\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t event, void $\ast$arg), uint32\+\_\+t($\ast$\hyperlink{sdio__18xx__43xx_8c_a6dbe39293b06ee6af0be7c83ed3fa71f}{wait\+\_\+evt})(\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t event, void $\ast$arg))
+\begin{DoxyCompactList}\small\item\em Setup S\+D\+IO wait and wakeup callbacks. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___s_d_i_o__18_x_x__43_x_x_gab8b5702f6354718338b7d8fbdd25fd92}{S\+D\+I\+O\+\_\+\+Send\+\_\+\+Command} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t cmd, uint32\+\_\+t arg)
+\begin{DoxyCompactList}\small\item\em Sends a command to the S\+D\+IO Card \mbox{[}Example C\+M\+D52\mbox{]}. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_d_i_o__18_x_x__43_x_x_ga9aa586377c061d1d7aa399ce381798eb}{S\+D\+I\+O\+\_\+\+Handler} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em S\+D\+IO Event handler \mbox{[}Should be called from S\+D\+IO interrupt handler\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!S\+D\+I\+O\+\_\+\+C\+A\+R\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK@{S\+D\+I\+O\+\_\+\+C\+A\+R\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK}}
+\index{S\+D\+I\+O\+\_\+\+C\+A\+R\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK@{S\+D\+I\+O\+\_\+\+C\+A\+R\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{S\+D\+I\+O\+\_\+\+C\+A\+R\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK}{SDIO_CARD_INT_MSK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+I\+O\+\_\+\+C\+A\+R\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK~(1\+U\+L $<$$<$ 16)  /$\ast$ S\+D\+I\+O Card interrupt $\ast$/}\hypertarget{sdio__18xx__43xx_8c_a2b72e4d2ff86daa6fc5aa38327fd2bec}{}\label{sdio__18xx__43xx_8c_a2b72e4d2ff86daa6fc5aa38327fd2bec}
+
+
+Definición en la línea 40 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!S\+D\+I\+O\+\_\+\+C\+M\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK@{S\+D\+I\+O\+\_\+\+C\+M\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK}}
+\index{S\+D\+I\+O\+\_\+\+C\+M\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK@{S\+D\+I\+O\+\_\+\+C\+M\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{S\+D\+I\+O\+\_\+\+C\+M\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK}{SDIO_CMD_INT_MSK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+I\+O\+\_\+\+C\+M\+D\+\_\+\+I\+N\+T\+\_\+\+M\+SK~0x\+A146       /$\ast$ Interrupts to be enabled for C\+M\+D $\ast$/}\hypertarget{sdio__18xx__43xx_8c_af4d6976278a6d38a17a3e0c91a8f1cbb}{}\label{sdio__18xx__43xx_8c_af4d6976278a6d38a17a3e0c91a8f1cbb}
+
+
+Definición en la línea 38 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!S\+D\+I\+O\+\_\+\+D\+A\+T\+A\+\_\+\+I\+N\+T\+\_\+\+M\+SK@{S\+D\+I\+O\+\_\+\+D\+A\+T\+A\+\_\+\+I\+N\+T\+\_\+\+M\+SK}}
+\index{S\+D\+I\+O\+\_\+\+D\+A\+T\+A\+\_\+\+I\+N\+T\+\_\+\+M\+SK@{S\+D\+I\+O\+\_\+\+D\+A\+T\+A\+\_\+\+I\+N\+T\+\_\+\+M\+SK}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{S\+D\+I\+O\+\_\+\+D\+A\+T\+A\+\_\+\+I\+N\+T\+\_\+\+M\+SK}{SDIO_DATA_INT_MSK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+I\+O\+\_\+\+D\+A\+T\+A\+\_\+\+I\+N\+T\+\_\+\+M\+SK~0x\+B\+E88       /$\ast$ Interrupts to enable for data transfer $\ast$/}\hypertarget{sdio__18xx__43xx_8c_a238c3acbf5e8df6b8b856dfca7c7caae}{}\label{sdio__18xx__43xx_8c_a238c3acbf5e8df6b8b856dfca7c7caae}
+
+
+Definición en la línea 39 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+
+
+
+\subsection{Documentación de las variables}
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!blk\+Sz@{blk\+Sz}}
+\index{blk\+Sz@{blk\+Sz}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{blk\+Sz}{blkSz}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t blk\+Sz\mbox{[}8\mbox{]}}\hypertarget{sdio__18xx__43xx_8c_a7fbc104bc4023e9622c60f1403ba7517}{}\label{sdio__18xx__43xx_8c_a7fbc104bc4023e9622c60f1403ba7517}
+
+
+Definición en la línea 49 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!flag@{flag}}
+\index{flag@{flag}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{flag}{flag}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t flag}\hypertarget{sdio__18xx__43xx_8c_a8fac2498fe5bd106b35d43af5bc91f6f}{}\label{sdio__18xx__43xx_8c_a8fac2498fe5bd106b35d43af5bc91f6f}
+
+
+Definición en la línea 46 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!fnum@{fnum}}
+\index{fnum@{fnum}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{fnum}{fnum}}]{\setlength{\rightskip}{0pt plus 5cm}int fnum}\hypertarget{sdio__18xx__43xx_8c_aa725e8b431137b8d26043711db100a4b}{}\label{sdio__18xx__43xx_8c_aa725e8b431137b8d26043711db100a4b}
+
+
+Definición en la línea 48 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!response@{response}}
+\index{response@{response}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{response}{response}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t response\mbox{[}4\mbox{]}}\hypertarget{sdio__18xx__43xx_8c_af8dec199f0e5b3e398572384f304a9b9}{}\label{sdio__18xx__43xx_8c_af8dec199f0e5b3e398572384f304a9b9}
+
+
+Definición en la línea 47 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!sdev@{sdev}}
+\index{sdev@{sdev}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{sdev}{sdev}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sdif\+\_\+device} sdev}\hypertarget{sdio__18xx__43xx_8c_a248b2b4fc13f4de09b54579d4215d344}{}\label{sdio__18xx__43xx_8c_a248b2b4fc13f4de09b54579d4215d344}
+
+
+Definición en la línea 50 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!wait\+\_\+evt@{wait\+\_\+evt}}
+\index{wait\+\_\+evt@{wait\+\_\+evt}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{wait\+\_\+evt}{wait_evt}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t($\ast$ wait\+\_\+evt) ({\bf L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t event, void $\ast$arg)}\hypertarget{sdio__18xx__43xx_8c_a6dbe39293b06ee6af0be7c83ed3fa71f}{}\label{sdio__18xx__43xx_8c_a6dbe39293b06ee6af0be7c83ed3fa71f}
+
+
+Definición en la línea 45 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}!wake\+\_\+evt@{wake\+\_\+evt}}
+\index{wake\+\_\+evt@{wake\+\_\+evt}!sdio\+\_\+18xx\+\_\+43xx.\+c@{sdio\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{wake\+\_\+evt}{wake_evt}}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ wake\+\_\+evt) ({\bf L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t event, void $\ast$arg)}\hypertarget{sdio__18xx__43xx_8c_a9d3ec75d1e15b0334b5f0bef82ada6b0}{}\label{sdio__18xx__43xx_8c_a9d3ec75d1e15b0334b5f0bef82ada6b0}
+
+
+Definición en la línea 44 del archivo sdio\+\_\+18xx\+\_\+43xx.\+c.
+

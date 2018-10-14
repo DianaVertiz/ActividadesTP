@@ -1,0 +1,310 @@
+.TH "Ring_Buffer" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Ring_Buffer \- CHIP: Simple ring buffer implementation
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBRINGBUFF_T\fP"
+.br
+.RI "\fIRing buffer structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRB_VHEAD\fP(rb)   (*(volatile uint32_t *) &(rb)\->head)"
+.br
+.ti -1c
+.RI "#define \fBRB_VTAIL\fP(rb)   (*(volatile uint32_t *) &(rb)\->tail)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "int \fBRingBuffer_Init\fP (\fBRINGBUFF_T\fP *RingBuff, void *buffer, int itemSize, int count)"
+.br
+.RI "\fIInitialize ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBRingBuffer_Flush\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIResets the ring buffer to empty\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_GetSize\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn size the ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_GetCount\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn number of items in the ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_GetFree\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn number of free items in the ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_IsFull\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn number of items in the ring buffer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int \fBRingBuffer_IsEmpty\fP (\fBRINGBUFF_T\fP *RingBuff)"
+.br
+.RI "\fIReturn empty status of ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_Insert\fP (\fBRINGBUFF_T\fP *RingBuff, const void *data)"
+.br
+.RI "\fIInsert a single item into ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_InsertMult\fP (\fBRINGBUFF_T\fP *RingBuff, const void *data, int num)"
+.br
+.RI "\fIInsert an array of items into ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_Pop\fP (\fBRINGBUFF_T\fP *RingBuff, void *data)"
+.br
+.RI "\fIPop an item from the ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_PopMult\fP (\fBRINGBUFF_T\fP *RingBuff, void *data, int num)"
+.br
+.RI "\fIPop an array of items from the ring buffer\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define RB_VHEAD(rb)   (*(volatile uint32_t *) &(rb)\->head)"
+volatile typecasted head index 
+.PP
+Definición en la línea 57 del archivo ring_buffer\&.h\&.
+.SS "#define RB_VTAIL(rb)   (*(volatile uint32_t *) &(rb)\->tail)"
+volatile typecasted tail index 
+.PP
+Definición en la línea 63 del archivo ring_buffer\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void RingBuffer_Flush (\fBRINGBUFF_T\fP * RingBuff)"
+
+.PP
+Resets the ring buffer to empty\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 83 del archivo ring_buffer\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP int RingBuffer_GetCount (\fBRINGBUFF_T\fP * RingBuff)"
+
+.PP
+Return number of items in the ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of items in the ring buffer 
+.RE
+.PP
+
+.PP
+Definición en la línea 103 del archivo ring_buffer\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP int RingBuffer_GetFree (\fBRINGBUFF_T\fP * RingBuff)"
+
+.PP
+Return number of free items in the ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of free items in the ring buffer 
+.RE
+.PP
+
+.PP
+Definición en la línea 113 del archivo ring_buffer\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP int RingBuffer_GetSize (\fBRINGBUFF_T\fP * RingBuff)"
+
+.PP
+Return size the ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Size of the ring buffer in bytes 
+.RE
+.PP
+
+.PP
+Definición en la línea 93 del archivo ring_buffer\&.h\&.
+.SS "int RingBuffer_Init (\fBRINGBUFF_T\fP * RingBuff, void * buffer, int itemSize, int count)"
+
+.PP
+Initialize ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer to initialize 
+.br
+\fIbuffer\fP : Pointer to buffer to associate with RingBuff 
+.br
+\fIitemSize\fP : Size of each buffer item size 
+.br
+\fIcount\fP : Size of ring buffer 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Memory pointed by \fIbuffer\fP must have correct alignment of \fIitemSize\fP, and \fIcount\fP must be a power of 2 and must at least be 2 or greater\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 55 del archivo ring_buffer\&.c\&.
+.SS "int RingBuffer_Insert (\fBRINGBUFF_T\fP * RingBuff, const void * data)"
+
+.PP
+Insert a single item into ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.br
+\fIdata\fP : pointer to item 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+1 when successfully inserted, 0 on error (Buffer not initialized using \fBRingBuffer_Init()\fP or attempted to insert when buffer is full) 
+.RE
+.PP
+
+.PP
+Definición en la línea 66 del archivo ring_buffer\&.c\&.
+.SS "int RingBuffer_InsertMult (\fBRINGBUFF_T\fP * RingBuff, const void * data, int num)"
+
+.PP
+Insert an array of items into ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.br
+\fIdata\fP : Pointer to first element of the item array 
+.br
+\fInum\fP : Number of items in the array 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+number of items successfully inserted, 0 on error (Buffer not initialized using \fBRingBuffer_Init()\fP or attempted to insert when buffer is full) 
+.RE
+.PP
+
+.PP
+Definición en la línea 82 del archivo ring_buffer\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP int RingBuffer_IsEmpty (\fBRINGBUFF_T\fP * RingBuff)"
+
+.PP
+Return empty status of ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+1 if the ring buffer is empty, otherwise 0 
+.RE
+.PP
+
+.PP
+Definición en la línea 133 del archivo ring_buffer\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP int RingBuffer_IsFull (\fBRINGBUFF_T\fP * RingBuff)"
+
+.PP
+Return number of items in the ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+1 if the ring buffer is full, otherwise 0 
+.RE
+.PP
+
+.PP
+Definición en la línea 123 del archivo ring_buffer\&.h\&.
+.SS "int RingBuffer_Pop (\fBRINGBUFF_T\fP * RingBuff, void * data)"
+
+.PP
+Pop an item from the ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.br
+\fIdata\fP : Pointer to memory where popped item be stored 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+1 when item popped successfuly onto \fIdata\fP, 0 When error (Buffer not initialized using \fBRingBuffer_Init()\fP or attempted to pop item when the buffer is empty) 
+.RE
+.PP
+
+.PP
+Definición en la línea 118 del archivo ring_buffer\&.c\&.
+.SS "int RingBuffer_PopMult (\fBRINGBUFF_T\fP * RingBuff, void * data, int num)"
+
+.PP
+Pop an array of items from the ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIRingBuff\fP : Pointer to ring buffer 
+.br
+\fIdata\fP : Pointer to memory where popped items be stored 
+.br
+\fInum\fP : Max number of items array \fIdata\fP can hold 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of items popped onto \fIdata\fP, 0 on error (Buffer not initialized using \fBRingBuffer_Init()\fP or attempted to pop when the buffer is empty) 
+.RE
+.PP
+
+.PP
+Definición en la línea 134 del archivo ring_buffer\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

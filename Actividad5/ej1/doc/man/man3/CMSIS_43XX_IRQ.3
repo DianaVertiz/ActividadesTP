@@ -1,0 +1,777 @@
+.TH "CMSIS_43XX_IRQ" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_43XX_IRQ \- CHIP: LPC43xx peripheral interrupt numbers
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBLPC43XX_IRQn_Type\fP { \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBMemoryManagement_IRQn\fP = -12, \fBBusFault_IRQn\fP = -11, \fBUsageFault_IRQn\fP = -10, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBDAC_IRQn\fP = 0, \fBM0APP_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBRESERVED2_IRQn\fP = 4, \fBETHERNET_IRQn\fP = 5, \fBSDIO_IRQn\fP = 6, \fBLCD_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBTIMER0_IRQn\fP = 12, \fBTIMER1_IRQn\fP = 13, \fBTIMER2_IRQn\fP = 14, \fBTIMER3_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 29, \fBRESERVED4_IRQn\fP = 30, \fBSGPIO_INT_IRQn\fP = 31, \fBPIN_INT0_IRQn\fP = 32, \fBPIN_INT1_IRQn\fP = 33, \fBPIN_INT2_IRQn\fP = 34, \fBPIN_INT3_IRQn\fP = 35, \fBPIN_INT4_IRQn\fP = 36, \fBPIN_INT5_IRQn\fP = 37, \fBPIN_INT6_IRQn\fP = 38, \fBPIN_INT7_IRQn\fP = 39, \fBGINT0_IRQn\fP = 40, \fBGINT1_IRQn\fP = 41, \fBEVENTROUTER_IRQn\fP = 42, \fBC_CAN1_IRQn\fP = 43, \fBRESERVED6_IRQn\fP = 44, \fBADCHS_IRQn\fP = 45, \fBATIMER_IRQn\fP = 46, \fBRTC_IRQn\fP = 47, \fBRESERVED8_IRQn\fP = 48, \fBWWDT_IRQn\fP = 49, \fBM0SUB_IRQn\fP = 50, \fBC_CAN0_IRQn\fP = 51, \fBQEI_IRQn\fP = 52, \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBMemoryManagement_IRQn\fP = -12, \fBBusFault_IRQn\fP = -11, \fBUsageFault_IRQn\fP = -10, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBDAC_IRQn\fP = 0, \fBM0APP_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBRESERVED2_IRQn\fP = 4, \fBETHERNET_IRQn\fP = 5, \fBSDIO_IRQn\fP = 6, \fBLCD_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBTIMER0_IRQn\fP = 12, \fBTIMER1_IRQn\fP = 13, \fBTIMER2_IRQn\fP = 14, \fBTIMER3_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 29, \fBRESERVED4_IRQn\fP = 30, \fBSGPIO_INT_IRQn\fP = 31, \fBPIN_INT0_IRQn\fP = 32, \fBPIN_INT1_IRQn\fP = 33, \fBPIN_INT2_IRQn\fP = 34, \fBPIN_INT3_IRQn\fP = 35, \fBPIN_INT4_IRQn\fP = 36, \fBPIN_INT5_IRQn\fP = 37, \fBPIN_INT6_IRQn\fP = 38, \fBPIN_INT7_IRQn\fP = 39, \fBGINT0_IRQn\fP = 40, \fBGINT1_IRQn\fP = 41, \fBEVENTROUTER_IRQn\fP = 42, \fBC_CAN1_IRQn\fP = 43, \fBRESERVED6_IRQn\fP = 44, \fBADCHS_IRQn\fP = 45, \fBATIMER_IRQn\fP = 46, \fBRTC_IRQn\fP = 47, \fBRESERVED8_IRQn\fP = 48, \fBWWDT_IRQn\fP = 49, \fBM0SUB_IRQn\fP = 50, \fBC_CAN0_IRQn\fP = 51, \fBQEI_IRQn\fP = 52 }"
+.br
+.ti -1c
+.RI "enum \fBLPC43XX_IRQn_Type\fP { \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBMemoryManagement_IRQn\fP = -12, \fBBusFault_IRQn\fP = -11, \fBUsageFault_IRQn\fP = -10, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBDAC_IRQn\fP = 0, \fBM0APP_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBRESERVED2_IRQn\fP = 4, \fBETHERNET_IRQn\fP = 5, \fBSDIO_IRQn\fP = 6, \fBLCD_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBTIMER0_IRQn\fP = 12, \fBTIMER1_IRQn\fP = 13, \fBTIMER2_IRQn\fP = 14, \fBTIMER3_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 29, \fBRESERVED4_IRQn\fP = 30, \fBSGPIO_INT_IRQn\fP = 31, \fBPIN_INT0_IRQn\fP = 32, \fBPIN_INT1_IRQn\fP = 33, \fBPIN_INT2_IRQn\fP = 34, \fBPIN_INT3_IRQn\fP = 35, \fBPIN_INT4_IRQn\fP = 36, \fBPIN_INT5_IRQn\fP = 37, \fBPIN_INT6_IRQn\fP = 38, \fBPIN_INT7_IRQn\fP = 39, \fBGINT0_IRQn\fP = 40, \fBGINT1_IRQn\fP = 41, \fBEVENTROUTER_IRQn\fP = 42, \fBC_CAN1_IRQn\fP = 43, \fBRESERVED6_IRQn\fP = 44, \fBADCHS_IRQn\fP = 45, \fBATIMER_IRQn\fP = 46, \fBRTC_IRQn\fP = 47, \fBRESERVED8_IRQn\fP = 48, \fBWWDT_IRQn\fP = 49, \fBM0SUB_IRQn\fP = 50, \fBC_CAN0_IRQn\fP = 51, \fBQEI_IRQn\fP = 52, \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBMemoryManagement_IRQn\fP = -12, \fBBusFault_IRQn\fP = -11, \fBUsageFault_IRQn\fP = -10, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBDAC_IRQn\fP = 0, \fBM0APP_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBRESERVED2_IRQn\fP = 4, \fBETHERNET_IRQn\fP = 5, \fBSDIO_IRQn\fP = 6, \fBLCD_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBTIMER0_IRQn\fP = 12, \fBTIMER1_IRQn\fP = 13, \fBTIMER2_IRQn\fP = 14, \fBTIMER3_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 29, \fBRESERVED4_IRQn\fP = 30, \fBSGPIO_INT_IRQn\fP = 31, \fBPIN_INT0_IRQn\fP = 32, \fBPIN_INT1_IRQn\fP = 33, \fBPIN_INT2_IRQn\fP = 34, \fBPIN_INT3_IRQn\fP = 35, \fBPIN_INT4_IRQn\fP = 36, \fBPIN_INT5_IRQn\fP = 37, \fBPIN_INT6_IRQn\fP = 38, \fBPIN_INT7_IRQn\fP = 39, \fBGINT0_IRQn\fP = 40, \fBGINT1_IRQn\fP = 41, \fBEVENTROUTER_IRQn\fP = 42, \fBC_CAN1_IRQn\fP = 43, \fBRESERVED6_IRQn\fP = 44, \fBADCHS_IRQn\fP = 45, \fBATIMER_IRQn\fP = 46, \fBRTC_IRQn\fP = 47, \fBRESERVED8_IRQn\fP = 48, \fBWWDT_IRQn\fP = 49, \fBM0SUB_IRQn\fP = 50, \fBC_CAN0_IRQn\fP = 51, \fBQEI_IRQn\fP = 52 }"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBLPC43XX_IRQn_Type\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIReset_IRQn \fP\fP
+1 Reset Vector, invoked on Power up and warm reset 
+.TP
+\fB\fINonMaskableInt_IRQn \fP\fP
+2 Non maskable Interrupt, cannot be stopped or preempted 
+.TP
+\fB\fIHardFault_IRQn \fP\fP
+3 Hard Fault, all classes of Fault 
+.TP
+\fB\fIMemoryManagement_IRQn \fP\fP
+4 Memory Management, MPU mismatch, including Access Violation and No Match 
+.TP
+\fB\fIBusFault_IRQn \fP\fP
+5 Bus Fault, Pre-Fetch-, Memory Access Fault, other address/memory related Fault 
+.TP
+\fB\fIUsageFault_IRQn \fP\fP
+6 Usage Fault, i\&.e\&. Undef Instruction, Illegal State Transition 
+.TP
+\fB\fISVCall_IRQn \fP\fP
+11 System Service Call via SVC instruction 
+.TP
+\fB\fIDebugMonitor_IRQn \fP\fP
+12 Debug Monitor 
+.TP
+\fB\fIPendSV_IRQn \fP\fP
+14 Pendable request for system service 
+.TP
+\fB\fISysTick_IRQn \fP\fP
+15 System Tick Timer 
+.TP
+\fB\fIDAC_IRQn \fP\fP
+0 DAC 
+.TP
+\fB\fIM0APP_IRQn \fP\fP
+1 M0APP Core interrupt 
+.TP
+\fB\fIDMA_IRQn \fP\fP
+2 DMA 
+.TP
+\fB\fIRESERVED1_IRQn \fP\fP
+3 EZH/EDM 
+.TP
+\fB\fIRESERVED2_IRQn \fP\fP
+.TP
+\fB\fIETHERNET_IRQn \fP\fP
+5 ETHERNET 
+.TP
+\fB\fISDIO_IRQn \fP\fP
+6 SDIO 
+.TP
+\fB\fILCD_IRQn \fP\fP
+7 LCD 
+.TP
+\fB\fIUSB0_IRQn \fP\fP
+8 USB0 
+.TP
+\fB\fIUSB1_IRQn \fP\fP
+9 USB1 
+.TP
+\fB\fISCT_IRQn \fP\fP
+10 SCT 
+.TP
+\fB\fIRITIMER_IRQn \fP\fP
+11 RITIMER 
+.TP
+\fB\fITIMER0_IRQn \fP\fP
+12 TIMER0 
+.TP
+\fB\fITIMER1_IRQn \fP\fP
+13 TIMER1 
+.TP
+\fB\fITIMER2_IRQn \fP\fP
+14 TIMER2 
+.TP
+\fB\fITIMER3_IRQn \fP\fP
+15 TIMER3 
+.TP
+\fB\fIMCPWM_IRQn \fP\fP
+16 MCPWM 
+.TP
+\fB\fIADC0_IRQn \fP\fP
+17 ADC0 
+.TP
+\fB\fII2C0_IRQn \fP\fP
+18 I2C0 
+.TP
+\fB\fII2C1_IRQn \fP\fP
+19 I2C1 
+.TP
+\fB\fISPI_INT_IRQn \fP\fP
+20 SPI_INT 
+.TP
+\fB\fIADC1_IRQn \fP\fP
+21 ADC1 
+.TP
+\fB\fISSP0_IRQn \fP\fP
+22 SSP0 
+.TP
+\fB\fISSP1_IRQn \fP\fP
+23 SSP1 
+.TP
+\fB\fIUSART0_IRQn \fP\fP
+24 USART0 
+.TP
+\fB\fIUART1_IRQn \fP\fP
+25 UART1 
+.TP
+\fB\fIUSART2_IRQn \fP\fP
+26 USART2 
+.TP
+\fB\fIUSART3_IRQn \fP\fP
+27 USART3 
+.TP
+\fB\fII2S0_IRQn \fP\fP
+28 I2S0 
+.TP
+\fB\fII2S1_IRQn \fP\fP
+29 I2S1 
+.TP
+\fB\fIRESERVED4_IRQn \fP\fP
+.TP
+\fB\fISGPIO_INT_IRQn \fP\fP
+31 SGPIO_IINT 
+.TP
+\fB\fIPIN_INT0_IRQn \fP\fP
+32 PIN_INT0 
+.TP
+\fB\fIPIN_INT1_IRQn \fP\fP
+33 PIN_INT1 
+.TP
+\fB\fIPIN_INT2_IRQn \fP\fP
+34 PIN_INT2 
+.TP
+\fB\fIPIN_INT3_IRQn \fP\fP
+35 PIN_INT3 
+.TP
+\fB\fIPIN_INT4_IRQn \fP\fP
+36 PIN_INT4 
+.TP
+\fB\fIPIN_INT5_IRQn \fP\fP
+37 PIN_INT5 
+.TP
+\fB\fIPIN_INT6_IRQn \fP\fP
+38 PIN_INT6 
+.TP
+\fB\fIPIN_INT7_IRQn \fP\fP
+39 PIN_INT7 
+.TP
+\fB\fIGINT0_IRQn \fP\fP
+40 GINT0 
+.TP
+\fB\fIGINT1_IRQn \fP\fP
+41 GINT1 
+.TP
+\fB\fIEVENTROUTER_IRQn \fP\fP
+42 EVENTROUTER 
+.TP
+\fB\fIC_CAN1_IRQn \fP\fP
+43 C_CAN1 
+.TP
+\fB\fIRESERVED6_IRQn \fP\fP
+.TP
+\fB\fIADCHS_IRQn \fP\fP
+45 ADCHS interrupt 
+.TP
+\fB\fIATIMER_IRQn \fP\fP
+46 ATIMER 
+.TP
+\fB\fIRTC_IRQn \fP\fP
+47 RTC 
+.TP
+\fB\fIRESERVED8_IRQn \fP\fP
+.TP
+\fB\fIWWDT_IRQn \fP\fP
+49 WWDT 
+.TP
+\fB\fIM0SUB_IRQn \fP\fP
+50 M0SUB core interrupt 
+.TP
+\fB\fIC_CAN0_IRQn \fP\fP
+51 C_CAN0 
+.TP
+\fB\fIQEI_IRQn \fP\fP
+52 QEI 
+.TP
+\fB\fIReset_IRQn \fP\fP
+1 Reset Vector, invoked on Power up and warm reset 
+.TP
+\fB\fINonMaskableInt_IRQn \fP\fP
+2 Non maskable Interrupt, cannot be stopped or preempted 
+.TP
+\fB\fIHardFault_IRQn \fP\fP
+3 Hard Fault, all classes of Fault 
+.TP
+\fB\fIMemoryManagement_IRQn \fP\fP
+4 Memory Management, MPU mismatch, including Access Violation and No Match 
+.TP
+\fB\fIBusFault_IRQn \fP\fP
+5 Bus Fault, Pre-Fetch-, Memory Access Fault, other address/memory related Fault 
+.TP
+\fB\fIUsageFault_IRQn \fP\fP
+6 Usage Fault, i\&.e\&. Undef Instruction, Illegal State Transition 
+.TP
+\fB\fISVCall_IRQn \fP\fP
+11 System Service Call via SVC instruction 
+.TP
+\fB\fIDebugMonitor_IRQn \fP\fP
+12 Debug Monitor 
+.TP
+\fB\fIPendSV_IRQn \fP\fP
+14 Pendable request for system service 
+.TP
+\fB\fISysTick_IRQn \fP\fP
+15 System Tick Timer 
+.TP
+\fB\fIDAC_IRQn \fP\fP
+0 DAC 
+.TP
+\fB\fIM0APP_IRQn \fP\fP
+1 M0APP Core interrupt 
+.TP
+\fB\fIDMA_IRQn \fP\fP
+2 DMA 
+.TP
+\fB\fIRESERVED1_IRQn \fP\fP
+3 EZH/EDM 
+.TP
+\fB\fIRESERVED2_IRQn \fP\fP
+.TP
+\fB\fIETHERNET_IRQn \fP\fP
+5 ETHERNET 
+.TP
+\fB\fISDIO_IRQn \fP\fP
+6 SDIO 
+.TP
+\fB\fILCD_IRQn \fP\fP
+7 LCD 
+.TP
+\fB\fIUSB0_IRQn \fP\fP
+8 USB0 
+.TP
+\fB\fIUSB1_IRQn \fP\fP
+9 USB1 
+.TP
+\fB\fISCT_IRQn \fP\fP
+10 SCT 
+.TP
+\fB\fIRITIMER_IRQn \fP\fP
+11 RITIMER 
+.TP
+\fB\fITIMER0_IRQn \fP\fP
+12 TIMER0 
+.TP
+\fB\fITIMER1_IRQn \fP\fP
+13 TIMER1 
+.TP
+\fB\fITIMER2_IRQn \fP\fP
+14 TIMER2 
+.TP
+\fB\fITIMER3_IRQn \fP\fP
+15 TIMER3 
+.TP
+\fB\fIMCPWM_IRQn \fP\fP
+16 MCPWM 
+.TP
+\fB\fIADC0_IRQn \fP\fP
+17 ADC0 
+.TP
+\fB\fII2C0_IRQn \fP\fP
+18 I2C0 
+.TP
+\fB\fII2C1_IRQn \fP\fP
+19 I2C1 
+.TP
+\fB\fISPI_INT_IRQn \fP\fP
+20 SPI_INT 
+.TP
+\fB\fIADC1_IRQn \fP\fP
+21 ADC1 
+.TP
+\fB\fISSP0_IRQn \fP\fP
+22 SSP0 
+.TP
+\fB\fISSP1_IRQn \fP\fP
+23 SSP1 
+.TP
+\fB\fIUSART0_IRQn \fP\fP
+24 USART0 
+.TP
+\fB\fIUART1_IRQn \fP\fP
+25 UART1 
+.TP
+\fB\fIUSART2_IRQn \fP\fP
+26 USART2 
+.TP
+\fB\fIUSART3_IRQn \fP\fP
+27 USART3 
+.TP
+\fB\fII2S0_IRQn \fP\fP
+28 I2S0 
+.TP
+\fB\fII2S1_IRQn \fP\fP
+29 I2S1 
+.TP
+\fB\fIRESERVED4_IRQn \fP\fP
+.TP
+\fB\fISGPIO_INT_IRQn \fP\fP
+31 SGPIO_IINT 
+.TP
+\fB\fIPIN_INT0_IRQn \fP\fP
+32 PIN_INT0 
+.TP
+\fB\fIPIN_INT1_IRQn \fP\fP
+33 PIN_INT1 
+.TP
+\fB\fIPIN_INT2_IRQn \fP\fP
+34 PIN_INT2 
+.TP
+\fB\fIPIN_INT3_IRQn \fP\fP
+35 PIN_INT3 
+.TP
+\fB\fIPIN_INT4_IRQn \fP\fP
+36 PIN_INT4 
+.TP
+\fB\fIPIN_INT5_IRQn \fP\fP
+37 PIN_INT5 
+.TP
+\fB\fIPIN_INT6_IRQn \fP\fP
+38 PIN_INT6 
+.TP
+\fB\fIPIN_INT7_IRQn \fP\fP
+39 PIN_INT7 
+.TP
+\fB\fIGINT0_IRQn \fP\fP
+40 GINT0 
+.TP
+\fB\fIGINT1_IRQn \fP\fP
+41 GINT1 
+.TP
+\fB\fIEVENTROUTER_IRQn \fP\fP
+42 EVENTROUTER 
+.TP
+\fB\fIC_CAN1_IRQn \fP\fP
+43 C_CAN1 
+.TP
+\fB\fIRESERVED6_IRQn \fP\fP
+.TP
+\fB\fIADCHS_IRQn \fP\fP
+45 ADCHS interrupt 
+.TP
+\fB\fIATIMER_IRQn \fP\fP
+46 ATIMER 
+.TP
+\fB\fIRTC_IRQn \fP\fP
+47 RTC 
+.TP
+\fB\fIRESERVED8_IRQn \fP\fP
+.TP
+\fB\fIWWDT_IRQn \fP\fP
+49 WWDT 
+.TP
+\fB\fIM0SUB_IRQn \fP\fP
+50 M0SUB core interrupt 
+.TP
+\fB\fIC_CAN0_IRQn \fP\fP
+51 C_CAN0 
+.TP
+\fB\fIQEI_IRQn \fP\fP
+52 QEI 
+.PP
+Definición en la línea 81 del archivo config_43xx/cmsis_43xx\&.h\&.
+.SS "enum \fBLPC43XX_IRQn_Type\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIReset_IRQn \fP\fP
+1 Reset Vector, invoked on Power up and warm reset 
+.TP
+\fB\fINonMaskableInt_IRQn \fP\fP
+2 Non maskable Interrupt, cannot be stopped or preempted 
+.TP
+\fB\fIHardFault_IRQn \fP\fP
+3 Hard Fault, all classes of Fault 
+.TP
+\fB\fIMemoryManagement_IRQn \fP\fP
+4 Memory Management, MPU mismatch, including Access Violation and No Match 
+.TP
+\fB\fIBusFault_IRQn \fP\fP
+5 Bus Fault, Pre-Fetch-, Memory Access Fault, other address/memory related Fault 
+.TP
+\fB\fIUsageFault_IRQn \fP\fP
+6 Usage Fault, i\&.e\&. Undef Instruction, Illegal State Transition 
+.TP
+\fB\fISVCall_IRQn \fP\fP
+11 System Service Call via SVC instruction 
+.TP
+\fB\fIDebugMonitor_IRQn \fP\fP
+12 Debug Monitor 
+.TP
+\fB\fIPendSV_IRQn \fP\fP
+14 Pendable request for system service 
+.TP
+\fB\fISysTick_IRQn \fP\fP
+15 System Tick Timer 
+.TP
+\fB\fIDAC_IRQn \fP\fP
+0 DAC 
+.TP
+\fB\fIM0APP_IRQn \fP\fP
+1 M0APP Core interrupt 
+.TP
+\fB\fIDMA_IRQn \fP\fP
+2 DMA 
+.TP
+\fB\fIRESERVED1_IRQn \fP\fP
+3 EZH/EDM 
+.TP
+\fB\fIRESERVED2_IRQn \fP\fP
+.TP
+\fB\fIETHERNET_IRQn \fP\fP
+5 ETHERNET 
+.TP
+\fB\fISDIO_IRQn \fP\fP
+6 SDIO 
+.TP
+\fB\fILCD_IRQn \fP\fP
+7 LCD 
+.TP
+\fB\fIUSB0_IRQn \fP\fP
+8 USB0 
+.TP
+\fB\fIUSB1_IRQn \fP\fP
+9 USB1 
+.TP
+\fB\fISCT_IRQn \fP\fP
+10 SCT 
+.TP
+\fB\fIRITIMER_IRQn \fP\fP
+11 RITIMER 
+.TP
+\fB\fITIMER0_IRQn \fP\fP
+12 TIMER0 
+.TP
+\fB\fITIMER1_IRQn \fP\fP
+13 TIMER1 
+.TP
+\fB\fITIMER2_IRQn \fP\fP
+14 TIMER2 
+.TP
+\fB\fITIMER3_IRQn \fP\fP
+15 TIMER3 
+.TP
+\fB\fIMCPWM_IRQn \fP\fP
+16 MCPWM 
+.TP
+\fB\fIADC0_IRQn \fP\fP
+17 ADC0 
+.TP
+\fB\fII2C0_IRQn \fP\fP
+18 I2C0 
+.TP
+\fB\fII2C1_IRQn \fP\fP
+19 I2C1 
+.TP
+\fB\fISPI_INT_IRQn \fP\fP
+20 SPI_INT 
+.TP
+\fB\fIADC1_IRQn \fP\fP
+21 ADC1 
+.TP
+\fB\fISSP0_IRQn \fP\fP
+22 SSP0 
+.TP
+\fB\fISSP1_IRQn \fP\fP
+23 SSP1 
+.TP
+\fB\fIUSART0_IRQn \fP\fP
+24 USART0 
+.TP
+\fB\fIUART1_IRQn \fP\fP
+25 UART1 
+.TP
+\fB\fIUSART2_IRQn \fP\fP
+26 USART2 
+.TP
+\fB\fIUSART3_IRQn \fP\fP
+27 USART3 
+.TP
+\fB\fII2S0_IRQn \fP\fP
+28 I2S0 
+.TP
+\fB\fII2S1_IRQn \fP\fP
+29 I2S1 
+.TP
+\fB\fIRESERVED4_IRQn \fP\fP
+.TP
+\fB\fISGPIO_INT_IRQn \fP\fP
+31 SGPIO_IINT 
+.TP
+\fB\fIPIN_INT0_IRQn \fP\fP
+32 PIN_INT0 
+.TP
+\fB\fIPIN_INT1_IRQn \fP\fP
+33 PIN_INT1 
+.TP
+\fB\fIPIN_INT2_IRQn \fP\fP
+34 PIN_INT2 
+.TP
+\fB\fIPIN_INT3_IRQn \fP\fP
+35 PIN_INT3 
+.TP
+\fB\fIPIN_INT4_IRQn \fP\fP
+36 PIN_INT4 
+.TP
+\fB\fIPIN_INT5_IRQn \fP\fP
+37 PIN_INT5 
+.TP
+\fB\fIPIN_INT6_IRQn \fP\fP
+38 PIN_INT6 
+.TP
+\fB\fIPIN_INT7_IRQn \fP\fP
+39 PIN_INT7 
+.TP
+\fB\fIGINT0_IRQn \fP\fP
+40 GINT0 
+.TP
+\fB\fIGINT1_IRQn \fP\fP
+41 GINT1 
+.TP
+\fB\fIEVENTROUTER_IRQn \fP\fP
+42 EVENTROUTER 
+.TP
+\fB\fIC_CAN1_IRQn \fP\fP
+43 C_CAN1 
+.TP
+\fB\fIRESERVED6_IRQn \fP\fP
+.TP
+\fB\fIADCHS_IRQn \fP\fP
+45 ADCHS interrupt 
+.TP
+\fB\fIATIMER_IRQn \fP\fP
+46 ATIMER 
+.TP
+\fB\fIRTC_IRQn \fP\fP
+47 RTC 
+.TP
+\fB\fIRESERVED8_IRQn \fP\fP
+.TP
+\fB\fIWWDT_IRQn \fP\fP
+49 WWDT 
+.TP
+\fB\fIM0SUB_IRQn \fP\fP
+50 M0SUB core interrupt 
+.TP
+\fB\fIC_CAN0_IRQn \fP\fP
+51 C_CAN0 
+.TP
+\fB\fIQEI_IRQn \fP\fP
+52 QEI 
+.TP
+\fB\fIReset_IRQn \fP\fP
+1 Reset Vector, invoked on Power up and warm reset 
+.TP
+\fB\fINonMaskableInt_IRQn \fP\fP
+2 Non maskable Interrupt, cannot be stopped or preempted 
+.TP
+\fB\fIHardFault_IRQn \fP\fP
+3 Hard Fault, all classes of Fault 
+.TP
+\fB\fIMemoryManagement_IRQn \fP\fP
+4 Memory Management, MPU mismatch, including Access Violation and No Match 
+.TP
+\fB\fIBusFault_IRQn \fP\fP
+5 Bus Fault, Pre-Fetch-, Memory Access Fault, other address/memory related Fault 
+.TP
+\fB\fIUsageFault_IRQn \fP\fP
+6 Usage Fault, i\&.e\&. Undef Instruction, Illegal State Transition 
+.TP
+\fB\fISVCall_IRQn \fP\fP
+11 System Service Call via SVC instruction 
+.TP
+\fB\fIDebugMonitor_IRQn \fP\fP
+12 Debug Monitor 
+.TP
+\fB\fIPendSV_IRQn \fP\fP
+14 Pendable request for system service 
+.TP
+\fB\fISysTick_IRQn \fP\fP
+15 System Tick Timer 
+.TP
+\fB\fIDAC_IRQn \fP\fP
+0 DAC 
+.TP
+\fB\fIM0APP_IRQn \fP\fP
+1 M0APP Core interrupt 
+.TP
+\fB\fIDMA_IRQn \fP\fP
+2 DMA 
+.TP
+\fB\fIRESERVED1_IRQn \fP\fP
+3 EZH/EDM 
+.TP
+\fB\fIRESERVED2_IRQn \fP\fP
+.TP
+\fB\fIETHERNET_IRQn \fP\fP
+5 ETHERNET 
+.TP
+\fB\fISDIO_IRQn \fP\fP
+6 SDIO 
+.TP
+\fB\fILCD_IRQn \fP\fP
+7 LCD 
+.TP
+\fB\fIUSB0_IRQn \fP\fP
+8 USB0 
+.TP
+\fB\fIUSB1_IRQn \fP\fP
+9 USB1 
+.TP
+\fB\fISCT_IRQn \fP\fP
+10 SCT 
+.TP
+\fB\fIRITIMER_IRQn \fP\fP
+11 RITIMER 
+.TP
+\fB\fITIMER0_IRQn \fP\fP
+12 TIMER0 
+.TP
+\fB\fITIMER1_IRQn \fP\fP
+13 TIMER1 
+.TP
+\fB\fITIMER2_IRQn \fP\fP
+14 TIMER2 
+.TP
+\fB\fITIMER3_IRQn \fP\fP
+15 TIMER3 
+.TP
+\fB\fIMCPWM_IRQn \fP\fP
+16 MCPWM 
+.TP
+\fB\fIADC0_IRQn \fP\fP
+17 ADC0 
+.TP
+\fB\fII2C0_IRQn \fP\fP
+18 I2C0 
+.TP
+\fB\fII2C1_IRQn \fP\fP
+19 I2C1 
+.TP
+\fB\fISPI_INT_IRQn \fP\fP
+20 SPI_INT 
+.TP
+\fB\fIADC1_IRQn \fP\fP
+21 ADC1 
+.TP
+\fB\fISSP0_IRQn \fP\fP
+22 SSP0 
+.TP
+\fB\fISSP1_IRQn \fP\fP
+23 SSP1 
+.TP
+\fB\fIUSART0_IRQn \fP\fP
+24 USART0 
+.TP
+\fB\fIUART1_IRQn \fP\fP
+25 UART1 
+.TP
+\fB\fIUSART2_IRQn \fP\fP
+26 USART2 
+.TP
+\fB\fIUSART3_IRQn \fP\fP
+27 USART3 
+.TP
+\fB\fII2S0_IRQn \fP\fP
+28 I2S0 
+.TP
+\fB\fII2S1_IRQn \fP\fP
+29 I2S1 
+.TP
+\fB\fIRESERVED4_IRQn \fP\fP
+.TP
+\fB\fISGPIO_INT_IRQn \fP\fP
+31 SGPIO_IINT 
+.TP
+\fB\fIPIN_INT0_IRQn \fP\fP
+32 PIN_INT0 
+.TP
+\fB\fIPIN_INT1_IRQn \fP\fP
+33 PIN_INT1 
+.TP
+\fB\fIPIN_INT2_IRQn \fP\fP
+34 PIN_INT2 
+.TP
+\fB\fIPIN_INT3_IRQn \fP\fP
+35 PIN_INT3 
+.TP
+\fB\fIPIN_INT4_IRQn \fP\fP
+36 PIN_INT4 
+.TP
+\fB\fIPIN_INT5_IRQn \fP\fP
+37 PIN_INT5 
+.TP
+\fB\fIPIN_INT6_IRQn \fP\fP
+38 PIN_INT6 
+.TP
+\fB\fIPIN_INT7_IRQn \fP\fP
+39 PIN_INT7 
+.TP
+\fB\fIGINT0_IRQn \fP\fP
+40 GINT0 
+.TP
+\fB\fIGINT1_IRQn \fP\fP
+41 GINT1 
+.TP
+\fB\fIEVENTROUTER_IRQn \fP\fP
+42 EVENTROUTER 
+.TP
+\fB\fIC_CAN1_IRQn \fP\fP
+43 C_CAN1 
+.TP
+\fB\fIRESERVED6_IRQn \fP\fP
+.TP
+\fB\fIADCHS_IRQn \fP\fP
+45 ADCHS interrupt 
+.TP
+\fB\fIATIMER_IRQn \fP\fP
+46 ATIMER 
+.TP
+\fB\fIRTC_IRQn \fP\fP
+47 RTC 
+.TP
+\fB\fIRESERVED8_IRQn \fP\fP
+.TP
+\fB\fIWWDT_IRQn \fP\fP
+49 WWDT 
+.TP
+\fB\fIM0SUB_IRQn \fP\fP
+50 M0SUB core interrupt 
+.TP
+\fB\fIC_CAN0_IRQn \fP\fP
+51 C_CAN0 
+.TP
+\fB\fIQEI_IRQn \fP\fP
+52 QEI 
+.PP
+Definición en la línea 81 del archivo inc/cmsis_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

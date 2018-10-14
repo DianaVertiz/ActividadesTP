@@ -1,0 +1,393 @@
+.TH "chip_clocks.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+chip_clocks.h \- 
+.SH SYNOPSIS
+.br
+.PP
+
+.in +1c
+.ti -1c
+.RI "#define \fBCHIP_CGU_IDIV_MASK\fP(x)   ('\\x03\\x0F\\x0F\\x0F\\xFF'[x])"
+.br
+.ti -1c
+.RI "enum \fBCHIP_CGU_CLKIN\fP { \fBCLKIN_32K\fP, \fBCLKIN_IRC\fP, \fBCLKIN_ENET_RX\fP, \fBCLKIN_ENET_TX\fP, \fBCLKIN_CLKIN\fP, \fBCLKIN_RESERVED1\fP, \fBCLKIN_CRYSTAL\fP, \fBCLKIN_USBPLL\fP, \fBCLKIN_AUDIOPLL\fP, \fBCLKIN_MAINPLL\fP, \fBCLKIN_RESERVED2\fP, \fBCLKIN_RESERVED3\fP, \fBCLKIN_IDIVA\fP, \fBCLKIN_IDIVB\fP, \fBCLKIN_IDIVC\fP, \fBCLKIN_IDIVD\fP, \fBCLKIN_IDIVE\fP, \fBCLKINPUT_PD\fP }
+.RI "\fICGU clock input list These are possible input clocks for the CGU and can come from both external (crystal) and internal (PLL) sources\&. These clock inputs can be routed to the base clocks (\fBCHIP_CGU_BASE_CLK_T\fP)\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBCHIP_CGU_BASE_CLK\fP { \fBCLK_BASE_SAFE\fP, \fBCLK_BASE_USB0\fP, \fBCLK_BASE_RESERVED1\fP, \fBCLK_BASE_USB1\fP, \fBCLK_BASE_MX\fP, \fBCLK_BASE_SPIFI\fP, \fBCLK_BASE_RESERVED2\fP, \fBCLK_BASE_PHY_RX\fP, \fBCLK_BASE_PHY_TX\fP, \fBCLK_BASE_APB1\fP, \fBCLK_BASE_APB3\fP, \fBCLK_BASE_LCD\fP, \fBCLK_BASE_RESERVED3\fP, \fBCLK_BASE_SDIO\fP, \fBCLK_BASE_SSP0\fP, \fBCLK_BASE_SSP1\fP, \fBCLK_BASE_UART0\fP, \fBCLK_BASE_UART1\fP, \fBCLK_BASE_UART2\fP, \fBCLK_BASE_UART3\fP, \fBCLK_BASE_OUT\fP, \fBCLK_BASE_RESERVED4\fP, \fBCLK_BASE_RESERVED5\fP, \fBCLK_BASE_RESERVED6\fP, \fBCLK_BASE_RESERVED7\fP, \fBCLK_BASE_APLL\fP, \fBCLK_BASE_CGU_OUT0\fP, \fBCLK_BASE_CGU_OUT1\fP, \fBCLK_BASE_LAST\fP, \fBCLK_BASE_NONE\fP = CLK_BASE_LAST }
+.RI "\fICGU base clocks CGU base clocks are clocks that are associated with a single input clock and are routed out to 1 or more peripherals\&. For example, the CLK_BASE_PERIPH clock can be configured to use the CLKIN_MAINPLL input clock, which will in turn route that clock to the CLK_PERIPH_BUS, CLK_PERIPH_CORE, and CLK_PERIPH_SGPIO periphral clocks\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBCHIP_CGU_IDIV\fP { \fBCLK_IDIV_A\fP, \fBCLK_IDIV_B\fP, \fBCLK_IDIV_C\fP, \fBCLK_IDIV_D\fP, \fBCLK_IDIV_E\fP, \fBCLK_IDIV_LAST\fP }
+.RI "\fICGU dividers CGU dividers provide an extra clock state where a specific clock can be divided before being routed to a peripheral group\&. A divider accepts an input clock and then divides it\&. To use the divided clock for a base clock group, use the divider as the input clock for the base clock (for example, use CLKIN_IDIVB, where CLKIN_MAINPLL might be the input into the divider)\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBCHIP_CCU_CLK\fP { \fBCLK_APB3_BUS\fP, \fBCLK_APB3_I2C1\fP, \fBCLK_APB3_DAC\fP, \fBCLK_APB3_ADC0\fP, \fBCLK_APB3_ADC1\fP, \fBCLK_APB3_CAN0\fP, \fBCLK_APB1_BUS\fP = 32, \fBCLK_APB1_MOTOCON\fP, \fBCLK_APB1_I2C0\fP, \fBCLK_APB1_I2S\fP, \fBCLK_APB1_CAN1\fP, \fBCLK_SPIFI\fP = 64, \fBCLK_MX_BUS\fP = 96, \fBCLK_MX_SPIFI\fP, \fBCLK_MX_GPIO\fP, \fBCLK_MX_LCD\fP, \fBCLK_MX_ETHERNET\fP, \fBCLK_MX_USB0\fP, \fBCLK_MX_EMC\fP, \fBCLK_MX_SDIO\fP, \fBCLK_MX_DMA\fP, \fBCLK_MX_MXCORE\fP, \fBRESERVED_ALIGN\fP = CLK_MX_MXCORE + 3, \fBCLK_MX_SCT\fP, \fBCLK_MX_USB1\fP, \fBCLK_MX_EMC_DIV\fP, \fBCLK_MX_FLASHA\fP, \fBCLK_MX_FLASHB\fP, \fBCLK_RESERVED1\fP, \fBCLK_RESERVED2\fP, \fBCLK_MX_EEPROM\fP, \fBCLK_MX_WWDT\fP = 128, \fBCLK_MX_UART0\fP, \fBCLK_MX_UART1\fP, \fBCLK_MX_SSP0\fP, \fBCLK_MX_TIMER0\fP, \fBCLK_MX_TIMER1\fP, \fBCLK_MX_SCU\fP, \fBCLK_MX_CREG\fP, \fBCLK_MX_RITIMER\fP = 160, \fBCLK_MX_UART2\fP, \fBCLK_MX_UART3\fP, \fBCLK_MX_TIMER2\fP, \fBCLK_MX_TIMER3\fP, \fBCLK_MX_SSP1\fP, \fBCLK_MX_QEI\fP, \fBCLK_RESERVED3\fP = 192, \fBCLK_RESERVED3A\fP, \fBCLK_RESERVED4\fP, \fBCLK_RESERVED5\fP, \fBCLK_USB0\fP = 224, \fBCLK_USB1\fP = 256, \fBCLK_RESERVED7\fP = 320, \fBCLK_RESERVED8\fP, \fBCLK_CCU1_LAST\fP, \fBCLK_CCU2_START\fP, \fBCLK_APLL\fP = CLK_CCU2_START, \fBRESERVED_ALIGNB\fP = CLK_CCU2_START + 31, \fBCLK_APB2_UART3\fP, \fBRESERVED_ALIGNC\fP = CLK_CCU2_START + 63, \fBCLK_APB2_UART2\fP, \fBRESERVED_ALIGND\fP = CLK_CCU2_START + 95, \fBCLK_APB0_UART1\fP, \fBRESERVED_ALIGNE\fP = CLK_CCU2_START + 127, \fBCLK_APB0_UART0\fP, \fBRESERVED_ALIGNF\fP = CLK_CCU2_START + 159, \fBCLK_APB2_SSP1\fP, \fBRESERVED_ALIGNG\fP = CLK_CCU2_START + 191, \fBCLK_APB0_SSP0\fP, \fBRESERVED_ALIGNH\fP = CLK_CCU2_START + 223, \fBCLK_APB2_SDIO\fP, \fBCLK_CCU2_LAST\fP }
+.RI "\fIPeripheral clocks Peripheral clocks are individual clocks routed to peripherals\&. Although multiple peripherals may share a same base clock, each peripheral's clock can be enabled or disabled individually\&. Some peripheral clocks also have additional dividers associated with them\&. \fP""
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_CGU_CLKIN\fP \fBCHIP_CGU_CLKIN_T\fP"
+.br
+.RI "\fICGU clock input list These are possible input clocks for the CGU and can come from both external (crystal) and internal (PLL) sources\&. These clock inputs can be routed to the base clocks (\fBCHIP_CGU_BASE_CLK_T\fP)\&. \fP"
+.ti -1c
+.RI "typedef enum \fBCHIP_CGU_BASE_CLK\fP \fBCHIP_CGU_BASE_CLK_T\fP"
+.br
+.RI "\fICGU base clocks CGU base clocks are clocks that are associated with a single input clock and are routed out to 1 or more peripherals\&. For example, the CLK_BASE_PERIPH clock can be configured to use the CLKIN_MAINPLL input clock, which will in turn route that clock to the CLK_PERIPH_BUS, CLK_PERIPH_CORE, and CLK_PERIPH_SGPIO periphral clocks\&. \fP"
+.ti -1c
+.RI "typedef enum \fBCHIP_CGU_IDIV\fP \fBCHIP_CGU_IDIV_T\fP"
+.br
+.RI "\fICGU dividers CGU dividers provide an extra clock state where a specific clock can be divided before being routed to a peripheral group\&. A divider accepts an input clock and then divides it\&. To use the divided clock for a base clock group, use the divider as the input clock for the base clock (for example, use CLKIN_IDIVB, where CLKIN_MAINPLL might be the input into the divider)\&. \fP"
+.ti -1c
+.RI "typedef enum \fBCHIP_CCU_CLK\fP \fBCHIP_CCU_CLK_T\fP"
+.br
+.RI "\fIPeripheral clocks Peripheral clocks are individual clocks routed to peripherals\&. Although multiple peripherals may share a same base clock, each peripheral's clock can be enabled or disabled individually\&. Some peripheral clocks also have additional dividers associated with them\&. \fP"
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define CHIP_CGU_IDIV_MASK(x)   ('\\x03\\x0F\\x0F\\x0F\\xFF'[x])"
+
+.PP
+Definición en la línea 140 del archivo chip_clocks\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef enum \fBCHIP_CCU_CLK\fP  \fBCHIP_CCU_CLK_T\fP"
+
+.PP
+Peripheral clocks Peripheral clocks are individual clocks routed to peripherals\&. Although multiple peripherals may share a same base clock, each peripheral's clock can be enabled or disabled individually\&. Some peripheral clocks also have additional dividers associated with them\&. 
+.SS "typedef enum \fBCHIP_CGU_BASE_CLK\fP  \fBCHIP_CGU_BASE_CLK_T\fP"
+
+.PP
+CGU base clocks CGU base clocks are clocks that are associated with a single input clock and are routed out to 1 or more peripherals\&. For example, the CLK_BASE_PERIPH clock can be configured to use the CLKIN_MAINPLL input clock, which will in turn route that clock to the CLK_PERIPH_BUS, CLK_PERIPH_CORE, and CLK_PERIPH_SGPIO periphral clocks\&. 
+.SS "typedef enum \fBCHIP_CGU_IDIV\fP  \fBCHIP_CGU_IDIV_T\fP"
+
+.PP
+CGU dividers CGU dividers provide an extra clock state where a specific clock can be divided before being routed to a peripheral group\&. A divider accepts an input clock and then divides it\&. To use the divided clock for a base clock group, use the divider as the input clock for the base clock (for example, use CLKIN_IDIVB, where CLKIN_MAINPLL might be the input into the divider)\&. 
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBCHIP_CCU_CLK\fP"
+
+.PP
+Peripheral clocks Peripheral clocks are individual clocks routed to peripherals\&. Although multiple peripherals may share a same base clock, each peripheral's clock can be enabled or disabled individually\&. Some peripheral clocks also have additional dividers associated with them\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fICLK_APB3_BUS \fP\fP
+APB3 bus clock from base clock CLK_BASE_APB3 
+.TP
+\fB\fICLK_APB3_I2C1 \fP\fP
+I2C1 register/perigheral clock from base clock CLK_BASE_APB3 
+.TP
+\fB\fICLK_APB3_DAC \fP\fP
+DAC peripheral clock from base clock CLK_BASE_APB3 
+.TP
+\fB\fICLK_APB3_ADC0 \fP\fP
+ADC0 register/perigheral clock from base clock CLK_BASE_APB3 
+.TP
+\fB\fICLK_APB3_ADC1 \fP\fP
+ADC1 register/perigheral clock from base clock CLK_BASE_APB3 
+.TP
+\fB\fICLK_APB3_CAN0 \fP\fP
+CAN0 register/perigheral clock from base clock CLK_BASE_APB3 
+.TP
+\fB\fICLK_APB1_BUS \fP\fP
+APB1 bus clock clock from base clock CLK_BASE_APB1 
+.TP
+\fB\fICLK_APB1_MOTOCON \fP\fP
+Motor controller register/perigheral clock from base clock CLK_BASE_APB1 
+.TP
+\fB\fICLK_APB1_I2C0 \fP\fP
+I2C0 register/perigheral clock from base clock CLK_BASE_APB1 
+.TP
+\fB\fICLK_APB1_I2S \fP\fP
+I2S register/perigheral clock from base clock CLK_BASE_APB1 
+.TP
+\fB\fICLK_APB1_CAN1 \fP\fP
+CAN1 register/perigheral clock from base clock CLK_BASE_APB1 
+.TP
+\fB\fICLK_SPIFI \fP\fP
+SPIFI SCKI input clock from base clock CLK_BASE_SPIFI 
+.TP
+\fB\fICLK_MX_BUS \fP\fP
+M3/M4 BUS core clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_SPIFI \fP\fP
+SPIFI register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_GPIO \fP\fP
+GPIO register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_LCD \fP\fP
+LCD register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_ETHERNET \fP\fP
+ETHERNET register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_USB0 \fP\fP
+USB0 register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_EMC \fP\fP
+EMC clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_SDIO \fP\fP
+SDIO register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_DMA \fP\fP
+DMA register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_MXCORE \fP\fP
+M3/M4 CPU core clock from base clock CLK_BASE_MX 
+.TP
+\fB\fIRESERVED_ALIGN \fP\fP
+.TP
+\fB\fICLK_MX_SCT \fP\fP
+SCT register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_USB1 \fP\fP
+USB1 register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_EMC_DIV \fP\fP
+ENC divider clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_FLASHA \fP\fP
+FLASHA bank clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_FLASHB \fP\fP
+FLASHB bank clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_RESERVED1 \fP\fP
+.TP
+\fB\fICLK_RESERVED2 \fP\fP
+.TP
+\fB\fICLK_MX_EEPROM \fP\fP
+EEPROM clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_WWDT \fP\fP
+WWDT register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_UART0 \fP\fP
+UART0 register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_UART1 \fP\fP
+UART1 register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_SSP0 \fP\fP
+SSP0 register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_TIMER0 \fP\fP
+TIMER0 register/perigheral clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_TIMER1 \fP\fP
+TIMER1 register/perigheral clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_SCU \fP\fP
+SCU register/perigheral clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_CREG \fP\fP
+CREG clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_RITIMER \fP\fP
+RITIMER register/perigheral clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_UART2 \fP\fP
+UART3 register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_UART3 \fP\fP
+UART4 register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_TIMER2 \fP\fP
+TIMER2 register/perigheral clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_TIMER3 \fP\fP
+TIMER3 register/perigheral clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_SSP1 \fP\fP
+SSP1 register clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_MX_QEI \fP\fP
+QEI register/perigheral clock from base clock CLK_BASE_MX 
+.TP
+\fB\fICLK_RESERVED3 \fP\fP
+.TP
+\fB\fICLK_RESERVED3A \fP\fP
+.TP
+\fB\fICLK_RESERVED4 \fP\fP
+.TP
+\fB\fICLK_RESERVED5 \fP\fP
+.TP
+\fB\fICLK_USB0 \fP\fP
+USB0 clock from base clock CLK_BASE_USB0 
+.TP
+\fB\fICLK_USB1 \fP\fP
+USB1 clock from base clock CLK_BASE_USB1 
+.TP
+\fB\fICLK_RESERVED7 \fP\fP
+.TP
+\fB\fICLK_RESERVED8 \fP\fP
+.TP
+\fB\fICLK_CCU1_LAST \fP\fP
+.TP
+\fB\fICLK_CCU2_START \fP\fP
+.TP
+\fB\fICLK_APLL \fP\fP
+Audio PLL clock from base clock CLK_BASE_APLL 
+.TP
+\fB\fIRESERVED_ALIGNB \fP\fP
+.TP
+\fB\fICLK_APB2_UART3 \fP\fP
+UART3 clock from base clock CLK_BASE_UART3 
+.TP
+\fB\fIRESERVED_ALIGNC \fP\fP
+.TP
+\fB\fICLK_APB2_UART2 \fP\fP
+UART2 clock from base clock CLK_BASE_UART2 
+.TP
+\fB\fIRESERVED_ALIGND \fP\fP
+.TP
+\fB\fICLK_APB0_UART1 \fP\fP
+UART1 clock from base clock CLK_BASE_UART1 
+.TP
+\fB\fIRESERVED_ALIGNE \fP\fP
+.TP
+\fB\fICLK_APB0_UART0 \fP\fP
+UART0 clock from base clock CLK_BASE_UART0 
+.TP
+\fB\fIRESERVED_ALIGNF \fP\fP
+.TP
+\fB\fICLK_APB2_SSP1 \fP\fP
+SSP1 clock from base clock CLK_BASE_SSP1 
+.TP
+\fB\fIRESERVED_ALIGNG \fP\fP
+.TP
+\fB\fICLK_APB0_SSP0 \fP\fP
+SSP0 clock from base clock CLK_BASE_SSP0 
+.TP
+\fB\fIRESERVED_ALIGNH \fP\fP
+.TP
+\fB\fICLK_APB2_SDIO \fP\fP
+SDIO clock from base clock CLK_BASE_SDIO 
+.TP
+\fB\fICLK_CCU2_LAST \fP\fP
+.PP
+Definición en la línea 149 del archivo chip_clocks\&.h\&.
+.SS "enum \fBCHIP_CGU_BASE_CLK\fP"
+
+.PP
+CGU base clocks CGU base clocks are clocks that are associated with a single input clock and are routed out to 1 or more peripherals\&. For example, the CLK_BASE_PERIPH clock can be configured to use the CLKIN_MAINPLL input clock, which will in turn route that clock to the CLK_PERIPH_BUS, CLK_PERIPH_CORE, and CLK_PERIPH_SGPIO periphral clocks\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fICLK_BASE_SAFE \fP\fP
+Base clock for WDT oscillator, IRC input only 
+.TP
+\fB\fICLK_BASE_USB0 \fP\fP
+Base USB clock for USB0, USB PLL input only 
+.TP
+\fB\fICLK_BASE_RESERVED1 \fP\fP
+.TP
+\fB\fICLK_BASE_USB1 \fP\fP
+Base USB clock for USB1 
+.TP
+\fB\fICLK_BASE_MX \fP\fP
+Base clock for CPU core 
+.TP
+\fB\fICLK_BASE_SPIFI \fP\fP
+Base clock for SPIFI 
+.TP
+\fB\fICLK_BASE_RESERVED2 \fP\fP
+.TP
+\fB\fICLK_BASE_PHY_RX \fP\fP
+Base clock for PHY RX 
+.TP
+\fB\fICLK_BASE_PHY_TX \fP\fP
+Base clock for PHY TX 
+.TP
+\fB\fICLK_BASE_APB1 \fP\fP
+Base clock for APB1 group 
+.TP
+\fB\fICLK_BASE_APB3 \fP\fP
+Base clock for APB3 group 
+.TP
+\fB\fICLK_BASE_LCD \fP\fP
+Base clock for LCD pixel clock 
+.TP
+\fB\fICLK_BASE_RESERVED3 \fP\fP
+.TP
+\fB\fICLK_BASE_SDIO \fP\fP
+Base clock for SDIO 
+.TP
+\fB\fICLK_BASE_SSP0 \fP\fP
+Base clock for SSP0 
+.TP
+\fB\fICLK_BASE_SSP1 \fP\fP
+Base clock for SSP1 
+.TP
+\fB\fICLK_BASE_UART0 \fP\fP
+Base clock for UART0 
+.TP
+\fB\fICLK_BASE_UART1 \fP\fP
+Base clock for UART1 
+.TP
+\fB\fICLK_BASE_UART2 \fP\fP
+Base clock for UART2 
+.TP
+\fB\fICLK_BASE_UART3 \fP\fP
+Base clock for UART3 
+.TP
+\fB\fICLK_BASE_OUT \fP\fP
+Base clock for CLKOUT pin 
+.TP
+\fB\fICLK_BASE_RESERVED4 \fP\fP
+.TP
+\fB\fICLK_BASE_RESERVED5 \fP\fP
+.TP
+\fB\fICLK_BASE_RESERVED6 \fP\fP
+.TP
+\fB\fICLK_BASE_RESERVED7 \fP\fP
+.TP
+\fB\fICLK_BASE_APLL \fP\fP
+Base clock for audio PLL 
+.TP
+\fB\fICLK_BASE_CGU_OUT0 \fP\fP
+Base clock for CGUOUT0 pin 
+.TP
+\fB\fICLK_BASE_CGU_OUT1 \fP\fP
+Base clock for CGUOUT1 pin 
+.TP
+\fB\fICLK_BASE_LAST \fP\fP
+.TP
+\fB\fICLK_BASE_NONE \fP\fP
+.PP
+Definición en la línea 78 del archivo chip_clocks\&.h\&.
+.SS "enum \fBCHIP_CGU_IDIV\fP"
+
+.PP
+CGU dividers CGU dividers provide an extra clock state where a specific clock can be divided before being routed to a peripheral group\&. A divider accepts an input clock and then divides it\&. To use the divided clock for a base clock group, use the divider as the input clock for the base clock (for example, use CLKIN_IDIVB, where CLKIN_MAINPLL might be the input into the divider)\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fICLK_IDIV_A \fP\fP
+CGU clock divider A 
+.TP
+\fB\fICLK_IDIV_B \fP\fP
+CGU clock divider B 
+.TP
+\fB\fICLK_IDIV_C \fP\fP
+CGU clock divider A 
+.TP
+\fB\fICLK_IDIV_D \fP\fP
+CGU clock divider D 
+.TP
+\fB\fICLK_IDIV_E \fP\fP
+CGU clock divider E 
+.TP
+\fB\fICLK_IDIV_LAST \fP\fP
+.PP
+Definición en la línea 131 del archivo chip_clocks\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Ejercicio 1 - TP 5: CHIP: LPC18xx/43xx Reset Generator Unit (RGU) driver</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="ciaaLogo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ejercicio 1 - TP 5
+   </div>
+   <div id="projectbrief">contadores e interrupciones</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li class="current"><a href="modules.html"><span>Módulos</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r_g_u__18_x_x__43_x_x.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estructuras de datos</a> &#124;
+<a href="#typedef-members">'typedefs'</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">CHIP: LPC18xx/43xx Reset Generator Unit (RGU) driver</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_l_p_c___r_g_u___t.html">LPC_RGU_T</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RGU register structure.  <a href="struct_l_p_c___r_g_u___t.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+'typedefs'</h2></td></tr>
+<tr class="memitem:gaf76b0dbb78e73bbcd44948364417ae60"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaba95b3f477c73ccfad274a65a9c97a9e">CHIP_RGU_RST</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaf76b0dbb78e73bbcd44948364417ae60">CHIP_RGU_RST_T</a></td></tr>
+<tr class="memdesc:gaf76b0dbb78e73bbcd44948364417ae60"><td class="mdescLeft">&#160;</td><td class="mdescRight">RGU reset enumerations.  <a href="#gaf76b0dbb78e73bbcd44948364417ae60">Más...</a><br /></td></tr>
+<tr class="separator:gaf76b0dbb78e73bbcd44948364417ae60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:gaba95b3f477c73ccfad274a65a9c97a9e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaba95b3f477c73ccfad274a65a9c97a9e">CHIP_RGU_RST</a> { <br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea4241a9e9dc8968694e8d38a8b2e229b8">RGU_CORE_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea47dc3294bb723512e32076e70ecbda5a">RGU_PERIPH_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea150a829d2765f07e2fdc73168cd39991">RGU_MASTER_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaf37f427c7db5117daaa3bc028ec2763b">RGU_WWDT_RST</a> = 4, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea857db0f8e6de2197f3ce7f1b7b065f27">RGU_CREG_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaefc89541d98adf2c46961de5b4e06e71">RGU_BUS_RST</a> = 8, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaef340cc39af0c5c88746e82ee7761dee">RGU_SCU_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea3f951c68ff383321855f820e80c6594e">RGU_M0SUB_RST</a> = 12, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea3587e981a336eb93734010c40bb40b88">RGU_M3_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaf06ae84de62a32823235b381a3d7fbd6">RGU_LCD_RST</a> = 16, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea89dc2f8f368530010817f03e1e67bf9e">RGU_USB0_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea63aee699ef3a785fd7a8fa6a5aeec686">RGU_USB1_RST</a>, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaf7b7d7de165e77a3e079cc9b7a95e799">RGU_DMA_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea525449b2f10ccd0bdc144f46e1d29762">RGU_SDIO_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea61b96d5e52008063f7552e132e242f91">RGU_EMC_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea0939786987d49c2cbf1caaf6f05115a7">RGU_ETHERNET_RST</a>, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaf7bc84d6c46fab78451a5f6105365e93">RGU_FLASHA_RST</a> = 25, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea9fc9ae7a0414267fa9630435048793c3">RGU_EEPROM_RST</a> = 27, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eae1a098dd2d1e1575dfc9642d2aee4f1c">RGU_GPIO_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea68f62dcbcdaf696c63abb23de7760d54">RGU_FLASHB_RST</a>, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaeebed296aa1e4fde268fc86718d2604c">RGU_TIMER0_RST</a> = 32, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea2225a925bbee83522ee82f65a0cfd51c">RGU_TIMER1_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaebce2c7a8ed8faa85cbb380e464420bf">RGU_TIMER2_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea264876863c88803fb96d83152d11d92c">RGU_TIMER3_RST</a>, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea5d12ba819edb0cdd6599e278e3867e2b">RGU_RITIMER_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaded11a02aee8996ee7afb39039581bef">RGU_SCT_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea7eeac68ceb4128c8daf5d46f510dacd9">RGU_MOTOCONPWM_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaeff63b910ef4a44798945ed3b94904cf">RGU_QEI_RST</a>, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eadd044217b707482b1ddb8643f8b38a0d">RGU_ADC0_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eac4275b180032c11c83b3c53b85616d00">RGU_ADC1_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea67885b215fed2cc82602d15ded4480c5">RGU_DAC_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaa92b0e62342378fda34b72fe7021a7c5">RGU_UART0_RST</a> = 44, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea781308da84d88ae57d33866becf92279">RGU_UART1_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea114d138ffefea0a228b451edc3f8ac7f">RGU_UART2_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eadbba4662d85bd089bc498e62d3e81b82">RGU_UART3_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eab3aff9e5fe47cb6830481993eaf8f250">RGU_I2C0_RST</a>, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eac9389ec4b22060f7acbadf55d1378dd2">RGU_I2C1_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eaa7c1e0f063c18137520afbf838500244">RGU_SSP0_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea4cf834919cd829d4c30b12bfab43bd06">RGU_SSP1_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea53032865c8a2a817462eb0a5cf12989a">RGU_I2S_RST</a>, 
+<br />
+&#160;&#160;<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea769caf02e188f0048ef4ab0d9e493494">RGU_SPIFI_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9ea0af937ec488406626a0811fece45dd0c">RGU_CAN1_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eabbfa323c41f4798e518199f1e76015f6">RGU_CAN0_RST</a>, 
+<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ggaba95b3f477c73ccfad274a65a9c97a9eacf1bcccbc49254edfcb4a3540a7c8b67">RGU_LAST_RST</a> = 63
+<br />
+ }<tr class="memdesc:gaba95b3f477c73ccfad274a65a9c97a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">RGU reset enumerations.  <a href="group___r_g_u__18_x_x__43_x_x.html#gaba95b3f477c73ccfad274a65a9c97a9e">Más...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:gaba95b3f477c73ccfad274a65a9c97a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ga3cc30f9a3adbdba9866e6a80cb9eb71d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___l_p_c___types___public___macros.html#ga10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="spifi__18xx__43xx_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_g_u__18_x_x__43_x_x.html#ga3cc30f9a3adbdba9866e6a80cb9eb71d">Chip_RGU_TriggerReset</a> (<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaf76b0dbb78e73bbcd44948364417ae60">CHIP_RGU_RST_T</a> ResetNumber)</td></tr>
+<tr class="memdesc:ga3cc30f9a3adbdba9866e6a80cb9eb71d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trigger a peripheral reset for the selected peripheral.  <a href="#ga3cc30f9a3adbdba9866e6a80cb9eb71d">Más...</a><br /></td></tr>
+<tr class="separator:ga3cc30f9a3adbdba9866e6a80cb9eb71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabada148b5dec002cb3e8a748e6613194"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___l_p_c___types___public___macros.html#ga10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="spifi__18xx__43xx_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gabada148b5dec002cb3e8a748e6613194">Chip_RGU_InReset</a> (<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaf76b0dbb78e73bbcd44948364417ae60">CHIP_RGU_RST_T</a> ResetNumber)</td></tr>
+<tr class="memdesc:gabada148b5dec002cb3e8a748e6613194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the reset status of a peripheral.  <a href="#gabada148b5dec002cb3e8a748e6613194">Más...</a><br /></td></tr>
+<tr class="separator:gabada148b5dec002cb3e8a748e6613194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae3ec369bc443e52bd8d76d759d79d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___l_p_c___types___public___macros.html#ga10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="spifi__18xx__43xx_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaae3ec369bc443e52bd8d76d759d79d9c">Chip_RGU_ClearReset</a> (<a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaf76b0dbb78e73bbcd44948364417ae60">CHIP_RGU_RST_T</a> ResetNumber)</td></tr>
+<tr class="memdesc:gaae3ec369bc443e52bd8d76d759d79d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears reset for the selected peripheral.  <a href="#gaae3ec369bc443e52bd8d76d759d79d9c">Más...</a><br /></td></tr>
+<tr class="separator:gaae3ec369bc443e52bd8d76d759d79d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<h2 class="groupheader">Documentación de los 'typedefs'</h2>
+<a class="anchor" id="gaf76b0dbb78e73bbcd44948364417ae60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaba95b3f477c73ccfad274a65a9c97a9e">CHIP_RGU_RST</a>  <a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaf76b0dbb78e73bbcd44948364417ae60">CHIP_RGU_RST_T</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>RGU reset enumerations. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las enumeraciones</h2>
+<a class="anchor" id="gaba95b3f477c73ccfad274a65a9c97a9e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaba95b3f477c73ccfad274a65a9c97a9e">CHIP_RGU_RST</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>RGU reset enumerations. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea4241a9e9dc8968694e8d38a8b2e229b8"></a>RGU_CORE_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea47dc3294bb723512e32076e70ecbda5a"></a>RGU_PERIPH_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea150a829d2765f07e2fdc73168cd39991"></a>RGU_MASTER_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaf37f427c7db5117daaa3bc028ec2763b"></a>RGU_WWDT_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea857db0f8e6de2197f3ce7f1b7b065f27"></a>RGU_CREG_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaefc89541d98adf2c46961de5b4e06e71"></a>RGU_BUS_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaef340cc39af0c5c88746e82ee7761dee"></a>RGU_SCU_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea3f951c68ff383321855f820e80c6594e"></a>RGU_M0SUB_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea3587e981a336eb93734010c40bb40b88"></a>RGU_M3_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaf06ae84de62a32823235b381a3d7fbd6"></a>RGU_LCD_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea89dc2f8f368530010817f03e1e67bf9e"></a>RGU_USB0_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea63aee699ef3a785fd7a8fa6a5aeec686"></a>RGU_USB1_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaf7b7d7de165e77a3e079cc9b7a95e799"></a>RGU_DMA_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea525449b2f10ccd0bdc144f46e1d29762"></a>RGU_SDIO_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea61b96d5e52008063f7552e132e242f91"></a>RGU_EMC_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea0939786987d49c2cbf1caaf6f05115a7"></a>RGU_ETHERNET_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaf7bc84d6c46fab78451a5f6105365e93"></a>RGU_FLASHA_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea9fc9ae7a0414267fa9630435048793c3"></a>RGU_EEPROM_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eae1a098dd2d1e1575dfc9642d2aee4f1c"></a>RGU_GPIO_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea68f62dcbcdaf696c63abb23de7760d54"></a>RGU_FLASHB_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaeebed296aa1e4fde268fc86718d2604c"></a>RGU_TIMER0_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea2225a925bbee83522ee82f65a0cfd51c"></a>RGU_TIMER1_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaebce2c7a8ed8faa85cbb380e464420bf"></a>RGU_TIMER2_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea264876863c88803fb96d83152d11d92c"></a>RGU_TIMER3_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea5d12ba819edb0cdd6599e278e3867e2b"></a>RGU_RITIMER_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaded11a02aee8996ee7afb39039581bef"></a>RGU_SCT_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea7eeac68ceb4128c8daf5d46f510dacd9"></a>RGU_MOTOCONPWM_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaeff63b910ef4a44798945ed3b94904cf"></a>RGU_QEI_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eadd044217b707482b1ddb8643f8b38a0d"></a>RGU_ADC0_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eac4275b180032c11c83b3c53b85616d00"></a>RGU_ADC1_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea67885b215fed2cc82602d15ded4480c5"></a>RGU_DAC_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaa92b0e62342378fda34b72fe7021a7c5"></a>RGU_UART0_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea781308da84d88ae57d33866becf92279"></a>RGU_UART1_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea114d138ffefea0a228b451edc3f8ac7f"></a>RGU_UART2_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eadbba4662d85bd089bc498e62d3e81b82"></a>RGU_UART3_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eab3aff9e5fe47cb6830481993eaf8f250"></a>RGU_I2C0_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eac9389ec4b22060f7acbadf55d1378dd2"></a>RGU_I2C1_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eaa7c1e0f063c18137520afbf838500244"></a>RGU_SSP0_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea4cf834919cd829d4c30b12bfab43bd06"></a>RGU_SSP1_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea53032865c8a2a817462eb0a5cf12989a"></a>RGU_I2S_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea769caf02e188f0048ef4ab0d9e493494"></a>RGU_SPIFI_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9ea0af937ec488406626a0811fece45dd0c"></a>RGU_CAN1_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eabbfa323c41f4798e518199f1e76015f6"></a>RGU_CAN0_RST&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ggaba95b3f477c73ccfad274a65a9c97a9eacf1bcccbc49254edfcb4a3540a7c8b67"></a>RGU_LAST_RST&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definición en la línea <a class="el" href="rgu__18xx__43xx_8h_source.html#l00047">47</a> del archivo <a class="el" href="rgu__18xx__43xx_8h_source.html">rgu_18xx_43xx.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="gaae3ec369bc443e52bd8d76d759d79d9c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___l_p_c___types___public___macros.html#ga10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="spifi__18xx__43xx_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> void Chip_RGU_ClearReset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaf76b0dbb78e73bbcd44948364417ae60">CHIP_RGU_RST_T</a>&#160;</td>
+          <td class="paramname"><em>ResetNumber</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears reset for the selected peripheral. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ResetNumber</td><td>: Peripheral reset number to trigger (RGU_M0SUB_RST or RGU_M0APP_RST) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Nothing </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Almost all peripherals will auto clear the reset bit. Only a few peripherals like the Cortex M0 Core in LPC43xx will not auto clear the reset and require this function to clear the reset bit. This function clears all reset bits in a reset register. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="rgu__18xx__43xx_8h_source.html#l00145">145</a> del archivo <a class="el" href="rgu__18xx__43xx_8h_source.html">rgu_18xx_43xx.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gabada148b5dec002cb3e8a748e6613194"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___l_p_c___types___public___macros.html#ga10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="spifi__18xx__43xx_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> bool Chip_RGU_InReset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaf76b0dbb78e73bbcd44948364417ae60">CHIP_RGU_RST_T</a>&#160;</td>
+          <td class="paramname"><em>ResetNumber</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks the reset status of a peripheral. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ResetNumber</td><td>: Peripheral reset number to trigger </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true if the periperal is still being reset </dd></dl>
+
+<p>Definición en la línea <a class="el" href="rgu__18xx__43xx_8h_source.html#l00130">130</a> del archivo <a class="el" href="rgu__18xx__43xx_8h_source.html">rgu_18xx_43xx.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga3cc30f9a3adbdba9866e6a80cb9eb71d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___l_p_c___types___public___macros.html#ga10b2d890d871e1489bb02b7e70d9bdfb">STATIC</a> <a class="el" href="spifi__18xx__43xx_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> void Chip_RGU_TriggerReset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaf76b0dbb78e73bbcd44948364417ae60">CHIP_RGU_RST_T</a>&#160;</td>
+          <td class="paramname"><em>ResetNumber</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trigger a peripheral reset for the selected peripheral. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ResetNumber</td><td>: Peripheral reset number to trigger </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Nothing </dd></dl>
+
+<p>Definición en la línea <a class="el" href="rgu__18xx__43xx_8h_source.html#l00119">119</a> del archivo <a class="el" href="rgu__18xx__43xx_8h_source.html">rgu_18xx_43xx.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

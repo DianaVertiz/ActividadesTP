@@ -1,0 +1,37 @@
+\hypertarget{pmc__18xx__43xx_8h}{}\section{Referencia del Archivo pmc\+\_\+18xx\+\_\+43xx.\+h}
+\label{pmc__18xx__43xx_8h}\index{pmc\+\_\+18xx\+\_\+43xx.\+h@{pmc\+\_\+18xx\+\_\+43xx.\+h}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___p_m_c___t}{L\+P\+C\+\_\+\+P\+M\+C\+\_\+T}
+\begin{DoxyCompactList}\small\item\em Power Management Controller register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_gaca8a69edb54ddb4cb539fda3f7c123a9}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE}~0x3000\+AA
+\begin{DoxyCompactList}\small\item\em Power Management Controller power modes Setting this mode will not make IO loose the state. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_ga488f9a7733cd97457b4656670c7e932b}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}~0x30\+F\+C\+BA
+\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_gad8936084d3b16e9bcd783586fc29ee15}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}~0x30\+F\+F7F
+\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_ga3696589b9d3f6ab6bb5bee7e44fcde76}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}~0x3\+F00\+AA
+\begin{DoxyCompactList}\small\item\em Power Management Controller power modes (IO powerdown) Setting this mode will make the IO loose the state. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_ga50fdb688d7fbcdad20437595b897973b}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}~0x3\+F\+F\+C\+BA
+\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_ga7136b2163bb95b08d538817081f7dd49}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}~0x3\+F\+F\+F7F
+\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___p_m_c__18_x_x__43_x_x_ga69f642b5034785c56bb9c45e4dd780de}{C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T} \{ \hyperlink{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea31d40a23015643fcc99a943b65841164}{P\+M\+C\+\_\+\+Deep\+Sleep} = P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE, 
+\hyperlink{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea9ab5cbaebd32ff7ae5414220e7281b04}{P\+M\+C\+\_\+\+Power\+Down} = P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE, 
+\hyperlink{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea9076408a570dc195ff5615835a93d678}{P\+M\+C\+\_\+\+Deep\+Power\+Down} = P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___p_m_c__18_x_x__43_x_x_ga38f5a78a75086be129f7be269d8320d4}{Chip\+\_\+\+P\+M\+C\+\_\+\+Sleep} (void)
+\begin{DoxyCompactList}\small\item\em Set to sleep power state. \end{DoxyCompactList}\item 
+void \hyperlink{group___p_m_c__18_x_x__43_x_x_ga8b70604e37d7db74a727abe576933208}{Chip\+\_\+\+P\+M\+C\+\_\+\+Set\+\_\+\+Pwr\+State} (\hyperlink{group___p_m_c__18_x_x__43_x_x_ga69f642b5034785c56bb9c45e4dd780de}{C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T} Pwr\+State)
+\begin{DoxyCompactList}\small\item\em Set to sleep power mode. \end{DoxyCompactList}\end{DoxyCompactItemize}

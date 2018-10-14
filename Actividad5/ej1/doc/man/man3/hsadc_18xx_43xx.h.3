@@ -1,0 +1,306 @@
+.TH "hsadc_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hsadc_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBHSADCINTCTRL_T\fP"
+.br
+.RI "\fIHigh speed ADC interrupt control structure\&. \fP"
+.ti -1c
+.RI "struct \fBLPC_HSADC_T\fP"
+.br
+.RI "\fIHSADC register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBHSADC_MAX_SAMPLEVAL\fP   0xFFF"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_DONE\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_OVERRUN\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_RANGE_IN\fP   (0 << 2)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_RANGE_BELOW\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_RANGE_ABOVE\fP   (2 << 2)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_RANGE\fP(val)   ((val) & 0xC)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_CROSSING_NONE\fP   (0 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_CROSSING_DOWN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_CROSSING_UP\fP   (2 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_CROSSING\fP(val)   ((val) & 0x30)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_DATA\fP(val)   ((val) >> 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_SAMPLE_MASK\fP   (0xFFF)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_SAMPLE\fP(val)   ((val) & 0xFFF)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_CHAN_ID_MASK\fP   (0x7000)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_CHAN_ID\fP(val)   (((val) >> 12) & 0x7)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_EMPTY\fP   (0x1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_SHIFTPACKED\fP(val)   ((val) >> 16)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_PACKEDMASK\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_CH\fP(ch)   (ch)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_HALT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_INT\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_POWERDOWN\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_BRANCH_NEXT\fP   (0 << 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_BRANCH_FIRST\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_BRANCH_SWAP\fP   (2 << 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_MATCH\fP(val)   ((val) << 8)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_THRESH_NONE\fP   (0 << 22)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_THRESH_A\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_THRESH_B\fP   (2 << 22)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_RESET_TIMER\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_UPDATE_TABLE\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_FIFO_FULL\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_FIFO_EMPTY\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_FIFO_OVERFLOW\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_DSCR_DONE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_DSCR_ERROR\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_ADC_OVF\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_ADC_UNF\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_THCMP_BRANGE\fP(ch)   (1 << ((ch * 5) + 0))"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_THCMP_ARANGE\fP(ch)   (1 << ((ch * 5) + 1))"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_THCMP_DCROSS\fP(ch)   (1 << ((ch * 5) + 2))"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_THCMP_UCROSS\fP(ch)   (1 << ((ch * 5) + 3))"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_OVERRUN\fP(ch)   (1 << ((ch * 5) + 4))"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBHSADC_TRIGGER_MASK_T\fP { \fBHSADC_CONFIG_TRIGGER_OFF\fP = 0, \fBHSADC_CONFIG_TRIGGER_SW\fP = 1, \fBHSADC_CONFIG_TRIGGER_EXT\fP = 2, \fBHSADC_CONFIG_TRIGGER_BOTH\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBHSADC_TRIGGER_MODE_T\fP { \fBHSADC_CONFIG_TRIGGER_RISEEXT\fP = (0 << 2), \fBHSADC_CONFIG_TRIGGER_FALLEXT\fP = (1 << 2), \fBHSADC_CONFIG_TRIGGER_LOWEXT\fP = (2 << 2), \fBHSADC_CONFIG_TRIGGER_HIGHEXT\fP = (3 << 2) }"
+.br
+.ti -1c
+.RI "enum \fBHSADC_TRIGGER_SYNC_T\fP { \fBHSADC_CONFIG_TRIGGER_NOEXTSYNC\fP = (0 << 4), \fBHSADC_CONFIG_TRIGGER_EXTSYNC\fP = (1 << 4) }"
+.br
+.ti -1c
+.RI "enum \fBHSADC_CHANNEL_ID_EN_T\fP { \fBHSADC_CHANNEL_ID_EN_NONE\fP = (0 << 5), \fBHSADC_CHANNEL_ID_EN_ADD\fP = (1 << 5) }"
+.br
+.ti -1c
+.RI "enum \fBHSADC_DCBIAS_T\fP { \fBHSADC_CHANNEL_NODCBIAS\fP = 0, \fBHSADC_CHANNEL_DCBIAS\fP = 1 }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_HSADC_Init\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIInitialize the High speed ADC\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_DeInit\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIShutdown HSADC\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_FlushFIFO\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIFlush High speed ADC FIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_LoadDMADesc\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fILoad a descriptor table from memory by requesting a DMA write\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetFIFOLevel\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReturns current HSADC FIFO fill level\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetupFIFO\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t trip, bool packed)"
+.br
+.RI "\fISets up HSADC FIFO trip level and packing\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_SWTrigger\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIStarts a manual (software) trigger of HSADC descriptors\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_SetActiveDescriptor\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t table, uint8_t desc)"
+.br
+.RI "\fISet active table descriptor index and number\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_HSADC_GetActiveDescriptorIndex\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReturns currently active descriptor index being processed\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_HSADC_GetActiveDescriptorTable\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReturns currently active descriptor table being processed\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_EnablePowerDownMode\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIEnables ADC power down mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_DisablePowerDownMode\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIDisables ADC power down mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_ConfigureTrigger\fP (\fBLPC_HSADC_T\fP *pHSADC, \fBHSADC_TRIGGER_MASK_T\fP mask, \fBHSADC_TRIGGER_MODE_T\fP mode, \fBHSADC_TRIGGER_SYNC_T\fP sync, \fBHSADC_CHANNEL_ID_EN_T\fP chID, uint16_t recoveryTime)"
+.br
+.RI "\fIConfigure HSADC trigger source and recovery time\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetThrLowValue\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t thrnum, uint16_t value)"
+.br
+.RI "\fISet HSADC Threshold low value\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetThrHighValue\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t thrnum, uint16_t value)"
+.br
+.RI "\fISet HSADC Threshold high value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetLastSample\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t channel)"
+.br
+.RI "\fIRead a ADC last sample register\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetSpeed\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t channel, uint8_t speed)"
+.br
+.RI "\fISetup speed for a input channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetPowerSpeed\fP (\fBLPC_HSADC_T\fP *pHSADC, bool comp2)"
+.br
+.RI "\fISetup (common) HSADC power and speed settings\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetACDCBias\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t channel, \fBHSADC_DCBIAS_T\fP dcInNeg, \fBHSADC_DCBIAS_T\fP dcInPos)"
+.br
+.RI "\fISetup AC-DC coupling selection for a channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_EnablePower\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIEnable HSADC power control and band gap reference\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_DisablePower\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIDisable HSADC power control and band gap reference\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetFIFO\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReads the HSADC FIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_SetupDescEntry\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t table, uint8_t descNo, uint32_t desc)"
+.br
+.RI "\fISets up a raw HSADC descriptor entry\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_UpdateDescTable\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t table)"
+.br
+.RI "\fIUpdate all descriptors of a table\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_EnableInts\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp, uint32_t intMask)"
+.br
+.RI "\fIEnable an interrupt for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_DisableInts\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp, uint32_t intMask)"
+.br
+.RI "\fIDisables an interrupt for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetEnabledInts\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp)"
+.br
+.RI "\fIReturns enabled interrupt for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetIntStatus\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp)"
+.br
+.RI "\fIReturns status for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_ClearIntStatus\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp, uint32_t stsMask)"
+.br
+.RI "\fIClear a status for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_SetIntStatus\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp, uint32_t stsMask)"
+.br
+.RI "\fISets a status for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetBaseClockRate\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReturns the clock rate in Hz for the HSADC\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

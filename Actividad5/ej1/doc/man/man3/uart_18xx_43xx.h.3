@@ -1,0 +1,575 @@
+.TH "uart_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+uart_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ring_buffer\&.h'\fP
+.br
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_USART_T\fP"
+.br
+.RI "\fIUSART register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUART_RBR_MASKBIT\fP   (0xFF)"
+.br
+.RI "\fIMacro defines for UART Receive Buffer register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_LOAD_DLL\fP(div)   ((div) & 0xFF)"
+.br
+.RI "\fIMacro defines for UART Divisor Latch LSB register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_DLL_MASKBIT\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_LOAD_DLM\fP(div)   (((div) >> 8) & 0xFF)"
+.br
+.RI "\fIMacro defines for UART Divisor Latch MSB register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_DLM_MASKBIT\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_RBRINT\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Interrupt Enable Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_IER_THREINT\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_RLSINT\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_MSINT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_CTSINT\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_ABEOINT\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_ABTOINT\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_BITMASK\fP   (0x307)"
+.br
+.ti -1c
+.RI "#define \fBUART1_IER_BITMASK\fP   (0x30F)"
+.br
+.ti -1c
+.RI "#define \fBUART2_IER_BITMASK\fP   (0x38F)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTSTAT_PEND\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Interrupt Identification Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_IIR_FIFO_EN\fP   (3 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_ABEO_INT\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_ABTO_INT\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_BITMASK\fP   (0x3CF)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_MASK\fP   (7 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_RLS\fP   (3 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_RDA\fP   (2 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_CTI\fP   (6 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_THRE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_MODEM\fP   (0 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_FIFO_EN\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART FIFO Control Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_FCR_RX_RS\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TX_RS\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_DMAMODE_SEL\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_BITMASK\fP   (0xCF)"
+.br
+.ti -1c
+.RI "#define \fBUART_TX_FIFO_SIZE\fP   (16)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TRG_LEV0\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TRG_LEV1\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TRG_LEV2\fP   (2 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TRG_LEV3\fP   (3 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN_MASK\fP   (3 << 0)"
+.br
+.RI "\fIMacro defines for UART Line Control Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN5\fP   (0 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN6\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN7\fP   (2 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN8\fP   (3 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_SBS_MASK\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_SBS_1BIT\fP   (0 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_SBS_2BIT\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_EN\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_DIS\fP   (0 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_ODD\fP   (0 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_EVEN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_F_1\fP   (2 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_F_0\fP   (3 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_BREAK_EN\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_DLAB_EN\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_BITMASK\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_DTR_CTRL\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Modem Control Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_MCR_RTS_CTRL\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_LOOPB_EN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_AUTO_RTS_EN\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_AUTO_CTS_EN\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_BITMASK\fP   (0xD3)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_RDR\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Line Status Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_LSR_OE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_PE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_FE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_BI\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_THRE\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_TEMT\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_RXFE\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_TXFE\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_BITMASK\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART1_LSR_BITMASK\fP   (0x1FF)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_DELTA_CTS\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Modem Status Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_MSR_DELTA_DSR\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_LO2HI_RI\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_DELTA_DCD\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_CTS\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_DSR\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_RI\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_DCD\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_BITMASK\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_START\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Auto baudrate control register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_ACR_MODE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_AUTO_RESTART\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_ABEOINT_CLR\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_ABTOINT_CLR\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_BITMASK\fP   (0x307)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_MODE0\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_MODE1\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_NMM_EN\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART RS485 Control register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_RX_DIS\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_AADEN\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_SEL_DTR\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_DCTRL_EN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_OINV_1\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_BITMASK\fP   (0x3F)"
+.br
+.ti -1c
+.RI "#define \fBUART_ICR_IRDAEN\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART IrDA Control Register - valid for 11xx, 17xx/40xx UART0/2/3, 18xx/43xx UART3 only\&. \fP"
+.ti -1c
+.RI "#define \fBUART_ICR_IRDAINV\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_ICR_FIXPULSE_EN\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_ICR_PULSEDIV\fP(n)   ((n & 0x07) << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_ICR_BITMASK\fP   (0x3F)"
+.br
+.ti -1c
+.RI "#define \fBUART_HDEN_HDEN\fP   ((1 << 0))"
+.br
+.RI "\fIMacro defines for UART half duplex register - ???? \fP"
+.ti -1c
+.RI "#define \fBUART_SCICTRL_SCIEN\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Smart card interface Control Register - valid for 11xx, 18xx/43xx UART0/2/3 only\&. \fP"
+.ti -1c
+.RI "#define \fBUART_SCICTRL_NACKDIS\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_SCICTRL_PROTSEL_T1\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_SCICTRL_TXRETRY\fP(n)   ((n & 0x07) << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_SCICTRL_GUARDTIME\fP(n)   ((n & 0xFF) << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_FDR_DIVADDVAL\fP(n)   (n & 0x0F)"
+.br
+.RI "\fIMacro defines for UART Fractional Divider Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_FDR_MULVAL\fP(n)   ((n << 4) & 0xF0)"
+.br
+.ti -1c
+.RI "#define \fBUART_FDR_BITMASK\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_TER1_TXEN\fP   (1 << 7)"
+.br
+.RI "\fIMacro defines for UART Tx Enable Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_TER2_TXEN\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_SYNC\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Synchronous Control Register - 11xx, 18xx/43xx UART0/2/3 only\&. \fP"
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_CSRC_MASTER\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_FES\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_TSBYPASS\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_CSCEN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_STARTSTOPDISABLE\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_CCCLR\fP   (1 << 6)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_TXEnable\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIEnable transmission on UART TxD pin\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_TXDisable\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIDisable transmission on UART TxD pin\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SendByte\fP (\fBLPC_USART_T\fP *pUART, uint8_t data)"
+.br
+.RI "\fITransmit a single data byte through the UART peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_UART_ReadByte\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIRead a single byte data from the UART peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_IntEnable\fP (\fBLPC_USART_T\fP *pUART, uint32_t intMask)"
+.br
+.RI "\fIEnable UART interrupts\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_IntDisable\fP (\fBLPC_USART_T\fP *pUART, uint32_t intMask)"
+.br
+.RI "\fIDisable UART interrupts\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_GetIntsEnabled\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturns UART interrupts that are enabled\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_ReadIntIDReg\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIRead the Interrupt Identification Register (IIR) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetupFIFOS\fP (\fBLPC_USART_T\fP *pUART, uint32_t fcr)"
+.br
+.RI "\fISetup the UART FIFOs\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_ConfigData\fP (\fBLPC_USART_T\fP *pUART, uint32_t config)"
+.br
+.RI "\fIConfigure data width, parity and stop bits\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_EnableDivisorAccess\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIEnable access to Divisor Latches\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_DisableDivisorAccess\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIDisable access to Divisor Latches\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetDivisorLatches\fP (\fBLPC_USART_T\fP *pUART, uint8_t dll, uint8_t dlm)"
+.br
+.RI "\fISet LSB and MSB divisor latch registers\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_ReadModemControl\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturn modem control register/status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetModemControl\fP (\fBLPC_USART_T\fP *pUART, uint32_t mcr)"
+.br
+.RI "\fISet modem control register/status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_ClearModemControl\fP (\fBLPC_USART_T\fP *pUART, uint32_t mcr)"
+.br
+.RI "\fIClear modem control register/status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_ReadLineStatus\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturn Line Status register/status (LSR) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_ReadModemStatus\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturn Modem Status register/status (MSR) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetScratch\fP (\fBLPC_USART_T\fP *pUART, uint8_t data)"
+.br
+.RI "\fIWrite a byte to the scratchpad register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_UART_ReadScratch\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturns current byte value in the scratchpad register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetAutoBaudReg\fP (\fBLPC_USART_T\fP *pUART, uint32_t acr)"
+.br
+.RI "\fISet autobaud register options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_ClearAutoBaudReg\fP (\fBLPC_USART_T\fP *pUART, uint32_t acr)"
+.br
+.RI "\fIClear autobaud register options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetRS485Flags\fP (\fBLPC_USART_T\fP *pUART, uint32_t ctrl)"
+.br
+.RI "\fISet RS485 control register options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_ClearRS485Flags\fP (\fBLPC_USART_T\fP *pUART, uint32_t ctrl)"
+.br
+.RI "\fIClear RS485 control register options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetRS485Addr\fP (\fBLPC_USART_T\fP *pUART, uint8_t addr)"
+.br
+.RI "\fISet RS485 address match value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_UART_GetRS485Addr\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIRead RS485 address match value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetRS485Delay\fP (\fBLPC_USART_T\fP *pUART, uint8_t dly)"
+.br
+.RI "\fISet RS485 direction control (RTS or DTR) delay value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_UART_GetRS485Delay\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIRead RS485 direction control (RTS or DTR) delay value\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_Init\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIInitializes the pUART peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_DeInit\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIDe-initializes the pUART peripheral\&. \fP"
+.ti -1c
+.RI "\fBFlagStatus\fP \fBChip_UART_CheckBusy\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fICheck whether if UART is busy or not\&. \fP"
+.ti -1c
+.RI "int \fBChip_UART_Send\fP (\fBLPC_USART_T\fP *pUART, const void *data, int numBytes)"
+.br
+.RI "\fITransmit a byte array through the UART peripheral (non-blocking) \fP"
+.ti -1c
+.RI "int \fBChip_UART_Read\fP (\fBLPC_USART_T\fP *pUART, void *data, int numBytes)"
+.br
+.RI "\fIRead data through the UART peripheral (non-blocking) \fP"
+.ti -1c
+.RI "uint32_t \fBChip_UART_SetBaud\fP (\fBLPC_USART_T\fP *pUART, uint32_t baudrate)"
+.br
+.RI "\fISets best dividers to get a target bit rate (without fractional divider) \fP"
+.ti -1c
+.RI "uint32_t \fBChip_UART_SetBaudFDR\fP (\fBLPC_USART_T\fP *pUART, uint32_t baud)"
+.br
+.RI "\fISets best dividers to get a target bit rate (with fractional divider) \fP"
+.ti -1c
+.RI "int \fBChip_UART_SendBlocking\fP (\fBLPC_USART_T\fP *pUART, const void *data, int numBytes)"
+.br
+.RI "\fITransmit a byte array through the UART peripheral (blocking) \fP"
+.ti -1c
+.RI "int \fBChip_UART_ReadBlocking\fP (\fBLPC_USART_T\fP *pUART, void *data, int numBytes)"
+.br
+.RI "\fIRead data through the UART peripheral (blocking) \fP"
+.ti -1c
+.RI "void \fBChip_UART_RXIntHandlerRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB)"
+.br
+.RI "\fIUART receive-only interrupt handler for ring buffers\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_TXIntHandlerRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB)"
+.br
+.RI "\fIUART transmit-only interrupt handler for ring buffers\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_UART_SendRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB, const void *data, int bytes)"
+.br
+.RI "\fIPopulate a transmit ring buffer and start UART transmit\&. \fP"
+.ti -1c
+.RI "int \fBChip_UART_ReadRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB, void *data, int bytes)"
+.br
+.RI "\fICopy data from a receive ring buffer\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_IRQRBHandler\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRXRB, \fBRINGBUFF_T\fP *pTXRB)"
+.br
+.RI "\fIUART receive/transmit interrupt handler for ring buffers\&. \fP"
+.ti -1c
+.RI "\fBFlagStatus\fP \fBChip_UART_GetABEOStatus\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturns the Auto Baud status\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_ABCmd\fP (\fBLPC_USART_T\fP *pUART, uint32_t mode, bool autorestart, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIStart/stop autobaud operation\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

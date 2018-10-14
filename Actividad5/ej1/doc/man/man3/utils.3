@@ -1,0 +1,59 @@
+.TH "utils" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+utils \- Utils
+.SS "Archivos"
+
+.in +1c
+.ti -1c
+.RI "archivo \fButils\&.h\fP"
+.br
+.RI "\fIDiversas funciones de utilidad simplificar el desarrollo de software para aplicaciones embebidas\&. \fP"
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBprint\fP (char *msg)"
+.br
+.RI "\fIEnvía una cadena de caracteres terminada en null por el puerto de comunicaciones serie (USART)\&. \fP"
+.ti -1c
+.RI "void \fBerror\fP (char *msg)"
+.br
+.RI "\fIEnvía una cadena de caracteres terminada en null por el puerto de comunicaciones serie (USART)\&. A diferencia de la función \fBprint\fP, esta función no retorna bloqueando la aplicación\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de las funciones"
+.PP 
+.SS "void error (char * msg)"
+
+.PP
+Envía una cadena de caracteres terminada en null por el puerto de comunicaciones serie (USART)\&. A diferencia de la función \fBprint\fP, esta función no retorna bloqueando la aplicación\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fImsg\fP Cadena de caracteres a transmitir\&. El envío de los datos se realiza utilizando la función \fIserialWrite\fP\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 10 del archivo utils\&.c\&.
+.SS "void print (char * msg)"
+
+.PP
+Envía una cadena de caracteres terminada en null por el puerto de comunicaciones serie (USART)\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fImsg\fP Cadena de caracteres a transmitir\&. El envío de los datos se realiza utilizando la función \fIserialWrite\fP\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 5 del archivo utils\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,106 @@
+.TH "ssp_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ssp_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP void \fBSSP_Write2BFifo\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP void \fBSSP_Write1BFifo\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP void \fBSSP_Read2BFifo\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP void \fBSSP_Read1BFifo\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP \fBChip_SSP_GetClockIndex\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP \fBChip_SSP_GetPeriphClockIndex\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.ti -1c
+.RI "void \fBChip_SSP_SetClockRate\fP (\fBLPC_SSP_T\fP *pSSP, uint32_t clk_rate, uint32_t prescale)"
+.br
+.RI "\fISet up output clocks per bit for SSP bus\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_SSP_RWFrames_Blocking\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.RI "\fISSP Polling Read/Write in blocking mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_SSP_WriteFrames_Blocking\fP (\fBLPC_SSP_T\fP *pSSP, const uint8_t *buffer, uint32_t buffer_len)"
+.br
+.RI "\fISSP Polling Write in blocking mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_SSP_ReadFrames_Blocking\fP (\fBLPC_SSP_T\fP *pSSP, uint8_t *buffer, uint32_t buffer_len)"
+.br
+.RI "\fISSP Polling Read in blocking mode\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_Int_FlushData\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIClean all data in RX FIFO of SSP\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_SSP_Int_RWFrames8Bits\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.RI "\fISSP Interrupt Read/Write with 8-bit frame width\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_SSP_Int_RWFrames16Bits\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.RI "\fISSP Interrupt Read/Write with 16-bit frame width\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_SetMaster\fP (\fBLPC_SSP_T\fP *pSSP, bool master)"
+.br
+.RI "\fISet the SSP operating modes, master or slave\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_SetBitRate\fP (\fBLPC_SSP_T\fP *pSSP, uint32_t bitRate)"
+.br
+.RI "\fISet the clock frequency for SSP interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_Init\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIInitialize the SSP\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_DeInit\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIDeinitialise the SSP\&. \fP"
+.in -1c
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP Chip_SSP_GetClockIndex (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Definición en la línea 105 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP Chip_SSP_GetPeriphClockIndex (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Definición en la línea 120 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP void SSP_Read1BFifo (\fBLPC_SSP_T\fP * pSSP, \fBChip_SSP_DATA_SETUP_T\fP * xf_setup)"
+SSP macro: read 2 bytes from FIFO buffer 
+.PP
+Definición en la línea 89 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP void SSP_Read2BFifo (\fBLPC_SSP_T\fP * pSSP, \fBChip_SSP_DATA_SETUP_T\fP * xf_setup)"
+SSP macro: read 1 bytes from FIFO buffer 
+.PP
+Definición en la línea 73 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP void SSP_Write1BFifo (\fBLPC_SSP_T\fP * pSSP, \fBChip_SSP_DATA_SETUP_T\fP * xf_setup)"
+SSP macro: write 1 bytes to FIFO buffer 
+.PP
+Definición en la línea 60 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP void SSP_Write2BFifo (\fBLPC_SSP_T\fP * pSSP, \fBChip_SSP_DATA_SETUP_T\fP * xf_setup)"
+
+.PP
+Definición en la línea 46 del archivo ssp_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

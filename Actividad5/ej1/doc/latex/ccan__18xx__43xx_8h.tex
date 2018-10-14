@@ -1,0 +1,209 @@
+\hypertarget{ccan__18xx__43xx_8h}{}\section{Referencia del Archivo ccan\+\_\+18xx\+\_\+43xx.\+h}
+\label{ccan__18xx__43xx_8h}\index{ccan\+\_\+18xx\+\_\+43xx.\+h@{ccan\+\_\+18xx\+\_\+43xx.\+h}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_c_c_a_n___i_f___t}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+T}
+\begin{DoxyCompactList}\small\item\em C\+C\+AN message interface register block structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T}
+\begin{DoxyCompactList}\small\item\em C\+C\+AN Controller Area Network register block structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T}
+\begin{DoxyCompactList}\small\item\em C\+AN message object structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga67343de48aecd561cc46691a58fe1aa2}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+IT}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa4d20674c2eed8d630afd662d12fecc8}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa0de0b1c4b72f922d1e69d3849830928}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE}~(1 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga7227d00cb5d6ab0055f183f272ee647c}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE}~(1 $<$$<$ 3)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga372744b6be07f3fea89ada4ea3de4d9d}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+D\+AR}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa65884720eb6b15b0acbff51e6be75b6}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+C\+CE}~(1 $<$$<$ 6)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga24b5503f3d90fa98a3ecb0e8f4e23bfa}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+T\+E\+ST}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8ba9703a5b17eaefa9c4840455774a34}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+L\+E\+C\+\_\+\+M\+A\+SK}~(0x07)		/$\ast$ Mask for Last Error Code $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga89b5bd7c2e8a0593d1d4b325e1d04a2f}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+T\+X\+OK}~(1 $<$$<$ 3)	/$\ast$ Transmitted a message successfully $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gad3b3105c74981a041f4d3515e989bfbd}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+R\+X\+OK}~(1 $<$$<$ 4)	/$\ast$ Received a message successfully $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga86acb18cb4751429d866c9fb8f119d44}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+P\+A\+SS}~(1 $<$$<$ 5)	/$\ast$ The C\+AN controller is in the \hyperlink{group__utils_gaad9796c174f7ef5d226cd169f2520fd5}{error} passive state$\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1775fca8e7a3c3c5b4572f4a60be573b}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+W\+A\+RN}~(1 $<$$<$ 6)	/$\ast$At least one of the \hyperlink{group__utils_gaad9796c174f7ef5d226cd169f2520fd5}{error} counters in the EC has reached the \hyperlink{group__utils_gaad9796c174f7ef5d226cd169f2520fd5}{error} warning limit of 96.$\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf5bda007aa17c3fe3f8a8417dd5feb1e}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+B\+O\+FF}~(1 $<$$<$ 7)	/$\ast$The C\+AN controller is in busoff state.$\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6729e4f8bb1311806c9437247ba43b09}{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+N\+O\+\_\+\+P\+E\+N\+D\+I\+NG}~0
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa3060227684cfad8ba747a13eae24bdc}{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+S\+T\+A\+T\+US}~0x8000
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga070e17d49a2c87d14452ff17fcbf212e}{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+M\+S\+G\+\_\+\+N\+UM}(n)~(n)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga5b82b859cbcbfbea3ee778cfdcde0e85}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+B\+A\+S\+I\+C\+\_\+\+M\+O\+DE}~(1 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga106d940b349f6405cd9b29fb96e7be2c}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+S\+I\+L\+E\+N\+T\+\_\+\+M\+O\+DE}~(1 $<$$<$ 3)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga9ee2a6a2c209e479ef82adb269ac3919}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+DE}~(1 $<$$<$ 4)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf071106b7661b748890a07ebdeeba2f2}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+ED}~(0)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaab61e1f43219a34dc6dd86a0c1c367b8}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+M\+O\+N\+I\+T\+O\+R\+ED}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gacc375f1ade23712882d71808600ad0f2}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}~(2 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gab0d2186b5d8b7936ee151e406422ac1c}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}~(3 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga26893920c44fae47b780aadb6f60f793}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}~(0)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gae528570ba4469a074747eb03f90f246a}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga33b5235b82cb4fbf0d9741a8b30fff3e}{C\+C\+A\+N\+\_\+\+S\+E\+G1\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}~5
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga74a3eea2e682a68876147a57d5c39698}{C\+C\+A\+N\+\_\+\+S\+E\+G2\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}~4
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8c1b9b8c1870fc3056da0debea8a4c49}{C\+C\+A\+N\+\_\+\+S\+J\+W\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}~0
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1b19a6ba9e51a4c56063942efb73bcb0}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+N\+UM}~32
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gafd89f40b1906826e3e6be2fa6158a15e}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+M\+S\+G\+\_\+\+N\+UM}(n)~(n)			/$\ast$ Message number (1-\/$>$20) $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga18ef1013a0028ca27030b764c755a483}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+B\+U\+SY}~0x8000			/$\ast$ 1 is writing is progress, cleared when R\+D/\+W\+R done $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga51b44e8b4e1dc3c1701fb6b352ce200a}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AB}~(1 $<$$<$ 0)		/$\ast$$\ast$ 1 is transfer data byte 4-\/7 to message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6c0cbbac4aa6768663bde8a577bba92a}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AA}~(1 $<$$<$ 1)		/$\ast$$\ast$ 1 is transfer data byte 0-\/3 to message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gace17a9473722068a46e84170e18232c1}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+W\+\_\+\+T\+X\+R\+Q\+ST}~(1 $<$$<$ 2)		/$\ast$$\ast$ Request a transmission. Set the T\+X\+R\+Q\+ST bit I\+F1/2\+\_\+\+M\+C\+T\+R\+L. $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga3f2ce5805ce3c394b21fcb8408708267}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+N\+E\+W\+D\+AT}~(1 $<$$<$ 2)		/$\ast$$\ast$ Clear N\+E\+W\+D\+AT bit in the message object $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga2feaf55f7b8b6c0807fe1b2dd5525c97}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+C\+L\+R\+I\+N\+T\+P\+ND}~(1 $<$$<$ 3)		/$\ast$$\ast$ Clear I\+N\+T\+P\+ND bit in the message object. $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa2862e76860e6f72b4ce8b60f0b059ed}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+C\+T\+RL}~(1 $<$$<$ 4)		/$\ast$$\ast$ 1 is transfer the C\+T\+RL bit to the message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga568752f6d7905cff72c156242b34f381}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+A\+RB}~(1 $<$$<$ 5)		/$\ast$$\ast$ 1 is transfer the A\+RB bits to the message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga673357c85c5be8938668a77bcfed270b}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+M\+A\+SK}~(1 $<$$<$ 6)		/$\ast$$\ast$ 1 is transfer the M\+A\+SK bit to the message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga753800ac9b7d98b25887b12e7c3dd71a}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+WR}~(1 $<$$<$ 7)		/$\ast$  Tranfer direction\+: Write $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gada076fb09a2b3ce5d331f6f9beae6eec}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+RD}~(0)				/$\ast$  Tranfer direction\+: Read $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga482a5f777327c83363e30dd9c8b99be3}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+A\+LL}
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6d6f28a44e97ee35c0a119c631caf1fd}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+X\+TD}~(1 $<$$<$ 15)				/$\ast$ 1 is extended identifier bit is used in the RX filter unit, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gab718018bc148b04ebecd0c26959ff893}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+D\+IR}(n)~(((n) \& 0x01) $<$$<$  14)	/$\ast$ 1 is direction bit is used in the R\+X filter unit, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga0bc000e496f46b34316ba9271c177fcc}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+D\+IR}(n)~(((n) \& 0x01) $<$$<$ 13)	/$\ast$ 1\+: Dir = transmit, 0\+: Dir = receive $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga5da2db0d7aa00bea000fe1fb0be9c3ff}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+X\+TD}~(1 $<$$<$ 14)		/$\ast$ Extended identifier bit is used$\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga11ed203f0f2890790f98a3a03f411755}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+M\+S\+G\+V\+AL}~(1 $<$$<$ 15)		/$\ast$ Message valid bit, 1 is valid in the MO handler, 0 is ignored $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8f4338ea37e765187c00106b7491482b}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+D\+L\+C\+\_\+\+M\+SK}~0x000\+F			/$\ast$ bit mask for D\+L\+C $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga31daef8dcd1bbf0747588f87d62f84e0}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+E\+OB}~(1 $<$$<$ 7)		/$\ast$ End of buffer, always write to 1 $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga46f7cf2fc1d4b31ca113aa5de5c178b2}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+RQ}~(1 $<$$<$ 8)		/$\ast$ 1 is Tx\+Rqst enabled $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf83e3b00cb47a292c183aae1248d7a8d}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+M\+T\+EN}(n)~(((n) \& 1\+U\+L) $<$$<$ 9)	/$\ast$ 1 is remote frame enabled $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1412ab53713b6ac3d16c1422b40df96b}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+X\+IE}~(1 $<$$<$ 10)		/$\ast$ 1 is RX interrupt enabled $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gabde8e5b20439ed42cefecf0f42d79795}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+IE}~(1 $<$$<$ 11)		/$\ast$ 1 is TX interrupt enabled $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga9d4b7ef7ab984451466e90942380cb7c}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+U\+M\+SK}~(1 $<$$<$ 12)		/$\ast$ 1 is to use the mask for the receive filter mask. $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1e55aa393304c0d4f1bca6099f086479}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+I\+N\+TP}~(1 $<$$<$ 13)		/$\ast$ 1 indicates message object is an interrupt source $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1505ed25fd25085b10a3812ad54bc7d5}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+M\+L\+ST}~(1 $<$$<$ 14)		/$\ast$ 1 indicates a message loss. $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga056b3ce9b31967dfc3ff0e0ed9d08b1d}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+N\+E\+WD}~(1 $<$$<$ 15)		/$\ast$ 1 indicates new data is in the message buffer.  $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gae864613dd1c5ac9e12e46a9665d0f2a0}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+S\+T\+D\+\_\+\+M\+A\+SK}~0x07\+FF
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga18d999c2df35107e1c3fbaba681b54b5}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+E\+X\+T\+\_\+\+M\+A\+SK}~0x1\+F\+F\+F\+F\+F\+FF
+\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gad7a3e9e736dfb04f5faff4954a01591a}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+T} \{ \\*
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa0f85936863162c77305b1561506af2e4}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa0f2bbf091c125bc5a3800089ce41d32f}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+S\+T\+U\+F\+F\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aac23e3d0c0180164aa01c8058e682d95a}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+F\+O\+R\+M\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aaaa28041d8c7ea3816e20198e56a91449}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+A\+C\+K\+\_\+\+E\+R\+R\+OR}, 
+\\*
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa064ab8e719bb679a9be161469a1ef085}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T1\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa123dfabe703e6396a0334598bcae266e}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T0\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa9b75109a2824295f6739961e1b110367}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+C\+R\+C\+\_\+\+E\+R\+R\+OR}
+ \}\begin{DoxyCompactList}\small\item\em Last Error Code definition. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T} \{ \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a20cb141be8468d07983601deedd9f726}{C\+C\+A\+N\+\_\+\+R\+X\+\_\+\+D\+IR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a03c25f707e2e0857392c2def9e8cef20}{C\+C\+A\+N\+\_\+\+T\+X\+\_\+\+D\+IR}
+ \}\begin{DoxyCompactList}\small\item\em C\+C\+AN Transfer direction definition. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} \{ \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac90da0138c430750d2d7d55d4448cae7aa0eb1a2b0eac4bdb8a9c8dba09d42b26}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F1} = 0, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac90da0138c430750d2d7d55d4448cae7a45267f491cc7247be1a624489ce31c2c}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F2} = 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga06bb34ff1e211fa5153a7f699b9ba599}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Int} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Enable C\+C\+AN Interrupts. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf4667bd6b992eabb841d91e9b6a753be}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Int} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Disable C\+C\+AN Interrupts. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga0f994d17cbfb6859384c4f4896a23156}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Int\+ID} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Get the source ID of an interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac5ea5e28fefe41244766c8cd9b8dce6d}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Status} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Get the C\+C\+AN status register. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga005c87851b2e901216b170b46e08861c}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Status} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Set the C\+C\+AN status. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gad4ec595674d4ae4f357abf9df843fd7a}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Status} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Clear the status of C\+C\+AN bus. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint8\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf986db27eac49a8f9042584e86c7dd6f}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Err\+Counter} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T} dir)
+\begin{DoxyCompactList}\small\item\em Get the current value of the transmit/receive error counter. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8fdfcf8865fca9748ae26a391842e720}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Test\+Mode} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Enable test mode in C\+C\+AN. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa04519b3acfd8302eb601fc9b2927c8d}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Test\+Mode} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Enable test mode in C\+C\+AN. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6348cfc02990a10658e6b3b800c2d702}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Config\+Test\+Mode} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t cfg)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable test mode in C\+C\+AN. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gadbb66ec94ce472bee4289fa891c86417}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Auto\+Retransmit} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Enable automatic retransmission. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gab97933336f93abffde9ad630c0ad487d}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Auto\+Retransmit} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Disable automatic retransmission. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga277f2c98eba48fdf57e8444d8f151782}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Tx\+R\+Q\+ST} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Get the transmit repuest bit in all message objects. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8525e3ffe5b5b3f1cccd4ef0823db123}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Init} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Initialize the C\+C\+AN peripheral, free all message object in R\+AM. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga480bb72b3278473a3946718e6c54917b}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em De-\/initialize the C\+C\+AN peripheral. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_ga67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga5174d447093a6f3854255a97ae222a85}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Bit\+Rate} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t bit\+Rate)
+\begin{DoxyCompactList}\small\item\em Select bit rate for C\+C\+AN bus. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf3ac11ce8aadaefebd96a7f6ffcb7a1f}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Transfer\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint32\+\_\+t mask, uint32\+\_\+t msg\+Num)
+\begin{DoxyCompactList}\small\item\em Tranfer message object between IF registers and Message R\+AM. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga15f704e1c960d69aaaa2ea17c0247048}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T} dir, bool remote\+Frame, uint8\+\_\+t msg\+Num, const \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$p\+Msg\+Obj)
+\begin{DoxyCompactList}\small\item\em Set a message into the message object in message R\+AM. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gadab63c8847a26eae41257f5a89334b92}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num, \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$p\+Msg\+Obj)
+\begin{DoxyCompactList}\small\item\em Get a message object in message R\+AM into the message buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga3418e9cdab81c5c8d7fb18d4afa0bd6e}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Valid\+Msg} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num, bool valid)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable the message object to valid. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf3e7cad0a5b86b9857d20f24531f779a}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Valid\+Msg} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Check the message objects is valid or not. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6cb155fe27766aa2a654d1eb34fce1f6}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Msg\+Int\+Pend} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T} dir)
+\begin{DoxyCompactList}\small\item\em Clear the pending message interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gad65e3ea736abec38609387aa349c6c6f}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+New\+Data\+Flag} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num)
+\begin{DoxyCompactList}\small\item\em Clear new data flag bit in the message object. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga80123249d183199b1bff05316f6b6c32}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Send} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, bool remote\+Frame, \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$p\+Msg\+Obj)
+\begin{DoxyCompactList}\small\item\em Send a message. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac0622af68b92aff26c9843d7536224c2}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Add\+Receive\+ID} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Register a message ID for receiving. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga58ab5f836908b1611bd07ea9476172d6}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Delete\+Receive\+ID} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Remove a registered message ID from receiving. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,62 @@
+.TH "rtc_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rtc_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_RTC_Init\fP (\fBLPC_RTC_T\fP *pRTC)"
+.br
+.RI "\fIInitialize the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_DeInit\fP (\fBLPC_RTC_T\fP *pRTC)"
+.br
+.RI "\fIDe-initialize the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_ResetClockTickCounter\fP (\fBLPC_RTC_T\fP *pRTC)"
+.br
+.RI "\fIReset clock tick counter in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_Enable\fP (\fBLPC_RTC_T\fP *pRTC, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIStart/Stop RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_CntIncrIntConfig\fP (\fBLPC_RTC_T\fP *pRTC, uint32_t cntrMask, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable Counter increment interrupt for a time type in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_AlarmIntConfig\fP (\fBLPC_RTC_T\fP *pRTC, uint32_t alarmMask, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable Alarm interrupt for a time type in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_SetFullTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIME_T\fP *pFullTime)"
+.br
+.RI "\fISet full time in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_GetFullTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIME_T\fP *pFullTime)"
+.br
+.RI "\fIGet full time from the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_SetFullAlarmTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIME_T\fP *pFullTime)"
+.br
+.RI "\fISet full alarm time in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_GetFullAlarmTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIME_T\fP *pFullTime)"
+.br
+.RI "\fIGet full alarm time in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_CalibCounterCmd\fP (\fBLPC_RTC_T\fP *pRTC, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable calibration counter in the RTC peripheral\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

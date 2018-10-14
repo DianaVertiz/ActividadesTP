@@ -1,0 +1,9 @@
+18:40:18 **** Clean-only build of configuration Default for project ej2_2 _final ****
+make clean 
+makefile:32: *** mixed implicit and normal rules: deprecated syntax
+makefile:23: atención: se anulan las instrucciones para el objetivo '/home/diana/CursoEmbebidos/ActividadesTP/Actividad4/ej2_2'
+makefile:15: atención: se ignoran las instrucciones viejas para el objetivo '/home/diana/CursoEmbebidos/ActividadesTP/Actividad4/ej2_2'
+makefile:22: *** mixed implicit and normal rules: deprecated syntax
+
+18:40:19 Build Finished (took 717ms)
+

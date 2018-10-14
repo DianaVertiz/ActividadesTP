@@ -1,0 +1,48 @@
+.TH "sdif_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sdif_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+\fC#include 'string\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_SDIF_Init\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIInitializes the SD/MMC card controller\&. \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_DeInit\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIShutdown the SD/MMC card controller\&. \fP"
+.ti -1c
+.RI "int32_t \fBChip_SDIF_SendCmd\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t cmd, uint32_t arg)"
+.br
+.RI "\fIFunction to send command to Card interface unit (CIU) \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_GetResponse\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t *resp)"
+.br
+.RI "\fIRead the response from the last command\&. \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_SetClock\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t clk_rate, uint32_t speed)"
+.br
+.RI "\fISets the SD bus clock speed\&. \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_SetClearIntFifo\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIFunction to clear interrupt & FIFOs\&. \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_DmaSetup\fP (\fBLPC_SDMMC_T\fP *pSDMMC, \fBsdif_device\fP *psdif_dev, uint32_t addr, uint32_t size)"
+.br
+.RI "\fISetup DMA descriptors\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

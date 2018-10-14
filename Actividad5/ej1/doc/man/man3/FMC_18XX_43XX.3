@@ -1,0 +1,197 @@
+.TH "FMC_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FMC_18XX_43XX \- CHIP: LPC18xx/43xx FLASH Memory Controller driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_FMC_T\fP"
+.br
+.RI "\fIFLASH Memory Controller Unit register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFMC_FLASHSIG_BUSY\fP   (1UL << 17)"
+.br
+.ti -1c
+.RI "#define \fBFMC_FLASHSIG_STAT\fP   (1 << 2)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "__STATIC_INLINE \fBLPC_FMC_T\fP * \fBChip_FMC_BaseAddr\fP (uint8_t bank)"
+.br
+.RI "\fIGets the base address of given bank\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_FMC_ComputeSignature\fP (uint8_t bank, uint32_t start, uint32_t stop)"
+.br
+.RI "\fIStart computation of a signature for a FLASH memory range\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_FMC_ComputeSignatureBlocks\fP (uint8_t bank, uint32_t start, uint32_t blocks)"
+.br
+.RI "\fIStart computation of a signature for a FLASH memory address and block count\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_FMC_ClearSignatureBusy\fP (uint8_t bank)"
+.br
+.RI "\fIClear signature generation completion flag\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_FMC_IsSignatureBusy\fP (uint8_t bank)"
+.br
+.RI "\fICheck for signature generation completion\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_FMC_GetSignature\fP (uint8_t bank, int index)"
+.br
+.RI "\fIReturns the generated FLASH signature value\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define FMC_FLASHSIG_BUSY   (1UL << 17)"
+
+.PP
+Definición en la línea 61 del archivo fmc_18xx_43xx\&.h\&.
+.SS "#define FMC_FLASHSIG_STAT   (1 << 2)"
+
+.PP
+Definición en la línea 64 del archivo fmc_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "__STATIC_INLINE \fBLPC_FMC_T\fP* Chip_FMC_BaseAddr (uint8_t bank)"
+
+.PP
+Gets the base address of given bank\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fI0\fP - Bank 0; 1 - Bank 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Base address corresponding to given bank 
+.RE
+.PP
+
+.PP
+Definición en la línea 71 del archivo fmc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_FMC_ClearSignatureBusy (uint8_t bank)"
+
+.PP
+Clear signature generation completion flag\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIbank\fP : FLASH bank, A = 0, B = 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 120 del archivo fmc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_FMC_ComputeSignature (uint8_t bank, uint32_t start, uint32_t stop)"
+
+.PP
+Start computation of a signature for a FLASH memory range\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIbank\fP : FLASH bank, A = 0, B = 1 
+.br
+\fIstart\fP : Starting FLASH address for computation, must be aligned on 16 byte boundary 
+.br
+\fIstop\fP : Ending FLASH address for computation, must be aligned on 16 byte boundary 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Only bits 20\&.\&.4 are used for the FLASH signature computation\&. Use the \fBChip_FMC_IsSignatureBusy()\fP function to determine when the signature computation operation is complete and use the \fBChip_FMC_GetSignature()\fP function to get the computed signature\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 91 del archivo fmc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_FMC_ComputeSignatureBlocks (uint8_t bank, uint32_t start, uint32_t blocks)"
+
+.PP
+Start computation of a signature for a FLASH memory address and block count\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIbank\fP : FLASH bank, A = 0, B = 1 
+.br
+\fIstart\fP : Starting FLASH address for computation, must be aligned on 16 byte boundary 
+.br
+\fIblocks\fP : Number of 16 byte blocks used for computation 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Only bits 20\&.\&.4 are used for the FLASH signature computation\&. Use the \fBChip_FMC_IsSignatureBusy()\fP function to determine when the signature computation operation is complete and the \fBChip_FMC_GetSignature()\fP function to get the computed signature\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 110 del archivo fmc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_FMC_GetSignature (uint8_t bank, int index)"
+
+.PP
+Returns the generated FLASH signature value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIbank\fP : FLASH bank, A = 0, B = 1 
+.br
+\fIindex\fP : Signature index to get - use 0 to FMSW0, 1 to FMSW1, etc\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+the generated FLASH signature value 
+.RE
+.PP
+
+.PP
+Definición en la línea 141 del archivo fmc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP bool Chip_FMC_IsSignatureBusy (uint8_t bank)"
+
+.PP
+Check for signature generation completion\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIbank\fP : FLASH bank, A = 0, B = 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+true if the signature computation is running, false if finished 
+.RE
+.PP
+
+.PP
+Definición en la línea 130 del archivo fmc_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

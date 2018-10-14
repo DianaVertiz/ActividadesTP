@@ -1,0 +1,379 @@
+\hypertarget{group___i2_c_m__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx I2C master-\/only driver}
+\label{group___i2_c_m__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T}
+\begin{DoxyCompactList}\small\item\em Master transfer data structure definitions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___i2_c_m__18_x_x__43_x_x_gaa54fd5277f67ad6a319f010ee47107be}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Init} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\begin{DoxyCompactList}\small\item\em Initialize I2C Interface. \end{DoxyCompactList}\item 
+void \hyperlink{group___i2_c_m__18_x_x__43_x_x_gaf4c9d08157514e8cc0d2bf4a870e85c5}{Chip\+\_\+\+I2\+C\+M\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\begin{DoxyCompactList}\small\item\em Shutdown I2C Interface. \end{DoxyCompactList}\item 
+void \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga741eebe9ada749637e7ee24bf1f7f392}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Set\+Bus\+Speed} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, uint32\+\_\+t bus\+Speed)
+\begin{DoxyCompactList}\small\item\em Set up bus speed for L\+P\+C\+\_\+\+I2C controller. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga75095468463ed3ce0eb368165537780b}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Handler} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer)
+\begin{DoxyCompactList}\small\item\em Transfer state change handler handler. \end{DoxyCompactList}\item 
+void \hyperlink{group___i2_c_m__18_x_x__43_x_x_gad4b7e6761dd2450e45463a5acef9ee1a}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer)
+\begin{DoxyCompactList}\small\item\em Transmit and Receive data in master mode. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga3d8a7e3de0a4e192e4f40790b164869a}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Blocking} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer)
+\begin{DoxyCompactList}\small\item\em Transmit and Receive data in master mode. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga6f18f520e51c790fef5009e9446f74d5}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Write} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, const uint8\+\_\+t $\ast$buff, uint32\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Write given buffer of data to I2C interface. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga2b5c5865a132ea7ec17c13f496304474}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Read} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, uint8\+\_\+t $\ast$buff, uint32\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Read data from I2C slave to given buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga6a74607429c3695a49c0eac54032bf0c}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+N\+A\+CK}~0x01
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_gacf3efc16aa194fd73190c47dc2930a0c}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+A\+S\+T\+\_\+\+R\+X\+\_\+\+A\+CK}~0x02
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_gaef5f7d87e3e3b72c200d978bb19205c5}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK}~0x00
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga18079f14167837fa204f54eef0c02c92}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+E\+R\+R\+OR}~0x01
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga3e37de80881a617b1fadceabbd9dc19f}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+AK}~0x02
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga5ae3667cc900825fac506866f9a509d2}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+S\+\_\+\+E\+R\+R\+OR}~0x03
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga5260bc325f40a9218d0596173c996f35}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+L\+A\+V\+E\+\_\+\+N\+AK}~0x04
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga390dc8a114c6577c494108394dad633d}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+R\+B\+L\+O\+ST}~0x05
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_gafdf5fab1c97f34b2bdb9afd743822f42}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}~0x\+FF
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+This driver only works in master mode. To describe the I2C transactions following symbols are used in driver documentation.
+
+\subsection*{Key to symbols }
+
+S (1 bit) \+: Start bit P (1 bit) \+: Stop bit Rd/\+Wr (1 bit) \+: Read/\+Write bit. Rd equals 1, Wr equals 0. A, NA (1 bit) \+: Acknowledge and Not-\/\+Acknowledge bit. Addr (7 bits)\+: I2C 7 bit address. Note that this can be expanded as usual to get a 10 bit I2C address. Data (8 bits)\+: A plain data byte. Sometimes, I write Data\+Low, Data\+High for 16 bit data. \mbox{[}..\mbox{]}\+: Data sent by I2C device, as opposed to data sent by the host adapter. 
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+R\+B\+L\+O\+ST@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+R\+B\+L\+O\+ST}}
+\index{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+R\+B\+L\+O\+ST@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+R\+B\+L\+O\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+R\+B\+L\+O\+ST}{I2CM_STATUS_ARBLOST}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+R\+B\+L\+O\+ST~0x05}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga390dc8a114c6577c494108394dad633d}{}\label{group___i2_c_m__18_x_x__43_x_x_ga390dc8a114c6577c494108394dad633d}
+Arbitration lost. 
+
+Definición en la línea 82 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+S\+\_\+\+E\+R\+R\+OR@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+S\+\_\+\+E\+R\+R\+OR}}
+\index{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+S\+\_\+\+E\+R\+R\+OR@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+S\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+S\+\_\+\+E\+R\+R\+OR}{I2CM_STATUS_BUS_ERROR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+S\+\_\+\+E\+R\+R\+OR~0x03}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga5ae3667cc900825fac506866f9a509d2}{}\label{group___i2_c_m__18_x_x__43_x_x_ga5ae3667cc900825fac506866f9a509d2}
+I2C bus error 
+
+Definición en la línea 80 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}}
+\index{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}{I2CM_STATUS_BUSY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY~0x\+FF}\hypertarget{group___i2_c_m__18_x_x__43_x_x_gafdf5fab1c97f34b2bdb9afd743822f42}{}\label{group___i2_c_m__18_x_x__43_x_x_gafdf5fab1c97f34b2bdb9afd743822f42}
+I2C transmitter is busy. 
+
+Definición en la línea 83 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+E\+R\+R\+OR@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+E\+R\+R\+OR}}
+\index{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+E\+R\+R\+OR@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+E\+R\+R\+OR}{I2CM_STATUS_ERROR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+E\+R\+R\+OR~0x01}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga18079f14167837fa204f54eef0c02c92}{}\label{group___i2_c_m__18_x_x__43_x_x_ga18079f14167837fa204f54eef0c02c92}
+Unknown error condition. 
+
+Definición en la línea 78 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+AK@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+AK}}
+\index{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+AK@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+AK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+AK}{I2CM_STATUS_NAK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+AK~0x02}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga3e37de80881a617b1fadceabbd9dc19f}{}\label{group___i2_c_m__18_x_x__43_x_x_ga3e37de80881a617b1fadceabbd9dc19f}
+No acknowledgement received from slave. 
+
+Definición en la línea 79 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK}}
+\index{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK}{I2CM_STATUS_OK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK~0x00}\hypertarget{group___i2_c_m__18_x_x__43_x_x_gaef5f7d87e3e3b72c200d978bb19205c5}{}\label{group___i2_c_m__18_x_x__43_x_x_gaef5f7d87e3e3b72c200d978bb19205c5}
+I2\+C\+M\+\_\+18\+X\+X\+\_\+43\+X\+X\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+T\+Y\+P\+ES I2C master transfer status types\+Requested Request was executed successfully. 
+
+Definición en la línea 77 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+L\+A\+V\+E\+\_\+\+N\+AK@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+L\+A\+V\+E\+\_\+\+N\+AK}}
+\index{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+L\+A\+V\+E\+\_\+\+N\+AK@{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+L\+A\+V\+E\+\_\+\+N\+AK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+L\+A\+V\+E\+\_\+\+N\+AK}{I2CM_STATUS_SLAVE_NAK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+L\+A\+V\+E\+\_\+\+N\+AK~0x04}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga5260bc325f40a9218d0596173c996f35}{}\label{group___i2_c_m__18_x_x__43_x_x_ga5260bc325f40a9218d0596173c996f35}
+No device responded for given slave address during S\+L\+A+W or S\+L\+A+R 
+
+Definición en la línea 81 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+N\+A\+CK@{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+N\+A\+CK}}
+\index{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+N\+A\+CK@{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+N\+A\+CK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+N\+A\+CK}{I2CM_XFER_OPTION_IGNORE_NACK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+N\+A\+CK~0x01}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga6a74607429c3695a49c0eac54032bf0c}{}\label{group___i2_c_m__18_x_x__43_x_x_ga6a74607429c3695a49c0eac54032bf0c}
+I2\+C\+M\+\_\+18\+X\+X\+\_\+43\+X\+X\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+T\+Y\+P\+ES I2C master transfer options\+Ignore N\+A\+CK during data transfer. By default transfer is aborted. 
+
+Definición en la línea 65 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+A\+S\+T\+\_\+\+R\+X\+\_\+\+A\+CK@{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+A\+S\+T\+\_\+\+R\+X\+\_\+\+A\+CK}}
+\index{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+A\+S\+T\+\_\+\+R\+X\+\_\+\+A\+CK@{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+A\+S\+T\+\_\+\+R\+X\+\_\+\+A\+CK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+A\+S\+T\+\_\+\+R\+X\+\_\+\+A\+CK}{I2CM_XFER_OPTION_LAST_RX_ACK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+A\+S\+T\+\_\+\+R\+X\+\_\+\+A\+CK~0x02}\hypertarget{group___i2_c_m__18_x_x__43_x_x_gacf3efc16aa194fd73190c47dc2930a0c}{}\label{group___i2_c_m__18_x_x__43_x_x_gacf3efc16aa194fd73190c47dc2930a0c}
+A\+CK last byte received. By default we N\+A\+CK last byte we receive per I2C spec. 
+
+Definición en la línea 67 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!Chip\+\_\+\+I2\+C\+M\+\_\+\+De\+Init@{Chip\+\_\+\+I2\+C\+M\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+I2\+C\+M\+\_\+\+De\+Init@{Chip\+\_\+\+I2\+C\+M\+\_\+\+De\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+M\+\_\+\+De\+Init(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C)}{Chip_I2CM_DeInit(LPC_I2C_T *pI2C)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+M\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C}
+\end{DoxyParamCaption}
+)}\hypertarget{group___i2_c_m__18_x_x__43_x_x_gaf4c9d08157514e8cc0d2bf4a870e85c5}{}\label{group___i2_c_m__18_x_x__43_x_x_gaf4c9d08157514e8cc0d2bf4a870e85c5}
+
+
+Shutdown I2C Interface. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+I2C} & \+: Pointer to selected I2C peripheral \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function disables the I2C clock. 
+\end{DoxyNote}
+
+
+Definición en la línea 68 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!Chip\+\_\+\+I2\+C\+M\+\_\+\+Init@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Init}}
+\index{Chip\+\_\+\+I2\+C\+M\+\_\+\+Init@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+M\+\_\+\+Init(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C)}{Chip_I2CM_Init(LPC_I2C_T *pI2C)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+M\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C}
+\end{DoxyParamCaption}
+)}\hypertarget{group___i2_c_m__18_x_x__43_x_x_gaa54fd5277f67ad6a319f010ee47107be}{}\label{group___i2_c_m__18_x_x__43_x_x_gaa54fd5277f67ad6a319f010ee47107be}
+
+
+Initialize I2C Interface. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+I2C} & \+: Pointer to selected I2C peripheral \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function enables the I2C clock. 
+\end{DoxyNote}
+
+
+Definición en la línea 59 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!Chip\+\_\+\+I2\+C\+M\+\_\+\+Read@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Read}}
+\index{Chip\+\_\+\+I2\+C\+M\+\_\+\+Read@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Read}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+M\+\_\+\+Read(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, uint8\+\_\+t $\ast$buff, uint32\+\_\+t len)}{Chip_I2CM_Read(LPC_I2C_T *pI2C, uint8_t *buff, uint32_t len)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+I2\+C\+M\+\_\+\+Read (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{uint8\+\_\+t $\ast$}]{buff, }
+\item[{uint32\+\_\+t}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga2b5c5865a132ea7ec17c13f496304474}{}\label{group___i2_c_m__18_x_x__43_x_x_ga2b5c5865a132ea7ec17c13f496304474}
+
+
+Read data from I2C slave to given buffer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+I2C} & \+: Pointer to selected I2C peripheral \\
+\hline
+{\em buff} & \+: Pointer to buffer for data received from I2C slave \\
+\hline
+{\em len} & \+: Length of the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Returns number of bytes read. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function is a blocking call. The function generates S\+T\+A\+R\+T/repeat-\/\+S\+T\+A\+RT condition on bus and starts reading data until requested number of bytes are read. No S\+T\+OP condition is transmitted on the bus.
+\end{DoxyNote}
+S \mbox{[}Data0\mbox{]} A \mbox{[}Data1\mbox{]} A ... \mbox{[}DataN\mbox{]} A 
+
+Definición en la línea 234 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!Chip\+\_\+\+I2\+C\+M\+\_\+\+Set\+Bus\+Speed@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Set\+Bus\+Speed}}
+\index{Chip\+\_\+\+I2\+C\+M\+\_\+\+Set\+Bus\+Speed@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Set\+Bus\+Speed}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+M\+\_\+\+Set\+Bus\+Speed(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, uint32\+\_\+t bus\+Speed)}{Chip_I2CM_SetBusSpeed(LPC_I2C_T *pI2C, uint32_t busSpeed)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+M\+\_\+\+Set\+Bus\+Speed (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{uint32\+\_\+t}]{bus\+Speed}
+\end{DoxyParamCaption}
+)}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga741eebe9ada749637e7ee24bf1f7f392}{}\label{group___i2_c_m__18_x_x__43_x_x_ga741eebe9ada749637e7ee24bf1f7f392}
+
+
+Set up bus speed for L\+P\+C\+\_\+\+I2C controller. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+I2C} & \+: Pointer to selected I2C peripheral \\
+\hline
+{\em bus\+Speed} & \+: I2C bus clock rate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Per I2C specification the bus\+Speed should be \begin{DoxyItemize}
+\item 100000 for Standard mode \item 400000 for Fast mode \item 1000000 for Fast mode plus I\+O\+C\+ON registers corresponding to I2C pads should be updated according to the bus mode. \end{DoxyItemize}
+
+\end{DoxyNote}
+
+
+Definición en la línea 77 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!Chip\+\_\+\+I2\+C\+M\+\_\+\+Write@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Write}}
+\index{Chip\+\_\+\+I2\+C\+M\+\_\+\+Write@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Write}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+M\+\_\+\+Write(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, const uint8\+\_\+t $\ast$buff, uint32\+\_\+t len)}{Chip_I2CM_Write(LPC_I2C_T *pI2C, const uint8_t *buff, uint32_t len)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+I2\+C\+M\+\_\+\+Write (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{const uint8\+\_\+t $\ast$}]{buff, }
+\item[{uint32\+\_\+t}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga6f18f520e51c790fef5009e9446f74d5}{}\label{group___i2_c_m__18_x_x__43_x_x_ga6f18f520e51c790fef5009e9446f74d5}
+
+
+Write given buffer of data to I2C interface. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+I2C} & \+: Pointer to selected I2C peripheral \\
+\hline
+{\em buff} & \+: Pointer to buffer to be transmitted \\
+\hline
+{\em len} & \+: Length of the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Returns number of bytes written. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function is a blocking call. The function generates S\+T\+A\+R\+T/repeat-\/\+S\+T\+A\+RT condition on bus and starts transmitting data until transfer finishes or a N\+A\+CK is received. No S\+T\+OP condition is transmitted on the bus.
+\end{DoxyNote}
+S Data0 \mbox{[}A\mbox{]} Data1 \mbox{[}A\mbox{]} ... DataN \mbox{[}A\mbox{]} 
+
+Definición en la línea 197 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer}}
+\index{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+T $\ast$xfer)}{Chip_I2CM_Xfer(LPC_I2C_T *pI2C, I2CM_XFER_T *xfer)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{{\bf I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$}]{xfer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___i2_c_m__18_x_x__43_x_x_gad4b7e6761dd2450e45463a5acef9ee1a}{}\label{group___i2_c_m__18_x_x__43_x_x_gad4b7e6761dd2450e45463a5acef9ee1a}
+
+
+Transmit and Receive data in master mode. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+I2C} & \+: Pointer to selected I2C peripheral \\
+\hline
+{\em xfer} & \+: Pointer to a \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} structure see notes below \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+The parameter {\itshape xfer} should have its member {\itshape slave\+Addr} initialized to the 7-\/\+Bit slave address to which the master will do the xfer, Bit0 to bit6 should have the address and Bit8 is ignored. During the transfer no code (like event handler) must change the content of the memory pointed to by {\itshape xfer}. The member of {\itshape xfer}, {\itshape tx\+Buff} and {\itshape tx\+Sz} be initialized to the memory from which the I2C must pick the data to be transferred to slave and the number of bytes to send respectively, similarly {\itshape rx\+Buff} and {\itshape rx\+Sz} must have pointer to memory where data received from slave be stored and the number of data to get from slave respectively. Following types of transfers are possible\+:
+\begin{DoxyItemize}
+\item Write-\/only transfer\+: When {\itshape rx\+Sz} member of {\itshape xfer} is set to 0. \begin{DoxyVerb}   S Addr Wr [A] txBuff0 [A] txBuff1 [A] ... txBuffN [A] P
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item If I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+N\+A\+CK is set in {\itshape options} member
+
+S Addr Wr \mbox{[}A\mbox{]} tx\+Buff0 \mbox{[}A or NA\mbox{]} ... tx\+BuffN \mbox{[}A or NA\mbox{]} P
+\end{DoxyItemize}
+\item Read-\/only transfer\+: When {\itshape tx\+Sz} member of {\itshape xfer} is set to 0. \begin{DoxyVerb}   S Addr Rd [A] [rxBuff0] A [rxBuff1] A ... [rxBuffN] NA P
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item If I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+A\+S\+T\+\_\+\+R\+X\+\_\+\+A\+CK is set in {\itshape options} member
+
+S Addr Rd \mbox{[}A\mbox{]} \mbox{[}rx\+Buff0\mbox{]} A \mbox{[}rx\+Buff1\mbox{]} A ... \mbox{[}rx\+BuffN\mbox{]} A P
+\end{DoxyItemize}
+\item Read-\/\+Write transfer\+: When {\itshape rx\+Sz} and @ tx\+Sz members of {\itshape xfer} are non-\/zero. \begin{DoxyVerb}   S Addr Wr [A] txBuff0 [A] txBuff1 [A] ... txBuffN [A]
+       S Addr Rd [A] [rxBuff0] A [rxBuff1] A ... [rxBuffN] NA P\end{DoxyVerb}
+ 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+Definición en la línea 170 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Blocking@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Blocking}}
+\index{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Blocking@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Blocking}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Blocking(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+T $\ast$xfer)}{Chip_I2CM_XferBlocking(LPC_I2C_T *pI2C, I2CM_XFER_T *xfer)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Blocking (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{{\bf I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$}]{xfer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga3d8a7e3de0a4e192e4f40790b164869a}{}\label{group___i2_c_m__18_x_x__43_x_x_ga3d8a7e3de0a4e192e4f40790b164869a}
+
+
+Transmit and Receive data in master mode. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+I2C} & \+: Pointer to selected I2C peripheral \\
+\hline
+{\em xfer} & \+: Pointer to a \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} structure see notes below \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Returns non-\/zero value on successful completion of transfer. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function operates same as \hyperlink{group___i2_c_m__18_x_x__43_x_x_gad4b7e6761dd2450e45463a5acef9ee1a}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer()}, but is a blocking call. 
+\end{DoxyNote}
+
+
+Definición en la línea 181 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}!Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Handler@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Handler}}
+\index{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Handler@{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Handler}!C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx I2\+C master-\/only driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Handler(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+T $\ast$xfer)}{Chip_I2CM_XferHandler(LPC_I2C_T *pI2C, I2CM_XFER_T *xfer)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{{\bf I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$}]{xfer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___i2_c_m__18_x_x__43_x_x_ga75095468463ed3ce0eb368165537780b}{}\label{group___i2_c_m__18_x_x__43_x_x_ga75095468463ed3ce0eb368165537780b}
+
+
+Transfer state change handler handler. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+I2C} & \+: Pointer to selected I2C peripheral \\
+\hline
+{\em xfer} & \+: Pointer to a \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} structure see notes below \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Returns non-\/zero value on completion of transfer. The {\itshape status} member of {\itshape xfer} structure contains the current status of the transfer at the end of the call. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+The parameter {\itshape xfer} should be same as the one passed to \hyperlink{group___i2_c_m__18_x_x__43_x_x_gad4b7e6761dd2450e45463a5acef9ee1a}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer()} routine. 
+\end{DoxyNote}
+
+
+Definición en la línea 85 del archivo i2cm\+\_\+18xx\+\_\+43xx.\+c.
+

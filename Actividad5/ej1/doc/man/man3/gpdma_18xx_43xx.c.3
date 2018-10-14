@@ -1,0 +1,91 @@
+.TH "gpdma_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gpdma_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP uint8_t \fBconfigDMAMux\fP (uint32_t gpdma_peripheral_connection_number)"
+.br
+.ti -1c
+.RI "uint32_t \fBmakeCtrlWord\fP (const \fBGPDMA_CH_CFG_T\fP *GPDMAChannelConfig, uint32_t GPDMA_LUTPerBurstSrcConn, uint32_t GPDMA_LUTPerBurstDstConn, uint32_t GPDMA_LUTPerWidSrcConn, uint32_t GPDMA_LUTPerWidDstConn)"
+.br
+.ti -1c
+.RI "\fBStatus\fP \fBsetupChannel\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_CH_CFG_T\fP *GPDMAChannelConfig, uint32_t CtrlWord, uint32_t LinkListItem, uint8_t SrcPeripheral, uint8_t DstPeripheral)"
+.br
+.ti -1c
+.RI "void \fBChip_GPDMA_Init\fP (\fBLPC_GPDMA_T\fP *pGPDMA)"
+.br
+.RI "\fIInitialize the GPDMA\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_DeInit\fP (\fBLPC_GPDMA_T\fP *pGPDMA)"
+.br
+.RI "\fIShutdown the GPDMA\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_Stop\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum)"
+.br
+.RI "\fIStop a stream DMA transfer\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_Interrupt\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum)"
+.br
+.RI "\fIThe GPDMA stream interrupt status checking\&. \fP"
+.ti -1c
+.RI "int \fBChip_GPDMA_InitChannelCfg\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_CH_CFG_T\fP *GPDMACfg, uint8_t ChannelNum, uint32_t src, uint32_t dst, uint32_t Size, \fBGPDMA_FLOW_CONTROL_T\fP TransferType)"
+.br
+.RI "\fIInitialize channel configuration strucutre\&. \fP"
+.ti -1c
+.RI "\fBIntStatus\fP \fBChip_GPDMA_IntGetStatus\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_STATUS_T\fP type, uint8_t channel)"
+.br
+.RI "\fIRead the status from different registers according to the type\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_ClearIntPending\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_STATECLEAR_T\fP type, uint8_t channel)"
+.br
+.RI "\fIClear the Interrupt Flag from different registers according to the type\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_ChannelCmd\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t channelNum, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable or Disable the GPDMA Channel\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_Transfer\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum, uint32_t src, uint32_t dst, \fBGPDMA_FLOW_CONTROL_T\fP TransferType, uint32_t Size)"
+.br
+.RI "\fIDo a DMA transfer M2M, M2P,P2M or P2P\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_PrepareDescriptor\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBDMA_TransferDescriptor_t\fP *DMADescriptor, uint32_t src, uint32_t dst, uint32_t Size, \fBGPDMA_FLOW_CONTROL_T\fP TransferType, const \fBDMA_TransferDescriptor_t\fP *NextDescriptor)"
+.br
+.RI "\fIPrepare a single DMA descriptor\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_SGTransfer\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum, const \fBDMA_TransferDescriptor_t\fP *DMADescriptor, \fBGPDMA_FLOW_CONTROL_T\fP TransferType)"
+.br
+.RI "\fIDo a DMA transfer using linked list of descriptors\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_GPDMA_GetFreeChannel\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint32_t PeripheralConnection_ID)"
+.br
+.RI "\fIGet a free GPDMA channel for one DMA connection\&. \fP"
+.in -1c
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP uint8_t configDMAMux (uint32_t gpdma_peripheral_connection_number)"
+
+.PP
+Definición en la línea 151 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "uint32_t makeCtrlWord (const \fBGPDMA_CH_CFG_T\fP * GPDMAChannelConfig, uint32_t GPDMA_LUTPerBurstSrcConn, uint32_t GPDMA_LUTPerBurstDstConn, uint32_t GPDMA_LUTPerWidSrcConn, uint32_t GPDMA_LUTPerWidDstConn)"
+< Burst size = 32
+.PP
+< Burst size = 32 
+.PP
+Definición en la línea 315 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP setupChannel (\fBLPC_GPDMA_T\fP * pGPDMA, \fBGPDMA_CH_CFG_T\fP * GPDMAChannelConfig, uint32_t CtrlWord, uint32_t LinkListItem, uint8_t SrcPeripheral, uint8_t DstPeripheral)"
+
+.PP
+Definición en la línea 382 del archivo gpdma_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

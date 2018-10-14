@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['l',['L',['../structarm__fir__interpolate__instance__q15.html#aee73cc056696e504430c53eaa9c58cf0',1,'arm_fir_interpolate_instance_q15::L()'],['../structarm__fir__interpolate__instance__q31.html#aee73cc056696e504430c53eaa9c58cf0',1,'arm_fir_interpolate_instance_q31::L()'],['../structarm__fir__interpolate__instance__f32.html#aee73cc056696e504430c53eaa9c58cf0',1,'arm_fir_interpolate_instance_f32::L()'],['../struct_l_p_c___s_c_t___t.html#aa5ab268b51e8f1f09f30dfb58369b22a',1,'LPC_SCT_T::L()']]],
+  ['lar',['LAR',['../struct_i_t_m___type.html#aa2c0f411bbcc7b7c7a558a964996dc11',1,'ITM_Type']]],
+  ['last_5fsample',['LAST_SAMPLE',['../struct_l_p_c___h_s_a_d_c___t.html#a044765cf52d32a129a87488f24431d38',1,'LPC_HSADC_T']]],
+  ['lcd',['LCD',['../struct_l_c_d___c_o_n_f_i_g___t.html#a6182e9709ca338d887f449d63a6c14aa',1,'LCD_CONFIG_T']]],
+  ['lcr',['LCR',['../struct_l_p_c___u_s_a_r_t___t.html#a982bb8011be2ffc1dd0d4379012b816e',1,'LPC_USART_T']]],
+  ['le',['LE',['../struct_l_p_c___l_c_d___t.html#a69fb257295a9a84932b30501743003c2',1,'LPC_LCD_T']]],
+  ['length',['length',['../struct_chip___s_s_p___d_a_t_a___s_e_t_u_p___t.html#aebb70c2aab3407a9f05334c47131a43b',1,'Chip_SSP_DATA_SETUP_T']]],
+  ['lim',['LIM',['../struct_l_p_c___m_c_p_w_m___t.html#abca2b4a04a9dcee64432a8ecfeff6798',1,'LPC_MCPWM_T']]],
+  ['limit_5fh',['LIMIT_H',['../struct_l_p_c___s_c_t___t.html#a42207e9fd614692bfff4175416eb23cd',1,'LPC_SCT_T']]],
+  ['limit_5fl',['LIMIT_L',['../struct_l_p_c___s_c_t___t.html#a386846eb61f6dc3573175922c38d710e',1,'LPC_SCT_T']]],
+  ['lli',['LLI',['../struct_g_p_d_m_a___c_h___t.html#ac4d10dd1744ef7ee8edfaf06d2b6b0f0',1,'GPDMA_CH_T::LLI()'],['../struct_d_m_a___transfer_descriptor.html#a76f31eac518fe9f46e705a8a9610b12c',1,'DMA_TransferDescriptor::lli()']]],
+  ['load',['LOAD',['../struct_sys_tick___type.html#aad9adf4efc940cddb8161b69cfbe19d3',1,'SysTick_Type::LOAD()'],['../struct_l_p_c___q_e_i___t.html#aad9adf4efc940cddb8161b69cfbe19d3',1,'LPC_QEI_T::LOAD()']]],
+  ['loadiv_5fic',['LoadIV_IC',['../struct_a_e_s___a_p_i___t.html#a22c872b86b59b412081dac3ce552460e',1,'AES_API_T']]],
+  ['loadiv_5fsw',['LoadIV_SW',['../struct_a_e_s___a_p_i___t.html#a272fe17e4249cd0de2eb81f37739f418',1,'AES_API_T']]],
+  ['loadkey1',['LoadKey1',['../struct_a_e_s___a_p_i___t.html#a762bb901b2853d0795c07211b730189e',1,'AES_API_T']]],
+  ['loadkey2',['LoadKey2',['../struct_a_e_s___a_p_i___t.html#a62a8f0af84db0dfe17b22906017e9339',1,'AES_API_T']]],
+  ['loadkeyrng',['LoadKeyRNG',['../struct_a_e_s___a_p_i___t.html#aa5bcdf39145584cc13cda68909d2eb0e',1,'AES_API_T']]],
+  ['loadkeysw',['LoadKeySW',['../struct_a_e_s___a_p_i___t.html#a123b9aa75ddb666dc654ab2044badfcb',1,'AES_API_T']]],
+  ['lpbase',['LPBASE',['../struct_l_p_c___l_c_d___t.html#a08137395313747cdc86061a6b242a4ca',1,'LPC_LCD_T']]],
+  ['lpcurr',['LPCURR',['../struct_l_p_c___l_c_d___t.html#a0ce5ebd5ae89cd703debd78996090332',1,'LPC_LCD_T']]],
+  ['lpp',['LPP',['../struct_l_c_d___c_o_n_f_i_g___t.html#a02f7f26cd8ac7e2ede0206168401e386',1,'LCD_CONFIG_T']]],
+  ['lsr',['LSR',['../struct_i_t_m___type.html#a8387dc0dc9f45c8a81cfc98bfff7ae32',1,'ITM_Type::LSR()'],['../struct_l_p_c___u_s_a_r_t___t.html#a8387dc0dc9f45c8a81cfc98bfff7ae32',1,'LPC_USART_T::LSR()']]],
+  ['lsucnt',['LSUCNT',['../struct_d_w_t___type.html#ab1d62b8e1a69bead9717d5a02f741811',1,'DWT_Type']]]
+];

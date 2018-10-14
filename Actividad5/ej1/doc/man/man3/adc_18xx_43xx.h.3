@@ -1,0 +1,179 @@
+.TH "adc_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+adc_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_ADC_T\fP"
+.br
+.RI "\fI10 or 12-bit ADC register block structure \fP"
+.ti -1c
+.RI "struct \fBADC_CLOCK_SETUP_T\fP"
+.br
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBADC_ACC_10BITS\fP"
+.br
+.ti -1c
+.RI "#define \fBADC_MAX_SAMPLE_RATE\fP   400000"
+.br
+.ti -1c
+.RI "#define \fBADC_DR_RESULT\fP(n)   ((((n) >> 6) & 0x3FF))"
+.br
+.RI "\fIADC register support bitfields and mask\&. \fP"
+.ti -1c
+.RI "#define \fBADC_CR_BITACC\fP(n)   ((((n) & 0x7) << 17))"
+.br
+.ti -1c
+.RI "#define \fBADC_DR_DONE\fP(n)   (((n) >> 31))"
+.br
+.ti -1c
+.RI "#define \fBADC_DR_OVERRUN\fP(n)   ((((n) >> 30) & (1UL)))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_CH_SEL\fP(n)   ((1UL << (n)))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_CLKDIV\fP(n)   ((((n) & 0xFF) << 8))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_BURST\fP   ((1UL << 16))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_PDN\fP   ((1UL << 21))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_MASK\fP   ((7UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_MODE_SEL\fP(SEL)   ((SEL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_NOW\fP   ((1UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_CTOUT15\fP   ((2UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_CTOUT8\fP   ((3UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_ADCTRIG0\fP   ((4UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_ADCTRIG1\fP   ((5UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_MCOA2\fP   ((6UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_EDGE\fP   ((1UL << 27))"
+.br
+.ti -1c
+.RI "#define \fBADC_SAMPLE_RATE_CONFIG_MASK\fP   (\fBADC_CR_CLKDIV\fP(0xFF) | ADC_CR_BITACC(0x07))"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBIP_ADC_STATUS\fP \fBADC_STATUS_T\fP"
+.br
+.RI "\fIADC status register used for IP drivers\&. \fP"
+.ti -1c
+.RI "typedef enum \fBCHIP_ADC_CHANNEL\fP \fBADC_CHANNEL_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_ADC_RESOLUTION\fP \fBADC_RESOLUTION_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_ADC_EDGE_CFG\fP \fBADC_EDGE_CFG_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_ADC_START_MODE\fP \fBADC_START_MODE_T\fP"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBIP_ADC_STATUS\fP { \fBADC_DR_DONE_STAT\fP, \fBADC_DR_OVERRUN_STAT\fP, \fBADC_DR_ADINT_STAT\fP }
+.RI "\fIADC status register used for IP drivers\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBCHIP_ADC_CHANNEL\fP { \fBADC_CH0\fP = 0, \fBADC_CH1\fP, \fBADC_CH2\fP, \fBADC_CH3\fP, \fBADC_CH4\fP, \fBADC_CH5\fP, \fBADC_CH6\fP, \fBADC_CH7\fP }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_ADC_RESOLUTION\fP { \fBADC_10BITS\fP = 0, \fBADC_9BITS\fP, \fBADC_8BITS\fP, \fBADC_7BITS\fP, \fBADC_6BITS\fP, \fBADC_5BITS\fP, \fBADC_4BITS\fP, \fBADC_3BITS\fP }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_ADC_EDGE_CFG\fP { \fBADC_TRIGGERMODE_RISING\fP = 0, \fBADC_TRIGGERMODE_FALLING\fP }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_ADC_START_MODE\fP { \fBADC_NO_START\fP = 0, \fBADC_START_NOW\fP, \fBADC_START_ON_CTOUT15\fP, \fBADC_START_ON_CTOUT8\fP, \fBADC_START_ON_ADCTRIG0\fP, \fBADC_START_ON_ADCTRIG1\fP, \fBADC_START_ON_MCOA2\fP }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_ADC_Init\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CLOCK_SETUP_T\fP *ADCSetup)"
+.br
+.RI "\fIInitialize the ADC peripheral and the ADC setup structure to default value\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_DeInit\fP (\fBLPC_ADC_T\fP *pADC)"
+.br
+.RI "\fIShutdown ADC\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_ADC_ReadValue\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, uint16_t *data)"
+.br
+.RI "\fIRead the ADC value from a channel\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_ADC_ReadByte\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CHANNEL_T\fP channel, uint8_t *data)"
+.br
+.RI "\fIRead the ADC value and convert it to 8bits value\&. \fP"
+.ti -1c
+.RI "\fBFlagStatus\fP \fBChip_ADC_ReadStatus\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, uint32_t StatusType)"
+.br
+.RI "\fIRead the ADC channel status\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_Int_SetChannelCmd\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable interrupt for ADC channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ADC_Int_SetGlobalCmd\fP (\fBLPC_ADC_T\fP *pADC, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable global interrupt for ADC channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetStartMode\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_START_MODE_T\fP mode, \fBADC_EDGE_CFG_T\fP EdgeOption)"
+.br
+.RI "\fISelect the mode starting the AD conversion\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetSampleRate\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CLOCK_SETUP_T\fP *ADCSetup, uint32_t rate)"
+.br
+.RI "\fISet the ADC Sample rate\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetResolution\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CLOCK_SETUP_T\fP *ADCSetup, \fBADC_RESOLUTION_T\fP resolution)"
+.br
+.RI "\fISet the ADC accuracy bits\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_EnableChannel\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CHANNEL_T\fP channel, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable or disable the ADC channel on ADC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetBurstCmd\fP (\fBLPC_ADC_T\fP *pADC, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable burst mode\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

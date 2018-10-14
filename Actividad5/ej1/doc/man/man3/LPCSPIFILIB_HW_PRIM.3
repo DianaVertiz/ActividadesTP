@@ -1,0 +1,227 @@
+.TH "LPCSPIFILIB_HW_PRIM" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPCSPIFILIB_HW_PRIM \- LPCSPIFILIB primative API functions
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_TO\fP(t)   ((t) << 0)"
+.br
+.RI "\fISPIFI controller control register bit definitions\&. \fP"
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_CSHI\fP(c)   ((c) << 16)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_DATA_PREFETCH_DISABLE\fP(d)   ((d) << 21)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_INTEN\fP(i)   ((i) << 22)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_MODE3\fP(m)   ((m) << 23)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_PREFETCH_DISABLE\fP(d)   ((d) << 27)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_DUAL\fP(d)   ((d) << 28)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_RFCLK\fP(m)   ((m) << 29)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_FBCLK\fP(m)   ((m) << 30)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_DMAEN\fP(m)   ((m) << 31)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_STAT_RESET\fP   (1 << 4)"
+.br
+.RI "\fISPIFI controller status register bit definitions\&. \fP"
+.ti -1c
+.RI "#define \fBSPIFI_STAT_INTRQ\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_STAT_CMD\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_STAT_MCINIT\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_DATALEN\fP(l)   ((l) << 0)"
+.br
+.RI "\fISPIFI controller command register bit definitions\&. \fP"
+.ti -1c
+.RI "#define \fBSPIFI_CMD_POLLRS\fP(p)   ((p) << 14)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_DOUT\fP(d)   ((d) << 15)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_INTER\fP(i)   ((i) << 16)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_FIELDFORM\fP(p)   ((p) << 19)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_FRAMEFORM\fP(f)   ((f) << 21)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_OPCODE\fP(o)   ((uint32_t) (o) << 24)"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSPIFI_FRAMEFORM_T\fP { \fBSPIFI_FRAMEFORM_OP\fP = 1, \fBSPIFI_FRAMEFORM_OP_1ADDRESS\fP = 2, \fBSPIFI_FRAMEFORM_OP_2ADDRESS\fP = 3, \fBSPIFI_FRAMEFORM_OP_3ADDRESS\fP = 4, \fBSPIFI_FRAMEFORM_OP_4ADDRESS\fP = 5, \fBSPIFI_FRAMEFORM_NOOP_3ADDRESS\fP = 6, \fBSPIFI_FRAMEFORM_NOOP_4ADDRESS\fP = 7 }
+.RI "\fIframe form definitions \fP""
+.br
+.ti -1c
+.RI "enum \fBSPIFI_FIELDFORM_T\fP { \fBSPIFI_FIELDFORM_ALL_SERIAL\fP = 0, \fBSPIFI_FIELDFORM_SERIAL_OPCODE_ADDRESS\fP = 1, \fBSPIFI_FIELDFORM_SERIAL_OPCODE\fP = 2, \fBSPIFI_FIELDFORM_NO_SERIAL\fP = 3 }
+.RI "\fIserial type definitions \fP""
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define SPIFI_CMD_DATALEN(l)   ((l) << 0)"
+
+.PP
+SPIFI controller command register bit definitions\&. SPIFI bytes to send or receive 
+.PP
+Definición en la línea 149 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CMD_DOUT(d)   ((d) << 15)"
+SPIFI data direction is out 
+.PP
+Definición en la línea 151 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CMD_FIELDFORM(p)   ((p) << 19)"
+SPIFI 2 bit data/cmd mode control 
+.PP
+Definición en la línea 153 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CMD_FRAMEFORM(f)   ((f) << 21)"
+SPIFI op and adr field config 
+.PP
+Definición en la línea 154 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CMD_INTER(i)   ((i) << 16)"
+SPIFI intermediate bit length 
+.PP
+Definición en la línea 152 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CMD_OPCODE(o)   ((uint32_t) (o) << 24)"
+SPIFI 8-bit command code 
+.PP
+Definición en la línea 155 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CMD_POLLRS(p)   ((p) << 14)"
+SPIFI enable poll 
+.PP
+Definición en la línea 150 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_CSHI(c)   ((c) << 16)"
+SPIFI chip select minimum high time 
+.PP
+Definición en la línea 86 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_DATA_PREFETCH_DISABLE(d)   ((d) << 21)"
+SPIFI memMode prefetch enable 
+.PP
+Definición en la línea 87 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_DMAEN(m)   ((m) << 31)"
+SPIFI dma enable 
+.PP
+Definición en la línea 94 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_DUAL(d)   ((d) << 28)"
+SPIFI enable dual 
+.PP
+Definición en la línea 91 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_FBCLK(m)   ((m) << 30)"
+SPIFI feedback clock select 
+.PP
+Definición en la línea 93 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_INTEN(i)   ((i) << 22)"
+SPIFI cmdComplete irq enable 
+.PP
+Definición en la línea 88 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_MODE3(m)   ((m) << 23)"
+SPIFI mode3 config 
+.PP
+Definición en la línea 89 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_PREFETCH_DISABLE(d)   ((d) << 27)"
+SPIFI cache prefetch enable 
+.PP
+Definición en la línea 90 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_RFCLK(m)   ((m) << 29)"
+SPIFI clock edge config 
+.PP
+Definición en la línea 92 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_CTRL_TO(t)   ((t) << 0)"
+
+.PP
+SPIFI controller control register bit definitions\&. SPIFI timeout 
+.PP
+Definición en la línea 85 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_STAT_CMD   (1 << 1)"
+SPIFI command in progress 
+.PP
+Definición en la línea 122 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_STAT_INTRQ   (1 << 5)"
+SPIFI interrupt request 
+.PP
+Definición en la línea 121 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_STAT_MCINIT   (1)"
+SPIFI MCINIT 
+.PP
+Definición en la línea 123 del archivo spifi_18xx_43xx\&.h\&.
+.SS "#define SPIFI_STAT_RESET   (1 << 4)"
+
+.PP
+SPIFI controller status register bit definitions\&. SPIFI reset 
+.PP
+Definición en la línea 120 del archivo spifi_18xx_43xx\&.h\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBSPIFI_FIELDFORM_T\fP"
+
+.PP
+serial type definitions 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISPIFI_FIELDFORM_ALL_SERIAL \fP\fP
+.TP
+\fB\fISPIFI_FIELDFORM_SERIAL_OPCODE_ADDRESS \fP\fP
+.TP
+\fB\fISPIFI_FIELDFORM_SERIAL_OPCODE \fP\fP
+.TP
+\fB\fISPIFI_FIELDFORM_NO_SERIAL \fP\fP
+.PP
+Definición en la línea 173 del archivo spifi_18xx_43xx\&.h\&.
+.SS "enum \fBSPIFI_FRAMEFORM_T\fP"
+
+.PP
+frame form definitions 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISPIFI_FRAMEFORM_OP \fP\fP
+.TP
+\fB\fISPIFI_FRAMEFORM_OP_1ADDRESS \fP\fP
+.TP
+\fB\fISPIFI_FRAMEFORM_OP_2ADDRESS \fP\fP
+.TP
+\fB\fISPIFI_FRAMEFORM_OP_3ADDRESS \fP\fP
+.TP
+\fB\fISPIFI_FRAMEFORM_OP_4ADDRESS \fP\fP
+.TP
+\fB\fISPIFI_FRAMEFORM_NOOP_3ADDRESS \fP\fP
+.TP
+\fB\fISPIFI_FRAMEFORM_NOOP_4ADDRESS \fP\fP
+.PP
+Definición en la línea 160 del archivo spifi_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,129 @@
+\hypertarget{main_8c}{}\section{Referencia del Archivo main.\+c}
+\label{main_8c}\index{main.\+c@{main.\+c}}
+{\ttfamily \#include \char`\"{}hardware.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}registro.\+h\char`\"{}}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8c_a0c2ac16c0534feaab295ac82446374a6}{G\+P\+I\+O1\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \hyperlink{main_8c_a249d7a560045daf5efd327072eec8669}{G\+P\+I\+O2\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \hyperlink{main_8c_a26bf79385d3aba4d2ac85072d11aa93c}{G\+P\+I\+O4\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \hyperlink{main_8c_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler} (void)
+\item 
+int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{main_8c_a6899120f650fd29a7d765ae90f14db73}{cuentas} = 0
+\item 
+uint8\+\_\+t \hyperlink{main_8c_a85491fcb711d83d843513422cfdc9d91}{habilitado} = 0
+\item 
+uint8\+\_\+t \hyperlink{main_8c_acfbfe0e57e0538f48fc883754564eb51}{flag\+\_\+refresco} = 0
+\item 
+char \hyperlink{main_8c_aea2e0c0d23b7dd411d1d5c90b27f5fd0}{str} \mbox{[}100\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\index{main.\+c@{main.\+c}!G\+P\+I\+O1\+\_\+\+I\+R\+Q\+Handler@{G\+P\+I\+O1\+\_\+\+I\+R\+Q\+Handler}}
+\index{G\+P\+I\+O1\+\_\+\+I\+R\+Q\+Handler@{G\+P\+I\+O1\+\_\+\+I\+R\+Q\+Handler}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{G\+P\+I\+O1\+\_\+\+I\+R\+Q\+Handler(void)}{GPIO1_IRQHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O1\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8c_a0c2ac16c0534feaab295ac82446374a6}{}\label{main_8c_a0c2ac16c0534feaab295ac82446374a6}
+
+
+Definición en la línea 35 del archivo main.\+c.
+
+\index{main.\+c@{main.\+c}!G\+P\+I\+O2\+\_\+\+I\+R\+Q\+Handler@{G\+P\+I\+O2\+\_\+\+I\+R\+Q\+Handler}}
+\index{G\+P\+I\+O2\+\_\+\+I\+R\+Q\+Handler@{G\+P\+I\+O2\+\_\+\+I\+R\+Q\+Handler}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{G\+P\+I\+O2\+\_\+\+I\+R\+Q\+Handler(void)}{GPIO2_IRQHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O2\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8c_a249d7a560045daf5efd327072eec8669}{}\label{main_8c_a249d7a560045daf5efd327072eec8669}
+
+
+Definición en la línea 44 del archivo main.\+c.
+
+\index{main.\+c@{main.\+c}!G\+P\+I\+O4\+\_\+\+I\+R\+Q\+Handler@{G\+P\+I\+O4\+\_\+\+I\+R\+Q\+Handler}}
+\index{G\+P\+I\+O4\+\_\+\+I\+R\+Q\+Handler@{G\+P\+I\+O4\+\_\+\+I\+R\+Q\+Handler}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{G\+P\+I\+O4\+\_\+\+I\+R\+Q\+Handler(void)}{GPIO4_IRQHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O4\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8c_a26bf79385d3aba4d2ac85072d11aa93c}{}\label{main_8c_a26bf79385d3aba4d2ac85072d11aa93c}
+
+
+Definición en la línea 65 del archivo main.\+c.
+
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{main(void)}{main(void)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}
+
+
+Definición en la línea 87 del archivo main.\+c.
+
+\index{main.\+c@{main.\+c}!Sys\+Tick\+\_\+\+Handler@{Sys\+Tick\+\_\+\+Handler}}
+\index{Sys\+Tick\+\_\+\+Handler@{Sys\+Tick\+\_\+\+Handler}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{Sys\+Tick\+\_\+\+Handler(void)}{SysTick_Handler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Sys\+Tick\+\_\+\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8c_ab5e09814056d617c521549e542639b7e}{}\label{main_8c_ab5e09814056d617c521549e542639b7e}
+
+
+Definición en la línea 73 del archivo main.\+c.
+
+
+
+\subsection{Documentación de las variables}
+\index{main.\+c@{main.\+c}!cuentas@{cuentas}}
+\index{cuentas@{cuentas}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{cuentas}{cuentas}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t cuentas = 0}\hypertarget{main_8c_a6899120f650fd29a7d765ae90f14db73}{}\label{main_8c_a6899120f650fd29a7d765ae90f14db73}
+\textbackslash{} mainpage Una p´a gina principal
+
+\textbackslash{} section gen\+Desc Descripci ´on general
+
+Lorem ipsum dolor sit amet , consectetur adipiscing elit . Sed vel augue ut tortor Nam dolor metus , tincidunt eget consequat sit amet , ultricies consectetur dolor . Praesent ultrices orci at risus auctor placerat . Sed eget ultricies tortor .
+
+\textbackslash{} subsection sub\+Sec01 Una subsecci ´on Phasellus at sapien sollicitudin , posuere arcu nec , blandit ante . egestas ex , at consequat quam fringilla sit amet . Vestibulum ante ultrices posuere cubilia Curae ; Nulla vestibulum felis in ullamcorper rhoncus fringilla .
+
+\textbackslash{} section doc Documentaci ´on Quisque laoreet tempor libero , at varius velit scelerisque a. Praesent ultrices orci at risus auctor placerat . Sed eget ultricies tortor . Maecenas sed neque id justo aliquet ornare vel , placerat quis felis . Nunc nec interdum mauris . 
+
+Definición en la línea 30 del archivo main.\+c.
+
+\index{main.\+c@{main.\+c}!flag\+\_\+refresco@{flag\+\_\+refresco}}
+\index{flag\+\_\+refresco@{flag\+\_\+refresco}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{flag\+\_\+refresco}{flag_refresco}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t flag\+\_\+refresco = 0}\hypertarget{main_8c_acfbfe0e57e0538f48fc883754564eb51}{}\label{main_8c_acfbfe0e57e0538f48fc883754564eb51}
+
+
+Definición en la línea 32 del archivo main.\+c.
+
+\index{main.\+c@{main.\+c}!habilitado@{habilitado}}
+\index{habilitado@{habilitado}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{habilitado}{habilitado}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t habilitado = 0}\hypertarget{main_8c_a85491fcb711d83d843513422cfdc9d91}{}\label{main_8c_a85491fcb711d83d843513422cfdc9d91}
+
+
+Definición en la línea 31 del archivo main.\+c.
+
+\index{main.\+c@{main.\+c}!str@{str}}
+\index{str@{str}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{str}{str}}]{\setlength{\rightskip}{0pt plus 5cm}char str\mbox{[}100\mbox{]}}\hypertarget{main_8c_aea2e0c0d23b7dd411d1d5c90b27f5fd0}{}\label{main_8c_aea2e0c0d23b7dd411d1d5c90b27f5fd0}
+
+
+Definición en la línea 33 del archivo main.\+c.
+

@@ -1,0 +1,18 @@
+10:15:29 **** Incremental Build of configuration Default for project ejDiapo03 ****
+make all 
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03/build/app/LedOnOff.o: In function `ledOnOff_enact_main_region_led0':
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03//src/LedOnOff.c:229: undefined reference to `ledOnOffIface_setLedFromMask'
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03/build/app/LedOnOff.o: In function `ledOnOff_enact_main_region_led3':
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03//src/LedOnOff.c:236: undefined reference to `ledOnOffIface_setLedFromMask'
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03/build/app/LedOnOff.o: In function `ledOnOff_enact_main_region_led1':
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03//src/LedOnOff.c:243: undefined reference to `ledOnOffIface_setLedFromMask'
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03/build/app/LedOnOff.o: In function `ledOnOff_enact_main_region_led2':
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03//src/LedOnOff.c:250: undefined reference to `ledOnOffIface_setLedFromMask'
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03/build/app/main.o: In function `main':
+/home/diana/CursoEmbebidos/ActividadesTP/TP9/ejDiapo03//src/main.c:53: undefined reference to `ledOnOff_raiseTimeEvent'
+collect2: error: ld returned 1 exit status
+make: *** [out/firmware.elf] Error 1
+makefile:25: fallo en las instrucciones para el objetivo 'out/firmware.elf'
+
+10:15:29 Build Finished (took 526ms)
+

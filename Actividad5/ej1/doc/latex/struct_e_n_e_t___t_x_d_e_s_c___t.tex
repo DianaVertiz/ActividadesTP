@@ -1,0 +1,65 @@
+\hypertarget{struct_e_n_e_t___t_x_d_e_s_c___t}{}\section{Referencia de la Estructura E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}
+\label{struct_e_n_e_t___t_x_d_e_s_c___t}\index{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T@{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}}
+
+
+Structure of a transmit descriptor (without timestamp)  
+
+
+
+
+{\ttfamily \#include $<$enet\+\_\+18xx\+\_\+43xx.\+h$>$}
+
+\subsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_e_n_e_t___t_x_d_e_s_c___t_a57ef6fedebbfbb6aa9f765be71c15dbb}{C\+T\+R\+L\+S\+T\+AT}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_e_n_e_t___t_x_d_e_s_c___t_af2098998d1719cc4a2e9ba78fb835a90}{B\+S\+I\+ZE}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_e_n_e_t___t_x_d_e_s_c___t_a9b99a80d13d854bce5c3f9646964c34e}{B1\+A\+DD}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_e_n_e_t___t_x_d_e_s_c___t_a3cf5d995cea5c3b42b9224871c5b18a1}{B2\+A\+DD}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Structure of a transmit descriptor (without timestamp) 
+
+Definición en la línea 406 del archivo enet\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de los campos}
+\index{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T@{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}!B1\+A\+DD@{B1\+A\+DD}}
+\index{B1\+A\+DD@{B1\+A\+DD}!E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T@{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}}
+\subsubsection[{\texorpdfstring{B1\+A\+DD}{B1ADD}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t B1\+A\+DD}\hypertarget{struct_e_n_e_t___t_x_d_e_s_c___t_a9b99a80d13d854bce5c3f9646964c34e}{}\label{struct_e_n_e_t___t_x_d_e_s_c___t_a9b99a80d13d854bce5c3f9646964c34e}
+Buffer 1 address 
+
+Definición en la línea 409 del archivo enet\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T@{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}!B2\+A\+DD@{B2\+A\+DD}}
+\index{B2\+A\+DD@{B2\+A\+DD}!E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T@{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}}
+\subsubsection[{\texorpdfstring{B2\+A\+DD}{B2ADD}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t B2\+A\+DD}\hypertarget{struct_e_n_e_t___t_x_d_e_s_c___t_a3cf5d995cea5c3b42b9224871c5b18a1}{}\label{struct_e_n_e_t___t_x_d_e_s_c___t_a3cf5d995cea5c3b42b9224871c5b18a1}
+Buffer 2 or next descriptor address 
+
+Definición en la línea 410 del archivo enet\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T@{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}!B\+S\+I\+ZE@{B\+S\+I\+ZE}}
+\index{B\+S\+I\+ZE@{B\+S\+I\+ZE}!E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T@{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}}
+\subsubsection[{\texorpdfstring{B\+S\+I\+ZE}{BSIZE}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t B\+S\+I\+ZE}\hypertarget{struct_e_n_e_t___t_x_d_e_s_c___t_af2098998d1719cc4a2e9ba78fb835a90}{}\label{struct_e_n_e_t___t_x_d_e_s_c___t_af2098998d1719cc4a2e9ba78fb835a90}
+Buffer 1/2 byte counts 
+
+Definición en la línea 408 del archivo enet\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T@{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}!C\+T\+R\+L\+S\+T\+AT@{C\+T\+R\+L\+S\+T\+AT}}
+\index{C\+T\+R\+L\+S\+T\+AT@{C\+T\+R\+L\+S\+T\+AT}!E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T@{E\+N\+E\+T\+\_\+\+T\+X\+D\+E\+S\+C\+\_\+T}}
+\subsubsection[{\texorpdfstring{C\+T\+R\+L\+S\+T\+AT}{CTRLSTAT}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t C\+T\+R\+L\+S\+T\+AT}\hypertarget{struct_e_n_e_t___t_x_d_e_s_c___t_a57ef6fedebbfbb6aa9f765be71c15dbb}{}\label{struct_e_n_e_t___t_x_d_e_s_c___t_a57ef6fedebbfbb6aa9f765be71c15dbb}
+T\+D\+ES control and status word 
+
+Definición en la línea 407 del archivo enet\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{enet__18xx__43xx_8h}{enet\+\_\+18xx\+\_\+43xx.\+h}\end{DoxyCompactItemize}

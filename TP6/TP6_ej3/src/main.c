@@ -1,0 +1,51 @@
+#include "chip.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <stopwatch.h>
+#include "hardware.h"
+#include "operaciones.h"
+#include "packet.h"
+
+extern uint8_t paquete_recibido = 0;
+
+void UART2_IRQHandler(void)
+{
+
+	Chip_UART_IRQRBHandler(LPC_USART2, &rxRing, &txRing);
+}
+
+
+int main ( int argc , char * argv [])
+{
+	packet x;
+	uint8_t resultado;
+	inicializar_sistema();
+	inicializar_leds();
+	inicializar_USART();
+	//configurar_SysTick();
+
+
+	while (1)
+	{
+		loadBytes(&x);
+
+		if(paquete_recibido ==  1)
+		{
+			resultado = validPacket(&x);
+			actions(resultado);
+			if(!resultado)
+			{
+				ledAction(&x);
+			}
+
+			paquete_recibido = 0;
+		}
+
+		//__WFI();
+
+	}
+
+
+	return 0;
+}
+

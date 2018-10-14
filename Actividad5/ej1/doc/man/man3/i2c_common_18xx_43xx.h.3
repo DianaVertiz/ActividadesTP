@@ -1,0 +1,203 @@
+.TH "i2c_common_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+i2c_common_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_I2C_T\fP"
+.br
+.RI "\fII2C register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_AA\fP   ((0x04))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_SI\fP   ((0x08))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_STO\fP   ((0x10))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_STA\fP   ((0x20))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_I2EN\fP   ((0x40))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_AAC\fP   ((1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_SIC\fP   ((1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_STOC\fP   ((1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_STAC\fP   ((1 << 5))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_I2ENC\fP   ((1 << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_AA\fP   (1UL << 2)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_SI\fP   (1UL << 3)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_STO\fP   (1UL << 4)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_STA\fP   (1UL << 5)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_I2EN\fP   (1UL << 6)"
+.br
+.ti -1c
+.RI "#define \fBI2C_STAT_CODE_BITMASK\fP   ((0xF8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_STAT_CODE_ERROR\fP   ((0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_START\fP   ((0x08))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_RESTART\fP   ((0x10))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_SLAW_ACK\fP   ((0x18))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_SLAW_NACK\fP   ((0x20))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_DAT_ACK\fP   ((0x28))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_DAT_NACK\fP   ((0x30))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_ARB_LOST\fP   ((0x38))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_START\fP   ((0x08))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_RESTART\fP   ((0x10))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_ARB_LOST\fP   ((0x38))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_SLAR_ACK\fP   ((0x40))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_SLAR_NACK\fP   ((0x48))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_DAT_ACK\fP   ((0x50))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_DAT_NACK\fP   ((0x58))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_SLAW_ACK\fP   ((0x60))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_ARB_LOST_M_SLA\fP   ((0x68))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_GENCALL_ACK\fP   ((0x70))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_ARB_LOST_M_GENCALL\fP   ((0x78))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_PRE_SLA_DAT_ACK\fP   ((0x80))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_PRE_SLA_DAT_NACK\fP   ((0x88))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_PRE_GENCALL_DAT_ACK\fP   ((0x90))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_PRE_GENCALL_DAT_NACK\fP   ((0x98))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_STA_STO_SLVREC_SLVTRX\fP   ((0xA0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_SLAR_ACK\fP   ((0xA8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_ARB_LOST_M_SLA\fP   ((0xB0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_DAT_ACK\fP   ((0xB8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_DAT_NACK\fP   ((0xC0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_LAST_DAT_ACK\fP   ((0xC8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_SLAVE_TIME_OUT\fP   0x10000000UL"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2DAT_BITMASK\fP   ((0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2DAT_IDLE_CHAR\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MMCTRL_MM_ENA\fP   ((1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MMCTRL_ENA_SCL\fP   ((1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MMCTRL_MATCH_ALL\fP   ((1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MMCTRL_BITMASK\fP   ((0x07))"
+.br
+.ti -1c
+.RI "#define \fBI2DATA_BUFFER_BITMASK\fP   ((0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2ADR_GC\fP   ((1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2ADR_BITMASK\fP   ((0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MASK_MASK\fP(n)   ((n & 0xFE))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2SCLH_BITMASK\fP   ((0xFFFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2SCLL_BITMASK\fP   ((0xFFFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_MONITOR_CFG_SCL_OUTPUT\fP   \fBI2C_I2MMCTRL_ENA_SCL\fP"
+.br
+.ti -1c
+.RI "#define \fBI2C_MONITOR_CFG_MATCHALL\fP   \fBI2C_I2MMCTRL_MATCH_ALL\fP"
+.br
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

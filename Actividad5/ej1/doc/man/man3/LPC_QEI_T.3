@@ -1,0 +1,222 @@
+.TH "LPC_QEI_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_QEI_T \- Quadrature Encoder Interface register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qei_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCON\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONF\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPOS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAXPOS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCMPOS0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCMPOS1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCMPOS2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINXCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBINXCMP0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBLOAD\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTIME\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBVEL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCAP\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBVELCOMP\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFILTERPHA\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFILTERPHB\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFILTERINX\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBWINDOW\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBINXCMP1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBINXCMP2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [993]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBIEC\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBIES\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBIE\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCLR\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSET\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Quadrature Encoder Interface register block structure\&. 
+.PP
+Definición en la línea 47 del archivo qei_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__I\fP uint32_t CAP"
+Velocity capture register 
+.PP
+Definición en la línea 61 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CLR"
+Interrupt status clear register 
+.PP
+Definición en la línea 74 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CMPOS0"
+position compare register 0 
+.PP
+Definición en la línea 53 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CMPOS1"
+position compare register 1 
+.PP
+Definición en la línea 54 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CMPOS2"
+position compare register 2 
+.PP
+Definición en la línea 55 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CON"
+< QEI Structure Control register 
+.PP
+Definición en la línea 48 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CONF"
+Configuration register 
+.PP
+Definición en la línea 50 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FILTERINX"
+Digital filter register on input index (QEI_IDX) 
+.PP
+Definición en la línea 65 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FILTERPHA"
+Digital filter register on input phase A (QEI_A) 
+.PP
+Definición en la línea 63 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FILTERPHB"
+Digital filter register on input phase B (QEI_B) 
+.PP
+Definición en la línea 64 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t IE"
+Interrupt enable register 
+.PP
+Definición en la línea 73 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t IEC"
+Interrupt enable clear register 
+.PP
+Definición en la línea 70 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t IES"
+Interrupt enable set register 
+.PP
+Definición en la línea 71 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTSTAT"
+Interrupt status register 
+.PP
+Definición en la línea 72 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t INXCMP0"
+Index compare register 0 
+.PP
+Definición en la línea 57 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t INXCMP1"
+Index compare register 1 
+.PP
+Definición en la línea 67 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t INXCMP2"
+Index compare register 2 
+.PP
+Definición en la línea 68 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INXCNT"
+Index count register 
+.PP
+Definición en la línea 56 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t LOAD"
+Velocity timer reload register 
+.PP
+Definición en la línea 58 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAXPOS"
+Maximum position register 
+.PP
+Definición en la línea 52 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t POS"
+Position register 
+.PP
+Definición en la línea 51 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[993]"
+
+.PP
+Definición en la línea 69 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t SET"
+Interrupt status set register 
+.PP
+Definición en la línea 75 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t STAT"
+Encoder status register 
+.PP
+Definición en la línea 49 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t TIME"
+Velocity timer register 
+.PP
+Definición en la línea 59 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t VEL"
+Velocity counter register 
+.PP
+Definición en la línea 60 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t VELCOMP"
+Velocity compare register 
+.PP
+Definición en la línea 62 del archivo qei_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t WINDOW"
+Index acceptance window register 
+.PP
+Definición en la línea 66 del archivo qei_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

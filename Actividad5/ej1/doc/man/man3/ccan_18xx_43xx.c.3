@@ -1,0 +1,92 @@
+.TH "ccan_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ccan_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP void \fBconfigTimming\fP (\fBLPC_CCAN_T\fP *pCCAN, uint32_t ClkDiv, uint32_t BaudRatePrescaler, uint8_t SynJumpWidth, uint8_t Tseg1, uint8_t Tseg2)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP uint8_t \fBgetFreeMsgObject\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP void \fBfreeMsgObject\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP \fBChip_CCAN_GetClockIndex\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.ti -1c
+.RI "void \fBChip_CCAN_Init\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIInitialize the CCAN peripheral, free all message object in RAM\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_DeInit\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIDe-initialize the CCAN peripheral\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_CCAN_SetBitRate\fP (\fBLPC_CCAN_T\fP *pCCAN, uint32_t bitRate)"
+.br
+.RI "\fISelect bit rate for CCAN bus\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_ClearStatus\fP (\fBLPC_CCAN_T\fP *pCCAN, uint32_t val)"
+.br
+.RI "\fIClear the status of CCAN bus\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_SetMsgObject\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, \fBCCAN_TRANSFER_DIR_T\fP dir, bool remoteFrame, uint8_t msgNum, const \fBCCAN_MSG_OBJ_T\fP *pMsgObj)"
+.br
+.RI "\fISet a message into the message object in message RAM\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_GetMsgObject\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum, \fBCCAN_MSG_OBJ_T\fP *pMsgObj)"
+.br
+.RI "\fIGet a message object in message RAM into the message buffer\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_TransferMsgObject\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint32_t mask, uint32_t msgNum)"
+.br
+.RI "\fITranfer message object between IF registers and Message RAM\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_SetValidMsg\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum, bool valid)"
+.br
+.RI "\fIEnable/Disable the message object to valid\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_Send\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, bool remoteFrame, \fBCCAN_MSG_OBJ_T\fP *pMsgObj)"
+.br
+.RI "\fISend a message\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_AddReceiveID\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint32_t id)"
+.br
+.RI "\fIRegister a message ID for receiving\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_DeleteReceiveID\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint32_t id)"
+.br
+.RI "\fIRemove a registered message ID from receiving\&. \fP"
+.in -1c
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP Chip_CCAN_GetClockIndex (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Definición en la línea 91 del archivo ccan_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP void configTimming (\fBLPC_CCAN_T\fP * pCCAN, uint32_t ClkDiv, uint32_t BaudRatePrescaler, uint8_t SynJumpWidth, uint8_t Tseg1, uint8_t Tseg2)"
+
+.PP
+Definición en la línea 47 del archivo ccan_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP void freeMsgObject (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum)"
+
+.PP
+Definición en la línea 85 del archivo ccan_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP uint8_t getFreeMsgObject (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Definición en la línea 72 del archivo ccan_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

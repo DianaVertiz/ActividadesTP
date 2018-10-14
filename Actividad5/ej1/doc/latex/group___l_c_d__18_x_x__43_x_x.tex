@@ -1,0 +1,729 @@
+\hypertarget{group___l_c_d__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx L\+CD driver}
+\label{group___l_c_d__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T}
+\begin{DoxyCompactList}\small\item\em L\+CD Controller register block structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_l_c_d___p_a_l_e_t_t_e___e_n_t_r_y___t}{L\+C\+D\+\_\+\+P\+A\+L\+E\+T\+T\+E\+\_\+\+E\+N\+T\+R\+Y\+\_\+T}
+\begin{DoxyCompactList}\small\item\em L\+CD Palette entry format. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_l_c_d___c_o_n_f_i_g___t}{L\+C\+D\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T}
+\begin{DoxyCompactList}\small\item\em A structure for L\+CD Configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_gae2537e91c439a06b08c27e63c8639fd8}{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+F\+U\+F\+IM}~0x2
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_gafc1a133f89801ad8c911d73e213d7349}{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+L\+N\+B\+U\+IM}~0x4
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_ga6c78481d9b993bd0247c53e5b182ab49}{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+V\+C\+O\+M\+P\+IM}~0x8
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_ga806f8a96720000a09b6de988d3d46291}{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+B\+E\+R\+IM}~0x10
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_ga1ccec80860d0fac10278a3b13092152b}{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+LE}~\hyperlink{group___l_p_c___types___public___macros_ga7ee022f5e5a971a8324e4b7572d49170}{\+\_\+\+B\+IT}(0)
+\item 
+\#define \hyperlink{group___l_c_d__18_x_x__43_x_x_gade9e578fe44d385674e0b9f932bf8bdb}{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+P\+WR}~\hyperlink{group___l_p_c___types___public___macros_ga7ee022f5e5a971a8324e4b7572d49170}{\+\_\+\+B\+IT}(11)
+\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___l_c_d__18_x_x__43_x_x_gaceee4b8b7afdc1a97b365dc2feb4ecca}{L\+C\+D\+\_\+\+P\+A\+N\+E\+L\+\_\+\+O\+P\+T\+\_\+T} \{ \hyperlink{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa00e3399b074ff76827ba4bb796daf3b6}{L\+C\+D\+\_\+\+T\+FT} = 0x02, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaad2639cf608d91ec46b6cf2ce7a490494}{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+4} = 0x01, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa92d1598a61d705cd7e2b2f0829977d33}{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+8} = 0x05, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa015be97b134328f3b44403b8c28fa85e}{L\+C\+D\+\_\+\+C\+S\+TN} = 0x00
+ \}\begin{DoxyCompactList}\small\item\em L\+CD Panel type. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___l_c_d__18_x_x__43_x_x_gac365c31cd880844cf31747394cd0f93a}{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+O\+P\+T\+\_\+T} \{ \hyperlink{group___l_c_d__18_x_x__43_x_x_ggac365c31cd880844cf31747394cd0f93aaaece371e0b75415f8d1827920f5c5a9e}{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+GB} = 0, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggac365c31cd880844cf31747394cd0f93aad4dec73fcfd38460506c7c9d244f2149}{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+B\+GR}
+ \}\begin{DoxyCompactList}\small\item\em L\+CD Color Format. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___l_c_d__18_x_x__43_x_x_gacd66e01df306369e87e482a36a2cc66b}{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T} \{ \hyperlink{group___l_c_d__18_x_x__43_x_x_ggacd66e01df306369e87e482a36a2cc66ba5d1d44bda3d01e8e1c9a001bc1b56a28}{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+32x32} = 0, 
+\hyperlink{group___l_c_d__18_x_x__43_x_x_ggacd66e01df306369e87e482a36a2cc66ba68245535ad3b833e1cef4bee16deb95f}{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+64x64}
+ \}\begin{DoxyCompactList}\small\item\em L\+CD Cursor Size. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga1674713116e590f51d61ea5d69d58314}{Chip\+\_\+\+L\+C\+D\+\_\+\+Init} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, \hyperlink{struct_l_c_d___c_o_n_f_i_g___t}{L\+C\+D\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$L\+C\+D\+\_\+\+Config\+Struct)
+\begin{DoxyCompactList}\small\item\em Initialize the L\+CD controller. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga5f0cb4fb4a8dbd4544ec3686fede73a5}{Chip\+\_\+\+L\+C\+D\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Shutdown the L\+CD controller. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga06f07608827fe9ee120be6540922d16e}{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+On} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Power-\/on the L\+CD Panel (power pin) \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga993223c458c548b5e05705a9a5895228}{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+Off} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Power-\/off the L\+CD Panel (power pin) \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga0828ea4978cdb0864d0f6bbfa7dcb49a}{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable the L\+CD Controller. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga935c17635c088e252344243bc4e83436}{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable the L\+CD Controller. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga86f17bd80f2c8694226942d7fb44fcfc}{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+U\+P\+Frame\+Buffer} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, void $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Set L\+CD Upper Panel Frame Buffer for Single Panel or Upper Panel Frame Buffer for Dual Panel. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga6e45f8254b1962e58245f769466e9295}{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+L\+P\+Frame\+Buffer} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, void $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Set L\+CD Lower Panel Frame Buffer for Dual Panel. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga160098404c8f66943767ee93e8fb575e}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Config} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, \hyperlink{group___l_c_d__18_x_x__43_x_x_gacd66e01df306369e87e482a36a2cc66b}{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T} cursor\+\_\+size, bool sync)
+\begin{DoxyCompactList}\small\item\em Configure Cursor. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga70b227f6b0291dda72ec239ec34466a0}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Enable} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint8\+\_\+t cursor\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Enable Cursor. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_gac4c6ed11a22b83ceed1d2666f1e12b5a}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Disable} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint8\+\_\+t cursor\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Disable Cursor. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga164119b0cf9ee7d42cf1be435c60e4f5}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette0} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t palette\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Load Cursor Palette. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga164cb1b18309b45884abfa32b511105e}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette1} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t palette\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Load Cursor Palette. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga8aeda292a8476655f32568003be7a098}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Pos} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Set Cursor Position. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga87c4b7b85b63f40255f2e716321d5879}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Clip} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Set Cursor Clipping Position. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga25198b7b084a884217163cbc681ceac4}{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable\+Ints} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t ints)
+\begin{DoxyCompactList}\small\item\em Enable Controller Interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga98d2df2f7630bce1ca9e6af19f8c8426}{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable\+Ints} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t ints)
+\begin{DoxyCompactList}\small\item\em Disable Controller Interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga895dd5e12a15f0a30ab17054747ce9f7}{Chip\+\_\+\+L\+C\+D\+\_\+\+Clear\+Ints} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint32\+\_\+t ints)
+\begin{DoxyCompactList}\small\item\em Clear Controller Interrupt. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_ga51c750babdecc5a01beff92f32b431af}{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Write\+Image} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, uint8\+\_\+t cursor\+\_\+num, void $\ast$Image)
+\begin{DoxyCompactList}\small\item\em Write Cursor Image into Internal Cursor Image Buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group___l_c_d__18_x_x__43_x_x_gaca363a0ae6e47d7bba4d0c51b99b0c8a}{Chip\+\_\+\+L\+C\+D\+\_\+\+Load\+Palette} (\hyperlink{struct_l_p_c___l_c_d___t}{L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$p\+L\+CD, void $\ast$palette)
+\begin{DoxyCompactList}\small\item\em Load L\+CD Palette. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+LE@{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+LE}}
+\index{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+LE@{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+LE}{CLCDC_LCDCTRL_ENABLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+LE~{\bf \+\_\+\+B\+IT}(0)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga1ccec80860d0fac10278a3b13092152b}{}\label{group___l_c_d__18_x_x__43_x_x_ga1ccec80860d0fac10278a3b13092152b}
+L\+CD control enable bit 
+
+Definición en la línea 116 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+P\+WR@{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+P\+WR}}
+\index{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+P\+WR@{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+P\+WR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+P\+WR}{CLCDC_LCDCTRL_PWR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+C\+D\+C\+\_\+\+L\+C\+D\+C\+T\+R\+L\+\_\+\+P\+WR~{\bf \+\_\+\+B\+IT}(11)}\hypertarget{group___l_c_d__18_x_x__43_x_x_gade9e578fe44d385674e0b9f932bf8bdb}{}\label{group___l_c_d__18_x_x__43_x_x_gade9e578fe44d385674e0b9f932bf8bdb}
+L\+CD control power enable bit 
+
+Definición en la línea 117 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+B\+E\+R\+IM@{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+B\+E\+R\+IM}}
+\index{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+B\+E\+R\+IM@{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+B\+E\+R\+IM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+B\+E\+R\+IM}{LCD_INTMSK_BERIM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+B\+E\+R\+IM~0x10}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga806f8a96720000a09b6de988d3d46291}{}\label{group___l_c_d__18_x_x__43_x_x_ga806f8a96720000a09b6de988d3d46291}
+A\+HB master error interrupt enable 
+
+Definición en la línea 114 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+F\+U\+F\+IM@{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+F\+U\+F\+IM}}
+\index{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+F\+U\+F\+IM@{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+F\+U\+F\+IM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+F\+U\+F\+IM}{LCD_INTMSK_FUFIM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+F\+U\+F\+IM~0x2}\hypertarget{group___l_c_d__18_x_x__43_x_x_gae2537e91c439a06b08c27e63c8639fd8}{}\label{group___l_c_d__18_x_x__43_x_x_gae2537e91c439a06b08c27e63c8639fd8}
+L\+CD Interrupt control mask register bits F\+I\+FO underflow interrupt enable 
+
+Definición en la línea 111 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+L\+N\+B\+U\+IM@{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+L\+N\+B\+U\+IM}}
+\index{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+L\+N\+B\+U\+IM@{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+L\+N\+B\+U\+IM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+L\+N\+B\+U\+IM}{LCD_INTMSK_LNBUIM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+L\+N\+B\+U\+IM~0x4}\hypertarget{group___l_c_d__18_x_x__43_x_x_gafc1a133f89801ad8c911d73e213d7349}{}\label{group___l_c_d__18_x_x__43_x_x_gafc1a133f89801ad8c911d73e213d7349}
+L\+CD next base address update interrupt enable 
+
+Definición en la línea 112 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+V\+C\+O\+M\+P\+IM@{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+V\+C\+O\+M\+P\+IM}}
+\index{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+V\+C\+O\+M\+P\+IM@{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+V\+C\+O\+M\+P\+IM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+V\+C\+O\+M\+P\+IM}{LCD_INTMSK_VCOMPIM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+I\+N\+T\+M\+S\+K\+\_\+\+V\+C\+O\+M\+P\+IM~0x8}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga6c78481d9b993bd0247c53e5b182ab49}{}\label{group___l_c_d__18_x_x__43_x_x_ga6c78481d9b993bd0247c53e5b182ab49}
+Vertical compare interrupt enable 
+
+Definición en la línea 113 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las enumeraciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+O\+P\+T\+\_\+T@{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+O\+P\+T\+\_\+T}}
+\index{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+O\+P\+T\+\_\+T@{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+O\+P\+T\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+O\+P\+T\+\_\+T}{LCD_COLOR_FORMAT_OPT_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+O\+P\+T\+\_\+T}}\hypertarget{group___l_c_d__18_x_x__43_x_x_gac365c31cd880844cf31747394cd0f93a}{}\label{group___l_c_d__18_x_x__43_x_x_gac365c31cd880844cf31747394cd0f93a}
+
+
+L\+CD Color Format. 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+GB@{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+GB}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+GB@{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+GB}}\item[{\em 
+L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+GB\hypertarget{group___l_c_d__18_x_x__43_x_x_ggac365c31cd880844cf31747394cd0f93aaaece371e0b75415f8d1827920f5c5a9e}{}\label{group___l_c_d__18_x_x__43_x_x_ggac365c31cd880844cf31747394cd0f93aaaece371e0b75415f8d1827920f5c5a9e}
+}]\index{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+B\+GR@{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+B\+GR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+B\+GR@{L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+B\+GR}}\item[{\em 
+L\+C\+D\+\_\+\+C\+O\+L\+O\+R\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+B\+GR\hypertarget{group___l_c_d__18_x_x__43_x_x_ggac365c31cd880844cf31747394cd0f93aad4dec73fcfd38460506c7c9d244f2149}{}\label{group___l_c_d__18_x_x__43_x_x_ggac365c31cd880844cf31747394cd0f93aad4dec73fcfd38460506c7c9d244f2149}
+}]\end{description}
+\end{Desc}
+
+
+Definición en la línea 105 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T@{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T}}
+\index{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T@{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T}{LCD_CURSOR_SIZE_OPT_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T}}\hypertarget{group___l_c_d__18_x_x__43_x_x_gacd66e01df306369e87e482a36a2cc66b}{}\label{group___l_c_d__18_x_x__43_x_x_gacd66e01df306369e87e482a36a2cc66b}
+
+
+L\+CD Cursor Size. 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+32x32@{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+32x32}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+32x32@{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+32x32}}\item[{\em 
+L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+32x32\hypertarget{group___l_c_d__18_x_x__43_x_x_ggacd66e01df306369e87e482a36a2cc66ba5d1d44bda3d01e8e1c9a001bc1b56a28}{}\label{group___l_c_d__18_x_x__43_x_x_ggacd66e01df306369e87e482a36a2cc66ba5d1d44bda3d01e8e1c9a001bc1b56a28}
+}]\index{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+64x64@{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+64x64}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+64x64@{L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+64x64}}\item[{\em 
+L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+64x64\hypertarget{group___l_c_d__18_x_x__43_x_x_ggacd66e01df306369e87e482a36a2cc66ba68245535ad3b833e1cef4bee16deb95f}{}\label{group___l_c_d__18_x_x__43_x_x_ggacd66e01df306369e87e482a36a2cc66ba68245535ad3b833e1cef4bee16deb95f}
+}]\end{description}
+\end{Desc}
+
+
+Definición en la línea 145 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+P\+A\+N\+E\+L\+\_\+\+O\+P\+T\+\_\+T@{L\+C\+D\+\_\+\+P\+A\+N\+E\+L\+\_\+\+O\+P\+T\+\_\+T}}
+\index{L\+C\+D\+\_\+\+P\+A\+N\+E\+L\+\_\+\+O\+P\+T\+\_\+T@{L\+C\+D\+\_\+\+P\+A\+N\+E\+L\+\_\+\+O\+P\+T\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{L\+C\+D\+\_\+\+P\+A\+N\+E\+L\+\_\+\+O\+P\+T\+\_\+T}{LCD_PANEL_OPT_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf L\+C\+D\+\_\+\+P\+A\+N\+E\+L\+\_\+\+O\+P\+T\+\_\+T}}\hypertarget{group___l_c_d__18_x_x__43_x_x_gaceee4b8b7afdc1a97b365dc2feb4ecca}{}\label{group___l_c_d__18_x_x__43_x_x_gaceee4b8b7afdc1a97b365dc2feb4ecca}
+
+
+L\+CD Panel type. 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{L\+C\+D\+\_\+\+T\+FT@{L\+C\+D\+\_\+\+T\+FT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+T\+FT@{L\+C\+D\+\_\+\+T\+FT}}\item[{\em 
+L\+C\+D\+\_\+\+T\+FT\hypertarget{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa00e3399b074ff76827ba4bb796daf3b6}{}\label{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa00e3399b074ff76827ba4bb796daf3b6}
+}]standard T\+FT \index{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+4@{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+4}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+4@{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+4}}\item[{\em 
+L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+4\hypertarget{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaad2639cf608d91ec46b6cf2ce7a490494}{}\label{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaad2639cf608d91ec46b6cf2ce7a490494}
+}]4-\/bit S\+TN mono \index{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+8@{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+8}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+8@{L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+8}}\item[{\em 
+L\+C\+D\+\_\+\+M\+O\+N\+O\+\_\+8\hypertarget{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa92d1598a61d705cd7e2b2f0829977d33}{}\label{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa92d1598a61d705cd7e2b2f0829977d33}
+}]8-\/bit S\+TN mono \index{L\+C\+D\+\_\+\+C\+S\+TN@{L\+C\+D\+\_\+\+C\+S\+TN}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!L\+C\+D\+\_\+\+C\+S\+TN@{L\+C\+D\+\_\+\+C\+S\+TN}}\item[{\em 
+L\+C\+D\+\_\+\+C\+S\+TN\hypertarget{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa015be97b134328f3b44403b8c28fa85e}{}\label{group___l_c_d__18_x_x__43_x_x_ggaceee4b8b7afdc1a97b365dc2feb4eccaa015be97b134328f3b44403b8c28fa85e}
+}]color S\+TN \end{description}
+\end{Desc}
+
+
+Definición en la línea 95 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Clear\+Ints@{Chip\+\_\+\+L\+C\+D\+\_\+\+Clear\+Ints}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Clear\+Ints@{Chip\+\_\+\+L\+C\+D\+\_\+\+Clear\+Ints}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Clear\+Ints(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint32\+\_\+t ints)}{Chip_LCD_ClearInts(LPC_LCD_T *pLCD, uint32_t ints)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Clear\+Ints (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint32\+\_\+t}]{ints}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga895dd5e12a15f0a30ab17054747ce9f7}{}\label{group___l_c_d__18_x_x__43_x_x_ga895dd5e12a15f0a30ab17054747ce9f7}
+
+
+Clear Controller Interrupt. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em ints} & \+: OR\textquotesingle{}ed interrupt bits to clear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 353 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Config@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Config}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Config@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Config}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Config(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+\+T cursor\+\_\+size, bool sync)}{Chip_LCD_Cursor_Config(LPC_LCD_T *pLCD, LCD_CURSOR_SIZE_OPT_T cursor_size, bool sync)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Config (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{{\bf L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+O\+P\+T\+\_\+T}}]{cursor\+\_\+size, }
+\item[{bool}]{sync}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga160098404c8f66943767ee93e8fb575e}{}\label{group___l_c_d__18_x_x__43_x_x_ga160098404c8f66943767ee93e8fb575e}
+
+
+Configure Cursor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em cursor\+\_\+size} & \+: specify size of cursor
+\begin{DoxyItemize}
+\item L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+32x32 \+:cursor size is 32x32 pixels
+\item L\+C\+D\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+64x64 \+:cursor size is 64x64 pixels 
+\end{DoxyItemize}\\
+\hline
+{\em sync} & \+: cursor sync mode
+\begin{DoxyItemize}
+\item T\+R\+UE \+:cursor sync to the frame sync pulse
+\item F\+A\+L\+SE \+:cursor async mode 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 140 del archivo lcd\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Disable@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Disable}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Disable@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Disable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Disable(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint8\+\_\+t cursor\+\_\+num)}{Chip_LCD_Cursor_Disable(LPC_LCD_T *pLCD, uint8_t cursor_num)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Disable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint8\+\_\+t}]{cursor\+\_\+num}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_gac4c6ed11a22b83ceed1d2666f1e12b5a}{}\label{group___l_c_d__18_x_x__43_x_x_gac4c6ed11a22b83ceed1d2666f1e12b5a}
+
+
+Disable Cursor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em cursor\+\_\+num} & \+: specify number of cursor is going to be written this param must $<$ 4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 266 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Enable@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Enable}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Enable@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Enable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Enable(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint8\+\_\+t cursor\+\_\+num)}{Chip_LCD_Cursor_Enable(LPC_LCD_T *pLCD, uint8_t cursor_num)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Enable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint8\+\_\+t}]{cursor\+\_\+num}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga70b227f6b0291dda72ec239ec34466a0}{}\label{group___l_c_d__18_x_x__43_x_x_ga70b227f6b0291dda72ec239ec34466a0}
+
+
+Enable Cursor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em cursor\+\_\+num} & \+: specify number of cursor is going to be written this param must $<$ 4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 254 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette0@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette0}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette0@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette0}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette0(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint32\+\_\+t palette\+\_\+color)}{Chip_LCD_Cursor_LoadPalette0(LPC_LCD_T *pLCD, uint32_t palette_color)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette0 (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint32\+\_\+t}]{palette\+\_\+color}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga164119b0cf9ee7d42cf1be435c60e4f5}{}\label{group___l_c_d__18_x_x__43_x_x_ga164119b0cf9ee7d42cf1be435c60e4f5}
+
+
+Load Cursor Palette. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em palette\+\_\+color} & \+: cursor palette 0 value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 277 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette1@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette1}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette1@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette1(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint32\+\_\+t palette\+\_\+color)}{Chip_LCD_Cursor_LoadPalette1(LPC_LCD_T *pLCD, uint32_t palette_color)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Load\+Palette1 (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint32\+\_\+t}]{palette\+\_\+color}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga164cb1b18309b45884abfa32b511105e}{}\label{group___l_c_d__18_x_x__43_x_x_ga164cb1b18309b45884abfa32b511105e}
+
+
+Load Cursor Palette. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em palette\+\_\+color} & \+: cursor palette 1 value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 292 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Clip@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Clip}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Clip@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Clip}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Clip(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint16\+\_\+t x, uint16\+\_\+t y)}{Chip_LCD_Cursor_SetClip(LPC_LCD_T *pLCD, uint16_t x, uint16_t y)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Clip (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint16\+\_\+t}]{x, }
+\item[{uint16\+\_\+t}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga87c4b7b85b63f40255f2e716321d5879}{}\label{group___l_c_d__18_x_x__43_x_x_ga87c4b7b85b63f40255f2e716321d5879}
+
+
+Set Cursor Clipping Position. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em x} & \+: horizontal position, should be in range\+: 0..63 \\
+\hline
+{\em y} & \+: vertical position, should be in range\+: 0..63 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 320 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Pos@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Pos}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Pos@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Pos}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Pos(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint16\+\_\+t x, uint16\+\_\+t y)}{Chip_LCD_Cursor_SetPos(LPC_LCD_T *pLCD, uint16_t x, uint16_t y)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Set\+Pos (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint16\+\_\+t}]{x, }
+\item[{uint16\+\_\+t}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga8aeda292a8476655f32568003be7a098}{}\label{group___l_c_d__18_x_x__43_x_x_ga8aeda292a8476655f32568003be7a098}
+
+
+Set Cursor Position. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em x} & \+: horizontal position \\
+\hline
+{\em y} & \+: vertical position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 308 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Write\+Image@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Write\+Image}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Write\+Image@{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Write\+Image}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Write\+Image(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint8\+\_\+t cursor\+\_\+num, void $\ast$\+Image)}{Chip_LCD_Cursor_WriteImage(LPC_LCD_T *pLCD, uint8_t cursor_num, void *Image)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+L\+C\+D\+\_\+\+Cursor\+\_\+\+Write\+Image (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint8\+\_\+t}]{cursor\+\_\+num, }
+\item[{void $\ast$}]{Image}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga51c750babdecc5a01beff92f32b431af}{}\label{group___l_c_d__18_x_x__43_x_x_ga51c750babdecc5a01beff92f32b431af}
+
+
+Write Cursor Image into Internal Cursor Image Buffer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em cursor\+\_\+num} & \+: Cursor index \\
+\hline
+{\em Image} & \+: Pointer to image data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 147 del archivo lcd\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+De\+Init@{Chip\+\_\+\+L\+C\+D\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+De\+Init@{Chip\+\_\+\+L\+C\+D\+\_\+\+De\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+De\+Init(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D)}{Chip_LCD_DeInit(LPC_LCD_T *pLCD)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+L\+C\+D\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga5f0cb4fb4a8dbd4544ec3686fede73a5}{}\label{group___l_c_d__18_x_x__43_x_x_ga5f0cb4fb4a8dbd4544ec3686fede73a5}
+
+
+Shutdown the L\+CD controller. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 134 del archivo lcd\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Disable@{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable@{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D)}{Chip_LCD_Disable(LPC_LCD_T *pLCD)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Disable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga935c17635c088e252344243bc4e83436}{}\label{group___l_c_d__18_x_x__43_x_x_ga935c17635c088e252344243bc4e83436}
+
+
+Enable/\+Disable the L\+CD Controller. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 206 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Disable\+Ints@{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable\+Ints}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable\+Ints@{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable\+Ints}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Disable\+Ints(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint32\+\_\+t ints)}{Chip_LCD_DisableInts(LPC_LCD_T *pLCD, uint32_t ints)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Disable\+Ints (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint32\+\_\+t}]{ints}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga98d2df2f7630bce1ca9e6af19f8c8426}{}\label{group___l_c_d__18_x_x__43_x_x_ga98d2df2f7630bce1ca9e6af19f8c8426}
+
+
+Disable Controller Interrupt. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em ints} & \+: OR\textquotesingle{}ed interrupt bits to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 342 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Enable@{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable@{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D)}{Chip_LCD_Enable(LPC_LCD_T *pLCD)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Enable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga0828ea4978cdb0864d0f6bbfa7dcb49a}{}\label{group___l_c_d__18_x_x__43_x_x_ga0828ea4978cdb0864d0f6bbfa7dcb49a}
+
+
+Enable/\+Disable the L\+CD Controller. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 196 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Enable\+Ints@{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable\+Ints}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable\+Ints@{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable\+Ints}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Enable\+Ints(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, uint32\+\_\+t ints)}{Chip_LCD_EnableInts(LPC_LCD_T *pLCD, uint32_t ints)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Enable\+Ints (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{uint32\+\_\+t}]{ints}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga25198b7b084a884217163cbc681ceac4}{}\label{group___l_c_d__18_x_x__43_x_x_ga25198b7b084a884217163cbc681ceac4}
+
+
+Enable Controller Interrupt. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em ints} & \+: OR\textquotesingle{}ed interrupt bits to enable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 331 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Init@{Chip\+\_\+\+L\+C\+D\+\_\+\+Init}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Init@{Chip\+\_\+\+L\+C\+D\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Init(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, L\+C\+D\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T $\ast$\+L\+C\+D\+\_\+\+Config\+Struct)}{Chip_LCD_Init(LPC_LCD_T *pLCD, LCD_CONFIG_T *LCD_ConfigStruct)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+L\+C\+D\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{{\bf L\+C\+D\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$}]{L\+C\+D\+\_\+\+Config\+Struct}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga1674713116e590f51d61ea5d69d58314}{}\label{group___l_c_d__18_x_x__43_x_x_ga1674713116e590f51d61ea5d69d58314}
+
+
+Initialize the L\+CD controller. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em L\+C\+D\+\_\+\+Config\+Struct} & \+: Pointer to L\+CD configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+L\+C\+D\+\_\+\+F\+U\+N\+C\+\_\+\+OK is executed successfully or L\+C\+D\+\_\+\+F\+U\+N\+C\+\_\+\+E\+RR on error 
+\end{DoxyReturn}
+
+
+Definición en la línea 53 del archivo lcd\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Load\+Palette@{Chip\+\_\+\+L\+C\+D\+\_\+\+Load\+Palette}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Load\+Palette@{Chip\+\_\+\+L\+C\+D\+\_\+\+Load\+Palette}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Load\+Palette(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, void $\ast$palette)}{Chip_LCD_LoadPalette(LPC_LCD_T *pLCD, void *palette)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+L\+C\+D\+\_\+\+Load\+Palette (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{void $\ast$}]{palette}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_gaca363a0ae6e47d7bba4d0c51b99b0c8a}{}\label{group___l_c_d__18_x_x__43_x_x_gaca363a0ae6e47d7bba4d0c51b99b0c8a}
+
+
+Load L\+CD Palette. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em palette} & \+: Address of palette table to load \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 173 del archivo lcd\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+Off@{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+Off}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+Off@{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+Off}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+Off(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D)}{Chip_LCD_PowerOff(LPC_LCD_T *pLCD)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+Off (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga993223c458c548b5e05705a9a5895228}{}\label{group___l_c_d__18_x_x__43_x_x_ga993223c458c548b5e05705a9a5895228}
+
+
+Power-\/off the L\+CD Panel (power pin) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 183 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+On@{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+On}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+On@{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+On}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+On(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D)}{Chip_LCD_PowerOn(LPC_LCD_T *pLCD)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Power\+On (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga06f07608827fe9ee120be6540922d16e}{}\label{group___l_c_d__18_x_x__43_x_x_ga06f07608827fe9ee120be6540922d16e}
+
+
+Power-\/on the L\+CD Panel (power pin) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 170 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+L\+P\+Frame\+Buffer@{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+L\+P\+Frame\+Buffer}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+L\+P\+Frame\+Buffer@{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+L\+P\+Frame\+Buffer}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+L\+P\+Frame\+Buffer(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, void $\ast$buffer)}{Chip_LCD_SetLPFrameBuffer(LPC_LCD_T *pLCD, void *buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+L\+P\+Frame\+Buffer (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{void $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga6e45f8254b1962e58245f769466e9295}{}\label{group___l_c_d__18_x_x__43_x_x_ga6e45f8254b1962e58245f769466e9295}
+
+
+Set L\+CD Lower Panel Frame Buffer for Dual Panel. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em buffer} & \+: address of buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 229 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}!Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+U\+P\+Frame\+Buffer@{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+U\+P\+Frame\+Buffer}}
+\index{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+U\+P\+Frame\+Buffer@{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+U\+P\+Frame\+Buffer}!C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx L\+C\+D driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+U\+P\+Frame\+Buffer(\+L\+P\+C\+\_\+\+L\+C\+D\+\_\+\+T $\ast$p\+L\+C\+D, void $\ast$buffer)}{Chip_LCD_SetUPFrameBuffer(LPC_LCD_T *pLCD, void *buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+L\+C\+D\+\_\+\+Set\+U\+P\+Frame\+Buffer (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+L\+C\+D\+\_\+T} $\ast$}]{p\+L\+CD, }
+\item[{void $\ast$}]{buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___l_c_d__18_x_x__43_x_x_ga86f17bd80f2c8694226942d7fb44fcfc}{}\label{group___l_c_d__18_x_x__43_x_x_ga86f17bd80f2c8694226942d7fb44fcfc}
+
+
+Set L\+CD Upper Panel Frame Buffer for Single Panel or Upper Panel Frame Buffer for Dual Panel. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+L\+CD} & \+: The base of L\+CD peripheral on the chip \\
+\hline
+{\em buffer} & \+: address of buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 218 del archivo lcd\+\_\+18xx\+\_\+43xx.\+h.
+

@@ -1,0 +1,346 @@
+.TH "i2s_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+i2s_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_I2S_T\fP"
+.br
+.RI "\fII2S register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBI2S_AUDIO_FORMAT_T\fP"
+.br
+.RI "\fII2S Audio Format Structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBI2S_WORDWIDTH_8\fP   (0UL << 0)"
+.br
+.ti -1c
+.RI "#define \fBI2S_WORDWIDTH_16\fP   (1UL << 0)"
+.br
+.ti -1c
+.RI "#define \fBI2S_WORDWIDTH_32\fP   (3UL << 0)"
+.br
+.ti -1c
+.RI "#define \fBI2S_STEREO\fP   (0UL << 2)"
+.br
+.ti -1c
+.RI "#define \fBI2S_MONO\fP   (1UL << 2)"
+.br
+.ti -1c
+.RI "#define \fBI2S_MASTER_MODE\fP   (0UL << 5)"
+.br
+.ti -1c
+.RI "#define \fBI2S_SLAVE_MODE\fP   (1UL << 5)"
+.br
+.ti -1c
+.RI "#define \fBI2S_STOP_ENABLE\fP   (0UL << 3)"
+.br
+.ti -1c
+.RI "#define \fBI2S_STOP_DISABLE\fP   (1UL << 3)"
+.br
+.ti -1c
+.RI "#define \fBI2S_RESET_ENABLE\fP   (1UL << 4)"
+.br
+.ti -1c
+.RI "#define \fBI2S_RESET_DISABLE\fP   (0UL << 4)"
+.br
+.ti -1c
+.RI "#define \fBI2S_MUTE_ENABLE\fP   (1UL << 15)"
+.br
+.ti -1c
+.RI "#define \fBI2S_MUTE_DISABLE\fP   (0UL << 15)"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WORDWIDTH_8\fP   ((uint32_t) (0))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WORDWIDTH_16\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WORDWIDTH_32\fP   ((uint32_t) (3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WORDWIDTH_MASK\fP   ((uint32_t) (3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_MONO\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_STOP\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_RESET\fP   ((uint32_t) (1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_SLAVE\fP   ((uint32_t) (1 << 5))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WS_HALFPERIOD\fP(n)   ((uint32_t) (((n) & 0x1FF) << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WS_HALFPERIOD_MASK\fP   ((uint32_t) ((0x1FF) << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_MUTE\fP   ((uint32_t) (1 << 15))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WORDWIDTH_8\fP   ((uint32_t) (0))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WORDWIDTH_16\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WORDWIDTH_32\fP   ((uint32_t) (3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WORDWIDTH_MASK\fP   ((uint32_t) (3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_MONO\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_STOP\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_RESET\fP   ((uint32_t) (1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_SLAVE\fP   ((uint32_t) (1 << 5))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WS_HALFPERIOD\fP(n)   ((uint32_t) (((n) & 0x1FF) << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WS_HALFPERIOD_MASK\fP   ((uint32_t) ((0x1FF) << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_IRQ\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_DMA1\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_DMA2\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_RX_LEVEL\fP(n)   ((uint32_t) ((n & 1F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_TX_LEVEL\fP(n)   ((uint32_t) ((n & 1F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA1_RX_ENABLE\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA1_TX_ENABLE\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA1_RX_DEPTH\fP(n)   ((uint32_t) ((n & 0x1F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA1_TX_DEPTH\fP(n)   ((uint32_t) ((n & 0x1F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA2_RX_ENABLE\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA2_TX_ENABLE\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA2_RX_DEPTH\fP(n)   ((uint32_t) ((n & 0x1F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA2_TX_DEPTH\fP(n)   ((uint32_t) ((n & 0x1F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_RX_ENABLE\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_TX_ENABLE\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_RX_DEPTH\fP(n)   ((uint32_t) ((n & 0x0F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_RX_DEPTH_MASK\fP   ((uint32_t) ((0x0F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_TX_DEPTH\fP(n)   ((uint32_t) ((n & 0x0F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_TX_DEPTH_MASK\fP   ((uint32_t) ((0x0F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXRATE_Y_DIVIDER\fP(n)   ((uint32_t) (n & 0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXRATE_X_DIVIDER\fP(n)   ((uint32_t) ((n & 0xFF) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXRATE_Y_DIVIDER\fP(n)   ((uint32_t) (n & 0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXRATE_X_DIVIDER\fP(n)   ((uint32_t) ((n & 0xFF) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXBITRATE\fP(n)   ((uint32_t) (n & 0x3F))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXBITRATE\fP(n)   ((uint32_t) (n & 0x3F))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXMODE_CLKSEL\fP(n)   ((uint32_t) (n & 0x03))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXMODE_4PIN_ENABLE\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXMODE_MCENA\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXMODE_CLKSEL\fP(n)   ((uint32_t) (n & 0x03))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXMODE_4PIN_ENABLE\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXMODE_MCENA\fP   ((uint32_t) (1 << 3))"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBI2S_DMA_CHANNEL_T\fP { \fBI2S_DMA_REQUEST_CHANNEL_1\fP, \fBI2S_DMA_REQUEST_CHANNEL_2\fP, \fBI2S_DMA_REQUEST_CHANNEL_NUM\fP }
+.RI "\fII2S DMA request channel define\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_I2S_Init\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIInitialize for I2S\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_DeInit\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIShutdown I2S\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_Send\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t data)"
+.br
+.RI "\fISend a 32-bit data to TXFIFO for transmition\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_I2S_Receive\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIGet received data from RXFIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxStart\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIStart transmit data\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxStart\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIStart receive data\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxPause\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIDisables accesses on FIFOs, places the transmit channel in mute mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxPause\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIDisables accesses on FIFOs, places the transmit channel in mute mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_EnableMute\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIMute the Transmit channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_DisableMute\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIUn-Mute the I2S channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxStop\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIStop I2S asynchronously\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxStop\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIStop I2S asynchronously\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxSlave\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fISets the I2S receive channel in slave mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxSlave\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fISets the I2S transmit channel in slave mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxModeConfig\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t clksel, uint32_t fpin, uint32_t mcena)"
+.br
+.RI "\fISet the I2S transmit mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxModeConfig\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t clksel, uint32_t fpin, uint32_t mcena)"
+.br
+.RI "\fISet the I2S receive mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_I2S_GetTxLevel\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIGet the current level of the Transmit FIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_I2S_GetRxLevel\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIGet the current level of the Receive FIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_SetTxBitRate\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t div)"
+.br
+.RI "\fISet the clock frequency for I2S interface\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_SetRxBitRate\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t div)"
+.br
+.RI "\fISet the clock frequency for I2S interface\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_SetTxXYDivider\fP (\fBLPC_I2S_T\fP *pI2S, uint8_t xDiv, uint8_t yDiv)"
+.br
+.RI "\fISet the MCLK rate by using a fractional rate generator, dividing down the frequency of PCLK\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_SetRxXYDivider\fP (\fBLPC_I2S_T\fP *pI2S, uint8_t xDiv, uint8_t yDiv)"
+.br
+.RI "\fISet the MCLK rate by using a fractional rate generator, dividing down the frequency of PCLK\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_I2S_TxConfig\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_AUDIO_FORMAT_T\fP *format)"
+.br
+.RI "\fIConfigure I2S for Audio Format input\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_I2S_RxConfig\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_AUDIO_FORMAT_T\fP *format)"
+.br
+.RI "\fIConfigure I2S for Audio Format input\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_Int_TxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable Interrupt with a specific FIFO depth\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_Int_RxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable Interrupt with a specific FIFO depth\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_DMA_TxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_DMA_CHANNEL_T\fP dmaNum, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable DMA with a specific FIFO depth\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_DMA_RxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_DMA_CHANNEL_T\fP dmaNum, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable DMA with a specific FIFO depth\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,40 @@
+.TH "rtc_ut.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rtc_ut.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTM_YEAR_BASE\fP   (1900)"
+.br
+.ti -1c
+.RI "#define \fBTM_DAYOFWEEK\fP   (1)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBConvertRtcTime\fP (uint32_t rtcTick, struct tm *pTime)"
+.br
+.RI "\fIConverts a RTC tick time to Universal time\&. \fP"
+.ti -1c
+.RI "void \fBConvertTimeRtc\fP (struct tm *pTime, uint32_t *rtcTick)"
+.br
+.RI "\fIConverts a Universal time to RTC tick time\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

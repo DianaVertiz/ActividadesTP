@@ -1,0 +1,189 @@
+.TH "i2c_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+i2c_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'i2c_common_18xx_43xx\&.h'\fP
+.br
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBI2C_XFER_T\fP"
+.br
+.RI "\fIMaster transfer data structure definitions\&. \fP"
+.in -1c
+.in +1c
+.ti -1c
+.RI "#define \fBRET_SLAVE_TX\fP   6"
+.br
+.RI "\fIReturn values for SLAVE handler\&. \fP"
+.ti -1c
+.RI "#define \fBRET_SLAVE_RX\fP   5"
+.br
+.ti -1c
+.RI "#define \fBRET_SLAVE_IDLE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBRET_SLAVE_BUSY\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_STA_STO_RECV\fP   0x20"
+.br
+.RI "\fII2C state handle return values\&. \fP"
+.ti -1c
+.RI "#define \fBI2C_I2STAT_NO_INF\fP   ((0xF8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_BUS_ERROR\fP   ((0x00))"
+.br
+.ti -1c
+.RI "#define \fBI2C_SETUP_STATUS_ARBF\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBI2C_SETUP_STATUS_NOACKF\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBI2C_SETUP_STATUS_DONE\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBI2C_OK\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBI2C_BYTE_SENT\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBI2C_BYTE_RECV\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBI2C_LAST_BYTE_RECV\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBI2C_SEND_END\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBI2C_RECV_END\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBI2C_STA_STO_RECV\fP   0x20"
+.br
+.RI "\fII2C state handle return values\&. \fP"
+.ti -1c
+.RI "#define \fBI2C_ERR\fP   (0x10000000)"
+.br
+.ti -1c
+.RI "#define \fBI2C_NAK_RECV\fP   (0x10000000 | 0x01)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CheckError\fP(ErrorCode)   (ErrorCode & 0x10000000)"
+.br
+.ti -1c
+.RI "#define \fBI2C_MONITOR_CFG_SCL_OUTPUT\fP   \fBI2C_I2MMCTRL_ENA_SCL\fP"
+.br
+.ti -1c
+.RI "#define \fBI2C_MONITOR_CFG_MATCHALL\fP   \fBI2C_I2MMCTRL_MATCH_ALL\fP"
+.br
+.ti -1c
+.RI "enum \fBI2C_SLAVE_ID\fP { \fBI2C_SLAVE_GENERAL\fP, \fBI2C_SLAVE_0\fP, \fBI2C_SLAVE_1\fP, \fBI2C_SLAVE_2\fP, \fBI2C_SLAVE_3\fP, \fBI2C_SLAVE_NUM_INTERFACE\fP }
+.RI "\fII2C Slave Identifiers\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBI2C_STATUS_T\fP { \fBI2C_STATUS_DONE\fP, \fBI2C_STATUS_NAK\fP, \fBI2C_STATUS_ARBLOST\fP, \fBI2C_STATUS_BUSERR\fP, \fBI2C_STATUS_BUSY\fP, \fBI2C_STATUS_SLAVENAK\fP }
+.RI "\fII2C transfer status\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBI2C_ID\fP { \fBI2C0\fP, \fBI2C1\fP, \fBI2C_NUM_INTERFACE\fP }
+.RI "\fII2C interface IDs\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBI2C_EVENT_T\fP { \fBI2C_EVENT_WAIT\fP = 1, \fBI2C_EVENT_DONE\fP, \fBI2C_EVENT_LOCK\fP, \fBI2C_EVENT_UNLOCK\fP, \fBI2C_EVENT_SLAVE_RX\fP, \fBI2C_EVENT_SLAVE_TX\fP }
+.RI "\fII2C master events\&. \fP""
+.br
+.ti -1c
+.RI "typedef enum \fBI2C_ID\fP \fBI2C_ID_T\fP"
+.br
+.RI "\fII2C interface IDs\&. \fP"
+.ti -1c
+.RI "typedef void(* \fBI2C_EVENTHANDLER_T\fP) (\fBI2C_ID_T\fP, \fBI2C_EVENT_T\fP)"
+.br
+.RI "\fIEvent handler function type\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_Init\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIInitializes the LPC_I2C peripheral with specified parameter\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_DeInit\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIDe-initializes the I2C peripheral registers to their default reset values\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_SetClockRate\fP (\fBI2C_ID_T\fP id, uint32_t clockrate)"
+.br
+.RI "\fISet up clock rate for LPC_I2C peripheral\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2C_GetClockRate\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIGet current clock rate for LPC_I2C peripheral\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_MasterTransfer\fP (\fBI2C_ID_T\fP id, \fBI2C_XFER_T\fP *xfer)"
+.br
+.RI "\fITransmit and Receive data in master mode\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_MasterSend\fP (\fBI2C_ID_T\fP id, uint8_t slaveAddr, const uint8_t *buff, uint8_t len)"
+.br
+.RI "\fITransmit data to I2C slave using I2C Master mode\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_MasterCmdRead\fP (\fBI2C_ID_T\fP id, uint8_t slaveAddr, uint8_t cmd, uint8_t *buff, int len)"
+.br
+.RI "\fITransfer a command to slave and receive data from slave after a repeated start\&. \fP"
+.ti -1c
+.RI "\fBI2C_EVENTHANDLER_T\fP \fBChip_I2C_GetMasterEventHandler\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIGet pointer to current function handling the events\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_SetMasterEventHandler\fP (\fBI2C_ID_T\fP id, \fBI2C_EVENTHANDLER_T\fP event)"
+.br
+.RI "\fISet function that must handle I2C events\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_MasterRead\fP (\fBI2C_ID_T\fP id, uint8_t slaveAddr, uint8_t *buff, int len)"
+.br
+.RI "\fISet function that must handle I2C events\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_EventHandlerPolling\fP (\fBI2C_ID_T\fP id, \fBI2C_EVENT_T\fP event)"
+.br
+.RI "\fIDefault event handler for polling operation\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_EventHandler\fP (\fBI2C_ID_T\fP id, \fBI2C_EVENT_T\fP event)"
+.br
+.RI "\fIDefault event handler for interrupt base operation\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_MasterStateHandler\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fII2C Master transfer state change handler\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_Disable\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIDisable I2C peripheral's operation\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_IsMasterActive\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIChecks if master xfer in progress\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_SlaveSetup\fP (\fBI2C_ID_T\fP id, \fBI2C_SLAVE_ID\fP sid, \fBI2C_XFER_T\fP *xfer, \fBI2C_EVENTHANDLER_T\fP event, uint8_t addrMask)"
+.br
+.RI "\fISetup a slave I2C device\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_SlaveStateHandler\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fII2C Slave event handler\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_IsStateChanged\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fII2C peripheral state change checking\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

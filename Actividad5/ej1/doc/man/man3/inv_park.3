@@ -1,0 +1,25 @@
+.TH "inv_park" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inv_park \- Vector Inverse Park transform
+.SH "Descripción detallada"
+.PP 
+Inverse Park transform converts the input flux and torque components to two-coordinate vector\&.
+.PP
+The function operates on a single sample of data and each call to the function returns the processed output\&. The library provides separate functions for Q31 and floating-point data types\&. 
+.PP
+\fBAlgorithm\fP
+.RS 4
+ where \fCpIalpha\fP and \fCpIbeta\fP are the stator vector components, \fCId\fP and \fCIq\fP are rotor vector components and \fCcosVal\fP and \fCsinVal\fP are the cosine and sine values of theta (rotor flux position)\&. 
+.RE
+.PP
+\fBFixed-Point Behavior\fP
+.RS 4
+Care must be taken when using the Q31 version of the Park transform\&. In particular, the overflow and saturation behavior of the accumulator used must be considered\&. Refer to the function specific documentation below for usage guidelines\&. 
+.RE
+.PP
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

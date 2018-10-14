@@ -1,0 +1,30 @@
+\hypertarget{iap__18xx__43xx_8c}{}\section{Referencia del Archivo iap\+\_\+18xx\+\_\+43xx.\+c}
+\label{iap__18xx__43xx_8c}\index{iap\+\_\+18xx\+\_\+43xx.\+c@{iap\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{group___i_a_p__18_x_x__43_x_x_ga85baff5c83b664045cde6e27c56f98a1}{Chip\+\_\+\+I\+A\+P\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize I\+AP. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___i_a_p__18_x_x__43_x_x_ga2848906d7dd201adfe74ee0501963f66}{Chip\+\_\+\+I\+A\+P\+\_\+\+Pre\+Sector\+For\+Read\+Write} (uint32\+\_\+t str\+Sector, uint32\+\_\+t end\+Sector, uint8\+\_\+t flash\+Bank)
+\begin{DoxyCompactList}\small\item\em Prepare sector for write operation. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___c_o_m_m_o_n___i_a_p_ga71cb8cde86dc344b05219cdf1ecee638}{Chip\+\_\+\+I\+A\+P\+\_\+\+Copy\+Ram\+To\+Flash} (uint32\+\_\+t dst\+Add, uint32\+\_\+t $\ast$src\+Add, uint32\+\_\+t byteswrt)
+\begin{DoxyCompactList}\small\item\em Copy R\+AM to flash. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___i_a_p__18_x_x__43_x_x_ga6f5e81e121da7eb32a50cd205ca3358f}{Chip\+\_\+\+I\+A\+P\+\_\+\+Erase\+Sector} (uint32\+\_\+t str\+Sector, uint32\+\_\+t end\+Sector, uint8\+\_\+t flash\+Bank)
+\begin{DoxyCompactList}\small\item\em Erase sector. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___i_a_p__18_x_x__43_x_x_gac740e0af8946c1bbfc04fbbb1c9b95e3}{Chip\+\_\+\+I\+A\+P\+\_\+\+Blank\+Check\+Sector} (uint32\+\_\+t str\+Sector, uint32\+\_\+t end\+Sector, uint8\+\_\+t flash\+Bank)
+\begin{DoxyCompactList}\small\item\em Blank check a sector or multiples sector of on-\/chip flash memory. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_o_m_m_o_n___i_a_p_gaa4b90551649db0627dc195acfc834cbe}{Chip\+\_\+\+I\+A\+P\+\_\+\+Read\+P\+ID} ()
+\begin{DoxyCompactList}\small\item\em Read part identification number. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___c_o_m_m_o_n___i_a_p_ga82606d40a83c8025d59fd6e8b76676ba}{Chip\+\_\+\+I\+A\+P\+\_\+\+Read\+Boot\+Code} ()
+\begin{DoxyCompactList}\small\item\em Read boot code version number. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___c_o_m_m_o_n___i_a_p_ga0f3983319210f99d1931f1e9fa762d9e}{Chip\+\_\+\+I\+A\+P\+\_\+\+Compare} (uint32\+\_\+t dst\+Add, uint32\+\_\+t src\+Add, uint32\+\_\+t bytescmp)
+\begin{DoxyCompactList}\small\item\em Compare the memory contents at two locations. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___c_o_m_m_o_n___i_a_p_ga91a6ef5cac3a052f637cf0b5d7d31d53}{Chip\+\_\+\+I\+A\+P\+\_\+\+Reinvoke\+I\+SP} ()
+\begin{DoxyCompactList}\small\item\em I\+AP reinvoke I\+SP to invoke the bootloader in I\+SP mode. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___i_a_p__18_x_x__43_x_x_ga621dd1ce1454b282dcbe56fb905ce4cb}{Chip\+\_\+\+I\+A\+P\+\_\+\+Read\+U\+ID} (uint32\+\_\+t uid\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Read the unique ID. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___c_o_m_m_o_n___i_a_p_ga95ca28fb39884184657054e134671f95}{Chip\+\_\+\+I\+A\+P\+\_\+\+Erase\+Page} (uint32\+\_\+t str\+Page, uint32\+\_\+t end\+Page)
+\begin{DoxyCompactList}\small\item\em Erase a page or multiple papers of on-\/chip flash memory. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___i_a_p__18_x_x__43_x_x_gaf9243a47cda7cb70590fb4be5b8ad7e1}{Chip\+\_\+\+I\+A\+P\+\_\+\+Set\+Boot\+Flash\+Bank} (uint8\+\_\+t bank\+Num)
+\begin{DoxyCompactList}\small\item\em Set active boot flash bank. \end{DoxyCompactList}\end{DoxyCompactItemize}

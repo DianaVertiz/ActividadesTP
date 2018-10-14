@@ -1,0 +1,82 @@
+.TH "arm_rfft_instance_f32" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+arm_rfft_instance_f32 \- Instance structure for the floating-point RFFT/RIFFT function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <arm_math\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBfftLenReal\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBfftLenBy2\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBifftFlagR\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbitReverseFlagR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBtwidCoefRModifier\fP"
+.br
+.ti -1c
+.RI "\fBfloat32_t\fP * \fBpTwiddleAReal\fP"
+.br
+.ti -1c
+.RI "\fBfloat32_t\fP * \fBpTwiddleBReal\fP"
+.br
+.ti -1c
+.RI "\fBarm_cfft_radix4_instance_f32\fP * \fBpCfft\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Instance structure for the floating-point RFFT/RIFFT function\&. 
+.PP
+Definición en la línea 2196 del archivo arm_math\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint8_t bitReverseFlagR"
+flag that enables (bitReverseFlagR=1) or disables (bitReverseFlagR=0) bit reversal of output\&. 
+.PP
+Definición en la línea 2201 del archivo arm_math\&.h\&.
+.SS "uint16_t fftLenBy2"
+length of the complex FFT\&. 
+.PP
+Definición en la línea 2199 del archivo arm_math\&.h\&.
+.SS "uint32_t fftLenReal"
+length of the real FFT\&. 
+.PP
+Definición en la línea 2198 del archivo arm_math\&.h\&.
+.SS "uint8_t ifftFlagR"
+flag that selects forward (ifftFlagR=0) or inverse (ifftFlagR=1) transform\&. 
+.PP
+Definición en la línea 2200 del archivo arm_math\&.h\&.
+.SS "\fBarm_cfft_radix4_instance_f32\fP* pCfft"
+points to the complex FFT instance\&. 
+.PP
+Definición en la línea 2205 del archivo arm_math\&.h\&.
+.SS "\fBfloat32_t\fP* pTwiddleAReal"
+points to the real twiddle factor table\&. 
+.PP
+Definición en la línea 2203 del archivo arm_math\&.h\&.
+.SS "\fBfloat32_t\fP* pTwiddleBReal"
+points to the imag twiddle factor table\&. 
+.PP
+Definición en la línea 2204 del archivo arm_math\&.h\&.
+.SS "uint32_t twidCoefRModifier"
+twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table\&. 
+.PP
+Definición en la línea 2202 del archivo arm_math\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

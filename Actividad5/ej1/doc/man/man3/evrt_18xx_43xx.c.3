@@ -1,0 +1,34 @@
+.TH "evrt_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+evrt_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_EVRT_Init\fP (void)"
+.br
+.RI "\fIInitialize the EVRT\&. \fP"
+.ti -1c
+.RI "void \fBChip_EVRT_ConfigIntSrcActiveType\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src, \fBCHIP_EVRT_SRC_ACTIVE_T\fP type)"
+.br
+.RI "\fISet up the type of interrupt type for a source to EVRT\&. \fP"
+.ti -1c
+.RI "void \fBChip_EVRT_SetUpIntSrc\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src, \fBFunctionalState\fP state)"
+.br
+.RI "\fIEnable or disable interrupt sources to EVRT\&. \fP"
+.ti -1c
+.RI "\fBIntStatus\fP \fBChip_EVRT_IsSourceInterrupting\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src)"
+.br
+.RI "\fICheck if a source is sending interrupt to EVRT\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

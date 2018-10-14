@@ -1,0 +1,66 @@
+.TH "otp_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+otp_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBOOTROM_BASE\fP   0x10400100"
+.br
+.ti -1c
+.RI "#define \fBOTP_API_TABLE_OFFSET\fP   0x1"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBChip_OTP_Init\fP (void)"
+.br
+.RI "\fIInitialize for OTP Controller functions\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgBootSrc\fP (\fBCHIP_OTP_BOOT_SRC_T\fP BootSrc)"
+.br
+.RI "\fIProgram boot source in OTP Controller\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgJTAGDis\fP (void)"
+.br
+.RI "\fIProgram the JTAG bit in OTP Controller\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgUSBID\fP (uint32_t ProductID, uint32_t VendorID)"
+.br
+.RI "\fIProgram USB ID in OTP Controller\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgGPWord\fP (uint32_t WordNum, uint32_t Data, uint32_t Mask)"
+.br
+.RI "\fIProgram OTP GP Word memory\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgKey\fP (uint32_t KeyNum, uint8_t *key)"
+.br
+.RI "\fIProgram AES Key\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_GenRand\fP (void)"
+.br
+.RI "\fIGenerate Random Number using HW Random Number Generator\&. \fP"
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define BOOTROM_BASE   0x10400100"
+
+.PP
+Definición en la línea 38 del archivo otp_18xx_43xx\&.c\&.
+.SS "#define OTP_API_TABLE_OFFSET   0x1"
+
+.PP
+Definición en la línea 39 del archivo otp_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

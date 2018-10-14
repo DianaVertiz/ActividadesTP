@@ -1,0 +1,1264 @@
+.TH "I2S_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+I2S_18XX_43XX \- CHIP: LPC18xx/43xx I2S driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_I2S_T\fP"
+.br
+.RI "\fII2S register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBI2S_AUDIO_FORMAT_T\fP"
+.br
+.RI "\fII2S Audio Format Structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBI2S_WORDWIDTH_8\fP   (0UL << 0)"
+.br
+.ti -1c
+.RI "#define \fBI2S_WORDWIDTH_16\fP   (1UL << 0)"
+.br
+.ti -1c
+.RI "#define \fBI2S_WORDWIDTH_32\fP   (3UL << 0)"
+.br
+.ti -1c
+.RI "#define \fBI2S_STEREO\fP   (0UL << 2)"
+.br
+.ti -1c
+.RI "#define \fBI2S_MONO\fP   (1UL << 2)"
+.br
+.ti -1c
+.RI "#define \fBI2S_MASTER_MODE\fP   (0UL << 5)"
+.br
+.ti -1c
+.RI "#define \fBI2S_SLAVE_MODE\fP   (1UL << 5)"
+.br
+.ti -1c
+.RI "#define \fBI2S_STOP_ENABLE\fP   (0UL << 3)"
+.br
+.ti -1c
+.RI "#define \fBI2S_STOP_DISABLE\fP   (1UL << 3)"
+.br
+.ti -1c
+.RI "#define \fBI2S_RESET_ENABLE\fP   (1UL << 4)"
+.br
+.ti -1c
+.RI "#define \fBI2S_RESET_DISABLE\fP   (0UL << 4)"
+.br
+.ti -1c
+.RI "#define \fBI2S_MUTE_ENABLE\fP   (1UL << 15)"
+.br
+.ti -1c
+.RI "#define \fBI2S_MUTE_DISABLE\fP   (0UL << 15)"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WORDWIDTH_8\fP   ((uint32_t) (0))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WORDWIDTH_16\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WORDWIDTH_32\fP   ((uint32_t) (3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WORDWIDTH_MASK\fP   ((uint32_t) (3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_MONO\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_STOP\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_RESET\fP   ((uint32_t) (1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_SLAVE\fP   ((uint32_t) (1 << 5))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WS_HALFPERIOD\fP(n)   ((uint32_t) (((n) & 0x1FF) << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_WS_HALFPERIOD_MASK\fP   ((uint32_t) ((0x1FF) << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAO_MUTE\fP   ((uint32_t) (1 << 15))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WORDWIDTH_8\fP   ((uint32_t) (0))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WORDWIDTH_16\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WORDWIDTH_32\fP   ((uint32_t) (3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WORDWIDTH_MASK\fP   ((uint32_t) (3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_MONO\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_STOP\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_RESET\fP   ((uint32_t) (1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_SLAVE\fP   ((uint32_t) (1 << 5))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WS_HALFPERIOD\fP(n)   ((uint32_t) (((n) & 0x1FF) << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DAI_WS_HALFPERIOD_MASK\fP   ((uint32_t) ((0x1FF) << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_IRQ\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_DMA1\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_DMA2\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_RX_LEVEL\fP(n)   ((uint32_t) ((n & 1F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_STATE_TX_LEVEL\fP(n)   ((uint32_t) ((n & 1F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA1_RX_ENABLE\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA1_TX_ENABLE\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA1_RX_DEPTH\fP(n)   ((uint32_t) ((n & 0x1F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA1_TX_DEPTH\fP(n)   ((uint32_t) ((n & 0x1F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA2_RX_ENABLE\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA2_TX_ENABLE\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA2_RX_DEPTH\fP(n)   ((uint32_t) ((n & 0x1F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_DMA2_TX_DEPTH\fP(n)   ((uint32_t) ((n & 0x1F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_RX_ENABLE\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_TX_ENABLE\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_RX_DEPTH\fP(n)   ((uint32_t) ((n & 0x0F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_RX_DEPTH_MASK\fP   ((uint32_t) ((0x0F) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_TX_DEPTH\fP(n)   ((uint32_t) ((n & 0x0F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_IRQ_TX_DEPTH_MASK\fP   ((uint32_t) ((0x0F) << 16))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXRATE_Y_DIVIDER\fP(n)   ((uint32_t) (n & 0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXRATE_X_DIVIDER\fP(n)   ((uint32_t) ((n & 0xFF) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXRATE_Y_DIVIDER\fP(n)   ((uint32_t) (n & 0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXRATE_X_DIVIDER\fP(n)   ((uint32_t) ((n & 0xFF) << 8))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXBITRATE\fP(n)   ((uint32_t) (n & 0x3F))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXBITRATE\fP(n)   ((uint32_t) (n & 0x3F))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXMODE_CLKSEL\fP(n)   ((uint32_t) (n & 0x03))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXMODE_4PIN_ENABLE\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_TXMODE_MCENA\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXMODE_CLKSEL\fP(n)   ((uint32_t) (n & 0x03))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXMODE_4PIN_ENABLE\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2S_RXMODE_MCENA\fP   ((uint32_t) (1 << 3))"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBI2S_DMA_CHANNEL_T\fP { \fBI2S_DMA_REQUEST_CHANNEL_1\fP, \fBI2S_DMA_REQUEST_CHANNEL_2\fP, \fBI2S_DMA_REQUEST_CHANNEL_NUM\fP }
+.RI "\fII2S DMA request channel define\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_I2S_Init\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIInitialize for I2S\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_DeInit\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIShutdown I2S\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_Send\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t data)"
+.br
+.RI "\fISend a 32-bit data to TXFIFO for transmition\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_I2S_Receive\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIGet received data from RXFIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxStart\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIStart transmit data\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxStart\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIStart receive data\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxPause\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIDisables accesses on FIFOs, places the transmit channel in mute mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxPause\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIDisables accesses on FIFOs, places the transmit channel in mute mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_EnableMute\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIMute the Transmit channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_DisableMute\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIUn-Mute the I2S channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxStop\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIStop I2S asynchronously\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxStop\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIStop I2S asynchronously\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxSlave\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fISets the I2S receive channel in slave mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxSlave\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fISets the I2S transmit channel in slave mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_TxModeConfig\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t clksel, uint32_t fpin, uint32_t mcena)"
+.br
+.RI "\fISet the I2S transmit mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_RxModeConfig\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t clksel, uint32_t fpin, uint32_t mcena)"
+.br
+.RI "\fISet the I2S receive mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_I2S_GetTxLevel\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIGet the current level of the Transmit FIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_I2S_GetRxLevel\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIGet the current level of the Receive FIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_SetTxBitRate\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t div)"
+.br
+.RI "\fISet the clock frequency for I2S interface\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_SetRxBitRate\fP (\fBLPC_I2S_T\fP *pI2S, uint32_t div)"
+.br
+.RI "\fISet the clock frequency for I2S interface\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_SetTxXYDivider\fP (\fBLPC_I2S_T\fP *pI2S, uint8_t xDiv, uint8_t yDiv)"
+.br
+.RI "\fISet the MCLK rate by using a fractional rate generator, dividing down the frequency of PCLK\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_I2S_SetRxXYDivider\fP (\fBLPC_I2S_T\fP *pI2S, uint8_t xDiv, uint8_t yDiv)"
+.br
+.RI "\fISet the MCLK rate by using a fractional rate generator, dividing down the frequency of PCLK\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_I2S_TxConfig\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_AUDIO_FORMAT_T\fP *format)"
+.br
+.RI "\fIConfigure I2S for Audio Format input\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_I2S_RxConfig\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_AUDIO_FORMAT_T\fP *format)"
+.br
+.RI "\fIConfigure I2S for Audio Format input\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_Int_TxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable Interrupt with a specific FIFO depth\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_Int_RxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable Interrupt with a specific FIFO depth\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_DMA_TxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_DMA_CHANNEL_T\fP dmaNum, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable DMA with a specific FIFO depth\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_DMA_RxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_DMA_CHANNEL_T\fP dmaNum, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable DMA with a specific FIFO depth\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define I2S_DAI_MONO   ((uint32_t) (1 << 2))"
+DAI mono mode mask 
+.PP
+Definición en la línea 138 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAI_RESET   ((uint32_t) (1 << 4))"
+DAI reset bit mask 
+.PP
+Definición en la línea 144 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAI_SLAVE   ((uint32_t) (1 << 5))"
+DAI slave mode mask 
+.PP
+Definición en la línea 147 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAI_STOP   ((uint32_t) (1 << 3))"
+DAI stop bit mask 
+.PP
+Definición en la línea 141 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAI_WORDWIDTH_16   ((uint32_t) (1))"
+DAI 16 bit 
+.PP
+Definición en la línea 133 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAI_WORDWIDTH_32   ((uint32_t) (3))"
+DAI 32 bit 
+.PP
+Definición en la línea 134 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAI_WORDWIDTH_8   ((uint32_t) (0))"
+DAI 8 bit 
+.PP
+Definición en la línea 132 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAI_WORDWIDTH_MASK   ((uint32_t) (3))"
+DAI word wide mask 
+.PP
+Definición en la línea 135 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAI_WS_HALFPERIOD(n)   ((uint32_t) (((n) & 0x1FF) << 6))"
+DAI Word select set macro 
+.PP
+Definición en la línea 150 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAI_WS_HALFPERIOD_MASK   ((uint32_t) ((0x1FF) << 6))"
+DAI Word select mask 
+.PP
+Definición en la línea 151 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_MONO   ((uint32_t) (1 << 2))"
+DAO mono audio mask 
+.PP
+Definición en la línea 110 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_MUTE   ((uint32_t) (1 << 15))"
+DAO mute mask 
+.PP
+Definición en la línea 126 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_RESET   ((uint32_t) (1 << 4))"
+DAO reset mask 
+.PP
+Definición en la línea 116 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_SLAVE   ((uint32_t) (1 << 5))"
+DAO slave mode mask 
+.PP
+Definición en la línea 119 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_STOP   ((uint32_t) (1 << 3))"
+DAO stop mask 
+.PP
+Definición en la línea 113 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_WORDWIDTH_16   ((uint32_t) (1))"
+DAO 16 bit 
+.PP
+Definición en la línea 105 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_WORDWIDTH_32   ((uint32_t) (3))"
+DAO 32 bit 
+.PP
+Definición en la línea 106 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_WORDWIDTH_8   ((uint32_t) (0))"
+DAO 8 bit 
+.PP
+Definición en la línea 104 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_WORDWIDTH_MASK   ((uint32_t) (3))"
+
+.PP
+Definición en la línea 107 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_WS_HALFPERIOD(n)   ((uint32_t) (((n) & 0x1FF) << 6))"
+DAO Word select set macro 
+.PP
+Definición en la línea 122 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DAO_WS_HALFPERIOD_MASK   ((uint32_t) ((0x1FF) << 6))"
+DAO Word select mask 
+.PP
+Definición en la línea 123 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DMA1_RX_DEPTH(n)   ((uint32_t) ((n & 0x1F) << 8))"
+I2S set FIFO level that trigger a receive DMA request on DMA1 
+.PP
+Definición en la línea 167 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DMA1_RX_ENABLE   ((uint32_t) (1))"
+I2S control DMA1 for I2S receive 
+.PP
+Definición en la línea 165 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DMA1_TX_DEPTH(n)   ((uint32_t) ((n & 0x1F) << 16))"
+I2S set FIFO level that trigger a transmit DMA request on DMA1 
+.PP
+Definición en la línea 168 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DMA1_TX_ENABLE   ((uint32_t) (1 << 1))"
+I2S control DMA1 for I2S transmit 
+.PP
+Definición en la línea 166 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DMA2_RX_DEPTH(n)   ((uint32_t) ((n & 0x1F) << 8))"
+I2S set FIFO level that trigger a receive DMA request on DMA1 
+.PP
+Definición en la línea 175 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DMA2_RX_ENABLE   ((uint32_t) (1))"
+I2S control DMA2 for I2S receive 
+.PP
+Definición en la línea 173 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DMA2_TX_DEPTH(n)   ((uint32_t) ((n & 0x1F) << 16))"
+I2S set FIFO level that trigger a transmit DMA request on DMA1 
+.PP
+Definición en la línea 176 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_DMA2_TX_ENABLE   ((uint32_t) (1 << 1))"
+I2S control DMA1 for I2S transmit 
+.PP
+Definición en la línea 174 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_IRQ_RX_DEPTH(n)   ((uint32_t) ((n & 0x0F) << 8))"
+I2S set the FIFO level on which to create an irq request 
+.PP
+Definición en la línea 184 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_IRQ_RX_DEPTH_MASK   ((uint32_t) ((0x0F) << 8))"
+
+.PP
+Definición en la línea 185 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_IRQ_RX_ENABLE   ((uint32_t) (1))"
+I2S control I2S receive interrupt 
+.PP
+Definición en la línea 182 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_IRQ_TX_DEPTH(n)   ((uint32_t) ((n & 0x0F) << 16))"
+I2S set the FIFO level on which to create an irq request 
+.PP
+Definición en la línea 186 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_IRQ_TX_DEPTH_MASK   ((uint32_t) ((0x0F) << 16))"
+
+.PP
+Definición en la línea 187 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_IRQ_TX_ENABLE   ((uint32_t) (1 << 1))"
+I2S control I2S transmit interrupt 
+.PP
+Definición en la línea 183 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_MASTER_MODE   (0UL << 5)"
+I2S in master mode 
+.PP
+Definición en la línea 85 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_MONO   (1UL << 2)"
+Mono audio 
+.PP
+Definición en la línea 82 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_MUTE_DISABLE   (0UL << 15)"
+I2S mute disbale mask 
+.PP
+Definición en la línea 98 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_MUTE_ENABLE   (1UL << 15)"
+I2S mute enable mask 
+.PP
+Definición en la línea 97 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_RESET_DISABLE   (0UL << 4)"
+I2S reset disable mask 
+.PP
+Definición en la línea 94 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_RESET_ENABLE   (1UL << 4)"
+I2S reset enable mask 
+.PP
+Definición en la línea 93 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_RXBITRATE(n)   ((uint32_t) (n & 0x3F))"
+
+.PP
+Definición en la línea 201 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_RXMODE_4PIN_ENABLE   ((uint32_t) (1 << 2))"
+I2S Receive control 4-pin mode 
+.PP
+Definición en la línea 210 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_RXMODE_CLKSEL(n)   ((uint32_t) (n & 0x03))"
+I2S Receive select clock source 
+.PP
+Definición en la línea 209 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_RXMODE_MCENA   ((uint32_t) (1 << 3))"
+I2S Receive control the TX_MCLK output 
+.PP
+Definición en la línea 211 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_RXRATE_X_DIVIDER(n)   ((uint32_t) ((n & 0xFF) << 8))"
+I2S Receive MCLK rate denominator 
+.PP
+Definición en la línea 195 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_RXRATE_Y_DIVIDER(n)   ((uint32_t) (n & 0xFF))"
+I2S Receive MCLK rate denominator 
+.PP
+Definición en la línea 194 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_SLAVE_MODE   (1UL << 5)"
+I2S in slave mode 
+.PP
+Definición en la línea 86 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_STATE_DMA1   ((uint32_t) (1 << 1))"
+I2S Status Receive or Transmit DMA1 
+.PP
+Definición en la línea 157 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_STATE_DMA2   ((uint32_t) (1 << 2))"
+I2S Status Receive or Transmit DMA2 
+.PP
+Definición en la línea 158 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_STATE_IRQ   ((uint32_t) (1))"
+I2S Status Receive or Transmit Interrupt 
+.PP
+Definición en la línea 156 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_STATE_RX_LEVEL(n)   ((uint32_t) ((n & 1F) << 8))"
+I2S Status Current level of the Receive FIFO (5 bits) 
+.PP
+Definición en la línea 159 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_STATE_TX_LEVEL(n)   ((uint32_t) ((n & 1F) << 16))"
+I2S Status Current level of the Transmit FIFO (5 bits) 
+.PP
+Definición en la línea 160 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_STEREO   (0UL << 2)"
+Stereo audio 
+.PP
+Definición en la línea 81 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_STOP_DISABLE   (1UL << 3)"
+I2S stop disable mask 
+.PP
+Definición en la línea 90 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_STOP_ENABLE   (0UL << 3)"
+I2S stop enable mask 
+.PP
+Definición en la línea 89 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_TXBITRATE(n)   ((uint32_t) (n & 0x3F))"
+
+.PP
+Definición en la línea 200 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_TXMODE_4PIN_ENABLE   ((uint32_t) (1 << 2))"
+I2S Transmit control 4-pin mode 
+.PP
+Definición en la línea 207 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_TXMODE_CLKSEL(n)   ((uint32_t) (n & 0x03))"
+I2S Transmit select clock source (2 bits) 
+.PP
+Definición en la línea 206 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_TXMODE_MCENA   ((uint32_t) (1 << 3))"
+I2S Transmit control the TX_MCLK output 
+.PP
+Definición en la línea 208 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_TXRATE_X_DIVIDER(n)   ((uint32_t) ((n & 0xFF) << 8))"
+I2S Transmit MCLK rate denominator 
+.PP
+Definición en la línea 193 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_TXRATE_Y_DIVIDER(n)   ((uint32_t) (n & 0xFF))"
+I2S Transmit MCLK rate denominator 
+.PP
+Definición en la línea 192 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_WORDWIDTH_16   (1UL << 0)"
+16 bit word 
+.PP
+Definición en la línea 77 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_WORDWIDTH_32   (3UL << 0)"
+32 bit word 
+.PP
+Definición en la línea 78 del archivo i2s_18xx_43xx\&.h\&.
+.SS "#define I2S_WORDWIDTH_8   (0UL << 0)"
+8 bit Word 
+.PP
+Definición en la línea 76 del archivo i2s_18xx_43xx\&.h\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBI2S_DMA_CHANNEL_T\fP"
+
+.PP
+I2S DMA request channel define\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fII2S_DMA_REQUEST_CHANNEL_1 \fP\fP
+DMA request channel 1 
+.TP
+\fB\fII2S_DMA_REQUEST_CHANNEL_2 \fP\fP
+DMA request channel 2 
+.TP
+\fB\fII2S_DMA_REQUEST_CHANNEL_NUM \fP\fP
+The number of DMA request channels 
+.PP
+Definición en la línea 47 del archivo i2s_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_I2S_DeInit (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Shutdown I2S\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Reset all relative registers (DMA, transmit/receive control, interrupt) to default value 
+.RE
+.PP
+
+.PP
+Definición en la línea 117 del archivo i2s_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_DisableMute (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Un-Mute the I2S channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 316 del archivo i2s_18xx_43xx\&.h\&.
+.SS "void Chip_I2S_DMA_RxCmd (\fBLPC_I2S_T\fP * pI2S, \fBI2S_DMA_CHANNEL_T\fP dmaNum, \fBFunctionalState\fP newState, uint8_t depth)"
+
+.PP
+Enable/Disable DMA with a specific FIFO depth\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base I2S peripheral on the chip 
+.br
+\fIdmaNum\fP : Should be
+.IP "\(bu" 2
+I2S_DMA_REQUEST_CHANNEL_1 : Using DMA1
+.IP "\(bu" 2
+I2S_DMA_REQUEST_CHANNEL_2 : Using DMA2 
+.PP
+.br
+\fInewState\fP : ENABLE or DISABLE interrupt 
+.br
+\fIdepth\fP : FIFO level creating an irq request 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 241 del archivo i2s_18xx_43xx\&.c\&.
+.SS "void Chip_I2S_DMA_TxCmd (\fBLPC_I2S_T\fP * pI2S, \fBI2S_DMA_CHANNEL_T\fP dmaNum, \fBFunctionalState\fP newState, uint8_t depth)"
+
+.PP
+Enable/Disable DMA with a specific FIFO depth\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base I2S peripheral on the chip 
+.br
+\fIdmaNum\fP : Should be
+.IP "\(bu" 2
+I2S_DMA_REQUEST_CHANNEL_1 : Using DMA1
+.IP "\(bu" 2
+I2S_DMA_REQUEST_CHANNEL_2 : Using DMA2 
+.PP
+.br
+\fInewState\fP : ENABLE or DISABLE interrupt 
+.br
+\fIdepth\fP : FIFO level creating an irq request 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 223 del archivo i2s_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_EnableMute (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Mute the Transmit channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The data output from I2S transmit channel is always zeroes 
+.RE
+.PP
+
+.PP
+Definición en la línea 306 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_I2S_GetRxLevel (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Get the current level of the Receive FIFO\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current level of the Receive FIFO 
+.RE
+.PP
+
+.PP
+Definición en la línea 425 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_I2S_GetTxLevel (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Get the current level of the Transmit FIFO\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current level of the Transmit FIFO 
+.RE
+.PP
+
+.PP
+Definición en la línea 415 del archivo i2s_18xx_43xx\&.h\&.
+.SS "void Chip_I2S_Init (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Initialize for I2S\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 111 del archivo i2s_18xx_43xx\&.c\&.
+.SS "void Chip_I2S_Int_RxCmd (\fBLPC_I2S_T\fP * pI2S, \fBFunctionalState\fP newState, uint8_t depth)"
+
+.PP
+Enable/Disable Interrupt with a specific FIFO depth\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base I2S peripheral on the chip 
+.br
+\fInewState\fP : ENABLE or DISABLE interrupt 
+.br
+\fIdepth\fP : FIFO level creating an irq request 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 208 del archivo i2s_18xx_43xx\&.c\&.
+.SS "void Chip_I2S_Int_TxCmd (\fBLPC_I2S_T\fP * pI2S, \fBFunctionalState\fP newState, uint8_t depth)"
+
+.PP
+Enable/Disable Interrupt with a specific FIFO depth\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base I2S peripheral on the chip 
+.br
+\fInewState\fP : ENABLE or DISABLE interrupt 
+.br
+\fIdepth\fP : FIFO level creating an irq request 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 193 del archivo i2s_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_I2S_Receive (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Get received data from RXFIFO\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Data received in RXFIFO 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The function reads from RXFIFO without checking any condition\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 255 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBStatus\fP Chip_I2S_RxConfig (\fBLPC_I2S_T\fP * pI2S, \fBI2S_AUDIO_FORMAT_T\fP * format)"
+
+.PP
+Configure I2S for Audio Format input\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base I2S peripheral on the chip 
+.br
+\fIformat\fP : Audio Format 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SUCCESS or ERROR 
+.RE
+.PP
+
+.PP
+Definición en la línea 162 del archivo i2s_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_RxModeConfig (\fBLPC_I2S_T\fP * pI2S, uint32_t clksel, uint32_t fpin, uint32_t mcena)"
+
+.PP
+Set the I2S receive mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.br
+\fIclksel\fP : Clock source selection for the receive bit clock divider 
+.br
+\fIfpin\fP : Receive 4-pin mode selection 
+.br
+\fImcena\fP : Enable for the RX_MCLK output 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+In addition to master and slave modes, which are independently configurable for the transmitter and the receiver, several different clock sources are possible, including variations that share the clock and/or WS between the transmitter and receiver\&. It also allows using I2S with fewer pins, typically four\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 402 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_RxPause (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Disables accesses on FIFOs, places the transmit channel in mute mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 295 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_RxSlave (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Sets the I2S receive channel in slave mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+4 pin mode must be enabled on appropriate channel\&. Must be called after each Chip_I2S_TxModeConfig call if slave mode is needed\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 352 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_RxStart (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Start receive data\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 275 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_RxStop (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Stop I2S asynchronously\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Pause, resets the transmit channel and FIFO asynchronously 
+.RE
+.PP
+
+.PP
+Definición en la línea 339 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_Send (\fBLPC_I2S_T\fP * pI2S, uint32_t data)"
+
+.PP
+Send a 32-bit data to TXFIFO for transmition\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.br
+\fIdata\fP : Data to be transmited 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The function writes to TXFIFO without checking any condition\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 244 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_SetRxBitRate (\fBLPC_I2S_T\fP * pI2S, uint32_t div)"
+
+.PP
+Set the clock frequency for I2S interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.br
+\fIdiv\fP : Clock divider\&. This value plus one is used to divide MCLK to produce the clock frequency for I2S interface 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The value depends on the audio sample rate desired and the data size and format(stereo/mono) used\&. For example, a 48 kHz sample rate for 16-bit stereo data requires a bit rate of 48 000 x 16 x 2 = 1\&.536 MHz\&. So the mclk_divider should be MCLK/1\&.536 MHz 
+.RE
+.PP
+
+.PP
+Definición en la línea 451 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_SetRxXYDivider (\fBLPC_I2S_T\fP * pI2S, uint8_t xDiv, uint8_t yDiv)"
+
+.PP
+Set the MCLK rate by using a fractional rate generator, dividing down the frequency of PCLK\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.br
+\fIxDiv\fP : I2S transmit MCLK rate numerator 
+.br
+\fIyDiv\fP : I2S transmit MCLK rate denominator 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Values of the numerator (X) and the denominator (Y) must be chosen to produce a frequency twice that desired for the transmitter MCLK, which must be an integer multiple of the transmitter bit clock rate\&. The equation for the fractional rate generator is: MCLK = PCLK * (X/Y) /2 Note: If the value of X or Y is 0, then no clock is generated\&. Also, the value of Y must be greater than or equal to X\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 489 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_SetTxBitRate (\fBLPC_I2S_T\fP * pI2S, uint32_t div)"
+
+.PP
+Set the clock frequency for I2S interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.br
+\fIdiv\fP : Clock divider\&. This value plus one is used to divide MCLK to produce the clock frequency for I2S interface 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The value depends on the audio sample rate desired and the data size and format(stereo/mono) used\&. For example, a 48 kHz sample rate for 16-bit stereo data requires a bit rate of 48 000 x 16 x 2 = 1\&.536 MHz\&. So the mclk_divider should be MCLK/1\&.536 MHz 
+.RE
+.PP
+
+.PP
+Definición en la línea 438 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_SetTxXYDivider (\fBLPC_I2S_T\fP * pI2S, uint8_t xDiv, uint8_t yDiv)"
+
+.PP
+Set the MCLK rate by using a fractional rate generator, dividing down the frequency of PCLK\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.br
+\fIxDiv\fP : I2S transmit MCLK rate numerator 
+.br
+\fIyDiv\fP : I2S transmit MCLK rate denominator 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Values of the numerator (X) and the denominator (Y) must be chosen to produce a frequency twice that desired for the transmitter MCLK, which must be an integer multiple of the transmitter bit clock rate\&. The equation for the fractional rate generator is: MCLK = PCLK * (X/Y) /2 Note: If the value of X or Y is 0, then no clock is generated\&. Also, the value of Y must be greater than or equal to X\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 470 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBStatus\fP Chip_I2S_TxConfig (\fBLPC_I2S_T\fP * pI2S, \fBI2S_AUDIO_FORMAT_T\fP * format)"
+
+.PP
+Configure I2S for Audio Format input\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base I2S peripheral on the chip 
+.br
+\fIformat\fP : Audio Format 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SUCCESS or ERROR 
+.RE
+.PP
+
+.PP
+Definición en la línea 130 del archivo i2s_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_TxModeConfig (\fBLPC_I2S_T\fP * pI2S, uint32_t clksel, uint32_t fpin, uint32_t mcena)"
+
+.PP
+Set the I2S transmit mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.br
+\fIclksel\fP : Clock source selection for the receive bit clock divider 
+.br
+\fIfpin\fP : Receive 4-pin mode selection 
+.br
+\fImcena\fP : Enable for the RX_MCLK output 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+In addition to master and slave modes, which are independently configurable for the transmitter and the receiver, several different clock sources are possible, including variations that share the clock and/or WS between the transmitter and receiver\&. It also allows using I2S with fewer pins, typically four\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 382 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_TxPause (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Disables accesses on FIFOs, places the transmit channel in mute mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 285 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_TxSlave (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Sets the I2S transmit channel in slave mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+4 pin mode must be enabled on appropriate channel\&. Must be called after each Chip_I2S_TxModeConfig call if slave mode is needed\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 365 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_TxStart (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Start transmit data\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 265 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_I2S_TxStop (\fBLPC_I2S_T\fP * pI2S)"
+
+.PP
+Stop I2S asynchronously\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2S\fP : The base of I2S peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Pause, resets the transmit channel and FIFO asynchronously 
+.RE
+.PP
+
+.PP
+Definición en la línea 327 del archivo i2s_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

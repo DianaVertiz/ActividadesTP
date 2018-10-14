@@ -1,0 +1,15 @@
+.TH "CLOCK_18XX_43XX_OPTIONS" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CLOCK_18XX_43XX_OPTIONS \- CHIP: LPC18xx/43xx Clock Driver driver optionsThe clock driver has options that configure it's operation at build-time\&.
+.br
+.PP
+\fBMAX_CLOCK_FREQ\fP
+.br
+ This macro defines the maximum frequency supported by the Chip [204MHz for LPC43xx 180MHz for LPC18xx]\&. API \fBChip_SetupXtalClocking()\fP and \fBChip_SetupIrcClocking()\fP will use this macro to set the CPU Core frequency to the maximum supported\&.
+.br
+ To set a Core frequency other than the maximum frequency \fBChip_SetupCoreClock()\fP API must be used\&. \fBUsing this macro to set the Core freqency is not recommended\&.\fP 
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

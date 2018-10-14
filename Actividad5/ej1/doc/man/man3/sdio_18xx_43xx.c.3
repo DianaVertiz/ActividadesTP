@@ -1,0 +1,127 @@
+.TH "sdio_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sdio_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSDIO_CMD_INT_MSK\fP   0xA146       /* Interrupts to be enabled for CMD */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_DATA_INT_MSK\fP   0xBE88       /* Interrupts to enable for data transfer */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CARD_INT_MSK\fP   (1UL << 16)  /* SDIO Card interrupt */"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "int \fBSDIO_Card_SetBlockSize\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t blkSize)"
+.br
+.RI "\fISets the block size of a given function\&. \fP"
+.ti -1c
+.RI "uint32_t \fBSDIO_Card_GetBlockSize\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func)"
+.br
+.RI "\fIGets the block size of a given function\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_WriteData\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t dest_addr, const uint8_t *src_addr, uint32_t size, uint32_t flags)"
+.br
+.RI "\fIWrites stream or block of data to the SDIO card [Using CMD53]\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_ReadData\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint8_t *dest_addr, uint32_t src_addr, uint32_t size, uint32_t flags)"
+.br
+.RI "\fIReads stream or block of data from the SDIO card [Using CMD53]\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_EnableInt\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func)"
+.br
+.RI "\fIEnable SDIO interrupt for a given function\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_DisableInt\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func)"
+.br
+.RI "\fIDisable SDIO interrupt for a given function\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_Init\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t freq)"
+.br
+.RI "\fIInitialize the SDIO card\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Write_Direct\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t addr, uint32_t data)"
+.br
+.RI "\fIWrite 8-Bit register from SDIO register space\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_WriteRead_Direct\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t addr, uint32_t *data)"
+.br
+.RI "\fIWrite 8-Bit register from SDIO register space and read the register back\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Read_Direct\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t addr, uint32_t *data)"
+.br
+.RI "\fIRead an 8-Bit register from SDIO register space\&. \fP"
+.ti -1c
+.RI "void \fBSDIO_Setup_Callback\fP (\fBLPC_SDMMC_T\fP *pSDMMC, void(*\fBwake_evt\fP)(\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t event, void *arg), uint32_t(*\fBwait_evt\fP)(\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t event, void *arg))"
+.br
+.RI "\fISetup SDIO wait and wakeup callbacks\&. \fP"
+.ti -1c
+.RI "uint32_t \fBSDIO_Send_Command\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t cmd, uint32_t arg)"
+.br
+.RI "\fISends a command to the SDIO Card [Example CMD52]\&. \fP"
+.ti -1c
+.RI "void \fBSDIO_Handler\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fISDIO Event handler [Should be called from SDIO interrupt handler]\&. \fP"
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define SDIO_CARD_INT_MSK   (1UL << 16)  /* SDIO Card interrupt */"
+
+.PP
+Definición en la línea 40 del archivo sdio_18xx_43xx\&.c\&.
+.SS "#define SDIO_CMD_INT_MSK   0xA146       /* Interrupts to be enabled for CMD */"
+
+.PP
+Definición en la línea 38 del archivo sdio_18xx_43xx\&.c\&.
+.SS "#define SDIO_DATA_INT_MSK   0xBE88       /* Interrupts to enable for data transfer */"
+
+.PP
+Definición en la línea 39 del archivo sdio_18xx_43xx\&.c\&.
+.SH "Documentación de las variables"
+.PP 
+.SS "uint16_t blkSz[8]"
+
+.PP
+Definición en la línea 49 del archivo sdio_18xx_43xx\&.c\&.
+.SS "uint32_t flag"
+
+.PP
+Definición en la línea 46 del archivo sdio_18xx_43xx\&.c\&.
+.SS "int fnum"
+
+.PP
+Definición en la línea 48 del archivo sdio_18xx_43xx\&.c\&.
+.SS "uint32_t response[4]"
+
+.PP
+Definición en la línea 47 del archivo sdio_18xx_43xx\&.c\&.
+.SS "\fBsdif_device\fP sdev"
+
+.PP
+Definición en la línea 50 del archivo sdio_18xx_43xx\&.c\&.
+.SS "uint32_t(* wait_evt) (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t event, void *arg)"
+
+.PP
+Definición en la línea 45 del archivo sdio_18xx_43xx\&.c\&.
+.SS "void(* wake_evt) (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t event, void *arg)"
+
+.PP
+Definición en la línea 44 del archivo sdio_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

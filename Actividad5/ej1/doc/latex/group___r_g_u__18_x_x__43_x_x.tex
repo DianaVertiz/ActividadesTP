@@ -1,0 +1,276 @@
+\hypertarget{group___r_g_u__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx Reset Generator Unit (R\+GU) driver}
+\label{group___r_g_u__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___r_g_u___t}{L\+P\+C\+\_\+\+R\+G\+U\+\_\+T}
+\begin{DoxyCompactList}\small\item\em R\+GU register structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}typedefs\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{group___r_g_u__18_x_x__43_x_x_gaba95b3f477c73ccfad274a65a9c97a9e}{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+ST} \hyperlink{group___r_g_u__18_x_x__43_x_x_gaf76b0dbb78e73bbcd44948364417ae60}{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T}
+\begin{DoxyCompactList}\small\item\em R\+GU reset enumerations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___r_g_u__18_x_x__43_x_x_gaba95b3f477c73ccfad274a65a9c97a9e}{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+ST} \{ \\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea4241a9e9dc8968694e8d38a8b2e229b8}{R\+G\+U\+\_\+\+C\+O\+R\+E\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea47dc3294bb723512e32076e70ecbda5a}{R\+G\+U\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea150a829d2765f07e2fdc73168cd39991}{R\+G\+U\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf37f427c7db5117daaa3bc028ec2763b}{R\+G\+U\+\_\+\+W\+W\+D\+T\+\_\+\+R\+ST} = 4, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea857db0f8e6de2197f3ce7f1b7b065f27}{R\+G\+U\+\_\+\+C\+R\+E\+G\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaefc89541d98adf2c46961de5b4e06e71}{R\+G\+U\+\_\+\+B\+U\+S\+\_\+\+R\+ST} = 8, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaef340cc39af0c5c88746e82ee7761dee}{R\+G\+U\+\_\+\+S\+C\+U\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea3f951c68ff383321855f820e80c6594e}{R\+G\+U\+\_\+\+M0\+S\+U\+B\+\_\+\+R\+ST} = 12, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea3587e981a336eb93734010c40bb40b88}{R\+G\+U\+\_\+\+M3\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf06ae84de62a32823235b381a3d7fbd6}{R\+G\+U\+\_\+\+L\+C\+D\+\_\+\+R\+ST} = 16, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea89dc2f8f368530010817f03e1e67bf9e}{R\+G\+U\+\_\+\+U\+S\+B0\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea63aee699ef3a785fd7a8fa6a5aeec686}{R\+G\+U\+\_\+\+U\+S\+B1\+\_\+\+R\+ST}, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf7b7d7de165e77a3e079cc9b7a95e799}{R\+G\+U\+\_\+\+D\+M\+A\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea525449b2f10ccd0bdc144f46e1d29762}{R\+G\+U\+\_\+\+S\+D\+I\+O\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea61b96d5e52008063f7552e132e242f91}{R\+G\+U\+\_\+\+E\+M\+C\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea0939786987d49c2cbf1caaf6f05115a7}{R\+G\+U\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+R\+ST}, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf7bc84d6c46fab78451a5f6105365e93}{R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+A\+\_\+\+R\+ST} = 25, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea9fc9ae7a0414267fa9630435048793c3}{R\+G\+U\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+R\+ST} = 27, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eae1a098dd2d1e1575dfc9642d2aee4f1c}{R\+G\+U\+\_\+\+G\+P\+I\+O\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea68f62dcbcdaf696c63abb23de7760d54}{R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+B\+\_\+\+R\+ST}, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaeebed296aa1e4fde268fc86718d2604c}{R\+G\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+R\+ST} = 32, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea2225a925bbee83522ee82f65a0cfd51c}{R\+G\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaebce2c7a8ed8faa85cbb380e464420bf}{R\+G\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea264876863c88803fb96d83152d11d92c}{R\+G\+U\+\_\+\+T\+I\+M\+E\+R3\+\_\+\+R\+ST}, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea5d12ba819edb0cdd6599e278e3867e2b}{R\+G\+U\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaded11a02aee8996ee7afb39039581bef}{R\+G\+U\+\_\+\+S\+C\+T\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea7eeac68ceb4128c8daf5d46f510dacd9}{R\+G\+U\+\_\+\+M\+O\+T\+O\+C\+O\+N\+P\+W\+M\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaeff63b910ef4a44798945ed3b94904cf}{R\+G\+U\+\_\+\+Q\+E\+I\+\_\+\+R\+ST}, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eadd044217b707482b1ddb8643f8b38a0d}{R\+G\+U\+\_\+\+A\+D\+C0\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eac4275b180032c11c83b3c53b85616d00}{R\+G\+U\+\_\+\+A\+D\+C1\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea67885b215fed2cc82602d15ded4480c5}{R\+G\+U\+\_\+\+D\+A\+C\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaa92b0e62342378fda34b72fe7021a7c5}{R\+G\+U\+\_\+\+U\+A\+R\+T0\+\_\+\+R\+ST} = 44, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea781308da84d88ae57d33866becf92279}{R\+G\+U\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea114d138ffefea0a228b451edc3f8ac7f}{R\+G\+U\+\_\+\+U\+A\+R\+T2\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eadbba4662d85bd089bc498e62d3e81b82}{R\+G\+U\+\_\+\+U\+A\+R\+T3\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eab3aff9e5fe47cb6830481993eaf8f250}{R\+G\+U\+\_\+\+I2\+C0\+\_\+\+R\+ST}, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eac9389ec4b22060f7acbadf55d1378dd2}{R\+G\+U\+\_\+\+I2\+C1\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaa7c1e0f063c18137520afbf838500244}{R\+G\+U\+\_\+\+S\+S\+P0\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea4cf834919cd829d4c30b12bfab43bd06}{R\+G\+U\+\_\+\+S\+S\+P1\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea53032865c8a2a817462eb0a5cf12989a}{R\+G\+U\+\_\+\+I2\+S\+\_\+\+R\+ST}, 
+\\*
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea769caf02e188f0048ef4ab0d9e493494}{R\+G\+U\+\_\+\+S\+P\+I\+F\+I\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea0af937ec488406626a0811fece45dd0c}{R\+G\+U\+\_\+\+C\+A\+N1\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eabbfa323c41f4798e518199f1e76015f6}{R\+G\+U\+\_\+\+C\+A\+N0\+\_\+\+R\+ST}, 
+\hyperlink{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eacf1bcccbc49254edfcb4a3540a7c8b67}{R\+G\+U\+\_\+\+L\+A\+S\+T\+\_\+\+R\+ST} = 63
+ \}\begin{DoxyCompactList}\small\item\em R\+GU reset enumerations. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___r_g_u__18_x_x__43_x_x_ga3cc30f9a3adbdba9866e6a80cb9eb71d}{Chip\+\_\+\+R\+G\+U\+\_\+\+Trigger\+Reset} (\hyperlink{group___r_g_u__18_x_x__43_x_x_gaf76b0dbb78e73bbcd44948364417ae60}{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T} Reset\+Number)
+\begin{DoxyCompactList}\small\item\em Trigger a peripheral reset for the selected peripheral. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} bool \hyperlink{group___r_g_u__18_x_x__43_x_x_gabada148b5dec002cb3e8a748e6613194}{Chip\+\_\+\+R\+G\+U\+\_\+\+In\+Reset} (\hyperlink{group___r_g_u__18_x_x__43_x_x_gaf76b0dbb78e73bbcd44948364417ae60}{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T} Reset\+Number)
+\begin{DoxyCompactList}\small\item\em Checks the reset status of a peripheral. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___r_g_u__18_x_x__43_x_x_gaae3ec369bc443e52bd8d76d759d79d9c}{Chip\+\_\+\+R\+G\+U\+\_\+\+Clear\+Reset} (\hyperlink{group___r_g_u__18_x_x__43_x_x_gaf76b0dbb78e73bbcd44948364417ae60}{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T} Reset\+Number)
+\begin{DoxyCompactList}\small\item\em Clears reset for the selected peripheral. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}typedefs\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T@{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T}}
+\index{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T@{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T}{CHIP_RGU_RST_T}}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+ST}  {\bf C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T}}\hypertarget{group___r_g_u__18_x_x__43_x_x_gaf76b0dbb78e73bbcd44948364417ae60}{}\label{group___r_g_u__18_x_x__43_x_x_gaf76b0dbb78e73bbcd44948364417ae60}
+
+
+R\+GU reset enumerations. 
+
+
+
+\subsection{Documentación de las enumeraciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+ST@{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+ST}}
+\index{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+ST@{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+ST}{CHIP_RGU_RST}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+ST}}\hypertarget{group___r_g_u__18_x_x__43_x_x_gaba95b3f477c73ccfad274a65a9c97a9e}{}\label{group___r_g_u__18_x_x__43_x_x_gaba95b3f477c73ccfad274a65a9c97a9e}
+
+
+R\+GU reset enumerations. 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{R\+G\+U\+\_\+\+C\+O\+R\+E\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+C\+O\+R\+E\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+C\+O\+R\+E\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+C\+O\+R\+E\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+C\+O\+R\+E\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea4241a9e9dc8968694e8d38a8b2e229b8}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea4241a9e9dc8968694e8d38a8b2e229b8}
+}]\index{R\+G\+U\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+P\+E\+R\+I\+P\+H\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea47dc3294bb723512e32076e70ecbda5a}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea47dc3294bb723512e32076e70ecbda5a}
+}]\index{R\+G\+U\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+M\+A\+S\+T\+E\+R\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea150a829d2765f07e2fdc73168cd39991}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea150a829d2765f07e2fdc73168cd39991}
+}]\index{R\+G\+U\+\_\+\+W\+W\+D\+T\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+W\+W\+D\+T\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+W\+W\+D\+T\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+W\+W\+D\+T\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+W\+W\+D\+T\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf37f427c7db5117daaa3bc028ec2763b}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf37f427c7db5117daaa3bc028ec2763b}
+}]\index{R\+G\+U\+\_\+\+C\+R\+E\+G\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+C\+R\+E\+G\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+C\+R\+E\+G\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+C\+R\+E\+G\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+C\+R\+E\+G\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea857db0f8e6de2197f3ce7f1b7b065f27}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea857db0f8e6de2197f3ce7f1b7b065f27}
+}]\index{R\+G\+U\+\_\+\+B\+U\+S\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+B\+U\+S\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+B\+U\+S\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+B\+U\+S\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+B\+U\+S\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaefc89541d98adf2c46961de5b4e06e71}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaefc89541d98adf2c46961de5b4e06e71}
+}]\index{R\+G\+U\+\_\+\+S\+C\+U\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+C\+U\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+S\+C\+U\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+C\+U\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+S\+C\+U\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaef340cc39af0c5c88746e82ee7761dee}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaef340cc39af0c5c88746e82ee7761dee}
+}]\index{R\+G\+U\+\_\+\+M0\+S\+U\+B\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+M0\+S\+U\+B\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+M0\+S\+U\+B\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+M0\+S\+U\+B\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+M0\+S\+U\+B\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea3f951c68ff383321855f820e80c6594e}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea3f951c68ff383321855f820e80c6594e}
+}]\index{R\+G\+U\+\_\+\+M3\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+M3\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+M3\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+M3\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+M3\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea3587e981a336eb93734010c40bb40b88}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea3587e981a336eb93734010c40bb40b88}
+}]\index{R\+G\+U\+\_\+\+L\+C\+D\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+L\+C\+D\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+L\+C\+D\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+L\+C\+D\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+L\+C\+D\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf06ae84de62a32823235b381a3d7fbd6}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf06ae84de62a32823235b381a3d7fbd6}
+}]\index{R\+G\+U\+\_\+\+U\+S\+B0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+S\+B0\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+U\+S\+B0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+S\+B0\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+U\+S\+B0\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea89dc2f8f368530010817f03e1e67bf9e}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea89dc2f8f368530010817f03e1e67bf9e}
+}]\index{R\+G\+U\+\_\+\+U\+S\+B1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+S\+B1\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+U\+S\+B1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+S\+B1\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+U\+S\+B1\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea63aee699ef3a785fd7a8fa6a5aeec686}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea63aee699ef3a785fd7a8fa6a5aeec686}
+}]\index{R\+G\+U\+\_\+\+D\+M\+A\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+D\+M\+A\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+D\+M\+A\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+D\+M\+A\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+D\+M\+A\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf7b7d7de165e77a3e079cc9b7a95e799}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf7b7d7de165e77a3e079cc9b7a95e799}
+}]\index{R\+G\+U\+\_\+\+S\+D\+I\+O\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+D\+I\+O\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+S\+D\+I\+O\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+D\+I\+O\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+S\+D\+I\+O\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea525449b2f10ccd0bdc144f46e1d29762}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea525449b2f10ccd0bdc144f46e1d29762}
+}]\index{R\+G\+U\+\_\+\+E\+M\+C\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+E\+M\+C\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+E\+M\+C\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+E\+M\+C\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+E\+M\+C\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea61b96d5e52008063f7552e132e242f91}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea61b96d5e52008063f7552e132e242f91}
+}]\index{R\+G\+U\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea0939786987d49c2cbf1caaf6f05115a7}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea0939786987d49c2cbf1caaf6f05115a7}
+}]\index{R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+A\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+A\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+A\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+A\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+A\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf7bc84d6c46fab78451a5f6105365e93}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaf7bc84d6c46fab78451a5f6105365e93}
+}]\index{R\+G\+U\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea9fc9ae7a0414267fa9630435048793c3}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea9fc9ae7a0414267fa9630435048793c3}
+}]\index{R\+G\+U\+\_\+\+G\+P\+I\+O\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+G\+P\+I\+O\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+G\+P\+I\+O\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+G\+P\+I\+O\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+G\+P\+I\+O\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eae1a098dd2d1e1575dfc9642d2aee4f1c}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eae1a098dd2d1e1575dfc9642d2aee4f1c}
+}]\index{R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+B\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+B\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+B\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+B\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+F\+L\+A\+S\+H\+B\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea68f62dcbcdaf696c63abb23de7760d54}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea68f62dcbcdaf696c63abb23de7760d54}
+}]\index{R\+G\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaeebed296aa1e4fde268fc86718d2604c}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaeebed296aa1e4fde268fc86718d2604c}
+}]\index{R\+G\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+T\+I\+M\+E\+R1\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea2225a925bbee83522ee82f65a0cfd51c}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea2225a925bbee83522ee82f65a0cfd51c}
+}]\index{R\+G\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+T\+I\+M\+E\+R2\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaebce2c7a8ed8faa85cbb380e464420bf}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaebce2c7a8ed8faa85cbb380e464420bf}
+}]\index{R\+G\+U\+\_\+\+T\+I\+M\+E\+R3\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R3\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+T\+I\+M\+E\+R3\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R3\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+T\+I\+M\+E\+R3\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea264876863c88803fb96d83152d11d92c}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea264876863c88803fb96d83152d11d92c}
+}]\index{R\+G\+U\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea5d12ba819edb0cdd6599e278e3867e2b}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea5d12ba819edb0cdd6599e278e3867e2b}
+}]\index{R\+G\+U\+\_\+\+S\+C\+T\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+C\+T\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+S\+C\+T\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+C\+T\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+S\+C\+T\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaded11a02aee8996ee7afb39039581bef}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaded11a02aee8996ee7afb39039581bef}
+}]\index{R\+G\+U\+\_\+\+M\+O\+T\+O\+C\+O\+N\+P\+W\+M\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+M\+O\+T\+O\+C\+O\+N\+P\+W\+M\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+M\+O\+T\+O\+C\+O\+N\+P\+W\+M\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+M\+O\+T\+O\+C\+O\+N\+P\+W\+M\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+M\+O\+T\+O\+C\+O\+N\+P\+W\+M\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea7eeac68ceb4128c8daf5d46f510dacd9}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea7eeac68ceb4128c8daf5d46f510dacd9}
+}]\index{R\+G\+U\+\_\+\+Q\+E\+I\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+Q\+E\+I\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+Q\+E\+I\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+Q\+E\+I\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+Q\+E\+I\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaeff63b910ef4a44798945ed3b94904cf}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaeff63b910ef4a44798945ed3b94904cf}
+}]\index{R\+G\+U\+\_\+\+A\+D\+C0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+A\+D\+C0\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+A\+D\+C0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+A\+D\+C0\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+A\+D\+C0\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eadd044217b707482b1ddb8643f8b38a0d}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eadd044217b707482b1ddb8643f8b38a0d}
+}]\index{R\+G\+U\+\_\+\+A\+D\+C1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+A\+D\+C1\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+A\+D\+C1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+A\+D\+C1\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+A\+D\+C1\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eac4275b180032c11c83b3c53b85616d00}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eac4275b180032c11c83b3c53b85616d00}
+}]\index{R\+G\+U\+\_\+\+D\+A\+C\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+D\+A\+C\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+D\+A\+C\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+D\+A\+C\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+D\+A\+C\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea67885b215fed2cc82602d15ded4480c5}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea67885b215fed2cc82602d15ded4480c5}
+}]\index{R\+G\+U\+\_\+\+U\+A\+R\+T0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+A\+R\+T0\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+U\+A\+R\+T0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+A\+R\+T0\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+U\+A\+R\+T0\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaa92b0e62342378fda34b72fe7021a7c5}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaa92b0e62342378fda34b72fe7021a7c5}
+}]\index{R\+G\+U\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea781308da84d88ae57d33866becf92279}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea781308da84d88ae57d33866becf92279}
+}]\index{R\+G\+U\+\_\+\+U\+A\+R\+T2\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+A\+R\+T2\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+U\+A\+R\+T2\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+A\+R\+T2\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+U\+A\+R\+T2\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea114d138ffefea0a228b451edc3f8ac7f}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea114d138ffefea0a228b451edc3f8ac7f}
+}]\index{R\+G\+U\+\_\+\+U\+A\+R\+T3\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+A\+R\+T3\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+U\+A\+R\+T3\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+U\+A\+R\+T3\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+U\+A\+R\+T3\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eadbba4662d85bd089bc498e62d3e81b82}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eadbba4662d85bd089bc498e62d3e81b82}
+}]\index{R\+G\+U\+\_\+\+I2\+C0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+I2\+C0\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+I2\+C0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+I2\+C0\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+I2\+C0\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eab3aff9e5fe47cb6830481993eaf8f250}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eab3aff9e5fe47cb6830481993eaf8f250}
+}]\index{R\+G\+U\+\_\+\+I2\+C1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+I2\+C1\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+I2\+C1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+I2\+C1\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+I2\+C1\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eac9389ec4b22060f7acbadf55d1378dd2}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eac9389ec4b22060f7acbadf55d1378dd2}
+}]\index{R\+G\+U\+\_\+\+S\+S\+P0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+S\+P0\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+S\+S\+P0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+S\+P0\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+S\+S\+P0\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaa7c1e0f063c18137520afbf838500244}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eaa7c1e0f063c18137520afbf838500244}
+}]\index{R\+G\+U\+\_\+\+S\+S\+P1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+S\+P1\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+S\+S\+P1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+S\+P1\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+S\+S\+P1\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea4cf834919cd829d4c30b12bfab43bd06}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea4cf834919cd829d4c30b12bfab43bd06}
+}]\index{R\+G\+U\+\_\+\+I2\+S\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+I2\+S\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+I2\+S\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+I2\+S\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+I2\+S\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea53032865c8a2a817462eb0a5cf12989a}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea53032865c8a2a817462eb0a5cf12989a}
+}]\index{R\+G\+U\+\_\+\+S\+P\+I\+F\+I\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+P\+I\+F\+I\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+S\+P\+I\+F\+I\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+S\+P\+I\+F\+I\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+S\+P\+I\+F\+I\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea769caf02e188f0048ef4ab0d9e493494}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea769caf02e188f0048ef4ab0d9e493494}
+}]\index{R\+G\+U\+\_\+\+C\+A\+N1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+C\+A\+N1\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+C\+A\+N1\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+C\+A\+N1\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+C\+A\+N1\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea0af937ec488406626a0811fece45dd0c}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9ea0af937ec488406626a0811fece45dd0c}
+}]\index{R\+G\+U\+\_\+\+C\+A\+N0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+C\+A\+N0\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+C\+A\+N0\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+C\+A\+N0\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+C\+A\+N0\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eabbfa323c41f4798e518199f1e76015f6}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eabbfa323c41f4798e518199f1e76015f6}
+}]\index{R\+G\+U\+\_\+\+L\+A\+S\+T\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+L\+A\+S\+T\+\_\+\+R\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!R\+G\+U\+\_\+\+L\+A\+S\+T\+\_\+\+R\+ST@{R\+G\+U\+\_\+\+L\+A\+S\+T\+\_\+\+R\+ST}}\item[{\em 
+R\+G\+U\+\_\+\+L\+A\+S\+T\+\_\+\+R\+ST\hypertarget{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eacf1bcccbc49254edfcb4a3540a7c8b67}{}\label{group___r_g_u__18_x_x__43_x_x_ggaba95b3f477c73ccfad274a65a9c97a9eacf1bcccbc49254edfcb4a3540a7c8b67}
+}]\end{description}
+\end{Desc}
+
+
+Definición en la línea 47 del archivo rgu\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!Chip\+\_\+\+R\+G\+U\+\_\+\+Clear\+Reset@{Chip\+\_\+\+R\+G\+U\+\_\+\+Clear\+Reset}}
+\index{Chip\+\_\+\+R\+G\+U\+\_\+\+Clear\+Reset@{Chip\+\_\+\+R\+G\+U\+\_\+\+Clear\+Reset}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+G\+U\+\_\+\+Clear\+Reset(\+C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+\+T Reset\+Number)}{Chip_RGU_ClearReset(CHIP_RGU_RST_T ResetNumber)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+R\+G\+U\+\_\+\+Clear\+Reset (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T}}]{Reset\+Number}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_g_u__18_x_x__43_x_x_gaae3ec369bc443e52bd8d76d759d79d9c}{}\label{group___r_g_u__18_x_x__43_x_x_gaae3ec369bc443e52bd8d76d759d79d9c}
+
+
+Clears reset for the selected peripheral. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Reset\+Number} & \+: Peripheral reset number to trigger (R\+G\+U\+\_\+\+M0\+S\+U\+B\+\_\+\+R\+ST or R\+G\+U\+\_\+\+M0\+A\+P\+P\+\_\+\+R\+ST) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Almost all peripherals will auto clear the reset bit. Only a few peripherals like the Cortex M0 Core in L\+P\+C43xx will not auto clear the reset and require this function to clear the reset bit. This function clears all reset bits in a reset register. 
+\end{DoxyNote}
+
+
+Definición en la línea 145 del archivo rgu\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!Chip\+\_\+\+R\+G\+U\+\_\+\+In\+Reset@{Chip\+\_\+\+R\+G\+U\+\_\+\+In\+Reset}}
+\index{Chip\+\_\+\+R\+G\+U\+\_\+\+In\+Reset@{Chip\+\_\+\+R\+G\+U\+\_\+\+In\+Reset}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+G\+U\+\_\+\+In\+Reset(\+C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+\+T Reset\+Number)}{Chip_RGU_InReset(CHIP_RGU_RST_T ResetNumber)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} bool Chip\+\_\+\+R\+G\+U\+\_\+\+In\+Reset (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T}}]{Reset\+Number}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_g_u__18_x_x__43_x_x_gabada148b5dec002cb3e8a748e6613194}{}\label{group___r_g_u__18_x_x__43_x_x_gabada148b5dec002cb3e8a748e6613194}
+
+
+Checks the reset status of a peripheral. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Reset\+Number} & \+: Peripheral reset number to trigger \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true if the periperal is still being reset 
+\end{DoxyReturn}
+
+
+Definición en la línea 130 del archivo rgu\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}!Chip\+\_\+\+R\+G\+U\+\_\+\+Trigger\+Reset@{Chip\+\_\+\+R\+G\+U\+\_\+\+Trigger\+Reset}}
+\index{Chip\+\_\+\+R\+G\+U\+\_\+\+Trigger\+Reset@{Chip\+\_\+\+R\+G\+U\+\_\+\+Trigger\+Reset}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Reset Generator Unit (\+R\+G\+U) driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+G\+U\+\_\+\+Trigger\+Reset(\+C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+\+T Reset\+Number)}{Chip_RGU_TriggerReset(CHIP_RGU_RST_T ResetNumber)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+R\+G\+U\+\_\+\+Trigger\+Reset (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+R\+G\+U\+\_\+\+R\+S\+T\+\_\+T}}]{Reset\+Number}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_g_u__18_x_x__43_x_x_ga3cc30f9a3adbdba9866e6a80cb9eb71d}{}\label{group___r_g_u__18_x_x__43_x_x_ga3cc30f9a3adbdba9866e6a80cb9eb71d}
+
+
+Trigger a peripheral reset for the selected peripheral. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Reset\+Number} & \+: Peripheral reset number to trigger \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 119 del archivo rgu\+\_\+18xx\+\_\+43xx.\+h.
+

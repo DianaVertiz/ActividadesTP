@@ -1,0 +1,44 @@
+#include "sysUtils.h"
+#include "chip.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+void GPIO1_IRQHandler(void)
+{
+	/*limpiar el estado de la interrupción*/
+	Chip_PININT_ClearIntStatus (LPC_GPIO_PIN_INT , PININTCH (TEC1_IRQ));
+	delayMs(300);
+
+}
+
+
+void UART2_IRQHandler(void)
+{
+
+	Chip_UART_IRQRBHandler(LPC_USART2, &rxRing, &txRing);
+}
+
+
+int main ( int argc , char * argv [])
+{
+	inicializar_sistema();
+	inicializar_leds();
+	inicializar_teclado();
+	inicializar_USART();
+	init_interrupciones();
+
+	while (1)
+	{
+
+
+		__WFI();
+
+	}
+
+
+	return 0;
+}
+

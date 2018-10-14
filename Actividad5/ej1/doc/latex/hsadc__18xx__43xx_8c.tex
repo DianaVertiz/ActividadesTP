@@ -1,0 +1,27 @@
+\hypertarget{hsadc__18xx__43xx_8c}{}\section{Referencia del Archivo hsadc\+\_\+18xx\+\_\+43xx.\+c}
+\label{hsadc__18xx__43xx_8c}\index{hsadc\+\_\+18xx\+\_\+43xx.\+c@{hsadc\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_c_r_s_d_c_e_g___t}{C\+R\+S\+D\+C\+E\+G\+\_\+T}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gad72fb94bbb485c84687a4e75c63090ea}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Init} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Initialize the High speed A\+DC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga2d9740d012a9043c462acbc468e1931d}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Shutdown H\+S\+A\+DC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaafa52aef03cf64be7d329895ad90ac40}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+F\+I\+FO} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t trip, bool packed)
+\begin{DoxyCompactList}\small\item\em Sets up H\+S\+A\+DC F\+I\+FO trip level and packing. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga86ed5ab3da9ea3a6bbfd138530d5d73d}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+Low\+Value} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t thrnum, uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Set H\+S\+A\+DC Threshold low value. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga0690a0edb51bd4070384c35196f1a73d}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+High\+Value} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t thrnum, uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Set H\+S\+A\+DC Threshold high value. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga70b879056a35cdf9cc6f9c2928883973}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Speed} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t channel, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Setup speed for a input channel. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga776d07e6bc51347515f92ed36a9da561}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Power\+Speed} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, bool comp2)
+\begin{DoxyCompactList}\small\item\em Setup (common) H\+S\+A\+DC power and speed settings. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaf754b858ff1c0c0d2993aaedad394867}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+A\+C\+D\+C\+Bias} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t channel, \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga1769145f3b2f1c12f4cd23d3b5151e93}{H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T} dc\+In\+Neg, \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga1769145f3b2f1c12f4cd23d3b5151e93}{H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T} dc\+In\+Pos)
+\begin{DoxyCompactList}\small\item\em Setup A\+C-\/\+DC coupling selection for a channel. \end{DoxyCompactList}\end{DoxyCompactItemize}

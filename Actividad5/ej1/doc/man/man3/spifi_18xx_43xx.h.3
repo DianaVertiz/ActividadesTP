@@ -1,0 +1,121 @@
+.TH "spifi_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+spifi_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_SPIFI_CHIPHW\fP"
+.br
+.RI "\fISPIFI controller hardware register structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBINLINE\fP   inline"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_TO\fP(t)   ((t) << 0)"
+.br
+.RI "\fISPIFI controller control register bit definitions\&. \fP"
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_CSHI\fP(c)   ((c) << 16)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_DATA_PREFETCH_DISABLE\fP(d)   ((d) << 21)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_INTEN\fP(i)   ((i) << 22)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_MODE3\fP(m)   ((m) << 23)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_PREFETCH_DISABLE\fP(d)   ((d) << 27)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_DUAL\fP(d)   ((d) << 28)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_RFCLK\fP(m)   ((m) << 29)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_FBCLK\fP(m)   ((m) << 30)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CTRL_DMAEN\fP(m)   ((m) << 31)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_STAT_RESET\fP   (1 << 4)"
+.br
+.RI "\fISPIFI controller status register bit definitions\&. \fP"
+.ti -1c
+.RI "#define \fBSPIFI_STAT_INTRQ\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_STAT_CMD\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_STAT_MCINIT\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_DATALEN\fP(l)   ((l) << 0)"
+.br
+.RI "\fISPIFI controller command register bit definitions\&. \fP"
+.ti -1c
+.RI "#define \fBSPIFI_CMD_POLLRS\fP(p)   ((p) << 14)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_DOUT\fP(d)   ((d) << 15)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_INTER\fP(i)   ((i) << 16)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_FIELDFORM\fP(p)   ((p) << 19)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_FRAMEFORM\fP(f)   ((f) << 21)"
+.br
+.ti -1c
+.RI "#define \fBSPIFI_CMD_OPCODE\fP(o)   ((uint32_t) (o) << 24)"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBLPC_SPIFI_CHIPHW\fP \fBLPC_SPIFI_T\fP"
+.br
+.RI "\fISPIFI controller hardware register structure\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSPIFI_FRAMEFORM_T\fP { \fBSPIFI_FRAMEFORM_OP\fP = 1, \fBSPIFI_FRAMEFORM_OP_1ADDRESS\fP = 2, \fBSPIFI_FRAMEFORM_OP_2ADDRESS\fP = 3, \fBSPIFI_FRAMEFORM_OP_3ADDRESS\fP = 4, \fBSPIFI_FRAMEFORM_OP_4ADDRESS\fP = 5, \fBSPIFI_FRAMEFORM_NOOP_3ADDRESS\fP = 6, \fBSPIFI_FRAMEFORM_NOOP_4ADDRESS\fP = 7 }
+.RI "\fIframe form definitions \fP""
+.br
+.ti -1c
+.RI "enum \fBSPIFI_FIELDFORM_T\fP { \fBSPIFI_FIELDFORM_ALL_SERIAL\fP = 0, \fBSPIFI_FIELDFORM_SERIAL_OPCODE_ADDRESS\fP = 1, \fBSPIFI_FIELDFORM_SERIAL_OPCODE\fP = 2, \fBSPIFI_FIELDFORM_NO_SERIAL\fP = 3 }
+.RI "\fIserial type definitions \fP""
+.br
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define INLINE   inline"
+
+.PP
+Definición en la línea 46 del archivo spifi_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

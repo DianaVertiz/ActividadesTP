@@ -1,0 +1,90 @@
+\hypertarget{ccan__18xx__43xx_8c}{}\section{Referencia del Archivo ccan\+\_\+18xx\+\_\+43xx.\+c}
+\label{ccan__18xx__43xx_8c}\index{ccan\+\_\+18xx\+\_\+43xx.\+c@{ccan\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} void \hyperlink{ccan__18xx__43xx_8c_afd8eb689af0f6aa677db465d1b21cce7}{config\+Timming} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t Clk\+Div, uint32\+\_\+t Baud\+Rate\+Prescaler, uint8\+\_\+t Syn\+Jump\+Width, uint8\+\_\+t Tseg1, uint8\+\_\+t Tseg2)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} uint8\+\_\+t \hyperlink{ccan__18xx__43xx_8c_a3ce60be736ff542218c2436c2bc078f6}{get\+Free\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} void \hyperlink{ccan__18xx__43xx_8c_a790043cc062789f4ab7e3e0a6dbf33b9}{free\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{chip__clocks_8h_a45bb23228b9831321626c103ada7c60b}{C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} \hyperlink{ccan__18xx__43xx_8c_a03f5618272cce80f9c26939d16470e5a}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Clock\+Index} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8525e3ffe5b5b3f1cccd4ef0823db123}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Init} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Initialize the C\+C\+AN peripheral, free all message object in R\+AM. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga480bb72b3278473a3946718e6c54917b}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em De-\/initialize the C\+C\+AN peripheral. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_ga67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga5174d447093a6f3854255a97ae222a85}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Bit\+Rate} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t bit\+Rate)
+\begin{DoxyCompactList}\small\item\em Select bit rate for C\+C\+AN bus. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gad4ec595674d4ae4f357abf9df843fd7a}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Status} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Clear the status of C\+C\+AN bus. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga15f704e1c960d69aaaa2ea17c0247048}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T} dir, bool remote\+Frame, uint8\+\_\+t msg\+Num, const \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$p\+Msg\+Obj)
+\begin{DoxyCompactList}\small\item\em Set a message into the message object in message R\+AM. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gadab63c8847a26eae41257f5a89334b92}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num, \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$p\+Msg\+Obj)
+\begin{DoxyCompactList}\small\item\em Get a message object in message R\+AM into the message buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf3ac11ce8aadaefebd96a7f6ffcb7a1f}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Transfer\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint32\+\_\+t mask, uint32\+\_\+t msg\+Num)
+\begin{DoxyCompactList}\small\item\em Tranfer message object between IF registers and Message R\+AM. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga3418e9cdab81c5c8d7fb18d4afa0bd6e}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Valid\+Msg} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num, bool valid)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable the message object to valid. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga80123249d183199b1bff05316f6b6c32}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Send} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, bool remote\+Frame, \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$p\+Msg\+Obj)
+\begin{DoxyCompactList}\small\item\em Send a message. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac0622af68b92aff26c9843d7536224c2}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Add\+Receive\+ID} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Register a message ID for receiving. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga58ab5f836908b1611bd07ea9476172d6}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Delete\+Receive\+ID} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Remove a registered message ID from receiving. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\index{ccan\+\_\+18xx\+\_\+43xx.\+c@{ccan\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Clock\+Index@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Clock\+Index}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Clock\+Index@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Clock\+Index}!ccan\+\_\+18xx\+\_\+43xx.\+c@{ccan\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Clock\+Index(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_GetClockIndex(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Clock\+Index (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{ccan__18xx__43xx_8c_a03f5618272cce80f9c26939d16470e5a}{}\label{ccan__18xx__43xx_8c_a03f5618272cce80f9c26939d16470e5a}
+
+
+Definición en la línea 91 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{ccan\+\_\+18xx\+\_\+43xx.\+c@{ccan\+\_\+18xx\+\_\+43xx.\+c}!config\+Timming@{config\+Timming}}
+\index{config\+Timming@{config\+Timming}!ccan\+\_\+18xx\+\_\+43xx.\+c@{ccan\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{config\+Timming(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, uint32\+\_\+t Clk\+Div, uint32\+\_\+t Baud\+Rate\+Prescaler, uint8\+\_\+t Syn\+Jump\+Width, uint8\+\_\+t Tseg1, uint8\+\_\+t Tseg2)}{configTimming(LPC_CCAN_T *pCCAN, uint32_t ClkDiv, uint32_t BaudRatePrescaler, uint8_t SynJumpWidth, uint8_t Tseg1, uint8_t Tseg2)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} void config\+Timming (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{uint32\+\_\+t}]{Clk\+Div, }
+\item[{uint32\+\_\+t}]{Baud\+Rate\+Prescaler, }
+\item[{uint8\+\_\+t}]{Syn\+Jump\+Width, }
+\item[{uint8\+\_\+t}]{Tseg1, }
+\item[{uint8\+\_\+t}]{Tseg2}
+\end{DoxyParamCaption}
+)}\hypertarget{ccan__18xx__43xx_8c_afd8eb689af0f6aa677db465d1b21cce7}{}\label{ccan__18xx__43xx_8c_afd8eb689af0f6aa677db465d1b21cce7}
+
+
+Definición en la línea 47 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{ccan\+\_\+18xx\+\_\+43xx.\+c@{ccan\+\_\+18xx\+\_\+43xx.\+c}!free\+Msg\+Object@{free\+Msg\+Object}}
+\index{free\+Msg\+Object@{free\+Msg\+Object}!ccan\+\_\+18xx\+\_\+43xx.\+c@{ccan\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{free\+Msg\+Object(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, uint8\+\_\+t msg\+Num)}{freeMsgObject(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, uint8_t msgNum)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} void free\+Msg\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{uint8\+\_\+t}]{msg\+Num}
+\end{DoxyParamCaption}
+)}\hypertarget{ccan__18xx__43xx_8c_a790043cc062789f4ab7e3e0a6dbf33b9}{}\label{ccan__18xx__43xx_8c_a790043cc062789f4ab7e3e0a6dbf33b9}
+
+
+Definición en la línea 85 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{ccan\+\_\+18xx\+\_\+43xx.\+c@{ccan\+\_\+18xx\+\_\+43xx.\+c}!get\+Free\+Msg\+Object@{get\+Free\+Msg\+Object}}
+\index{get\+Free\+Msg\+Object@{get\+Free\+Msg\+Object}!ccan\+\_\+18xx\+\_\+43xx.\+c@{ccan\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{get\+Free\+Msg\+Object(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{getFreeMsgObject(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} uint8\+\_\+t get\+Free\+Msg\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{ccan__18xx__43xx_8c_a3ce60be736ff542218c2436c2bc078f6}{}\label{ccan__18xx__43xx_8c_a3ce60be736ff542218c2436c2bc078f6}
+
+
+Definición en la línea 72 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+

@@ -1,0 +1,1135 @@
+.TH "CHIP_SDMMC_Definitions" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CHIP_SDMMC_Definitions \- CHIP: Common SD/MMC definitions
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBSDMMC_CARD_T\fP"
+.br
+.RI "\fISD/MMC Card specific setup data structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSDC_OCR_20_21\fP   (((uint32_t) 1) << 8)"
+.br
+.RI "\fIOCR Register definitions\&. \fP"
+.ti -1c
+.RI "#define \fBSDC_OCR_21_22\fP   (((uint32_t) 1) << 9)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_22_23\fP   (((uint32_t) 1) << 10)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_23_24\fP   (((uint32_t) 1) << 11)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_24_25\fP   (((uint32_t) 1) << 12)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_25_26\fP   (((uint32_t) 1) << 13)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_26_27\fP   (((uint32_t) 1) << 14)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_27_28\fP   (((uint32_t) 1) << 15)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_28_29\fP   (((uint32_t) 1) << 16)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_29_30\fP   (((uint32_t) 1) << 17)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_30_31\fP   (((uint32_t) 1) << 18)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_31_32\fP   (((uint32_t) 1) << 19)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_32_33\fP   (((uint32_t) 1) << 20)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_33_34\fP   (((uint32_t) 1) << 21)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_34_35\fP   (((uint32_t) 1) << 22)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_35_36\fP   (((uint32_t) 1) << 23)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_27_36\fP   ((uint32_t) 0x00FF8000)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_HC_CCS\fP   (((uint32_t) 1) << 30)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_IDLE\fP   (((uint32_t) 1) << 31)"
+.br
+.ti -1c
+.RI "#define \fBSDC_OCR_BUSY\fP   (((uint32_t) 0) << 31)"
+.br
+.ti -1c
+.RI "#define \fBMMC_GO_IDLE_STATE\fP   0		/* bc                          */"
+.br
+.RI "\fISD/MMC commands, arguments and responses Standard SD/MMC commands (3\&.1) type argument response\&. \fP"
+.ti -1c
+.RI "#define \fBMMC_SEND_OP_COND\fP   1		/* bcr  [31:0]  OCR        R3  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_ALL_SEND_CID\fP   2		/* bcr                     R2  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SET_RELATIVE_ADDR\fP   3		/* ac   [31:16] RCA        R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SET_DSR\fP   4		/* bc   [31:16] RCA            */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SELECT_CARD\fP   7		/* ac   [31:16] RCA        R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SEND_EXT_CSD\fP   8		/* bc                      R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SEND_CSD\fP   9		/* ac   [31:16] RCA        R2  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SEND_CID\fP   10		/* ac   [31:16] RCA        R2  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_STOP_TRANSMISSION\fP   12		/* ac                      R1b */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SEND_STATUS\fP   13		/* ac   [31:16] RCA        R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_GO_INACTIVE_STATE\fP   15		/* ac   [31:16] RCA            */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SET_BLOCKLEN\fP   16		/* ac   [31:0]  block len  R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_READ_SINGLE_BLOCK\fP   17		/* adtc [31:0]  data addr  R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_READ_MULTIPLE_BLOCK\fP   18		/* adtc [31:0]  data addr  R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_WRITE_DAT_UNTIL_STOP\fP   20		/* adtc [31:0]  data addr  R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SET_BLOCK_COUNT\fP   23		/* adtc [31:0]  data addr  R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_WRITE_BLOCK\fP   24		/* adtc [31:0]  data addr  R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_WRITE_MULTIPLE_BLOCK\fP   25		/* adtc                    R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_PROGRAM_CID\fP   26		/* adtc                    R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_PROGRAM_CSD\fP   27		/* adtc                    R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SET_WRITE_PROT\fP   28		/* ac   [31:0]  data addr  R1b */"
+.br
+.ti -1c
+.RI "#define \fBMMC_CLR_WRITE_PROT\fP   29		/* ac   [31:0]  data addr  R1b */"
+.br
+.ti -1c
+.RI "#define \fBMMC_SEND_WRITE_PROT\fP   30		/* adtc [31:0]  wpdata addr R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_ERASE_GROUP_START\fP   35		/* ac   [31:0]  data addr  R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_ERASE_GROUP_END\fP   36		/* ac   [31:0]  data addr  R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_ERASE\fP   37		/* ac                      R1b */"
+.br
+.ti -1c
+.RI "#define \fBSD_ERASE_WR_BLK_START\fP   32		/* ac   [31:0]  data addr  R1  */"
+.br
+.ti -1c
+.RI "#define \fBSD_ERASE_WR_BLK_END\fP   33		/* ac   [31:0]  data addr  R1  */"
+.br
+.ti -1c
+.RI "#define \fBSD_ERASE\fP   38		/* ac                      R1b */"
+.br
+.ti -1c
+.RI "#define \fBMMC_FAST_IO\fP   39		/* ac   <Complex>          R4  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_GO_IRQ_STATE\fP   40		/* bcr                     R5  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_LOCK_UNLOCK\fP   42		/* adtc                    R1b */"
+.br
+.ti -1c
+.RI "#define \fBMMC_APP_CMD\fP   55		/* ac   [31:16] RCA        R1  */"
+.br
+.ti -1c
+.RI "#define \fBMMC_GEN_CMD\fP   56		/* adtc [0]     RD/WR      R1b */"
+.br
+.ti -1c
+.RI "#define \fBSD_SEND_RELATIVE_ADDR\fP   3		/* ac                      R6  */"
+.br
+.ti -1c
+.RI "#define \fBSD_CMD8\fP   8		/* bcr  [31:0]  OCR        R3  */"
+.br
+.ti -1c
+.RI "#define \fBSD_APP_SET_BUS_WIDTH\fP   6		/* ac   [1:0]   bus width  R1   */"
+.br
+.ti -1c
+.RI "#define \fBSD_APP_OP_COND\fP   41		/* bcr  [31:0]  OCR        R1 (R4)  */"
+.br
+.ti -1c
+.RI "#define \fBSD_APP_SEND_SCR\fP   51		/* adtc                    R1   */"
+.br
+.ti -1c
+.RI "#define \fBR1_OUT_OF_RANGE\fP   (1UL << 31)	/* er, c */"
+.br
+.RI "\fIMMC status in R1
+.br
+ Type
+.br
+ e : error bit
+.br
+ s : status bit
+.br
+ r : detected and set for the actual command response
+.br
+ x : detected and set during command execution\&. the host must poll the card by sending status command in order to read these bits\&. Clear condition
+.br
+ a : according to the card state
+.br
+ b : always related to the previous command\&. Reception of a valid command will clear it (with a delay of one command)
+.br
+ c : clear by read
+.br
+ \fP"
+.ti -1c
+.RI "#define \fBR1_ADDRESS_ERROR\fP   (1 << 30)	/* erx, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_BLOCK_LEN_ERROR\fP   (1 << 29)	/* er, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_ERASE_SEQ_ERROR\fP   (1 << 28)	/* er, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_ERASE_PARAM\fP   (1 << 27)	/* ex, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_WP_VIOLATION\fP   (1 << 26)	/* erx, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_CARD_IS_LOCKED\fP   (1 << 25)	/* sx, a */"
+.br
+.ti -1c
+.RI "#define \fBR1_LOCK_UNLOCK_FAILED\fP   (1 << 24)	/* erx, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_COM_CRC_ERROR\fP   (1 << 23)	/* er, b */"
+.br
+.ti -1c
+.RI "#define \fBR1_ILLEGAL_COMMAND\fP   (1 << 22)	/* er, b */"
+.br
+.ti -1c
+.RI "#define \fBR1_CARD_ECC_FAILED\fP   (1 << 21)	/* ex, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_CC_ERROR\fP   (1 << 20)	/* erx, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_ERROR\fP   (1 << 19)	/* erx, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_UNDERRUN\fP   (1 << 18)	/* ex, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_OVERRUN\fP   (1 << 17)	/* ex, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_CID_CSD_OVERWRITE\fP   (1 << 16)	/* erx, c, CID/CSD overwrite */"
+.br
+.ti -1c
+.RI "#define \fBR1_WP_ERASE_SKIP\fP   (1 << 15)	/* sx, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_CARD_ECC_DISABLED\fP   (1 << 14)	/* sx, a */"
+.br
+.ti -1c
+.RI "#define \fBR1_ERASE_RESET\fP   (1 << 13)	/* sr, c */"
+.br
+.ti -1c
+.RI "#define \fBR1_STATUS\fP(x)   (x & 0xFFFFE000)"
+.br
+.ti -1c
+.RI "#define \fBR1_CURRENT_STATE\fP(x)   ((x & 0x00001E00) >> 9)	/* sx, b (4 bits) */"
+.br
+.ti -1c
+.RI "#define \fBR1_READY_FOR_DATA\fP   (1 << 8)	/* sx, a */"
+.br
+.ti -1c
+.RI "#define \fBR1_APP_CMD\fP   (1 << 5)	/* sr, c */"
+.br
+.ti -1c
+.RI "#define \fBOCR_ALL_READY\fP   (1UL << 31)	/* Card Power up status bit */"
+.br
+.RI "\fISD/MMC card OCR register bits\&. \fP"
+.ti -1c
+.RI "#define \fBOCR_HC_CCS\fP   (1 << 30)	/* High capacity card */"
+.br
+.ti -1c
+.RI "#define \fBOCR_VOLTAGE_RANGE_MSK\fP   (0x00FF8000)"
+.br
+.ti -1c
+.RI "#define \fBSD_SEND_IF_ARG\fP   0x000001AA"
+.br
+.ti -1c
+.RI "#define \fBSD_SEND_IF_ECHO_MSK\fP   0x000000FF"
+.br
+.ti -1c
+.RI "#define \fBSD_SEND_IF_RESP\fP   0x000000AA"
+.br
+.ti -1c
+.RI "#define \fBCMDRESP_R3_OCR_VAL\fP(n)   (((uint32_t) n) & 0xFFFFFF)"
+.br
+.RI "\fIR3 response definitions\&. \fP"
+.ti -1c
+.RI "#define \fBCMDRESP_R3_S18A\fP   (((uint32_t) 1 ) << 24)"
+.br
+.ti -1c
+.RI "#define \fBCMDRESP_R3_HC_CCS\fP   (((uint32_t) 1 ) << 30)"
+.br
+.ti -1c
+.RI "#define \fBCMDRESP_R3_INIT_COMPLETE\fP   (((uint32_t) 1 ) << 31)"
+.br
+.ti -1c
+.RI "#define \fBCMDRESP_R6_RCA_VAL\fP(n)   (((uint32_t) (n >> 16)) & 0xFFFF)"
+.br
+.RI "\fIR6 response definitions\&. \fP"
+.ti -1c
+.RI "#define \fBCMDRESP_R6_CARD_STATUS\fP(n)"
+.br
+.ti -1c
+.RI "#define \fBCMDRESP_R7_CHECK_PATTERN\fP(n)   (((uint32_t) n ) & 0xFF)"
+.br
+.RI "\fIR7 response definitions\&. \fP"
+.ti -1c
+.RI "#define \fBCMDRESP_R7_VOLTAGE_ACCEPTED\fP   (((uint32_t) 1 ) << 8)"
+.br
+.ti -1c
+.RI "#define \fBCMD3_RCA\fP(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+.br
+.RI "\fICMD3 command definitions\&. \fP"
+.ti -1c
+.RI "#define \fBCMD7_RCA\fP(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+.br
+.RI "\fICMD7 command definitions\&. \fP"
+.ti -1c
+.RI "#define \fBCMD8_CHECKPATTERN\fP(n)   (((uint32_t) (n & 0xFF) ) << 0)"
+.br
+.RI "\fICMD8 command definitions\&. \fP"
+.ti -1c
+.RI "#define \fBCMD8_DEF_PATTERN\fP   (0xAA)"
+.br
+.ti -1c
+.RI "#define \fBCMD8_VOLTAGESUPPLIED_27_36\fP   (((uint32_t) 1 ) << 8)"
+.br
+.ti -1c
+.RI "#define \fBCMD9_RCA\fP(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+.br
+.RI "\fICMD9 command definitions\&. \fP"
+.ti -1c
+.RI "#define \fBCMD13_RCA\fP(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+.br
+.RI "\fICMD13 command definitions\&. \fP"
+.ti -1c
+.RI "#define \fBCMD55_RCA\fP(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+.br
+.RI "\fIAPP_CMD command definitions\&. \fP"
+.ti -1c
+.RI "#define \fBACMD41_OCR\fP(n)   (((uint32_t) n) & 0xFFFFFF)"
+.br
+.RI "\fIACMD41 command definitions\&. \fP"
+.ti -1c
+.RI "#define \fBACMD41_S18R\fP   (((uint32_t) 1 ) << 24)"
+.br
+.ti -1c
+.RI "#define \fBACMD41_XPC\fP   (((uint32_t) 1 ) << 28)"
+.br
+.ti -1c
+.RI "#define \fBACMD41_HCS\fP   (((uint32_t) 1 ) << 30)"
+.br
+.ti -1c
+.RI "#define \fBACMD6_BUS_WIDTH\fP(n)   ((uint32_t) n & 0x03)"
+.br
+.RI "\fIACMD6 command definitions\&. \fP"
+.ti -1c
+.RI "#define \fBACMD6_BUS_WIDTH_1\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBACMD6_BUS_WIDTH_4\fP   (2)"
+.br
+.ti -1c
+.RI "#define \fBCARD_TYPE_SD\fP   (1 << 0)"
+.br
+.RI "\fICard type defines\&. \fP"
+.ti -1c
+.RI "#define \fBCARD_TYPE_4BIT\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBCARD_TYPE_8BIT\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBCARD_TYPE_HC\fP   (\fBOCR_HC_CCS\fP)"
+.br
+.ti -1c
+.RI "#define \fBMMC_SECTOR_SIZE\fP   512"
+.br
+.RI "\fISD/MMC sector size in bytes\&. \fP"
+.ti -1c
+.RI "#define \fBSD_MMC_ENUM_CLOCK\fP   400000"
+.br
+.RI "\fITypical enumeration clock rate\&. \fP"
+.ti -1c
+.RI "#define \fBMMC_MAX_CLOCK\fP   20000000"
+.br
+.RI "\fIMax MMC clock rate\&. \fP"
+.ti -1c
+.RI "#define \fBMMC_LOW_BUS_MAX_CLOCK\fP   26000000"
+.br
+.RI "\fIType 0 MMC card max clock rate\&. \fP"
+.ti -1c
+.RI "#define \fBMMC_HIGH_BUS_MAX_CLOCK\fP   52000000"
+.br
+.RI "\fIType 1 MMC card max clock rate\&. \fP"
+.ti -1c
+.RI "#define \fBSD_MAX_CLOCK\fP   25000000"
+.br
+.RI "\fIMax SD clock rate\&. \fP"
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBSDMMC_EVSETUP_FUNC_T\fP) (void *)"
+.br
+.ti -1c
+.RI "typedef uint32_t(* \fBSDMMC_EVWAIT_FUNC_T\fP) (void)"
+.br
+.ti -1c
+.RI "typedef void(* \fBSDMMC_MSDELAY_FUNC_T\fP) (uint32_t)"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSD_APP_CMD_T\fP { \fBSD_SET_BUS_WIDTH\fP, \fBSD_SEND_STATUS\fP, \fBSD_SEND_WR_BLOCKS\fP, \fBSD_SET_ERASE_COUNT\fP, \fBSD_SENDOP_COND\fP, \fBSD_CLEAR_CARD_DET\fP, \fBSD_SEND_SCR\fP, \fBSD_INVALID_APP_CMD\fP }
+.RI "\fISD/MMC application specific commands for SD cards only - these must be preceded by the SDMMC CMD55 to work correctly\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBSDMMC_RESPONSE_T\fP { \fBSDMMC_RESPONSE_R1\fP, \fBSDMMC_RESPONSE_R1B\fP, \fBSDMMC_RESPONSE_R2\fP, \fBSDMMC_RESPONSE_R3\fP, \fBSDMMC_RESPONSE_R4\fP, \fBSDMMC_RESPONSE_R5\fP, \fBSDMMC_RESPONSE_R6\fP, \fBSDMMC_RESPONSE_NONE\fP }
+.RI "\fIPossible SDMMC response types\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBSDMMC_STATE_T\fP { \fBSDMMC_IDLE_ST\fP = 0, \fBSDMMC_READY_ST\fP, \fBSDMMC_IDENT_ST\fP, \fBSDMMC_STBY_ST\fP, \fBSDMMC_TRAN_ST\fP, \fBSDMMC_DATA_ST\fP, \fBSDMMC_RCV_ST\fP, \fBSDMMC_PRG_ST\fP, \fBSDMMC_DIS_ST\fP }
+.RI "\fIPossible SDMMC card state types\&. \fP""
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define ACMD41_HCS   (((uint32_t) 1 ) << 30)"
+
+.PP
+Definición en la línea 396 del archivo sdmmc\&.h\&.
+.SS "#define ACMD41_OCR(n)   (((uint32_t) n) & 0xFFFFFF)"
+
+.PP
+ACMD41 command definitions\&. 
+.PP
+Definición en la línea 393 del archivo sdmmc\&.h\&.
+.SS "#define ACMD41_S18R   (((uint32_t) 1 ) << 24)"
+
+.PP
+Definición en la línea 394 del archivo sdmmc\&.h\&.
+.SS "#define ACMD41_XPC   (((uint32_t) 1 ) << 28)"
+
+.PP
+Definición en la línea 395 del archivo sdmmc\&.h\&.
+.SS "#define ACMD6_BUS_WIDTH(n)   ((uint32_t) n & 0x03)"
+
+.PP
+ACMD6 command definitions\&. 
+.PP
+Definición en la línea 401 del archivo sdmmc\&.h\&.
+.SS "#define ACMD6_BUS_WIDTH_1   (0)"
+
+.PP
+Definición en la línea 402 del archivo sdmmc\&.h\&.
+.SS "#define ACMD6_BUS_WIDTH_4   (2)"
+
+.PP
+Definición en la línea 403 del archivo sdmmc\&.h\&.
+.SS "#define CARD_TYPE_4BIT   (1 << 1)"
+
+.PP
+Definición en la línea 408 del archivo sdmmc\&.h\&.
+.SS "#define CARD_TYPE_8BIT   (1 << 2)"
+
+.PP
+Definición en la línea 409 del archivo sdmmc\&.h\&.
+.SS "#define CARD_TYPE_HC   (\fBOCR_HC_CCS\fP)"
+high capacity card > 2GB 
+.PP
+Definición en la línea 410 del archivo sdmmc\&.h\&.
+.SS "#define CARD_TYPE_SD   (1 << 0)"
+
+.PP
+Card type defines\&. 
+.PP
+Definición en la línea 407 del archivo sdmmc\&.h\&.
+.SS "#define CMD13_RCA(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+
+.PP
+CMD13 command definitions\&. 
+.PP
+Definición en la línea 383 del archivo sdmmc\&.h\&.
+.SS "#define CMD3_RCA(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+
+.PP
+CMD3 command definitions\&. Card Address 
+.PP
+Definición en la línea 357 del archivo sdmmc\&.h\&.
+.SS "#define CMD55_RCA(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+
+.PP
+APP_CMD command definitions\&. 
+.PP
+Definición en la línea 388 del archivo sdmmc\&.h\&.
+.SS "#define CMD7_RCA(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+
+.PP
+CMD7 command definitions\&. Card Address 
+.PP
+Definición en la línea 363 del archivo sdmmc\&.h\&.
+.SS "#define CMD8_CHECKPATTERN(n)   (((uint32_t) (n & 0xFF) ) << 0)"
+
+.PP
+CMD8 command definitions\&. Check pattern 
+.PP
+Definición en la línea 369 del archivo sdmmc\&.h\&.
+.SS "#define CMD8_DEF_PATTERN   (0xAA)"
+Recommended pattern 
+.PP
+Definición en la línea 371 del archivo sdmmc\&.h\&.
+.SS "#define CMD8_VOLTAGESUPPLIED_27_36   (((uint32_t) 1 ) << 8)"
+Voltage supplied\&. 
+.PP
+Definición en la línea 373 del archivo sdmmc\&.h\&.
+.SS "#define CMD9_RCA(n)   (((uint32_t) (n & 0xFFFF) ) << 16)"
+
+.PP
+CMD9 command definitions\&. 
+.PP
+Definición en la línea 378 del archivo sdmmc\&.h\&.
+.SS "#define CMDRESP_R3_HC_CCS   (((uint32_t) 1 ) << 30)"
+
+.PP
+Definición en la línea 333 del archivo sdmmc\&.h\&.
+.SS "#define CMDRESP_R3_INIT_COMPLETE   (((uint32_t) 1 ) << 31)"
+
+.PP
+Definición en la línea 334 del archivo sdmmc\&.h\&.
+.SS "#define CMDRESP_R3_OCR_VAL(n)   (((uint32_t) n) & 0xFFFFFF)"
+
+.PP
+R3 response definitions\&. 
+.PP
+Definición en la línea 331 del archivo sdmmc\&.h\&.
+.SS "#define CMDRESP_R3_S18A   (((uint32_t) 1 ) << 24)"
+
+.PP
+Definición en la línea 332 del archivo sdmmc\&.h\&.
+.SS "#define CMDRESP_R6_CARD_STATUS(n)"
+\fBValor:\fP
+.PP
+.nf
+(((uint32_t) (n & 0x1FFF)) | \
+                                         ((n & (1 << 13)) ? (1 << 19) : 0) | \
+                                         ((n & (1 << 14)) ? (1 << 22) : 0) | \
+                                         ((n & (1 << 15)) ? (1 << 23) : 0))
+.fi
+.PP
+Definición en la línea 340 del archivo sdmmc\&.h\&.
+.SS "#define CMDRESP_R6_RCA_VAL(n)   (((uint32_t) (n >> 16)) & 0xFFFF)"
+
+.PP
+R6 response definitions\&. 
+.PP
+Definición en la línea 339 del archivo sdmmc\&.h\&.
+.SS "#define CMDRESP_R7_CHECK_PATTERN(n)   (((uint32_t) n ) & 0xFF)"
+
+.PP
+R7 response definitions\&. Echo-back of check-pattern 
+.PP
+Definición en la línea 349 del archivo sdmmc\&.h\&.
+.SS "#define CMDRESP_R7_VOLTAGE_ACCEPTED   (((uint32_t) 1 ) << 8)"
+Voltage accepted 
+.PP
+Definición en la línea 351 del archivo sdmmc\&.h\&.
+.SS "#define MMC_ALL_SEND_CID   2		/* bcr                     R2  */"
+
+.PP
+Definición en la línea 217 del archivo sdmmc\&.h\&.
+.SS "#define MMC_APP_CMD   55		/* ac   [31:16] RCA        R1  */"
+
+.PP
+Definición en la línea 264 del archivo sdmmc\&.h\&.
+.SS "#define MMC_CLR_WRITE_PROT   29		/* ac   [31:0]  data addr  R1b */"
+
+.PP
+Definición en la línea 245 del archivo sdmmc\&.h\&.
+.SS "#define MMC_ERASE   37		/* ac                      R1b */"
+
+.PP
+Definición en la línea 251 del archivo sdmmc\&.h\&.
+.SS "#define MMC_ERASE_GROUP_END   36		/* ac   [31:0]  data addr  R1  */"
+
+.PP
+Definición en la línea 250 del archivo sdmmc\&.h\&.
+.SS "#define MMC_ERASE_GROUP_START   35		/* ac   [31:0]  data addr  R1  */"
+
+.PP
+Definición en la línea 249 del archivo sdmmc\&.h\&.
+.SS "#define MMC_FAST_IO   39		/* ac   <Complex>          R4  */"
+
+.PP
+Definición en la línea 257 del archivo sdmmc\&.h\&.
+.SS "#define MMC_GEN_CMD   56		/* adtc [0]     RD/WR      R1b */"
+
+.PP
+Definición en la línea 265 del archivo sdmmc\&.h\&.
+.SS "#define MMC_GO_IDLE_STATE   0		/* bc                          */"
+
+.PP
+SD/MMC commands, arguments and responses Standard SD/MMC commands (3\&.1) type argument response\&. 
+.PP
+Definición en la línea 215 del archivo sdmmc\&.h\&.
+.SS "#define MMC_GO_INACTIVE_STATE   15		/* ac   [31:16] RCA            */"
+
+.PP
+Definición en la línea 226 del archivo sdmmc\&.h\&.
+.SS "#define MMC_GO_IRQ_STATE   40		/* bcr                     R5  */"
+
+.PP
+Definición en la línea 258 del archivo sdmmc\&.h\&.
+.SS "#define MMC_HIGH_BUS_MAX_CLOCK   52000000"
+
+.PP
+Type 1 MMC card max clock rate\&. 
+.PP
+Definición en la línea 435 del archivo sdmmc\&.h\&.
+.SS "#define MMC_LOCK_UNLOCK   42		/* adtc                    R1b */"
+
+.PP
+Definición en la línea 261 del archivo sdmmc\&.h\&.
+.SS "#define MMC_LOW_BUS_MAX_CLOCK   26000000"
+
+.PP
+Type 0 MMC card max clock rate\&. 
+.PP
+Definición en la línea 430 del archivo sdmmc\&.h\&.
+.SS "#define MMC_MAX_CLOCK   20000000"
+
+.PP
+Max MMC clock rate\&. 
+.PP
+Definición en la línea 425 del archivo sdmmc\&.h\&.
+.SS "#define MMC_PROGRAM_CID   26		/* adtc                    R1  */"
+
+.PP
+Definición en la línea 240 del archivo sdmmc\&.h\&.
+.SS "#define MMC_PROGRAM_CSD   27		/* adtc                    R1  */"
+
+.PP
+Definición en la línea 241 del archivo sdmmc\&.h\&.
+.SS "#define MMC_READ_MULTIPLE_BLOCK   18		/* adtc [31:0]  data addr  R1  */"
+
+.PP
+Definición en la línea 231 del archivo sdmmc\&.h\&.
+.SS "#define MMC_READ_SINGLE_BLOCK   17		/* adtc [31:0]  data addr  R1  */"
+
+.PP
+Definición en la línea 230 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SECTOR_SIZE   512"
+
+.PP
+SD/MMC sector size in bytes\&. 
+.PP
+Definición en la línea 415 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SELECT_CARD   7		/* ac   [31:16] RCA        R1  */"
+
+.PP
+Definición en la línea 220 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SEND_CID   10		/* ac   [31:16] RCA        R2  */"
+
+.PP
+Definición en la línea 223 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SEND_CSD   9		/* ac   [31:16] RCA        R2  */"
+
+.PP
+Definición en la línea 222 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SEND_EXT_CSD   8		/* bc                      R1  */"
+
+.PP
+Definición en la línea 221 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SEND_OP_COND   1		/* bcr  [31:0]  OCR        R3  */"
+
+.PP
+Definición en la línea 216 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SEND_STATUS   13		/* ac   [31:16] RCA        R1  */"
+
+.PP
+Definición en la línea 225 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SEND_WRITE_PROT   30		/* adtc [31:0]  wpdata addr R1  */"
+
+.PP
+Definición en la línea 246 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SET_BLOCK_COUNT   23		/* adtc [31:0]  data addr  R1  */"
+
+.PP
+Definición en la línea 237 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SET_BLOCKLEN   16		/* ac   [31:0]  block len  R1  */"
+
+.PP
+Definición en la línea 229 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SET_DSR   4		/* bc   [31:16] RCA            */"
+
+.PP
+Definición en la línea 219 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SET_RELATIVE_ADDR   3		/* ac   [31:16] RCA        R1  */"
+
+.PP
+Definición en la línea 218 del archivo sdmmc\&.h\&.
+.SS "#define MMC_SET_WRITE_PROT   28		/* ac   [31:0]  data addr  R1b */"
+
+.PP
+Definición en la línea 244 del archivo sdmmc\&.h\&.
+.SS "#define MMC_STOP_TRANSMISSION   12		/* ac                      R1b */"
+
+.PP
+Definición en la línea 224 del archivo sdmmc\&.h\&.
+.SS "#define MMC_WRITE_BLOCK   24		/* adtc [31:0]  data addr  R1  */"
+
+.PP
+Definición en la línea 238 del archivo sdmmc\&.h\&.
+.SS "#define MMC_WRITE_DAT_UNTIL_STOP   20		/* adtc [31:0]  data addr  R1  */"
+
+.PP
+Definición en la línea 234 del archivo sdmmc\&.h\&.
+.SS "#define MMC_WRITE_MULTIPLE_BLOCK   25		/* adtc                    R1  */"
+
+.PP
+Definición en la línea 239 del archivo sdmmc\&.h\&.
+.SS "#define OCR_ALL_READY   (1UL << 31)	/* Card Power up status bit */"
+
+.PP
+SD/MMC card OCR register bits\&. 
+.PP
+Definición en la línea 320 del archivo sdmmc\&.h\&.
+.SS "#define OCR_HC_CCS   (1 << 30)	/* High capacity card */"
+
+.PP
+Definición en la línea 321 del archivo sdmmc\&.h\&.
+.SS "#define OCR_VOLTAGE_RANGE_MSK   (0x00FF8000)"
+
+.PP
+Definición en la línea 322 del archivo sdmmc\&.h\&.
+.SS "#define R1_ADDRESS_ERROR   (1 << 30)	/* erx, c */"
+
+.PP
+Definición en la línea 294 del archivo sdmmc\&.h\&.
+.SS "#define R1_APP_CMD   (1 << 5)	/* sr, c */"
+
+.PP
+Definición en la línea 315 del archivo sdmmc\&.h\&.
+.SS "#define R1_BLOCK_LEN_ERROR   (1 << 29)	/* er, c */"
+
+.PP
+Definición en la línea 295 del archivo sdmmc\&.h\&.
+.SS "#define R1_CARD_ECC_DISABLED   (1 << 14)	/* sx, a */"
+
+.PP
+Definición en la línea 310 del archivo sdmmc\&.h\&.
+.SS "#define R1_CARD_ECC_FAILED   (1 << 21)	/* ex, c */"
+
+.PP
+Definición en la línea 303 del archivo sdmmc\&.h\&.
+.SS "#define R1_CARD_IS_LOCKED   (1 << 25)	/* sx, a */"
+
+.PP
+Definición en la línea 299 del archivo sdmmc\&.h\&.
+.SS "#define R1_CC_ERROR   (1 << 20)	/* erx, c */"
+
+.PP
+Definición en la línea 304 del archivo sdmmc\&.h\&.
+.SS "#define R1_CID_CSD_OVERWRITE   (1 << 16)	/* erx, c, CID/CSD overwrite */"
+
+.PP
+Definición en la línea 308 del archivo sdmmc\&.h\&.
+.SS "#define R1_COM_CRC_ERROR   (1 << 23)	/* er, b */"
+
+.PP
+Definición en la línea 301 del archivo sdmmc\&.h\&.
+.SS "#define R1_CURRENT_STATE(x)   ((x & 0x00001E00) >> 9)	/* sx, b (4 bits) */"
+
+.PP
+Definición en la línea 313 del archivo sdmmc\&.h\&.
+.SS "#define R1_ERASE_PARAM   (1 << 27)	/* ex, c */"
+
+.PP
+Definición en la línea 297 del archivo sdmmc\&.h\&.
+.SS "#define R1_ERASE_RESET   (1 << 13)	/* sr, c */"
+
+.PP
+Definición en la línea 311 del archivo sdmmc\&.h\&.
+.SS "#define R1_ERASE_SEQ_ERROR   (1 << 28)	/* er, c */"
+
+.PP
+Definición en la línea 296 del archivo sdmmc\&.h\&.
+.SS "#define R1_ERROR   (1 << 19)	/* erx, c */"
+
+.PP
+Definición en la línea 305 del archivo sdmmc\&.h\&.
+.SS "#define R1_ILLEGAL_COMMAND   (1 << 22)	/* er, b */"
+
+.PP
+Definición en la línea 302 del archivo sdmmc\&.h\&.
+.SS "#define R1_LOCK_UNLOCK_FAILED   (1 << 24)	/* erx, c */"
+
+.PP
+Definición en la línea 300 del archivo sdmmc\&.h\&.
+.SS "#define R1_OUT_OF_RANGE   (1UL << 31)	/* er, c */"
+
+.PP
+MMC status in R1
+.br
+ Type
+.br
+ e : error bit
+.br
+ s : status bit
+.br
+ r : detected and set for the actual command response
+.br
+ x : detected and set during command execution\&. the host must poll the card by sending status command in order to read these bits\&. Clear condition
+.br
+ a : according to the card state
+.br
+ b : always related to the previous command\&. Reception of a valid command will clear it (with a delay of one command)
+.br
+ c : clear by read
+.br
+ 
+.PP
+Definición en la línea 293 del archivo sdmmc\&.h\&.
+.SS "#define R1_OVERRUN   (1 << 17)	/* ex, c */"
+
+.PP
+Definición en la línea 307 del archivo sdmmc\&.h\&.
+.SS "#define R1_READY_FOR_DATA   (1 << 8)	/* sx, a */"
+
+.PP
+Definición en la línea 314 del archivo sdmmc\&.h\&.
+.SS "#define R1_STATUS(x)   (x & 0xFFFFE000)"
+
+.PP
+Definición en la línea 312 del archivo sdmmc\&.h\&.
+.SS "#define R1_UNDERRUN   (1 << 18)	/* ex, c */"
+
+.PP
+Definición en la línea 306 del archivo sdmmc\&.h\&.
+.SS "#define R1_WP_ERASE_SKIP   (1 << 15)	/* sx, c */"
+
+.PP
+Definición en la línea 309 del archivo sdmmc\&.h\&.
+.SS "#define R1_WP_VIOLATION   (1 << 26)	/* erx, c */"
+
+.PP
+Definición en la línea 298 del archivo sdmmc\&.h\&.
+.SS "#define SD_APP_OP_COND   41		/* bcr  [31:0]  OCR        R1 (R4)  */"
+
+.PP
+Definición en la línea 275 del archivo sdmmc\&.h\&.
+.SS "#define SD_APP_SEND_SCR   51		/* adtc                    R1   */"
+
+.PP
+Definición en la línea 276 del archivo sdmmc\&.h\&.
+.SS "#define SD_APP_SET_BUS_WIDTH   6		/* ac   [1:0]   bus width  R1   */"
+
+.PP
+Definición en la línea 274 del archivo sdmmc\&.h\&.
+.SS "#define SD_CMD8   8		/* bcr  [31:0]  OCR        R3  */"
+
+.PP
+Definición en la línea 271 del archivo sdmmc\&.h\&.
+.SS "#define SD_ERASE   38		/* ac                      R1b */"
+
+.PP
+Definición en la línea 254 del archivo sdmmc\&.h\&.
+.SS "#define SD_ERASE_WR_BLK_END   33		/* ac   [31:0]  data addr  R1  */"
+
+.PP
+Definición en la línea 253 del archivo sdmmc\&.h\&.
+.SS "#define SD_ERASE_WR_BLK_START   32		/* ac   [31:0]  data addr  R1  */"
+
+.PP
+Definición en la línea 252 del archivo sdmmc\&.h\&.
+.SS "#define SD_MAX_CLOCK   25000000"
+
+.PP
+Max SD clock rate\&. 
+.PP
+Definición en la línea 440 del archivo sdmmc\&.h\&.
+.SS "#define SD_MMC_ENUM_CLOCK   400000"
+
+.PP
+Typical enumeration clock rate\&. 
+.PP
+Definición en la línea 420 del archivo sdmmc\&.h\&.
+.SS "#define SD_SEND_IF_ARG   0x000001AA"
+
+.PP
+Definición en la línea 324 del archivo sdmmc\&.h\&.
+.SS "#define SD_SEND_IF_ECHO_MSK   0x000000FF"
+
+.PP
+Definición en la línea 325 del archivo sdmmc\&.h\&.
+.SS "#define SD_SEND_IF_RESP   0x000000AA"
+
+.PP
+Definición en la línea 326 del archivo sdmmc\&.h\&.
+.SS "#define SD_SEND_RELATIVE_ADDR   3		/* ac                      R6  */"
+
+.PP
+Definición en la línea 270 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_20_21   (((uint32_t) 1) << 8)"
+
+.PP
+OCR Register definitions\&. Support voltage range 2\&.0-2\&.1 (this bit is reserved in SDC) 
+.PP
+Definición en la línea 47 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_21_22   (((uint32_t) 1) << 9)"
+Support voltage range 2\&.1-2\&.2 (this bit is reserved in SDC) 
+.PP
+Definición en la línea 49 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_22_23   (((uint32_t) 1) << 10)"
+Support voltage range 2\&.2-2\&.3 (this bit is reserved in SDC) 
+.PP
+Definición en la línea 51 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_23_24   (((uint32_t) 1) << 11)"
+Support voltage range 2\&.3-2\&.4 (this bit is reserved in SDC) 
+.PP
+Definición en la línea 53 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_24_25   (((uint32_t) 1) << 12)"
+Support voltage range 2\&.4-2\&.5 (this bit is reserved in SDC) 
+.PP
+Definición en la línea 55 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_25_26   (((uint32_t) 1) << 13)"
+Support voltage range 2\&.5-2\&.6 (this bit is reserved in SDC) 
+.PP
+Definición en la línea 57 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_26_27   (((uint32_t) 1) << 14)"
+Support voltage range 2\&.6-2\&.7 (this bit is reserved in SDC) 
+.PP
+Definición en la línea 59 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_27_28   (((uint32_t) 1) << 15)"
+Support voltage range 2\&.7-2\&.8 
+.PP
+Definición en la línea 61 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_27_36   ((uint32_t) 0x00FF8000)"
+Support voltage range 2\&.7-3\&.6 
+.PP
+Definición en la línea 79 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_28_29   (((uint32_t) 1) << 16)"
+Support voltage range 2\&.8-2\&.9 
+.PP
+Definición en la línea 63 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_29_30   (((uint32_t) 1) << 17)"
+Support voltage range 2\&.9-3\&.0 
+.PP
+Definición en la línea 65 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_30_31   (((uint32_t) 1) << 18)"
+Support voltage range 3\&.0-3\&.1 
+.PP
+Definición en la línea 67 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_31_32   (((uint32_t) 1) << 19)"
+Support voltage range 3\&.1-3\&.2 
+.PP
+Definición en la línea 69 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_32_33   (((uint32_t) 1) << 20)"
+Support voltage range 3\&.2-3\&.3 
+.PP
+Definición en la línea 71 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_33_34   (((uint32_t) 1) << 21)"
+Support voltage range 3\&.3-3\&.4 
+.PP
+Definición en la línea 73 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_34_35   (((uint32_t) 1) << 22)"
+Support voltage range 3\&.4-3\&.5 
+.PP
+Definición en la línea 75 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_35_36   (((uint32_t) 1) << 23)"
+Support voltage range 3\&.5-3\&.6 
+.PP
+Definición en la línea 77 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_BUSY   (((uint32_t) 0) << 31)"
+
+.PP
+Definición en la línea 84 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_HC_CCS   (((uint32_t) 1) << 30)"
+Card Capacity Status (CCS)\&. (this bit is reserved in MMC) 
+.PP
+Definición en la línea 81 del archivo sdmmc\&.h\&.
+.SS "#define SDC_OCR_IDLE   (((uint32_t) 1) << 31)"
+Card power up status bit 
+.PP
+Definición en la línea 83 del archivo sdmmc\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef void(* SDMMC_EVSETUP_FUNC_T) (void *)"
+
+.PP
+Definición en la línea 182 del archivo sdmmc\&.h\&.
+.SS "typedef uint32_t(* SDMMC_EVWAIT_FUNC_T) (void)"
+
+.PP
+Definición en la línea 185 del archivo sdmmc\&.h\&.
+.SS "typedef void(* SDMMC_MSDELAY_FUNC_T) (uint32_t)"
+
+.PP
+Definición en la línea 188 del archivo sdmmc\&.h\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBSD_APP_CMD_T\fP"
+
+.PP
+SD/MMC application specific commands for SD cards only - these must be preceded by the SDMMC CMD55 to work correctly\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISD_SET_BUS_WIDTH \fP\fP
+Set the SD bus width 
+.TP
+\fB\fISD_SEND_STATUS \fP\fP
+Send the SD card status 
+.TP
+\fB\fISD_SEND_WR_BLOCKS \fP\fP
+Send the number of written clocks 
+.TP
+\fB\fISD_SET_ERASE_COUNT \fP\fP
+Set the number of blocks to pre-erase 
+.TP
+\fB\fISD_SENDOP_COND \fP\fP
+Send the OCR register (init) 
+.TP
+\fB\fISD_CLEAR_CARD_DET \fP\fP
+Set or clear the 50K detect pullup 
+.TP
+\fB\fISD_SEND_SCR \fP\fP
+Send the SD configuration register 
+.TP
+\fB\fISD_INVALID_APP_CMD \fP\fP
+Invalid SD application command 
+.PP
+Definición en la línea 141 del archivo sdmmc\&.h\&.
+.SS "enum \fBSDMMC_RESPONSE_T\fP"
+
+.PP
+Possible SDMMC response types\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISDMMC_RESPONSE_R1 \fP\fP
+Typical status 
+.TP
+\fB\fISDMMC_RESPONSE_R1B \fP\fP
+Typical status with busy 
+.TP
+\fB\fISDMMC_RESPONSE_R2 \fP\fP
+CID/CSD registers (CMD2 and CMD10) 
+.TP
+\fB\fISDMMC_RESPONSE_R3 \fP\fP
+OCR register (CMD1, ACMD41) 
+.TP
+\fB\fISDMMC_RESPONSE_R4 \fP\fP
+Fast IO response word 
+.TP
+\fB\fISDMMC_RESPONSE_R5 \fP\fP
+Go IRQ state response word 
+.TP
+\fB\fISDMMC_RESPONSE_R6 \fP\fP
+Published RCA response 
+.TP
+\fB\fISDMMC_RESPONSE_NONE \fP\fP
+No response expected 
+.PP
+Definición en la línea 155 del archivo sdmmc\&.h\&.
+.SS "enum \fBSDMMC_STATE_T\fP"
+
+.PP
+Possible SDMMC card state types\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISDMMC_IDLE_ST \fP\fP
+Idle state 
+.TP
+\fB\fISDMMC_READY_ST \fP\fP
+Ready state 
+.TP
+\fB\fISDMMC_IDENT_ST \fP\fP
+Identification State 
+.TP
+\fB\fISDMMC_STBY_ST \fP\fP
+standby state 
+.TP
+\fB\fISDMMC_TRAN_ST \fP\fP
+transfer state 
+.TP
+\fB\fISDMMC_DATA_ST \fP\fP
+Sending-data State 
+.TP
+\fB\fISDMMC_RCV_ST \fP\fP
+Receive-data State 
+.TP
+\fB\fISDMMC_PRG_ST \fP\fP
+Programming State 
+.TP
+\fB\fISDMMC_DIS_ST \fP\fP
+Disconnect State 
+.PP
+Definición en la línea 169 del archivo sdmmc\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

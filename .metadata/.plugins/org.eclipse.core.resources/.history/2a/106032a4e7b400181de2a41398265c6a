@@ -1,0 +1,77 @@
+/*! \mainpage EJERCICIO CERRADURA DIGITAL
+ * \date 09/09/2018
+ * \author Diana C. Vertiz del Valle
+ * \section
+ */
+
+#include "hardware.h"
+#include "utils.h"
+#include "code_manager.h"
+#include <stdint.h>
+
+#define TAM 6
+
+extern uint8_t clave_seteada;
+
+extern uint8_t clave_ingresada;
+
+uint8_t n = 0;
+
+uint8_t code_default[6] = {1,2,3,3,2,1}; /**< Array para almacenar la clave por defecto  */
+
+uint8_t code_in [6]; /** <Array para almacenar una clave nueva  */
+
+int main(void)
+{
+  systemInit();
+
+  //uint8_t var;
+  uint8_t n;
+
+  while (1)
+  {
+	  escanear_teclado();
+	  n = recibir_clave(code_in, TAM);
+
+
+	  if(n == TAM)
+	  {
+		 // clave_ingresada = 1;
+		  n = 0;
+
+		  for(uint8_t i=0; i<TAM; i++)
+		  {
+			code_in[i]=0;
+		  }
+
+		  if(clave_seteada == 0)
+		  {
+			  if(comparar_claves(code_default, code_in, TAM))
+			  {
+				  /*las claves son iguales, se desbloquea y puede setearse nueva clave*/
+				  clave_seteada = 1;
+			  }
+			  else
+			  {
+				  /*las claves son diferentes*/
+			  }
+		  }
+		  else if(clave_seteada == 1)
+		  	  {
+			  	  if(comparar_claves(code_default, code_in, TAM))
+			  	  {
+			  		  /*las claves son iguales, se desbloquea */
+			  	  }
+			  	  else
+			  	  {
+			  		  /*las claves son diferentes*/
+			  	  }
+		  	  }
+
+	  }
+
+  }
+
+
+  return 0;
+}

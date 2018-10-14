@@ -1,0 +1,83 @@
+\hypertarget{struct_i2_c___x_f_e_r___t}{}\section{Referencia de la Estructura I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}
+\label{struct_i2_c___x_f_e_r___t}\index{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}}
+
+
+Master transfer data structure definitions.  
+
+
+
+
+{\ttfamily \#include $<$i2c\+\_\+18xx\+\_\+43xx.\+h$>$}
+
+\subsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{struct_i2_c___x_f_e_r___t_a771bfcb0b066269afae6905ce5804c89}{slave\+Addr}
+\item 
+const uint8\+\_\+t $\ast$ \hyperlink{struct_i2_c___x_f_e_r___t_aa273a5a6ef5e2426562692030769f5d8}{tx\+Buff}
+\item 
+int \hyperlink{struct_i2_c___x_f_e_r___t_a3d14f9d3bba338401b8f8b0ff6ec0ea0}{tx\+Sz}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{struct_i2_c___x_f_e_r___t_a0aa410ff8cbc01a00b2fa2189e1c2938}{rx\+Buff}
+\item 
+int \hyperlink{struct_i2_c___x_f_e_r___t_a745e2b08d1a5413929a13d9aa30137c5}{rx\+Sz}
+\item 
+\hyperlink{group___i2_c__18_x_x__43_x_x_ga21aa839302786105dcf6a96be0e6e8bc}{I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+T} \hyperlink{struct_i2_c___x_f_e_r___t_a30a194e0acd94c980e171b51999d2aa8}{status}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Master transfer data structure definitions. 
+
+Definición en la línea 122 del archivo i2c\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de los campos}
+\index{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}!rx\+Buff@{rx\+Buff}}
+\index{rx\+Buff@{rx\+Buff}!I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}}
+\subsubsection[{\texorpdfstring{rx\+Buff}{rxBuff}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t$\ast$ rx\+Buff}\hypertarget{struct_i2_c___x_f_e_r___t_a0aa410ff8cbc01a00b2fa2189e1c2938}{}\label{struct_i2_c___x_f_e_r___t_a0aa410ff8cbc01a00b2fa2189e1c2938}
+Pointer memory where bytes received from I2C be stored 
+
+Definición en la línea 127 del archivo i2c\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}!rx\+Sz@{rx\+Sz}}
+\index{rx\+Sz@{rx\+Sz}!I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}}
+\subsubsection[{\texorpdfstring{rx\+Sz}{rxSz}}]{\setlength{\rightskip}{0pt plus 5cm}int rx\+Sz}\hypertarget{struct_i2_c___x_f_e_r___t_a745e2b08d1a5413929a13d9aa30137c5}{}\label{struct_i2_c___x_f_e_r___t_a745e2b08d1a5413929a13d9aa30137c5}
+Number of bytes to received, if 0 only transmission we be carried on 
+
+Definición en la línea 128 del archivo i2c\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}!slave\+Addr@{slave\+Addr}}
+\index{slave\+Addr@{slave\+Addr}!I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}}
+\subsubsection[{\texorpdfstring{slave\+Addr}{slaveAddr}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t slave\+Addr}\hypertarget{struct_i2_c___x_f_e_r___t_a771bfcb0b066269afae6905ce5804c89}{}\label{struct_i2_c___x_f_e_r___t_a771bfcb0b066269afae6905ce5804c89}
+7-\/bit I2C Slave address 
+
+Definición en la línea 123 del archivo i2c\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}!status@{status}}
+\index{status@{status}!I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}}
+\subsubsection[{\texorpdfstring{status}{status}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+T} status}\hypertarget{struct_i2_c___x_f_e_r___t_a30a194e0acd94c980e171b51999d2aa8}{}\label{struct_i2_c___x_f_e_r___t_a30a194e0acd94c980e171b51999d2aa8}
+Status of the current I2C transfer 
+
+Definición en la línea 130 del archivo i2c\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}!tx\+Buff@{tx\+Buff}}
+\index{tx\+Buff@{tx\+Buff}!I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}}
+\subsubsection[{\texorpdfstring{tx\+Buff}{txBuff}}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\+\_\+t$\ast$ tx\+Buff}\hypertarget{struct_i2_c___x_f_e_r___t_aa273a5a6ef5e2426562692030769f5d8}{}\label{struct_i2_c___x_f_e_r___t_aa273a5a6ef5e2426562692030769f5d8}
+Pointer to array of bytes to be transmitted 
+
+Definición en la línea 124 del archivo i2c\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}!tx\+Sz@{tx\+Sz}}
+\index{tx\+Sz@{tx\+Sz}!I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T@{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T}}
+\subsubsection[{\texorpdfstring{tx\+Sz}{txSz}}]{\setlength{\rightskip}{0pt plus 5cm}int tx\+Sz}\hypertarget{struct_i2_c___x_f_e_r___t_a3d14f9d3bba338401b8f8b0ff6ec0ea0}{}\label{struct_i2_c___x_f_e_r___t_a3d14f9d3bba338401b8f8b0ff6ec0ea0}
+Number of bytes in transmit array, if 0 only receive transfer will be carried on 
+
+Definición en la línea 125 del archivo i2c\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{i2c__18xx__43xx_8h}{i2c\+\_\+18xx\+\_\+43xx.\+h}\end{DoxyCompactItemize}

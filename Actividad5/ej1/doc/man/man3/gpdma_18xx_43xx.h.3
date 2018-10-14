@@ -1,0 +1,333 @@
+.TH "gpdma_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gpdma_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBGPDMA_CH_T\fP"
+.br
+.RI "\fIGPDMA Channel register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBLPC_GPDMA_T\fP"
+.br
+.RI "\fIGPDMA register block\&. \fP"
+.ti -1c
+.RI "struct \fBGPDMA_CH_CFG_T\fP"
+.br
+.RI "\fIGPDMA structure using for DMA configuration\&. \fP"
+.ti -1c
+.RI "struct \fBDMA_ChannelHandle_t\fP"
+.br
+.RI "\fIDMA channel handle structure\&. \fP"
+.ti -1c
+.RI "struct \fBDMA_TransferDescriptor\fP"
+.br
+.RI "\fITransfer Descriptor structure typedef\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBGPDMA_NUMBER_CHANNELS\fP   8"
+.br
+.RI "\fINumber of channels on GPDMA\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_TransferSize\fP(n)   (((n & 0xFFF) << 0))"
+.br
+.RI "\fIMacro defines for DMA channel control registers\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_SBSize\fP(n)   (((n & 0x07) << 12))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_DBSize\fP(n)   (((n & 0x07) << 15))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_SWidth\fP(n)   (((n & 0x07) << 18))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_DWidth\fP(n)   (((n & 0x07) << 21))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_SI\fP   ((1UL << 26))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_DI\fP   ((1UL << 27))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_SrcTransUseAHBMaster1\fP   ((1UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_DestTransUseAHBMaster1\fP   ((1UL << 25))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_Prot1\fP   ((1UL << 28))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_Prot2\fP   ((1UL << 29))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_Prot3\fP   ((1UL << 30))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_I\fP   ((1UL << 31))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACConfig_E\fP   ((0x01))"
+.br
+.RI "\fIMacro defines for DMA Configuration register\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_DMACConfig_M\fP   ((0x02))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACConfig_BITMASK\fP   ((0x03))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_E\fP   ((1UL << 0))"
+.br
+.RI "\fIMacro defines for DMA Channel Configuration registers\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_SrcPeripheral\fP(n)   (((n & 0x1F) << 1))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_DestPeripheral\fP(n)   (((n & 0x1F) << 6))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_TransferType\fP(n)   (((n & 0x7) << 11))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_IE\fP   ((1UL << 14))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_ITC\fP   ((1UL << 15))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_L\fP   ((1UL << 16))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_A\fP   ((1UL << 17))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_H\fP   ((1UL << 18))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MEMORY\fP   ((0UL))"
+.br
+.RI "\fIGPDMA request connections\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT0_0\fP   ((1UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART0_Tx\fP   ((2UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT0_1\fP   ((3UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART0_Rx\fP   ((4UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT1_0\fP   ((5UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART1_Tx\fP   ((6UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT1_1\fP   ((7UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART1_Rx\fP   ((8UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT2_0\fP   ((9UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART2_Tx\fP   ((10UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT2_1\fP   ((11UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART2_Rx\fP   ((12UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT3_0\fP   ((13UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART3_Tx\fP   ((14UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SCT_0\fP   ((15UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT3_1\fP   ((16UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART3_Rx\fP   ((17UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SCT_1\fP   ((18UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SSP0_Rx\fP   ((19UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_I2S_Tx_Channel_0\fP   ((20UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SSP0_Tx\fP   ((21UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_I2S_Rx_Channel_1\fP   ((22UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SSP1_Rx\fP   ((23UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SSP1_Tx\fP   ((24UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_ADC_0\fP   ((25UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_ADC_1\fP   ((26UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_DAC\fP   ((27UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_I2S1_Tx_Channel_0\fP   ((28UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_I2S1_Rx_Channel_1\fP   ((29UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_1\fP   ((0UL))"
+.br
+.RI "\fIGPDMA Burst size in Source and Destination definitions\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_4\fP   ((1UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_8\fP   ((2UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_16\fP   ((3UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_32\fP   ((4UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_64\fP   ((5UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_128\fP   ((6UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_256\fP   ((7UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_WIDTH_BYTE\fP   ((0UL))"
+.br
+.RI "\fIWidth in Source transfer width and Destination transfer width definitions\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_WIDTH_HALFWORD\fP   ((1UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_WIDTH_WORD\fP   ((2UL))"
+.br
+.ti -1c
+.RI "#define \fBDMA_CONTROLLER\fP   0"
+.br
+.RI "\fIFlow control definitions\&. \fP"
+.ti -1c
+.RI "#define \fBSRC_PER_CONTROLLER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDST_PER_CONTROLLER\fP   2"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBDMA_TransferDescriptor\fP \fBDMA_TransferDescriptor_t\fP"
+.br
+.RI "\fITransfer Descriptor structure typedef\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBGPDMA_STATECLEAR_T\fP { \fBGPDMA_STATCLR_INTTC\fP, \fBGPDMA_STATCLR_INTERR\fP }
+.RI "\fIGPDMA Interrupt Clear Status\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBGPDMA_STATUS_T\fP { \fBGPDMA_STAT_INT\fP, \fBGPDMA_STAT_INTTC\fP, \fBGPDMA_STAT_INTERR\fP, \fBGPDMA_STAT_RAWINTTC\fP, \fBGPDMA_STAT_RAWINTERR\fP, \fBGPDMA_STAT_ENABLED_CH\fP }
+.RI "\fIGPDMA Type of Interrupt Status\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBGPDMA_FLOW_CONTROL_T\fP { \fBGPDMA_TRANSFERTYPE_M2M_CONTROLLER_DMA\fP = ((0UL)), \fBGPDMA_TRANSFERTYPE_M2P_CONTROLLER_DMA\fP = ((1UL)), \fBGPDMA_TRANSFERTYPE_P2M_CONTROLLER_DMA\fP = ((2UL)), \fBGPDMA_TRANSFERTYPE_P2P_CONTROLLER_DMA\fP = ((3UL)), \fBGPDMA_TRANSFERTYPE_P2P_CONTROLLER_DestPERIPHERAL\fP = ((4UL)), \fBGPDMA_TRANSFERTYPE_M2P_CONTROLLER_PERIPHERAL\fP = ((5UL)), \fBGPDMA_TRANSFERTYPE_P2M_CONTROLLER_PERIPHERAL\fP = ((6UL)), \fBGPDMA_TRANSFERTYPE_P2P_CONTROLLER_SrcPERIPHERAL\fP = ((7UL)) }
+.RI "\fIGPDMA Type of DMA controller\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_GPDMA_Init\fP (\fBLPC_GPDMA_T\fP *pGPDMA)"
+.br
+.RI "\fIInitialize the GPDMA\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_DeInit\fP (\fBLPC_GPDMA_T\fP *pGPDMA)"
+.br
+.RI "\fIShutdown the GPDMA\&. \fP"
+.ti -1c
+.RI "int \fBChip_GPDMA_InitChannelCfg\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_CH_CFG_T\fP *GPDMACfg, uint8_t ChannelNum, uint32_t src, uint32_t dst, uint32_t Size, \fBGPDMA_FLOW_CONTROL_T\fP TransferType)"
+.br
+.RI "\fIInitialize channel configuration strucutre\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_ChannelCmd\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t channelNum, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable or Disable the GPDMA Channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_Stop\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum)"
+.br
+.RI "\fIStop a stream DMA transfer\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_Interrupt\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum)"
+.br
+.RI "\fIThe GPDMA stream interrupt status checking\&. \fP"
+.ti -1c
+.RI "\fBIntStatus\fP \fBChip_GPDMA_IntGetStatus\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_STATUS_T\fP type, uint8_t channel)"
+.br
+.RI "\fIRead the status from different registers according to the type\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_ClearIntPending\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_STATECLEAR_T\fP type, uint8_t channel)"
+.br
+.RI "\fIClear the Interrupt Flag from different registers according to the type\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_GPDMA_GetFreeChannel\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint32_t PeripheralConnection_ID)"
+.br
+.RI "\fIGet a free GPDMA channel for one DMA connection\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_Transfer\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum, uint32_t src, uint32_t dst, \fBGPDMA_FLOW_CONTROL_T\fP TransferType, uint32_t Size)"
+.br
+.RI "\fIDo a DMA transfer M2M, M2P,P2M or P2P\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_SGTransfer\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum, const \fBDMA_TransferDescriptor_t\fP *DMADescriptor, \fBGPDMA_FLOW_CONTROL_T\fP TransferType)"
+.br
+.RI "\fIDo a DMA transfer using linked list of descriptors\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_PrepareDescriptor\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBDMA_TransferDescriptor_t\fP *DMADescriptor, uint32_t src, uint32_t dst, uint32_t Size, \fBGPDMA_FLOW_CONTROL_T\fP TransferType, const \fBDMA_TransferDescriptor_t\fP *NextDescriptor)"
+.br
+.RI "\fIPrepare a single DMA descriptor\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

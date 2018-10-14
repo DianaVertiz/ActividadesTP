@@ -1,0 +1,604 @@
+.TH "LPC_SCT_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_SCT_T \- State Configurable Timer register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <sct_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONFIG\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBCTRL_U\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint16_t \fBCTRL_L\fP"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint16_t \fBCTRL_H\fP"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBLIMIT_L\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBLIMIT_H\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBHALT_L\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBHALT_H\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBSTOP_L\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBSTOP_H\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBSTART_L\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBSTART_H\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [10]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBCOUNT_U\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint16_t \fBCOUNT_L\fP"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint16_t \fBCOUNT_H\fP"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBSTATE_L\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBSTATE_H\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINPUT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBREGMODE_L\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBREGMODE_H\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBOUTPUT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBOUTPUTDIRCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRES\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA0REQUEST\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA1REQUEST\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [35]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEVEN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEVFLAG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONEN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONFLAG\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      uint32_t \fBU\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint16_t \fBL\fP"
+.br
+.ti -1c
+.RI "         uint16_t \fBH\fP"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBMATCH\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      uint32_t \fBU\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint16_t \fBL\fP"
+.br
+.ti -1c
+.RI "         uint16_t \fBH\fP"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBCAP\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED3\fP [32\-\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint16_t \fBMATCH_L\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint16_t \fBCAP_L\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "uint16_t \fBRESERVED4\fP [32\-\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint16_t \fBMATCH_H\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint16_t \fBCAP_H\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "uint16_t \fBRESERVED5\fP [32\-\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      uint32_t \fBU\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint16_t \fBL\fP"
+.br
+.ti -1c
+.RI "         uint16_t \fBH\fP"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBMATCHREL\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      uint32_t \fBU\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint16_t \fBL\fP"
+.br
+.ti -1c
+.RI "         uint16_t \fBH\fP"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBCAPCTRL\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED6\fP [32\-\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint16_t \fBMATCHREL_L\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint16_t \fBCAPCTRL_L\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "uint16_t \fBRESERVED7\fP [32\-\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint16_t \fBMATCHREL_H\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint16_t \fBCAPCTRL_H\fP [\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "uint16_t \fBRESERVED8\fP [32\-\fBCONFIG_SCT_nRG\fP]"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBSTATE\fP"
+.br
+.ti -1c
+.RI "   uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "} \fBEVENT\fP [\fBCONFIG_SCT_nEV\fP]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED9\fP [128\-2 *\fBCONFIG_SCT_nEV\fP]"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBSET\fP"
+.br
+.ti -1c
+.RI "   uint32_t \fBCLR\fP"
+.br
+.ti -1c
+.RI "} \fBOUT\fP [\fBCONFIG_SCT_nOU\fP]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED10\fP [191\-2 *\fBCONFIG_SCT_nOU\fP]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMODULECONTENT\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+State Configurable Timer register block structure\&. 
+.PP
+Definición en la línea 54 del archivo sct_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "__I { \&.\&.\&. }   CAP[\fBCONFIG_SCT_nRG\fP]"
+
+.SS "\fB__I\fP uint16_t CAP_H[\fBCONFIG_SCT_nRG\fP]"
+0x1C0-\&.\&.\&. Capture Value H counter 
+.PP
+Definición en la línea 128 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint16_t CAP_L[\fBCONFIG_SCT_nRG\fP]"
+0x180-\&.\&.\&. Capture Value L counter 
+.PP
+Definición en la línea 122 del archivo sct_18xx_43xx\&.h\&.
+.SS "__IO { \&.\&.\&. }   CAPCTRL[\fBCONFIG_SCT_nRG\fP]"
+
+.SS "\fB__IO\fP uint16_t CAPCTRL_H[\fBCONFIG_SCT_nRG\fP]"
+0x2C0-\&.\&.\&. Capture Control value H counter 
+.PP
+Definición en la línea 162 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t CAPCTRL_L[\fBCONFIG_SCT_nRG\fP]"
+0x280-\&.\&.\&. Capture Control value L counter 
+.PP
+Definición en la línea 156 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t CLR"
+Output n Clear Register 
+.PP
+Definición en la línea 174 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CONEN"
+conflict enable register 
+.PP
+Definición en la línea 96 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CONFIG"
+Configuration Register 
+.PP
+Definición en la línea 55 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CONFLAG"
+conflict flag register 
+.PP
+Definición en la línea 97 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t COUNT_H"
+counter register for counter H 
+.PP
+Definición en la línea 78 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t COUNT_L"
+counter register for counter L 
+.PP
+Definición en la línea 77 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t COUNT_U"
+counter register 
+.PP
+Definición en la línea 75 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t CTRL"
+Event Control Register 
+.PP
+Definición en la línea 168 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t CTRL_H"
+High control register 
+.PP
+Definición en la línea 60 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t CTRL_L"
+Low control register 
+.PP
+Definición en la línea 59 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTRL_U"
+Control Register 
+.PP
+Definición en la línea 57 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA0REQUEST"
+DMA0 Request Register 
+.PP
+Definición en la línea 91 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA1REQUEST"
+DMA1 Request Register 
+.PP
+Definición en la línea 92 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t EVEN"
+event enable register 
+.PP
+Definición en la línea 94 del archivo sct_18xx_43xx\&.h\&.
+.SS "__IO { \&.\&.\&. }   EVENT[\fBCONFIG_SCT_nEV\fP]"
+
+.SS "\fB__IO\fP uint32_t EVFLAG"
+event flag register 
+.PP
+Definición en la línea 95 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint16_t H"
+SCTMATCH[i]\&.H Access to H value
+.PP
+SCTCAP[i]\&.H Access to H value
+.PP
+SCTMATCHREL[i]\&.H Access to H value
+.PP
+SCTCAPCTRL[i]\&.H Access to H value 
+.PP
+Definición en la línea 103 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t HALT_H"
+halt register for counter H 
+.PP
+Definición en la línea 68 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t HALT_L"
+halt register for counter L 
+.PP
+Definición en la línea 67 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INPUT"
+input register 
+.PP
+Definición en la línea 85 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint16_t L"
+SCTMATCH[i]\&.L Access to L value
+.PP
+SCTCAP[i]\&.L Access to L value
+.PP
+SCTMATCHREL[i]\&.L Access to L value
+.PP
+SCTCAPCTRL[i]\&.L Access to L value 
+.PP
+Definición en la línea 102 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t LIMIT_H"
+limit register for counter H 
+.PP
+Definición en la línea 66 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t LIMIT_L"
+limit register for counter L 
+.PP
+Definición en la línea 65 del archivo sct_18xx_43xx\&.h\&.
+.SS "__IO { \&.\&.\&. }   MATCH[\fBCONFIG_SCT_nRG\fP]"
+
+.SS "\fB__IO\fP uint16_t MATCH_H[\fBCONFIG_SCT_nRG\fP]"
+0x1C0-\&.\&.\&. Match Value H counter 
+.PP
+Definición en la línea 127 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t MATCH_L[\fBCONFIG_SCT_nRG\fP]"
+0x180-\&.\&.\&. Match Value L counter 
+.PP
+Definición en la línea 121 del archivo sct_18xx_43xx\&.h\&.
+.SS "__IO { \&.\&.\&. }   MATCHREL[\fBCONFIG_SCT_nRG\fP]"
+
+.SS "\fB__IO\fP uint16_t MATCHREL_H[\fBCONFIG_SCT_nRG\fP]"
+0x2C0-\&.\&.\&. Match Reload value H counter 
+.PP
+Definición en la línea 161 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t MATCHREL_L[\fBCONFIG_SCT_nRG\fP]"
+0x280-\&.\&.\&. Match Reload value L counter 
+.PP
+Definición en la línea 155 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t MODULECONTENT"
+0x7FC Module Content 
+.PP
+Definición en la línea 178 del archivo sct_18xx_43xx\&.h\&.
+.SS "__IO { \&.\&.\&. }   OUT[\fBCONFIG_SCT_nOU\fP]"
+
+.SS "\fB__IO\fP uint32_t OUTPUT"
+output register 
+.PP
+Definición en la línea 88 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t OUTPUTDIRCTRL"
+output counter direction Control Register 
+.PP
+Definición en la línea 89 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t REGMODE_H"
+match - capture registers mode register H 
+.PP
+Definición en la línea 87 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t REGMODE_L"
+match - capture registers mode register L 
+.PP
+Definición en la línea 86 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RES"
+conflict resolution register 
+.PP
+Definición en la línea 90 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED1[10]"
+0x03C reserved 
+.PP
+Definición en la línea 73 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED10[191\-2 *\fBCONFIG_SCT_nOU\fP]"
+\&.\&.\&.-0x7F8 reserved 
+.PP
+Definición en la línea 177 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED2[35]"
+
+.PP
+Definición en la línea 93 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED3[32\-\fBCONFIG_SCT_nRG\fP]"
+\&.\&.\&.-0x17C reserved 
+.PP
+Definición en la línea 119 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint16_t RESERVED4[32\-\fBCONFIG_SCT_nRG\fP]"
+\&.\&.\&.-0x1BE reserved 
+.PP
+Definición en la línea 125 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint16_t RESERVED5[32\-\fBCONFIG_SCT_nRG\fP]"
+\&.\&.\&.-0x1FE reserved 
+.PP
+Definición en la línea 131 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED6[32\-\fBCONFIG_SCT_nRG\fP]"
+\&.\&.\&.-0x27C reserved 
+.PP
+Definición en la línea 153 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint16_t RESERVED7[32\-\fBCONFIG_SCT_nRG\fP]"
+\&.\&.\&.-0x2BE reserved 
+.PP
+Definición en la línea 159 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint16_t RESERVED8[32\-\fBCONFIG_SCT_nRG\fP]"
+\&.\&.\&.-0x2FE reserved 
+.PP
+Definición en la línea 165 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED9[128\-2 *\fBCONFIG_SCT_nEV\fP]"
+\&.\&.\&.-0x4FC reserved 
+.PP
+Definición en la línea 171 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t SET"
+< 0x500-0x57C SCTOUT[i]\&.SET / SCTOUT[i]\&.CLR Output n Set Register 
+.PP
+Definición en la línea 173 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t START_H"
+start register for counter H 
+.PP
+Definición en la línea 72 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t START_L"
+start register for counter L 
+.PP
+Definición en la línea 71 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t STATE"
+< 0x300-0x3FC SCTEVENT[i]\&.STATE / SCTEVENT[i]\&.CTRL Event State Register 
+.PP
+Definición en la línea 167 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t STATE_H"
+state register for counter H 
+.PP
+Definición en la línea 84 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t STATE_L"
+state register for counter L 
+.PP
+Definición en la línea 83 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t STOP_H"
+stop register for counter H 
+.PP
+Definición en la línea 70 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t STOP_L"
+stop register for counter L 
+.PP
+Definición en la línea 69 del archivo sct_18xx_43xx\&.h\&.
+.SS "uint32_t U"
+< \&.\&.\&. Match / Capture value SCTMATCH[i]\&.U Unified 32-bit register
+.PP
+SCTCAP[i]\&.U Unified 32-bit register
+.PP
+< 0x200-\&.\&.\&. Match Reload / Capture Control value SCTMATCHREL[i]\&.U Unified 32-bit register
+.PP
+SCTCAPCTRL[i]\&.U Unified 32-bit register 
+.PP
+Definición en la línea 100 del archivo sct_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

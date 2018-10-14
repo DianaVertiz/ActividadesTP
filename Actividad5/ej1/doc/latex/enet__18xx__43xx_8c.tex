@@ -1,0 +1,64 @@
+\hypertarget{enet__18xx__43xx_8c}{}\section{Referencia del Archivo enet\+\_\+18xx\+\_\+43xx.\+c}
+\label{enet__18xx__43xx_8c}\index{enet\+\_\+18xx\+\_\+43xx.\+c@{enet\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{enet__18xx__43xx_8c_aeb253604a11400185c3a9933e18c68c3}{reset} (\hyperlink{struct_l_p_c___e_n_e_t___t}{L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+T} $\ast$p\+E\+N\+ET)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} uint32\+\_\+t \hyperlink{enet__18xx__43xx_8c_af982d420a90e8659ddb9929781664262}{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Calc\+M\+D\+C\+Clock} (void)
+\item 
+void \hyperlink{group___e_n_e_t__18_x_x__43_x_x_ga99d0be52bb0716f996ec379d0000a0ae}{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Init} (\hyperlink{struct_l_p_c___e_n_e_t___t}{L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+T} $\ast$p\+E\+N\+ET, uint32\+\_\+t phy\+Addr)
+\begin{DoxyCompactList}\small\item\em Initialize ethernet interface. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_n_e_t__18_x_x__43_x_x_ga94eb7a70f4023c83ca18e4e675ad0b32}{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___e_n_e_t___t}{L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+T} $\ast$p\+E\+N\+ET)
+\begin{DoxyCompactList}\small\item\em De-\/initialize the ethernet interface. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_n_e_t__18_x_x__43_x_x_ga9694421dbd0f331895fcf514fd18c938}{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Setup\+M\+II} (\hyperlink{struct_l_p_c___e_n_e_t___t}{L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+T} $\ast$p\+E\+N\+ET, uint32\+\_\+t div, uint8\+\_\+t addr)
+\begin{DoxyCompactList}\small\item\em Sets up the P\+HY link clock divider and P\+HY address. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_n_e_t__18_x_x__43_x_x_gade9f31bbc04119bc06638fd8ce874f73}{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Start\+M\+I\+I\+Write} (\hyperlink{struct_l_p_c___e_n_e_t___t}{L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+T} $\ast$p\+E\+N\+ET, uint8\+\_\+t reg, uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Starts a P\+HY write via the M\+II. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_n_e_t__18_x_x__43_x_x_gaca2166605d385fd5150f173cd33a3ac2}{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Start\+M\+I\+I\+Read} (\hyperlink{struct_l_p_c___e_n_e_t___t}{L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+T} $\ast$p\+E\+N\+ET, uint8\+\_\+t reg)
+\begin{DoxyCompactList}\small\item\em Starts a P\+HY read via the M\+II. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_n_e_t__18_x_x__43_x_x_ga2e8f77b5b0c703d2dd0cb039dcc2a10c}{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Set\+Duplex} (\hyperlink{struct_l_p_c___e_n_e_t___t}{L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+T} $\ast$p\+E\+N\+ET, bool full)
+\begin{DoxyCompactList}\small\item\em Sets full or half duplex for the interface. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_n_e_t__18_x_x__43_x_x_gafbae19c1935ad1a8f5ac17ddc7e186e1}{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Set\+Speed} (\hyperlink{struct_l_p_c___e_n_e_t___t}{L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+T} $\ast$p\+E\+N\+ET, bool speed100)
+\begin{DoxyCompactList}\small\item\em Sets speed for the interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} uint32\+\_\+t \hyperlink{enet__18xx__43xx_8c_abcbbfd397fd4f1796b7821fbab51414b}{phy\+Cfg}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\index{enet\+\_\+18xx\+\_\+43xx.\+c@{enet\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Calc\+M\+D\+C\+Clock@{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Calc\+M\+D\+C\+Clock}}
+\index{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Calc\+M\+D\+C\+Clock@{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Calc\+M\+D\+C\+Clock}!enet\+\_\+18xx\+\_\+43xx.\+c@{enet\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Calc\+M\+D\+C\+Clock(void)}{Chip_ENET_CalcMDCClock(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} uint32\+\_\+t Chip\+\_\+\+E\+N\+E\+T\+\_\+\+Calc\+M\+D\+C\+Clock (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{enet__18xx__43xx_8c_af982d420a90e8659ddb9929781664262}{}\label{enet__18xx__43xx_8c_af982d420a90e8659ddb9929781664262}
+
+
+Definición en la línea 59 del archivo enet\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{enet\+\_\+18xx\+\_\+43xx.\+c@{enet\+\_\+18xx\+\_\+43xx.\+c}!reset@{reset}}
+\index{reset@{reset}!enet\+\_\+18xx\+\_\+43xx.\+c@{enet\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{reset(\+L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+\+T $\ast$p\+E\+N\+E\+T)}{reset(LPC_ENET_T *pENET)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void reset (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+E\+N\+E\+T\+\_\+T} $\ast$}]{p\+E\+N\+ET}
+\end{DoxyParamCaption}
+)}\hypertarget{enet__18xx__43xx_8c_aeb253604a11400185c3a9933e18c68c3}{}\label{enet__18xx__43xx_8c_aeb253604a11400185c3a9933e18c68c3}
+
+
+Definición en la línea 49 del archivo enet\+\_\+18xx\+\_\+43xx.\+c.
+
+
+
+\subsection{Documentación de las variables}
+\index{enet\+\_\+18xx\+\_\+43xx.\+c@{enet\+\_\+18xx\+\_\+43xx.\+c}!phy\+Cfg@{phy\+Cfg}}
+\index{phy\+Cfg@{phy\+Cfg}!enet\+\_\+18xx\+\_\+43xx.\+c@{enet\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{phy\+Cfg}{phyCfg}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} uint32\+\_\+t phy\+Cfg}\hypertarget{enet__18xx__43xx_8c_abcbbfd397fd4f1796b7821fbab51414b}{}\label{enet__18xx__43xx_8c_abcbbfd397fd4f1796b7821fbab51414b}
+
+
+Definición en la línea 39 del archivo enet\+\_\+18xx\+\_\+43xx.\+c.
+

@@ -1,0 +1,103 @@
+.TH "LPC_SCU_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_SCU_T \- System Control Unit register block\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <scu_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSFSP\fP [16][32]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [256]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSFSCLK\fP [4]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED16\fP [28]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSFSUSB\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSFSI2C0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBENAIO\fP [3]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED17\fP [27]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEMCDELAYCLK\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED18\fP [63]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPINTSEL\fP [2]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+System Control Unit register block\&. 
+.PP
+Definición en la línea 52 del archivo scu_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t EMCDELAYCLK"
+EMC clock delay register 
+.PP
+Definición en la línea 61 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ENAIO[3]"
+Analog function select registerS 
+.PP
+Definición en la línea 59 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PINTSEL[2]"
+Pin interrupt select register for pin int 0 to 3 index 0, 4 to 7 index 1\&. 
+.PP
+Definición en la línea 63 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[256]"
+
+.PP
+Definición en la línea 54 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED16[28]"
+
+.PP
+Definición en la línea 56 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED17[27]"
+
+.PP
+Definición en la línea 60 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED18[63]"
+
+.PP
+Definición en la línea 62 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SFSCLK[4]"
+Pin configuration register for pins CLK0-3 
+.PP
+Definición en la línea 55 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SFSI2C0"
+Pin configuration register for I2C0-bus pins 
+.PP
+Definición en la línea 58 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SFSP[16][32]"
+
+.PP
+Definición en la línea 53 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SFSUSB"
+Pin configuration register for USB 
+.PP
+Definición en la línea 57 del archivo scu_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,47 @@
+.TH "I2S_AUDIO_FORMAT_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+I2S_AUDIO_FORMAT_T \- I2S Audio Format Structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <i2s_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBSampleRate\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBChannelNumber\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBWordWidth\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+I2S Audio Format Structure\&. 
+.PP
+Definición en la línea 216 del archivo i2s_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint8_t ChannelNumber"
+Channel Number - 1 is mono, 2 is stereo 
+.PP
+Definición en la línea 218 del archivo i2s_18xx_43xx\&.h\&.
+.SS "uint32_t SampleRate"
+Sample Rate 
+.PP
+Definición en la línea 217 del archivo i2s_18xx_43xx\&.h\&.
+.SS "uint8_t WordWidth"
+Word Width - 8, 16 or 32 bits 
+.PP
+Definición en la línea 219 del archivo i2s_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

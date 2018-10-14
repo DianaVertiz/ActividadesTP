@@ -1,0 +1,187 @@
+.TH "DWT_Type" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DWT_Type \- Structure type to access the Data Watchpoint and Trace Register (DWT)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm3\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCYCCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCPICNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEXCCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSLEEPCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBLSUCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFOLDCNT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPCSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCOMP0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMASK0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFUNCTION0\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [1]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCOMP1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMASK1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFUNCTION1\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [1]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCOMP2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMASK2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFUNCTION2\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [1]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCOMP3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMASK3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFUNCTION3\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Structure type to access the Data Watchpoint and Trace Register (DWT)\&. 
+.PP
+Definición en la línea 741 del archivo core_cm3\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t COMP0"
+Offset: 0x020 (R/W) Comparator Register 0 
+.PP
+Definición en la línea 751 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t COMP1"
+Offset: 0x030 (R/W) Comparator Register 1 
+.PP
+Definición en la línea 755 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t COMP2"
+Offset: 0x040 (R/W) Comparator Register 2 
+.PP
+Definición en la línea 759 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t COMP3"
+Offset: 0x050 (R/W) Comparator Register 3 
+.PP
+Definición en la línea 763 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t CPICNT"
+Offset: 0x008 (R/W) CPI Count Register 
+.PP
+Definición en la línea 745 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t CTRL"
+Offset: 0x000 (R/W) Control Register 
+.PP
+Definición en la línea 743 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t CYCCNT"
+Offset: 0x004 (R/W) Cycle Count Register 
+.PP
+Definición en la línea 744 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t EXCCNT"
+Offset: 0x00C (R/W) Exception Overhead Count Register 
+.PP
+Definición en la línea 746 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t FOLDCNT"
+Offset: 0x018 (R/W) Folded-instruction Count Register 
+.PP
+Definición en la línea 749 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t FUNCTION0"
+Offset: 0x028 (R/W) Function Register 0 
+.PP
+Definición en la línea 753 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t FUNCTION1"
+Offset: 0x038 (R/W) Function Register 1 
+.PP
+Definición en la línea 757 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t FUNCTION2"
+Offset: 0x048 (R/W) Function Register 2 
+.PP
+Definición en la línea 761 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t FUNCTION3"
+Offset: 0x058 (R/W) Function Register 3 
+.PP
+Definición en la línea 765 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t LSUCNT"
+Offset: 0x014 (R/W) LSU Count Register 
+.PP
+Definición en la línea 748 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t MASK0"
+Offset: 0x024 (R/W) Mask Register 0 
+.PP
+Definición en la línea 752 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t MASK1"
+Offset: 0x034 (R/W) Mask Register 1 
+.PP
+Definición en la línea 756 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t MASK2"
+Offset: 0x044 (R/W) Mask Register 2 
+.PP
+Definición en la línea 760 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t MASK3"
+Offset: 0x054 (R/W) Mask Register 3 
+.PP
+Definición en la línea 764 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t PCSR"
+Offset: 0x01C (R/ ) Program Counter Sample Register 
+.PP
+Definición en la línea 750 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED0"
+
+.PP
+Definición en la línea 754 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED1"
+
+.PP
+Definición en la línea 758 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED2"
+
+.PP
+Definición en la línea 762 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t SLEEPCNT"
+Offset: 0x010 (R/W) Sleep Count Register 
+.PP
+Definición en la línea 747 del archivo core_cm3\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

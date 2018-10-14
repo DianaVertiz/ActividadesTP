@@ -1,0 +1,41 @@
+\hypertarget{eeprom__18xx__43xx_8c}{}\section{Referencia del Archivo eeprom\+\_\+18xx\+\_\+43xx.\+c}
+\label{eeprom__18xx__43xx_8c}\index{eeprom\+\_\+18xx\+\_\+43xx.\+c@{eeprom\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} void \hyperlink{eeprom__18xx__43xx_8c_a00d1c061a72ad6881fc5b117f43c94ad}{set\+Clk\+Div} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{eeprom__18xx__43xx_8c_a852c524fa5e157c0887189aa1c9701c0}{set\+Wait\+State} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\item 
+void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga6f3f3f16f0e24eaa45bbfd7089ed43bb}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Init} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\begin{DoxyCompactList}\small\item\em Initializes E\+E\+P\+R\+OM. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga9bd675e4d0579705d04c2948cc22cfe0}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Erase\+Program\+Page} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\begin{DoxyCompactList}\small\item\em Erase/\+Program an E\+E\+P\+R\+OM page. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga9bf344a5bd3a2035573b2d080f11c484}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Wait\+For\+Int\+Status} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Wait for interrupt occurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\index{eeprom\+\_\+18xx\+\_\+43xx.\+c@{eeprom\+\_\+18xx\+\_\+43xx.\+c}!set\+Clk\+Div@{set\+Clk\+Div}}
+\index{set\+Clk\+Div@{set\+Clk\+Div}!eeprom\+\_\+18xx\+\_\+43xx.\+c@{eeprom\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{set\+Clk\+Div(\+L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+T $\ast$p\+E\+E\+P\+R\+O\+M)}{setClkDiv(LPC_EEPROM_T *pEEPROM)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} void set\+Clk\+Div (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$}]{p\+E\+E\+P\+R\+OM}
+\end{DoxyParamCaption}
+)}\hypertarget{eeprom__18xx__43xx_8c_a00d1c061a72ad6881fc5b117f43c94ad}{}\label{eeprom__18xx__43xx_8c_a00d1c061a72ad6881fc5b117f43c94ad}
+
+
+Definición en la línea 47 del archivo eeprom\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{eeprom\+\_\+18xx\+\_\+43xx.\+c@{eeprom\+\_\+18xx\+\_\+43xx.\+c}!set\+Wait\+State@{set\+Wait\+State}}
+\index{set\+Wait\+State@{set\+Wait\+State}!eeprom\+\_\+18xx\+\_\+43xx.\+c@{eeprom\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{set\+Wait\+State(\+L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+T $\ast$p\+E\+E\+P\+R\+O\+M)}{setWaitState(LPC_EEPROM_T *pEEPROM)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void set\+Wait\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$}]{p\+E\+E\+P\+R\+OM}
+\end{DoxyParamCaption}
+)}\hypertarget{eeprom__18xx__43xx_8c_a852c524fa5e157c0887189aa1c9701c0}{}\label{eeprom__18xx__43xx_8c_a852c524fa5e157c0887189aa1c9701c0}
+
+
+Definición en la línea 59 del archivo eeprom\+\_\+18xx\+\_\+43xx.\+c.
+

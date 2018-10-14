@@ -1,0 +1,75 @@
+.TH "HSADCINTCTRL_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HSADCINTCTRL_T \- High speed ADC interrupt control structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hsadc_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCLR_EN\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSET_EN\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMASK\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSTATUS\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCLR_STAT\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSET_STAT\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED\fP [2]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+High speed ADC interrupt control structure\&. 
+.PP
+Definición en la línea 47 del archivo hsadc_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__O\fP uint32_t CLR_EN"
+Interrupt clear mask 
+.PP
+Definición en la línea 48 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CLR_STAT"
+Interrupt clear status 
+.PP
+Definición en la línea 52 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t MASK"
+Interrupt mask 
+.PP
+Definición en la línea 50 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED[2]"
+
+.PP
+Definición en la línea 54 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t SET_EN"
+Interrupt set mask 
+.PP
+Definición en la línea 49 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t SET_STAT"
+Interrupt set status 
+.PP
+Definición en la línea 53 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t STATUS"
+Interrupt status 
+.PP
+Definición en la línea 51 del archivo hsadc_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

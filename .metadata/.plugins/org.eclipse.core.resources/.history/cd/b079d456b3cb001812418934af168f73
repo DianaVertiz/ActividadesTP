@@ -1,0 +1,107 @@
+/*
+ * morseCode.h
+ *
+ *  Created on: 6 oct. 2018
+ *      Author: root
+ */
+
+#ifndef INC_MORSECODE_H_
+#define INC_MORSECODE_H_
+#include "chip.h"
+#include <string.h>
+#include "hardware.h"
+#include "operaciones.h"
+
+const uint16_t PUNTO = 300; /*duración del punto*/
+#define RAYA (3*PUNTO)
+#define ESPERA_SIMBOLOS PUNTO
+#define ESPERA_LETRAS (3*PUNTO)
+#define ESPERA_PALABRAS (5*PUNTO)
+
+const uint16_t A[] = {PUNTO, RAYA, NULL};
+const uint16_t B[] = {RAYA, PUNTO, PUNTO, PUNTO, NULL};
+const uint16_t C[] = {RAYA, PUNTO, RAYA, PUNTO, NULL};
+const uint16_t D[] = {RAYA, PUNTO, PUNTO, NULL};
+const uint16_t E[] = {PUNTO, NULL};
+const uint16_t F[] = {PUNTO, PUNTO, RAYA, PUNTO, NULL};
+const uint16_t G[] = {RAYA, RAYA, PUNTO, NULL};
+const uint16_t H[] = {PUNTO, PUNTO, PUNTO, PUNTO, NULL};
+const uint16_t I[] = {PUNTO, PUNTO, NULL};
+const uint16_t J[] = {PUNTO, RAYA, RAYA, RAYA, NULL};
+const uint16_t K[] = {RAYA, PUNTO, RAYA, NULL};
+const uint16_t L[] = {PUNTO, RAYA, PUNTO, PUNTO, NULL};
+const uint16_t M[] = {RAYA, RAYA, NULL};
+const uint16_t N[] = {RAYA, PUNTO, NULL};
+const uint16_t O[] = {RAYA, RAYA, RAYA, NULL};
+const uint16_t P[] = {PUNTO, RAYA, RAYA, PUNTO, NULL};
+const uint16_t Q[] = {RAYA, RAYA, PUNTO, RAYA, NULL};
+const uint16_t R[] = {PUNTO, RAYA, PUNTO, NULL};
+const uint16_t S[] = {PUNTO, PUNTO, PUNTO, NULL};
+const uint16_t T[] = {RAYA, NULL};
+const uint16_t U[] = {PUNTO, PUNTO, RAYA, NULL};
+const uint16_t V[] = {PUNTO, PUNTO, PUNTO, RAYA, NULL};
+const uint16_t W[] = {PUNTO, RAYA, RAYA, NULL};
+const uint16_t X[] = {RAYA, PUNTO, PUNTO, RAYA, NULL};
+const uint16_t Y[] = {RAYA, PUNTO, RAYA, RAYA, NULL};
+const uint16_t Z[] = {RAYA, RAYA, PUNTO, PUNTO, NULL};
+
+const uint16_t DIG0[] = {RAYA, RAYA, RAYA, RAYA, RAYA, NULL};
+const uint16_t DIG1[] = {PUNTO, RAYA, RAYA, RAYA, RAYA, NULL};
+const uint16_t DIG2[] = {PUNTO, PUNTO, RAYA, RAYA, RAYA, NULL};
+const uint16_t DIG3[] = {PUNTO, PUNTO, PUNTO, RAYA, RAYA, NULL};
+const uint16_t DIG4[] = {PUNTO, PUNTO, PUNTO, PUNTO, RAYA, NULL};
+const uint16_t DIG5[] = {PUNTO, PUNTO, PUNTO, PUNTO, PUNTO, NULL};
+const uint16_t DIG6[] = {RAYA, PUNTO, PUNTO, PUNTO, PUNTO, NULL};
+const uint16_t DIG7[] = {RAYA, RAYA, PUNTO, PUNTO, PUNTO, NULL};
+const uint16_t DIG8[] = {RAYA, RAYA, RAYA, PUNTO, PUNTO, NULL};
+const uint16_t DIG9[] = {RAYA, RAYA, RAYA, RAYA, PUNTO, NULL};
+
+/**
+ * \brief Tabla de consulta alojada en memoria flash
+ *
+*/
+const uint8_t * const codigo[] = {A, B, C, D, E, F, G ,H, I, J, K, L,
+								  M, N, O, P, Q, R, S, T, U, V, W, X,
+								  Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+
+/**
+ * \brief Inicializa la pila
+ * \param p Representación de una pila
+ * \param buffer Vector de almacenamiento
+ * \param bufLen Tamaño del arreglo
+ * \param dataSize Tamaño de cada dato en el arreglo
+ */
+
+
+/**
+ * \brief Apila datos a la pila
+ * \param p Representación de una pila
+ * \param data dato a apilar
+ */
+
+
+/**
+ * \brief Extrae datos a la pila
+ * \param p Representación de una pila
+ * \param data dato a extraer
+ */
+
+
+/**
+ * \brief Indica si la pila está vacía
+ * \param p Representación de una pila
+ * \return 1 si la pila está vacía
+ */
+
+
+/**
+ * \brief Indica si la pila está llena
+ * \param p Representación de una pila
+ * \return 1 si la pila está llena
+ */
+
+
+
+
+#endif /* INC_MORSECODE_H_ */

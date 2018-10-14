@@ -1,0 +1,62 @@
+.TH "pmc_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pmc_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_PMC_T\fP"
+.br
+.RI "\fIPower Management Controller register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPMC_PWR_DEEP_SLEEP_MODE\fP   0x3000AA"
+.br
+.RI "\fIPower Management Controller power modes Setting this mode will not make IO loose the state\&. \fP"
+.ti -1c
+.RI "#define \fBPMC_PWR_POWER_DOWN_MODE\fP   0x30FCBA"
+.br
+.ti -1c
+.RI "#define \fBPMC_PWR_DEEP_POWER_DOWN_MODE\fP   0x30FF7F"
+.br
+.ti -1c
+.RI "#define \fBPMC_PWR_DEEP_SLEEP_MODE_NO_IO\fP   0x3F00AA"
+.br
+.RI "\fIPower Management Controller power modes (IO powerdown) Setting this mode will make the IO loose the state\&. \fP"
+.ti -1c
+.RI "#define \fBPMC_PWR_POWER_DOWN_MODE_NO_IO\fP   0x3FFCBA"
+.br
+.ti -1c
+.RI "#define \fBPMC_PWR_DEEP_POWER_DOWN_MODE_NO_IO\fP   0x3FFF7F"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_PMC_PWR_STATE_T\fP { \fBPMC_DeepSleep\fP = PMC_PWR_DEEP_SLEEP_MODE, \fBPMC_PowerDown\fP = PMC_PWR_POWER_DOWN_MODE, \fBPMC_DeepPowerDown\fP = PMC_PWR_DEEP_POWER_DOWN_MODE }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_PMC_Sleep\fP (void)"
+.br
+.RI "\fISet to sleep power state\&. \fP"
+.ti -1c
+.RI "void \fBChip_PMC_Set_PwrState\fP (\fBCHIP_PMC_PWR_STATE_T\fP PwrState)"
+.br
+.RI "\fISet to sleep power mode\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

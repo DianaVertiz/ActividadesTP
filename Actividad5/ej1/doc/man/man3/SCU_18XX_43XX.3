@@ -1,0 +1,575 @@
+.TH "SCU_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SCU_18XX_43XX \- CHIP: LPC18xx/43xx SCU Driver (configures pin functions)
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPINMUX_GRP_T\fP"
+.br
+.RI "\fIArray of pin definitions passed to \fBChip_SCU_SetPinMuxing()\fP must be in this format\&. \fP"
+.ti -1c
+.RI "struct \fBLPC_SCU_T\fP"
+.br
+.RI "\fISystem Control Unit register block\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSCU_MODE_PULLUP\fP   (0x0 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_REPEATER\fP   (0x1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_INACT\fP   (0x2 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_PULLDOWN\fP   (0x3 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_HIGHSPEEDSLEW_EN\fP   (0x1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_INBUFF_EN\fP   (0x1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_ZIF_DIS\fP   (0x1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_4MA_DRIVESTR\fP   (0x0 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_8MA_DRIVESTR\fP   (0x1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_14MA_DRIVESTR\fP   (0x2 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_20MA_DRIVESTR\fP   (0x3 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC0\fP   0x0"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC1\fP   0x1"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC2\fP   0x2"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC3\fP   0x3"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC4\fP   0x4"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC5\fP   0x5"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC6\fP   0x6"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC7\fP   0x7"
+.br
+.ti -1c
+.RI "#define \fBSCU_PINIO_FAST\fP   (\fBSCU_MODE_INACT\fP | \fBSCU_MODE_HIGHSPEEDSLEW_EN\fP | \fBSCU_MODE_INBUFF_EN\fP | \fBSCU_MODE_ZIF_DIS\fP)"
+.br
+.ti -1c
+.RI "#define \fBMD_PUP\fP   (0x0 << 3)		/** Enable pull\-up resistor at pad */"
+.br
+.ti -1c
+.RI "#define \fBMD_BUK\fP   (0x1 << 3)		/** Enable pull\-down and pull\-up resistor at resistor at pad (repeater mode) */"
+.br
+.ti -1c
+.RI "#define \fBMD_PLN\fP   (0x2 << 3)		/** Disable pull\-down and pull\-up resistor at resistor at pad */"
+.br
+.ti -1c
+.RI "#define \fBMD_PDN\fP   (0x3 << 3)		/** Enable pull\-down resistor at pad */"
+.br
+.ti -1c
+.RI "#define \fBMD_EHS\fP   (0x1 << 5)		/** Enable fast slew rate */"
+.br
+.ti -1c
+.RI "#define \fBMD_EZI\fP   (0x1 << 6)		/** Input buffer enable */"
+.br
+.ti -1c
+.RI "#define \fBMD_ZI\fP   (0x1 << 7)		/** Disable input glitch filter */"
+.br
+.ti -1c
+.RI "#define \fBMD_EHD0\fP   (0x1 << 8)		/** EHD driver strength low bit */"
+.br
+.ti -1c
+.RI "#define \fBMD_EHD1\fP   (0x1 << 8)		/** EHD driver strength high bit */"
+.br
+.ti -1c
+.RI "#define \fBMD_PLN_FAST\fP   (\fBMD_PLN\fP | \fBMD_EZI\fP | \fBMD_ZI\fP | \fBMD_EHS\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C0_STANDARD_FAST_MODE\fP   (1 << 3 | 1 << 11)	/** Pin configuration for STANDARD/FAST mode I2C */"
+.br
+.ti -1c
+.RI "#define \fBI2C0_FAST_MODE_PLUS\fP   (2 << 1 | 1 << 3 | 1 << 7 | 1 << 10 | 1 << 11)	/** Pin configuration for Fast\-mode Plus I2C */"
+.br
+.ti -1c
+.RI "#define \fBFUNC0\fP   0x0				/** Pin function 0 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC1\fP   0x1				/** Pin function 1 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC2\fP   0x2				/** Pin function 2 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC3\fP   0x3				/** Pin function 3 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC4\fP   0x4				/** Pin function 4 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC5\fP   0x5				/** Pin function 5 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC6\fP   0x6				/** Pin function 6 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC7\fP   0x7				/** Pin function 7 */"
+.br
+.ti -1c
+.RI "#define \fBPORT_OFFSET\fP   0x80			/** Port offset definition */"
+.br
+.ti -1c
+.RI "#define \fBPIN_OFFSET\fP   0x04			/** Pin offset definition */"
+.br
+.ti -1c
+.RI "#define \fBLPC_SCU_PIN\fP(\fBLPC_SCU_BASE\fP,  po,  pi)   (*(volatile int *) ((\fBLPC_SCU_BASE\fP) + ((po) * 0x80) + ((pi) * 0x4))"
+.br
+.ti -1c
+.RI "#define \fBLPC_SCU_CLK\fP(\fBLPC_SCU_BASE\fP,  c)   (*(volatile int *) ((\fBLPC_SCU_BASE\fP) +0xC00 + ((c) * 0x4)))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_PinMuxSet\fP (uint8_t port, uint8_t pin, uint16_t modefunc)"
+.br
+.RI "\fISets I/O Control pin mux\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_PinMux\fP (uint8_t port, uint8_t pin, uint16_t mode, uint8_t func)"
+.br
+.RI "\fIConfigure pin function\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_ClockPinMuxSet\fP (uint8_t clknum, uint16_t modefunc)"
+.br
+.RI "\fIConfigure clock pin function (pins SFSCLKx) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_ClockPinMux\fP (uint8_t clknum, uint16_t mode, uint8_t func)"
+.br
+.RI "\fIConfigure clock pin function (pins SFSCLKx) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_GPIOIntPinSel\fP (uint8_t PortSel, uint8_t PortNum, uint8_t PinNum)"
+.br
+.RI "\fIGPIO Interrupt Pin Select\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_I2C0PinConfig\fP (uint32_t I2C0Mode)"
+.br
+.RI "\fII2C Pin Configuration\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_ADC_Channel_Config\fP (uint32_t ADC_ID, uint8_t channel)"
+.br
+.RI "\fIADC Pin Configuration\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_DAC_Analog_Config\fP (void)"
+.br
+.RI "\fIDAC Pin Configuration\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_SetPinMuxing\fP (const \fBPINMUX_GRP_T\fP *pinArray, uint32_t arrayLength)"
+.br
+.RI "\fISet all I/O Control pin muxing\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define FUNC0   0x0				/** Pin function 0 */"
+
+.PP
+Definición en la línea 108 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define FUNC1   0x1				/** Pin function 1 */"
+
+.PP
+Definición en la línea 109 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define FUNC2   0x2				/** Pin function 2 */"
+
+.PP
+Definición en la línea 110 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define FUNC3   0x3				/** Pin function 3 */"
+
+.PP
+Definición en la línea 111 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define FUNC4   0x4				/** Pin function 4 */"
+
+.PP
+Definición en la línea 112 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define FUNC5   0x5				/** Pin function 5 */"
+
+.PP
+Definición en la línea 113 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define FUNC6   0x6				/** Pin function 6 */"
+
+.PP
+Definición en la línea 114 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define FUNC7   0x7				/** Pin function 7 */"
+
+.PP
+Definición en la línea 115 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define I2C0_FAST_MODE_PLUS   (2 << 1 | 1 << 3 | 1 << 7 | 1 << 10 | 1 << 11)	/** Pin configuration for Fast\-mode Plus I2C */"
+
+.PP
+Definición en la línea 107 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define I2C0_STANDARD_FAST_MODE   (1 << 3 | 1 << 11)	/** Pin configuration for STANDARD/FAST mode I2C */"
+
+.PP
+Definición en la línea 106 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define LPC_SCU_CLK(\fBLPC_SCU_BASE\fP, c)   (*(volatile int *) ((\fBLPC_SCU_BASE\fP) +0xC00 + ((c) * 0x4)))"
+Returns the address in the SCU for a SFSCLK clock register, recommend using (*(volatile int *) &LPC_SCU->SFSCLK[c];) 
+.PP
+Definición en la línea 124 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define LPC_SCU_PIN(\fBLPC_SCU_BASE\fP, po, pi)   (*(volatile int *) ((\fBLPC_SCU_BASE\fP) + ((po) * 0x80) + ((pi) * 0x4))"
+Returns the SFSP register address in the SCU for a pin and port, recommend using (*(volatile int *) &LPC_SCU->SFSP[po][pi];) 
+.PP
+Definición en la línea 121 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_BUK   (0x1 << 3)		/** Enable pull\-down and pull\-up resistor at resistor at pad (repeater mode) */"
+
+.PP
+Definición en la línea 97 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_EHD0   (0x1 << 8)		/** EHD driver strength low bit */"
+
+.PP
+Definición en la línea 103 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_EHD1   (0x1 << 8)		/** EHD driver strength high bit */"
+
+.PP
+Definición en la línea 104 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_EHS   (0x1 << 5)		/** Enable fast slew rate */"
+
+.PP
+Definición en la línea 100 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_EZI   (0x1 << 6)		/** Input buffer enable */"
+
+.PP
+Definición en la línea 101 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_PDN   (0x3 << 3)		/** Enable pull\-down resistor at pad */"
+
+.PP
+Definición en la línea 99 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_PLN   (0x2 << 3)		/** Disable pull\-down and pull\-up resistor at resistor at pad */"
+
+.PP
+Definición en la línea 98 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_PLN_FAST   (\fBMD_PLN\fP | \fBMD_EZI\fP | \fBMD_ZI\fP | \fBMD_EHS\fP)"
+
+.PP
+Definición en la línea 105 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_PUP   (0x0 << 3)		/** Enable pull\-up resistor at pad */"
+SCU function and mode selection definitions (old) For backwards compatibility\&. 
+.PP
+Definición en la línea 96 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define MD_ZI   (0x1 << 7)		/** Disable input glitch filter */"
+
+.PP
+Definición en la línea 102 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define PIN_OFFSET   0x04			/** Pin offset definition */"
+
+.PP
+Definición en la línea 118 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define PORT_OFFSET   0x80			/** Port offset definition */"
+
+.PP
+Definición en la línea 117 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_14MA_DRIVESTR   (0x2 << 8)"
+High drive: 14mA drive strength 
+.PP
+Definición en la línea 80 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_20MA_DRIVESTR   (0x3 << 8)"
+Ultra high- drive: 20mA drive strength 
+.PP
+Definición en la línea 81 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_4MA_DRIVESTR   (0x0 << 8)"
+Normal drive: 4mA drive strength 
+.PP
+Definición en la línea 78 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_8MA_DRIVESTR   (0x1 << 8)"
+Medium drive: 8mA drive strength 
+.PP
+Definición en la línea 79 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_FUNC0   0x0"
+Selects pin function 0 
+.PP
+Definición en la línea 82 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_FUNC1   0x1"
+Selects pin function 1 
+.PP
+Definición en la línea 83 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_FUNC2   0x2"
+Selects pin function 2 
+.PP
+Definición en la línea 84 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_FUNC3   0x3"
+Selects pin function 3 
+.PP
+Definición en la línea 85 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_FUNC4   0x4"
+Selects pin function 4 
+.PP
+Definición en la línea 86 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_FUNC5   0x5"
+Selects pin function 5 
+.PP
+Definición en la línea 87 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_FUNC6   0x6"
+Selects pin function 6 
+.PP
+Definición en la línea 88 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_FUNC7   0x7"
+Selects pin function 7 
+.PP
+Definición en la línea 89 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_HIGHSPEEDSLEW_EN   (0x1 << 5)"
+Enable high-speed slew 
+.PP
+Definición en la línea 75 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_INACT   (0x2 << 3)"
+Disable pull-down and pull-up resistor at resistor at pad 
+.PP
+Definición en la línea 73 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_INBUFF_EN   (0x1 << 6)"
+Enable Input buffer 
+.PP
+Definición en la línea 76 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_PULLDOWN   (0x3 << 3)"
+Enable pull-down resistor at pad 
+.PP
+Definición en la línea 74 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_PULLUP   (0x0 << 3)"
+SCU function and mode selection definitions See the User Manual for specific modes and functions supoprted by the various LPC18xx/43xx devices\&. Functionality can vary per device\&.Enable pull-up resistor at pad 
+.PP
+Definición en la línea 71 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_REPEATER   (0x1 << 3)"
+Enable pull-down and pull-up resistor at resistor at pad (repeater mode) 
+.PP
+Definición en la línea 72 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_MODE_ZIF_DIS   (0x1 << 7)"
+Disable input glitch filter 
+.PP
+Definición en la línea 77 del archivo scu_18xx_43xx\&.h\&.
+.SS "#define SCU_PINIO_FAST   (\fBSCU_MODE_INACT\fP | \fBSCU_MODE_HIGHSPEEDSLEW_EN\fP | \fBSCU_MODE_INBUFF_EN\fP | \fBSCU_MODE_ZIF_DIS\fP)"
+
+.PP
+Definición en la línea 90 del archivo scu_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCU_ADC_Channel_Config (uint32_t ADC_ID, uint8_t channel)"
+
+.PP
+ADC Pin Configuration\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIADC_ID\fP : ADC number 
+.br
+\fIchannel\fP : ADC channel 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 210 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCU_ClockPinMux (uint8_t clknum, uint16_t mode, uint8_t func)"
+
+.PP
+Configure clock pin function (pins SFSCLKx) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIclknum\fP : Clock pin number, should be: 0\&.\&.3 
+.br
+\fImode\fP : OR'ed values or type SCU_MODE_* 
+.br
+\fIfunc\fP : Pin function, value of type SCU_MODE_FUNC0 to SCU_MODE_FUNC7 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 173 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCU_ClockPinMuxSet (uint8_t clknum, uint16_t modefunc)"
+
+.PP
+Configure clock pin function (pins SFSCLKx) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIclknum\fP : Clock pin number, should be: 0\&.\&.3 
+.br
+\fImodefunc\fP : OR'ed values or type SCU_MODE_* 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 161 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCU_DAC_Analog_Config (void)"
+
+.PP
+DAC Pin Configuration\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 219 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCU_GPIOIntPinSel (uint8_t PortSel, uint8_t PortNum, uint8_t PinNum)"
+
+.PP
+GPIO Interrupt Pin Select\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIPortSel\fP : GPIO PINTSEL interrupt, should be: 0 to 7 
+.br
+\fIPortNum\fP : GPIO port number interrupt, should be: 0 to 7 
+.br
+\fIPinNum\fP : GPIO pin number Interrupt , should be: 0 to 31 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 185 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCU_I2C0PinConfig (uint32_t I2C0Mode)"
+
+.PP
+I2C Pin Configuration\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fII2C0Mode\fP : I2C0 mode, should be:
+.IP "\(bu" 2
+I2C0_STANDARD_FAST_MODE: Standard/Fast mode transmit
+.IP "\(bu" 2
+I2C0_FAST_MODE_PLUS: Fast-mode Plus transmit 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 199 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCU_PinMux (uint8_t port, uint8_t pin, uint16_t mode, uint8_t func)"
+
+.PP
+Configure pin function\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIport\fP : Port number, should be: 0\&.\&.15 
+.br
+\fIpin\fP : Pin number, should be: 0\&.\&.31 
+.br
+\fImode\fP : OR'ed values or type SCU_MODE_* 
+.br
+\fIfunc\fP : Pin function, value of type SCU_MODE_FUNC0 to SCU_MODE_FUNC7 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Do not use for clock pins (SFSCLK0 \&.\&. SFSCLK4)\&. Use \fBChip_SCU_ClockPinMux()\fP function for SFSCLKx clock pins\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 150 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCU_PinMuxSet (uint8_t port, uint8_t pin, uint16_t modefunc)"
+
+.PP
+Sets I/O Control pin mux\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIport\fP : Port number, should be: 0\&.\&.15 
+.br
+\fIpin\fP : Pin number, should be: 0\&.\&.31 
+.br
+\fImodefunc\fP : OR'ed values or type SCU_MODE_* 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Do not use for clock pins (SFSCLK0 \&.\&. SFSCLK4)\&. Use \fBChip_SCU_ClockPinMux()\fP function for SFSCLKx clock pins\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 135 del archivo scu_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCU_SetPinMuxing (const \fBPINMUX_GRP_T\fP * pinArray, uint32_t arrayLength)"
+
+.PP
+Set all I/O Control pin muxing\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpinArray\fP : Pointer to array of pin mux selections 
+.br
+\fIarrayLength\fP : Number of entries in pinArray 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 231 del archivo scu_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

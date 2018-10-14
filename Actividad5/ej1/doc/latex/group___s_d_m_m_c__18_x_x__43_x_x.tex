@@ -1,0 +1,537 @@
+\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx S\+D/\+M\+MC driver}
+\label{group___s_d_m_m_c__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__mci__card__struct}{\+\_\+mci\+\_\+card\+\_\+struct}
+\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gab956d2cc0062315242a2ccd388f1e358}{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+R\+E\+SP}~(0x3\+U\+L $<$$<$ 28)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga91c1b8c0d47030e80d4ff6259b169175}{C\+M\+D\+\_\+\+R\+E\+SP}(r)~(((r) \& 0x3) $<$$<$ 28)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga8a85b87724ffe5fa4d558ae128f21585}{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R0}~(0 $<$$<$ 28)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga6f03bbba43ba479f018f7ef76e2258f5}{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R1}~(1 $<$$<$ 28)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga3e9cc9d9af65b99b95dc6139a3db322a}{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R2}~(2 $<$$<$ 28)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaa401bdbd962023c1773d917a2c99b110}{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R3}~(3 $<$$<$ 28)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga54467a0e80fd68c54419d4e6598c05d8}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP}~(1 $<$$<$ 24)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga201daaaa1ac9cd5e8e9c6cc3a1472038}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP}~(1 $<$$<$ 23)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaddd67f85312e1b1fb2d2a83a540a4427}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT}~(1 $<$$<$ 22)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaad6daa707d0fd2762f906bd1dc2cc240}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+B\+U\+SY}~(1 $<$$<$ 21)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}~(1 $<$$<$ 20)	/$\ast$ Low speed, used during acquire $\ast$/
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac4b629fb5a202bac675389cf3e28a197}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA}~(1 $<$$<$ 19)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga78e0e4e25dd9e13cdcbecc9f396b2150}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE}~(1 $<$$<$ 18)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac06479d45fc4fe15b781511aad1a0be9}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+S\+T\+R\+E\+AM}~(1 $<$$<$ 17)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga4deae38df91e0463b20ecea8837c364d}{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+C\+MD}~(0xff)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga137c06d8ffe0a07f89a1c64b6c9cbee6}{C\+M\+D\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C\+MD}~(0)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(c,  r)~( ((c) \&  \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga4deae38df91e0463b20ecea8837c364d}{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+C\+MD}) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga91c1b8c0d47030e80d4ff6259b169175}{C\+M\+D\+\_\+\+R\+E\+SP}((r)) )
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga433697a25587c6ffe8a14f02e5be9066}{C\+M\+D\+\_\+\+I\+D\+LE}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga8cf3224a23122ebda44e49c946adfd04}{M\+M\+C\+\_\+\+G\+O\+\_\+\+I\+D\+L\+E\+\_\+\+S\+T\+A\+TE}, 0) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}    $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaddd67f85312e1b1fb2d2a83a540a4427}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaee7f64b9f91e537c837702cfb4417994}{C\+M\+D\+\_\+\+S\+D\+\_\+\+O\+P\+\_\+\+C\+O\+ND}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga612ec5173527128c99c16e0f4bb2299d}{S\+D\+\_\+\+A\+P\+P\+\_\+\+O\+P\+\_\+\+C\+O\+ND}, 1)      $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS} $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga201daaaa1ac9cd5e8e9c6cc3a1472038}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga6451511e7e82990e42b362a3a4b7ad77}{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+I\+F\+\_\+\+C\+O\+ND}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga43d18e10a9e461ee16164a7e315df427}{S\+D\+\_\+\+C\+M\+D8}, 1)      $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaa27ee9c5cdacf1ccf1503e3c5cda20bb}{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+O\+P\+\_\+\+C\+O\+ND}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga84fa553012e25291f05e4c4be438d78a}{M\+M\+C\+\_\+\+S\+E\+N\+D\+\_\+\+O\+P\+\_\+\+C\+O\+ND}, 3)    $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS} $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaddd67f85312e1b1fb2d2a83a540a4427}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gae64ed3f71773eb6f8d0f55bca1cc9756}{C\+M\+D\+\_\+\+A\+L\+L\+\_\+\+S\+E\+N\+D\+\_\+\+C\+ID}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga021a2d00b807010b5d280eda200827e8}{M\+M\+C\+\_\+\+A\+L\+L\+\_\+\+S\+E\+N\+D\+\_\+\+C\+ID}, 2)    $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga51285e363d018d69dca9d8df52b510b1}{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+CA}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga9952b2deb72ad74ef3a1a84ed44d5a34}{M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+L\+A\+T\+I\+V\+E\+\_\+\+A\+D\+DR}, 1) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gafe9085a1a7aa518d6e314bc6b0dc4d49}{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+R\+CA}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_gaa736c1b1cdeaadb038ed76511c1d0e8b}{S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+R\+E\+L\+A\+T\+I\+V\+E\+\_\+\+A\+D\+DR}, 1) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga039c816f90fba6c89d09980c5c1cb888}{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+C\+SD}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga76d5895ad414df4f3f9c0b63825c6dd6}{M\+M\+C\+\_\+\+S\+E\+N\+D\+\_\+\+C\+SD}, 2) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga10e85a24b7cba4d141e3675ee4f5ff87}{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+E\+X\+T\+\_\+\+C\+SD}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga99c5e064412194f85d8009e48332230d}{M\+M\+C\+\_\+\+S\+E\+N\+D\+\_\+\+E\+X\+T\+\_\+\+C\+SD}, 1) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS} $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac4b629fb5a202bac675389cf3e28a197}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gad99c2d8aed294cecd866bc2b6960c0c9}{C\+M\+D\+\_\+\+D\+E\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_gacba63a975a42dfa2ff02772aa57e6a9b}{M\+M\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}, 0)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga82a7e6d4f6cb7c5c6fe6fd35e7bdfd5a}{C\+M\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_gacba63a975a42dfa2ff02772aa57e6a9b}{M\+M\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}, 1)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gacc98caadb00bb27cee9c6037193adb68}{C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+B\+L\+O\+C\+K\+L\+EN}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_gab1142dc0b5000334f36fff50f7866b72}{M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+B\+L\+O\+C\+K\+L\+EN}, 1)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gafc227f5ab9e89ace42c1416fa095f8aa}{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+S\+T\+A\+T\+US}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_gaccf43154387f91ebfb4bc63b96fcb1bf}{M\+M\+C\+\_\+\+S\+E\+N\+D\+\_\+\+S\+T\+A\+T\+US}, 1)
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaab6c6946e5ead4de14ec4c74e8291bb1}{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+N\+G\+LE}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_gaa79d6d187ee2becb90a44ff70914acb8}{M\+M\+C\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+B\+L\+O\+CK}, 1) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac4b629fb5a202bac675389cf3e28a197}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaba8192ab3effa505c455e8c3055dc87f}{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+M\+U\+L\+T\+I\+P\+LE}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga16f975fa60cdd20c9ec28984b7963213}{M\+M\+C\+\_\+\+R\+E\+A\+D\+\_\+\+M\+U\+L\+T\+I\+P\+L\+E\+\_\+\+B\+L\+O\+CK}, 1) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac4b629fb5a202bac675389cf3e28a197}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA} $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga54467a0e80fd68c54419d4e6598c05d8}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga68a5b18a28b246e42bdc422729718861}{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+T\+\_\+\+W\+I\+D\+TH}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga4789af331712cf3fa2e7574f8f6665a3}{S\+D\+\_\+\+A\+P\+P\+\_\+\+S\+E\+T\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+TH}, 1) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga201daaaa1ac9cd5e8e9c6cc3a1472038}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga46dc7ae84992bfe62cc00731959a67f4}{C\+M\+D\+\_\+\+S\+T\+OP}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_gaf6b57664a9ce7bd0e768b033c09ac43c}{M\+M\+C\+\_\+\+S\+T\+O\+P\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON}, 1) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaad6daa707d0fd2762f906bd1dc2cc240}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+B\+U\+SY}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga41a9ae4efad0a16a54114133fe95dafb}{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+S\+I\+N\+G\+LE}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga991d94c3be5fd4548d5bb222d03500f9}{M\+M\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK}, 1) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac4b629fb5a202bac675389cf3e28a197}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA} $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga78e0e4e25dd9e13cdcbecc9f396b2150}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE}
+\item 
+\#define \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga73e19a429898d5056eac01f19d11bcae}{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+U\+L\+T\+I\+P\+LE}~\hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{C\+MD}(\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga791b2d417011f16319822320507e69fb}{M\+M\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+U\+L\+T\+I\+P\+L\+E\+\_\+\+B\+L\+O\+CK}, 1) $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gac4b629fb5a202bac675389cf3e28a197}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA} $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga78e0e4e25dd9e13cdcbecc9f396b2150}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE} $\vert$ \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga54467a0e80fd68c54419d4e6598c05d8}{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP}
+\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}typedefs\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct__mci__card__struct}{\+\_\+mci\+\_\+card\+\_\+struct} \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaa558c8e6f8957a2a9014f575b7beabe5}{mci\+\_\+card\+\_\+struct}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaa3fa974f4b97abae649e0c85845d0ba5}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+State} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em Get card\textquotesingle{}s current state (idle, transfer, program, etc.) \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga54405e71b2cefcdf5d91cfcb36ef24c0}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Acquire} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaa558c8e6f8957a2a9014f575b7beabe5}{mci\+\_\+card\+\_\+struct} $\ast$pcardinfo)
+\begin{DoxyCompactList}\small\item\em Function to enumerate the S\+D/\+M\+M\+C/\+S\+D\+H\+C/\+M\+M\+C+ cards. \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga1868dbbd245105bdb93679c1c975532f}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em Get the device size of S\+D/\+M\+MC card (after enumeration) \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gad6a8510859b4572e2caa914c236dcae0}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Blocks} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em Get the number of device blocks of S\+D/\+M\+MC card (after enumeration) Since Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size is limited to 32 bits cards with greater than 2 G\+Bytes of data will not be correct, in such cases users can use this function to get the size of the card in blocks. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga9edeed44956f79b1078f566928c06d15}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Read\+Blocks} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, void $\ast$buffer, int32\+\_\+t start\+\_\+block, int32\+\_\+t num\+\_\+blocks)
+\begin{DoxyCompactList}\small\item\em Performs the read of data from the S\+D/\+M\+MC card. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga5d3b431fec6b4c335a7aa9bc0febfcc1}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Write\+Blocks} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, void $\ast$buffer, int32\+\_\+t start\+\_\+block, int32\+\_\+t num\+\_\+blocks)
+\begin{DoxyCompactList}\small\item\em Performs write of data to the S\+D/\+M\+MC card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+MD@{C\+MD}}
+\index{C\+MD@{C\+MD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+MD}{CMD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+MD(
+\begin{DoxyParamCaption}
+\item[{}]{c, }
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~( ((c) \&  {\bf C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+C\+MD}) $\vert$ {\bf C\+M\+D\+\_\+\+R\+E\+SP}((r)) )}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga7caafa608408eea45aca375d0d5eb211}
+
+
+Definición en la línea 63 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+A\+L\+L\+\_\+\+S\+E\+N\+D\+\_\+\+C\+ID@{C\+M\+D\+\_\+\+A\+L\+L\+\_\+\+S\+E\+N\+D\+\_\+\+C\+ID}}
+\index{C\+M\+D\+\_\+\+A\+L\+L\+\_\+\+S\+E\+N\+D\+\_\+\+C\+ID@{C\+M\+D\+\_\+\+A\+L\+L\+\_\+\+S\+E\+N\+D\+\_\+\+C\+ID}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+A\+L\+L\+\_\+\+S\+E\+N\+D\+\_\+\+C\+ID}{CMD_ALL_SEND_CID}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+A\+L\+L\+\_\+\+S\+E\+N\+D\+\_\+\+C\+ID~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+A\+L\+L\+\_\+\+S\+E\+N\+D\+\_\+\+C\+ID}, 2)    $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gae64ed3f71773eb6f8d0f55bca1cc9756}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gae64ed3f71773eb6f8d0f55bca1cc9756}
+
+
+Definición en la línea 69 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP}}
+\index{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP}{CMD_BIT_APP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP~(1 $<$$<$ 23)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga201daaaa1ac9cd5e8e9c6cc3a1472038}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga201daaaa1ac9cd5e8e9c6cc3a1472038}
+
+
+Definición en la línea 53 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP}}
+\index{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP}{CMD_BIT_AUTO_STOP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP~(1 $<$$<$ 24)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga54467a0e80fd68c54419d4e6598c05d8}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga54467a0e80fd68c54419d4e6598c05d8}
+
+
+Definición en la línea 52 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+B\+U\+SY@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+B\+U\+SY}}
+\index{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+B\+U\+SY@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+B\+U\+SY}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+B\+U\+SY}{CMD_BIT_BUSY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+B\+U\+SY~(1 $<$$<$ 21)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gaad6daa707d0fd2762f906bd1dc2cc240}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gaad6daa707d0fd2762f906bd1dc2cc240}
+
+
+Definición en la línea 55 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA}}
+\index{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA}{CMD_BIT_DATA}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA~(1 $<$$<$ 19)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gac4b629fb5a202bac675389cf3e28a197}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gac4b629fb5a202bac675389cf3e28a197}
+
+
+Definición en la línea 57 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT}}
+\index{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT}{CMD_BIT_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT~(1 $<$$<$ 22)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gaddd67f85312e1b1fb2d2a83a540a4427}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gaddd67f85312e1b1fb2d2a83a540a4427}
+
+
+Definición en la línea 54 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}}
+\index{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}{CMD_BIT_LS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS~(1 $<$$<$ 20)	/$\ast$ Low speed, used during acquire $\ast$/}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gac7c44bedf5c41fd5ed18712aa2ef69a7}
+
+
+Definición en la línea 56 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+S\+T\+R\+E\+AM@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+S\+T\+R\+E\+AM}}
+\index{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+S\+T\+R\+E\+AM@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+S\+T\+R\+E\+AM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+S\+T\+R\+E\+AM}{CMD_BIT_STREAM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+S\+T\+R\+E\+AM~(1 $<$$<$ 17)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gac06479d45fc4fe15b781511aad1a0be9}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gac06479d45fc4fe15b781511aad1a0be9}
+
+
+Definición en la línea 59 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE}}
+\index{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE@{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE}{CMD_BIT_WRITE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE~(1 $<$$<$ 18)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga78e0e4e25dd9e13cdcbecc9f396b2150}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga78e0e4e25dd9e13cdcbecc9f396b2150}
+
+
+Definición en la línea 58 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+D\+E\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD@{C\+M\+D\+\_\+\+D\+E\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}}
+\index{C\+M\+D\+\_\+\+D\+E\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD@{C\+M\+D\+\_\+\+D\+E\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+D\+E\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}{CMD_DESELECT_CARD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+D\+E\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}, 0)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gad99c2d8aed294cecd866bc2b6960c0c9}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gad99c2d8aed294cecd866bc2b6960c0c9}
+
+
+Definición en la línea 74 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+I\+D\+LE@{C\+M\+D\+\_\+\+I\+D\+LE}}
+\index{C\+M\+D\+\_\+\+I\+D\+LE@{C\+M\+D\+\_\+\+I\+D\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+I\+D\+LE}{CMD_IDLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+I\+D\+LE~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+G\+O\+\_\+\+I\+D\+L\+E\+\_\+\+S\+T\+A\+TE}, 0) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}    $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga433697a25587c6ffe8a14f02e5be9066}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga433697a25587c6ffe8a14f02e5be9066}
+
+
+Definición en la línea 65 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+C\+MD@{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+C\+MD}}
+\index{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+C\+MD@{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+C\+MD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+C\+MD}{CMD_MASK_CMD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+C\+MD~(0xff)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga4deae38df91e0463b20ecea8837c364d}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga4deae38df91e0463b20ecea8837c364d}
+
+
+Definición en la línea 60 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+R\+E\+SP@{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+R\+E\+SP}}
+\index{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+R\+E\+SP@{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+R\+E\+SP}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+R\+E\+SP}{CMD_MASK_RESP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+M\+A\+S\+K\+\_\+\+R\+E\+SP~(0x3\+U\+L $<$$<$ 28)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gab956d2cc0062315242a2ccd388f1e358}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gab956d2cc0062315242a2ccd388f1e358}
+
+
+Definición en la línea 46 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+O\+P\+\_\+\+C\+O\+ND@{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+O\+P\+\_\+\+C\+O\+ND}}
+\index{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+O\+P\+\_\+\+C\+O\+ND@{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+O\+P\+\_\+\+C\+O\+ND}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+O\+P\+\_\+\+C\+O\+ND}{CMD_MMC_OP_COND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+O\+P\+\_\+\+C\+O\+ND~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+S\+E\+N\+D\+\_\+\+O\+P\+\_\+\+C\+O\+ND}, 3)    $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS} $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+I\+N\+IT}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gaa27ee9c5cdacf1ccf1503e3c5cda20bb}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gaa27ee9c5cdacf1ccf1503e3c5cda20bb}
+
+
+Definición en la línea 68 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+CA@{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+CA}}
+\index{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+CA@{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+CA}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+CA}{CMD_MMC_SET_RCA}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+CA~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+L\+A\+T\+I\+V\+E\+\_\+\+A\+D\+DR}, 1) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga51285e363d018d69dca9d8df52b510b1}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga51285e363d018d69dca9d8df52b510b1}
+
+
+Definición en la línea 70 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+M\+U\+L\+T\+I\+P\+LE@{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+M\+U\+L\+T\+I\+P\+LE}}
+\index{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+M\+U\+L\+T\+I\+P\+LE@{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+M\+U\+L\+T\+I\+P\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+M\+U\+L\+T\+I\+P\+LE}{CMD_READ_MULTIPLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+M\+U\+L\+T\+I\+P\+LE~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+R\+E\+A\+D\+\_\+\+M\+U\+L\+T\+I\+P\+L\+E\+\_\+\+B\+L\+O\+CK}, 1) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA} $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gaba8192ab3effa505c455e8c3055dc87f}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gaba8192ab3effa505c455e8c3055dc87f}
+
+
+Definición en la línea 79 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+N\+G\+LE@{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+N\+G\+LE}}
+\index{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+N\+G\+LE@{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+N\+G\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+N\+G\+LE}{CMD_READ_SINGLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+N\+G\+LE~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+B\+L\+O\+CK}, 1) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gaab6c6946e5ead4de14ec4c74e8291bb1}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gaab6c6946e5ead4de14ec4c74e8291bb1}
+
+
+Definición en la línea 78 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+R\+E\+SP@{C\+M\+D\+\_\+\+R\+E\+SP}}
+\index{C\+M\+D\+\_\+\+R\+E\+SP@{C\+M\+D\+\_\+\+R\+E\+SP}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+R\+E\+SP}{CMD_RESP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+R\+E\+SP(
+\begin{DoxyParamCaption}
+\item[{}]{r}
+\end{DoxyParamCaption}
+)~(((r) \& 0x3) $<$$<$ 28)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga91c1b8c0d47030e80d4ff6259b169175}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga91c1b8c0d47030e80d4ff6259b169175}
+
+
+Definición en la línea 47 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R0@{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R0}}
+\index{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R0@{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R0}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R0}{CMD_RESP_R0}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R0~(0 $<$$<$ 28)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga8a85b87724ffe5fa4d558ae128f21585}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga8a85b87724ffe5fa4d558ae128f21585}
+
+
+Definición en la línea 48 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R1@{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R1}}
+\index{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R1@{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R1}{CMD_RESP_R1}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R1~(1 $<$$<$ 28)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga6f03bbba43ba479f018f7ef76e2258f5}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga6f03bbba43ba479f018f7ef76e2258f5}
+
+
+Definición en la línea 49 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R2@{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R2}}
+\index{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R2@{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R2}{CMD_RESP_R2}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R2~(2 $<$$<$ 28)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga3e9cc9d9af65b99b95dc6139a3db322a}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga3e9cc9d9af65b99b95dc6139a3db322a}
+
+
+Definición en la línea 50 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R3@{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R3}}
+\index{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R3@{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R3}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R3}{CMD_RESP_R3}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+R\+E\+S\+P\+\_\+\+R3~(3 $<$$<$ 28)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gaa401bdbd962023c1773d917a2c99b110}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gaa401bdbd962023c1773d917a2c99b110}
+
+
+Definición en la línea 51 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+D\+\_\+\+O\+P\+\_\+\+C\+O\+ND@{C\+M\+D\+\_\+\+S\+D\+\_\+\+O\+P\+\_\+\+C\+O\+ND}}
+\index{C\+M\+D\+\_\+\+S\+D\+\_\+\+O\+P\+\_\+\+C\+O\+ND@{C\+M\+D\+\_\+\+S\+D\+\_\+\+O\+P\+\_\+\+C\+O\+ND}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+D\+\_\+\+O\+P\+\_\+\+C\+O\+ND}{CMD_SD_OP_COND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+D\+\_\+\+O\+P\+\_\+\+C\+O\+ND~{\bf C\+MD}({\bf S\+D\+\_\+\+A\+P\+P\+\_\+\+O\+P\+\_\+\+C\+O\+ND}, 1)      $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS} $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gaee7f64b9f91e537c837702cfb4417994}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gaee7f64b9f91e537c837702cfb4417994}
+
+
+Definición en la línea 66 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+I\+F\+\_\+\+C\+O\+ND@{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+I\+F\+\_\+\+C\+O\+ND}}
+\index{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+I\+F\+\_\+\+C\+O\+ND@{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+I\+F\+\_\+\+C\+O\+ND}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+I\+F\+\_\+\+C\+O\+ND}{CMD_SD_SEND_IF_COND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+I\+F\+\_\+\+C\+O\+ND~{\bf C\+MD}({\bf S\+D\+\_\+\+C\+M\+D8}, 1)      $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga6451511e7e82990e42b362a3a4b7ad77}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga6451511e7e82990e42b362a3a4b7ad77}
+
+
+Definición en la línea 67 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+R\+CA@{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+R\+CA}}
+\index{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+R\+CA@{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+R\+CA}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+R\+CA}{CMD_SD_SEND_RCA}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+R\+CA~{\bf C\+MD}({\bf S\+D\+\_\+\+S\+E\+N\+D\+\_\+\+R\+E\+L\+A\+T\+I\+V\+E\+\_\+\+A\+D\+DR}, 1) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gafe9085a1a7aa518d6e314bc6b0dc4d49}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gafe9085a1a7aa518d6e314bc6b0dc4d49}
+
+
+Definición en la línea 71 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+T\+\_\+\+W\+I\+D\+TH@{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+T\+\_\+\+W\+I\+D\+TH}}
+\index{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+T\+\_\+\+W\+I\+D\+TH@{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+T\+\_\+\+W\+I\+D\+TH}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+T\+\_\+\+W\+I\+D\+TH}{CMD_SD_SET_WIDTH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+D\+\_\+\+S\+E\+T\+\_\+\+W\+I\+D\+TH~{\bf C\+MD}({\bf S\+D\+\_\+\+A\+P\+P\+\_\+\+S\+E\+T\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+TH}, 1) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+PP}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga68a5b18a28b246e42bdc422729718861}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga68a5b18a28b246e42bdc422729718861}
+
+
+Definición en la línea 80 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD@{C\+M\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}}
+\index{C\+M\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD@{C\+M\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}{CMD_SELECT_CARD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+A\+RD}, 1)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga82a7e6d4f6cb7c5c6fe6fd35e7bdfd5a}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga82a7e6d4f6cb7c5c6fe6fd35e7bdfd5a}
+
+
+Definición en la línea 75 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+C\+SD@{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+C\+SD}}
+\index{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+C\+SD@{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+C\+SD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+C\+SD}{CMD_SEND_CSD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+C\+SD~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+S\+E\+N\+D\+\_\+\+C\+SD}, 2) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga039c816f90fba6c89d09980c5c1cb888}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga039c816f90fba6c89d09980c5c1cb888}
+
+
+Definición en la línea 72 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+E\+X\+T\+\_\+\+C\+SD@{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+E\+X\+T\+\_\+\+C\+SD}}
+\index{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+E\+X\+T\+\_\+\+C\+SD@{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+E\+X\+T\+\_\+\+C\+SD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+E\+X\+T\+\_\+\+C\+SD}{CMD_SEND_EXT_CSD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+E\+X\+T\+\_\+\+C\+SD~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+S\+E\+N\+D\+\_\+\+E\+X\+T\+\_\+\+C\+SD}, 1) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+LS} $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga10e85a24b7cba4d141e3675ee4f5ff87}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga10e85a24b7cba4d141e3675ee4f5ff87}
+
+
+Definición en la línea 73 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+S\+T\+A\+T\+US@{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+S\+T\+A\+T\+US}}
+\index{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+S\+T\+A\+T\+US@{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+S\+T\+A\+T\+US}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+S\+T\+A\+T\+US}{CMD_SEND_STATUS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+E\+N\+D\+\_\+\+S\+T\+A\+T\+US~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+S\+E\+N\+D\+\_\+\+S\+T\+A\+T\+US}, 1)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gafc227f5ab9e89ace42c1416fa095f8aa}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gafc227f5ab9e89ace42c1416fa095f8aa}
+
+
+Definición en la línea 77 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+B\+L\+O\+C\+K\+L\+EN@{C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+B\+L\+O\+C\+K\+L\+EN}}
+\index{C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+B\+L\+O\+C\+K\+L\+EN@{C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+B\+L\+O\+C\+K\+L\+EN}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+B\+L\+O\+C\+K\+L\+EN}{CMD_SET_BLOCKLEN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+B\+L\+O\+C\+K\+L\+EN~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+S\+E\+T\+\_\+\+B\+L\+O\+C\+K\+L\+EN}, 1)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gacc98caadb00bb27cee9c6037193adb68}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gacc98caadb00bb27cee9c6037193adb68}
+
+
+Definición en la línea 76 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C\+MD@{C\+M\+D\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C\+MD}}
+\index{C\+M\+D\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C\+MD@{C\+M\+D\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C\+MD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C\+MD}{CMD_SHIFT_CMD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C\+MD~(0)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga137c06d8ffe0a07f89a1c64b6c9cbee6}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga137c06d8ffe0a07f89a1c64b6c9cbee6}
+
+
+Definición en la línea 61 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+S\+T\+OP@{C\+M\+D\+\_\+\+S\+T\+OP}}
+\index{C\+M\+D\+\_\+\+S\+T\+OP@{C\+M\+D\+\_\+\+S\+T\+OP}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+S\+T\+OP}{CMD_STOP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+S\+T\+OP~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+S\+T\+O\+P\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+ON}, 1) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+B\+U\+SY}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga46dc7ae84992bfe62cc00731959a67f4}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga46dc7ae84992bfe62cc00731959a67f4}
+
+
+Definición en la línea 81 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+U\+L\+T\+I\+P\+LE@{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+U\+L\+T\+I\+P\+LE}}
+\index{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+U\+L\+T\+I\+P\+LE@{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+U\+L\+T\+I\+P\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+U\+L\+T\+I\+P\+LE}{CMD_WRITE_MULTIPLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+U\+L\+T\+I\+P\+LE~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+U\+L\+T\+I\+P\+L\+E\+\_\+\+B\+L\+O\+CK}, 1) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA} $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE} $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+A\+U\+T\+O\+\_\+\+S\+T\+OP}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga73e19a429898d5056eac01f19d11bcae}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga73e19a429898d5056eac01f19d11bcae}
+
+
+Definición en la línea 83 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+S\+I\+N\+G\+LE@{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+S\+I\+N\+G\+LE}}
+\index{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+S\+I\+N\+G\+LE@{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+S\+I\+N\+G\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+S\+I\+N\+G\+LE}{CMD_WRITE_SINGLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+S\+I\+N\+G\+LE~{\bf C\+MD}({\bf M\+M\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK}, 1) $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+D\+A\+TA} $\vert$ {\bf C\+M\+D\+\_\+\+B\+I\+T\+\_\+\+W\+R\+I\+TE}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga41a9ae4efad0a16a54114133fe95dafb}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga41a9ae4efad0a16a54114133fe95dafb}
+
+
+Definición en la línea 82 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de los \textquotesingle{}typedefs\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!mci\+\_\+card\+\_\+struct@{mci\+\_\+card\+\_\+struct}}
+\index{mci\+\_\+card\+\_\+struct@{mci\+\_\+card\+\_\+struct}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{mci\+\_\+card\+\_\+struct}{mci_card_struct}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \+\_\+mci\+\_\+card\+\_\+struct}  {\bf mci\+\_\+card\+\_\+struct}}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gaa558c8e6f8957a2a9014f575b7beabe5}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gaa558c8e6f8957a2a9014f575b7beabe5}
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Acquire@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Acquire}}
+\index{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Acquire@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Acquire}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Acquire(\+L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+\+T $\ast$p\+S\+D\+M\+M\+C, mci\+\_\+card\+\_\+struct $\ast$pcardinfo)}{Chip_SDMMC_Acquire(LPC_SDMMC_T *pSDMMC, mci_card_struct *pcardinfo)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Acquire (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$}]{p\+S\+D\+M\+MC, }
+\item[{{\bf mci\+\_\+card\+\_\+struct} $\ast$}]{pcardinfo}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga54405e71b2cefcdf5d91cfcb36ef24c0}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga54405e71b2cefcdf5d91cfcb36ef24c0}
+
+
+Function to enumerate the S\+D/\+M\+M\+C/\+S\+D\+H\+C/\+M\+M\+C+ cards. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+D\+M\+MC} & \+: S\+D\+M\+MC peripheral selected \\
+\hline
+{\em pcardinfo} & \+: Pointer to pre-\/allocated card info structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+1 if a card is acquired, otherwise 0 
+\end{DoxyReturn}
+
+
+Definición en la línea 322 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Blocks@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Blocks}}
+\index{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Blocks@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Blocks}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Blocks(\+L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+\+T $\ast$p\+S\+D\+M\+M\+C)}{Chip_SDMMC_GetDeviceBlocks(LPC_SDMMC_T *pSDMMC)}}]{\setlength{\rightskip}{0pt plus 5cm}int32\+\_\+t Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Blocks (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$}]{p\+S\+D\+M\+MC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gad6a8510859b4572e2caa914c236dcae0}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gad6a8510859b4572e2caa914c236dcae0}
+
+
+Get the number of device blocks of S\+D/\+M\+MC card (after enumeration) Since Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size is limited to 32 bits cards with greater than 2 G\+Bytes of data will not be correct, in such cases users can use this function to get the size of the card in blocks. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+D\+M\+MC} & \+: S\+D\+M\+MC peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Number of 512 bytes blocks in the card 
+\end{DoxyReturn}
+
+
+Definición en la línea 490 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size}}
+\index{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size(\+L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+\+T $\ast$p\+S\+D\+M\+M\+C)}{Chip_SDMMC_GetDeviceSize(LPC_SDMMC_T *pSDMMC)}}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$}]{p\+S\+D\+M\+MC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga1868dbbd245105bdb93679c1c975532f}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga1868dbbd245105bdb93679c1c975532f}
+
+
+Get the device size of S\+D/\+M\+MC card (after enumeration) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+D\+M\+MC} & \+: S\+D\+M\+MC peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Card size in number of bytes (capacity) 
+\end{DoxyReturn}
+
+
+Definición en la línea 484 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+State@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+State}}
+\index{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+State@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+State}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+State(\+L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+\+T $\ast$p\+S\+D\+M\+M\+C)}{Chip_SDMMC_GetState(LPC_SDMMC_T *pSDMMC)}}]{\setlength{\rightskip}{0pt plus 5cm}int32\+\_\+t Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$}]{p\+S\+D\+M\+MC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_gaa3fa974f4b97abae649e0c85845d0ba5}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_gaa3fa974f4b97abae649e0c85845d0ba5}
+
+
+Get card\textquotesingle{}s current state (idle, transfer, program, etc.) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+D\+M\+MC} & \+: S\+D\+M\+MC peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Current SD card transfer state 
+\end{DoxyReturn}
+
+
+Definición en la línea 307 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Read\+Blocks@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Read\+Blocks}}
+\index{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Read\+Blocks@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Read\+Blocks}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Read\+Blocks(\+L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+\+T $\ast$p\+S\+D\+M\+M\+C, void $\ast$buffer, int32\+\_\+t start\+\_\+block, int32\+\_\+t num\+\_\+blocks)}{Chip_SDMMC_ReadBlocks(LPC_SDMMC_T *pSDMMC, void *buffer, int32_t start_block, int32_t num_blocks)}}]{\setlength{\rightskip}{0pt plus 5cm}int32\+\_\+t Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Read\+Blocks (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$}]{p\+S\+D\+M\+MC, }
+\item[{void $\ast$}]{buffer, }
+\item[{int32\+\_\+t}]{start\+\_\+block, }
+\item[{int32\+\_\+t}]{num\+\_\+blocks}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga9edeed44956f79b1078f566928c06d15}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga9edeed44956f79b1078f566928c06d15}
+
+
+Performs the read of data from the S\+D/\+M\+MC card. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+D\+M\+MC} & \+: S\+D\+M\+MC peripheral selected \\
+\hline
+{\em buffer} & \+: Pointer to data buffer to copy to \\
+\hline
+{\em start\+\_\+block} & \+: Start block number \\
+\hline
+{\em num\+\_\+blocks} & \+: Number of block to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Bytes read, or 0 on error 
+\end{DoxyReturn}
+
+
+Definición en la línea 496 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}!Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Write\+Blocks@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Write\+Blocks}}
+\index{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Write\+Blocks@{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Write\+Blocks}!C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx S\+D/\+M\+M\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Write\+Blocks(\+L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+\+T $\ast$p\+S\+D\+M\+M\+C, void $\ast$buffer, int32\+\_\+t start\+\_\+block, int32\+\_\+t num\+\_\+blocks)}{Chip_SDMMC_WriteBlocks(LPC_SDMMC_T *pSDMMC, void *buffer, int32_t start_block, int32_t num_blocks)}}]{\setlength{\rightskip}{0pt plus 5cm}int32\+\_\+t Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Write\+Blocks (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$}]{p\+S\+D\+M\+MC, }
+\item[{void $\ast$}]{buffer, }
+\item[{int32\+\_\+t}]{start\+\_\+block, }
+\item[{int32\+\_\+t}]{num\+\_\+blocks}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_d_m_m_c__18_x_x__43_x_x_ga5d3b431fec6b4c335a7aa9bc0febfcc1}{}\label{group___s_d_m_m_c__18_x_x__43_x_x_ga5d3b431fec6b4c335a7aa9bc0febfcc1}
+
+
+Performs write of data to the S\+D/\+M\+MC card. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+D\+M\+MC} & \+: S\+D\+M\+MC peripheral selected \\
+\hline
+{\em buffer} & \+: Pointer to data buffer to copy to \\
+\hline
+{\em start\+\_\+block} & \+: Start block number \\
+\hline
+{\em num\+\_\+blocks} & \+: Number of block to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Number of bytes actually written, or 0 on error 
+\end{DoxyReturn}
+
+
+Definición en la línea 543 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+c.
+

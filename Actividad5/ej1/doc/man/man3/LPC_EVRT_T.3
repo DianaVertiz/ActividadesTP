@@ -1,0 +1,89 @@
+.TH "LPC_EVRT_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_EVRT_T \- Event Router register structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <evrt_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBHILO\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEDGE\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [1012]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCLR_EN\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSET_EN\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSTATUS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBENABLE\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCLR_STAT\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSET_STAT\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Event Router register structure\&. 
+.PP
+Definición en la línea 47 del archivo evrt_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__O\fP uint32_t CLR_EN"
+Event clear enable register 
+.PP
+Definición en la línea 51 del archivo evrt_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CLR_STAT"
+Clear register 
+.PP
+Definición en la línea 55 del archivo evrt_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t EDGE"
+Edge configuration 
+.PP
+Definición en la línea 49 del archivo evrt_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t ENABLE"
+Enable register 
+.PP
+Definición en la línea 54 del archivo evrt_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t HILO"
+< EVENTROUTER Structure Level configuration register 
+.PP
+Definición en la línea 48 del archivo evrt_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[1012]"
+
+.PP
+Definición en la línea 50 del archivo evrt_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t SET_EN"
+Event set enable register 
+.PP
+Definición en la línea 52 del archivo evrt_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t SET_STAT"
+Set register 
+.PP
+Definición en la línea 56 del archivo evrt_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t STATUS"
+Status register 
+.PP
+Definición en la línea 53 del archivo evrt_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

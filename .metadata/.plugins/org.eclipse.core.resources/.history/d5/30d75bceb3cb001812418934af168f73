@@ -1,0 +1,40 @@
+#include "chip.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stopwatch.h>
+#include "../inc/morseCode.h"
+#include "hardware.h"
+#include "operaciones.h"
+
+
+uint32_t pila1[20];
+uint32_t pila2[50];
+
+
+void UART2_IRQHandler(void)
+{
+
+	Chip_UART_IRQRBHandler(LPC_USART2, &rxRing, &txRing);
+}
+
+
+int main ( int argc , char * argv [])
+{
+	uint32_t aux = 0;
+	inicializar_sistema();
+	inicializar_leds();
+	inicializar_USART();
+	//configurar_SysTick();
+
+	while (1)
+	{
+
+
+		//__WFI();
+
+	}
+
+
+	return 0;
+}
+

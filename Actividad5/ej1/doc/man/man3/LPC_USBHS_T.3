@@ -1,0 +1,377 @@
+.TH "LPC_USBHS_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_USBHS_T \- USB High-Speed register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <usbhs_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [64]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCAPLENGTH\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBHCSPARAMS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBHCCPARAMS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP [5]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDCIVERSION\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED2\fP [7]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBUSBCMD_H\fP"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBUSBCMD_D\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBUSBSTS_H\fP"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBUSBSTS_D\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBUSBINTR_H\fP"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBUSBINTR_D\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBFRINDEX_H\fP"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBFRINDEX_D\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED3\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPERIODICLISTBASE\fP"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBDEVICEADDR\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBASYNCLISTADDR\fP"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBENDPOINTLISTADDR\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTTCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBURSTSIZE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTXFILLTUNING\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED4\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBULPIVIEWPORT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBINTERVAL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBENDPTNAK\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBENDPTNAKEN\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED5\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPORTSC1_H\fP"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPORTSC1_D\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED6\fP [7]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBOTGSC\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBUSBMODE_H\fP"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBUSBMODE_D\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBENDPTSETUPSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBENDPTPRIME\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBENDPTFLUSH\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBENDPTSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBENDPTCOMPLETE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBENDPTCTRL\fP [6]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+USB High-Speed register block structure\&. 
+.PP
+Definición en la línea 47 del archivo usbhs_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "\fB__IO\fP uint32_t ASYNCLISTADDR"
+Address of endpoint list in memory (host mode) 
+.PP
+Definición en la línea 82 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t BINTERVAL"
+Length of virtual frame 
+.PP
+Definición en la línea 91 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t BURSTSIZE"
+Programmable burst size 
+.PP
+Definición en la línea 87 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CAPLENGTH"
+Capability register length 
+.PP
+Definición en la línea 49 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t DCIVERSION"
+Device interface version number 
+.PP
+Definición en la línea 53 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DEVICEADDR"
+USB device address 
+.PP
+Definición en la línea 78 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ENDPOINTLISTADDR"
+Address of endpoint list in memory (device mode) 
+.PP
+Definición en la línea 83 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ENDPTCOMPLETE"
+Endpoint complete 
+.PP
+Definición en la línea 111 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ENDPTCTRL[6]"
+Endpoint control 0 
+.PP
+Definición en la línea 112 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ENDPTFLUSH"
+Endpoint de-initialization 
+.PP
+Definición en la línea 109 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ENDPTNAK"
+Endpoint NAK (device mode) 
+.PP
+Definición en la línea 92 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ENDPTNAKEN"
+Endpoint NAK Enable (device mode) 
+.PP
+Definición en la línea 93 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ENDPTPRIME"
+Endpoint initialization 
+.PP
+Definición en la línea 108 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ENDPTSETUPSTAT"
+Endpoint setup status 
+.PP
+Definición en la línea 107 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t ENDPTSTAT"
+Endpoint status 
+.PP
+Definición en la línea 110 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t FRINDEX_D"
+USB frame index (device mode) 
+.PP
+Definición en la línea 72 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FRINDEX_H"
+USB frame index (host mode) 
+.PP
+Definición en la línea 71 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t HCCPARAMS"
+Host controller capability parameters 
+.PP
+Definición en la línea 51 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t HCSPARAMS"
+Host controller structural parameters 
+.PP
+Definición en la línea 50 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t OTGSC"
+OTG status and control 
+.PP
+Definición en la línea 101 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PERIODICLISTBASE"
+Frame list base address 
+.PP
+Definición en la línea 77 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PORTSC1_D"
+Port 1 status/control (device mode) 
+.PP
+Definición en la línea 97 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PORTSC1_H"
+Port 1 status/control (host mode) 
+.PP
+Definición en la línea 96 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[64]"
+< USB Structure 
+.PP
+Definición en la línea 48 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1[5]"
+
+.PP
+Definición en la línea 52 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED2[7]"
+
+.PP
+Definición en la línea 54 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED3"
+
+.PP
+Definición en la línea 75 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED4[2]"
+
+.PP
+Definición en la línea 89 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED5"
+
+.PP
+Definición en la línea 94 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED6[7]"
+
+.PP
+Definición en la línea 100 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TTCTRL"
+Asynchronous buffer status for embedded TT (host mode) 
+.PP
+Definición en la línea 86 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TXFILLTUNING"
+Host transmit pre-buffer packet tuning (host mode) 
+.PP
+Definición en la línea 88 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ULPIVIEWPORT"
+ULPI viewport 
+.PP
+Definición en la línea 90 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USBCMD_D"
+USB command (device mode) 
+.PP
+Definición en la línea 57 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USBCMD_H"
+USB command (host mode) 
+.PP
+Definición en la línea 56 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USBINTR_D"
+USB interrupt enable (device mode) 
+.PP
+Definición en la línea 67 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USBINTR_H"
+USB interrupt enable (host mode) 
+.PP
+Definición en la línea 66 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USBMODE_D"
+USB mode (device mode) 
+.PP
+Definición en la línea 104 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USBMODE_H"
+USB mode (host mode) 
+.PP
+Definición en la línea 103 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USBSTS_D"
+USB status (device mode) 
+.PP
+Definición en la línea 62 del archivo usbhs_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USBSTS_H"
+USB status (host mode) 
+.PP
+Definición en la línea 61 del archivo usbhs_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

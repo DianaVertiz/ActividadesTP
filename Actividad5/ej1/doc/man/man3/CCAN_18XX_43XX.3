@@ -1,0 +1,1202 @@
+.TH "CCAN_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CCAN_18XX_43XX \- CHIP: LPC18xx/43xx CCAN driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCCAN_IF_T\fP"
+.br
+.RI "\fICCAN message interface register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBLPC_CCAN_T\fP"
+.br
+.RI "\fICCAN Controller Area Network register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBCCAN_MSG_OBJ_T\fP"
+.br
+.RI "\fICAN message object structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCCAN_CTRL_INIT\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_CTRL_IE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_CTRL_SIE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_CTRL_EIE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_CTRL_DAR\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_CTRL_CCE\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_CTRL_TEST\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_STAT_LEC_MASK\fP   (0x07)		/* Mask for Last Error Code */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_STAT_TXOK\fP   (1 << 3)	/* Transmitted a message successfully */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_STAT_RXOK\fP   (1 << 4)	/* Received a message successfully */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_STAT_EPASS\fP   (1 << 5)	/* The CAN controller is in the \fBerror\fP passive state*/"
+.br
+.ti -1c
+.RI "#define \fBCCAN_STAT_EWARN\fP   (1 << 6)	/*At least one of the \fBerror\fP counters in the EC has reached the \fBerror\fP warning limit of 96\&.*/"
+.br
+.ti -1c
+.RI "#define \fBCCAN_STAT_BOFF\fP   (1 << 7)	/*The CAN controller is in busoff state\&.*/"
+.br
+.ti -1c
+.RI "#define \fBCCAN_INT_NO_PENDING\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCCAN_INT_STATUS\fP   0x8000"
+.br
+.ti -1c
+.RI "#define \fBCCAN_INT_MSG_NUM\fP(n)   (n)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_TEST_BASIC_MODE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_TEST_SILENT_MODE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_TEST_LOOPBACK_MODE\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_TEST_TD_CONTROLLED\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_TEST_TD_MONITORED\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_TEST_TD_DOMINANT\fP   (2 << 5)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_TEST_TD_RECESSIVE\fP   (3 << 5)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_TEST_RD_DOMINANT\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_TEST_RD_RECESSIVE\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBCCAN_SEG1_DEFAULT_VAL\fP   5"
+.br
+.ti -1c
+.RI "#define \fBCCAN_SEG2_DEFAULT_VAL\fP   4"
+.br
+.ti -1c
+.RI "#define \fBCCAN_SJW_DEFAULT_VAL\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCCAN_MSG_MAX_NUM\fP   32"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDREQ_MSG_NUM\fP(n)   (n)			/* Message number (1\->20) */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDREQ_BUSY\fP   0x8000			/* 1 is writing is progress, cleared when RD/WR done */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_DATAB\fP   (1 << 0)		/** 1 is transfer data byte 4\-7 to message object, 0 is not */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_DATAA\fP   (1 << 1)		/** 1 is transfer data byte 0\-3 to message object, 0 is not */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_W_TXRQST\fP   (1 << 2)		/** Request a transmission\&. Set the TXRQST bit IF1/2_MCTRL\&. */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_R_NEWDAT\fP   (1 << 2)		/** Clear NEWDAT bit in the message object */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_R_CLRINTPND\fP   (1 << 3)		/** Clear INTPND bit in the message object\&. */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_CTRL\fP   (1 << 4)		/** 1 is transfer the CTRL bit to the message object, 0 is not */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_ARB\fP   (1 << 5)		/** 1 is transfer the ARB bits to the message object, 0 is not */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_MASK\fP   (1 << 6)		/** 1 is transfer the MASK bit to the message object, 0 is not */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_WR\fP   (1 << 7)		/*  Tranfer direction: Write */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_RD\fP   (0)				/*  Tranfer direction: Read */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_CMDMSK_TRANSFER_ALL\fP"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MASK2_MXTD\fP   (1 << 15)				/* 1 is extended identifier bit is used in the RX filter unit, 0 is not */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MASK2_MDIR\fP(n)   (((n) & 0x01) <<  14)	/* 1 is direction bit is used in the RX filter unit, 0 is not */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_ARB2_DIR\fP(n)   (((n) & 0x01) << 13)	/* 1: Dir = transmit, 0: Dir = receive */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_ARB2_XTD\fP   (1 << 14)		/* Extended identifier bit is used*/"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_ARB2_MSGVAL\fP   (1 << 15)		/* Message valid bit, 1 is valid in the MO handler, 0 is ignored */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_DLC_MSK\fP   0x000F			/* bit mask for DLC */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_EOB\fP   (1 << 7)		/* End of buffer, always write to 1 */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_TXRQ\fP   (1 << 8)		/* 1 is TxRqst enabled */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_RMTEN\fP(n)   (((n) & 1UL) << 9)	/* 1 is remote frame enabled */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_RXIE\fP   (1 << 10)		/* 1 is RX interrupt enabled */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_TXIE\fP   (1 << 11)		/* 1 is TX interrupt enabled */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_UMSK\fP   (1 << 12)		/* 1 is to use the mask for the receive filter mask\&. */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_INTP\fP   (1 << 13)		/* 1 indicates message object is an interrupt source */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_MLST\fP   (1 << 14)		/* 1 indicates a message loss\&. */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_IF_MCTRL_NEWD\fP   (1 << 15)		/* 1 indicates new data is in the message buffer\&.  */"
+.br
+.ti -1c
+.RI "#define \fBCCAN_MSG_ID_STD_MASK\fP   0x07FF"
+.br
+.ti -1c
+.RI "#define \fBCCAN_MSG_ID_EXT_MASK\fP   0x1FFFFFFF"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCCAN_LEC_T\fP { \fBCCAN_LEC_NO_ERROR\fP, \fBCCAN_LEC_STUFF_ERROR\fP, \fBCCAN_LEC_FORM_ERROR\fP, \fBCCAN_LEC_ACK_ERROR\fP, \fBCCAN_LEC_BIT1_ERROR\fP, \fBCCAN_LEC_BIT0_ERROR\fP, \fBCCAN_LEC_CRC_ERROR\fP }
+.RI "\fILast Error Code definition\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBCCAN_TRANSFER_DIR_T\fP { \fBCCAN_RX_DIR\fP, \fBCCAN_TX_DIR\fP }
+.RI "\fICCAN Transfer direction definition\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBCCAN_MSG_IF_T\fP { \fBCCAN_MSG_IF1\fP = 0, \fBCCAN_MSG_IF2\fP = 1 }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_EnableInt\fP (\fBLPC_CCAN_T\fP *pCCAN, uint32_t mask)"
+.br
+.RI "\fIEnable CCAN Interrupts\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_DisableInt\fP (\fBLPC_CCAN_T\fP *pCCAN, uint32_t mask)"
+.br
+.RI "\fIDisable CCAN Interrupts\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_CCAN_GetIntID\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIGet the source ID of an interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_CCAN_GetStatus\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIGet the CCAN status register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_SetStatus\fP (\fBLPC_CCAN_T\fP *pCCAN, uint32_t val)"
+.br
+.RI "\fISet the CCAN status\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_ClearStatus\fP (\fBLPC_CCAN_T\fP *pCCAN, uint32_t val)"
+.br
+.RI "\fIClear the status of CCAN bus\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_CCAN_GetErrCounter\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_TRANSFER_DIR_T\fP dir)"
+.br
+.RI "\fIGet the current value of the transmit/receive error counter\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_EnableTestMode\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIEnable test mode in CCAN\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_DisableTestMode\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIEnable test mode in CCAN\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_ConfigTestMode\fP (\fBLPC_CCAN_T\fP *pCCAN, uint32_t cfg)"
+.br
+.RI "\fIEnable/Disable test mode in CCAN\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_EnableAutoRetransmit\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIEnable automatic retransmission\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_DisableAutoRetransmit\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIDisable automatic retransmission\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_CCAN_GetTxRQST\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIGet the transmit repuest bit in all message objects\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_Init\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIInitialize the CCAN peripheral, free all message object in RAM\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_DeInit\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fIDe-initialize the CCAN peripheral\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_CCAN_SetBitRate\fP (\fBLPC_CCAN_T\fP *pCCAN, uint32_t bitRate)"
+.br
+.RI "\fISelect bit rate for CCAN bus\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_TransferMsgObject\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint32_t mask, uint32_t msgNum)"
+.br
+.RI "\fITranfer message object between IF registers and Message RAM\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_SetMsgObject\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, \fBCCAN_TRANSFER_DIR_T\fP dir, bool remoteFrame, uint8_t msgNum, const \fBCCAN_MSG_OBJ_T\fP *pMsgObj)"
+.br
+.RI "\fISet a message into the message object in message RAM\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_GetMsgObject\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum, \fBCCAN_MSG_OBJ_T\fP *pMsgObj)"
+.br
+.RI "\fIGet a message object in message RAM into the message buffer\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_SetValidMsg\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum, bool valid)"
+.br
+.RI "\fIEnable/Disable the message object to valid\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_CCAN_GetValidMsg\fP (\fBLPC_CCAN_T\fP *pCCAN)"
+.br
+.RI "\fICheck the message objects is valid or not\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_ClearMsgIntPend\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum, \fBCCAN_TRANSFER_DIR_T\fP dir)"
+.br
+.RI "\fIClear the pending message interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_CCAN_ClearNewDataFlag\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum)"
+.br
+.RI "\fIClear new data flag bit in the message object\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_Send\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, bool remoteFrame, \fBCCAN_MSG_OBJ_T\fP *pMsgObj)"
+.br
+.RI "\fISend a message\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_AddReceiveID\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint32_t id)"
+.br
+.RI "\fIRegister a message ID for receiving\&. \fP"
+.ti -1c
+.RI "void \fBChip_CCAN_DeleteReceiveID\fP (\fBLPC_CCAN_T\fP *pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint32_t id)"
+.br
+.RI "\fIRemove a registered message ID from receiving\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define CCAN_CTRL_CCE   (1 << 6)"
+The CPU has write access to the CANBT register while the INIT bit is one\&. 
+.PP
+Definición en la línea 97 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_CTRL_DAR   (1 << 5)"
+Automatic retransmission disabled\&. 
+.PP
+Definición en la línea 96 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_CTRL_EIE   (1 << 3)"
+Error Interupt Enable\&. 
+.PP
+Definición en la línea 95 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_CTRL_IE   (1 << 1)"
+Module Interupt Enable\&. 
+.PP
+Definición en la línea 93 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_CTRL_INIT   (1 << 0)"
+Initialization is started\&. 
+.PP
+Definición en la línea 92 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_CTRL_SIE   (1 << 2)"
+Status Change Interupt Enable\&. 
+.PP
+Definición en la línea 94 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_CTRL_TEST   (1 << 7)"
+Test mode\&. 
+.PP
+Definición en la línea 98 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_ARB2_DIR(n)   (((n) & 0x01) << 13)	/* 1: Dir = transmit, 0: Dir = receive */"
+
+.PP
+Definición en la línea 362 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_ARB2_MSGVAL   (1 << 15)		/* Message valid bit, 1 is valid in the MO handler, 0 is ignored */"
+
+.PP
+Definición en la línea 364 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_ARB2_XTD   (1 << 14)		/* Extended identifier bit is used*/"
+
+.PP
+Definición en la línea 363 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_ARB   (1 << 5)		/** 1 is transfer the ARB bits to the message object, 0 is not */"
+
+.PP
+Definición en la línea 350 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_CTRL   (1 << 4)		/** 1 is transfer the CTRL bit to the message object, 0 is not */"
+
+.PP
+Definición en la línea 349 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_DATAA   (1 << 1)		/** 1 is transfer data byte 0\-3 to message object, 0 is not */"
+
+.PP
+Definición en la línea 345 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_DATAB   (1 << 0)		/** 1 is transfer data byte 4\-7 to message object, 0 is not */"
+
+.PP
+Definición en la línea 344 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_MASK   (1 << 6)		/** 1 is transfer the MASK bit to the message object, 0 is not */"
+
+.PP
+Definición en la línea 351 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_R_CLRINTPND   (1 << 3)		/** Clear INTPND bit in the message object\&. */"
+
+.PP
+Definición en la línea 348 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_R_NEWDAT   (1 << 2)		/** Clear NEWDAT bit in the message object */"
+
+.PP
+Definición en la línea 347 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_RD   (0)				/*  Tranfer direction: Read */"
+
+.PP
+Definición en la línea 353 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_TRANSFER_ALL"
+\fBValor:\fP
+.PP
+.nf
+(CCAN_IF_CMDMSK_CTRL | CCAN_IF_CMDMSK_MASK | CCAN_IF_CMDMSK_ARB | \\
+									 CCAN_IF_CMDMSK_DATAB | CCAN_IF_CMDMSK_DATAA)
+.fi
+.PP
+Definición en la línea 354 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_W_TXRQST   (1 << 2)		/** Request a transmission\&. Set the TXRQST bit IF1/2_MCTRL\&. */"
+
+.PP
+Definición en la línea 346 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDMSK_WR   (1 << 7)		/*  Tranfer direction: Write */"
+
+.PP
+Definición en la línea 352 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDREQ_BUSY   0x8000			/* 1 is writing is progress, cleared when RD/WR done */"
+
+.PP
+Definición en la línea 341 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_CMDREQ_MSG_NUM(n)   (n)			/* Message number (1\->20) */"
+
+.PP
+Definición en la línea 340 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MASK2_MDIR(n)   (((n) & 0x01) <<  14)	/* 1 is direction bit is used in the RX filter unit, 0 is not */"
+
+.PP
+Definición en la línea 359 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MASK2_MXTD   (1 << 15)				/* 1 is extended identifier bit is used in the RX filter unit, 0 is not */"
+
+.PP
+Definición en la línea 358 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_DLC_MSK   0x000F			/* bit mask for DLC */"
+
+.PP
+Definición en la línea 367 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_EOB   (1 << 7)		/* End of buffer, always write to 1 */"
+
+.PP
+Definición en la línea 368 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_INTP   (1 << 13)		/* 1 indicates message object is an interrupt source */"
+
+.PP
+Definición en la línea 374 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_MLST   (1 << 14)		/* 1 indicates a message loss\&. */"
+
+.PP
+Definición en la línea 375 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_NEWD   (1 << 15)		/* 1 indicates new data is in the message buffer\&.  */"
+
+.PP
+Definición en la línea 376 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_RMTEN(n)   (((n) & 1UL) << 9)	/* 1 is remote frame enabled */"
+
+.PP
+Definición en la línea 370 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_RXIE   (1 << 10)		/* 1 is RX interrupt enabled */"
+
+.PP
+Definición en la línea 371 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_TXIE   (1 << 11)		/* 1 is TX interrupt enabled */"
+
+.PP
+Definición en la línea 372 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_TXRQ   (1 << 8)		/* 1 is TxRqst enabled */"
+
+.PP
+Definición en la línea 369 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_IF_MCTRL_UMSK   (1 << 12)		/* 1 is to use the mask for the receive filter mask\&. */"
+
+.PP
+Definición en la línea 373 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_INT_MSG_NUM(n)   (n)"
+Number of messages which caused interrupts 
+.PP
+Definición en la línea 128 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_INT_NO_PENDING   0"
+No interrupt pending 
+.PP
+Definición en la línea 126 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_INT_STATUS   0x8000"
+Status interrupt 
+.PP
+Definición en la línea 127 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_MSG_ID_EXT_MASK   0x1FFFFFFF"
+
+.PP
+Definición en la línea 379 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_MSG_ID_STD_MASK   0x07FF"
+
+.PP
+Definición en la línea 378 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_MSG_MAX_NUM   32"
+Number of message objects in Message RAM 
+.PP
+Definición en la línea 323 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_SEG1_DEFAULT_VAL   5"
+
+.PP
+Definición en la línea 141 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_SEG2_DEFAULT_VAL   4"
+
+.PP
+Definición en la línea 142 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_SJW_DEFAULT_VAL   0"
+
+.PP
+Definición en la línea 143 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_STAT_BOFF   (1 << 7)	/*The CAN controller is in busoff state\&.*/"
+
+.PP
+Definición en la línea 106 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_STAT_EPASS   (1 << 5)	/* The CAN controller is in the \fBerror\fP passive state*/"
+
+.PP
+Definición en la línea 104 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_STAT_EWARN   (1 << 6)	/*At least one of the \fBerror\fP counters in the EC has reached the \fBerror\fP warning limit of 96\&.*/"
+
+.PP
+Definición en la línea 105 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_STAT_LEC_MASK   (0x07)		/* Mask for Last Error Code */"
+
+.PP
+Definición en la línea 101 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_STAT_RXOK   (1 << 4)	/* Received a message successfully */"
+
+.PP
+Definición en la línea 103 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_STAT_TXOK   (1 << 3)	/* Transmitted a message successfully */"
+
+.PP
+Definición en la línea 102 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_TEST_BASIC_MODE   (1 << 2)"
+IF1 registers used as TX buffer, IF2 registers used as RX buffer\&. 
+.PP
+Definición en la línea 131 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_TEST_LOOPBACK_MODE   (1 << 4)"
+Loop back mode is enabled\&. 
+.PP
+Definición en la línea 133 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_TEST_RD_DOMINANT   (0)"
+The CAN bus is dominant (RD = 0)\&. 
+.PP
+Definición en la línea 138 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_TEST_RD_RECESSIVE   (1 << 7)"
+The CAN bus is recessive (RD = 1)\&. 
+.PP
+Definición en la línea 139 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_TEST_SILENT_MODE   (1 << 3)"
+The module is in silent mode\&. 
+.PP
+Definición en la línea 132 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_TEST_TD_CONTROLLED   (0)"
+Level at the TD pin is controlled by the CAN controller\&. 
+.PP
+Definición en la línea 134 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_TEST_TD_DOMINANT   (2 << 5)"
+TD pin is driven LOW/dominant\&. 
+.PP
+Definición en la línea 136 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_TEST_TD_MONITORED   (1 << 5)"
+The sample point can be monitored at the TD pin\&. 
+.PP
+Definición en la línea 135 del archivo ccan_18xx_43xx\&.h\&.
+.SS "#define CCAN_TEST_TD_RECESSIVE   (3 << 5)"
+TD pin is driven HIGH/recessive\&. 
+.PP
+Definición en la línea 137 del archivo ccan_18xx_43xx\&.h\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBCCAN_LEC_T\fP"
+
+.PP
+Last Error Code definition\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fICCAN_LEC_NO_ERROR \fP\fP
+No error 
+.TP
+\fB\fICCAN_LEC_STUFF_ERROR \fP\fP
+More than 5 equal bits in a sequence have occurred in a part of a received message where this is not allowed\&. 
+.TP
+\fB\fICCAN_LEC_FORM_ERROR \fP\fP
+A fixed format part of a received frame has the wrong format 
+.TP
+\fB\fICCAN_LEC_ACK_ERROR \fP\fP
+The message this CAN core transmitted was not acknowledged\&. 
+.TP
+\fB\fICCAN_LEC_BIT1_ERROR \fP\fP
+During the transmission of a message (with the exception of the arbitration field), the device wanted to send a HIGH/recessive level (bit of logical value '1'), but the monitored bus value was LOW/dominant\&. 
+.TP
+\fB\fICCAN_LEC_BIT0_ERROR \fP\fP
+During the transmission of a message (or acknowledge bit, or active error flag, or overload flag), the device wanted to send a LOW/dominant level (data or identifier bit logical value '0'), but the monitored Bus value was HIGH/recessive\&. During busoff recovery this status is set each time a sequence of 11 HIGH/recessive bits has been monitored\&. This enables the CPU to monitor the proceeding of the busoff recovery sequence (indicating the bus is not stuck at LOW/dominant or continuously disturbed)\&. 
+.TP
+\fB\fICCAN_LEC_CRC_ERROR \fP\fP
+The CRC checksum was incorrect in the message received\&. 
+.PP
+Definición en la línea 111 del archivo ccan_18xx_43xx\&.h\&.
+.SS "enum \fBCCAN_MSG_IF_T\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fICCAN_MSG_IF1 \fP\fP
+.TP
+\fB\fICCAN_MSG_IF2 \fP\fP
+.PP
+Definición en la línea 334 del archivo ccan_18xx_43xx\&.h\&.
+.SS "enum \fBCCAN_TRANSFER_DIR_T\fP"
+
+.PP
+CCAN Transfer direction definition\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fICCAN_RX_DIR \fP\fP
+.TP
+\fB\fICCAN_TX_DIR \fP\fP
+.PP
+Definición en la línea 148 del archivo ccan_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_CCAN_AddReceiveID (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint32_t id)"
+
+.PP
+Register a message ID for receiving\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIIFSel\fP : The Message interface to be used 
+.br
+\fIid\fP : Received message ID 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 288 del archivo ccan_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_ClearMsgIntPend (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum, \fBCCAN_TRANSFER_DIR_T\fP dir)"
+
+.PP
+Clear the pending message interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIIFSel\fP : The Message interface to be used 
+.br
+\fImsgNum\fP : Message number 
+.br
+\fIdir\fP : Select transmit or receive interrupt to be cleared 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 449 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_ClearNewDataFlag (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum)"
+
+.PP
+Clear new data flag bit in the message object\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIIFSel\fP : The Message interface to be used 
+.br
+\fImsgNum\fP : Message number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 464 del archivo ccan_18xx_43xx\&.h\&.
+.SS "void Chip_CCAN_ClearStatus (\fBLPC_CCAN_T\fP * pCCAN, uint32_t val)"
+
+.PP
+Clear the status of CCAN bus\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIval\fP : Status to be cleared (or-ed bit value of CCAN_STAT_*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 153 del archivo ccan_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_ConfigTestMode (\fBLPC_CCAN_T\fP * pCCAN, uint32_t cfg)"
+
+.PP
+Enable/Disable test mode in CCAN\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIcfg\fP : Test function, or-ed bit values of CCAN_TEST_* 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Test Mode must be enabled before using Chip_CCAN_EnableTestMode function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 265 del archivo ccan_18xx_43xx\&.h\&.
+.SS "void Chip_CCAN_DeInit (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+De-initialize the CCAN peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 123 del archivo ccan_18xx_43xx\&.c\&.
+.SS "void Chip_CCAN_DeleteReceiveID (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint32_t id)"
+
+.PP
+Remove a registered message ID from receiving\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIIFSel\fP : The Message interface to be used 
+.br
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIid\fP : Received message ID to be removed 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 300 del archivo ccan_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_DisableAutoRetransmit (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Disable automatic retransmission\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 285 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_DisableInt (\fBLPC_CCAN_T\fP * pCCAN, uint32_t mask)"
+
+.PP
+Disable CCAN Interrupts\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fImask\fP : Interrupt mask, or-ed bit value of
+.IP "\(bu" 2
+CCAN_CTRL_IE 
+.br
+
+.IP "\(bu" 2
+CCAN_CTRL_SIE 
+.br
+
+.IP "\(bu" 2
+CCAN_CTRL_EIE 
+.br
+ 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 176 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_DisableTestMode (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Enable test mode in CCAN\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 253 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_EnableAutoRetransmit (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Enable automatic retransmission\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 275 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_EnableInt (\fBLPC_CCAN_T\fP * pCCAN, uint32_t mask)"
+
+.PP
+Enable CCAN Interrupts\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fImask\fP : Interrupt mask, or-ed bit value of
+.IP "\(bu" 2
+CCAN_CTRL_IE 
+.br
+
+.IP "\(bu" 2
+CCAN_CTRL_SIE 
+.br
+
+.IP "\(bu" 2
+CCAN_CTRL_EIE 
+.br
+ 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 162 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_EnableTestMode (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Enable test mode in CCAN\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 243 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_CCAN_GetErrCounter (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_TRANSFER_DIR_T\fP dir)"
+
+.PP
+Get the current value of the transmit/receive error counter\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIdir\fP : direction 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current value of the transmit/receive error counter 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+When \fIdir\fP is \fBCCAN_RX_DIR\fP, then MSB (bit-7) indicates the receiver error passive level, if the bit is High(1) then the reciever counter has reached error passive level as specified in CAN2\&.0 specification; else if the bit is Low(0) it indicates that the error counter is below the passive level\&. Bits from (bit6-0) has the actual error count\&. When \fIdir\fP is \fBCCAN_TX_DIR\fP, the complete 8-bits indicates the number of tx errors\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 233 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_CCAN_GetIntID (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Get the source ID of an interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Interrupt source ID 
+.RE
+.PP
+
+.PP
+Definición en la línea 186 del archivo ccan_18xx_43xx\&.h\&.
+.SS "void Chip_CCAN_GetMsgObject (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum, \fBCCAN_MSG_OBJ_T\fP * pMsgObj)"
+
+.PP
+Get a message object in message RAM into the message buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIIFSel\fP : The Message interface to be used 
+.br
+\fImsgNum\fP : The number of message object in message RAM to be get 
+.br
+\fIpMsgObj\fP : Pointer of the message buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 217 del archivo ccan_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_CCAN_GetStatus (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Get the CCAN status register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+CCAN status register (or-ed bit value of CCAN_STAT_*) 
+.RE
+.PP
+
+.PP
+Definición en la línea 196 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_CCAN_GetTxRQST (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Get the transmit repuest bit in all message objects\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+A 32 bits value, each bit corresponds to transmit request bit in message objects 
+.RE
+.PP
+
+.PP
+Definición en la línea 295 del archivo ccan_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_CCAN_GetValidMsg (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Check the message objects is valid or not\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+A 32 bits value, each bit corresponds to a message objects form 0 to 31 (1 is valid, 0 is invalid) 
+.RE
+.PP
+
+.PP
+Definición en la línea 436 del archivo ccan_18xx_43xx\&.h\&.
+.SS "void Chip_CCAN_Init (\fBLPC_CCAN_T\fP * pCCAN)"
+
+.PP
+Initialize the CCAN peripheral, free all message object in RAM\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 110 del archivo ccan_18xx_43xx\&.c\&.
+.SS "void Chip_CCAN_Send (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, bool remoteFrame, \fBCCAN_MSG_OBJ_T\fP * pMsgObj)"
+
+.PP
+Send a message\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIIFSel\fP : The Message interface to be used 
+.br
+\fIremoteFrame\fP Enable/Disable passives transmit by using remote frame 
+.br
+\fIpMsgObj\fP : Message to be transmitted 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 273 del archivo ccan_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP Chip_CCAN_SetBitRate (\fBLPC_CCAN_T\fP * pCCAN, uint32_t bitRate)"
+
+.PP
+Select bit rate for CCAN bus\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIbitRate\fP : Bit rate to be set 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SUCCESS/ERROR 
+.RE
+.PP
+
+.PP
+Definición en la línea 129 del archivo ccan_18xx_43xx\&.c\&.
+.SS "void Chip_CCAN_SetMsgObject (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, \fBCCAN_TRANSFER_DIR_T\fP dir, bool remoteFrame, uint8_t msgNum, const \fBCCAN_MSG_OBJ_T\fP * pMsgObj)"
+
+.PP
+Set a message into the message object in message RAM\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIIFSel\fP : The Message interface to be used 
+.br
+\fIdir\fP : transmit/receive 
+.br
+\fIremoteFrame\fP Enable/Disable passives transmit by using remote frame 
+.br
+\fImsgNum\fP : Message number 
+.br
+\fIpMsgObj\fP : Pointer of message to be set 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 160 del archivo ccan_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_CCAN_SetStatus (\fBLPC_CCAN_T\fP * pCCAN, uint32_t val)"
+
+.PP
+Set the CCAN status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIval\fP : Value to be set for status register (or-ed bit value of CCAN_STAT_*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 207 del archivo ccan_18xx_43xx\&.h\&.
+.SS "void Chip_CCAN_SetValidMsg (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint8_t msgNum, bool valid)"
+
+.PP
+Enable/Disable the message object to valid\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIIFSel\fP : The Message interface to be used 
+.br
+\fImsgNum\fP : Message number 
+.br
+\fIvalid\fP : true: valid, false: invalide 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 257 del archivo ccan_18xx_43xx\&.c\&.
+.SS "void Chip_CCAN_TransferMsgObject (\fBLPC_CCAN_T\fP * pCCAN, \fBCCAN_MSG_IF_T\fP IFSel, uint32_t mask, uint32_t msgNum)"
+
+.PP
+Tranfer message object between IF registers and Message RAM\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpCCAN\fP : The base of CCAN peripheral on the chip 
+.br
+\fIIFSel\fP : The Message interface to be used 
+.br
+\fImask\fP : command mask (or-ed bit value of CCAN_IF_CMDMSK_*) 
+.br
+\fImsgNum\fP : The number of message object in message RAM to be get 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 246 del archivo ccan_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

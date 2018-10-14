@@ -1,0 +1,76 @@
+.TH "gpiogroup_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gpiogroup_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_GPIOGROUPINT_T\fP"
+.br
+.RI "\fIGPIO grouped interrupt register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBGPIOGR_INT\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIOGR_COMB\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIOGR_TRIG\fP   (1 << 2)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_ClearIntStatus\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fIClear interrupt pending status for the selected group\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIOGP_GetIntStatus\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fIReturns current GPIO group inetrrupt pending status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectOrMode\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fISelected GPIO group functionality for trigger on any pin in group (OR mode) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectAndMode\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fISelected GPIO group functionality for trigger on all matching pins in group (AND mode) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectEdgeMode\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fISelected GPIO group functionality edge trigger mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectLevelMode\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fISelected GPIO group functionality level trigger mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectLowLevel\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fISet selected pins for the group and port to low level trigger\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectHighLevel\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fISet selected pins for the group and port to high level trigger\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_DisableGroupPins\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fIDisabled selected pins for the group interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_EnableGroupPins\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fIEnable selected pins for the group interrupt\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,97 @@
+\hypertarget{group___r_t_c___u_t}{}\section{C\+H\+IP\+: R\+TC tick to (a more) Universal Time conversion functions}
+\label{group___r_t_c___u_t}\index{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions@{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions}}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___r_t_c___u_t_ga0b24352233a7c91b5e627d2a26ffefb3}{T\+M\+\_\+\+Y\+E\+A\+R\+\_\+\+B\+A\+SE}~(1900)
+\item 
+\#define \hyperlink{group___r_t_c___u_t_ga35e3274b0fe1e51c0dcbbac47b0ccd24}{T\+M\+\_\+\+D\+A\+Y\+O\+F\+W\+E\+EK}~(1)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___r_t_c___u_t_gab32979b30c7fb280248d6aecd3dccfab}{Convert\+Rtc\+Time} (uint32\+\_\+t rtc\+Tick, struct tm $\ast$p\+Time)
+\begin{DoxyCompactList}\small\item\em Converts a R\+TC tick time to Universal time. \end{DoxyCompactList}\item 
+void \hyperlink{group___r_t_c___u_t_ga4923243ffbb19299329003af866ca4bb}{Convert\+Time\+Rtc} (struct tm $\ast$p\+Time, uint32\+\_\+t $\ast$rtc\+Tick)
+\begin{DoxyCompactList}\small\item\em Converts a Universal time to R\+TC tick time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+This driver converts between a R\+TC 1-\/second tick value and a Universal time format in a structure of type \textquotesingle{}struct tm\textquotesingle{}. 
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions@{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions}!T\+M\+\_\+\+D\+A\+Y\+O\+F\+W\+E\+EK@{T\+M\+\_\+\+D\+A\+Y\+O\+F\+W\+E\+EK}}
+\index{T\+M\+\_\+\+D\+A\+Y\+O\+F\+W\+E\+EK@{T\+M\+\_\+\+D\+A\+Y\+O\+F\+W\+E\+EK}!C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions@{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions}}
+\subsubsection[{\texorpdfstring{T\+M\+\_\+\+D\+A\+Y\+O\+F\+W\+E\+EK}{TM_DAYOFWEEK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+M\+\_\+\+D\+A\+Y\+O\+F\+W\+E\+EK~(1)}\hypertarget{group___r_t_c___u_t_ga35e3274b0fe1e51c0dcbbac47b0ccd24}{}\label{group___r_t_c___u_t_ga35e3274b0fe1e51c0dcbbac47b0ccd24}
+
+
+Definición en la línea 54 del archivo rtc\+\_\+ut.\+h.
+
+\index{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions@{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions}!T\+M\+\_\+\+Y\+E\+A\+R\+\_\+\+B\+A\+SE@{T\+M\+\_\+\+Y\+E\+A\+R\+\_\+\+B\+A\+SE}}
+\index{T\+M\+\_\+\+Y\+E\+A\+R\+\_\+\+B\+A\+SE@{T\+M\+\_\+\+Y\+E\+A\+R\+\_\+\+B\+A\+SE}!C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions@{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions}}
+\subsubsection[{\texorpdfstring{T\+M\+\_\+\+Y\+E\+A\+R\+\_\+\+B\+A\+SE}{TM_YEAR_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+M\+\_\+\+Y\+E\+A\+R\+\_\+\+B\+A\+SE~(1900)}\hypertarget{group___r_t_c___u_t_ga0b24352233a7c91b5e627d2a26ffefb3}{}\label{group___r_t_c___u_t_ga0b24352233a7c91b5e627d2a26ffefb3}
+
+
+Definición en la línea 53 del archivo rtc\+\_\+ut.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions@{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions}!Convert\+Rtc\+Time@{Convert\+Rtc\+Time}}
+\index{Convert\+Rtc\+Time@{Convert\+Rtc\+Time}!C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions@{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions}}
+\subsubsection[{\texorpdfstring{Convert\+Rtc\+Time(uint32\+\_\+t rtc\+Tick, struct tm $\ast$p\+Time)}{ConvertRtcTime(uint32_t rtcTick, struct tm *pTime)}}]{\setlength{\rightskip}{0pt plus 5cm}void Convert\+Rtc\+Time (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{rtc\+Tick, }
+\item[{struct tm $\ast$}]{p\+Time}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_t_c___u_t_gab32979b30c7fb280248d6aecd3dccfab}{}\label{group___r_t_c___u_t_gab32979b30c7fb280248d6aecd3dccfab}
+
+
+Converts a R\+TC tick time to Universal time. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em rtc\+Tick} & \+: Current R\+TC time value \\
+\hline
+{\em p\+Time} & \+: Pointer to time structure to fill \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+When setting time, the \textquotesingle{}tm\+\_\+wday\textquotesingle{}, \textquotesingle{}tm\+\_\+yday\textquotesingle{}, and \textquotesingle{}tm\+\_\+isdst\textquotesingle{} fields are not used. 
+\end{DoxyNote}
+
+
+Definición en la línea 130 del archivo rtc\+\_\+ut.\+c.
+
+\index{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions@{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions}!Convert\+Time\+Rtc@{Convert\+Time\+Rtc}}
+\index{Convert\+Time\+Rtc@{Convert\+Time\+Rtc}!C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions@{C\+H\+I\+P\+: R\+T\+C tick to (a more) Universal Time conversion functions}}
+\subsubsection[{\texorpdfstring{Convert\+Time\+Rtc(struct tm $\ast$p\+Time, uint32\+\_\+t $\ast$rtc\+Tick)}{ConvertTimeRtc(struct tm *pTime, uint32_t *rtcTick)}}]{\setlength{\rightskip}{0pt plus 5cm}void Convert\+Time\+Rtc (
+\begin{DoxyParamCaption}
+\item[{struct tm $\ast$}]{p\+Time, }
+\item[{uint32\+\_\+t $\ast$}]{rtc\+Tick}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_t_c___u_t_ga4923243ffbb19299329003af866ca4bb}{}\label{group___r_t_c___u_t_ga4923243ffbb19299329003af866ca4bb}
+
+
+Converts a Universal time to R\+TC tick time. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+Time} & \+: Pointer to time structure to use \\
+\hline
+{\em rtc\+Tick} & \+: Pointer to R\+TC time value to fill \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+When converting time, the \textquotesingle{}tm\+\_\+isdst\textquotesingle{} field is not populated by the conversion function. 
+\end{DoxyNote}
+
+
+Definición en la línea 154 del archivo rtc\+\_\+ut.\+c.
+

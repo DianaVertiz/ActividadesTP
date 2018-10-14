@@ -1,0 +1,158 @@
+\hypertarget{group___p_m_c__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx Power Management Controller driver}
+\label{group___p_m_c__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___p_m_c___t}{L\+P\+C\+\_\+\+P\+M\+C\+\_\+T}
+\begin{DoxyCompactList}\small\item\em Power Management Controller register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_gaca8a69edb54ddb4cb539fda3f7c123a9}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE}~0x3000\+AA
+\begin{DoxyCompactList}\small\item\em Power Management Controller power modes Setting this mode will not make IO loose the state. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_ga488f9a7733cd97457b4656670c7e932b}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}~0x30\+F\+C\+BA
+\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_gad8936084d3b16e9bcd783586fc29ee15}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}~0x30\+F\+F7F
+\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_ga3696589b9d3f6ab6bb5bee7e44fcde76}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}~0x3\+F00\+AA
+\begin{DoxyCompactList}\small\item\em Power Management Controller power modes (IO powerdown) Setting this mode will make the IO loose the state. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_ga50fdb688d7fbcdad20437595b897973b}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}~0x3\+F\+F\+C\+BA
+\item 
+\#define \hyperlink{group___p_m_c__18_x_x__43_x_x_ga7136b2163bb95b08d538817081f7dd49}{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}~0x3\+F\+F\+F7F
+\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___p_m_c__18_x_x__43_x_x_ga69f642b5034785c56bb9c45e4dd780de}{C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T} \{ \hyperlink{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea31d40a23015643fcc99a943b65841164}{P\+M\+C\+\_\+\+Deep\+Sleep} = P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE, 
+\hyperlink{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea9ab5cbaebd32ff7ae5414220e7281b04}{P\+M\+C\+\_\+\+Power\+Down} = P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE, 
+\hyperlink{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea9076408a570dc195ff5615835a93d678}{P\+M\+C\+\_\+\+Deep\+Power\+Down} = P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___p_m_c__18_x_x__43_x_x_ga38f5a78a75086be129f7be269d8320d4}{Chip\+\_\+\+P\+M\+C\+\_\+\+Sleep} (void)
+\begin{DoxyCompactList}\small\item\em Set to sleep power state. \end{DoxyCompactList}\item 
+void \hyperlink{group___p_m_c__18_x_x__43_x_x_ga8b70604e37d7db74a727abe576933208}{Chip\+\_\+\+P\+M\+C\+\_\+\+Set\+\_\+\+Pwr\+State} (\hyperlink{group___p_m_c__18_x_x__43_x_x_ga69f642b5034785c56bb9c45e4dd780de}{C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T} Pwr\+State)
+\begin{DoxyCompactList}\small\item\em Set to sleep power mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}}
+\index{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsubsection[{\texorpdfstring{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}{PMC_PWR_DEEP_POWER_DOWN_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE~0x30\+F\+F7F}\hypertarget{group___p_m_c__18_x_x__43_x_x_gad8936084d3b16e9bcd783586fc29ee15}{}\label{group___p_m_c__18_x_x__43_x_x_gad8936084d3b16e9bcd783586fc29ee15}
+
+
+Definición en la línea 59 del archivo pmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}}
+\index{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsubsection[{\texorpdfstring{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}{PMC_PWR_DEEP_POWER_DOWN_MODE_NO_IO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO~0x3\+F\+F\+F7F}\hypertarget{group___p_m_c__18_x_x__43_x_x_ga7136b2163bb95b08d538817081f7dd49}{}\label{group___p_m_c__18_x_x__43_x_x_ga7136b2163bb95b08d538817081f7dd49}
+
+
+Definición en la línea 67 del archivo pmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE}}
+\index{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsubsection[{\texorpdfstring{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE}{PMC_PWR_DEEP_SLEEP_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+DE~0x3000\+AA}\hypertarget{group___p_m_c__18_x_x__43_x_x_gaca8a69edb54ddb4cb539fda3f7c123a9}{}\label{group___p_m_c__18_x_x__43_x_x_gaca8a69edb54ddb4cb539fda3f7c123a9}
+
+
+Power Management Controller power modes Setting this mode will not make IO loose the state. 
+
+
+
+Definición en la línea 57 del archivo pmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}}
+\index{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsubsection[{\texorpdfstring{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}{PMC_PWR_DEEP_SLEEP_MODE_NO_IO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+D\+E\+E\+P\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO~0x3\+F00\+AA}\hypertarget{group___p_m_c__18_x_x__43_x_x_ga3696589b9d3f6ab6bb5bee7e44fcde76}{}\label{group___p_m_c__18_x_x__43_x_x_ga3696589b9d3f6ab6bb5bee7e44fcde76}
+
+
+Power Management Controller power modes (IO powerdown) Setting this mode will make the IO loose the state. 
+
+
+
+Definición en la línea 65 del archivo pmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}}
+\index{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsubsection[{\texorpdfstring{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE}{PMC_PWR_POWER_DOWN_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+DE~0x30\+F\+C\+BA}\hypertarget{group___p_m_c__18_x_x__43_x_x_ga488f9a7733cd97457b4656670c7e932b}{}\label{group___p_m_c__18_x_x__43_x_x_ga488f9a7733cd97457b4656670c7e932b}
+
+
+Definición en la línea 58 del archivo pmc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}}
+\index{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO@{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsubsection[{\texorpdfstring{P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO}{PMC_PWR_POWER_DOWN_MODE_NO_IO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+W\+N\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+\_\+\+IO~0x3\+F\+F\+C\+BA}\hypertarget{group___p_m_c__18_x_x__43_x_x_ga50fdb688d7fbcdad20437595b897973b}{}\label{group___p_m_c__18_x_x__43_x_x_ga50fdb688d7fbcdad20437595b897973b}
+
+
+Definición en la línea 66 del archivo pmc\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las enumeraciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T@{C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T}}
+\index{C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T@{C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T}{CHIP_PMC_PWR_STATE_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T}}\hypertarget{group___p_m_c__18_x_x__43_x_x_ga69f642b5034785c56bb9c45e4dd780de}{}\label{group___p_m_c__18_x_x__43_x_x_ga69f642b5034785c56bb9c45e4dd780de}
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{P\+M\+C\+\_\+\+Deep\+Sleep@{P\+M\+C\+\_\+\+Deep\+Sleep}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!P\+M\+C\+\_\+\+Deep\+Sleep@{P\+M\+C\+\_\+\+Deep\+Sleep}}\item[{\em 
+P\+M\+C\+\_\+\+Deep\+Sleep\hypertarget{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea31d40a23015643fcc99a943b65841164}{}\label{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea31d40a23015643fcc99a943b65841164}
+}]Deep sleep state \index{P\+M\+C\+\_\+\+Power\+Down@{P\+M\+C\+\_\+\+Power\+Down}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!P\+M\+C\+\_\+\+Power\+Down@{P\+M\+C\+\_\+\+Power\+Down}}\item[{\em 
+P\+M\+C\+\_\+\+Power\+Down\hypertarget{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea9ab5cbaebd32ff7ae5414220e7281b04}{}\label{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea9ab5cbaebd32ff7ae5414220e7281b04}
+}]Power Down state \index{P\+M\+C\+\_\+\+Deep\+Power\+Down@{P\+M\+C\+\_\+\+Deep\+Power\+Down}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!P\+M\+C\+\_\+\+Deep\+Power\+Down@{P\+M\+C\+\_\+\+Deep\+Power\+Down}}\item[{\em 
+P\+M\+C\+\_\+\+Deep\+Power\+Down\hypertarget{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea9076408a570dc195ff5615835a93d678}{}\label{group___p_m_c__18_x_x__43_x_x_gga69f642b5034785c56bb9c45e4dd780dea9076408a570dc195ff5615835a93d678}
+}]Power Down state \end{description}
+\end{Desc}
+
+
+Definición en la línea 72 del archivo pmc\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!Chip\+\_\+\+P\+M\+C\+\_\+\+Set\+\_\+\+Pwr\+State@{Chip\+\_\+\+P\+M\+C\+\_\+\+Set\+\_\+\+Pwr\+State}}
+\index{Chip\+\_\+\+P\+M\+C\+\_\+\+Set\+\_\+\+Pwr\+State@{Chip\+\_\+\+P\+M\+C\+\_\+\+Set\+\_\+\+Pwr\+State}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+M\+C\+\_\+\+Set\+\_\+\+Pwr\+State(\+C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+T Pwr\+State)}{Chip_PMC_Set_PwrState(CHIP_PMC_PWR_STATE_T PwrState)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+P\+M\+C\+\_\+\+Set\+\_\+\+Pwr\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T}}]{Pwr\+State}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_m_c__18_x_x__43_x_x_ga8b70604e37d7db74a727abe576933208}{}\label{group___p_m_c__18_x_x__43_x_x_ga8b70604e37d7db74a727abe576933208}
+
+
+Set to sleep power mode. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Pwr\+State} & \+: Power State as specified in /a C\+H\+I\+P\+\_\+\+P\+M\+C\+\_\+\+P\+W\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+T enum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 58 del archivo pmc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}!Chip\+\_\+\+P\+M\+C\+\_\+\+Sleep@{Chip\+\_\+\+P\+M\+C\+\_\+\+Sleep}}
+\index{Chip\+\_\+\+P\+M\+C\+\_\+\+Sleep@{Chip\+\_\+\+P\+M\+C\+\_\+\+Sleep}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Power Management Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+M\+C\+\_\+\+Sleep(void)}{Chip_PMC_Sleep(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+P\+M\+C\+\_\+\+Sleep (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_m_c__18_x_x__43_x_x_ga38f5a78a75086be129f7be269d8320d4}{}\label{group___p_m_c__18_x_x__43_x_x_ga38f5a78a75086be129f7be269d8320d4}
+
+
+Set to sleep power state. 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 51 del archivo pmc\+\_\+18xx\+\_\+43xx.\+c.
+

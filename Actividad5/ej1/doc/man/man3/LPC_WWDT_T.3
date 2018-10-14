@@ -1,0 +1,75 @@
+.TH "LPC_WWDT_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_WWDT_T \- Windowed Watchdog register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <wwdt_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMOD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTC\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBFEED\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTV\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBWARNINT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBWINDOW\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Windowed Watchdog register block structure\&. 
+.PP
+Definición en la línea 52 del archivo wwdt_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__O\fP uint32_t FEED"
+Watchdog feed sequence register\&. Writing 0xAA followed by 0x55 to this register reloads the Watchdog timer with the value contained in WDTC\&. 
+.PP
+Definición en la línea 55 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MOD"
+< WWDT Structure Watchdog mode register\&. This register contains the basic mode and status of the Watchdog Timer\&. 
+.PP
+Definición en la línea 53 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0"
+
+.PP
+Definición en la línea 57 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TC"
+Watchdog timer constant register\&. This register determines the time-out value\&. 
+.PP
+Definición en la línea 54 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t TV"
+Watchdog timer value register\&. This register reads out the current value of the Watchdog timer\&. 
+.PP
+Definición en la línea 56 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t WARNINT"
+Watchdog warning interrupt register\&. This register contains the Watchdog warning interrupt compare value\&. 
+.PP
+Definición en la línea 59 del archivo wwdt_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t WINDOW"
+Watchdog timer window register\&. This register contains the Watchdog window value\&. 
+.PP
+Definición en la línea 60 del archivo wwdt_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,205 @@
+.TH "ATIMER_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ATIMER_18XX_43XX \- CHIP: LPC18xx/43xx Alarm Timer driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_ATIMER_T\fP"
+.br
+.RI "\fIAlarm Timer register block structure\&. \fP"
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_ATIMER_Init\fP (\fBLPC_ATIMER_T\fP *pATIMER, uint32_t PresetValue)"
+.br
+.RI "\fIInitialize Alarm Timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_ATIMER_DeInit\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIClose ATIMER device\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_IntEnable\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIEnable ATIMER Interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_IntDisable\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIDisable ATIMER Interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_ClearIntStatus\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIClear ATIMER Interrupt Status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_SetIntStatus\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fISet ATIMER Interrupt Status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_UpdatePresetValue\fP (\fBLPC_ATIMER_T\fP *pATIMER, uint32_t PresetValue)"
+.br
+.RI "\fIUpdate Preset value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_ATIMER_GetPresetValue\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIRead value of preset register\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ATIMER_ClearIntStatus (\fBLPC_ATIMER_T\fP * pATIMER)"
+
+.PP
+Clear ATIMER Interrupt Status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpATIMER\fP : The base of ATIMER peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 99 del archivo atimer_18xx_43xx\&.h\&.
+.SS "void Chip_ATIMER_DeInit (\fBLPC_ATIMER_T\fP * pATIMER)"
+
+.PP
+Close ATIMER device\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpATIMER\fP : The base of ATIMER peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 58 del archivo atimer_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_ATIMER_GetPresetValue (\fBLPC_ATIMER_T\fP * pATIMER)"
+
+.PP
+Read value of preset register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpATIMER\fP : The base of ATIMER peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Value of capture register 
+.RE
+.PP
+
+.PP
+Definición en la línea 130 del archivo atimer_18xx_43xx\&.h\&.
+.SS "void Chip_ATIMER_Init (\fBLPC_ATIMER_T\fP * pATIMER, uint32_t PresetValue)"
+
+.PP
+Initialize Alarm Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpATIMER\fP : The base of ATIMER peripheral on the chip 
+.br
+\fIPresetValue\fP : Count of 1 to 1024s for Alarm 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 51 del archivo atimer_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ATIMER_IntDisable (\fBLPC_ATIMER_T\fP * pATIMER)"
+
+.PP
+Disable ATIMER Interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpATIMER\fP : The base of ATIMER peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 89 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ATIMER_IntEnable (\fBLPC_ATIMER_T\fP * pATIMER)"
+
+.PP
+Enable ATIMER Interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpATIMER\fP : The base of ATIMER peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 79 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ATIMER_SetIntStatus (\fBLPC_ATIMER_T\fP * pATIMER)"
+
+.PP
+Set ATIMER Interrupt Status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpATIMER\fP : The base of ATIMER peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 109 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ATIMER_UpdatePresetValue (\fBLPC_ATIMER_T\fP * pATIMER, uint32_t PresetValue)"
+
+.PP
+Update Preset value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpATIMER\fP : The base of ATIMER peripheral on the chip 
+.br
+\fIPresetValue\fP : updated preset value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 120 del archivo atimer_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

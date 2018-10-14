@@ -1,0 +1,63 @@
+.TH "i2cm_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+i2cm_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBI2C_CON_FLAGS\fP   (\fBI2C_CON_AA\fP | \fBI2C_CON_SI\fP | \fBI2C_CON_STO\fP | \fBI2C_CON_STA\fP)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_I2CM_Init\fP (\fBLPC_I2C_T\fP *pI2C)"
+.br
+.RI "\fIInitialize I2C Interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2CM_DeInit\fP (\fBLPC_I2C_T\fP *pI2C)"
+.br
+.RI "\fIShutdown I2C Interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2CM_SetBusSpeed\fP (\fBLPC_I2C_T\fP *pI2C, uint32_t busSpeed)"
+.br
+.RI "\fISet up bus speed for LPC_I2C controller\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_XferHandler\fP (\fBLPC_I2C_T\fP *pI2C, \fBI2CM_XFER_T\fP *xfer)"
+.br
+.RI "\fITransfer state change handler handler\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2CM_Xfer\fP (\fBLPC_I2C_T\fP *pI2C, \fBI2CM_XFER_T\fP *xfer)"
+.br
+.RI "\fITransmit and Receive data in master mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_XferBlocking\fP (\fBLPC_I2C_T\fP *pI2C, \fBI2CM_XFER_T\fP *xfer)"
+.br
+.RI "\fITransmit and Receive data in master mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_Write\fP (\fBLPC_I2C_T\fP *pI2C, const uint8_t *buff, uint32_t len)"
+.br
+.RI "\fIWrite given buffer of data to I2C interface\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_Read\fP (\fBLPC_I2C_T\fP *pI2C, uint8_t *buff, uint32_t len)"
+.br
+.RI "\fIRead data from I2C slave to given buffer\&. \fP"
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define I2C_CON_FLAGS   (\fBI2C_CON_AA\fP | \fBI2C_CON_SI\fP | \fBI2C_CON_STO\fP | \fBI2C_CON_STA\fP)"
+
+.PP
+Definición en la línea 39 del archivo i2cm_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,67 @@
+.TH "otp_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+otp_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_OTP_T\fP"
+.br
+.RI "\fIOTP Register block\&. \fP"
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBCHIP_OTP_BOOT_SRC\fP \fBCHIP_OTP_BOOT_SRC_T\fP"
+.br
+.RI "\fIOTP Boot Source selection used in Chip driver\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_OTP_BOOT_SRC\fP { \fBCHIP_OTP_BOOTSRC_PINS\fP, \fBCHIP_OTP_BOOTSRC_UART0\fP, \fBCHIP_OTP_BOOTSRC_SPIFI\fP, \fBCHIP_OTP_BOOTSRC_EMC8\fP, \fBCHIP_OTP_BOOTSRC_EMC16\fP, \fBCHIP_OTP_BOOTSRC_EMC32\fP, \fBCHIP_OTP_BOOTSRC_USB0\fP, \fBCHIP_OTP_BOOTSRC_USB1\fP, \fBCHIP_OTP_BOOTSRC_SPI\fP, \fBCHIP_OTP_BOOTSRC_UART3\fP }
+.RI "\fIOTP Boot Source selection used in Chip driver\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBChip_OTP_Init\fP (void)"
+.br
+.RI "\fIInitialize for OTP Controller functions\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgBootSrc\fP (\fBCHIP_OTP_BOOT_SRC_T\fP BootSrc)"
+.br
+.RI "\fIProgram boot source in OTP Controller\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgJTAGDis\fP (void)"
+.br
+.RI "\fIProgram the JTAG bit in OTP Controller\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgUSBID\fP (uint32_t ProductID, uint32_t VendorID)"
+.br
+.RI "\fIProgram USB ID in OTP Controller\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgGPWord\fP (uint32_t WordNum, uint32_t Data, uint32_t Mask)"
+.br
+.RI "\fIProgram OTP GP Word memory\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_ProgKey\fP (uint32_t KeyNum, uint8_t *key)"
+.br
+.RI "\fIProgram AES Key\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_OTP_GenRand\fP (void)"
+.br
+.RI "\fIGenerate Random Number using HW Random Number Generator\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

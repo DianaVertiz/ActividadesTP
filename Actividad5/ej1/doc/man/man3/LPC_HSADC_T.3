@@ -1,0 +1,159 @@
+.TH "LPC_HSADC_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_HSADC_T \- HSADC register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hsadc_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBFLUSH\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_REQ\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBFIFO_STS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFIFO_CFG\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBTRIGGER\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDSCR_STS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPOWER_DOWN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONFIG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTHR\fP [2]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBLAST_SAMPLE\fP [6]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [49]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBADC_SPEED\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPOWER_CONTROL\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [61]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBFIFO_OUTPUT\fP [16]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [48]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDESCRIPTOR\fP [2][8]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED3\fP [752]"
+.br
+.ti -1c
+.RI "\fBHSADCINTCTRL_T\fP \fBINTS\fP [2]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+HSADC register block structure\&. 
+.PP
+Definición en la línea 60 del archivo hsadc_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t ADC_SPEED"
+ADC speed control 
+.PP
+Definición en la línea 72 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CONFIG"
+Configures external trigger mode, store channel ID in FIFO and walk-up recovery time from power down 
+.PP
+Definición en la línea 68 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DESCRIPTOR[2][8]"
+Table 0 and 1 descriptors 
+.PP
+Definición en la línea 77 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_REQ"
+Set or clear DMA write request 
+.PP
+Definición en la línea 62 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DSCR_STS"
+Indicates active descriptor table and descriptor entry 
+.PP
+Definición en la línea 66 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FIFO_CFG"
+Configures FIFO fill level 
+.PP
+Definición en la línea 64 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t FIFO_OUTPUT[16]"
+FIFO output mapped to 16 consecutive address locations 
+.PP
+Definición en la línea 75 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t FIFO_STS"
+Indicates FIFO fill level status 
+.PP
+Definición en la línea 63 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t FLUSH"
+< HSADC Structure Flushes FIFO 
+.PP
+Definición en la línea 61 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBHSADCINTCTRL_T\fP INTS[2]"
+Interrupt 0 and 1 control and status registers 
+.PP
+Definición en la línea 79 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t LAST_SAMPLE[6]"
+Contains last converted sample of input M [M=0\&.\&.5) and result of window comparator 
+.PP
+Definición en la línea 70 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t POWER_CONTROL"
+Configures ADC power vs\&. speed, DC-in biasing, output format and power gating 
+.PP
+Definición en la línea 73 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t POWER_DOWN"
+Set or clear power down mode 
+.PP
+Definición en la línea 67 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED0[49]"
+
+.PP
+Definición en la línea 71 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED1[61]"
+
+.PP
+Definición en la línea 74 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED2[48]"
+
+.PP
+Definición en la línea 76 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED3[752]"
+
+.PP
+Definición en la línea 78 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t THR[2]"
+Configures window comparator A or B levels 
+.PP
+Definición en la línea 69 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t TRIGGER"
+Enable software trigger to start descriptor processing 
+.PP
+Definición en la línea 65 del archivo hsadc_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

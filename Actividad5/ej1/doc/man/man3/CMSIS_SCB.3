@@ -1,0 +1,3544 @@
+.TH "CMSIS_SCB" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_SCB \- System Control Block (SCB)
+.PP
+Type definitions for the System Control Block Registers\&.  
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBSCB_Type\fP"
+.br
+.RI "\fIStructure type to access the System Control Block (SCB)\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Msk\fP   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Msk\fP   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Msk\fP   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Msk\fP   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Msk\fP   (0xFUL << SCB_CPUID_REVISION_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Msk\fP   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Pos\fP   28"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Msk\fP   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Pos\fP   27"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Msk\fP   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Pos\fP   26"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Msk\fP   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Msk\fP   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Pos\fP   23"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Msk\fP   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Pos\fP   22"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Msk\fP   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Msk\fP   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Msk\fP   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Msk\fP   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Msk\fP   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Msk\fP   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Msk\fP   (1UL << SCB_SCR_SEVONPEND_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Msk\fP   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Msk\fP   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Msk\fP   (1UL << SCB_CCR_STKALIGN_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Msk\fP   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Msk\fP   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Msk\fP   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Msk\fP   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Msk\fP   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Msk\fP   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Msk\fP   (0xFUL << SCB_CPUID_REVISION_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Msk\fP   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Pos\fP   28"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Msk\fP   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Pos\fP   27"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Msk\fP   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Pos\fP   26"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Msk\fP   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Msk\fP   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Pos\fP   23"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Msk\fP   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Pos\fP   22"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Msk\fP   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Msk\fP   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Msk\fP   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Msk\fP   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Msk\fP   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Msk\fP   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Msk\fP   (1UL << SCB_SCR_SEVONPEND_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Msk\fP   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Msk\fP   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Msk\fP   (1UL << SCB_CCR_STKALIGN_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Msk\fP   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Msk\fP   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Msk\fP   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Msk\fP   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Msk\fP   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Msk\fP   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Msk\fP   (0xFUL << SCB_CPUID_REVISION_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Msk\fP   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Pos\fP   28"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Msk\fP   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Pos\fP   27"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Msk\fP   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Pos\fP   26"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Msk\fP   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Msk\fP   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Pos\fP   23"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Msk\fP   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Pos\fP   22"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Msk\fP   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Msk\fP   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_RETTOBASE_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_RETTOBASE_Msk\fP   (1UL << SCB_ICSR_RETTOBASE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Msk\fP   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLBASE_Pos\fP   29"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLBASE_Msk\fP   (1UL << SCB_VTOR_TBLBASE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLOFF_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLOFF_Msk\fP   (0x3FFFFFUL << SCB_VTOR_TBLOFF_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Msk\fP   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_PRIGROUP_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_PRIGROUP_Msk\fP   (7UL << SCB_AIRCR_PRIGROUP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Msk\fP   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Msk\fP   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTRESET_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTRESET_Msk\fP   (1UL << SCB_AIRCR_VECTRESET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Msk\fP   (1UL << SCB_SCR_SEVONPEND_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Msk\fP   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Msk\fP   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Msk\fP   (1UL << SCB_CCR_STKALIGN_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_BFHFNMIGN_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_BFHFNMIGN_Msk\fP   (1UL << SCB_CCR_BFHFNMIGN_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_DIV_0_TRP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_DIV_0_TRP_Msk\fP   (1UL << SCB_CCR_DIV_0_TRP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Msk\fP   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_USERSETMPEND_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_USERSETMPEND_Msk\fP   (1UL << SCB_CCR_USERSETMPEND_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_NONBASETHRDENA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_NONBASETHRDENA_Msk\fP   (1UL << SCB_CCR_NONBASETHRDENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTENA_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTENA_Msk\fP   (1UL << SCB_SHCSR_USGFAULTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTENA_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTENA_Msk\fP   (1UL << SCB_SHCSR_BUSFAULTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTENA_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTENA_Msk\fP   (1UL << SCB_SHCSR_MEMFAULTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Msk\fP   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTPENDED_Pos\fP   14"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTPENDED_Msk\fP   (1UL << SCB_SHCSR_BUSFAULTPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTPENDED_Pos\fP   13"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTPENDED_Msk\fP   (1UL << SCB_SHCSR_MEMFAULTPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTPENDED_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTPENDED_Msk\fP   (1UL << SCB_SHCSR_USGFAULTPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SYSTICKACT_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SYSTICKACT_Msk\fP   (1UL << SCB_SHCSR_SYSTICKACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_PENDSVACT_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_PENDSVACT_Msk\fP   (1UL << SCB_SHCSR_PENDSVACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MONITORACT_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MONITORACT_Msk\fP   (1UL << SCB_SHCSR_MONITORACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLACT_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLACT_Msk\fP   (1UL << SCB_SHCSR_SVCALLACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTACT_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTACT_Msk\fP   (1UL << SCB_SHCSR_USGFAULTACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTACT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTACT_Msk\fP   (1UL << SCB_SHCSR_BUSFAULTACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTACT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTACT_Msk\fP   (1UL << SCB_SHCSR_MEMFAULTACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_USGFAULTSR_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_USGFAULTSR_Msk\fP   (0xFFFFUL << SCB_CFSR_USGFAULTSR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_BUSFAULTSR_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_BUSFAULTSR_Msk\fP   (0xFFUL << SCB_CFSR_BUSFAULTSR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_MEMFAULTSR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_MEMFAULTSR_Msk\fP   (0xFFUL << SCB_CFSR_MEMFAULTSR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_DEBUGEVT_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_DEBUGEVT_Msk\fP   (1UL << SCB_HFSR_DEBUGEVT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_FORCED_Pos\fP   30"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_FORCED_Msk\fP   (1UL << SCB_HFSR_FORCED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_VECTTBL_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_VECTTBL_Msk\fP   (1UL << SCB_HFSR_VECTTBL_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_EXTERNAL_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_EXTERNAL_Msk\fP   (1UL << SCB_DFSR_EXTERNAL_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_VCATCH_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_VCATCH_Msk\fP   (1UL << SCB_DFSR_VCATCH_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_DWTTRAP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_DWTTRAP_Msk\fP   (1UL << SCB_DFSR_DWTTRAP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_BKPT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_BKPT_Msk\fP   (1UL << SCB_DFSR_BKPT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_HALTED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_HALTED_Msk\fP   (1UL << SCB_DFSR_HALTED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Msk\fP   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Msk\fP   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Msk\fP   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Msk\fP   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Msk\fP   (0xFUL << SCB_CPUID_REVISION_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Msk\fP   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Pos\fP   28"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Msk\fP   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Pos\fP   27"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Msk\fP   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Pos\fP   26"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Msk\fP   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Msk\fP   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Pos\fP   23"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Msk\fP   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Pos\fP   22"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Msk\fP   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Msk\fP   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_RETTOBASE_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_RETTOBASE_Msk\fP   (1UL << SCB_ICSR_RETTOBASE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Msk\fP   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLOFF_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLOFF_Msk\fP   (0x1FFFFFFUL << SCB_VTOR_TBLOFF_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Msk\fP   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_PRIGROUP_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_PRIGROUP_Msk\fP   (7UL << SCB_AIRCR_PRIGROUP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Msk\fP   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Msk\fP   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTRESET_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTRESET_Msk\fP   (1UL << SCB_AIRCR_VECTRESET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Msk\fP   (1UL << SCB_SCR_SEVONPEND_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Msk\fP   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Msk\fP   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Msk\fP   (1UL << SCB_CCR_STKALIGN_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_BFHFNMIGN_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_BFHFNMIGN_Msk\fP   (1UL << SCB_CCR_BFHFNMIGN_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_DIV_0_TRP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_DIV_0_TRP_Msk\fP   (1UL << SCB_CCR_DIV_0_TRP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Msk\fP   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_USERSETMPEND_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_USERSETMPEND_Msk\fP   (1UL << SCB_CCR_USERSETMPEND_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_NONBASETHRDENA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_NONBASETHRDENA_Msk\fP   (1UL << SCB_CCR_NONBASETHRDENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTENA_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTENA_Msk\fP   (1UL << SCB_SHCSR_USGFAULTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTENA_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTENA_Msk\fP   (1UL << SCB_SHCSR_BUSFAULTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTENA_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTENA_Msk\fP   (1UL << SCB_SHCSR_MEMFAULTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Msk\fP   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTPENDED_Pos\fP   14"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTPENDED_Msk\fP   (1UL << SCB_SHCSR_BUSFAULTPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTPENDED_Pos\fP   13"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTPENDED_Msk\fP   (1UL << SCB_SHCSR_MEMFAULTPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTPENDED_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTPENDED_Msk\fP   (1UL << SCB_SHCSR_USGFAULTPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SYSTICKACT_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SYSTICKACT_Msk\fP   (1UL << SCB_SHCSR_SYSTICKACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_PENDSVACT_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_PENDSVACT_Msk\fP   (1UL << SCB_SHCSR_PENDSVACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MONITORACT_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MONITORACT_Msk\fP   (1UL << SCB_SHCSR_MONITORACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLACT_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLACT_Msk\fP   (1UL << SCB_SHCSR_SVCALLACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTACT_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTACT_Msk\fP   (1UL << SCB_SHCSR_USGFAULTACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTACT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTACT_Msk\fP   (1UL << SCB_SHCSR_BUSFAULTACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTACT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTACT_Msk\fP   (1UL << SCB_SHCSR_MEMFAULTACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_USGFAULTSR_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_USGFAULTSR_Msk\fP   (0xFFFFUL << SCB_CFSR_USGFAULTSR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_BUSFAULTSR_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_BUSFAULTSR_Msk\fP   (0xFFUL << SCB_CFSR_BUSFAULTSR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_MEMFAULTSR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_MEMFAULTSR_Msk\fP   (0xFFUL << SCB_CFSR_MEMFAULTSR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_DEBUGEVT_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_DEBUGEVT_Msk\fP   (1UL << SCB_HFSR_DEBUGEVT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_FORCED_Pos\fP   30"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_FORCED_Msk\fP   (1UL << SCB_HFSR_FORCED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_VECTTBL_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_VECTTBL_Msk\fP   (1UL << SCB_HFSR_VECTTBL_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_EXTERNAL_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_EXTERNAL_Msk\fP   (1UL << SCB_DFSR_EXTERNAL_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_VCATCH_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_VCATCH_Msk\fP   (1UL << SCB_DFSR_VCATCH_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_DWTTRAP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_DWTTRAP_Msk\fP   (1UL << SCB_DFSR_DWTTRAP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_BKPT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_BKPT_Msk\fP   (1UL << SCB_DFSR_BKPT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_HALTED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_HALTED_Msk\fP   (1UL << SCB_DFSR_HALTED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Msk\fP   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Msk\fP   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Msk\fP   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Msk\fP   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Msk\fP   (0xFUL << SCB_CPUID_REVISION_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Msk\fP   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Pos\fP   28"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Msk\fP   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Pos\fP   27"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Msk\fP   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Pos\fP   26"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Msk\fP   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Msk\fP   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Pos\fP   23"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Msk\fP   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Pos\fP   22"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Msk\fP   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Msk\fP   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Msk\fP   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLOFF_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLOFF_Msk\fP   (0x1FFFFFFUL << SCB_VTOR_TBLOFF_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Msk\fP   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Msk\fP   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Msk\fP   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Msk\fP   (1UL << SCB_SCR_SEVONPEND_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Msk\fP   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Msk\fP   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Msk\fP   (1UL << SCB_CCR_STKALIGN_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Msk\fP   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Msk\fP   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SFCR_UNIBRTIMING_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_SFCR_UNIBRTIMING_Msk\fP   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SFCR_SECKEY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_SFCR_SECKEY_Msk\fP   (0xFFFFUL << SCB_SHCSR_SVCALLPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_IMPLEMENTER_Msk\fP   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_VARIANT_Msk\fP   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_ARCHITECTURE_Msk\fP   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_PARTNO_Msk\fP   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CPUID_REVISION_Msk\fP   (0xFUL << SCB_CPUID_REVISION_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_NMIPENDSET_Msk\fP   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Pos\fP   28"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVSET_Msk\fP   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Pos\fP   27"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSVCLR_Msk\fP   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Pos\fP   26"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTSET_Msk\fP   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_PENDSTCLR_Msk\fP   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Pos\fP   23"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPREEMPT_Msk\fP   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Pos\fP   22"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_ISRPENDING_Msk\fP   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTPENDING_Msk\fP   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_RETTOBASE_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_RETTOBASE_Msk\fP   (1UL << SCB_ICSR_RETTOBASE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_ICSR_VECTACTIVE_Msk\fP   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLBASE_Pos\fP   29"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLBASE_Msk\fP   (1UL << SCB_VTOR_TBLBASE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLOFF_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSCB_VTOR_TBLOFF_Msk\fP   (0x3FFFFFUL << SCB_VTOR_TBLOFF_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEY_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTKEYSTAT_Msk\fP   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_ENDIANESS_Msk\fP   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_PRIGROUP_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_PRIGROUP_Msk\fP   (7UL << SCB_AIRCR_PRIGROUP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_SYSRESETREQ_Msk\fP   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTCLRACTIVE_Msk\fP   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTRESET_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_AIRCR_VECTRESET_Msk\fP   (1UL << SCB_AIRCR_VECTRESET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SEVONPEND_Msk\fP   (1UL << SCB_SCR_SEVONPEND_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPDEEP_Msk\fP   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_SCR_SLEEPONEXIT_Msk\fP   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_STKALIGN_Msk\fP   (1UL << SCB_CCR_STKALIGN_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_BFHFNMIGN_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_BFHFNMIGN_Msk\fP   (1UL << SCB_CCR_BFHFNMIGN_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_DIV_0_TRP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_DIV_0_TRP_Msk\fP   (1UL << SCB_CCR_DIV_0_TRP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_UNALIGN_TRP_Msk\fP   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_USERSETMPEND_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_USERSETMPEND_Msk\fP   (1UL << SCB_CCR_USERSETMPEND_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_NONBASETHRDENA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CCR_NONBASETHRDENA_Msk\fP   (1UL << SCB_CCR_NONBASETHRDENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTENA_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTENA_Msk\fP   (1UL << SCB_SHCSR_USGFAULTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTENA_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTENA_Msk\fP   (1UL << SCB_SHCSR_BUSFAULTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTENA_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTENA_Msk\fP   (1UL << SCB_SHCSR_MEMFAULTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLPENDED_Msk\fP   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTPENDED_Pos\fP   14"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTPENDED_Msk\fP   (1UL << SCB_SHCSR_BUSFAULTPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTPENDED_Pos\fP   13"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTPENDED_Msk\fP   (1UL << SCB_SHCSR_MEMFAULTPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTPENDED_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTPENDED_Msk\fP   (1UL << SCB_SHCSR_USGFAULTPENDED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SYSTICKACT_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SYSTICKACT_Msk\fP   (1UL << SCB_SHCSR_SYSTICKACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_PENDSVACT_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_PENDSVACT_Msk\fP   (1UL << SCB_SHCSR_PENDSVACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MONITORACT_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MONITORACT_Msk\fP   (1UL << SCB_SHCSR_MONITORACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLACT_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_SVCALLACT_Msk\fP   (1UL << SCB_SHCSR_SVCALLACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTACT_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_USGFAULTACT_Msk\fP   (1UL << SCB_SHCSR_USGFAULTACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTACT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_BUSFAULTACT_Msk\fP   (1UL << SCB_SHCSR_BUSFAULTACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTACT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_SHCSR_MEMFAULTACT_Msk\fP   (1UL << SCB_SHCSR_MEMFAULTACT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_USGFAULTSR_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_USGFAULTSR_Msk\fP   (0xFFFFUL << SCB_CFSR_USGFAULTSR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_BUSFAULTSR_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_BUSFAULTSR_Msk\fP   (0xFFUL << SCB_CFSR_BUSFAULTSR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_MEMFAULTSR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_CFSR_MEMFAULTSR_Msk\fP   (0xFFUL << SCB_CFSR_MEMFAULTSR_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_DEBUGEVT_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_DEBUGEVT_Msk\fP   (1UL << SCB_HFSR_DEBUGEVT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_FORCED_Pos\fP   30"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_FORCED_Msk\fP   (1UL << SCB_HFSR_FORCED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_VECTTBL_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_HFSR_VECTTBL_Msk\fP   (1UL << SCB_HFSR_VECTTBL_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_EXTERNAL_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_EXTERNAL_Msk\fP   (1UL << SCB_DFSR_EXTERNAL_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_VCATCH_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_VCATCH_Msk\fP   (1UL << SCB_DFSR_VCATCH_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_DWTTRAP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_DWTTRAP_Msk\fP   (1UL << SCB_DFSR_DWTTRAP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_BKPT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_BKPT_Msk\fP   (1UL << SCB_DFSR_BKPT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_HALTED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCB_DFSR_HALTED_Msk\fP   (1UL << SCB_DFSR_HALTED_Pos)"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Type definitions for the System Control Block Registers\&. 
+
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define SCB_AIRCR_ENDIANESS_Msk   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+SCB AIRCR: ENDIANESS Mask 
+.PP
+Definición en la línea 370 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Msk   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+SCB AIRCR: ENDIANESS Mask 
+.PP
+Definición en la línea 382 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Msk   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+SCB AIRCR: ENDIANESS Mask 
+.PP
+Definición en la línea 391 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Msk   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+SCB AIRCR: ENDIANESS Mask 
+.PP
+Definición en la línea 406 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Msk   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+SCB AIRCR: ENDIANESS Mask 
+.PP
+Definición en la línea 420 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Msk   (1UL << SCB_AIRCR_ENDIANESS_Pos)"
+SCB AIRCR: ENDIANESS Mask 
+.PP
+Definición en la línea 452 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Pos   15"
+SCB AIRCR: ENDIANESS Position 
+.PP
+Definición en la línea 369 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Pos   15"
+SCB AIRCR: ENDIANESS Position 
+.PP
+Definición en la línea 381 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Pos   15"
+SCB AIRCR: ENDIANESS Position 
+.PP
+Definición en la línea 390 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Pos   15"
+SCB AIRCR: ENDIANESS Position 
+.PP
+Definición en la línea 405 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Pos   15"
+SCB AIRCR: ENDIANESS Position 
+.PP
+Definición en la línea 419 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_ENDIANESS_Pos   15"
+SCB AIRCR: ENDIANESS Position 
+.PP
+Definición en la línea 451 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_PRIGROUP_Msk   (7UL << SCB_AIRCR_PRIGROUP_Pos)"
+SCB AIRCR: PRIGROUP Mask 
+.PP
+Definición en la línea 409 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_PRIGROUP_Msk   (7UL << SCB_AIRCR_PRIGROUP_Pos)"
+SCB AIRCR: PRIGROUP Mask 
+.PP
+Definición en la línea 423 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_PRIGROUP_Msk   (7UL << SCB_AIRCR_PRIGROUP_Pos)"
+SCB AIRCR: PRIGROUP Mask 
+.PP
+Definición en la línea 455 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_PRIGROUP_Pos   8"
+SCB AIRCR: PRIGROUP Position 
+.PP
+Definición en la línea 408 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_PRIGROUP_Pos   8"
+SCB AIRCR: PRIGROUP Position 
+.PP
+Definición en la línea 422 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_PRIGROUP_Pos   8"
+SCB AIRCR: PRIGROUP Position 
+.PP
+Definición en la línea 454 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Msk   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+SCB AIRCR: SYSRESETREQ Mask 
+.PP
+Definición en la línea 373 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Msk   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+SCB AIRCR: SYSRESETREQ Mask 
+.PP
+Definición en la línea 385 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Msk   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+SCB AIRCR: SYSRESETREQ Mask 
+.PP
+Definición en la línea 394 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Msk   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+SCB AIRCR: SYSRESETREQ Mask 
+.PP
+Definición en la línea 412 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Msk   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+SCB AIRCR: SYSRESETREQ Mask 
+.PP
+Definición en la línea 426 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Msk   (1UL << SCB_AIRCR_SYSRESETREQ_Pos)"
+SCB AIRCR: SYSRESETREQ Mask 
+.PP
+Definición en la línea 458 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Pos   2"
+SCB AIRCR: SYSRESETREQ Position 
+.PP
+Definición en la línea 372 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Pos   2"
+SCB AIRCR: SYSRESETREQ Position 
+.PP
+Definición en la línea 384 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Pos   2"
+SCB AIRCR: SYSRESETREQ Position 
+.PP
+Definición en la línea 393 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Pos   2"
+SCB AIRCR: SYSRESETREQ Position 
+.PP
+Definición en la línea 411 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Pos   2"
+SCB AIRCR: SYSRESETREQ Position 
+.PP
+Definición en la línea 425 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_SYSRESETREQ_Pos   2"
+SCB AIRCR: SYSRESETREQ Position 
+.PP
+Definición en la línea 457 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Msk   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+SCB AIRCR: VECTCLRACTIVE Mask 
+.PP
+Definición en la línea 376 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Msk   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+SCB AIRCR: VECTCLRACTIVE Mask 
+.PP
+Definición en la línea 388 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Msk   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+SCB AIRCR: VECTCLRACTIVE Mask 
+.PP
+Definición en la línea 397 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Msk   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+SCB AIRCR: VECTCLRACTIVE Mask 
+.PP
+Definición en la línea 415 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Msk   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+SCB AIRCR: VECTCLRACTIVE Mask 
+.PP
+Definición en la línea 429 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Msk   (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)"
+SCB AIRCR: VECTCLRACTIVE Mask 
+.PP
+Definición en la línea 461 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Pos   1"
+SCB AIRCR: VECTCLRACTIVE Position 
+.PP
+Definición en la línea 375 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Pos   1"
+SCB AIRCR: VECTCLRACTIVE Position 
+.PP
+Definición en la línea 387 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Pos   1"
+SCB AIRCR: VECTCLRACTIVE Position 
+.PP
+Definición en la línea 396 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Pos   1"
+SCB AIRCR: VECTCLRACTIVE Position 
+.PP
+Definición en la línea 414 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Pos   1"
+SCB AIRCR: VECTCLRACTIVE Position 
+.PP
+Definición en la línea 428 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_VECTCLRACTIVE_Pos   1"
+SCB AIRCR: VECTCLRACTIVE Position 
+.PP
+Definición en la línea 460 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+SCB AIRCR: VECTKEY Mask 
+.PP
+Definición en la línea 364 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+SCB AIRCR: VECTKEY Mask 
+.PP
+Definición en la línea 376 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+SCB AIRCR: VECTKEY Mask 
+.PP
+Definición en la línea 385 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+SCB AIRCR: VECTKEY Mask 
+.PP
+Definición en la línea 400 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+SCB AIRCR: VECTKEY Mask 
+.PP
+Definición en la línea 414 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)"
+SCB AIRCR: VECTKEY Mask 
+.PP
+Definición en la línea 446 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Pos   16"
+SCB AIRCR: VECTKEY Position 
+.PP
+Definición en la línea 363 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Pos   16"
+SCB AIRCR: VECTKEY Position 
+.PP
+Definición en la línea 375 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Pos   16"
+SCB AIRCR: VECTKEY Position 
+.PP
+Definición en la línea 384 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Pos   16"
+SCB AIRCR: VECTKEY Position 
+.PP
+Definición en la línea 399 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Pos   16"
+SCB AIRCR: VECTKEY Position 
+.PP
+Definición en la línea 413 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEY_Pos   16"
+SCB AIRCR: VECTKEY Position 
+.PP
+Definición en la línea 445 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+SCB AIRCR: VECTKEYSTAT Mask 
+.PP
+Definición en la línea 367 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+SCB AIRCR: VECTKEYSTAT Mask 
+.PP
+Definición en la línea 379 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+SCB AIRCR: VECTKEYSTAT Mask 
+.PP
+Definición en la línea 388 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+SCB AIRCR: VECTKEYSTAT Mask 
+.PP
+Definición en la línea 403 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+SCB AIRCR: VECTKEYSTAT Mask 
+.PP
+Definición en la línea 417 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Msk   (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)"
+SCB AIRCR: VECTKEYSTAT Mask 
+.PP
+Definición en la línea 449 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Pos   16"
+SCB AIRCR: VECTKEYSTAT Position 
+.PP
+Definición en la línea 366 del archivo core_cm0\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Pos   16"
+SCB AIRCR: VECTKEYSTAT Position 
+.PP
+Definición en la línea 378 del archivo core_sc000\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Pos   16"
+SCB AIRCR: VECTKEYSTAT Position 
+.PP
+Definición en la línea 387 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Pos   16"
+SCB AIRCR: VECTKEYSTAT Position 
+.PP
+Definición en la línea 402 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Pos   16"
+SCB AIRCR: VECTKEYSTAT Position 
+.PP
+Definición en la línea 416 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_VECTKEYSTAT_Pos   16"
+SCB AIRCR: VECTKEYSTAT Position 
+.PP
+Definición en la línea 448 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_VECTRESET_Msk   (1UL << SCB_AIRCR_VECTRESET_Pos)"
+SCB AIRCR: VECTRESET Mask 
+.PP
+Definición en la línea 418 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_VECTRESET_Msk   (1UL << SCB_AIRCR_VECTRESET_Pos)"
+SCB AIRCR: VECTRESET Mask 
+.PP
+Definición en la línea 432 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_VECTRESET_Msk   (1UL << SCB_AIRCR_VECTRESET_Pos)"
+SCB AIRCR: VECTRESET Mask 
+.PP
+Definición en la línea 464 del archivo core_cm4\&.h\&.
+.SS "#define SCB_AIRCR_VECTRESET_Pos   0"
+SCB AIRCR: VECTRESET Position 
+.PP
+Definición en la línea 417 del archivo core_sc300\&.h\&.
+.SS "#define SCB_AIRCR_VECTRESET_Pos   0"
+SCB AIRCR: VECTRESET Position 
+.PP
+Definición en la línea 431 del archivo core_cm3\&.h\&.
+.SS "#define SCB_AIRCR_VECTRESET_Pos   0"
+SCB AIRCR: VECTRESET Position 
+.PP
+Definición en la línea 463 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_BFHFNMIGN_Msk   (1UL << SCB_CCR_BFHFNMIGN_Pos)"
+SCB CCR: BFHFNMIGN Mask 
+.PP
+Definición en la línea 435 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_BFHFNMIGN_Msk   (1UL << SCB_CCR_BFHFNMIGN_Pos)"
+SCB CCR: BFHFNMIGN Mask 
+.PP
+Definición en la línea 449 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_BFHFNMIGN_Msk   (1UL << SCB_CCR_BFHFNMIGN_Pos)"
+SCB CCR: BFHFNMIGN Mask 
+.PP
+Definición en la línea 481 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_BFHFNMIGN_Pos   8"
+SCB CCR: BFHFNMIGN Position 
+.PP
+Definición en la línea 434 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_BFHFNMIGN_Pos   8"
+SCB CCR: BFHFNMIGN Position 
+.PP
+Definición en la línea 448 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_BFHFNMIGN_Pos   8"
+SCB CCR: BFHFNMIGN Position 
+.PP
+Definición en la línea 480 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_DIV_0_TRP_Msk   (1UL << SCB_CCR_DIV_0_TRP_Pos)"
+SCB CCR: DIV_0_TRP Mask 
+.PP
+Definición en la línea 438 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_DIV_0_TRP_Msk   (1UL << SCB_CCR_DIV_0_TRP_Pos)"
+SCB CCR: DIV_0_TRP Mask 
+.PP
+Definición en la línea 452 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_DIV_0_TRP_Msk   (1UL << SCB_CCR_DIV_0_TRP_Pos)"
+SCB CCR: DIV_0_TRP Mask 
+.PP
+Definición en la línea 484 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_DIV_0_TRP_Pos   4"
+SCB CCR: DIV_0_TRP Position 
+.PP
+Definición en la línea 437 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_DIV_0_TRP_Pos   4"
+SCB CCR: DIV_0_TRP Position 
+.PP
+Definición en la línea 451 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_DIV_0_TRP_Pos   4"
+SCB CCR: DIV_0_TRP Position 
+.PP
+Definición en la línea 483 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_NONBASETHRDENA_Msk   (1UL << SCB_CCR_NONBASETHRDENA_Pos)"
+SCB CCR: NONBASETHRDENA Mask 
+.PP
+Definición en la línea 447 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_NONBASETHRDENA_Msk   (1UL << SCB_CCR_NONBASETHRDENA_Pos)"
+SCB CCR: NONBASETHRDENA Mask 
+.PP
+Definición en la línea 461 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_NONBASETHRDENA_Msk   (1UL << SCB_CCR_NONBASETHRDENA_Pos)"
+SCB CCR: NONBASETHRDENA Mask 
+.PP
+Definición en la línea 493 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_NONBASETHRDENA_Pos   0"
+SCB CCR: NONBASETHRDENA Position 
+.PP
+Definición en la línea 446 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_NONBASETHRDENA_Pos   0"
+SCB CCR: NONBASETHRDENA Position 
+.PP
+Definición en la línea 460 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_NONBASETHRDENA_Pos   0"
+SCB CCR: NONBASETHRDENA Position 
+.PP
+Definición en la línea 492 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Msk   (1UL << SCB_CCR_STKALIGN_Pos)"
+SCB CCR: STKALIGN Mask 
+.PP
+Definición en la línea 390 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Msk   (1UL << SCB_CCR_STKALIGN_Pos)"
+SCB CCR: STKALIGN Mask 
+.PP
+Definición en la línea 402 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Msk   (1UL << SCB_CCR_STKALIGN_Pos)"
+SCB CCR: STKALIGN Mask 
+.PP
+Definición en la línea 411 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Msk   (1UL << SCB_CCR_STKALIGN_Pos)"
+SCB CCR: STKALIGN Mask 
+.PP
+Definición en la línea 432 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Msk   (1UL << SCB_CCR_STKALIGN_Pos)"
+SCB CCR: STKALIGN Mask 
+.PP
+Definición en la línea 446 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Msk   (1UL << SCB_CCR_STKALIGN_Pos)"
+SCB CCR: STKALIGN Mask 
+.PP
+Definición en la línea 478 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Pos   9"
+SCB CCR: STKALIGN Position 
+.PP
+Definición en la línea 389 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Pos   9"
+SCB CCR: STKALIGN Position 
+.PP
+Definición en la línea 401 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Pos   9"
+SCB CCR: STKALIGN Position 
+.PP
+Definición en la línea 410 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Pos   9"
+SCB CCR: STKALIGN Position 
+.PP
+Definición en la línea 431 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Pos   9"
+SCB CCR: STKALIGN Position 
+.PP
+Definición en la línea 445 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_STKALIGN_Pos   9"
+SCB CCR: STKALIGN Position 
+.PP
+Definición en la línea 477 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Msk   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+SCB CCR: UNALIGN_TRP Mask 
+.PP
+Definición en la línea 393 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Msk   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+SCB CCR: UNALIGN_TRP Mask 
+.PP
+Definición en la línea 405 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Msk   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+SCB CCR: UNALIGN_TRP Mask 
+.PP
+Definición en la línea 414 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Msk   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+SCB CCR: UNALIGN_TRP Mask 
+.PP
+Definición en la línea 441 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Msk   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+SCB CCR: UNALIGN_TRP Mask 
+.PP
+Definición en la línea 455 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Msk   (1UL << SCB_CCR_UNALIGN_TRP_Pos)"
+SCB CCR: UNALIGN_TRP Mask 
+.PP
+Definición en la línea 487 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Pos   3"
+SCB CCR: UNALIGN_TRP Position 
+.PP
+Definición en la línea 392 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Pos   3"
+SCB CCR: UNALIGN_TRP Position 
+.PP
+Definición en la línea 404 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Pos   3"
+SCB CCR: UNALIGN_TRP Position 
+.PP
+Definición en la línea 413 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Pos   3"
+SCB CCR: UNALIGN_TRP Position 
+.PP
+Definición en la línea 440 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Pos   3"
+SCB CCR: UNALIGN_TRP Position 
+.PP
+Definición en la línea 454 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_UNALIGN_TRP_Pos   3"
+SCB CCR: UNALIGN_TRP Position 
+.PP
+Definición en la línea 486 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_USERSETMPEND_Msk   (1UL << SCB_CCR_USERSETMPEND_Pos)"
+SCB CCR: USERSETMPEND Mask 
+.PP
+Definición en la línea 444 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_USERSETMPEND_Msk   (1UL << SCB_CCR_USERSETMPEND_Pos)"
+SCB CCR: USERSETMPEND Mask 
+.PP
+Definición en la línea 458 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_USERSETMPEND_Msk   (1UL << SCB_CCR_USERSETMPEND_Pos)"
+SCB CCR: USERSETMPEND Mask 
+.PP
+Definición en la línea 490 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CCR_USERSETMPEND_Pos   1"
+SCB CCR: USERSETMPEND Position 
+.PP
+Definición en la línea 443 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CCR_USERSETMPEND_Pos   1"
+SCB CCR: USERSETMPEND Position 
+.PP
+Definición en la línea 457 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CCR_USERSETMPEND_Pos   1"
+SCB CCR: USERSETMPEND Position 
+.PP
+Definición en la línea 489 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CFSR_BUSFAULTSR_Msk   (0xFFUL << SCB_CFSR_BUSFAULTSR_Pos)"
+SCB CFSR: Bus Fault Status Register Mask 
+.PP
+Definición en la línea 497 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CFSR_BUSFAULTSR_Msk   (0xFFUL << SCB_CFSR_BUSFAULTSR_Pos)"
+SCB CFSR: Bus Fault Status Register Mask 
+.PP
+Definición en la línea 511 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CFSR_BUSFAULTSR_Msk   (0xFFUL << SCB_CFSR_BUSFAULTSR_Pos)"
+SCB CFSR: Bus Fault Status Register Mask 
+.PP
+Definición en la línea 543 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CFSR_BUSFAULTSR_Pos   8"
+SCB CFSR: Bus Fault Status Register Position 
+.PP
+Definición en la línea 496 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CFSR_BUSFAULTSR_Pos   8"
+SCB CFSR: Bus Fault Status Register Position 
+.PP
+Definición en la línea 510 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CFSR_BUSFAULTSR_Pos   8"
+SCB CFSR: Bus Fault Status Register Position 
+.PP
+Definición en la línea 542 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CFSR_MEMFAULTSR_Msk   (0xFFUL << SCB_CFSR_MEMFAULTSR_Pos)"
+SCB CFSR: Memory Manage Fault Status Register Mask 
+.PP
+Definición en la línea 500 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CFSR_MEMFAULTSR_Msk   (0xFFUL << SCB_CFSR_MEMFAULTSR_Pos)"
+SCB CFSR: Memory Manage Fault Status Register Mask 
+.PP
+Definición en la línea 514 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CFSR_MEMFAULTSR_Msk   (0xFFUL << SCB_CFSR_MEMFAULTSR_Pos)"
+SCB CFSR: Memory Manage Fault Status Register Mask 
+.PP
+Definición en la línea 546 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CFSR_MEMFAULTSR_Pos   0"
+SCB CFSR: Memory Manage Fault Status Register Position 
+.PP
+Definición en la línea 499 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CFSR_MEMFAULTSR_Pos   0"
+SCB CFSR: Memory Manage Fault Status Register Position 
+.PP
+Definición en la línea 513 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CFSR_MEMFAULTSR_Pos   0"
+SCB CFSR: Memory Manage Fault Status Register Position 
+.PP
+Definición en la línea 545 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CFSR_USGFAULTSR_Msk   (0xFFFFUL << SCB_CFSR_USGFAULTSR_Pos)"
+SCB CFSR: Usage Fault Status Register Mask 
+.PP
+Definición en la línea 494 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CFSR_USGFAULTSR_Msk   (0xFFFFUL << SCB_CFSR_USGFAULTSR_Pos)"
+SCB CFSR: Usage Fault Status Register Mask 
+.PP
+Definición en la línea 508 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CFSR_USGFAULTSR_Msk   (0xFFFFUL << SCB_CFSR_USGFAULTSR_Pos)"
+SCB CFSR: Usage Fault Status Register Mask 
+.PP
+Definición en la línea 540 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CFSR_USGFAULTSR_Pos   16"
+SCB CFSR: Usage Fault Status Register Position 
+.PP
+Definición en la línea 493 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CFSR_USGFAULTSR_Pos   16"
+SCB CFSR: Usage Fault Status Register Position 
+.PP
+Definición en la línea 507 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CFSR_USGFAULTSR_Pos   16"
+SCB CFSR: Usage Fault Status Register Position 
+.PP
+Definición en la línea 539 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Msk   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+SCB CPUID: ARCHITECTURE Mask 
+.PP
+Definición en la línea 326 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Msk   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+SCB CPUID: ARCHITECTURE Mask 
+.PP
+Definición en la línea 334 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Msk   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+SCB CPUID: ARCHITECTURE Mask 
+.PP
+Definición en la línea 341 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Msk   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+SCB CPUID: ARCHITECTURE Mask 
+.PP
+Definición en la línea 352 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Msk   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+SCB CPUID: ARCHITECTURE Mask 
+.PP
+Definición en la línea 361 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Msk   (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)"
+SCB CPUID: ARCHITECTURE Mask 
+.PP
+Definición en la línea 401 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Pos   16"
+SCB CPUID: ARCHITECTURE Position 
+.PP
+Definición en la línea 325 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Pos   16"
+SCB CPUID: ARCHITECTURE Position 
+.PP
+Definición en la línea 333 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Pos   16"
+SCB CPUID: ARCHITECTURE Position 
+.PP
+Definición en la línea 340 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Pos   16"
+SCB CPUID: ARCHITECTURE Position 
+.PP
+Definición en la línea 351 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Pos   16"
+SCB CPUID: ARCHITECTURE Position 
+.PP
+Definición en la línea 360 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_ARCHITECTURE_Pos   16"
+SCB CPUID: ARCHITECTURE Position 
+.PP
+Definición en la línea 400 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Msk   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+SCB CPUID: IMPLEMENTER Mask 
+.PP
+Definición en la línea 320 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Msk   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+SCB CPUID: IMPLEMENTER Mask 
+.PP
+Definición en la línea 328 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Msk   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+SCB CPUID: IMPLEMENTER Mask 
+.PP
+Definición en la línea 335 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Msk   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+SCB CPUID: IMPLEMENTER Mask 
+.PP
+Definición en la línea 346 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Msk   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+SCB CPUID: IMPLEMENTER Mask 
+.PP
+Definición en la línea 355 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Msk   (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)"
+SCB CPUID: IMPLEMENTER Mask 
+.PP
+Definición en la línea 395 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Pos   24"
+SCB CPUID: IMPLEMENTER Position 
+.PP
+Definición en la línea 319 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Pos   24"
+SCB CPUID: IMPLEMENTER Position 
+.PP
+Definición en la línea 327 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Pos   24"
+SCB CPUID: IMPLEMENTER Position 
+.PP
+Definición en la línea 334 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Pos   24"
+SCB CPUID: IMPLEMENTER Position 
+.PP
+Definición en la línea 345 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Pos   24"
+SCB CPUID: IMPLEMENTER Position 
+.PP
+Definición en la línea 354 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_IMPLEMENTER_Pos   24"
+SCB CPUID: IMPLEMENTER Position 
+.PP
+Definición en la línea 394 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Msk   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+SCB CPUID: PARTNO Mask 
+.PP
+Definición en la línea 329 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Msk   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+SCB CPUID: PARTNO Mask 
+.PP
+Definición en la línea 337 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Msk   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+SCB CPUID: PARTNO Mask 
+.PP
+Definición en la línea 344 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Msk   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+SCB CPUID: PARTNO Mask 
+.PP
+Definición en la línea 355 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Msk   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+SCB CPUID: PARTNO Mask 
+.PP
+Definición en la línea 364 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Msk   (0xFFFUL << SCB_CPUID_PARTNO_Pos)"
+SCB CPUID: PARTNO Mask 
+.PP
+Definición en la línea 404 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Pos   4"
+SCB CPUID: PARTNO Position 
+.PP
+Definición en la línea 328 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Pos   4"
+SCB CPUID: PARTNO Position 
+.PP
+Definición en la línea 336 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Pos   4"
+SCB CPUID: PARTNO Position 
+.PP
+Definición en la línea 343 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Pos   4"
+SCB CPUID: PARTNO Position 
+.PP
+Definición en la línea 354 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Pos   4"
+SCB CPUID: PARTNO Position 
+.PP
+Definición en la línea 363 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_PARTNO_Pos   4"
+SCB CPUID: PARTNO Position 
+.PP
+Definición en la línea 403 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Msk   (0xFUL << SCB_CPUID_REVISION_Pos)"
+SCB CPUID: REVISION Mask 
+.PP
+Definición en la línea 332 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Msk   (0xFUL << SCB_CPUID_REVISION_Pos)"
+SCB CPUID: REVISION Mask 
+.PP
+Definición en la línea 340 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Msk   (0xFUL << SCB_CPUID_REVISION_Pos)"
+SCB CPUID: REVISION Mask 
+.PP
+Definición en la línea 347 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Msk   (0xFUL << SCB_CPUID_REVISION_Pos)"
+SCB CPUID: REVISION Mask 
+.PP
+Definición en la línea 358 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Msk   (0xFUL << SCB_CPUID_REVISION_Pos)"
+SCB CPUID: REVISION Mask 
+.PP
+Definición en la línea 367 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Msk   (0xFUL << SCB_CPUID_REVISION_Pos)"
+SCB CPUID: REVISION Mask 
+.PP
+Definición en la línea 407 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Pos   0"
+SCB CPUID: REVISION Position 
+.PP
+Definición en la línea 331 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Pos   0"
+SCB CPUID: REVISION Position 
+.PP
+Definición en la línea 339 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Pos   0"
+SCB CPUID: REVISION Position 
+.PP
+Definición en la línea 346 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Pos   0"
+SCB CPUID: REVISION Position 
+.PP
+Definición en la línea 357 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Pos   0"
+SCB CPUID: REVISION Position 
+.PP
+Definición en la línea 366 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_REVISION_Pos   0"
+SCB CPUID: REVISION Position 
+.PP
+Definición en la línea 406 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Msk   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+SCB CPUID: VARIANT Mask 
+.PP
+Definición en la línea 323 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Msk   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+SCB CPUID: VARIANT Mask 
+.PP
+Definición en la línea 331 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Msk   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+SCB CPUID: VARIANT Mask 
+.PP
+Definición en la línea 338 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Msk   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+SCB CPUID: VARIANT Mask 
+.PP
+Definición en la línea 349 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Msk   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+SCB CPUID: VARIANT Mask 
+.PP
+Definición en la línea 358 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Msk   (0xFUL << SCB_CPUID_VARIANT_Pos)"
+SCB CPUID: VARIANT Mask 
+.PP
+Definición en la línea 398 del archivo core_cm4\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Pos   20"
+SCB CPUID: VARIANT Position 
+.PP
+Definición en la línea 322 del archivo core_cm0\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Pos   20"
+SCB CPUID: VARIANT Position 
+.PP
+Definición en la línea 330 del archivo core_sc000\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Pos   20"
+SCB CPUID: VARIANT Position 
+.PP
+Definición en la línea 337 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Pos   20"
+SCB CPUID: VARIANT Position 
+.PP
+Definición en la línea 348 del archivo core_sc300\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Pos   20"
+SCB CPUID: VARIANT Position 
+.PP
+Definición en la línea 357 del archivo core_cm3\&.h\&.
+.SS "#define SCB_CPUID_VARIANT_Pos   20"
+SCB CPUID: VARIANT Position 
+.PP
+Definición en la línea 397 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_BKPT_Msk   (1UL << SCB_DFSR_BKPT_Pos)"
+SCB DFSR: BKPT Mask 
+.PP
+Definición en la línea 523 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_BKPT_Msk   (1UL << SCB_DFSR_BKPT_Pos)"
+SCB DFSR: BKPT Mask 
+.PP
+Definición en la línea 537 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_BKPT_Msk   (1UL << SCB_DFSR_BKPT_Pos)"
+SCB DFSR: BKPT Mask 
+.PP
+Definición en la línea 569 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_BKPT_Pos   1"
+SCB DFSR: BKPT Position 
+.PP
+Definición en la línea 522 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_BKPT_Pos   1"
+SCB DFSR: BKPT Position 
+.PP
+Definición en la línea 536 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_BKPT_Pos   1"
+SCB DFSR: BKPT Position 
+.PP
+Definición en la línea 568 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_DWTTRAP_Msk   (1UL << SCB_DFSR_DWTTRAP_Pos)"
+SCB DFSR: DWTTRAP Mask 
+.PP
+Definición en la línea 520 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_DWTTRAP_Msk   (1UL << SCB_DFSR_DWTTRAP_Pos)"
+SCB DFSR: DWTTRAP Mask 
+.PP
+Definición en la línea 534 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_DWTTRAP_Msk   (1UL << SCB_DFSR_DWTTRAP_Pos)"
+SCB DFSR: DWTTRAP Mask 
+.PP
+Definición en la línea 566 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_DWTTRAP_Pos   2"
+SCB DFSR: DWTTRAP Position 
+.PP
+Definición en la línea 519 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_DWTTRAP_Pos   2"
+SCB DFSR: DWTTRAP Position 
+.PP
+Definición en la línea 533 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_DWTTRAP_Pos   2"
+SCB DFSR: DWTTRAP Position 
+.PP
+Definición en la línea 565 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_EXTERNAL_Msk   (1UL << SCB_DFSR_EXTERNAL_Pos)"
+SCB DFSR: EXTERNAL Mask 
+.PP
+Definición en la línea 514 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_EXTERNAL_Msk   (1UL << SCB_DFSR_EXTERNAL_Pos)"
+SCB DFSR: EXTERNAL Mask 
+.PP
+Definición en la línea 528 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_EXTERNAL_Msk   (1UL << SCB_DFSR_EXTERNAL_Pos)"
+SCB DFSR: EXTERNAL Mask 
+.PP
+Definición en la línea 560 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_EXTERNAL_Pos   4"
+SCB DFSR: EXTERNAL Position 
+.PP
+Definición en la línea 513 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_EXTERNAL_Pos   4"
+SCB DFSR: EXTERNAL Position 
+.PP
+Definición en la línea 527 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_EXTERNAL_Pos   4"
+SCB DFSR: EXTERNAL Position 
+.PP
+Definición en la línea 559 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_HALTED_Msk   (1UL << SCB_DFSR_HALTED_Pos)"
+SCB DFSR: HALTED Mask 
+.PP
+Definición en la línea 526 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_HALTED_Msk   (1UL << SCB_DFSR_HALTED_Pos)"
+SCB DFSR: HALTED Mask 
+.PP
+Definición en la línea 540 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_HALTED_Msk   (1UL << SCB_DFSR_HALTED_Pos)"
+SCB DFSR: HALTED Mask 
+.PP
+Definición en la línea 572 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_HALTED_Pos   0"
+SCB DFSR: HALTED Position 
+.PP
+Definición en la línea 525 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_HALTED_Pos   0"
+SCB DFSR: HALTED Position 
+.PP
+Definición en la línea 539 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_HALTED_Pos   0"
+SCB DFSR: HALTED Position 
+.PP
+Definición en la línea 571 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_VCATCH_Msk   (1UL << SCB_DFSR_VCATCH_Pos)"
+SCB DFSR: VCATCH Mask 
+.PP
+Definición en la línea 517 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_VCATCH_Msk   (1UL << SCB_DFSR_VCATCH_Pos)"
+SCB DFSR: VCATCH Mask 
+.PP
+Definición en la línea 531 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_VCATCH_Msk   (1UL << SCB_DFSR_VCATCH_Pos)"
+SCB DFSR: VCATCH Mask 
+.PP
+Definición en la línea 563 del archivo core_cm4\&.h\&.
+.SS "#define SCB_DFSR_VCATCH_Pos   3"
+SCB DFSR: VCATCH Position 
+.PP
+Definición en la línea 516 del archivo core_sc300\&.h\&.
+.SS "#define SCB_DFSR_VCATCH_Pos   3"
+SCB DFSR: VCATCH Position 
+.PP
+Definición en la línea 530 del archivo core_cm3\&.h\&.
+.SS "#define SCB_DFSR_VCATCH_Pos   3"
+SCB DFSR: VCATCH Position 
+.PP
+Definición en la línea 562 del archivo core_cm4\&.h\&.
+.SS "#define SCB_HFSR_DEBUGEVT_Msk   (1UL << SCB_HFSR_DEBUGEVT_Pos)"
+SCB HFSR: DEBUGEVT Mask 
+.PP
+Definición en la línea 504 del archivo core_sc300\&.h\&.
+.SS "#define SCB_HFSR_DEBUGEVT_Msk   (1UL << SCB_HFSR_DEBUGEVT_Pos)"
+SCB HFSR: DEBUGEVT Mask 
+.PP
+Definición en la línea 518 del archivo core_cm3\&.h\&.
+.SS "#define SCB_HFSR_DEBUGEVT_Msk   (1UL << SCB_HFSR_DEBUGEVT_Pos)"
+SCB HFSR: DEBUGEVT Mask 
+.PP
+Definición en la línea 550 del archivo core_cm4\&.h\&.
+.SS "#define SCB_HFSR_DEBUGEVT_Pos   31"
+SCB HFSR: DEBUGEVT Position 
+.PP
+Definición en la línea 503 del archivo core_sc300\&.h\&.
+.SS "#define SCB_HFSR_DEBUGEVT_Pos   31"
+SCB HFSR: DEBUGEVT Position 
+.PP
+Definición en la línea 517 del archivo core_cm3\&.h\&.
+.SS "#define SCB_HFSR_DEBUGEVT_Pos   31"
+SCB HFSR: DEBUGEVT Position 
+.PP
+Definición en la línea 549 del archivo core_cm4\&.h\&.
+.SS "#define SCB_HFSR_FORCED_Msk   (1UL << SCB_HFSR_FORCED_Pos)"
+SCB HFSR: FORCED Mask 
+.PP
+Definición en la línea 507 del archivo core_sc300\&.h\&.
+.SS "#define SCB_HFSR_FORCED_Msk   (1UL << SCB_HFSR_FORCED_Pos)"
+SCB HFSR: FORCED Mask 
+.PP
+Definición en la línea 521 del archivo core_cm3\&.h\&.
+.SS "#define SCB_HFSR_FORCED_Msk   (1UL << SCB_HFSR_FORCED_Pos)"
+SCB HFSR: FORCED Mask 
+.PP
+Definición en la línea 553 del archivo core_cm4\&.h\&.
+.SS "#define SCB_HFSR_FORCED_Pos   30"
+SCB HFSR: FORCED Position 
+.PP
+Definición en la línea 506 del archivo core_sc300\&.h\&.
+.SS "#define SCB_HFSR_FORCED_Pos   30"
+SCB HFSR: FORCED Position 
+.PP
+Definición en la línea 520 del archivo core_cm3\&.h\&.
+.SS "#define SCB_HFSR_FORCED_Pos   30"
+SCB HFSR: FORCED Position 
+.PP
+Definición en la línea 552 del archivo core_cm4\&.h\&.
+.SS "#define SCB_HFSR_VECTTBL_Msk   (1UL << SCB_HFSR_VECTTBL_Pos)"
+SCB HFSR: VECTTBL Mask 
+.PP
+Definición en la línea 510 del archivo core_sc300\&.h\&.
+.SS "#define SCB_HFSR_VECTTBL_Msk   (1UL << SCB_HFSR_VECTTBL_Pos)"
+SCB HFSR: VECTTBL Mask 
+.PP
+Definición en la línea 524 del archivo core_cm3\&.h\&.
+.SS "#define SCB_HFSR_VECTTBL_Msk   (1UL << SCB_HFSR_VECTTBL_Pos)"
+SCB HFSR: VECTTBL Mask 
+.PP
+Definición en la línea 556 del archivo core_cm4\&.h\&.
+.SS "#define SCB_HFSR_VECTTBL_Pos   1"
+SCB HFSR: VECTTBL Position 
+.PP
+Definición en la línea 509 del archivo core_sc300\&.h\&.
+.SS "#define SCB_HFSR_VECTTBL_Pos   1"
+SCB HFSR: VECTTBL Position 
+.PP
+Definición en la línea 523 del archivo core_cm3\&.h\&.
+.SS "#define SCB_HFSR_VECTTBL_Pos   1"
+SCB HFSR: VECTTBL Position 
+.PP
+Definición en la línea 555 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Msk   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+SCB ICSR: ISRPENDING Mask 
+.PP
+Definición en la línea 354 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Msk   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+SCB ICSR: ISRPENDING Mask 
+.PP
+Definición en la línea 362 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Msk   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+SCB ICSR: ISRPENDING Mask 
+.PP
+Definición en la línea 369 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Msk   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+SCB ICSR: ISRPENDING Mask 
+.PP
+Definición en la línea 380 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Msk   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+SCB ICSR: ISRPENDING Mask 
+.PP
+Definición en la línea 389 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Msk   (1UL << SCB_ICSR_ISRPENDING_Pos)"
+SCB ICSR: ISRPENDING Mask 
+.PP
+Definición en la línea 429 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Pos   22"
+SCB ICSR: ISRPENDING Position 
+.PP
+Definición en la línea 353 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Pos   22"
+SCB ICSR: ISRPENDING Position 
+.PP
+Definición en la línea 361 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Pos   22"
+SCB ICSR: ISRPENDING Position 
+.PP
+Definición en la línea 368 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Pos   22"
+SCB ICSR: ISRPENDING Position 
+.PP
+Definición en la línea 379 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Pos   22"
+SCB ICSR: ISRPENDING Position 
+.PP
+Definición en la línea 388 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_ISRPENDING_Pos   22"
+SCB ICSR: ISRPENDING Position 
+.PP
+Definición en la línea 428 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Msk   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+SCB ICSR: ISRPREEMPT Mask 
+.PP
+Definición en la línea 351 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Msk   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+SCB ICSR: ISRPREEMPT Mask 
+.PP
+Definición en la línea 359 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Msk   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+SCB ICSR: ISRPREEMPT Mask 
+.PP
+Definición en la línea 366 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Msk   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+SCB ICSR: ISRPREEMPT Mask 
+.PP
+Definición en la línea 377 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Msk   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+SCB ICSR: ISRPREEMPT Mask 
+.PP
+Definición en la línea 386 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Msk   (1UL << SCB_ICSR_ISRPREEMPT_Pos)"
+SCB ICSR: ISRPREEMPT Mask 
+.PP
+Definición en la línea 426 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Pos   23"
+SCB ICSR: ISRPREEMPT Position 
+.PP
+Definición en la línea 350 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Pos   23"
+SCB ICSR: ISRPREEMPT Position 
+.PP
+Definición en la línea 358 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Pos   23"
+SCB ICSR: ISRPREEMPT Position 
+.PP
+Definición en la línea 365 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Pos   23"
+SCB ICSR: ISRPREEMPT Position 
+.PP
+Definición en la línea 376 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Pos   23"
+SCB ICSR: ISRPREEMPT Position 
+.PP
+Definición en la línea 385 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_ISRPREEMPT_Pos   23"
+SCB ICSR: ISRPREEMPT Position 
+.PP
+Definición en la línea 425 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Msk   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+SCB ICSR: NMIPENDSET Mask 
+.PP
+Definición en la línea 336 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Msk   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+SCB ICSR: NMIPENDSET Mask 
+.PP
+Definición en la línea 344 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Msk   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+SCB ICSR: NMIPENDSET Mask 
+.PP
+Definición en la línea 351 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Msk   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+SCB ICSR: NMIPENDSET Mask 
+.PP
+Definición en la línea 362 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Msk   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+SCB ICSR: NMIPENDSET Mask 
+.PP
+Definición en la línea 371 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Msk   (1UL << SCB_ICSR_NMIPENDSET_Pos)"
+SCB ICSR: NMIPENDSET Mask 
+.PP
+Definición en la línea 411 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Pos   31"
+SCB ICSR: NMIPENDSET Position 
+.PP
+Definición en la línea 335 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Pos   31"
+SCB ICSR: NMIPENDSET Position 
+.PP
+Definición en la línea 343 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Pos   31"
+SCB ICSR: NMIPENDSET Position 
+.PP
+Definición en la línea 350 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Pos   31"
+SCB ICSR: NMIPENDSET Position 
+.PP
+Definición en la línea 361 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Pos   31"
+SCB ICSR: NMIPENDSET Position 
+.PP
+Definición en la línea 370 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_NMIPENDSET_Pos   31"
+SCB ICSR: NMIPENDSET Position 
+.PP
+Definición en la línea 410 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Msk   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+SCB ICSR: PENDSTCLR Mask 
+.PP
+Definición en la línea 348 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Msk   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+SCB ICSR: PENDSTCLR Mask 
+.PP
+Definición en la línea 356 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Msk   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+SCB ICSR: PENDSTCLR Mask 
+.PP
+Definición en la línea 363 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Msk   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+SCB ICSR: PENDSTCLR Mask 
+.PP
+Definición en la línea 374 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Msk   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+SCB ICSR: PENDSTCLR Mask 
+.PP
+Definición en la línea 383 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Msk   (1UL << SCB_ICSR_PENDSTCLR_Pos)"
+SCB ICSR: PENDSTCLR Mask 
+.PP
+Definición en la línea 423 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Pos   25"
+SCB ICSR: PENDSTCLR Position 
+.PP
+Definición en la línea 347 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Pos   25"
+SCB ICSR: PENDSTCLR Position 
+.PP
+Definición en la línea 355 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Pos   25"
+SCB ICSR: PENDSTCLR Position 
+.PP
+Definición en la línea 362 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Pos   25"
+SCB ICSR: PENDSTCLR Position 
+.PP
+Definición en la línea 373 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Pos   25"
+SCB ICSR: PENDSTCLR Position 
+.PP
+Definición en la línea 382 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_PENDSTCLR_Pos   25"
+SCB ICSR: PENDSTCLR Position 
+.PP
+Definición en la línea 422 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Msk   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+SCB ICSR: PENDSTSET Mask 
+.PP
+Definición en la línea 345 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Msk   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+SCB ICSR: PENDSTSET Mask 
+.PP
+Definición en la línea 353 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Msk   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+SCB ICSR: PENDSTSET Mask 
+.PP
+Definición en la línea 360 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Msk   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+SCB ICSR: PENDSTSET Mask 
+.PP
+Definición en la línea 371 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Msk   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+SCB ICSR: PENDSTSET Mask 
+.PP
+Definición en la línea 380 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Msk   (1UL << SCB_ICSR_PENDSTSET_Pos)"
+SCB ICSR: PENDSTSET Mask 
+.PP
+Definición en la línea 420 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Pos   26"
+SCB ICSR: PENDSTSET Position 
+.PP
+Definición en la línea 344 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Pos   26"
+SCB ICSR: PENDSTSET Position 
+.PP
+Definición en la línea 352 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Pos   26"
+SCB ICSR: PENDSTSET Position 
+.PP
+Definición en la línea 359 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Pos   26"
+SCB ICSR: PENDSTSET Position 
+.PP
+Definición en la línea 370 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Pos   26"
+SCB ICSR: PENDSTSET Position 
+.PP
+Definición en la línea 379 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_PENDSTSET_Pos   26"
+SCB ICSR: PENDSTSET Position 
+.PP
+Definición en la línea 419 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Msk   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+SCB ICSR: PENDSVCLR Mask 
+.PP
+Definición en la línea 342 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Msk   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+SCB ICSR: PENDSVCLR Mask 
+.PP
+Definición en la línea 350 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Msk   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+SCB ICSR: PENDSVCLR Mask 
+.PP
+Definición en la línea 357 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Msk   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+SCB ICSR: PENDSVCLR Mask 
+.PP
+Definición en la línea 368 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Msk   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+SCB ICSR: PENDSVCLR Mask 
+.PP
+Definición en la línea 377 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Msk   (1UL << SCB_ICSR_PENDSVCLR_Pos)"
+SCB ICSR: PENDSVCLR Mask 
+.PP
+Definición en la línea 417 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Pos   27"
+SCB ICSR: PENDSVCLR Position 
+.PP
+Definición en la línea 341 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Pos   27"
+SCB ICSR: PENDSVCLR Position 
+.PP
+Definición en la línea 349 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Pos   27"
+SCB ICSR: PENDSVCLR Position 
+.PP
+Definición en la línea 356 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Pos   27"
+SCB ICSR: PENDSVCLR Position 
+.PP
+Definición en la línea 367 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Pos   27"
+SCB ICSR: PENDSVCLR Position 
+.PP
+Definición en la línea 376 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_PENDSVCLR_Pos   27"
+SCB ICSR: PENDSVCLR Position 
+.PP
+Definición en la línea 416 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Msk   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+SCB ICSR: PENDSVSET Mask 
+.PP
+Definición en la línea 339 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Msk   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+SCB ICSR: PENDSVSET Mask 
+.PP
+Definición en la línea 347 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Msk   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+SCB ICSR: PENDSVSET Mask 
+.PP
+Definición en la línea 354 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Msk   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+SCB ICSR: PENDSVSET Mask 
+.PP
+Definición en la línea 365 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Msk   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+SCB ICSR: PENDSVSET Mask 
+.PP
+Definición en la línea 374 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Msk   (1UL << SCB_ICSR_PENDSVSET_Pos)"
+SCB ICSR: PENDSVSET Mask 
+.PP
+Definición en la línea 414 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Pos   28"
+SCB ICSR: PENDSVSET Position 
+.PP
+Definición en la línea 338 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Pos   28"
+SCB ICSR: PENDSVSET Position 
+.PP
+Definición en la línea 346 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Pos   28"
+SCB ICSR: PENDSVSET Position 
+.PP
+Definición en la línea 353 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Pos   28"
+SCB ICSR: PENDSVSET Position 
+.PP
+Definición en la línea 364 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Pos   28"
+SCB ICSR: PENDSVSET Position 
+.PP
+Definición en la línea 373 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_PENDSVSET_Pos   28"
+SCB ICSR: PENDSVSET Position 
+.PP
+Definición en la línea 413 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_RETTOBASE_Msk   (1UL << SCB_ICSR_RETTOBASE_Pos)"
+SCB ICSR: RETTOBASE Mask 
+.PP
+Definición en la línea 386 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_RETTOBASE_Msk   (1UL << SCB_ICSR_RETTOBASE_Pos)"
+SCB ICSR: RETTOBASE Mask 
+.PP
+Definición en la línea 395 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_RETTOBASE_Msk   (1UL << SCB_ICSR_RETTOBASE_Pos)"
+SCB ICSR: RETTOBASE Mask 
+.PP
+Definición en la línea 435 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_RETTOBASE_Pos   11"
+SCB ICSR: RETTOBASE Position 
+.PP
+Definición en la línea 385 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_RETTOBASE_Pos   11"
+SCB ICSR: RETTOBASE Position 
+.PP
+Definición en la línea 394 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_RETTOBASE_Pos   11"
+SCB ICSR: RETTOBASE Position 
+.PP
+Definición en la línea 434 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Msk   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+SCB ICSR: VECTACTIVE Mask 
+.PP
+Definición en la línea 360 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Msk   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+SCB ICSR: VECTACTIVE Mask 
+.PP
+Definición en la línea 368 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Msk   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+SCB ICSR: VECTACTIVE Mask 
+.PP
+Definición en la línea 375 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Msk   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+SCB ICSR: VECTACTIVE Mask 
+.PP
+Definición en la línea 389 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Msk   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+SCB ICSR: VECTACTIVE Mask 
+.PP
+Definición en la línea 398 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Msk   (0x1FFUL << SCB_ICSR_VECTACTIVE_Pos)"
+SCB ICSR: VECTACTIVE Mask 
+.PP
+Definición en la línea 438 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Pos   0"
+SCB ICSR: VECTACTIVE Position 
+.PP
+Definición en la línea 359 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Pos   0"
+SCB ICSR: VECTACTIVE Position 
+.PP
+Definición en la línea 367 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Pos   0"
+SCB ICSR: VECTACTIVE Position 
+.PP
+Definición en la línea 374 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Pos   0"
+SCB ICSR: VECTACTIVE Position 
+.PP
+Definición en la línea 388 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Pos   0"
+SCB ICSR: VECTACTIVE Position 
+.PP
+Definición en la línea 397 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_VECTACTIVE_Pos   0"
+SCB ICSR: VECTACTIVE Position 
+.PP
+Definición en la línea 437 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Msk   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+SCB ICSR: VECTPENDING Mask 
+.PP
+Definición en la línea 357 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Msk   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+SCB ICSR: VECTPENDING Mask 
+.PP
+Definición en la línea 365 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Msk   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+SCB ICSR: VECTPENDING Mask 
+.PP
+Definición en la línea 372 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Msk   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+SCB ICSR: VECTPENDING Mask 
+.PP
+Definición en la línea 383 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Msk   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+SCB ICSR: VECTPENDING Mask 
+.PP
+Definición en la línea 392 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Msk   (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)"
+SCB ICSR: VECTPENDING Mask 
+.PP
+Definición en la línea 432 del archivo core_cm4\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Pos   12"
+SCB ICSR: VECTPENDING Position 
+.PP
+Definición en la línea 356 del archivo core_cm0\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Pos   12"
+SCB ICSR: VECTPENDING Position 
+.PP
+Definición en la línea 364 del archivo core_sc000\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Pos   12"
+SCB ICSR: VECTPENDING Position 
+.PP
+Definición en la línea 371 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Pos   12"
+SCB ICSR: VECTPENDING Position 
+.PP
+Definición en la línea 382 del archivo core_sc300\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Pos   12"
+SCB ICSR: VECTPENDING Position 
+.PP
+Definición en la línea 391 del archivo core_cm3\&.h\&.
+.SS "#define SCB_ICSR_VECTPENDING_Pos   12"
+SCB ICSR: VECTPENDING Position 
+.PP
+Definición en la línea 431 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Msk   (1UL << SCB_SCR_SEVONPEND_Pos)"
+SCB SCR: SEVONPEND Mask 
+.PP
+Definición en la línea 380 del archivo core_cm0\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Msk   (1UL << SCB_SCR_SEVONPEND_Pos)"
+SCB SCR: SEVONPEND Mask 
+.PP
+Definición en la línea 392 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Msk   (1UL << SCB_SCR_SEVONPEND_Pos)"
+SCB SCR: SEVONPEND Mask 
+.PP
+Definición en la línea 401 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Msk   (1UL << SCB_SCR_SEVONPEND_Pos)"
+SCB SCR: SEVONPEND Mask 
+.PP
+Definición en la línea 422 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Msk   (1UL << SCB_SCR_SEVONPEND_Pos)"
+SCB SCR: SEVONPEND Mask 
+.PP
+Definición en la línea 436 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Msk   (1UL << SCB_SCR_SEVONPEND_Pos)"
+SCB SCR: SEVONPEND Mask 
+.PP
+Definición en la línea 468 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Pos   4"
+SCB SCR: SEVONPEND Position 
+.PP
+Definición en la línea 379 del archivo core_cm0\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Pos   4"
+SCB SCR: SEVONPEND Position 
+.PP
+Definición en la línea 391 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Pos   4"
+SCB SCR: SEVONPEND Position 
+.PP
+Definición en la línea 400 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Pos   4"
+SCB SCR: SEVONPEND Position 
+.PP
+Definición en la línea 421 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Pos   4"
+SCB SCR: SEVONPEND Position 
+.PP
+Definición en la línea 435 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SCR_SEVONPEND_Pos   4"
+SCB SCR: SEVONPEND Position 
+.PP
+Definición en la línea 467 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Msk   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+SCB SCR: SLEEPDEEP Mask 
+.PP
+Definición en la línea 383 del archivo core_cm0\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Msk   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+SCB SCR: SLEEPDEEP Mask 
+.PP
+Definición en la línea 395 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Msk   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+SCB SCR: SLEEPDEEP Mask 
+.PP
+Definición en la línea 404 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Msk   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+SCB SCR: SLEEPDEEP Mask 
+.PP
+Definición en la línea 425 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Msk   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+SCB SCR: SLEEPDEEP Mask 
+.PP
+Definición en la línea 439 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Msk   (1UL << SCB_SCR_SLEEPDEEP_Pos)"
+SCB SCR: SLEEPDEEP Mask 
+.PP
+Definición en la línea 471 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Pos   2"
+SCB SCR: SLEEPDEEP Position 
+.PP
+Definición en la línea 382 del archivo core_cm0\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Pos   2"
+SCB SCR: SLEEPDEEP Position 
+.PP
+Definición en la línea 394 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Pos   2"
+SCB SCR: SLEEPDEEP Position 
+.PP
+Definición en la línea 403 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Pos   2"
+SCB SCR: SLEEPDEEP Position 
+.PP
+Definición en la línea 424 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Pos   2"
+SCB SCR: SLEEPDEEP Position 
+.PP
+Definición en la línea 438 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SCR_SLEEPDEEP_Pos   2"
+SCB SCR: SLEEPDEEP Position 
+.PP
+Definición en la línea 470 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Msk   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+SCB SCR: SLEEPONEXIT Mask 
+.PP
+Definición en la línea 386 del archivo core_cm0\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Msk   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+SCB SCR: SLEEPONEXIT Mask 
+.PP
+Definición en la línea 398 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Msk   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+SCB SCR: SLEEPONEXIT Mask 
+.PP
+Definición en la línea 407 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Msk   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+SCB SCR: SLEEPONEXIT Mask 
+.PP
+Definición en la línea 428 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Msk   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+SCB SCR: SLEEPONEXIT Mask 
+.PP
+Definición en la línea 442 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Msk   (1UL << SCB_SCR_SLEEPONEXIT_Pos)"
+SCB SCR: SLEEPONEXIT Mask 
+.PP
+Definición en la línea 474 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Pos   1"
+SCB SCR: SLEEPONEXIT Position 
+.PP
+Definición en la línea 385 del archivo core_cm0\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Pos   1"
+SCB SCR: SLEEPONEXIT Position 
+.PP
+Definición en la línea 397 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Pos   1"
+SCB SCR: SLEEPONEXIT Position 
+.PP
+Definición en la línea 406 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Pos   1"
+SCB SCR: SLEEPONEXIT Position 
+.PP
+Definición en la línea 427 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Pos   1"
+SCB SCR: SLEEPONEXIT Position 
+.PP
+Definición en la línea 441 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SCR_SLEEPONEXIT_Pos   1"
+SCB SCR: SLEEPONEXIT Position 
+.PP
+Definición en la línea 473 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SFCR_SECKEY_Msk   (0xFFFFUL << SCB_SHCSR_SVCALLPENDED_Pos)"
+SCB SFCR: SECKEY Mask 
+.PP
+Definición en la línea 416 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SFCR_SECKEY_Pos   16"
+SCB SFCR: SECKEY Position 
+.PP
+Definición en la línea 415 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SFCR_UNIBRTIMING_Msk   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+SCB SFCR: UNIBRTIMING Mask 
+.PP
+Definición en la línea 413 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SFCR_UNIBRTIMING_Pos   0"
+SCB SFCR: UNIBRTIMING Position 
+.PP
+Definición en la línea 412 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTACT_Msk   (1UL << SCB_SHCSR_BUSFAULTACT_Pos)"
+SCB SHCSR: BUSFAULTACT Mask 
+.PP
+Definición en la línea 487 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTACT_Msk   (1UL << SCB_SHCSR_BUSFAULTACT_Pos)"
+SCB SHCSR: BUSFAULTACT Mask 
+.PP
+Definición en la línea 501 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTACT_Msk   (1UL << SCB_SHCSR_BUSFAULTACT_Pos)"
+SCB SHCSR: BUSFAULTACT Mask 
+.PP
+Definición en la línea 533 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTACT_Pos   1"
+SCB SHCSR: BUSFAULTACT Position 
+.PP
+Definición en la línea 486 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTACT_Pos   1"
+SCB SHCSR: BUSFAULTACT Position 
+.PP
+Definición en la línea 500 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTACT_Pos   1"
+SCB SHCSR: BUSFAULTACT Position 
+.PP
+Definición en la línea 532 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTENA_Msk   (1UL << SCB_SHCSR_BUSFAULTENA_Pos)"
+SCB SHCSR: BUSFAULTENA Mask 
+.PP
+Definición en la línea 454 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTENA_Msk   (1UL << SCB_SHCSR_BUSFAULTENA_Pos)"
+SCB SHCSR: BUSFAULTENA Mask 
+.PP
+Definición en la línea 468 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTENA_Msk   (1UL << SCB_SHCSR_BUSFAULTENA_Pos)"
+SCB SHCSR: BUSFAULTENA Mask 
+.PP
+Definición en la línea 500 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTENA_Pos   17"
+SCB SHCSR: BUSFAULTENA Position 
+.PP
+Definición en la línea 453 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTENA_Pos   17"
+SCB SHCSR: BUSFAULTENA Position 
+.PP
+Definición en la línea 467 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTENA_Pos   17"
+SCB SHCSR: BUSFAULTENA Position 
+.PP
+Definición en la línea 499 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTPENDED_Msk   (1UL << SCB_SHCSR_BUSFAULTPENDED_Pos)"
+SCB SHCSR: BUSFAULTPENDED Mask 
+.PP
+Definición en la línea 463 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTPENDED_Msk   (1UL << SCB_SHCSR_BUSFAULTPENDED_Pos)"
+SCB SHCSR: BUSFAULTPENDED Mask 
+.PP
+Definición en la línea 477 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTPENDED_Msk   (1UL << SCB_SHCSR_BUSFAULTPENDED_Pos)"
+SCB SHCSR: BUSFAULTPENDED Mask 
+.PP
+Definición en la línea 509 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTPENDED_Pos   14"
+SCB SHCSR: BUSFAULTPENDED Position 
+.PP
+Definición en la línea 462 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTPENDED_Pos   14"
+SCB SHCSR: BUSFAULTPENDED Position 
+.PP
+Definición en la línea 476 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_BUSFAULTPENDED_Pos   14"
+SCB SHCSR: BUSFAULTPENDED Position 
+.PP
+Definición en la línea 508 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTACT_Msk   (1UL << SCB_SHCSR_MEMFAULTACT_Pos)"
+SCB SHCSR: MEMFAULTACT Mask 
+.PP
+Definición en la línea 490 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTACT_Msk   (1UL << SCB_SHCSR_MEMFAULTACT_Pos)"
+SCB SHCSR: MEMFAULTACT Mask 
+.PP
+Definición en la línea 504 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTACT_Msk   (1UL << SCB_SHCSR_MEMFAULTACT_Pos)"
+SCB SHCSR: MEMFAULTACT Mask 
+.PP
+Definición en la línea 536 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTACT_Pos   0"
+SCB SHCSR: MEMFAULTACT Position 
+.PP
+Definición en la línea 489 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTACT_Pos   0"
+SCB SHCSR: MEMFAULTACT Position 
+.PP
+Definición en la línea 503 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTACT_Pos   0"
+SCB SHCSR: MEMFAULTACT Position 
+.PP
+Definición en la línea 535 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTENA_Msk   (1UL << SCB_SHCSR_MEMFAULTENA_Pos)"
+SCB SHCSR: MEMFAULTENA Mask 
+.PP
+Definición en la línea 457 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTENA_Msk   (1UL << SCB_SHCSR_MEMFAULTENA_Pos)"
+SCB SHCSR: MEMFAULTENA Mask 
+.PP
+Definición en la línea 471 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTENA_Msk   (1UL << SCB_SHCSR_MEMFAULTENA_Pos)"
+SCB SHCSR: MEMFAULTENA Mask 
+.PP
+Definición en la línea 503 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTENA_Pos   16"
+SCB SHCSR: MEMFAULTENA Position 
+.PP
+Definición en la línea 456 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTENA_Pos   16"
+SCB SHCSR: MEMFAULTENA Position 
+.PP
+Definición en la línea 470 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTENA_Pos   16"
+SCB SHCSR: MEMFAULTENA Position 
+.PP
+Definición en la línea 502 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTPENDED_Msk   (1UL << SCB_SHCSR_MEMFAULTPENDED_Pos)"
+SCB SHCSR: MEMFAULTPENDED Mask 
+.PP
+Definición en la línea 466 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTPENDED_Msk   (1UL << SCB_SHCSR_MEMFAULTPENDED_Pos)"
+SCB SHCSR: MEMFAULTPENDED Mask 
+.PP
+Definición en la línea 480 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTPENDED_Msk   (1UL << SCB_SHCSR_MEMFAULTPENDED_Pos)"
+SCB SHCSR: MEMFAULTPENDED Mask 
+.PP
+Definición en la línea 512 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTPENDED_Pos   13"
+SCB SHCSR: MEMFAULTPENDED Position 
+.PP
+Definición en la línea 465 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTPENDED_Pos   13"
+SCB SHCSR: MEMFAULTPENDED Position 
+.PP
+Definición en la línea 479 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_MEMFAULTPENDED_Pos   13"
+SCB SHCSR: MEMFAULTPENDED Position 
+.PP
+Definición en la línea 511 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_MONITORACT_Msk   (1UL << SCB_SHCSR_MONITORACT_Pos)"
+SCB SHCSR: MONITORACT Mask 
+.PP
+Definición en la línea 478 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_MONITORACT_Msk   (1UL << SCB_SHCSR_MONITORACT_Pos)"
+SCB SHCSR: MONITORACT Mask 
+.PP
+Definición en la línea 492 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_MONITORACT_Msk   (1UL << SCB_SHCSR_MONITORACT_Pos)"
+SCB SHCSR: MONITORACT Mask 
+.PP
+Definición en la línea 524 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_MONITORACT_Pos   8"
+SCB SHCSR: MONITORACT Position 
+.PP
+Definición en la línea 477 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_MONITORACT_Pos   8"
+SCB SHCSR: MONITORACT Position 
+.PP
+Definición en la línea 491 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_MONITORACT_Pos   8"
+SCB SHCSR: MONITORACT Position 
+.PP
+Definición en la línea 523 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_PENDSVACT_Msk   (1UL << SCB_SHCSR_PENDSVACT_Pos)"
+SCB SHCSR: PENDSVACT Mask 
+.PP
+Definición en la línea 475 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_PENDSVACT_Msk   (1UL << SCB_SHCSR_PENDSVACT_Pos)"
+SCB SHCSR: PENDSVACT Mask 
+.PP
+Definición en la línea 489 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_PENDSVACT_Msk   (1UL << SCB_SHCSR_PENDSVACT_Pos)"
+SCB SHCSR: PENDSVACT Mask 
+.PP
+Definición en la línea 521 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_PENDSVACT_Pos   10"
+SCB SHCSR: PENDSVACT Position 
+.PP
+Definición en la línea 474 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_PENDSVACT_Pos   10"
+SCB SHCSR: PENDSVACT Position 
+.PP
+Definición en la línea 488 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_PENDSVACT_Pos   10"
+SCB SHCSR: PENDSVACT Position 
+.PP
+Definición en la línea 520 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLACT_Msk   (1UL << SCB_SHCSR_SVCALLACT_Pos)"
+SCB SHCSR: SVCALLACT Mask 
+.PP
+Definición en la línea 481 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLACT_Msk   (1UL << SCB_SHCSR_SVCALLACT_Pos)"
+SCB SHCSR: SVCALLACT Mask 
+.PP
+Definición en la línea 495 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLACT_Msk   (1UL << SCB_SHCSR_SVCALLACT_Pos)"
+SCB SHCSR: SVCALLACT Mask 
+.PP
+Definición en la línea 527 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLACT_Pos   7"
+SCB SHCSR: SVCALLACT Position 
+.PP
+Definición en la línea 480 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLACT_Pos   7"
+SCB SHCSR: SVCALLACT Position 
+.PP
+Definición en la línea 494 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLACT_Pos   7"
+SCB SHCSR: SVCALLACT Position 
+.PP
+Definición en la línea 526 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Msk   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+SCB SHCSR: SVCALLPENDED Mask 
+.PP
+Definición en la línea 397 del archivo core_cm0\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Msk   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+SCB SHCSR: SVCALLPENDED Mask 
+.PP
+Definición en la línea 409 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Msk   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+SCB SHCSR: SVCALLPENDED Mask 
+.PP
+Definición en la línea 418 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Msk   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+SCB SHCSR: SVCALLPENDED Mask 
+.PP
+Definición en la línea 460 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Msk   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+SCB SHCSR: SVCALLPENDED Mask 
+.PP
+Definición en la línea 474 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Msk   (1UL << SCB_SHCSR_SVCALLPENDED_Pos)"
+SCB SHCSR: SVCALLPENDED Mask 
+.PP
+Definición en la línea 506 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Pos   15"
+SCB SHCSR: SVCALLPENDED Position 
+.PP
+Definición en la línea 396 del archivo core_cm0\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Pos   15"
+SCB SHCSR: SVCALLPENDED Position 
+.PP
+Definición en la línea 408 del archivo core_sc000\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Pos   15"
+SCB SHCSR: SVCALLPENDED Position 
+.PP
+Definición en la línea 417 del archivo core_cm0plus\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Pos   15"
+SCB SHCSR: SVCALLPENDED Position 
+.PP
+Definición en la línea 459 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Pos   15"
+SCB SHCSR: SVCALLPENDED Position 
+.PP
+Definición en la línea 473 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_SVCALLPENDED_Pos   15"
+SCB SHCSR: SVCALLPENDED Position 
+.PP
+Definición en la línea 505 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_SYSTICKACT_Msk   (1UL << SCB_SHCSR_SYSTICKACT_Pos)"
+SCB SHCSR: SYSTICKACT Mask 
+.PP
+Definición en la línea 472 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_SYSTICKACT_Msk   (1UL << SCB_SHCSR_SYSTICKACT_Pos)"
+SCB SHCSR: SYSTICKACT Mask 
+.PP
+Definición en la línea 486 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_SYSTICKACT_Msk   (1UL << SCB_SHCSR_SYSTICKACT_Pos)"
+SCB SHCSR: SYSTICKACT Mask 
+.PP
+Definición en la línea 518 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_SYSTICKACT_Pos   11"
+SCB SHCSR: SYSTICKACT Position 
+.PP
+Definición en la línea 471 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_SYSTICKACT_Pos   11"
+SCB SHCSR: SYSTICKACT Position 
+.PP
+Definición en la línea 485 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_SYSTICKACT_Pos   11"
+SCB SHCSR: SYSTICKACT Position 
+.PP
+Definición en la línea 517 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTACT_Msk   (1UL << SCB_SHCSR_USGFAULTACT_Pos)"
+SCB SHCSR: USGFAULTACT Mask 
+.PP
+Definición en la línea 484 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTACT_Msk   (1UL << SCB_SHCSR_USGFAULTACT_Pos)"
+SCB SHCSR: USGFAULTACT Mask 
+.PP
+Definición en la línea 498 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTACT_Msk   (1UL << SCB_SHCSR_USGFAULTACT_Pos)"
+SCB SHCSR: USGFAULTACT Mask 
+.PP
+Definición en la línea 530 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTACT_Pos   3"
+SCB SHCSR: USGFAULTACT Position 
+.PP
+Definición en la línea 483 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTACT_Pos   3"
+SCB SHCSR: USGFAULTACT Position 
+.PP
+Definición en la línea 497 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTACT_Pos   3"
+SCB SHCSR: USGFAULTACT Position 
+.PP
+Definición en la línea 529 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTENA_Msk   (1UL << SCB_SHCSR_USGFAULTENA_Pos)"
+SCB SHCSR: USGFAULTENA Mask 
+.PP
+Definición en la línea 451 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTENA_Msk   (1UL << SCB_SHCSR_USGFAULTENA_Pos)"
+SCB SHCSR: USGFAULTENA Mask 
+.PP
+Definición en la línea 465 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTENA_Msk   (1UL << SCB_SHCSR_USGFAULTENA_Pos)"
+SCB SHCSR: USGFAULTENA Mask 
+.PP
+Definición en la línea 497 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTENA_Pos   18"
+SCB SHCSR: USGFAULTENA Position 
+.PP
+Definición en la línea 450 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTENA_Pos   18"
+SCB SHCSR: USGFAULTENA Position 
+.PP
+Definición en la línea 464 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTENA_Pos   18"
+SCB SHCSR: USGFAULTENA Position 
+.PP
+Definición en la línea 496 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTPENDED_Msk   (1UL << SCB_SHCSR_USGFAULTPENDED_Pos)"
+SCB SHCSR: USGFAULTPENDED Mask 
+.PP
+Definición en la línea 469 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTPENDED_Msk   (1UL << SCB_SHCSR_USGFAULTPENDED_Pos)"
+SCB SHCSR: USGFAULTPENDED Mask 
+.PP
+Definición en la línea 483 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTPENDED_Msk   (1UL << SCB_SHCSR_USGFAULTPENDED_Pos)"
+SCB SHCSR: USGFAULTPENDED Mask 
+.PP
+Definición en la línea 515 del archivo core_cm4\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTPENDED_Pos   12"
+SCB SHCSR: USGFAULTPENDED Position 
+.PP
+Definición en la línea 468 del archivo core_sc300\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTPENDED_Pos   12"
+SCB SHCSR: USGFAULTPENDED Position 
+.PP
+Definición en la línea 482 del archivo core_cm3\&.h\&.
+.SS "#define SCB_SHCSR_USGFAULTPENDED_Pos   12"
+SCB SHCSR: USGFAULTPENDED Position 
+.PP
+Definición en la línea 514 del archivo core_cm4\&.h\&.
+.SS "#define SCB_VTOR_TBLBASE_Msk   (1UL << SCB_VTOR_TBLBASE_Pos)"
+SCB VTOR: TBLBASE Mask 
+.PP
+Definición en la línea 393 del archivo core_sc300\&.h\&.
+.SS "#define SCB_VTOR_TBLBASE_Msk   (1UL << SCB_VTOR_TBLBASE_Pos)"
+SCB VTOR: TBLBASE Mask 
+.PP
+Definición en la línea 403 del archivo core_cm3\&.h\&.
+.SS "#define SCB_VTOR_TBLBASE_Pos   29"
+SCB VTOR: TBLBASE Position 
+.PP
+Definición en la línea 392 del archivo core_sc300\&.h\&.
+.SS "#define SCB_VTOR_TBLBASE_Pos   29"
+SCB VTOR: TBLBASE Position 
+.PP
+Definición en la línea 402 del archivo core_cm3\&.h\&.
+.SS "#define SCB_VTOR_TBLOFF_Msk   (0x1FFFFFFUL << SCB_VTOR_TBLOFF_Pos)"
+SCB VTOR: TBLOFF Mask 
+.PP
+Definición en la línea 372 del archivo core_sc000\&.h\&.
+.SS "#define SCB_VTOR_TBLOFF_Msk   (0x3FFFFFUL << SCB_VTOR_TBLOFF_Pos)"
+SCB VTOR: TBLOFF Mask 
+.PP
+Definición en la línea 396 del archivo core_sc300\&.h\&.
+.SS "#define SCB_VTOR_TBLOFF_Msk   (0x3FFFFFUL << SCB_VTOR_TBLOFF_Pos)"
+SCB VTOR: TBLOFF Mask 
+.PP
+Definición en la línea 406 del archivo core_cm3\&.h\&.
+.SS "#define SCB_VTOR_TBLOFF_Msk   (0x1FFFFFFUL << SCB_VTOR_TBLOFF_Pos)"
+SCB VTOR: TBLOFF Mask 
+.PP
+Definición en la línea 442 del archivo core_cm4\&.h\&.
+.SS "#define SCB_VTOR_TBLOFF_Pos   7"
+SCB VTOR: TBLOFF Position 
+.PP
+Definición en la línea 371 del archivo core_sc000\&.h\&.
+.SS "#define SCB_VTOR_TBLOFF_Pos   7"
+SCB VTOR: TBLOFF Position 
+.PP
+Definición en la línea 395 del archivo core_sc300\&.h\&.
+.SS "#define SCB_VTOR_TBLOFF_Pos   7"
+SCB VTOR: TBLOFF Position 
+.PP
+Definición en la línea 405 del archivo core_cm3\&.h\&.
+.SS "#define SCB_VTOR_TBLOFF_Pos   7"
+SCB VTOR: TBLOFF Position 
+.PP
+Definición en la línea 441 del archivo core_cm4\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

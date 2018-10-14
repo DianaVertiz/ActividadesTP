@@ -1,0 +1,124 @@
+.TH "OTP_API_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+OTP_API_T \- LPC18XX_43XX OTP API structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <romapi_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint32_t(* \fBInit\fP )(void)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgBootSrc\fP )(\fBCHIP_OTP_BOOT_SRC_T\fP BootSrc)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgJTAGDis\fP )(void)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgUSBID\fP )(uint32_t ProductID, uint32_t VendorID)"
+.br
+.ti -1c
+.RI "uint32_t \fBreserved01\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBreserved02\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBreserved03\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBreserved04\fP"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgGP0\fP )(uint32_t data, uint32_t mask)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgGP1\fP )(uint32_t data, uint32_t mask)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgGP2\fP )(uint32_t data, uint32_t mask)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgKey1\fP )(uint8_t *key)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgKey2\fP )(uint8_t *key)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBGenRand\fP )(void)"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+LPC18XX_43XX OTP API structure\&. 
+.PP
+Definición en la línea 50 del archivo romapi_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint32_t(* GenRand) (void)"
+
+.PP
+Definición en la línea 64 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* Init) (void)"
+Initializes OTP controller\&. 
+.PP
+Definición en la línea 51 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgBootSrc) (\fBCHIP_OTP_BOOT_SRC_T\fP BootSrc)"
+
+.PP
+Definición en la línea 52 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgGP0) (uint32_t data, uint32_t mask)"
+
+.PP
+Definición en la línea 59 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgGP1) (uint32_t data, uint32_t mask)"
+
+.PP
+Definición en la línea 60 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgGP2) (uint32_t data, uint32_t mask)"
+
+.PP
+Definición en la línea 61 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgJTAGDis) (void)"
+
+.PP
+Definición en la línea 53 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgKey1) (uint8_t *key)"
+
+.PP
+Definición en la línea 62 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgKey2) (uint8_t *key)"
+
+.PP
+Definición en la línea 63 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgUSBID) (uint32_t ProductID, uint32_t VendorID)"
+
+.PP
+Definición en la línea 54 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t reserved01"
+
+.PP
+Definición en la línea 55 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t reserved02"
+
+.PP
+Definición en la línea 56 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t reserved03"
+
+.PP
+Definición en la línea 57 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t reserved04"
+
+.PP
+Definición en la línea 58 del archivo romapi_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

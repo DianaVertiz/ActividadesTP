@@ -1,0 +1,59 @@
+.TH "i2s_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+i2s_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBStatus\fP \fBgetClkDiv\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_AUDIO_FORMAT_T\fP *format, uint16_t *pxDiv, uint16_t *pyDiv, uint32_t *pN)"
+.br
+.ti -1c
+.RI "void \fBChip_I2S_Init\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIInitialize for I2S\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_DeInit\fP (\fBLPC_I2S_T\fP *pI2S)"
+.br
+.RI "\fIShutdown I2S\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_I2S_TxConfig\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_AUDIO_FORMAT_T\fP *format)"
+.br
+.RI "\fIConfigure I2S for Audio Format input\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_I2S_RxConfig\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_AUDIO_FORMAT_T\fP *format)"
+.br
+.RI "\fIConfigure I2S for Audio Format input\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_Int_TxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable Interrupt with a specific FIFO depth\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_Int_RxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable Interrupt with a specific FIFO depth\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_DMA_TxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_DMA_CHANNEL_T\fP dmaNum, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable DMA with a specific FIFO depth\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2S_DMA_RxCmd\fP (\fBLPC_I2S_T\fP *pI2S, \fBI2S_DMA_CHANNEL_T\fP dmaNum, \fBFunctionalState\fP newState, uint8_t depth)"
+.br
+.RI "\fIEnable/Disable DMA with a specific FIFO depth\&. \fP"
+.in -1c
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBStatus\fP getClkDiv (\fBLPC_I2S_T\fP * pI2S, \fBI2S_AUDIO_FORMAT_T\fP * format, uint16_t * pxDiv, uint16_t * pyDiv, uint32_t * pN)"
+
+.PP
+Definición en la línea 47 del archivo i2s_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

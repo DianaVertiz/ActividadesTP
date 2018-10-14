@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;TP7_ej1/inc/operaciones.h&apos; to &apos;sysUtils.h&apos;" description="Rename resource &apos;operaciones.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="inc/operaciones.h" name="sysUtils.h" stamp="1539390652261" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;TP7_ej1/src/operaciones.c&apos; to &apos;sysUtils.c&apos;" description="Rename resource &apos;operaciones.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/operaciones.c" name="sysUtils.c" stamp="1539390665689" updateReferences="true"/>
+</session>

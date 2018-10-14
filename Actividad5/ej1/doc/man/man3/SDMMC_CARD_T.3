@@ -1,0 +1,124 @@
+.TH "SDMMC_CARD_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SDMMC_CARD_T \- SD/MMC Card specific setup data structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <sdmmc\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBresponse\fP [4]"
+.br
+.ti -1c
+.RI "uint32_t \fBcid\fP [4]"
+.br
+.ti -1c
+.RI "uint32_t \fBcsd\fP [4]"
+.br
+.ti -1c
+.RI "uint32_t \fBext_csd\fP [512/4]"
+.br
+.ti -1c
+.RI "uint32_t \fBcard_type\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBrca\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBspeed\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBblock_len\fP"
+.br
+.ti -1c
+.RI "uint64_t \fBdevice_size\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBblocknr\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBclk_rate\fP"
+.br
+.ti -1c
+.RI "\fBSDMMC_EVSETUP_FUNC_T\fP \fBevsetup_cb\fP"
+.br
+.ti -1c
+.RI "\fBSDMMC_EVWAIT_FUNC_T\fP \fBwaitfunc_cb\fP"
+.br
+.ti -1c
+.RI "\fBSDMMC_MSDELAY_FUNC_T\fP \fBmsdelay_func\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+SD/MMC Card specific setup data structure\&. 
+.PP
+Definición en la línea 193 del archivo sdmmc\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint32_t block_len"
+Card sector size 
+.PP
+Definición en la línea 201 del archivo sdmmc\&.h\&.
+.SS "uint32_t blocknr"
+Block Number 
+.PP
+Definición en la línea 203 del archivo sdmmc\&.h\&.
+.SS "uint32_t card_type"
+Card Type 
+.PP
+Definición en la línea 198 del archivo sdmmc\&.h\&.
+.SS "uint32_t cid[4]"
+CID of acquired card 
+.PP
+Definición en la línea 195 del archivo sdmmc\&.h\&.
+.SS "uint32_t clk_rate"
+
+.PP
+Definición en la línea 204 del archivo sdmmc\&.h\&.
+.SS "uint32_t csd[4]"
+CSD of acquired card 
+.PP
+Definición en la línea 196 del archivo sdmmc\&.h\&.
+.SS "uint64_t device_size"
+Device Size 
+.PP
+Definición en la línea 202 del archivo sdmmc\&.h\&.
+.SS "\fBSDMMC_EVSETUP_FUNC_T\fP evsetup_cb"
+Clock rate Function to setup event information 
+.PP
+Definición en la línea 205 del archivo sdmmc\&.h\&.
+.SS "uint32_t ext_csd[512/4]"
+Ext CSD 
+.PP
+Definición en la línea 197 del archivo sdmmc\&.h\&.
+.SS "\fBSDMMC_MSDELAY_FUNC_T\fP msdelay_func"
+Function to sleep in ms 
+.PP
+Definición en la línea 207 del archivo sdmmc\&.h\&.
+.SS "uint16_t rca"
+Relative address assigned to card 
+.PP
+Definición en la línea 199 del archivo sdmmc\&.h\&.
+.SS "uint32_t response[4]"
+Most recent response 
+.PP
+Definición en la línea 194 del archivo sdmmc\&.h\&.
+.SS "uint32_t speed"
+Speed 
+.PP
+Definición en la línea 200 del archivo sdmmc\&.h\&.
+.SS "\fBSDMMC_EVWAIT_FUNC_T\fP waitfunc_cb"
+Function to wait for event 
+.PP
+Definición en la línea 206 del archivo sdmmc\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

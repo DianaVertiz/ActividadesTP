@@ -1,0 +1,87 @@
+.TH "ritimer_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ritimer_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_RITIMER_T\fP"
+.br
+.RI "\fIRepetitive Interrupt Timer register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRIT_CTRL_INT\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBRIT_CTRL_ENCLR\fP   ((uint32_t) \fB_BIT\fP(1))"
+.br
+.ti -1c
+.RI "#define \fBRIT_CTRL_ENBR\fP   ((uint32_t) \fB_BIT\fP(2))"
+.br
+.ti -1c
+.RI "#define \fBRIT_CTRL_TEN\fP   ((uint32_t) \fB_BIT\fP(3))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_RIT_Init\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIInitialize the RIT\&. \fP"
+.ti -1c
+.RI "void \fBChip_RIT_DeInit\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIShutdown the RIT\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_Enable\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIEnable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_Disable\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIDisable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_TimerDebugEnable\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIEnable timer debug\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_TimerDebugDisable\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIDisable timer debug\&. \fP"
+.ti -1c
+.RI "\fBIntStatus\fP \fBChip_RIT_GetIntStatus\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fICheck whether interrupt flag is set or not\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_SetCOMPVAL\fP (\fBLPC_RITIMER_T\fP *pRITimer, uint32_t val)"
+.br
+.RI "\fISet a tick value for the interrupt to time out\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_EnableCTRL\fP (\fBLPC_RITIMER_T\fP *pRITimer, uint32_t val)"
+.br
+.RI "\fIEnables or clears the RIT or interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_ClearInt\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIClears the RIT interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_RIT_GetCounter\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIReturns the current RIT Counter value\&. \fP"
+.ti -1c
+.RI "void \fBChip_RIT_SetTimerInterval\fP (\fBLPC_RITIMER_T\fP *pRITimer, uint32_t time_interval)"
+.br
+.RI "\fISet timer interval value\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

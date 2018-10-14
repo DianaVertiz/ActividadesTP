@@ -1,0 +1,71 @@
+.TH "ROMAPI_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ROMAPI_18XX_43XX \- CHIP: LPC18xx_43xx ROM API declarations and functions
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBOTP_API_T\fP"
+.br
+.RI "\fILPC18XX_43XX OTP API structure\&. \fP"
+.ti -1c
+.RI "struct \fBAES_API_T\fP"
+.br
+.RI "\fILPC18XX_43XX AES API structure\&. \fP"
+.ti -1c
+.RI "struct \fBLPC_ROM_API_T\fP"
+.br
+.RI "\fILPC18XX High level ROM API structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLPC_ROM_API_BASE_LOC\fP   0x10400100"
+.br
+.ti -1c
+.RI "#define \fBLPC_ROM_API\fP   ((\fBLPC_ROM_API_T\fP *) \fBLPC_ROM_API_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBIAP_ENTRY_LOCATION\fP   (*((uint32_t *) 0x10400100))"
+.br
+.ti -1c
+.RI "#define \fBIAP_FLASH_BANK_A\fP   0"
+.br
+.RI "\fIIAP flash bank definitions\&. \fP"
+.ti -1c
+.RI "#define \fBIAP_FLASH_BANK_B\fP   1"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define IAP_ENTRY_LOCATION   (*((uint32_t *) 0x10400100))"
+
+.PP
+Definición en la línea 103 del archivo romapi_18xx_43xx\&.h\&.
+.SS "#define IAP_FLASH_BANK_A   0"
+
+.PP
+IAP flash bank definitions\&. 
+.PP
+Definición en la línea 108 del archivo romapi_18xx_43xx\&.h\&.
+.SS "#define IAP_FLASH_BANK_B   1"
+
+.PP
+Definición en la línea 109 del archivo romapi_18xx_43xx\&.h\&.
+.SS "#define LPC_ROM_API   ((\fBLPC_ROM_API_T\fP *) \fBLPC_ROM_API_BASE\fP)"
+
+.PP
+Definición en la línea 100 del archivo romapi_18xx_43xx\&.h\&.
+.SS "#define LPC_ROM_API_BASE_LOC   0x10400100"
+
+.PP
+Definición en la línea 99 del archivo romapi_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

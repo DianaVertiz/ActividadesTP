@@ -1,0 +1,58 @@
+.TH "iap.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+iap.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBChip_IAP_PreSectorForReadWrite\fP (uint32_t strSector, uint32_t endSector)"
+.br
+.RI "\fIPrepare sector for write operation\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_CopyRamToFlash\fP (uint32_t dstAdd, uint32_t *srcAdd, uint32_t byteswrt)"
+.br
+.RI "\fICopy RAM to flash\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_EraseSector\fP (uint32_t strSector, uint32_t endSector)"
+.br
+.RI "\fIErase sector\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_BlankCheckSector\fP (uint32_t strSector, uint32_t endSector)"
+.br
+.RI "\fIBlank check a sector or multiples sector of on-chip flash memory\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_IAP_ReadPID\fP (void)"
+.br
+.RI "\fIRead part identification number\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_IAP_ReadBootCode\fP (void)"
+.br
+.RI "\fIRead boot code version number\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_Compare\fP (uint32_t dstAdd, uint32_t srcAdd, uint32_t bytescmp)"
+.br
+.RI "\fICompare the memory contents at two locations\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_ReinvokeISP\fP (void)"
+.br
+.RI "\fIIAP reinvoke ISP to invoke the bootloader in ISP mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_IAP_ReadUID\fP (uint32_t *uid)"
+.br
+.RI "\fIRead the unique ID\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_ErasePage\fP (uint32_t strPage, uint32_t endPage)"
+.br
+.RI "\fIErase a page or multiple papers of on-chip flash memory\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

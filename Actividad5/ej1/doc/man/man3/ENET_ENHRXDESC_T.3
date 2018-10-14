@@ -1,0 +1,82 @@
+.TH "ENET_ENHRXDESC_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ENET_ENHRXDESC_T \- Structure of a enhanced receive descriptor (with timestamp)  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <enet_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATUS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBB1ADD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBB2ADD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEXTSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRDES5\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRTSL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRTSH\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Structure of a enhanced receive descriptor (with timestamp) 
+.PP
+Definición en la línea 440 del archivo enet_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t B1ADD"
+Buffer 1 address 
+.PP
+Definición en la línea 443 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t B2ADD"
+Buffer 2 or next descriptor address 
+.PP
+Definición en la línea 444 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTRL"
+Buffer 1/2 byte counts 
+.PP
+Definición en la línea 442 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t EXTSTAT"
+Extended Status 
+.PP
+Definición en la línea 445 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RDES5"
+Reserved 
+.PP
+Definición en la línea 446 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RTSH"
+Timestamp value high 
+.PP
+Definición en la línea 448 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RTSL"
+Timestamp value low 
+.PP
+Definición en la línea 447 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATUS"
+RDES status word 
+.PP
+Definición en la línea 441 del archivo enet_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

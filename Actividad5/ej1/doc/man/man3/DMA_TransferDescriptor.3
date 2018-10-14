@@ -1,0 +1,54 @@
+.TH "DMA_TransferDescriptor" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DMA_TransferDescriptor \- Transfer Descriptor structure typedef\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <gpdma_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBsrc\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBdst\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlli\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBctrl\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Transfer Descriptor structure typedef\&. 
+.PP
+Definición en la línea 247 del archivo gpdma_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint32_t ctrl"
+Control word that has transfer size, type etc\&. 
+.PP
+Definición en la línea 251 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "uint32_t dst"
+Destination address 
+.PP
+Definición en la línea 249 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "uint32_t lli"
+Pointer to next descriptor structure 
+.PP
+Definición en la línea 250 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "uint32_t src"
+Source address 
+.PP
+Definición en la línea 248 del archivo gpdma_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

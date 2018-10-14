@@ -1,0 +1,839 @@
+\hypertarget{group___s_c_t__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx State Configurable Timer driver}
+\label{group___s_c_t__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T}
+\begin{DoxyCompactList}\small\item\em State Configurable Timer register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga2672a9e7fb27a28b4f2dd7f4468f0010}{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+EV}~(16)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga8d80e251208a01483a6b00c81ecb7493}{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+RG}~(16)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gab432d85ccb09a5c5d232916c8bb95089}{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+OU}~(16)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga441708986d2cd57043b0603801c21450}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER}~0x00000000
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga579cb78a05f4c680e9ec5463dc5aeafd}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER}~0x00000001
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga54bd229bccde8e742610b8363d7f7a25}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+B\+U\+S\+C\+LK}~(0x0 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga2ef1357ae9969a9a1be753ab199e1aa1}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+S\+C\+T\+C\+LK}~(0x1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga969d9166f635eeaab7fa6873fa2c6cc9}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+C\+LK}~(0x2 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga52bfacd5bd4daeda54ef29b9f11e400a}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+E\+D\+G\+E\+C\+LK}~(0x3 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga94c6dc388017b5e8038ad1dea8e32a3f}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+D\+L\+\_\+U}~(0x1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga80da6c633fb897af2ee19bded9e43844}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+DH}~(0x1 $<$$<$ 8)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gac727f3a2843844006cad343e832f2986}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+L}~(0x1 $<$$<$ 17)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gade673779ab8ecd446b29251467328b6e}{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+H}~(0x1 $<$$<$ 18)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gae031b8fdb62fadf5d4a61e5d633200d6}{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO}~0
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gae031b8fdb62fadf5d4a61e5d633200d6}{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO}~0
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga06ed56286d35da0efb487ae76663f40a}{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO}~L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+O\+U\+N\+T\+D\+O\+W\+N\+\_\+\+T\+O\+\_\+\+Z\+E\+RO 1
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga06ed56286d35da0efb487ae76663f40a}{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO}~L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+O\+U\+N\+T\+D\+O\+W\+N\+\_\+\+T\+O\+\_\+\+Z\+E\+RO 1
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga630d5421762974f255537a14d391b0be}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+L}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga40704e7d46713ea4b4c84e07a80a482e}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+L}~(1 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga75edacff186a48ac4193bf5069e03fba}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+L}~(1 $<$$<$ 3)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga8cf518b4240ce7d11e5bf552a49f7092}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+L}(x)~(((x) \& 0x01) $<$$<$ 4)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gac781c2ccd9053038834cebc3f0ea6ec6}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+L}(x)~(((x) \& 0x\+F\+F) $<$$<$ 5)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gae0f0598ff2c22b1db06e3590c03280ea}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+H}~(1 $<$$<$ 17)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga19527730d0cdbf041987ab3510a0ee16}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+H}~(1 $<$$<$ 18)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga792f39bf995d1a7397bb4600e44dc7f7}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+H}~(1 $<$$<$ 19)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga9d96e3f51e16487c6f8c652cbbdc050b}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+H}(x)~(((x) \& 0x01) $<$$<$ 20)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga399f28b3b6a93cb14b19db3df66a565d}{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+H}(x)~(((x) \& 0x\+F\+F) $<$$<$ 21)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_ga9f704972cc5fefff30694a1c103ee272}{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+N\+O\+C\+H\+A\+N\+GE}~(0)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gaf5512f6f59ea7b5b7af86a50a85408dc}{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+S\+E\+T\+\_\+\+O\+U\+T\+P\+UT}~(1)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gaaa994f1d7b3ec39640563bf1f3a5e2ac}{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+C\+L\+E\+A\+R\+\_\+\+O\+U\+T\+P\+UT}~(2)
+\item 
+\#define \hyperlink{group___s_c_t__18_x_x__43_x_x_gab7f416d617a424072cc0f29413f8e419}{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+O\+U\+T\+P\+UT}~(3)
+\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}typedefs\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{group___s_c_t__18_x_x__43_x_x_ga642884ed46b523a1106a6505950e0259}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+EG} \hyperlink{group___s_c_t__18_x_x__43_x_x_gab0308855f6bb30035f3165d01df90e27}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T}
+\item 
+typedef enum \hyperlink{group___s_c_t__18_x_x__43_x_x_gae9508d79393246da4eda561eff0ec9e3}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+NT} \hyperlink{group___s_c_t__18_x_x__43_x_x_ga9c76365e19f53e676f05cb7ccec143f7}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T}
+\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___s_c_t__18_x_x__43_x_x_ga642884ed46b523a1106a6505950e0259}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+EG} \{ \\*
+\hyperlink{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259ac6cb24d0ff2cfc2231012b107e47c52b}{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+0} = 0, 
+\hyperlink{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259aaa48fc9446e3eb3866a1af078395e32e}{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+1} = 1, 
+\hyperlink{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259a4558102c150458c007cb5764e3b875dd}{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+2} = 2, 
+\hyperlink{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259a37d0cb43a4c9dc34fd618481c82dfe87}{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+3} = 3, 
+\\*
+\hyperlink{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259a0657c7533d077e5d62fd606194ecba9c}{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+4} = 4
+ \}
+\item 
+enum \hyperlink{group___s_c_t__18_x_x__43_x_x_gae9508d79393246da4eda561eff0ec9e3}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+NT} \{ \\*
+\hyperlink{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a8a0bfbbbc53a1205d0335107ed6808b8}{S\+C\+T\+\_\+\+E\+V\+T\+\_\+0} = (1 $<$$<$ 0), 
+\hyperlink{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3af3604a2acb3d8a5252a0407ab7268d6b}{S\+C\+T\+\_\+\+E\+V\+T\+\_\+1} = (1 $<$$<$ 1), 
+\hyperlink{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a0d5d758fcfefe261e412bb195d751c6a}{S\+C\+T\+\_\+\+E\+V\+T\+\_\+2} = (1 $<$$<$ 2), 
+\hyperlink{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a762687c115dad59a64e94b446ce1f179}{S\+C\+T\+\_\+\+E\+V\+T\+\_\+3} = (1 $<$$<$ 3), 
+\\*
+\hyperlink{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a0d6ff541bc71df7ebf920909acc7e7d5}{S\+C\+T\+\_\+\+E\+V\+T\+\_\+4} = (1 $<$$<$ 4)
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga1c4a7a1622ec276ae01e01e8fe3ad2e6}{Chip\+\_\+\+S\+C\+T\+\_\+\+Config} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Configures the State Configurable Timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga116504a56b8154a596b701496fd08ef3}{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Clr\+Control} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint32\+\_\+t value, \hyperlink{group___l_p_c___types___public___types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{Functional\+State} ena)
+\begin{DoxyCompactList}\small\item\em Set or Clear the Control register. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga7b35d2d5a1f5c007abdcd96fb6e8dfe6}{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Conflict\+Resolution} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint8\+\_\+t outnum, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Set the conflict resolution. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga8990a3d34b196d1ed7b25f7a6068b764}{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Count} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint32\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Set unified count value in State Configurable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_gac9d69eb39a8131925508015bf36c22f7}{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountL} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint16\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Set lower count value in State Configurable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga794c84cef2db6931829894139eb6d514}{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountH} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint16\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Set higher count value in State Configurable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga0a5b5db9102ca60bfd3f44406ab6763b}{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Count} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, \hyperlink{group___s_c_t__18_x_x__43_x_x_gab0308855f6bb30035f3165d01df90e27}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T} n, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Set unified match count value in State Configurable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_gaf370d64d6ee199b7026bd784e1b27b8f}{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Control} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Set control register in State Configurable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga1138457e02586cc45358c3f980a050fe}{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Control} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Clear control register in State Configurable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga0be93fdf3d06256aa10cf5c244dc139f}{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Reload} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, \hyperlink{group___s_c_t__18_x_x__43_x_x_gab0308855f6bb30035f3165d01df90e27}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T} n, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Set unified match reload count value in State Configurable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga308d79c49dff3ce0d15969e95ffbd78f}{Chip\+\_\+\+S\+C\+T\+\_\+\+Enable\+Event\+Int} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, \hyperlink{group___s_c_t__18_x_x__43_x_x_ga9c76365e19f53e676f05cb7ccec143f7}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T} evt)
+\begin{DoxyCompactList}\small\item\em Enable the interrupt for the specified event in State Configurable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga65197d6d801497e841d396347d164a43}{Chip\+\_\+\+S\+C\+T\+\_\+\+Disable\+Event\+Int} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, \hyperlink{group___s_c_t__18_x_x__43_x_x_ga9c76365e19f53e676f05cb7ccec143f7}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T} evt)
+\begin{DoxyCompactList}\small\item\em Disable the interrupt for the specified event in State Configurable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t__18_x_x__43_x_x_gaf0b410c164469e503d4f590aae33b916}{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Event\+Flag} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, \hyperlink{group___s_c_t__18_x_x__43_x_x_ga9c76365e19f53e676f05cb7ccec143f7}{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T} evt)
+\begin{DoxyCompactList}\small\item\em Clear the specified event flag in State Configurable Timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga5252a235f465943fb91cdf66e4dac3cf}{Chip\+\_\+\+S\+C\+T\+\_\+\+Init} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT)
+\begin{DoxyCompactList}\small\item\em Initializes the State Configurable Timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_c_t__18_x_x__43_x_x_ga897eccef4d23cde49d31e43d48715b1e}{Chip\+\_\+\+S\+C\+T\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT)
+\begin{DoxyCompactList}\small\item\em Deinitializes the State Configurable Timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+EV@{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+EV}}
+\index{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+EV@{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+EV}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+EV}{CONFIG_SCT_nEV}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+EV~(16)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga2672a9e7fb27a28b4f2dd7f4468f0010}{}\label{group___s_c_t__18_x_x__43_x_x_ga2672a9e7fb27a28b4f2dd7f4468f0010}
+Number of events 
+
+Definición en la línea 47 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+OU@{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+OU}}
+\index{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+OU@{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+OU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+OU}{CONFIG_SCT_nOU}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+OU~(16)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gab432d85ccb09a5c5d232916c8bb95089}{}\label{group___s_c_t__18_x_x__43_x_x_gab432d85ccb09a5c5d232916c8bb95089}
+Number of outputs 
+
+Definición en la línea 49 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+RG@{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+RG}}
+\index{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+RG@{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+RG}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+RG}{CONFIG_SCT_nRG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+T\+\_\+n\+RG~(16)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga8d80e251208a01483a6b00c81ecb7493}{}\label{group___s_c_t__18_x_x__43_x_x_ga8d80e251208a01483a6b00c81ecb7493}
+Number of match/compare registers 
+
+Definición en la línea 48 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+O\+U\+N\+T\+U\+P\+\_\+\+TO@{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO}}
+\index{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO@{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO}{COUNTUP_TO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+U\+N\+T\+U\+P\+\_\+\+TO~L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+O\+U\+N\+T\+D\+O\+W\+N\+\_\+\+T\+O\+\_\+\+Z\+E\+RO 1}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga06ed56286d35da0efb487ae76663f40a}{}\label{group___s_c_t__18_x_x__43_x_x_ga06ed56286d35da0efb487ae76663f40a}
+
+
+Definición en la línea 210 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+O\+U\+N\+T\+U\+P\+\_\+\+TO@{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO}}
+\index{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO@{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+O\+U\+N\+T\+U\+P\+\_\+\+TO}{COUNTUP_TO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+U\+N\+T\+U\+P\+\_\+\+TO~L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+O\+U\+N\+T\+D\+O\+W\+N\+\_\+\+T\+O\+\_\+\+Z\+E\+RO 1}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga06ed56286d35da0efb487ae76663f40a}{}\label{group___s_c_t__18_x_x__43_x_x_ga06ed56286d35da0efb487ae76663f40a}
+
+
+Definición en la línea 210 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO@{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO}}
+\index{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO@{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO}{COUNTUP_TO_LIMIT_THEN_CLEAR_TO_ZERO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO~0}\hypertarget{group___s_c_t__18_x_x__43_x_x_gae031b8fdb62fadf5d4a61e5d633200d6}{}\label{group___s_c_t__18_x_x__43_x_x_gae031b8fdb62fadf5d4a61e5d633200d6}
+Direction for low or unified counter
+
+Direction for high counter 
+
+Definición en la línea 209 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO@{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO}}
+\index{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO@{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO}{COUNTUP_TO_LIMIT_THEN_CLEAR_TO_ZERO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+U\+N\+T\+U\+P\+\_\+\+T\+O\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+H\+E\+N\+\_\+\+C\+L\+E\+A\+R\+\_\+\+T\+O\+\_\+\+Z\+E\+RO~0}\hypertarget{group___s_c_t__18_x_x__43_x_x_gae031b8fdb62fadf5d4a61e5d633200d6}{}\label{group___s_c_t__18_x_x__43_x_x_gae031b8fdb62fadf5d4a61e5d633200d6}
+Direction for low or unified counter
+
+Direction for high counter 
+
+Definición en la línea 209 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER}{SCT_CONFIG_16BIT_COUNTER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER~0x00000000}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga441708986d2cd57043b0603801c21450}{}\label{group___s_c_t__18_x_x__43_x_x_ga441708986d2cd57043b0603801c21450}
+Operate as 2 16-\/bit counters 
+
+Definición en la línea 184 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER}{SCT_CONFIG_32BIT_COUNTER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+B\+I\+T\+\_\+\+C\+O\+U\+N\+T\+ER~0x00000001}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga579cb78a05f4c680e9ec5463dc5aeafd}{}\label{group___s_c_t__18_x_x__43_x_x_ga579cb78a05f4c680e9ec5463dc5aeafd}
+Operate as 1 32-\/bit counter 
+
+Definición en la línea 185 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+H@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+H}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+H@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+H}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+H}{SCT_CONFIG_AUTOLIMIT_H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+H~(0x1 $<$$<$ 18)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gade673779ab8ecd446b29251467328b6e}{}\label{group___s_c_t__18_x_x__43_x_x_gade673779ab8ecd446b29251467328b6e}
+Limits counter(\+L) based on M\+A\+T\+C\+H0 
+
+Definición en la línea 195 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+L@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+L}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+L@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+L}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+L}{SCT_CONFIG_AUTOLIMIT_L}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+U\+T\+O\+L\+I\+M\+I\+T\+\_\+L~(0x1 $<$$<$ 17)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gac727f3a2843844006cad343e832f2986}{}\label{group___s_c_t__18_x_x__43_x_x_gac727f3a2843844006cad343e832f2986}
+Limits counter(\+L) based on M\+A\+T\+C\+H0 
+
+Definición en la línea 194 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+B\+U\+S\+C\+LK@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+B\+U\+S\+C\+LK}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+B\+U\+S\+C\+LK@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+B\+U\+S\+C\+LK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+B\+U\+S\+C\+LK}{SCT_CONFIG_CLKMODE_BUSCLK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+B\+U\+S\+C\+LK~(0x0 $<$$<$ 1)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga54bd229bccde8e742610b8363d7f7a25}{}\label{group___s_c_t__18_x_x__43_x_x_ga54bd229bccde8e742610b8363d7f7a25}
+Bus clock 
+
+Definición en la línea 187 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+C\+LK@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+C\+LK}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+C\+LK@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+C\+LK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+C\+LK}{SCT_CONFIG_CLKMODE_INCLK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+C\+LK~(0x2 $<$$<$ 1)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga969d9166f635eeaab7fa6873fa2c6cc9}{}\label{group___s_c_t__18_x_x__43_x_x_ga969d9166f635eeaab7fa6873fa2c6cc9}
+Input clock selected in C\+L\+K\+S\+EL field 
+
+Definición en la línea 189 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+E\+D\+G\+E\+C\+LK@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+E\+D\+G\+E\+C\+LK}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+E\+D\+G\+E\+C\+LK@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+E\+D\+G\+E\+C\+LK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+E\+D\+G\+E\+C\+LK}{SCT_CONFIG_CLKMODE_INEDGECLK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+I\+N\+E\+D\+G\+E\+C\+LK~(0x3 $<$$<$ 1)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga52bfacd5bd4daeda54ef29b9f11e400a}{}\label{group___s_c_t__18_x_x__43_x_x_ga52bfacd5bd4daeda54ef29b9f11e400a}
+Input clock edge selected in C\+L\+K\+S\+EL field 
+
+Definición en la línea 190 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+S\+C\+T\+C\+LK@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+S\+C\+T\+C\+LK}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+S\+C\+T\+C\+LK@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+S\+C\+T\+C\+LK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+S\+C\+T\+C\+LK}{SCT_CONFIG_CLKMODE_SCTCLK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+L\+K\+M\+O\+D\+E\+\_\+\+S\+C\+T\+C\+LK~(0x1 $<$$<$ 1)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga2ef1357ae9969a9a1be753ab199e1aa1}{}\label{group___s_c_t__18_x_x__43_x_x_ga2ef1357ae9969a9a1be753ab199e1aa1}
+S\+CT clock 
+
+Definición en la línea 188 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+DH@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+DH}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+DH@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+DH}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+DH}{SCT_CONFIG_NORELOADH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+DH~(0x1 $<$$<$ 8)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga80da6c633fb897af2ee19bded9e43844}{}\label{group___s_c_t__18_x_x__43_x_x_ga80da6c633fb897af2ee19bded9e43844}
+Operate as 1 32-\/bit counter 
+
+Definición en la línea 193 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+D\+L\+\_\+U@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+D\+L\+\_\+U}}
+\index{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+D\+L\+\_\+U@{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+D\+L\+\_\+U}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+D\+L\+\_\+U}{SCT_CONFIG_NORELOADL_U}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+N\+O\+R\+E\+L\+O\+A\+D\+L\+\_\+U~(0x1 $<$$<$ 7)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga94c6dc388017b5e8038ad1dea8e32a3f}{}\label{group___s_c_t__18_x_x__43_x_x_ga94c6dc388017b5e8038ad1dea8e32a3f}
+Operate as 1 32-\/bit counter 
+
+Definición en la línea 192 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+H}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+H}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+H}{SCT_CTRL_BIDIR_H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+H(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(((x) \& 0x01) $<$$<$ 20)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga9d96e3f51e16487c6f8c652cbbdc050b}{}\label{group___s_c_t__18_x_x__43_x_x_ga9d96e3f51e16487c6f8c652cbbdc050b}
+
+
+Definición en la línea 214 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+L}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+L}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+L}{SCT_CTRL_BIDIR_L}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+B\+I\+D\+I\+R\+\_\+L(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(((x) \& 0x01) $<$$<$ 4)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga8cf518b4240ce7d11e5bf552a49f7092}{}\label{group___s_c_t__18_x_x__43_x_x_ga8cf518b4240ce7d11e5bf552a49f7092}
+Bidirectional bit 
+
+Definición en la línea 206 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+H}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+H}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+H}{SCT_CTRL_CLRCTR_H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+H~(1 $<$$<$ 19)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga792f39bf995d1a7397bb4600e44dc7f7}{}\label{group___s_c_t__18_x_x__43_x_x_ga792f39bf995d1a7397bb4600e44dc7f7}
+Clear high counter 
+
+Definición en la línea 213 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+L}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+L}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+L}{SCT_CTRL_CLRCTR_L}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+R\+C\+T\+R\+\_\+L~(1 $<$$<$ 3)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga75edacff186a48ac4193bf5069e03fba}{}\label{group___s_c_t__18_x_x__43_x_x_ga75edacff186a48ac4193bf5069e03fba}
+Clear low or unified counter 
+
+Definición en la línea 205 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+H}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+H}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+H}{SCT_CTRL_HALT_H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+H~(1 $<$$<$ 18)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga19527730d0cdbf041987ab3510a0ee16}{}\label{group___s_c_t__18_x_x__43_x_x_ga19527730d0cdbf041987ab3510a0ee16}
+Halt high counter 
+
+Definición en la línea 212 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+L}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+L}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+L}{SCT_CTRL_HALT_L}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+H\+A\+L\+T\+\_\+L~(1 $<$$<$ 2)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga40704e7d46713ea4b4c84e07a80a482e}{}\label{group___s_c_t__18_x_x__43_x_x_ga40704e7d46713ea4b4c84e07a80a482e}
+Halt low counter 
+
+Definición en la línea 204 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+H}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+H}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+H}{SCT_CTRL_PRE_H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+H(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(((x) \& 0x\+F\+F) $<$$<$ 21)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga399f28b3b6a93cb14b19db3df66a565d}{}\label{group___s_c_t__18_x_x__43_x_x_ga399f28b3b6a93cb14b19db3df66a565d}
+Prescale clock for high counter 
+
+Definición en la línea 215 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+L}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+L}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+L}{SCT_CTRL_PRE_L}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+\_\+L(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(((x) \& 0x\+F\+F) $<$$<$ 5)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gac781c2ccd9053038834cebc3f0ea6ec6}{}\label{group___s_c_t__18_x_x__43_x_x_gac781c2ccd9053038834cebc3f0ea6ec6}
+Prescale clock for low or unified counter 
+
+Definición en la línea 207 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+H}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+H@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+H}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+H}{SCT_CTRL_STOP_H}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+H~(1 $<$$<$ 17)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gae0f0598ff2c22b1db06e3590c03280ea}{}\label{group___s_c_t__18_x_x__43_x_x_gae0f0598ff2c22b1db06e3590c03280ea}
+Stop high counter 
+
+Definición en la línea 211 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+L}}
+\index{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+L@{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+L}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+L}{SCT_CTRL_STOP_L}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+\+S\+T\+O\+P\+\_\+L~(1 $<$$<$ 1)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga630d5421762974f255537a14d391b0be}{}\label{group___s_c_t__18_x_x__43_x_x_ga630d5421762974f255537a14d391b0be}
+Stop low counter 
+
+Definición en la línea 203 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+C\+L\+E\+A\+R\+\_\+\+O\+U\+T\+P\+UT@{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+C\+L\+E\+A\+R\+\_\+\+O\+U\+T\+P\+UT}}
+\index{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+C\+L\+E\+A\+R\+\_\+\+O\+U\+T\+P\+UT@{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+C\+L\+E\+A\+R\+\_\+\+O\+U\+T\+P\+UT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+C\+L\+E\+A\+R\+\_\+\+O\+U\+T\+P\+UT}{SCT_RES_CLEAR_OUTPUT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+C\+L\+E\+A\+R\+\_\+\+O\+U\+T\+P\+UT~(2)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gaaa994f1d7b3ec39640563bf1f3a5e2ac}{}\label{group___s_c_t__18_x_x__43_x_x_gaaa994f1d7b3ec39640563bf1f3a5e2ac}
+
+
+Definición en la línea 222 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+N\+O\+C\+H\+A\+N\+GE@{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+N\+O\+C\+H\+A\+N\+GE}}
+\index{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+N\+O\+C\+H\+A\+N\+GE@{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+N\+O\+C\+H\+A\+N\+GE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+N\+O\+C\+H\+A\+N\+GE}{SCT_RES_NOCHANGE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+N\+O\+C\+H\+A\+N\+GE~(0)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga9f704972cc5fefff30694a1c103ee272}{}\label{group___s_c_t__18_x_x__43_x_x_ga9f704972cc5fefff30694a1c103ee272}
+
+
+Definición en la línea 220 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+S\+E\+T\+\_\+\+O\+U\+T\+P\+UT@{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+S\+E\+T\+\_\+\+O\+U\+T\+P\+UT}}
+\index{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+S\+E\+T\+\_\+\+O\+U\+T\+P\+UT@{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+S\+E\+T\+\_\+\+O\+U\+T\+P\+UT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+S\+E\+T\+\_\+\+O\+U\+T\+P\+UT}{SCT_RES_SET_OUTPUT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+S\+E\+T\+\_\+\+O\+U\+T\+P\+UT~(1)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gaf5512f6f59ea7b5b7af86a50a85408dc}{}\label{group___s_c_t__18_x_x__43_x_x_gaf5512f6f59ea7b5b7af86a50a85408dc}
+
+
+Definición en la línea 221 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+O\+U\+T\+P\+UT@{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+O\+U\+T\+P\+UT}}
+\index{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+O\+U\+T\+P\+UT@{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+O\+U\+T\+P\+UT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+O\+U\+T\+P\+UT}{SCT_RES_TOGGLE_OUTPUT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+O\+U\+T\+P\+UT~(3)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gab7f416d617a424072cc0f29413f8e419}{}\label{group___s_c_t__18_x_x__43_x_x_gab7f416d617a424072cc0f29413f8e419}
+
+
+Definición en la línea 223 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de los \textquotesingle{}typedefs\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T@{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T}}
+\index{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T@{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T}{CHIP_SCT_EVENT_T}}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+NT}  {\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T}}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga9c76365e19f53e676f05cb7ccec143f7}{}\label{group___s_c_t__18_x_x__43_x_x_ga9c76365e19f53e676f05cb7ccec143f7}
+S\+CT Event values enum \index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T@{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T}}
+\index{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T@{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T}{CHIP_SCT_MATCH_REG_T}}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+EG}  {\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T}}\hypertarget{group___s_c_t__18_x_x__43_x_x_gab0308855f6bb30035f3165d01df90e27}{}\label{group___s_c_t__18_x_x__43_x_x_gab0308855f6bb30035f3165d01df90e27}
+S\+CT Match register values enum 
+
+\subsection{Documentación de las enumeraciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+NT@{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+NT}}
+\index{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+NT@{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+NT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+NT}{CHIP_SCT_EVENT}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+NT}}\hypertarget{group___s_c_t__18_x_x__43_x_x_gae9508d79393246da4eda561eff0ec9e3}{}\label{group___s_c_t__18_x_x__43_x_x_gae9508d79393246da4eda561eff0ec9e3}
+S\+CT Event values enum \begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{S\+C\+T\+\_\+\+E\+V\+T\+\_\+0@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+0}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+E\+V\+T\+\_\+0@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+0}}\item[{\em 
+S\+C\+T\+\_\+\+E\+V\+T\+\_\+0\hypertarget{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a8a0bfbbbc53a1205d0335107ed6808b8}{}\label{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a8a0bfbbbc53a1205d0335107ed6808b8}
+}]Event 0 \index{S\+C\+T\+\_\+\+E\+V\+T\+\_\+1@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+E\+V\+T\+\_\+1@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+1}}\item[{\em 
+S\+C\+T\+\_\+\+E\+V\+T\+\_\+1\hypertarget{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3af3604a2acb3d8a5252a0407ab7268d6b}{}\label{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3af3604a2acb3d8a5252a0407ab7268d6b}
+}]Event 1 \index{S\+C\+T\+\_\+\+E\+V\+T\+\_\+2@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+E\+V\+T\+\_\+2@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+2}}\item[{\em 
+S\+C\+T\+\_\+\+E\+V\+T\+\_\+2\hypertarget{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a0d5d758fcfefe261e412bb195d751c6a}{}\label{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a0d5d758fcfefe261e412bb195d751c6a}
+}]Event 2 \index{S\+C\+T\+\_\+\+E\+V\+T\+\_\+3@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+3}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+E\+V\+T\+\_\+3@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+3}}\item[{\em 
+S\+C\+T\+\_\+\+E\+V\+T\+\_\+3\hypertarget{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a762687c115dad59a64e94b446ce1f179}{}\label{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a762687c115dad59a64e94b446ce1f179}
+}]Event 3 \index{S\+C\+T\+\_\+\+E\+V\+T\+\_\+4@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+4}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+E\+V\+T\+\_\+4@{S\+C\+T\+\_\+\+E\+V\+T\+\_\+4}}\item[{\em 
+S\+C\+T\+\_\+\+E\+V\+T\+\_\+4\hypertarget{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a0d6ff541bc71df7ebf920909acc7e7d5}{}\label{group___s_c_t__18_x_x__43_x_x_ggae9508d79393246da4eda561eff0ec9e3a0d6ff541bc71df7ebf920909acc7e7d5}
+}]Event 4 \end{description}
+\end{Desc}
+
+
+Definición en la línea 239 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+EG@{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+EG}}
+\index{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+EG@{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+EG}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+EG}{CHIP_SCT_MATCH_REG}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+EG}}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga642884ed46b523a1106a6505950e0259}{}\label{group___s_c_t__18_x_x__43_x_x_ga642884ed46b523a1106a6505950e0259}
+S\+CT Match register values enum \begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+0@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+0}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+0@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+0}}\item[{\em 
+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+0\hypertarget{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259ac6cb24d0ff2cfc2231012b107e47c52b}{}\label{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259ac6cb24d0ff2cfc2231012b107e47c52b}
+}]S\+CT Match register 0 \index{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+1@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+1@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+1}}\item[{\em 
+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+1\hypertarget{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259aaa48fc9446e3eb3866a1af078395e32e}{}\label{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259aaa48fc9446e3eb3866a1af078395e32e}
+}]S\+CT Match register 1 \index{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+2@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+2@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+2}}\item[{\em 
+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+2\hypertarget{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259a4558102c150458c007cb5764e3b875dd}{}\label{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259a4558102c150458c007cb5764e3b875dd}
+}]S\+CT Match register 2 \index{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+3@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+3}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+3@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+3}}\item[{\em 
+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+3\hypertarget{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259a37d0cb43a4c9dc34fd618481c82dfe87}{}\label{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259a37d0cb43a4c9dc34fd618481c82dfe87}
+}]S\+CT Match register 3 \index{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+4@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+4}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+4@{S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+4}}\item[{\em 
+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+4\hypertarget{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259a0657c7533d077e5d62fd606194ecba9c}{}\label{group___s_c_t__18_x_x__43_x_x_gga642884ed46b523a1106a6505950e0259a0657c7533d077e5d62fd606194ecba9c}
+}]S\+CT Match register 4 \end{description}
+\end{Desc}
+
+
+Definición en la línea 228 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Control@{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Control}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Control@{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Control}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Control(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint32\+\_\+t value)}{Chip_SCT_ClearControl(LPC_SCT_T *pSCT, uint32_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Control (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga1138457e02586cc45358c3f980a050fe}{}\label{group___s_c_t__18_x_x__43_x_x_ga1138457e02586cc45358c3f980a050fe}
+
+
+Clear control register in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em value} & \+: Value (O\+Red value of S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+$\ast$ bits) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 350 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Event\+Flag@{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Event\+Flag}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Event\+Flag@{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Event\+Flag}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Event\+Flag(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+\+T evt)}{Chip_SCT_ClearEventFlag(LPC_SCT_T *pSCT, CHIP_SCT_EVENT_T evt)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Clear\+Event\+Flag (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T}}]{evt}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gaf0b410c164469e503d4f590aae33b916}{}\label{group___s_c_t__18_x_x__43_x_x_gaf0b410c164469e503d4f590aae33b916}
+
+
+Clear the specified event flag in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em evt} & \+: Event value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 395 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Config@{Chip\+\_\+\+S\+C\+T\+\_\+\+Config}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Config@{Chip\+\_\+\+S\+C\+T\+\_\+\+Config}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Config(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint32\+\_\+t value)}{Chip_SCT_Config(LPC_SCT_T *pSCT, uint32_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Config (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga1c4a7a1622ec276ae01e01e8fe3ad2e6}{}\label{group___s_c_t__18_x_x__43_x_x_ga1c4a7a1622ec276ae01e01e8fe3ad2e6}
+
+
+Configures the State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em value} & \+: The 32-\/bit C\+O\+N\+F\+IG register value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 253 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+De\+Init@{Chip\+\_\+\+S\+C\+T\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+De\+Init@{Chip\+\_\+\+S\+C\+T\+\_\+\+De\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+De\+Init(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T)}{Chip_SCT_DeInit(LPC_SCT_T *pSCT)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+S\+C\+T\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga897eccef4d23cde49d31e43d48715b1e}{}\label{group___s_c_t__18_x_x__43_x_x_ga897eccef4d23cde49d31e43d48715b1e}
+
+
+Deinitializes the State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 57 del archivo sct\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Disable\+Event\+Int@{Chip\+\_\+\+S\+C\+T\+\_\+\+Disable\+Event\+Int}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Disable\+Event\+Int@{Chip\+\_\+\+S\+C\+T\+\_\+\+Disable\+Event\+Int}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Disable\+Event\+Int(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+\+T evt)}{Chip_SCT_DisableEventInt(LPC_SCT_T *pSCT, CHIP_SCT_EVENT_T evt)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Disable\+Event\+Int (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T}}]{evt}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga65197d6d801497e841d396347d164a43}{}\label{group___s_c_t__18_x_x__43_x_x_ga65197d6d801497e841d396347d164a43}
+
+
+Disable the interrupt for the specified event in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em evt} & \+: Event value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 384 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Enable\+Event\+Int@{Chip\+\_\+\+S\+C\+T\+\_\+\+Enable\+Event\+Int}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Enable\+Event\+Int@{Chip\+\_\+\+S\+C\+T\+\_\+\+Enable\+Event\+Int}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Enable\+Event\+Int(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+\+T evt)}{Chip_SCT_EnableEventInt(LPC_SCT_T *pSCT, CHIP_SCT_EVENT_T evt)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Enable\+Event\+Int (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+E\+V\+E\+N\+T\+\_\+T}}]{evt}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga308d79c49dff3ce0d15969e95ffbd78f}{}\label{group___s_c_t__18_x_x__43_x_x_ga308d79c49dff3ce0d15969e95ffbd78f}
+
+
+Enable the interrupt for the specified event in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em evt} & \+: Event value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 373 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Init@{Chip\+\_\+\+S\+C\+T\+\_\+\+Init}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Init@{Chip\+\_\+\+S\+C\+T\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Init(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T)}{Chip_SCT_Init(LPC_SCT_T *pSCT)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+S\+C\+T\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga5252a235f465943fb91cdf66e4dac3cf}{}\label{group___s_c_t__18_x_x__43_x_x_ga5252a235f465943fb91cdf66e4dac3cf}
+
+
+Initializes the State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 51 del archivo sct\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Clr\+Control@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Clr\+Control}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Clr\+Control@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Clr\+Control}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Clr\+Control(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint32\+\_\+t value, Functional\+State ena)}{Chip_SCT_SetClrControl(LPC_SCT_T *pSCT, uint32_t value, FunctionalState ena)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Clr\+Control (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint32\+\_\+t}]{value, }
+\item[{{\bf Functional\+State}}]{ena}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga116504a56b8154a596b701496fd08ef3}{}\label{group___s_c_t__18_x_x__43_x_x_ga116504a56b8154a596b701496fd08ef3}
+
+
+Set or Clear the Control register. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: Pointer to S\+CT register block \\
+\hline
+{\em value} & \+: S\+CT Control register value \\
+\hline
+{\em ena} & \+: E\+N\+A\+B\+LE -\/ To set the fields specified by value \+: D\+I\+S\+A\+B\+LE -\/ To clear the field specified by value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing Set or clear the control register bits as specified by the {\itshape value} parameter. If {\itshape ena} is set to E\+N\+A\+B\+LE, the mentioned register fields will be set. If {\itshape ena} is set to D\+I\+S\+A\+B\+LE, the mentioned register fields will be cleared 
+\end{DoxyReturn}
+
+
+Definición en la línea 63 del archivo sct\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Conflict\+Resolution@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Conflict\+Resolution}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Conflict\+Resolution@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Conflict\+Resolution}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Conflict\+Resolution(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint8\+\_\+t outnum, uint8\+\_\+t value)}{Chip_SCT_SetConflictResolution(LPC_SCT_T *pSCT, uint8_t outnum, uint8_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Conflict\+Resolution (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint8\+\_\+t}]{outnum, }
+\item[{uint8\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga7b35d2d5a1f5c007abdcd96fb6e8dfe6}{}\label{group___s_c_t__18_x_x__43_x_x_ga7b35d2d5a1f5c007abdcd96fb6e8dfe6}
+
+
+Set the conflict resolution. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: Pointer to S\+CT register block \\
+\hline
+{\em outnum} & \+: Output number \\
+\hline
+{\em value} & \+: Output value
+\begin{DoxyItemize}
+\item S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+N\+O\+C\+H\+A\+N\+GE \+:No change
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+S\+E\+T\+\_\+\+O\+U\+T\+P\+UT \+:Set output
+\item S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+C\+L\+E\+A\+R\+\_\+\+O\+U\+T\+P\+UT \+:Clear output
+\item S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+T\+O\+G\+G\+L\+E\+\_\+\+O\+U\+T\+P\+UT \+:Toggle output \+: S\+C\+T\+\_\+\+R\+E\+S\+\_\+\+N\+O\+C\+H\+A\+N\+GE \+: D\+I\+S\+A\+B\+LE -\/ To clear the field specified by value \begin{DoxyReturn}{Devuelve}
+Nothing Set conflict resolution for the output {\itshape outnum} 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definición en la línea 78 del archivo sct\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Control@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Control}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Control@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Control}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Control(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint32\+\_\+t value)}{Chip_SCT_SetControl(LPC_SCT_T *pSCT, uint32_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Control (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gaf370d64d6ee199b7026bd784e1b27b8f}{}\label{group___s_c_t__18_x_x__43_x_x_gaf370d64d6ee199b7026bd784e1b27b8f}
+
+
+Set control register in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em value} & \+: Value (O\+Red value of S\+C\+T\+\_\+\+C\+T\+R\+L\+\_\+$\ast$ bits) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 339 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Count@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Count}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Count@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Count}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Count(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint32\+\_\+t count)}{Chip_SCT_SetCount(LPC_SCT_T *pSCT, uint32_t count)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint32\+\_\+t}]{count}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga8990a3d34b196d1ed7b25f7a6068b764}{}\label{group___s_c_t__18_x_x__43_x_x_ga8990a3d34b196d1ed7b25f7a6068b764}
+
+
+Set unified count value in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em count} & \+: The 32-\/bit count value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 294 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountH@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountH}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountH@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountH}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Count\+H(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint16\+\_\+t count)}{Chip_SCT_SetCountH(LPC_SCT_T *pSCT, uint16_t count)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountH (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint16\+\_\+t}]{count}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga794c84cef2db6931829894139eb6d514}{}\label{group___s_c_t__18_x_x__43_x_x_ga794c84cef2db6931829894139eb6d514}
+
+
+Set higher count value in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em count} & \+: The 16-\/bit count value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 316 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountL@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountL}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountL@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Count\+L(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint16\+\_\+t count)}{Chip_SCT_SetCountL(LPC_SCT_T *pSCT, uint16_t count)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+CountL (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint16\+\_\+t}]{count}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_gac9d69eb39a8131925508015bf36c22f7}{}\label{group___s_c_t__18_x_x__43_x_x_gac9d69eb39a8131925508015bf36c22f7}
+
+
+Set lower count value in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em count} & \+: The 16-\/bit count value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 305 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Count@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Count}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Count@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Count}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Count(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+\+T n, uint32\+\_\+t value)}{Chip_SCT_SetMatchCount(LPC_SCT_T *pSCT, CHIP_SCT_MATCH_REG_T n, uint32_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T}}]{n, }
+\item[{uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga0a5b5db9102ca60bfd3f44406ab6763b}{}\label{group___s_c_t__18_x_x__43_x_x_ga0a5b5db9102ca60bfd3f44406ab6763b}
+
+
+Set unified match count value in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em n} & \+: Match register value \\
+\hline
+{\em value} & \+: The 32-\/bit match count value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 328 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}!Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Reload@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Reload}}
+\index{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Reload@{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Reload}!C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx State Configurable Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Reload(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+\+T n, uint32\+\_\+t value)}{Chip_SCT_SetMatchReload(LPC_SCT_T *pSCT, CHIP_SCT_MATCH_REG_T n, uint32_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+\_\+\+Set\+Match\+Reload (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+S\+C\+T\+\_\+\+M\+A\+T\+C\+H\+\_\+\+R\+E\+G\+\_\+T}}]{n, }
+\item[{uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t__18_x_x__43_x_x_ga0be93fdf3d06256aa10cf5c244dc139f}{}\label{group___s_c_t__18_x_x__43_x_x_ga0be93fdf3d06256aa10cf5c244dc139f}
+
+
+Set unified match reload count value in State Configurable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em n} & \+: Match register value \\
+\hline
+{\em value} & \+: The 32-\/bit match count reload value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 362 del archivo sct\+\_\+18xx\+\_\+43xx.\+h.
+

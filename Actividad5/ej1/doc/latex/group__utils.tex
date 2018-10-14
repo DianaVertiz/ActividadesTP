@@ -1,0 +1,60 @@
+\hypertarget{group__utils}{}\section{Utils}
+\label{group__utils}\index{Utils@{Utils}}
+\subsection*{Archivos}
+\begin{DoxyCompactItemize}
+\item 
+archivo \hyperlink{utils_8h}{utils.\+h}
+\begin{DoxyCompactList}\small\item\em Diversas funciones de utilidad simplificar el desarrollo de software para aplicaciones embebidas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__utils_gad024a1e5d48fcc72b6befd262d03791a}{print} (char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Envía una cadena de caracteres terminada en null por el puerto de comunicaciones serie (U\+S\+A\+RT). \end{DoxyCompactList}\item 
+void \hyperlink{group__utils_gaad9796c174f7ef5d226cd169f2520fd5}{error} (char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Envía una cadena de caracteres terminada en null por el puerto de comunicaciones serie (U\+S\+A\+RT). A diferencia de la función \hyperlink{group__utils_gad024a1e5d48fcc72b6befd262d03791a}{print}, esta función no retorna bloqueando la aplicación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de las funciones}
+\index{Utils@{Utils}!error@{error}}
+\index{error@{error}!Utils@{Utils}}
+\subsubsection[{\texorpdfstring{error(char $\ast$msg)}{error(char *msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void error (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{group__utils_gaad9796c174f7ef5d226cd169f2520fd5}{}\label{group__utils_gaad9796c174f7ef5d226cd169f2520fd5}
+
+
+Envía una cadena de caracteres terminada en null por el puerto de comunicaciones serie (U\+S\+A\+RT). A diferencia de la función \hyperlink{group__utils_gad024a1e5d48fcc72b6befd262d03791a}{print}, esta función no retorna bloqueando la aplicación. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\tt in}  & {\em msg} & Cadena de caracteres a transmitir. El envío de los datos se realiza utilizando la función {\itshape serial\+Write}. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 10 del archivo utils.\+c.
+
+\index{Utils@{Utils}!print@{print}}
+\index{print@{print}!Utils@{Utils}}
+\subsubsection[{\texorpdfstring{print(char $\ast$msg)}{print(char *msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void print (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{group__utils_gad024a1e5d48fcc72b6befd262d03791a}{}\label{group__utils_gad024a1e5d48fcc72b6befd262d03791a}
+
+
+Envía una cadena de caracteres terminada en null por el puerto de comunicaciones serie (U\+S\+A\+RT). 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\tt in}  & {\em msg} & Cadena de caracteres a transmitir. El envío de los datos se realiza utilizando la función {\itshape serial\+Write}. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 5 del archivo utils.\+c.
+

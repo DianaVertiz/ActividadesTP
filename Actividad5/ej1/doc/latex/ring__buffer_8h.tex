@@ -1,0 +1,40 @@
+\hypertarget{ring__buffer_8h}{}\section{Referencia del Archivo ring\+\_\+buffer.\+h}
+\label{ring__buffer_8h}\index{ring\+\_\+buffer.\+h@{ring\+\_\+buffer.\+h}}
+{\ttfamily \#include \char`\"{}lpc\+\_\+types.\+h\char`\"{}}\\*
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T}
+\begin{DoxyCompactList}\small\item\em Ring buffer structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___ring___buffer_gab0e914e769172c3291a9cc36962bc4de}{R\+B\+\_\+\+V\+H\+E\+AD}(rb)~($\ast$(volatile uint32\+\_\+t $\ast$) \&(rb)-\/$>$head)
+\item 
+\#define \hyperlink{group___ring___buffer_ga9f7c4d3e3029e8318582a147a5c37674}{R\+B\+\_\+\+V\+T\+A\+IL}(rb)~($\ast$(volatile uint32\+\_\+t $\ast$) \&(rb)-\/$>$tail)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group___ring___buffer_gaaf3bb51f2228ea1bea603e19c7eba5bb}{Ring\+Buffer\+\_\+\+Init} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff, void $\ast$buffer, int item\+Size, int count)
+\begin{DoxyCompactList}\small\item\em Initialize ring buffer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___ring___buffer_ga5f66a5dd980ef03877cf8e0c96ad4ebb}{Ring\+Buffer\+\_\+\+Flush} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff)
+\begin{DoxyCompactList}\small\item\em Resets the ring buffer to empty. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} int \hyperlink{group___ring___buffer_ga2fc4b40b03afb19c8ea942da3cf3faf1}{Ring\+Buffer\+\_\+\+Get\+Size} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff)
+\begin{DoxyCompactList}\small\item\em Return size the ring buffer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} int \hyperlink{group___ring___buffer_ga7b69777c35694637acaf39e6bfcc1822}{Ring\+Buffer\+\_\+\+Get\+Count} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff)
+\begin{DoxyCompactList}\small\item\em Return number of items in the ring buffer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} int \hyperlink{group___ring___buffer_ga75424687def8979742338366d39c8559}{Ring\+Buffer\+\_\+\+Get\+Free} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff)
+\begin{DoxyCompactList}\small\item\em Return number of free items in the ring buffer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} int \hyperlink{group___ring___buffer_ga760da012435262add1d8d7aa79e873a0}{Ring\+Buffer\+\_\+\+Is\+Full} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff)
+\begin{DoxyCompactList}\small\item\em Return number of items in the ring buffer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} int \hyperlink{group___ring___buffer_ga6f03e04a69262864bde4f35fc6f3dfb5}{Ring\+Buffer\+\_\+\+Is\+Empty} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff)
+\begin{DoxyCompactList}\small\item\em Return empty status of ring buffer. \end{DoxyCompactList}\item 
+int \hyperlink{group___ring___buffer_gaafdee54f2525b2c7a983d1a631b42226}{Ring\+Buffer\+\_\+\+Insert} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff, const void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Insert a single item into ring buffer. \end{DoxyCompactList}\item 
+int \hyperlink{group___ring___buffer_gafeafb521d4e03052ab2c893fd0e388d5}{Ring\+Buffer\+\_\+\+Insert\+Mult} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff, const void $\ast$data, int num)
+\begin{DoxyCompactList}\small\item\em Insert an array of items into ring buffer. \end{DoxyCompactList}\item 
+int \hyperlink{group___ring___buffer_gaf3ce7f43677c2b4c6eedb3cc4962b80d}{Ring\+Buffer\+\_\+\+Pop} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Pop an item from the ring buffer. \end{DoxyCompactList}\item 
+int \hyperlink{group___ring___buffer_gae0ef7bb96d1fe84ae1441b7c214b1e56}{Ring\+Buffer\+\_\+\+Pop\+Mult} (\hyperlink{struct_r_i_n_g_b_u_f_f___t}{R\+I\+N\+G\+B\+U\+F\+F\+\_\+T} $\ast$Ring\+Buff, void $\ast$data, int num)
+\begin{DoxyCompactList}\small\item\em Pop an array of items from the ring buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,138 @@
+.TH "LPC_GPDMA_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_GPDMA_T \- GPDMA register block\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <gpdma_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTTCSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTTCCLEAR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTERRSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTERRCLR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRAWINTTCSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRAWINTERRSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBENBLDCHNS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSOFTBREQ\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSOFTSREQ\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSOFTLBREQ\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSOFTLSREQ\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONFIG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSYNC\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [50]"
+.br
+.ti -1c
+.RI "\fBGPDMA_CH_T\fP \fBCH\fP [\fBGPDMA_NUMBER_CHANNELS\fP]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+GPDMA register block\&. 
+.PP
+Definición en la línea 64 del archivo gpdma_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fBGPDMA_CH_T\fP CH[\fBGPDMA_NUMBER_CHANNELS\fP]"
+
+.PP
+Definición en la línea 80 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CONFIG"
+DMA Configuration Register 
+.PP
+Definición en la línea 77 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t ENBLDCHNS"
+DMA Enabled Channel Register 
+.PP
+Definición en la línea 72 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTERRCLR"
+DMA Interrupt Error Clear Register 
+.PP
+Definición en la línea 69 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTERRSTAT"
+DMA Interrupt Error Status Register 
+.PP
+Definición en la línea 68 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTSTAT"
+< GPDMA Structure DMA Interrupt Status Register 
+.PP
+Definición en la línea 65 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTTCCLEAR"
+DMA Interrupt Terminal Count Request Clear Register 
+.PP
+Definición en la línea 67 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTTCSTAT"
+DMA Interrupt Terminal Count Request Status Register 
+.PP
+Definición en la línea 66 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RAWINTERRSTAT"
+DMA Raw Error Interrupt Status Register 
+.PP
+Definición en la línea 71 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RAWINTTCSTAT"
+DMA Raw Interrupt Terminal Count Status Register 
+.PP
+Definición en la línea 70 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[50]"
+
+.PP
+Definición en la línea 79 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SOFTBREQ"
+DMA Software Burst Request Register 
+.PP
+Definición en la línea 73 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SOFTLBREQ"
+DMA Software Last Burst Request Register 
+.PP
+Definición en la línea 75 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SOFTLSREQ"
+DMA Software Last Single Request Register 
+.PP
+Definición en la línea 76 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SOFTSREQ"
+DMA Software Single Request Register 
+.PP
+Definición en la línea 74 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SYNC"
+DMA Synchronization Register 
+.PP
+Definición en la línea 78 del archivo gpdma_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

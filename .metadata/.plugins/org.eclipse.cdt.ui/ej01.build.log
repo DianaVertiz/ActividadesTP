@@ -1,0 +1,14 @@
+16:58:44 **** Build of configuration Default for project ej01 ****
+make all 
+Compilando librería liblpcopen...terminado
+  - hardware.c...ok
+  - code_manager.c...ok
+  - startUp.c...ok
+  - crp.c...ok
+  - main.c...ok
+  - utils.c...ok
+   text	   data	    bss	    dec	    hex	filename
+   7728	      0	   1092	   8820	   2274	out/firmware.elf
+
+16:58:49 Build Finished (took 5s.32ms)
+

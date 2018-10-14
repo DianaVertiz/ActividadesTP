@@ -1,0 +1,196 @@
+.TH "timer_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+timer_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_TIMER_T\fP"
+.br
+.RI "\fI32-bit Standard timer register block structure \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTIMER_IR_CLR\fP(n)   \fB_BIT\fP(n)"
+.br
+.ti -1c
+.RI "#define \fBTIMER_MATCH_INT\fP(n)   (\fB_BIT\fP((n) & 0x0F))"
+.br
+.ti -1c
+.RI "#define \fBTIMER_CAP_INT\fP(n)   (\fB_BIT\fP((((n) & 0x0F) + 4)))"
+.br
+.ti -1c
+.RI "#define \fBTIMER_ENABLE\fP   ((uint32_t) (1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBTIMER_RESET\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBTIMER_INT_ON_MATCH\fP(n)   (\fB_BIT\fP(((n) * 3)))"
+.br
+.ti -1c
+.RI "#define \fBTIMER_RESET_ON_MATCH\fP(n)   (\fB_BIT\fP((((n) * 3) + 1)))"
+.br
+.ti -1c
+.RI "#define \fBTIMER_STOP_ON_MATCH\fP(n)   (\fB_BIT\fP((((n) * 3) + 2)))"
+.br
+.ti -1c
+.RI "#define \fBTIMER_CAP_RISING\fP(n)   (\fB_BIT\fP(((n) * 3)))"
+.br
+.ti -1c
+.RI "#define \fBTIMER_CAP_FALLING\fP(n)   (\fB_BIT\fP((((n) * 3) + 1)))"
+.br
+.ti -1c
+.RI "#define \fBTIMER_INT_ON_CAP\fP(n)   (\fB_BIT\fP((((n) * 3) + 2)))"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBIP_TIMER_PIN_MATCH_STATE\fP \fBTIMER_PIN_MATCH_STATE_T\fP"
+.br
+.RI "\fIStandard timer initial match pin state and change state\&. \fP"
+.ti -1c
+.RI "typedef enum \fBIP_TIMER_CAP_SRC_STATE\fP \fBTIMER_CAP_SRC_STATE_T\fP"
+.br
+.RI "\fIStandard timer clock and edge for count source\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBIP_TIMER_PIN_MATCH_STATE\fP { \fBTIMER_EXTMATCH_DO_NOTHING\fP = 0, \fBTIMER_EXTMATCH_CLEAR\fP = 1, \fBTIMER_EXTMATCH_SET\fP = 2, \fBTIMER_EXTMATCH_TOGGLE\fP = 3 }
+.RI "\fIStandard timer initial match pin state and change state\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBIP_TIMER_CAP_SRC_STATE\fP { \fBTIMER_CAPSRC_RISING_PCLK\fP = 0, \fBTIMER_CAPSRC_RISING_CAPN\fP = 1, \fBTIMER_CAPSRC_FALLING_CAPN\fP = 2, \fBTIMER_CAPSRC_BOTH_CAPN\fP = 3 }
+.RI "\fIStandard timer clock and edge for count source\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_TIMER_Init\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIInitialize a timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_TIMER_DeInit\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIShutdown a timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_TIMER_MatchPending\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t matchnum)"
+.br
+.RI "\fIDetermine if a match interrupt is pending\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_TIMER_CapturePending\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t capnum)"
+.br
+.RI "\fIDetermine if a capture interrupt is pending\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_ClearMatch\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t matchnum)"
+.br
+.RI "\fIClears a (pending) match interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_ClearCapture\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t capnum)"
+.br
+.RI "\fIClears a (pending) capture interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_Enable\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIEnables the timer (starts count) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_Disable\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIDisables the timer (stops count) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_TIMER_ReadCount\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIReturns the current timer count\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_TIMER_ReadPrescale\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIReturns the current prescale count\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_PrescaleSet\fP (\fBLPC_TIMER_T\fP *pTMR, uint32_t prescale)"
+.br
+.RI "\fISets the prescaler value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_SetMatch\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t matchnum, uint32_t matchval)"
+.br
+.RI "\fISets a timer match value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_TIMER_ReadCapture\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t capnum)"
+.br
+.RI "\fIReads a capture register\&. \fP"
+.ti -1c
+.RI "void \fBChip_TIMER_Reset\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIResets the timer terminal and prescale counts to 0\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_MatchEnableInt\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t matchnum)"
+.br
+.RI "\fIEnables a match interrupt that fires when the terminal count matches the match counter value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_MatchDisableInt\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t matchnum)"
+.br
+.RI "\fIDisables a match interrupt for a match counter\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_ResetOnMatchEnable\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t matchnum)"
+.br
+.RI "\fIFor the specific match counter, enables reset of the terminal count register when a match occurs\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_ResetOnMatchDisable\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t matchnum)"
+.br
+.RI "\fIFor the specific match counter, disables reset of the terminal count register when a match occurs\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_StopOnMatchEnable\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t matchnum)"
+.br
+.RI "\fIEnable a match timer to stop the terminal count when a match count equals the terminal count\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_StopOnMatchDisable\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t matchnum)"
+.br
+.RI "\fIDisable stop on match for a match timer\&. Disables a match timer to stop the terminal count when a match count equals the terminal count\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_CaptureRisingEdgeEnable\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t capnum)"
+.br
+.RI "\fIEnables capture on on rising edge of selected CAP signal for the selected capture register, enables the selected CAPn\&.capnum signal to load the capture register with the terminal coount on a rising edge\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_CaptureRisingEdgeDisable\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t capnum)"
+.br
+.RI "\fIDisables capture on on rising edge of selected CAP signal\&. For the selected capture register, disables the selected CAPn\&.capnum signal to load the capture register with the terminal coount on a rising edge\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_CaptureFallingEdgeEnable\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t capnum)"
+.br
+.RI "\fIEnables capture on on falling edge of selected CAP signal\&. For the selected capture register, enables the selected CAPn\&.capnum signal to load the capture register with the terminal coount on a falling edge\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_CaptureFallingEdgeDisable\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t capnum)"
+.br
+.RI "\fIDisables capture on on falling edge of selected CAP signal\&. For the selected capture register, disables the selected CAPn\&.capnum signal to load the capture register with the terminal coount on a falling edge\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_CaptureEnableInt\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t capnum)"
+.br
+.RI "\fIEnables interrupt on capture of selected CAP signal\&. For the selected capture register, an interrupt will be generated when the enabled rising or falling edge on CAPn\&.capnum is detected\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_CaptureDisableInt\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t capnum)"
+.br
+.RI "\fIDisables interrupt on capture of selected CAP signal\&. \fP"
+.ti -1c
+.RI "void \fBChip_TIMER_ExtMatchControlSet\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t initial_state, \fBTIMER_PIN_MATCH_STATE_T\fP matchState, int8_t matchnum)"
+.br
+.RI "\fISets external match control (MATn\&.matchnum) pin control\&. For the pin selected with matchnum, sets the function of the pin that occurs on a terminal count match for the match count\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_TIMER_TIMER_SetCountClockSrc\fP (\fBLPC_TIMER_T\fP *pTMR, \fBTIMER_CAP_SRC_STATE_T\fP capSrc, int8_t capnum)"
+.br
+.RI "\fISets timer count source and edge with the selected passed from CapSrc\&. If CapSrc selected a CAPn pin, select the specific CAPn pin with the capnum value\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

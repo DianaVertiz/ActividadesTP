@@ -1,0 +1,43 @@
+.TH "timer_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+timer_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP \fBChip_TIMER_GetClockIndex\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.ti -1c
+.RI "void \fBChip_TIMER_Init\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIInitialize a timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_TIMER_DeInit\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIShutdown a timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_TIMER_Reset\fP (\fBLPC_TIMER_T\fP *pTMR)"
+.br
+.RI "\fIResets the timer terminal and prescale counts to 0\&. \fP"
+.ti -1c
+.RI "void \fBChip_TIMER_ExtMatchControlSet\fP (\fBLPC_TIMER_T\fP *pTMR, int8_t initial_state, \fBTIMER_PIN_MATCH_STATE_T\fP matchState, int8_t matchnum)"
+.br
+.RI "\fISets external match control (MATn\&.matchnum) pin control\&. For the pin selected with matchnum, sets the function of the pin that occurs on a terminal count match for the match count\&. \fP"
+.in -1c
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP Chip_TIMER_GetClockIndex (\fBLPC_TIMER_T\fP * pTMR)"
+
+.PP
+Definición en la línea 47 del archivo timer_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

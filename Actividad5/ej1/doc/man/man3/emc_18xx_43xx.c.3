@@ -1,0 +1,96 @@
+.TH "emc_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+emc_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBEMC_DIV_ROUND_UP\fP(x,  y)   ((x + y \- 1) / y)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP uint32_t \fBgetARMPeripheralID\fP (void)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP uint32_t \fBconvertTimmingParam\fP (uint32_t EMC_Clock, int32_t input_ns, uint32_t adjust)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP uint32_t \fBgetColsLen\fP (uint32_t DynConfig)"
+.br
+.ti -1c
+.RI "void \fBinitDynMem\fP (\fBLPC_EMC_T\fP *pEMC, \fBIP_EMC_DYN_CONFIG_T\fP *Dynamic_Config, uint32_t EMC_Clock)"
+.br
+.ti -1c
+.RI "void \fBinitStaticMem\fP (\fBLPC_EMC_T\fP *pEMC, \fBIP_EMC_STATIC_CONFIG_T\fP *Static_Config, uint32_t EMC_Clock)"
+.br
+.ti -1c
+.RI "void \fBChip_EMC_Dynamic_Init\fP (\fBIP_EMC_DYN_CONFIG_T\fP *Dynamic_Config)"
+.br
+.RI "\fIDyanmic memory setup\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Dynamic_Enable\fP (uint8_t Enable)"
+.br
+.RI "\fIEnable Dynamic Memory Controller\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Static_Init\fP (\fBIP_EMC_STATIC_CONFIG_T\fP *Static_Config)"
+.br
+.RI "\fIStatic memory setup\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Mirror\fP (uint8_t Enable)"
+.br
+.RI "\fIMirror CS1 to CS0 and DYCS0\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Enable\fP (uint8_t Enable)"
+.br
+.RI "\fIEnable EMC\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_LowPowerMode\fP (uint8_t Enable)"
+.br
+.RI "\fISet EMC LowPower Mode\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Init\fP (uint32_t Enable, uint32_t ClockRatio, uint32_t EndianMode)"
+.br
+.RI "\fIInitialize EMC\&. \fP"
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define EMC_DIV_ROUND_UP(x, y)   ((x + y \- 1) / y)"
+
+.PP
+Definición en la línea 39 del archivo emc_18xx_43xx\&.c\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP uint32_t convertTimmingParam (uint32_t EMC_Clock, int32_t input_ns, uint32_t adjust)"
+
+.PP
+Definición en la línea 62 del archivo emc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP uint32_t getARMPeripheralID (void)"
+
+.PP
+Definición en la línea 51 del archivo emc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP uint32_t getColsLen (uint32_t DynConfig)"
+
+.PP
+Definición en la línea 84 del archivo emc_18xx_43xx\&.c\&.
+.SS "void initDynMem (\fBLPC_EMC_T\fP * pEMC, \fBIP_EMC_DYN_CONFIG_T\fP * Dynamic_Config, uint32_t EMC_Clock)"
+
+.PP
+Definición en la línea 103 del archivo emc_18xx_43xx\&.c\&.
+.SS "void initStaticMem (\fBLPC_EMC_T\fP * pEMC, \fBIP_EMC_STATIC_CONFIG_T\fP * Static_Config, uint32_t EMC_Clock)"
+
+.PP
+Definición en la línea 199 del archivo emc_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,278 @@
+\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18\+X\+X\+\_\+43\+XX State Configurable Timer P\+WM driver}
+\label{group___s_c_t___p_w_m__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_ga6a111f1642326388361bcc2a251a502b}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Ticks\+Per\+Cycle} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT)
+\begin{DoxyCompactList}\small\item\em Get number of ticks per P\+WM cycle. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_gac04da455f98448bf1d582550935f3b47}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Percentage\+To\+Ticks} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint8\+\_\+t percent)
+\begin{DoxyCompactList}\small\item\em Converts a percentage to ticks. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_ga26e3032074e4a05c9da08309d9614bcd}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Duty\+Cycle} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint8\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Get number of ticks on per P\+WM cycle. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_ga3e77a40e96ba3352a341054f6d1c506c}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Duty\+Cycle} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint8\+\_\+t index, uint32\+\_\+t ticks)
+\begin{DoxyCompactList}\small\item\em Get number of ticks on per P\+WM cycle. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_gab977afb29a407437f574b822fa71af62}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Init} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT)
+\begin{DoxyCompactList}\small\item\em Initialize the S\+C\+T/\+P\+WM clock and reset. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_ga732ad07a287df19b9e0f13b7402476d4}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Start} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT)
+\begin{DoxyCompactList}\small\item\em Start the S\+CT P\+WM. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_ga3f0637126d5ea4efa32dfdc9043b79d9}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Stop} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT)
+\begin{DoxyCompactList}\small\item\em Stop the S\+CT P\+WM. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_gadbcc6b9f14952ee1b2f293521918755a}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Rate} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Sets the frequency of the generated P\+WM wave. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_ga4ff891c31557e7f9b6a2ec8d8370d3c6}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Out\+Pin} (\hyperlink{struct_l_p_c___s_c_t___t}{L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$p\+S\+CT, uint8\+\_\+t index, uint8\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em Setup the O\+U\+T\+P\+UT pin and associate it with an index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+For more information on how to use the driver please visit the F\+AQ page at \href{http://www.lpcware.com/content/faq/how-use-sct-standard-pwm-using-lpcopen}{\tt www.\+lpcware.\+com} 
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}!Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Duty\+Cycle@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Duty\+Cycle}}
+\index{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Duty\+Cycle@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Duty\+Cycle}!C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Duty\+Cycle(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint8\+\_\+t index)}{Chip_SCTPWM_GetDutyCycle(LPC_SCT_T *pSCT, uint8_t index)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Duty\+Cycle (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint8\+\_\+t}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x_ga26e3032074e4a05c9da08309d9614bcd}{}\label{group___s_c_t___p_w_m__18_x_x__43_x_x_ga26e3032074e4a05c9da08309d9614bcd}
+
+
+Get number of ticks on per P\+WM cycle. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em index} & \+: Index of the P\+WM 1 to N (see notes) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Number ot ticks for which the output will be ON per cycle 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+{\itshape index} will be 1 to N where N is the \char`\"{}\+Number of
+         match registers available in the S\+C\+T -\/ 1\char`\"{} or \char`\"{}\+Number of O\+U\+T\+P\+U\+T pins available in the S\+C\+T\char`\"{} whichever is minimum. 
+\end{DoxyNote}
+
+
+Definición en la línea 86 del archivo sct\+\_\+pwm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}!Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Ticks\+Per\+Cycle@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Ticks\+Per\+Cycle}}
+\index{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Ticks\+Per\+Cycle@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Ticks\+Per\+Cycle}!C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Ticks\+Per\+Cycle(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T)}{Chip_SCTPWM_GetTicksPerCycle(LPC_SCT_T *pSCT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Get\+Ticks\+Per\+Cycle (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x_ga6a111f1642326388361bcc2a251a502b}{}\label{group___s_c_t___p_w_m__18_x_x__43_x_x_ga6a111f1642326388361bcc2a251a502b}
+
+
+Get number of ticks per P\+WM cycle. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Number ot ticks that will be counted per cycle 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Return value of this function will be vaild only after calling \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_gadbcc6b9f14952ee1b2f293521918755a}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Rate()} 
+\end{DoxyNote}
+
+
+Definición en la línea 56 del archivo sct\+\_\+pwm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}!Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Init@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Init}}
+\index{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Init@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Init(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T)}{Chip_SCTPWM_Init(LPC_SCT_T *pSCT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x_gab977afb29a407437f574b822fa71af62}{}\label{group___s_c_t___p_w_m__18_x_x__43_x_x_gab977afb29a407437f574b822fa71af62}
+
+
+Initialize the S\+C\+T/\+P\+WM clock and reset. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 113 del archivo sct\+\_\+pwm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}!Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Percentage\+To\+Ticks@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Percentage\+To\+Ticks}}
+\index{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Percentage\+To\+Ticks@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Percentage\+To\+Ticks}!C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Percentage\+To\+Ticks(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint8\+\_\+t percent)}{Chip_SCTPWM_PercentageToTicks(LPC_SCT_T *pSCT, uint8_t percent)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Percentage\+To\+Ticks (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint8\+\_\+t}]{percent}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x_gac04da455f98448bf1d582550935f3b47}{}\label{group___s_c_t___p_w_m__18_x_x__43_x_x_gac04da455f98448bf1d582550935f3b47}
+
+
+Converts a percentage to ticks. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em percent} & \+: Percentage to convert (0 -\/ 100) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Number ot ticks corresponding to given percentage 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Do not use this function when using very low pwm rate (like 100\+Hz or less), on a chip that has very high frequency as the calculation might cause integer overflow 
+\end{DoxyNote}
+
+
+Definición en la línea 71 del archivo sct\+\_\+pwm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}!Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Duty\+Cycle@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Duty\+Cycle}}
+\index{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Duty\+Cycle@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Duty\+Cycle}!C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Duty\+Cycle(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint8\+\_\+t index, uint32\+\_\+t ticks)}{Chip_SCTPWM_SetDutyCycle(LPC_SCT_T *pSCT, uint8_t index, uint32_t ticks)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Duty\+Cycle (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint8\+\_\+t}]{index, }
+\item[{uint32\+\_\+t}]{ticks}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x_ga3e77a40e96ba3352a341054f6d1c506c}{}\label{group___s_c_t___p_w_m__18_x_x__43_x_x_ga3e77a40e96ba3352a341054f6d1c506c}
+
+
+Get number of ticks on per P\+WM cycle. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em index} & \+: Index of the P\+WM 1 to N (see notes) \\
+\hline
+{\em ticks} & \+: Number of ticks the output should say ON \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+{\itshape index} will be 1 to N where N is the \char`\"{}\+Number of
+         match registers available in the S\+C\+T -\/ 1\char`\"{} or \char`\"{}\+Number of O\+U\+T\+P\+U\+T pins available in the S\+C\+T\char`\"{} whichever is minimum. The new duty cycle will be effective only after completion of current P\+WM cycle. 
+\end{DoxyNote}
+
+
+Definición en la línea 103 del archivo sct\+\_\+pwm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}!Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Out\+Pin@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Out\+Pin}}
+\index{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Out\+Pin@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Out\+Pin}!C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Out\+Pin(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint8\+\_\+t index, uint8\+\_\+t pin)}{Chip_SCTPWM_SetOutPin(LPC_SCT_T *pSCT, uint8_t index, uint8_t pin)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Out\+Pin (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint8\+\_\+t}]{index, }
+\item[{uint8\+\_\+t}]{pin}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x_ga4ff891c31557e7f9b6a2ec8d8370d3c6}{}\label{group___s_c_t___p_w_m__18_x_x__43_x_x_ga4ff891c31557e7f9b6a2ec8d8370d3c6}
+
+
+Setup the O\+U\+T\+P\+UT pin and associate it with an index. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of the S\+CT peripheral on the chip \\
+\hline
+{\em index} & \+: Index of P\+WM 1 to N (see notes) \\
+\hline
+{\em pin} & \+: C\+O\+UT pin to be associated with the index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+{\itshape index} will be 1 to N where N is the \char`\"{}\+Number of
+         match registers available in the S\+C\+T -\/ 1\char`\"{} or \char`\"{}\+Number of O\+U\+T\+P\+U\+T pins available in the S\+C\+T\char`\"{} whichever is minimum. 
+\end{DoxyNote}
+
+
+Definición en la línea 51 del archivo sct\+\_\+pwm\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}!Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Rate@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Rate}}
+\index{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Rate@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Rate}!C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Rate(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T, uint32\+\_\+t freq)}{Chip_SCTPWM_SetRate(LPC_SCT_T *pSCT, uint32_t freq)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Rate (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT, }
+\item[{uint32\+\_\+t}]{freq}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x_gadbcc6b9f14952ee1b2f293521918755a}{}\label{group___s_c_t___p_w_m__18_x_x__43_x_x_gadbcc6b9f14952ee1b2f293521918755a}
+
+
+Sets the frequency of the generated P\+WM wave. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+{\em freq} & \+: Frequency in Hz \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 67 del archivo sct\+\_\+pwm\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}!Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Start@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Start}}
+\index{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Start@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Start}!C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Start(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T)}{Chip_SCTPWM_Start(LPC_SCT_T *pSCT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Start (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x_ga732ad07a287df19b9e0f13b7402476d4}{}\label{group___s_c_t___p_w_m__18_x_x__43_x_x_ga732ad07a287df19b9e0f13b7402476d4}
+
+
+Start the S\+CT P\+WM. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function must be called after all the configuration is completed. Do not call \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_gadbcc6b9f14952ee1b2f293521918755a}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Rate()} or \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_ga4ff891c31557e7f9b6a2ec8d8370d3c6}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Out\+Pin()} after the S\+C\+T/\+P\+WM is started. Use \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_ga3f0637126d5ea4efa32dfdc9043b79d9}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Stop()} to stop the S\+C\+T/\+P\+WM before reconfiguring, \hyperlink{group___s_c_t___p_w_m__18_x_x__43_x_x_ga3e77a40e96ba3352a341054f6d1c506c}{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Set\+Duty\+Cycle()} can be called when the S\+C\+T/\+P\+WM is running to change the Duty\+Cycle. 
+\end{DoxyNote}
+
+
+Definición en la línea 129 del archivo sct\+\_\+pwm\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}!Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Stop@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Stop}}
+\index{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Stop@{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Stop}!C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver@{C\+H\+I\+P\+: L\+P\+C18\+X\+X\+\_\+43\+X\+X State Configurable Timer P\+W\+M driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Stop(\+L\+P\+C\+\_\+\+S\+C\+T\+\_\+\+T $\ast$p\+S\+C\+T)}{Chip_SCTPWM_Stop(LPC_SCT_T *pSCT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+S\+C\+T\+P\+W\+M\+\_\+\+Stop (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+S\+C\+T\+\_\+T} $\ast$}]{p\+S\+CT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___s_c_t___p_w_m__18_x_x__43_x_x_ga3f0637126d5ea4efa32dfdc9043b79d9}{}\label{group___s_c_t___p_w_m__18_x_x__43_x_x_ga3f0637126d5ea4efa32dfdc9043b79d9}
+
+
+Stop the S\+CT P\+WM. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+S\+CT} & \+: The base of S\+CT peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 139 del archivo sct\+\_\+pwm\+\_\+18xx\+\_\+43xx.\+h.
+

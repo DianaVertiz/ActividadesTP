@@ -1,0 +1,420 @@
+.TH "chip_lpc18xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+chip_lpc18xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'lpc_types\&.h'\fP
+.br
+\fC#include 'sys_config\&.h'\fP
+.br
+\fC#include 'scu_18xx_43xx\&.h'\fP
+.br
+\fC#include 'clock_18xx_43xx\&.h'\fP
+.br
+\fC#include 'rgu_18xx_43xx\&.h'\fP
+.br
+\fC#include 'creg_18xx_43xx\&.h'\fP
+.br
+\fC#include 'evrt_18xx_43xx\&.h'\fP
+.br
+\fC#include 'otp_18xx_43xx\&.h'\fP
+.br
+\fC#include 'sdif_18xx_43xx\&.h'\fP
+.br
+\fC#include 'adc_18xx_43xx\&.h'\fP
+.br
+\fC#include 'atimer_18xx_43xx\&.h'\fP
+.br
+\fC#include 'aes_18xx_43xx\&.h'\fP
+.br
+\fC#include 'ccan_18xx_43xx\&.h'\fP
+.br
+\fC#include 'dac_18xx_43xx\&.h'\fP
+.br
+\fC#include 'eeprom_18xx_43xx\&.h'\fP
+.br
+\fC#include 'emc_18xx_43xx\&.h'\fP
+.br
+\fC#include 'enet_18xx_43xx\&.h'\fP
+.br
+\fC#include 'fmc_18xx_43xx\&.h'\fP
+.br
+\fC#include 'i2c_18xx_43xx\&.h'\fP
+.br
+\fC#include 'i2s_18xx_43xx\&.h'\fP
+.br
+\fC#include 'gima_18xx_43xx\&.h'\fP
+.br
+\fC#include 'gpdma_18xx_43xx\&.h'\fP
+.br
+\fC#include 'gpio_18xx_43xx\&.h'\fP
+.br
+\fC#include 'pinint_18xx_43xx\&.h'\fP
+.br
+\fC#include 'gpiogroup_18xx_43xx\&.h'\fP
+.br
+\fC#include 'lcd_18xx_43xx\&.h'\fP
+.br
+\fC#include 'mcpwm_18xx_43xx\&.h'\fP
+.br
+\fC#include 'pmc_18xx_43xx\&.h'\fP
+.br
+\fC#include 'qei_18xx_43xx\&.h'\fP
+.br
+\fC#include 'ritimer_18xx_43xx\&.h'\fP
+.br
+\fC#include 'rtc_18xx_43xx\&.h'\fP
+.br
+\fC#include 'sct_18xx_43xx\&.h'\fP
+.br
+\fC#include 'sct_pwm_18xx_43xx\&.h'\fP
+.br
+\fC#include 'sdmmc_18xx_43xx\&.h'\fP
+.br
+\fC#include 'sdio_18xx_43xx\&.h'\fP
+.br
+\fC#include 'spifi_18xx_43xx\&.h'\fP
+.br
+\fC#include 'ssp_18xx_43xx\&.h'\fP
+.br
+\fC#include 'timer_18xx_43xx\&.h'\fP
+.br
+\fC#include 'uart_18xx_43xx\&.h'\fP
+.br
+\fC#include 'usbhs_18xx_43xx\&.h'\fP
+.br
+\fC#include 'wwdt_18xx_43xx\&.h'\fP
+.br
+\fC#include 'romapi_18xx_43xx\&.h'\fP
+.br
+\fC#include 'i2cm_18xx_43xx\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLPC_SCT_BASE\fP   0x40000000"
+.br
+.ti -1c
+.RI "#define \fBLPC_GPDMA_BASE\fP   0x40002000"
+.br
+.ti -1c
+.RI "#define \fBLPC_SPIFI_BASE\fP   0x40003000"
+.br
+.ti -1c
+.RI "#define \fBLPC_SDMMC_BASE\fP   0x40004000"
+.br
+.ti -1c
+.RI "#define \fBLPC_EMC_BASE\fP   0x40005000"
+.br
+.ti -1c
+.RI "#define \fBLPC_USB0_BASE\fP   0x40006000"
+.br
+.ti -1c
+.RI "#define \fBLPC_USB1_BASE\fP   0x40007000"
+.br
+.ti -1c
+.RI "#define \fBLPC_LCD_BASE\fP   0x40008000"
+.br
+.ti -1c
+.RI "#define \fBLPC_FMCA_BASE\fP   0x4000C000"
+.br
+.ti -1c
+.RI "#define \fBLPC_FMCB_BASE\fP   0x4000D000"
+.br
+.ti -1c
+.RI "#define \fBLPC_ETHERNET_BASE\fP   0x40010000"
+.br
+.ti -1c
+.RI "#define \fBLPC_ATIMER_BASE\fP   0x40040000"
+.br
+.ti -1c
+.RI "#define \fBLPC_REGFILE_BASE\fP   0x40041000"
+.br
+.ti -1c
+.RI "#define \fBLPC_PMC_BASE\fP   0x40042000"
+.br
+.ti -1c
+.RI "#define \fBLPC_CREG_BASE\fP   0x40043000"
+.br
+.ti -1c
+.RI "#define \fBLPC_EVRT_BASE\fP   0x40044000"
+.br
+.ti -1c
+.RI "#define \fBLPC_OTP_BASE\fP   0x40045000"
+.br
+.ti -1c
+.RI "#define \fBLPC_RTC_BASE\fP   0x40046000"
+.br
+.ti -1c
+.RI "#define \fBLPC_CGU_BASE\fP   0x40050000"
+.br
+.ti -1c
+.RI "#define \fBLPC_CCU1_BASE\fP   0x40051000"
+.br
+.ti -1c
+.RI "#define \fBLPC_CCU2_BASE\fP   0x40052000"
+.br
+.ti -1c
+.RI "#define \fBLPC_RGU_BASE\fP   0x40053000"
+.br
+.ti -1c
+.RI "#define \fBLPC_WWDT_BASE\fP   0x40080000"
+.br
+.ti -1c
+.RI "#define \fBLPC_USART0_BASE\fP   0x40081000"
+.br
+.ti -1c
+.RI "#define \fBLPC_USART2_BASE\fP   0x400C1000"
+.br
+.ti -1c
+.RI "#define \fBLPC_USART3_BASE\fP   0x400C2000"
+.br
+.ti -1c
+.RI "#define \fBLPC_UART1_BASE\fP   0x40082000"
+.br
+.ti -1c
+.RI "#define \fBLPC_SSP0_BASE\fP   0x40083000"
+.br
+.ti -1c
+.RI "#define \fBLPC_SSP1_BASE\fP   0x400C5000"
+.br
+.ti -1c
+.RI "#define \fBLPC_TIMER0_BASE\fP   0x40084000"
+.br
+.ti -1c
+.RI "#define \fBLPC_TIMER1_BASE\fP   0x40085000"
+.br
+.ti -1c
+.RI "#define \fBLPC_TIMER2_BASE\fP   0x400C3000"
+.br
+.ti -1c
+.RI "#define \fBLPC_TIMER3_BASE\fP   0x400C4000"
+.br
+.ti -1c
+.RI "#define \fBLPC_SCU_BASE\fP   0x40086000"
+.br
+.ti -1c
+.RI "#define \fBLPC_PIN_INT_BASE\fP   0x40087000"
+.br
+.ti -1c
+.RI "#define \fBLPC_GPIO_GROUP_INT0_BASE\fP   0x40088000"
+.br
+.ti -1c
+.RI "#define \fBLPC_GPIO_GROUP_INT1_BASE\fP   0x40089000"
+.br
+.ti -1c
+.RI "#define \fBLPC_MCPWM_BASE\fP   0x400A0000"
+.br
+.ti -1c
+.RI "#define \fBLPC_I2C0_BASE\fP   0x400A1000"
+.br
+.ti -1c
+.RI "#define \fBLPC_I2C1_BASE\fP   0x400E0000"
+.br
+.ti -1c
+.RI "#define \fBLPC_I2S0_BASE\fP   0x400A2000"
+.br
+.ti -1c
+.RI "#define \fBLPC_I2S1_BASE\fP   0x400A3000"
+.br
+.ti -1c
+.RI "#define \fBLPC_C_CAN1_BASE\fP   0x400A4000"
+.br
+.ti -1c
+.RI "#define \fBLPC_RITIMER_BASE\fP   0x400C0000"
+.br
+.ti -1c
+.RI "#define \fBLPC_QEI_BASE\fP   0x400C6000"
+.br
+.ti -1c
+.RI "#define \fBLPC_GIMA_BASE\fP   0x400C7000"
+.br
+.ti -1c
+.RI "#define \fBLPC_DAC_BASE\fP   0x400E1000"
+.br
+.ti -1c
+.RI "#define \fBLPC_C_CAN0_BASE\fP   0x400E2000"
+.br
+.ti -1c
+.RI "#define \fBLPC_ADC0_BASE\fP   0x400E3000"
+.br
+.ti -1c
+.RI "#define \fBLPC_ADC1_BASE\fP   0x400E4000"
+.br
+.ti -1c
+.RI "#define \fBLPC_GPIO_PORT_BASE\fP   0x400F4000"
+.br
+.ti -1c
+.RI "#define \fBLPC_SPI_BASE\fP   0x40100000"
+.br
+.ti -1c
+.RI "#define \fBLPC_SGPIO_BASE\fP   0x40101000"
+.br
+.ti -1c
+.RI "#define \fBLPC_EEPROM_BASE\fP   0x4000E000"
+.br
+.ti -1c
+.RI "#define \fBLPC_ROM_API_BASE\fP   0x10400100"
+.br
+.ti -1c
+.RI "#define \fBLPC_SCT\fP   ((\fBLPC_SCT_T\fP              *) \fBLPC_SCT_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_GPDMA\fP   ((\fBLPC_GPDMA_T\fP            *) \fBLPC_GPDMA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_SPIFI\fP   ((\fBLPC_SPIFI_T\fP            *) \fBLPC_SPIFI_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_SDMMC\fP   ((\fBLPC_SDMMC_T\fP            *) \fBLPC_SDMMC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_EMC\fP   ((\fBLPC_EMC_T\fP              *) \fBLPC_EMC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_USB0\fP   ((\fBLPC_USBHS_T\fP            *) \fBLPC_USB0_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_USB1\fP   ((\fBLPC_USBHS_T\fP            *) \fBLPC_USB1_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_LCD\fP   ((\fBLPC_LCD_T\fP              *) \fBLPC_LCD_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_ETHERNET\fP   ((\fBLPC_ENET_T\fP             *) \fBLPC_ETHERNET_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_ATIMER\fP   ((\fBLPC_ATIMER_T\fP           *) \fBLPC_ATIMER_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_REGFILE\fP   ((\fBLPC_REGFILE_T\fP          *) \fBLPC_REGFILE_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_PMC\fP   ((\fBLPC_PMC_T\fP              *) \fBLPC_PMC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_EVRT\fP   ((\fBLPC_EVRT_T\fP             *) \fBLPC_EVRT_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_RTC\fP   ((\fBLPC_RTC_T\fP              *) \fBLPC_RTC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_CGU\fP   ((\fBLPC_CGU_T\fP              *) \fBLPC_CGU_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_CCU1\fP   ((\fBLPC_CCU1_T\fP             *) \fBLPC_CCU1_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_CCU2\fP   ((\fBLPC_CCU2_T\fP             *) \fBLPC_CCU2_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_CREG\fP   ((\fBLPC_CREG_T\fP             *) \fBLPC_CREG_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_RGU\fP   ((\fBLPC_RGU_T\fP              *) \fBLPC_RGU_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_WWDT\fP   ((\fBLPC_WWDT_T\fP             *) \fBLPC_WWDT_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_USART0\fP   ((\fBLPC_USART_T\fP            *) \fBLPC_USART0_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_USART2\fP   ((\fBLPC_USART_T\fP            *) \fBLPC_USART2_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_USART3\fP   ((\fBLPC_USART_T\fP            *) \fBLPC_USART3_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_UART1\fP   ((\fBLPC_USART_T\fP            *) \fBLPC_UART1_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_SSP0\fP   ((\fBLPC_SSP_T\fP              *) \fBLPC_SSP0_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_SSP1\fP   ((\fBLPC_SSP_T\fP              *) \fBLPC_SSP1_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_TIMER0\fP   ((\fBLPC_TIMER_T\fP            *) \fBLPC_TIMER0_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_TIMER1\fP   ((\fBLPC_TIMER_T\fP            *) \fBLPC_TIMER1_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_TIMER2\fP   ((\fBLPC_TIMER_T\fP            *) \fBLPC_TIMER2_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_TIMER3\fP   ((\fBLPC_TIMER_T\fP            *) \fBLPC_TIMER3_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_SCU\fP   ((\fBLPC_SCU_T\fP              *) \fBLPC_SCU_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_GPIO_PIN_INT\fP   ((\fBLPC_PIN_INT_T\fP          *) \fBLPC_PIN_INT_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_GPIOGROUP\fP   ((\fBLPC_GPIOGROUPINT_T\fP     *) \fBLPC_GPIO_GROUP_INT0_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_MCPWM\fP   ((\fBLPC_MCPWM_T\fP            *) \fBLPC_MCPWM_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_I2C0\fP   ((\fBLPC_I2C_T\fP              *) \fBLPC_I2C0_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_I2C1\fP   ((\fBLPC_I2C_T\fP              *) \fBLPC_I2C1_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_I2S0\fP   ((\fBLPC_I2S_T\fP              *) \fBLPC_I2S0_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_I2S1\fP   ((\fBLPC_I2S_T\fP              *) \fBLPC_I2S1_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_C_CAN1\fP   ((\fBLPC_CCAN_T\fP             *) \fBLPC_C_CAN1_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_RITIMER\fP   ((\fBLPC_RITIMER_T\fP          *) \fBLPC_RITIMER_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_QEI\fP   ((\fBLPC_QEI_T\fP              *) \fBLPC_QEI_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_GIMA\fP   ((\fBLPC_GIMA_T\fP             *) \fBLPC_GIMA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_DAC\fP   ((\fBLPC_DAC_T\fP              *) \fBLPC_DAC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_C_CAN0\fP   ((\fBLPC_CCAN_T\fP             *) \fBLPC_C_CAN0_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_ADC0\fP   ((\fBLPC_ADC_T\fP              *) \fBLPC_ADC0_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_ADC1\fP   ((\fBLPC_ADC_T\fP              *) \fBLPC_ADC1_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_GPIO_PORT\fP   ((\fBLPC_GPIO_T\fP             *) \fBLPC_GPIO_PORT_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_EEPROM\fP   ((\fBLPC_EEPROM_T\fP           *) \fBLPC_EEPROM_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_FMCA\fP   ((\fBLPC_FMC_T\fP              *) \fBLPC_FMCA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_FMCB\fP   ((\fBLPC_FMC_T\fP              *) \fBLPC_FMCB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBLPC_ROM_API\fP   ((\fBLPC_ROM_API_T\fP          *) \fBLPC_ROM_API_BASE\fP)"
+.br
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

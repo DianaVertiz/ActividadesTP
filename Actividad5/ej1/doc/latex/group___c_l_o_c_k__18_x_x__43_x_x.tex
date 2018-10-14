@@ -1,0 +1,1041 @@
+\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx Clock Driver}
+\label{group___c_l_o_c_k__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsection*{Módulos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x___o_p_t_i_o_n_s}{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver driver options}
+\end{DoxyCompactItemize}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_p_l_l___p_a_r_a_m___t}{P\+L\+L\+\_\+\+P\+A\+R\+A\+M\+\_\+T}
+\begin{DoxyCompactList}\small\item\em P\+LL Parameter strucutre. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_c_g_u___u_s_b_a_u_d_i_o___p_l_l___s_e_t_u_p___t}{C\+G\+U\+\_\+\+U\+S\+B\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+\+S\+E\+T\+U\+P\+\_\+T}
+\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gaec3e2b28e900580cc4dc72034f7371fd}{C\+G\+U\+\_\+\+I\+R\+C\+\_\+\+F\+R\+EQ}~(12000000)
+\item 
+\#define \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gae14be49570b87fcba70e698abd87549e}{M\+A\+X\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+EQ}~(180000000)
+\item 
+\#define \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga1b275f6e0df5d06ec980f9da9e3a1f02}{P\+L\+L\+\_\+\+M\+I\+N\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ}~156000000
+\item 
+\#define \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga30bea6f91385c809e9b69f60bb76e463}{P\+L\+L\+\_\+\+M\+A\+X\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ}~320000000
+\item 
+\#define \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga8d7042242ace9a2ae21d16181ce51a2d}{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+L\+O\+C\+K\+ED}~(1 $<$$<$ 0)	/$\ast$ P\+LL locked status $\ast$/
+\item 
+\#define \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gafa8279d333ad3959b13d9ad5c57787df}{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+FR}~(1 $<$$<$ 1)	/$\ast$ P\+LL free running indicator status $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gaa74040cd24046b7e09cbb2c1cf6e6c0d}{Chip\+\_\+\+Clock\+\_\+\+Enable\+Crystal} (void)
+\begin{DoxyCompactList}\small\item\em Enables the crystal oscillator. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gadbc79ec252fc8518b284aff51e86adf5}{Chip\+\_\+\+Clock\+\_\+\+Disable\+Crystal} (void)
+\begin{DoxyCompactList}\small\item\em Disables the crystal oscillator. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga1667168db76064ac1c2bebd3dfa6db6d}{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Hz} (\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} Input, uint32\+\_\+t Min\+Hz, uint32\+\_\+t Desired\+Hz, uint32\+\_\+t Max\+Hz)
+\begin{DoxyCompactList}\small\item\em Configures the main P\+LL. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga02f88a46ae6e2b942e8c5fd58915634e}{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Mult} (\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} Input, uint32\+\_\+t mult)
+\begin{DoxyCompactList}\small\item\em Directly set the P\+LL multipler. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gac52f49ae117b1091809cb24f18481b86}{Chip\+\_\+\+Clock\+\_\+\+Get\+Main\+P\+L\+L\+Hz} (void)
+\begin{DoxyCompactList}\small\item\em Returns the frequency of the main P\+LL. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga752e7a9c291cb61877d9f00a2c9772a3}{Chip\+\_\+\+Clock\+\_\+\+Disable\+Main\+P\+LL} (void)
+\begin{DoxyCompactList}\small\item\em Disables the main P\+LL. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gaf6a067bb264ab963d7f81eaa24ce9ec0}{Chip\+\_\+\+Clock\+\_\+\+Enable\+Main\+P\+LL} (void)
+\begin{DoxyCompactList}\small\item\em Enbles the main P\+LL. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga227521c8f7cb4a3f3cff4b9b8c5364f0}{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+LL} (const \hyperlink{struct_p_l_l___p_a_r_a_m___t}{P\+L\+L\+\_\+\+P\+A\+R\+A\+M\+\_\+T} $\ast$ppll)
+\begin{DoxyCompactList}\small\item\em Sets-\/up the main P\+LL. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga9df837b459e11fdf1eda8d48be292fc5}{Chip\+\_\+\+Clock\+\_\+\+Set\+Divider} (\hyperlink{chip__clocks_8h_a588e8716294cc2deec5d583add455521}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+T} Divider, \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} Input, uint32\+\_\+t Divisor)
+\begin{DoxyCompactList}\small\item\em Sets up a C\+GU clock divider and it\textquotesingle{}s input clock. \end{DoxyCompactList}\item 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga3fc4d71a69a9b0c44577264cd9491834}{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Source} (\hyperlink{chip__clocks_8h_a588e8716294cc2deec5d583add455521}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+T} Divider)
+\begin{DoxyCompactList}\small\item\em Gets a C\+GU clock divider source. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gaeecd015038258f1cc4f746054268d94f}{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Divisor} (\hyperlink{chip__clocks_8h_a588e8716294cc2deec5d583add455521}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+T} Divider)
+\begin{DoxyCompactList}\small\item\em Gets a C\+GU clock divider divisor. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga4ad0a2b922ac85f94ab0bb2036def308}{Chip\+\_\+\+Clock\+\_\+\+Get\+Clock\+Input\+Hz} (\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} input)
+\begin{DoxyCompactList}\small\item\em Returns the frequency of the specified input clock source. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga8686b03c1433974a6473f10cc0203915}{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clockt\+Hz} (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T} clock)
+\begin{DoxyCompactList}\small\item\em Returns the frequency of the specified base clock source. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gaf5e0d6f4dcbfd5ff64b1ddcd37067ca2}{Chip\+\_\+\+Clock\+\_\+\+Set\+Base\+Clock} (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T} Base\+Clock, \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} Input, bool autoblocken, bool powerdn)
+\begin{DoxyCompactList}\small\item\em Sets a C\+GU Base Clock clock source. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga9d6621765b2b77f40db1eed937cb5dc8}{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock\+Opts} (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T} Base\+Clock, \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} $\ast$Input, bool $\ast$autoblocken, bool $\ast$powerdn)
+\begin{DoxyCompactList}\small\item\em Get C\+GU Base Clock clock source information. \end{DoxyCompactList}\item 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga76a6aba92d67ee2cacf4d53c9f8043ae}{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock} (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T} Base\+Clock)
+\begin{DoxyCompactList}\small\item\em Gets a C\+GU Base Clock clock source. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gae957c1a6743ad69320c1c198e5411ec0}{Chip\+\_\+\+Clock\+\_\+\+Enable\+Base\+Clock} (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T} Base\+Clock)
+\begin{DoxyCompactList}\small\item\em Enables a base clock source. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gaca76aa951b9e6a69a9ef4fb2aea2aaac}{Chip\+\_\+\+Clock\+\_\+\+Disable\+Base\+Clock} (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T} Base\+Clock)
+\begin{DoxyCompactList}\small\item\em Disables a base clock source. \end{DoxyCompactList}\item 
+bool \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga265d89b2296192ba7d5d2a63c4edd66e}{Chip\+\_\+\+Clock\+\_\+\+Is\+Base\+Clock\+Enabled} (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T} Base\+Clock)
+\begin{DoxyCompactList}\small\item\em Returns base clock enable state. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gadfa0a46d347a3174c7f67edbaf3a66f8}{Chip\+\_\+\+Clock\+\_\+\+Enable\+Opts} (\hyperlink{chip__clocks_8h_a45bb23228b9831321626c103ada7c60b}{C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} clk, bool autoen, bool wakeupen, int div)
+\begin{DoxyCompactList}\small\item\em Enables a peripheral clock and sets clock states. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga002dee3b9dfa6bde2445e6fff165f0f1}{Chip\+\_\+\+Clock\+\_\+\+Enable} (\hyperlink{chip__clocks_8h_a45bb23228b9831321626c103ada7c60b}{C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} clk)
+\begin{DoxyCompactList}\small\item\em Enables a peripheral clock. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gad43f808e0218e20dfc000fc0248da1a4}{Chip\+\_\+\+Clock\+\_\+\+R\+T\+C\+Enable} (void)
+\begin{DoxyCompactList}\small\item\em Enables R\+T\+Cclock. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga847e7bcd709e030752213380e78039ec}{Chip\+\_\+\+Clock\+\_\+\+Disable} (\hyperlink{chip__clocks_8h_a45bb23228b9831321626c103ada7c60b}{C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} clk)
+\begin{DoxyCompactList}\small\item\em Disables a peripheral clock. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gafb964074c3fa133e29c51bd31e4590ae}{Chip\+\_\+\+Clock\+\_\+\+Get\+Rate} (\hyperlink{chip__clocks_8h_a45bb23228b9831321626c103ada7c60b}{C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} clk)
+\begin{DoxyCompactList}\small\item\em Returns a peripheral clock rate. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gaf8fefd2c98eee4d7954719d828a1cad8}{Chip\+\_\+\+Clock\+\_\+\+Get\+E\+M\+C\+Rate} (void)
+\begin{DoxyCompactList}\small\item\em Returns E\+MC clock rate. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga4211f2f6083501edf23d418eb267b5aa}{Chip\+\_\+\+Clock\+\_\+\+Start\+Power\+Down} (void)
+\begin{DoxyCompactList}\small\item\em Start the power down sequence by disabling the branch output clocks with wake up mechanism (Only the clocks which wake up mechanism bit enabled will be disabled) \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga28a09f033418df7c8588b073af5d6eac}{Chip\+\_\+\+Clock\+\_\+\+Clear\+Power\+Down} (void)
+\begin{DoxyCompactList}\small\item\em Clear the power down mode bit \& proceed normal operation of branch output clocks (Only the clocks which wake up mechanism bit enabled will be enabled after the wake up event) \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gaed16ed3df8281cb642db7525fdf1493d}{Chip\+\_\+\+Clock\+\_\+\+Setup\+P\+LL} (\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} Input, \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga839a458a9e1e2a85e68470156c861e6a}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T} pllnum, const \hyperlink{struct_c_g_u___u_s_b_a_u_d_i_o___p_l_l___s_e_t_u_p___t}{C\+G\+U\+\_\+\+U\+S\+B\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+\+S\+E\+T\+U\+P\+\_\+T} $\ast$p\+P\+L\+L\+Setup)
+\begin{DoxyCompactList}\small\item\em Sets up the audio or U\+SB P\+LL. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga2715e421f23a820691b719126ebed2e0}{Chip\+\_\+\+Clock\+\_\+\+Enable\+P\+LL} (\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga839a458a9e1e2a85e68470156c861e6a}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T} pllnum)
+\begin{DoxyCompactList}\small\item\em Enables the audio or U\+SB P\+LL. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gaa9ce1d7461c0eeca2fe5b72528d9d81e}{Chip\+\_\+\+Clock\+\_\+\+Disable\+P\+LL} (\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga839a458a9e1e2a85e68470156c861e6a}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T} pllnum)
+\begin{DoxyCompactList}\small\item\em Disables the audio or U\+SB P\+LL. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gad2a40b92ab5d064cc655ae4ada1474b0}{Chip\+\_\+\+Clock\+\_\+\+Get\+P\+L\+L\+Status} (\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga839a458a9e1e2a85e68470156c861e6a}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T} pllnum)
+\begin{DoxyCompactList}\small\item\em Returns the P\+LL status. \end{DoxyCompactList}\item 
+int \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga1412ab2c1437f42f77ef96f321a0055b}{Chip\+\_\+\+Clock\+\_\+\+Calc\+Main\+P\+L\+L\+Value} (uint32\+\_\+t freq, \hyperlink{struct_p_l_l___p_a_r_a_m___t}{P\+L\+L\+\_\+\+P\+A\+R\+A\+M\+\_\+T} $\ast$ppll)
+\begin{DoxyCompactList}\small\item\em Calculate main P\+LL Pre, Post and M div values. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE int \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gae553f4ede5f7ac8401c16e9df9e37102}{Chip\+\_\+\+Clock\+\_\+\+Main\+P\+L\+L\+Locked} (void)
+\begin{DoxyCompactList}\small\item\em Wait for Main P\+LL to be locked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gabdd04536f16b3c7b588757d024e53da6}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL} \{ \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ggabdd04536f16b3c7b588757d024e53da6a9c58406347e31448cf1af5069bfa8618}{C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+P\+LL}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ggabdd04536f16b3c7b588757d024e53da6a417d44002637aeeb1b62b42c39723cc1}{C\+G\+U\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL}
+ \}
+\item 
+typedef enum \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gabdd04536f16b3c7b588757d024e53da6}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL} \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga839a458a9e1e2a85e68470156c861e6a}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga419aa2b9970dcf4930eb44871da9e377}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+IN} \{ \\*
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a6134efd5637fdc35c242ecfdc0cec2cf}{C\+L\+K\+I\+N\+\_\+32K}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a50afa8c84bb94ed370990ec621073aa7}{C\+L\+K\+I\+N\+\_\+\+I\+RC}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a3dc7da7852a27d77d11c1860bb3ea56b}{C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+RX}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a1f916af2e2c92bcc140e2652bcf2ece1}{C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+TX}, 
+\\*
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a0289bec93a17591f709150001fecce62}{C\+L\+K\+I\+N\+\_\+\+C\+L\+K\+IN}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ad9eebe5fb3398ceb6edf19967188be36}{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a8819337e544d58840b02418ab417f8d0}{C\+L\+K\+I\+N\+\_\+\+C\+R\+Y\+S\+T\+AL}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a6df7bbb3831ae1c3b2f8a37d73a41235}{C\+L\+K\+I\+N\+\_\+\+U\+S\+B\+P\+LL}, 
+\\*
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a203ed75b1f845c88b87432d479dc164b}{C\+L\+K\+I\+N\+\_\+\+A\+U\+D\+I\+O\+P\+LL}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a4484ce25bc8566f811fb8ceff70d341f}{C\+L\+K\+I\+N\+\_\+\+M\+A\+I\+N\+P\+LL}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377adc83ede30d0f962cd2496415a072474d}{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ac793e16d6468d187d7dc97d2274ea09d}{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3}, 
+\\*
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ac6ad782c2dbaa12a2c026ae6c628884f}{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VA}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ad4b3bd285e3dfb67cdd1c26313da38f3}{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VB}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ac08cb97457d4de7c50a9d775d26d7dcc}{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VC}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a4e433bee2205fdac865a7a9adb94d25a}{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VD}, 
+\\*
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a2f855e496263ba3d88be98f69cfc5640}{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VE}, 
+\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a01c7e5b28a27ce99a5c68c0f4c701493}{C\+L\+K\+I\+N\+P\+U\+T\+\_\+\+PD}
+ \}\begin{DoxyCompactList}\small\item\em C\+GU clock input list These are possible input clocks for the C\+GU and can come from both external (crystal) and internal (P\+LL) sources. These clock inputs can be routed to the base clocks (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}). \end{DoxyCompactList}
+\item 
+typedef enum \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga419aa2b9970dcf4930eb44871da9e377}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+IN} \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}
+\begin{DoxyCompactList}\small\item\em C\+GU clock input list These are possible input clocks for the C\+GU and can come from both external (crystal) and internal (P\+LL) sources. These clock inputs can be routed to the base clocks (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+G\+U\+\_\+\+I\+R\+C\+\_\+\+F\+R\+EQ@{C\+G\+U\+\_\+\+I\+R\+C\+\_\+\+F\+R\+EQ}}
+\index{C\+G\+U\+\_\+\+I\+R\+C\+\_\+\+F\+R\+EQ@{C\+G\+U\+\_\+\+I\+R\+C\+\_\+\+F\+R\+EQ}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{C\+G\+U\+\_\+\+I\+R\+C\+\_\+\+F\+R\+EQ}{CGU_IRC_FREQ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+G\+U\+\_\+\+I\+R\+C\+\_\+\+F\+R\+EQ~(12000000)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gaec3e2b28e900580cc4dc72034f7371fd}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gaec3e2b28e900580cc4dc72034f7371fd}
+
+
+Definición en la línea 64 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+FR@{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+FR}}
+\index{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+FR@{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+FR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+FR}{CGU_PLL_FR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+FR~(1 $<$$<$ 1)	/$\ast$ P\+LL free running indicator status $\ast$/}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gafa8279d333ad3959b13d9ad5c57787df}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gafa8279d333ad3959b13d9ad5c57787df}
+
+
+Definición en la línea 353 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+L\+O\+C\+K\+ED@{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+L\+O\+C\+K\+ED}}
+\index{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+L\+O\+C\+K\+ED@{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+L\+O\+C\+K\+ED}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+L\+O\+C\+K\+ED}{CGU_PLL_LOCKED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+L\+O\+C\+K\+ED~(1 $<$$<$ 0)	/$\ast$ P\+LL locked status $\ast$/}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga8d7042242ace9a2ae21d16181ce51a2d}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga8d7042242ace9a2ae21d16181ce51a2d}
+
+
+Definición en la línea 352 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!M\+A\+X\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+EQ@{M\+A\+X\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+EQ}}
+\index{M\+A\+X\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+EQ@{M\+A\+X\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+EQ}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+EQ}{MAX_CLOCK_FREQ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+EQ~(180000000)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gae14be49570b87fcba70e698abd87549e}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gae14be49570b87fcba70e698abd87549e}
+
+
+Definición en la línea 70 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!P\+L\+L\+\_\+\+M\+A\+X\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ@{P\+L\+L\+\_\+\+M\+A\+X\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ}}
+\index{P\+L\+L\+\_\+\+M\+A\+X\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ@{P\+L\+L\+\_\+\+M\+A\+X\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{P\+L\+L\+\_\+\+M\+A\+X\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ}{PLL_MAX_CCO_FREQ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+L\+L\+\_\+\+M\+A\+X\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ~320000000}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga30bea6f91385c809e9b69f60bb76e463}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga30bea6f91385c809e9b69f60bb76e463}
+Max C\+CO frequency of main P\+LL 
+
+Definición en la línea 75 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!P\+L\+L\+\_\+\+M\+I\+N\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ@{P\+L\+L\+\_\+\+M\+I\+N\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ}}
+\index{P\+L\+L\+\_\+\+M\+I\+N\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ@{P\+L\+L\+\_\+\+M\+I\+N\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{P\+L\+L\+\_\+\+M\+I\+N\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ}{PLL_MIN_CCO_FREQ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+L\+L\+\_\+\+M\+I\+N\+\_\+\+C\+C\+O\+\_\+\+F\+R\+EQ~156000000}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga1b275f6e0df5d06ec980f9da9e3a1f02}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga1b275f6e0df5d06ec980f9da9e3a1f02}
+Min C\+CO frequency of main P\+LL 
+
+Definición en la línea 74 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de los \textquotesingle{}typedefs\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T@{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}}
+\index{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T@{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}{CHIP_CGU_CLKIN_T}}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+IN}  {\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}
+
+
+C\+GU clock input list These are possible input clocks for the C\+GU and can come from both external (crystal) and internal (P\+LL) sources. These clock inputs can be routed to the base clocks (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}). 
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T@{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T}}
+\index{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T@{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T}{CHIP_CGU_USB_AUDIO_PLL_T}}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL}  {\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T}}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga839a458a9e1e2a85e68470156c861e6a}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga839a458a9e1e2a85e68470156c861e6a}
+Audio or U\+SB P\+LL selection 
+
+\subsection{Documentación de las enumeraciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+IN@{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+IN}}
+\index{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+IN@{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+IN}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+IN}{CHIP_CGU_CLKIN}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+IN}}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga419aa2b9970dcf4930eb44871da9e377}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga419aa2b9970dcf4930eb44871da9e377}
+
+
+C\+GU clock input list These are possible input clocks for the C\+GU and can come from both external (crystal) and internal (P\+LL) sources. These clock inputs can be routed to the base clocks (\hyperlink{chip__clocks_8h_a31e266dd83cc66eb866d8d051ffd1d45}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}). 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{C\+L\+K\+I\+N\+\_\+32K@{C\+L\+K\+I\+N\+\_\+32K}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+32K@{C\+L\+K\+I\+N\+\_\+32K}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+32K\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a6134efd5637fdc35c242ecfdc0cec2cf}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a6134efd5637fdc35c242ecfdc0cec2cf}
+}]External 32\+K\+Hz input \index{C\+L\+K\+I\+N\+\_\+\+I\+RC@{C\+L\+K\+I\+N\+\_\+\+I\+RC}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+I\+RC@{C\+L\+K\+I\+N\+\_\+\+I\+RC}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+I\+RC\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a50afa8c84bb94ed370990ec621073aa7}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a50afa8c84bb94ed370990ec621073aa7}
+}]Internal I\+RC (12\+M\+Hz) input \index{C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+RX@{C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+RX}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+RX@{C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+RX}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+RX\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a3dc7da7852a27d77d11c1860bb3ea56b}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a3dc7da7852a27d77d11c1860bb3ea56b}
+}]External E\+N\+E\+T\+\_\+\+RX pin input \index{C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+TX@{C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+TX}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+TX@{C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+TX}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+E\+N\+E\+T\+\_\+\+TX\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a1f916af2e2c92bcc140e2652bcf2ece1}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a1f916af2e2c92bcc140e2652bcf2ece1}
+}]External E\+N\+E\+T\+\_\+\+TX pin input \index{C\+L\+K\+I\+N\+\_\+\+C\+L\+K\+IN@{C\+L\+K\+I\+N\+\_\+\+C\+L\+K\+IN}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+C\+L\+K\+IN@{C\+L\+K\+I\+N\+\_\+\+C\+L\+K\+IN}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+C\+L\+K\+IN\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a0289bec93a17591f709150001fecce62}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a0289bec93a17591f709150001fecce62}
+}]External G\+P\+C\+L\+K\+IN pin input \index{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1@{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1@{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ad9eebe5fb3398ceb6edf19967188be36}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ad9eebe5fb3398ceb6edf19967188be36}
+}]\index{C\+L\+K\+I\+N\+\_\+\+C\+R\+Y\+S\+T\+AL@{C\+L\+K\+I\+N\+\_\+\+C\+R\+Y\+S\+T\+AL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+C\+R\+Y\+S\+T\+AL@{C\+L\+K\+I\+N\+\_\+\+C\+R\+Y\+S\+T\+AL}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+C\+R\+Y\+S\+T\+AL\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a8819337e544d58840b02418ab417f8d0}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a8819337e544d58840b02418ab417f8d0}
+}]External (main) crystal pin input \index{C\+L\+K\+I\+N\+\_\+\+U\+S\+B\+P\+LL@{C\+L\+K\+I\+N\+\_\+\+U\+S\+B\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+U\+S\+B\+P\+LL@{C\+L\+K\+I\+N\+\_\+\+U\+S\+B\+P\+LL}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+U\+S\+B\+P\+LL\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a6df7bbb3831ae1c3b2f8a37d73a41235}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a6df7bbb3831ae1c3b2f8a37d73a41235}
+}]Internal U\+SB P\+LL input \index{C\+L\+K\+I\+N\+\_\+\+A\+U\+D\+I\+O\+P\+LL@{C\+L\+K\+I\+N\+\_\+\+A\+U\+D\+I\+O\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+A\+U\+D\+I\+O\+P\+LL@{C\+L\+K\+I\+N\+\_\+\+A\+U\+D\+I\+O\+P\+LL}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+A\+U\+D\+I\+O\+P\+LL\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a203ed75b1f845c88b87432d479dc164b}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a203ed75b1f845c88b87432d479dc164b}
+}]Internal Audio P\+LL input \index{C\+L\+K\+I\+N\+\_\+\+M\+A\+I\+N\+P\+LL@{C\+L\+K\+I\+N\+\_\+\+M\+A\+I\+N\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+M\+A\+I\+N\+P\+LL@{C\+L\+K\+I\+N\+\_\+\+M\+A\+I\+N\+P\+LL}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+M\+A\+I\+N\+P\+LL\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a4484ce25bc8566f811fb8ceff70d341f}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a4484ce25bc8566f811fb8ceff70d341f}
+}]Internal Main P\+LL input \index{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2@{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2@{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377adc83ede30d0f962cd2496415a072474d}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377adc83ede30d0f962cd2496415a072474d}
+}]\index{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3@{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3@{C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D3\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ac793e16d6468d187d7dc97d2274ea09d}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ac793e16d6468d187d7dc97d2274ea09d}
+}]\index{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VA@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VA}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VA@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VA}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VA\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ac6ad782c2dbaa12a2c026ae6c628884f}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ac6ad782c2dbaa12a2c026ae6c628884f}
+}]Internal divider A input \index{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VB@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VB}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VB@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VB}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VB\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ad4b3bd285e3dfb67cdd1c26313da38f3}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ad4b3bd285e3dfb67cdd1c26313da38f3}
+}]Internal divider B input \index{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VC@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VC}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VC@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VC}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VC\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ac08cb97457d4de7c50a9d775d26d7dcc}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377ac08cb97457d4de7c50a9d775d26d7dcc}
+}]Internal divider C input \index{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VD@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VD@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VD}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VD\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a4e433bee2205fdac865a7a9adb94d25a}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a4e433bee2205fdac865a7a9adb94d25a}
+}]Internal divider D input \index{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VE@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VE@{C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VE}}\item[{\em 
+C\+L\+K\+I\+N\+\_\+\+I\+D\+I\+VE\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a2f855e496263ba3d88be98f69cfc5640}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a2f855e496263ba3d88be98f69cfc5640}
+}]Internal divider E input \index{C\+L\+K\+I\+N\+P\+U\+T\+\_\+\+PD@{C\+L\+K\+I\+N\+P\+U\+T\+\_\+\+PD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+L\+K\+I\+N\+P\+U\+T\+\_\+\+PD@{C\+L\+K\+I\+N\+P\+U\+T\+\_\+\+PD}}\item[{\em 
+C\+L\+K\+I\+N\+P\+U\+T\+\_\+\+PD\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a01c7e5b28a27ce99a5c68c0f4c701493}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gga419aa2b9970dcf4930eb44871da9e377a01c7e5b28a27ce99a5c68c0f4c701493}
+}]External 32\+K\+Hz input \end{description}
+\end{Desc}
+
+
+Definición en la línea 49 del archivo chip\+\_\+clocks.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL@{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL}}
+\index{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL@{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL}{CHIP_CGU_USB_AUDIO_PLL}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL}}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gabdd04536f16b3c7b588757d024e53da6}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gabdd04536f16b3c7b588757d024e53da6}
+Audio or U\+SB P\+LL selection \begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+P\+LL@{C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+P\+LL@{C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+P\+LL}}\item[{\em 
+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+P\+LL\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ggabdd04536f16b3c7b588757d024e53da6a9c58406347e31448cf1af5069bfa8618}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ggabdd04536f16b3c7b588757d024e53da6a9c58406347e31448cf1af5069bfa8618}
+}]\index{C\+G\+U\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL@{C\+G\+U\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!C\+G\+U\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL@{C\+G\+U\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL}}\item[{\em 
+C\+G\+U\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+LL\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ggabdd04536f16b3c7b588757d024e53da6a417d44002637aeeb1b62b42c39723cc1}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ggabdd04536f16b3c7b588757d024e53da6a417d44002637aeeb1b62b42c39723cc1}
+}]\end{description}
+\end{Desc}
+
+
+Definición en la línea 48 del archivo cguccu\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Calc\+Main\+P\+L\+L\+Value@{Chip\+\_\+\+Clock\+\_\+\+Calc\+Main\+P\+L\+L\+Value}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Calc\+Main\+P\+L\+L\+Value@{Chip\+\_\+\+Clock\+\_\+\+Calc\+Main\+P\+L\+L\+Value}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Calc\+Main\+P\+L\+L\+Value(uint32\+\_\+t freq, P\+L\+L\+\_\+\+P\+A\+R\+A\+M\+\_\+\+T $\ast$ppll)}{Chip_Clock_CalcMainPLLValue(uint32_t freq, PLL_PARAM_T *ppll)}}]{\setlength{\rightskip}{0pt plus 5cm}int Chip\+\_\+\+Clock\+\_\+\+Calc\+Main\+P\+L\+L\+Value (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{freq, }
+\item[{{\bf P\+L\+L\+\_\+\+P\+A\+R\+A\+M\+\_\+T} $\ast$}]{ppll}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga1412ab2c1437f42f77ef96f321a0055b}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga1412ab2c1437f42f77ef96f321a0055b}
+
+
+Calculate main P\+LL Pre, Post and M div values. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em freq} & \+: Expected output frequency \\
+\hline
+{\em ppll} & \+: Pointer to \hyperlink{struct_p_l_l___p_a_r_a_m___t}{P\+L\+L\+\_\+\+P\+A\+R\+A\+M\+\_\+T} structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 on success; $<$ 0 on failure 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+ppll-\/$>$srcin\mbox{[}IN\mbox{]} should have the appropriate Input clock source selected~\newline
+ ppll-\/$>$fout\mbox{[}O\+UT\mbox{]} will have the actual output frequency~\newline
+ ppll-\/$>$fcco\mbox{[}O\+UT\mbox{]} will have the frequency of C\+CO 
+\end{DoxyNote}
+
+
+Definición en la línea 253 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Clear\+Power\+Down@{Chip\+\_\+\+Clock\+\_\+\+Clear\+Power\+Down}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Clear\+Power\+Down@{Chip\+\_\+\+Clock\+\_\+\+Clear\+Power\+Down}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Clear\+Power\+Down(void)}{Chip_Clock_ClearPowerDown(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Clear\+Power\+Down (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga28a09f033418df7c8588b073af5d6eac}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga28a09f033418df7c8588b073af5d6eac}
+
+
+Clear the power down mode bit \& proceed normal operation of branch output clocks (Only the clocks which wake up mechanism bit enabled will be enabled after the wake up event) 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing
+\end{DoxyReturn}
+Enable all branch output clocks after the wake up event. Only the clocks with wake up mechanism enabled will be enabled 
+
+Definición en la línea 727 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Disable@{Chip\+\_\+\+Clock\+\_\+\+Disable}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Disable@{Chip\+\_\+\+Clock\+\_\+\+Disable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Disable(\+C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+\+T clk)}{Chip_Clock_Disable(CHIP_CCU_CLK_T clk)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Disable (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T}}]{clk}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga847e7bcd709e030752213380e78039ec}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga847e7bcd709e030752213380e78039ec}
+
+
+Disables a peripheral clock. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em clk} & \+: C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T value indicating which clock to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 700 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Disable\+Base\+Clock@{Chip\+\_\+\+Clock\+\_\+\+Disable\+Base\+Clock}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Disable\+Base\+Clock@{Chip\+\_\+\+Clock\+\_\+\+Disable\+Base\+Clock}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Disable\+Base\+Clock(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+\+T Base\+Clock)}{Chip_Clock_DisableBaseClock(CHIP_CGU_BASE_CLK_T BaseClock)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Disable\+Base\+Clock (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}}]{Base\+Clock}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gaca76aa951b9e6a69a9ef4fb2aea2aaac}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gaca76aa951b9e6a69a9ef4fb2aea2aaac}
+
+
+Disables a base clock source. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Base\+Clock} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T value indicating which base clock to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 612 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Disable\+Crystal@{Chip\+\_\+\+Clock\+\_\+\+Disable\+Crystal}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Disable\+Crystal@{Chip\+\_\+\+Clock\+\_\+\+Disable\+Crystal}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Disable\+Crystal(void)}{Chip_Clock_DisableCrystal(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Disable\+Crystal (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gadbc79ec252fc8518b284aff51e86adf5}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gadbc79ec252fc8518b284aff51e86adf5}
+
+
+Disables the crystal oscillator. 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 289 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Disable\+Main\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Disable\+Main\+P\+LL}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Disable\+Main\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Disable\+Main\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Disable\+Main\+P\+L\+L(void)}{Chip_Clock_DisableMainPLL(void)}}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE void Chip\+\_\+\+Clock\+\_\+\+Disable\+Main\+P\+LL (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga752e7a9c291cb61877d9f00a2c9772a3}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga752e7a9c291cb61877d9f00a2c9772a3}
+
+
+Disables the main P\+LL. 
+
+\begin{DoxyReturn}{Devuelve}
+none Make sure the main P\+LL is not needed to clock the part before disabling it. Saves power if the main P\+LL is not needed. 
+\end{DoxyReturn}
+
+
+Definición en la línea 137 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Disable\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Disable\+P\+LL}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Disable\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Disable\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Disable\+P\+L\+L(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+\+T pllnum)}{Chip_Clock_DisablePLL(CHIP_CGU_USB_AUDIO_PLL_T pllnum)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Disable\+P\+LL (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T}}]{pllnum}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gaa9ce1d7461c0eeca2fe5b72528d9d81e}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gaa9ce1d7461c0eeca2fe5b72528d9d81e}
+
+
+Disables the audio or U\+SB P\+LL. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pllnum} & \+: P\+LL identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 817 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Enable@{Chip\+\_\+\+Clock\+\_\+\+Enable}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Enable@{Chip\+\_\+\+Clock\+\_\+\+Enable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Enable(\+C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+\+T clk)}{Chip_Clock_Enable(CHIP_CCU_CLK_T clk)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Enable (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T}}]{clk}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga002dee3b9dfa6bde2445e6fff165f0f1}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga002dee3b9dfa6bde2445e6fff165f0f1}
+
+
+Enables a peripheral clock. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em clk} & \+: C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T value indicating which clock to enable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 681 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Enable\+Base\+Clock@{Chip\+\_\+\+Clock\+\_\+\+Enable\+Base\+Clock}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Enable\+Base\+Clock@{Chip\+\_\+\+Clock\+\_\+\+Enable\+Base\+Clock}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Enable\+Base\+Clock(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+\+T Base\+Clock)}{Chip_Clock_EnableBaseClock(CHIP_CGU_BASE_CLK_T BaseClock)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Enable\+Base\+Clock (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}}]{Base\+Clock}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gae957c1a6743ad69320c1c198e5411ec0}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gae957c1a6743ad69320c1c198e5411ec0}
+
+
+Enables a base clock source. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Base\+Clock} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T value indicating which base clock to enable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 604 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Enable\+Crystal@{Chip\+\_\+\+Clock\+\_\+\+Enable\+Crystal}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Enable\+Crystal@{Chip\+\_\+\+Clock\+\_\+\+Enable\+Crystal}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Enable\+Crystal(void)}{Chip_Clock_EnableCrystal(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Enable\+Crystal (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gaa74040cd24046b7e09cbb2c1cf6e6c0d}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gaa74040cd24046b7e09cbb2c1cf6e6c0d}
+
+
+Enables the crystal oscillator. 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 228 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Enable\+Main\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Enable\+Main\+P\+LL}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Enable\+Main\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Enable\+Main\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Enable\+Main\+P\+L\+L(void)}{Chip_Clock_EnableMainPLL(void)}}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE void Chip\+\_\+\+Clock\+\_\+\+Enable\+Main\+P\+LL (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gaf6a067bb264ab963d7f81eaa24ce9ec0}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gaf6a067bb264ab963d7f81eaa24ce9ec0}
+
+
+Enbles the main P\+LL. 
+
+\begin{DoxyReturn}{Devuelve}
+none Make sure the main P\+LL is enabled. 
+\end{DoxyReturn}
+
+
+Definición en la línea 148 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Enable\+Opts@{Chip\+\_\+\+Clock\+\_\+\+Enable\+Opts}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Enable\+Opts@{Chip\+\_\+\+Clock\+\_\+\+Enable\+Opts}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Enable\+Opts(\+C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+\+T clk, bool autoen, bool wakeupen, int div)}{Chip_Clock_EnableOpts(CHIP_CCU_CLK_T clk, bool autoen, bool wakeupen, int div)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Enable\+Opts (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T}}]{clk, }
+\item[{bool}]{autoen, }
+\item[{bool}]{wakeupen, }
+\item[{int}]{div}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gadfa0a46d347a3174c7f67edbaf3a66f8}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gadfa0a46d347a3174c7f67edbaf3a66f8}
+
+
+Enables a peripheral clock and sets clock states. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em clk} & \+: C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T value indicating which clock to enable \\
+\hline
+{\em autoen} & \+: true to enable autoblocking on a clock rate change, false to disable \\
+\hline
+{\em wakeupen} & \+: true to enable wakeup mechanism, false to disable \\
+\hline
+{\em div} & \+: Divider for the clock, must be 1 for most clocks, 2 supported on others \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 654 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Enable\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Enable\+P\+LL}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Enable\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Enable\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Enable\+P\+L\+L(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+\+T pllnum)}{Chip_Clock_EnablePLL(CHIP_CGU_USB_AUDIO_PLL_T pllnum)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Enable\+P\+LL (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T}}]{pllnum}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga2715e421f23a820691b719126ebed2e0}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga2715e421f23a820691b719126ebed2e0}
+
+
+Enables the audio or U\+SB P\+LL. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pllnum} & \+: P\+LL identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 811 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock@{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock@{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+\+T Base\+Clock)}{Chip_Clock_GetBaseClock(CHIP_CGU_BASE_CLK_T BaseClock)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}}]{Base\+Clock}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga76a6aba92d67ee2cacf4d53c9f8043ae}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga76a6aba92d67ee2cacf4d53c9f8043ae}
+
+
+Gets a C\+GU Base Clock clock source. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Base\+Clock} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T value indicating which base clock to get inpuot clock for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T indicating which clock source is set or C\+L\+O\+C\+K\+I\+N\+P\+U\+T\+\_\+\+PD 
+\end{DoxyReturn}
+
+
+Definición en la línea 635 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock\+Opts@{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock\+Opts}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock\+Opts@{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock\+Opts}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock\+Opts(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+\+T Base\+Clock, C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T $\ast$\+Input, bool $\ast$autoblocken, bool $\ast$powerdn)}{Chip_Clock_GetBaseClockOpts(CHIP_CGU_BASE_CLK_T BaseClock, CHIP_CGU_CLKIN_T *Input, bool *autoblocken, bool *powerdn)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clock\+Opts (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}}]{Base\+Clock, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} $\ast$}]{Input, }
+\item[{bool $\ast$}]{autoblocken, }
+\item[{bool $\ast$}]{powerdn}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga9d6621765b2b77f40db1eed937cb5dc8}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga9d6621765b2b77f40db1eed937cb5dc8}
+
+
+Get C\+GU Base Clock clock source information. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Base\+Clock} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T value indicating which base clock to get \\
+\hline
+{\em Input} & \+: Pointer to C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T value of the base clock \\
+\hline
+{\em autoblocken} & \+: Pointer to autoblocking value of the base clock \\
+\hline
+{\em powerdn} & \+: Pointer to power down flag \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 584 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clockt\+Hz@{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clockt\+Hz}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clockt\+Hz@{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clockt\+Hz}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clockt\+Hz(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+\+T clock)}{Chip_Clock_GetBaseClocktHz(CHIP_CGU_BASE_CLK_T clock)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+Clock\+\_\+\+Get\+Base\+Clockt\+Hz (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}}]{clock}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga8686b03c1433974a6473f10cc0203915}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga8686b03c1433974a6473f10cc0203915}
+
+
+Returns the frequency of the specified base clock source. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em clock} & \+: which base clock to return the frequency of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Frequency of base source in Hz This function returns an ideal frequency and not the actual frequency. Returns zero if the clock source is disabled. 
+\end{DoxyReturn}
+
+
+Definición en la línea 550 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+Clock\+Input\+Hz@{Chip\+\_\+\+Clock\+\_\+\+Get\+Clock\+Input\+Hz}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+Clock\+Input\+Hz@{Chip\+\_\+\+Clock\+\_\+\+Get\+Clock\+Input\+Hz}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+Clock\+Input\+Hz(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T input)}{Chip_Clock_GetClockInputHz(CHIP_CGU_CLKIN_T input)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+Clock\+\_\+\+Get\+Clock\+Input\+Hz (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}}]{input}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga4ad0a2b922ac85f94ab0bb2036def308}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga4ad0a2b922ac85f94ab0bb2036def308}
+
+
+Returns the frequency of the specified input clock source. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em input} & \+: Which clock input to return the frequency of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Frequency of input source in Hz This function returns an ideal frequency and not the actual frequency. Returns zero if the clock source is disabled. 
+\end{DoxyReturn}
+
+
+Definición en la línea 470 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Divisor@{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Divisor}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Divisor@{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Divisor}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Divisor(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+\+T Divider)}{Chip_Clock_GetDividerDivisor(CHIP_CGU_IDIV_T Divider)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Divisor (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+T}}]{Divider}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gaeecd015038258f1cc4f746054268d94f}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gaeecd015038258f1cc4f746054268d94f}
+
+
+Gets a C\+GU clock divider divisor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Divider} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+T value indicating which divider to get the source of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+the divider value for the divider 
+\end{DoxyReturn}
+
+
+Definición en la línea 464 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Source@{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Source}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Source@{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Source}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Source(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+\+T Divider)}{Chip_Clock_GetDividerSource(CHIP_CGU_IDIV_T Divider)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} Chip\+\_\+\+Clock\+\_\+\+Get\+Divider\+Source (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+T}}]{Divider}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga3fc4d71a69a9b0c44577264cd9491834}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga3fc4d71a69a9b0c44577264cd9491834}
+
+
+Gets a C\+GU clock divider source. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Divider} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+T value indicating which divider to get the source of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T indicating which clock source is set or C\+L\+O\+C\+K\+I\+N\+P\+U\+T\+\_\+\+PD 
+\end{DoxyReturn}
+
+
+Definición en la línea 452 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+E\+M\+C\+Rate@{Chip\+\_\+\+Clock\+\_\+\+Get\+E\+M\+C\+Rate}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+E\+M\+C\+Rate@{Chip\+\_\+\+Clock\+\_\+\+Get\+E\+M\+C\+Rate}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+E\+M\+C\+Rate(void)}{Chip_Clock_GetEMCRate(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+Clock\+\_\+\+Get\+E\+M\+C\+Rate (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gaf8fefd2c98eee4d7954719d828a1cad8}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gaf8fefd2c98eee4d7954719d828a1cad8}
+
+
+Returns E\+MC clock rate. 
+
+\begin{DoxyReturn}{Devuelve}
+0 if the clock is disabled, or the rate of the clock 
+\end{DoxyReturn}
+
+
+Definición en la línea 774 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+Main\+P\+L\+L\+Hz@{Chip\+\_\+\+Clock\+\_\+\+Get\+Main\+P\+L\+L\+Hz}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+Main\+P\+L\+L\+Hz@{Chip\+\_\+\+Clock\+\_\+\+Get\+Main\+P\+L\+L\+Hz}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+Main\+P\+L\+L\+Hz(void)}{Chip_Clock_GetMainPLLHz(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+Clock\+\_\+\+Get\+Main\+P\+L\+L\+Hz (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gac52f49ae117b1091809cb24f18481b86}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gac52f49ae117b1091809cb24f18481b86}
+
+
+Returns the frequency of the main P\+LL. 
+
+\begin{DoxyReturn}{Devuelve}
+Frequency of the P\+LL in Hz Returns zero if the main P\+LL is not running. 
+\end{DoxyReturn}
+
+
+Definición en la línea 402 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+P\+L\+L\+Status@{Chip\+\_\+\+Clock\+\_\+\+Get\+P\+L\+L\+Status}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+P\+L\+L\+Status@{Chip\+\_\+\+Clock\+\_\+\+Get\+P\+L\+L\+Status}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+P\+L\+L\+Status(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+\+T pllnum)}{Chip_Clock_GetPLLStatus(CHIP_CGU_USB_AUDIO_PLL_T pllnum)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+Clock\+\_\+\+Get\+P\+L\+L\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T}}]{pllnum}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gad2a40b92ab5d064cc655ae4ada1474b0}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gad2a40b92ab5d064cc655ae4ada1474b0}
+
+
+Returns the P\+LL status. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em pllnum} & \+: P\+LL identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+An OR\textquotesingle{}ed value of C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+L\+O\+C\+K\+ED or C\+G\+U\+\_\+\+P\+L\+L\+\_\+\+FR 
+\end{DoxyReturn}
+
+
+Definición en la línea 823 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Get\+Rate@{Chip\+\_\+\+Clock\+\_\+\+Get\+Rate}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Get\+Rate@{Chip\+\_\+\+Clock\+\_\+\+Get\+Rate}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Get\+Rate(\+C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+\+T clk)}{Chip_Clock_GetRate(CHIP_CCU_CLK_T clk)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+Clock\+\_\+\+Get\+Rate (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T}}]{clk}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gafb964074c3fa133e29c51bd31e4590ae}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gafb964074c3fa133e29c51bd31e4590ae}
+
+
+Returns a peripheral clock rate. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em clk} & \+: C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T value indicating which clock to get rate for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+0 if the clock is disabled, or the rate of the clock 
+\end{DoxyReturn}
+
+
+Definición en la línea 735 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Is\+Base\+Clock\+Enabled@{Chip\+\_\+\+Clock\+\_\+\+Is\+Base\+Clock\+Enabled}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Is\+Base\+Clock\+Enabled@{Chip\+\_\+\+Clock\+\_\+\+Is\+Base\+Clock\+Enabled}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Is\+Base\+Clock\+Enabled(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+\+T Base\+Clock)}{Chip_Clock_IsBaseClockEnabled(CHIP_CGU_BASE_CLK_T BaseClock)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Chip\+\_\+\+Clock\+\_\+\+Is\+Base\+Clock\+Enabled (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}}]{Base\+Clock}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga265d89b2296192ba7d5d2a63c4edd66e}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga265d89b2296192ba7d5d2a63c4edd66e}
+
+
+Returns base clock enable state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Base\+Clock} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T value indicating which base clock to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true if the base clock is enabled, false if disabled 
+\end{DoxyReturn}
+
+
+Definición en la línea 620 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Main\+P\+L\+L\+Locked@{Chip\+\_\+\+Clock\+\_\+\+Main\+P\+L\+L\+Locked}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Main\+P\+L\+L\+Locked@{Chip\+\_\+\+Clock\+\_\+\+Main\+P\+L\+L\+Locked}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Main\+P\+L\+L\+Locked(void)}{Chip_Clock_MainPLLLocked(void)}}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE int Chip\+\_\+\+Clock\+\_\+\+Main\+P\+L\+L\+Locked (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gae553f4ede5f7ac8401c16e9df9e37102}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gae553f4ede5f7ac8401c16e9df9e37102}
+
+
+Wait for Main P\+LL to be locked. 
+
+\begin{DoxyReturn}{Devuelve}
+1 -\/ P\+LL is L\+O\+C\+K\+ED; 0 -\/ P\+LL is not locked 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+The main P\+LL should be locked prior to using it as a clock input for a base clock. 
+\end{DoxyNote}
+
+
+Definición en la línea 380 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+R\+T\+C\+Enable@{Chip\+\_\+\+Clock\+\_\+\+R\+T\+C\+Enable}}
+\index{Chip\+\_\+\+Clock\+\_\+\+R\+T\+C\+Enable@{Chip\+\_\+\+Clock\+\_\+\+R\+T\+C\+Enable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+R\+T\+C\+Enable(void)}{Chip_Clock_RTCEnable(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+R\+T\+C\+Enable (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gad43f808e0218e20dfc000fc0248da1a4}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gad43f808e0218e20dfc000fc0248da1a4}
+
+
+Enables R\+T\+Cclock. 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 693 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Set\+Base\+Clock@{Chip\+\_\+\+Clock\+\_\+\+Set\+Base\+Clock}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Set\+Base\+Clock@{Chip\+\_\+\+Clock\+\_\+\+Set\+Base\+Clock}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Set\+Base\+Clock(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+\+T Base\+Clock, C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T Input, bool autoblocken, bool powerdn)}{Chip_Clock_SetBaseClock(CHIP_CGU_BASE_CLK_T BaseClock, CHIP_CGU_CLKIN_T Input, bool autoblocken, bool powerdn)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Set\+Base\+Clock (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T}}]{Base\+Clock, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}}]{Input, }
+\item[{bool}]{autoblocken, }
+\item[{bool}]{powerdn}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gaf5e0d6f4dcbfd5ff64b1ddcd37067ca2}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gaf5e0d6f4dcbfd5ff64b1ddcd37067ca2}
+
+
+Sets a C\+GU Base Clock clock source. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Base\+Clock} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+B\+A\+S\+E\+\_\+\+C\+L\+K\+\_\+T value indicating which base clock to set \\
+\hline
+{\em Input} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T value indicating which clock source to use or C\+L\+O\+C\+K\+I\+N\+P\+U\+T\+\_\+\+PD to power down base clock \\
+\hline
+{\em autoblocken} & \+: Enables autoblocking during frequency change if true \\
+\hline
+{\em powerdn} & \+: The clock base is setup, but powered down if true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 556 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Set\+Divider@{Chip\+\_\+\+Clock\+\_\+\+Set\+Divider}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Set\+Divider@{Chip\+\_\+\+Clock\+\_\+\+Set\+Divider}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Set\+Divider(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+\+T Divider, C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T Input, uint32\+\_\+t Divisor)}{Chip_Clock_SetDivider(CHIP_CGU_IDIV_T Divider, CHIP_CGU_CLKIN_T Input, uint32_t Divisor)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Set\+Divider (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+T}}]{Divider, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}}]{Input, }
+\item[{uint32\+\_\+t}]{Divisor}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga9df837b459e11fdf1eda8d48be292fc5}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga9df837b459e11fdf1eda8d48be292fc5}
+
+
+Sets up a C\+GU clock divider and it\textquotesingle{}s input clock. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Divider} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+I\+D\+I\+V\+\_\+T value indicating which divider to configure \\
+\hline
+{\em Input} & \+: C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T value indicating which clock source to use or C\+L\+O\+C\+K\+I\+N\+P\+U\+T\+\_\+\+PD to power down divider \\
+\hline
+{\em Divisor} & \+: value to divide Input clock by \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing Maximum divider on A = 4, B/\+C/D = 16, E = 256. See the user manual for allowable combinations for input clock. 
+\end{DoxyReturn}
+
+
+Definición en la línea 433 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+LL}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L(const P\+L\+L\+\_\+\+P\+A\+R\+A\+M\+\_\+\+T $\ast$ppll)}{Chip_Clock_SetupMainPLL(const PLL_PARAM_T *ppll)}}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE void Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+LL (
+\begin{DoxyParamCaption}
+\item[{const {\bf P\+L\+L\+\_\+\+P\+A\+R\+A\+M\+\_\+T} $\ast$}]{ppll}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga227521c8f7cb4a3f3cff4b9b8c5364f0}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga227521c8f7cb4a3f3cff4b9b8c5364f0}
+
+
+Sets-\/up the main P\+LL. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em ppll} & \+: Pointer to pll param structure \hyperlink{struct_p_l_l___p_a_r_a_m___t}{P\+L\+L\+\_\+\+P\+A\+R\+A\+M\+\_\+T} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+none Make sure the main P\+LL is enabled. 
+\end{DoxyReturn}
+
+
+Definición en la línea 159 del archivo clock\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Hz@{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Hz}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Hz@{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Hz}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Hz(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T Input, uint32\+\_\+t Min\+Hz, uint32\+\_\+t Desired\+Hz, uint32\+\_\+t Max\+Hz)}{Chip_Clock_SetupMainPLLHz(CHIP_CGU_CLKIN_T Input, uint32_t MinHz, uint32_t DesiredHz, uint32_t MaxHz)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Hz (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}}]{Input, }
+\item[{uint32\+\_\+t}]{Min\+Hz, }
+\item[{uint32\+\_\+t}]{Desired\+Hz, }
+\item[{uint32\+\_\+t}]{Max\+Hz}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga1667168db76064ac1c2bebd3dfa6db6d}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga1667168db76064ac1c2bebd3dfa6db6d}
+
+
+Configures the main P\+LL. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Input} & \+: Which clock input to use as the P\+LL input \\
+\hline
+{\em Min\+Hz} & \+: Minimum allowable P\+LL output frequency \\
+\hline
+{\em Desired\+Hz} & \+: Desired P\+LL output frequency \\
+\hline
+{\em Max\+Hz} & \+: Maximum allowable P\+LL output frequency \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Frequency of the P\+LL in Hz Returns the configured P\+LL frequency or zero if the P\+LL can not be configured between Min\+Hz and Max\+Hz. This will not wait for P\+LL lock. Call \hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_gae553f4ede5f7ac8401c16e9df9e37102}{Chip\+\_\+\+Clock\+\_\+\+Main\+P\+L\+L\+Locked()} to determine if the P\+LL is locked. 
+\end{DoxyReturn}
+
+
+Definición en la línea 296 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Mult@{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Mult}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Mult@{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Mult}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Mult(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T Input, uint32\+\_\+t mult)}{Chip_Clock_SetupMainPLLMult(CHIP_CGU_CLKIN_T Input, uint32_t mult)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+Clock\+\_\+\+Setup\+Main\+P\+L\+L\+Mult (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}}]{Input, }
+\item[{uint32\+\_\+t}]{mult}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga02f88a46ae6e2b942e8c5fd58915634e}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga02f88a46ae6e2b942e8c5fd58915634e}
+
+
+Directly set the P\+LL multipler. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Input} & \+: Which clock input to use as the P\+LL input \\
+\hline
+{\em mult} & \+: How many times to multiply the input clock \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Frequency of the P\+LL in Hz 
+\end{DoxyReturn}
+
+
+Definición en la línea 356 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Setup\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Setup\+P\+LL}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Setup\+P\+LL@{Chip\+\_\+\+Clock\+\_\+\+Setup\+P\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Setup\+P\+L\+L(\+C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T Input, C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+\+T pllnum, const C\+G\+U\+\_\+\+U\+S\+B\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+\+S\+E\+T\+U\+P\+\_\+\+T $\ast$p\+P\+L\+L\+Setup)}{Chip_Clock_SetupPLL(CHIP_CGU_CLKIN_T Input, CHIP_CGU_USB_AUDIO_PLL_T pllnum, const CGU_USBAUDIO_PLL_SETUP_T *pPLLSetup)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Setup\+P\+LL (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T}}]{Input, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+U\+S\+B\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+T}}]{pllnum, }
+\item[{const {\bf C\+G\+U\+\_\+\+U\+S\+B\+A\+U\+D\+I\+O\+\_\+\+P\+L\+L\+\_\+\+S\+E\+T\+U\+P\+\_\+T} $\ast$}]{p\+P\+L\+L\+Setup}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_gaed16ed3df8281cb642db7525fdf1493d}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_gaed16ed3df8281cb642db7525fdf1493d}
+
+
+Sets up the audio or U\+SB P\+LL. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Input} & \+: Input clock \\
+\hline
+{\em pllnum} & \+: P\+LL identifier \\
+\hline
+{\em p\+P\+L\+L\+Setup} & \+: Pointer to P\+LL setup structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing Sets up the P\+LL with the passed structure values. 
+\end{DoxyReturn}
+
+
+Definición en la línea 793 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}!Chip\+\_\+\+Clock\+\_\+\+Start\+Power\+Down@{Chip\+\_\+\+Clock\+\_\+\+Start\+Power\+Down}}
+\index{Chip\+\_\+\+Clock\+\_\+\+Start\+Power\+Down@{Chip\+\_\+\+Clock\+\_\+\+Start\+Power\+Down}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Clock Driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+Clock\+\_\+\+Start\+Power\+Down(void)}{Chip_Clock_StartPowerDown(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+Clock\+\_\+\+Start\+Power\+Down (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_l_o_c_k__18_x_x__43_x_x_ga4211f2f6083501edf23d418eb267b5aa}{}\label{group___c_l_o_c_k__18_x_x__43_x_x_ga4211f2f6083501edf23d418eb267b5aa}
+
+
+Start the power down sequence by disabling the branch output clocks with wake up mechanism (Only the clocks which wake up mechanism bit enabled will be disabled) 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing
+\end{DoxyReturn}
+Disable all branch output clocks with wake up mechanism enabled. Only the clocks with wake up mechanism enabled will be disabled \& power down sequence started 
+
+Definición en la línea 716 del archivo clock\+\_\+18xx\+\_\+43xx.\+c.
+

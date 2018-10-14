@@ -1,0 +1,63 @@
+\hypertarget{pinint__18xx__43xx_8h}{}\section{Referencia del Archivo pinint\+\_\+18xx\+\_\+43xx.\+h}
+\label{pinint__18xx__43xx_8h}\index{pinint\+\_\+18xx\+\_\+43xx.\+h@{pinint\+\_\+18xx\+\_\+43xx.\+h}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T}
+\begin{DoxyCompactList}\small\item\em L\+P\+C18xx/43xx Pin Interrupt and Pattern Match register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaba419aacec8ac614ec6d121e05bf79cd}{P\+I\+N\+I\+N\+T\+C\+H0}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gae8f33cd2dabaa92a5e3dd4d8dbe5f6ed}{P\+I\+N\+I\+N\+T\+C\+H1}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaabd4245998a4e0c9ee040916b8b5c62f}{P\+I\+N\+I\+N\+T\+C\+H2}~(1 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga83ffe2314036836a570861fdfb983e75}{P\+I\+N\+I\+N\+T\+C\+H3}~(1 $<$$<$ 3)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaeff8dc2ad86edbabd3b871c3c0676e9b}{P\+I\+N\+I\+N\+T\+C\+H4}~(1 $<$$<$ 4)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga39cebaf09c7a9f77d607dbf344c53f82}{P\+I\+N\+I\+N\+T\+C\+H5}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gac067933ca09f529b57e1f6c9f55109ca}{P\+I\+N\+I\+N\+T\+C\+H6}~(1 $<$$<$ 6)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0f3c2aeafda4746d1c275164fd5dc832}{P\+I\+N\+I\+N\+T\+C\+H7}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga8d78afc0f4b847de15629e9cd297fd72}{P\+I\+N\+I\+N\+T\+CH}(ch)~(1 $<$$<$ (ch))
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga7d5f017f430fbecd18810fa08e7baef0}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Init} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Initialize Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaffd71b90ad59df213ae6ce90a4687727}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em De-\/\+Initialize Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga07505a16cf0d80d7dde607ebab062534}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Edge} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Configure the pins as edge sensitive in Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga4a9efb559231903508b66858a43b552d}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Level} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Configure the pins as level sensitive in Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga25520f739f79f23c523c02cc8376dc94}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+High\+Enabled} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Return current P\+I\+N\+I\+NT rising edge or high level interrupt enable state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaeb6881b3447233e72edca9abd87e8f13}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+High} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Enable high edge/level P\+I\+N\+I\+NT interrupts for pins. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga9e337046dac41a61cfcfaa4059b403a9}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+High} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Disable high edge/level P\+I\+N\+I\+NT interrupts for pins. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gab1378b396f6d1ba5a192153b40504353}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Low\+Enabled} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Return current P\+I\+N\+I\+NT falling edge or low level interrupt enable state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga314265e0674903dee85767e974b77b7d}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+Low} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Enable low edge/level P\+I\+N\+I\+NT interrupts for pins. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaaf5ace298255f4720f545b39c1053389}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+Low} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Disable low edge/level P\+I\+N\+I\+NT interrupts for pins. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga41e14d3b9450d31efea7c1c35081426b}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Rise\+States} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Return pin states that have a detected latched high edge (R\+I\+SE) state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga66b7cbb3ab402c14cd89602820211f67}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Rise\+States} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Clears pin states that had a latched high edge (R\+I\+SE) state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga71d71a0537b91ed76457a8f65165c4ec}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Fall\+States} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Return pin states that have a detected latched falling edge (F\+A\+LL) state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga1290614d9a1761b3e926b3de79a4ca23}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Fall\+States} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Clears pin states that had a latched falling edge (F\+A\+LL) state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0c5e739048c5033c2d4020520100856c}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Int\+Status} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Get interrupt status from Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0a1d6ec4462429278d065017109c8634}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Int\+Status} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Clear interrupt status in Pin interrupt block. \end{DoxyCompactList}\end{DoxyCompactItemize}

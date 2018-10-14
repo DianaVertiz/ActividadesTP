@@ -1,0 +1,154 @@
+\hypertarget{hardware_8h}{}\section{Referencia del Archivo hardware.\+h}
+\label{hardware_8h}\index{hardware.\+h@{hardware.\+h}}
+
+
+Declaraciones de funciones y constantes simbólicas correspondientes con la E\+D\+U-\/\+C\+I\+AA N\+XP.  
+
+
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stopwatch.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__hardware_ga281151e2a661c8ad6893aee42b0024c4}{P\+O\+R\+T\+\_\+\+P\+I\+N\+\_\+\+L\+E\+D1}~0x02
+\item 
+\#define \hyperlink{group__hardware_ga1ee291f6ef730418abd5997176fe6b4c}{P\+I\+N\+\_\+\+L\+E\+D1}~0x0A
+\item 
+\#define \hyperlink{group__hardware_ga3039da47774de5edf9a11968103d87c5}{P\+O\+R\+T\+\_\+\+P\+I\+N\+\_\+\+L\+E\+D2}~0x02
+\item 
+\#define \hyperlink{group__hardware_gaa10e44027a1a9f0ac7cba19e815205a8}{P\+I\+N\+\_\+\+L\+E\+D2}~0x0B
+\item 
+\#define \hyperlink{group__hardware_ga097e347296860c96d104ef8ab90dac33}{P\+O\+R\+T\+\_\+\+P\+I\+N\+\_\+\+L\+E\+D3}~0x02
+\item 
+\#define \hyperlink{group__hardware_ga95a9a1b175a118c828537db81141eb3d}{P\+I\+N\+\_\+\+L\+E\+D3}~0x0C
+\item 
+\#define \hyperlink{group__hardware_ga372c868d523a46916b874b4e3c5722f5}{P\+O\+R\+T\+\_\+\+P\+I\+N\+\_\+\+R\+GB}~0x02
+\item 
+\#define \hyperlink{group__hardware_gaf3069b94e5b50d3558f6c36dd2e7ab15}{P\+I\+N\+\_\+\+R\+G\+B\+\_\+\+R\+ED}~0x00
+\item 
+\#define \hyperlink{group__hardware_ga298bb5d50ab2ba7b00df1c59087de286}{P\+I\+N\+\_\+\+R\+G\+B\+\_\+\+G\+RN}~0x01
+\item 
+\#define \hyperlink{group__hardware_gadf8d2d730566aede36c12ccfbc03b1b7}{P\+I\+N\+\_\+\+R\+G\+B\+\_\+\+B\+LU}~0x02
+\item 
+\#define \hyperlink{group__hardware_ga04c3e41fb79d2904c2358a42414bbf7f}{G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+\+L\+E\+D1}~0x00
+\item 
+\#define \hyperlink{group__hardware_gaa4637d2cb87305ea71351291117a95f6}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+L\+E\+D1}~0x0E
+\item 
+\#define \hyperlink{group__hardware_gab971c6f67d136a9b870fac0f500685d4}{G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+\+L\+E\+D2}~0x01
+\item 
+\#define \hyperlink{group__hardware_ga5ada73f73636a4fbf726468eb63eb945}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+L\+E\+D2}~0x0B
+\item 
+\#define \hyperlink{group__hardware_ga8b63f7f606f2b1ec7d88205ee6c514ea}{G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+\+L\+E\+D3}~0x01
+\item 
+\#define \hyperlink{group__hardware_ga9e7e83187eae26d02136f609392fabd0}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+L\+E\+D3}~0x0C
+\item 
+\#define \hyperlink{group__hardware_ga9e2ed2756af597d0ec2ee618ef235c7e}{G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+\+R\+GB}~0x05
+\item 
+\#define \hyperlink{group__hardware_gaa4aae4b49bb53e52b78b530637dcd2d7}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+ED}~0x00
+\item 
+\#define \hyperlink{group__hardware_ga8ce252c71154210c65808a2170d74223}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+G\+RN}~0x01
+\item 
+\#define \hyperlink{group__hardware_ga2aa9b3c113e9f52a2e04ff811b8ec518}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+B\+LU}~0x02
+\item 
+\#define \hyperlink{group__hardware_gafe1bf3da61040955deda9703ee539687}{P\+O\+R\+T\+\_\+\+P\+I\+N\+\_\+\+K\+E\+Y1}~0x01
+\item 
+\#define \hyperlink{group__hardware_ga332cf72d49bf86b7b20274f3dec99d7b}{P\+I\+N\+\_\+\+K\+E\+Y1}~0x00
+\item 
+\#define \hyperlink{group__hardware_ga2cc4114181749a25732e31ed271a1f6b}{P\+O\+R\+T\+\_\+\+P\+I\+N\+\_\+\+K\+E\+Y2}~0x01
+\item 
+\#define \hyperlink{group__hardware_gae87128e49906c97fa9d6b438a08c1221}{P\+I\+N\+\_\+\+K\+E\+Y2}~0x01
+\item 
+\#define \hyperlink{group__hardware_ga5f697895be4580f403de4a9f75ab8a3b}{P\+O\+R\+T\+\_\+\+P\+I\+N\+\_\+\+K\+E\+Y3}~0x01
+\item 
+\#define \hyperlink{group__hardware_gaec621d9712815696a7bd342db8b2ff06}{P\+I\+N\+\_\+\+K\+E\+Y3}~0x02
+\item 
+\#define \hyperlink{group__hardware_gac86eb82e082d51cc0d4b0a87680cd7da}{P\+O\+R\+T\+\_\+\+P\+I\+N\+\_\+\+K\+E\+Y4}~0x01
+\item 
+\#define \hyperlink{group__hardware_gaf59a027359301b6e2229f7068c36efe6}{P\+I\+N\+\_\+\+K\+E\+Y4}~0x06
+\item 
+\#define \hyperlink{group__hardware_gabce59bc33538c850842e408765ae4981}{G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+\+K\+E\+Y1}~0x00
+\item 
+\#define \hyperlink{group__hardware_ga26fa1a6916e027dcfa2d5a76c18dccb4}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+K\+E\+Y1}~0x04
+\item 
+\#define \hyperlink{group__hardware_gaeaf62bdfcf5fc1fe75d98d961286be78}{G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+\+K\+E\+Y2}~0x00
+\item 
+\#define \hyperlink{group__hardware_ga6fe528c749e6e3df18c66c78841fd2ae}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+K\+E\+Y2}~0x08
+\item 
+\#define \hyperlink{group__hardware_ga6e75308c8b20c3236d0449a07bb052f7}{G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+\+K\+E\+Y3}~0x00
+\item 
+\#define \hyperlink{group__hardware_ga6058161cd4273d1df2af95589e043055}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+K\+E\+Y3}~0x09
+\item 
+\#define \hyperlink{group__hardware_ga6d16f3a208324c46c462f92ad249d199}{G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+\_\+\+K\+E\+Y4}~0x01
+\item 
+\#define \hyperlink{group__hardware_gabeaec154a7007cd91de9a8c775f4242f}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+K\+E\+Y4}~0x09
+\item 
+\#define \hyperlink{group__hardware_ga8dec203447e10cef9a4a1013f7c4cdd4}{next\+\_\+led}(x)~((x) = (x) $<$$<$ 1)
+\begin{DoxyCompactList}\small\item\em Establece el siguiente valor en la enumeración \hyperlink{group__hardware_ga2a000bf02da2abba53355f3fcfdb2d0b}{board\+Leds}. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hardware_ga6cc9878768b184e23371bbeb95360713}{prev\+\_\+led}(x)~((x) = (x) $>$$>$ 1)
+\begin{DoxyCompactList}\small\item\em Establece el valor previo en la enumeración \hyperlink{group__hardware_ga2a000bf02da2abba53355f3fcfdb2d0b}{board\+Leds}. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hardware_ga43a19ad1766c3719e591430d601496f7}{first\+\_\+led}~\hyperlink{group__hardware_gga84e58e8cc8e3fe349be97bcd3221c360a5662baf6795c7030ea75e47a0019a61d}{Led\+\_\+\+Rojo}
+\begin{DoxyCompactList}\small\item\em Las definiciones fist\+Led, middle\+Led y last\+Led permiten encender los leds en secuencia desde el rgb Azul al led 3 (de middle\+Led a last\+Led) o la secuencia rojo, verde, azul al led 3 (utilizando de first\+Led a last\+Led). Estas definiciones permiten realizar operaciones como\+: \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hardware_gacbd2343998132167826e577781d85bbd}{middle\+\_\+led}~\hyperlink{group__hardware_gga84e58e8cc8e3fe349be97bcd3221c360a90357fded550cd38cda43991725234cb}{Led\+\_\+\+Azul}
+\item 
+\#define \hyperlink{group__hardware_ga6d4d3ee57587d8e08816b804150c29f8}{last\+\_\+led}~\hyperlink{group__hardware_gga2a000bf02da2abba53355f3fcfdb2d0ba16d63d90ec9dc8c27019e7c28ff1cfc0}{led3}
+\item 
+\#define \hyperlink{group__hardware_ga00c30099ff3ceab3e94a516833c11c98}{led\+On}(gpio\+Port,  gpio\+Pin)~\hyperlink{group___g_p_i_o__18_x_x__43_x_x_ga2d8db9f0a52f061d64e8cada713ae03e}{Chip\+\_\+\+G\+P\+I\+O\+\_\+\+Set\+Pin\+State}(\hyperlink{group___p_e_r_i_p_h__43_x_x___b_a_s_e_ga401a76842ea88d6e311bba578f43b259}{L\+P\+C\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}, gpio\+Port, gpio\+Pin, \hyperlink{group___l_p_c___types___public___types_gaa8cecfc5c5c054d2875c03e77b7be15d}{T\+R\+UE})
+\begin{DoxyCompactList}\small\item\em Enciende un led. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hardware_gac51bfbb3d5136e9e0479f3d8e6bb14de}{led\+Off}(gpio\+Port,  gpio\+Pin)~\hyperlink{group___g_p_i_o__18_x_x__43_x_x_ga2d8db9f0a52f061d64e8cada713ae03e}{Chip\+\_\+\+G\+P\+I\+O\+\_\+\+Set\+Pin\+State}(\hyperlink{group___p_e_r_i_p_h__43_x_x___b_a_s_e_ga401a76842ea88d6e311bba578f43b259}{L\+P\+C\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}, gpio\+Port, gpio\+Pin, \hyperlink{group___l_p_c___types___public___types_gaa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+SE})
+\begin{DoxyCompactList}\small\item\em Apaga un led. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hardware_gaafb30c58d318e90ed902cb1aef013286}{led\+Toggle}(gpio\+Port,  gpio\+Pin)~\hyperlink{group___g_p_i_o__18_x_x__43_x_x_ga5437e5a8ae2ce7662b605f9961aad8f5}{Chip\+\_\+\+G\+P\+I\+O\+\_\+\+Set\+Pin\+Toggle}(\hyperlink{group___p_e_r_i_p_h__43_x_x___b_a_s_e_ga401a76842ea88d6e311bba578f43b259}{L\+P\+C\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}, gpio\+Port, gpio\+Pin)
+\begin{DoxyCompactList}\small\item\em Modifica el estado de un led particular (lo apaga si está encendido o lo enciende si está apagado). \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hardware_gafdd074f68e5ae5b133575140014f918d}{delay\+Ms}(x)~\hyperlink{group___stop___watch_gaa3bfba465962b310e4a5bd18292e8f87}{Stop\+Watch\+\_\+\+Delay\+Ms}(x)
+\begin{DoxyCompactList}\small\item\em Genera un delay de x milisegundos utilizando las primitivas del módulo \char`\"{}stopwatch\char`\"{} de lpc\+Open. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__hardware_ga1d13abaa815195d73e9dc2676e6fba5b}{delay\+Us}(x)~\hyperlink{group___stop___watch_ga3bc7706d1a9cb32888f82b2874c3655c}{Stop\+Watch\+\_\+\+Delay\+Us}(x)
+\begin{DoxyCompactList}\small\item\em Genera un delay de x microsegundos utilizando las primitivas del módulo \char`\"{}stopwatch\char`\"{} de lpc\+Open. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__hardware_ga8d70125ca4047f0f7ea513cd8568953d}{board\+Keys} \{ \hyperlink{group__hardware_gga8d70125ca4047f0f7ea513cd8568953da483a28cafb544915d9cd44f2c69fc706}{key1} =1, 
+\hyperlink{group__hardware_gga8d70125ca4047f0f7ea513cd8568953dab8d9f65fc5604a8b8a0cdcbaf03bbbe0}{key2} =2, 
+\hyperlink{group__hardware_gga8d70125ca4047f0f7ea513cd8568953da376c29473ae1a854ff46b2b171985093}{key3} =4, 
+\hyperlink{group__hardware_gga8d70125ca4047f0f7ea513cd8568953da84011848209e666e74469d6dfba542eb}{key4} =8
+ \}\begin{DoxyCompactList}\small\item\em Enumeración utilizada para identificar los pulsadores presentes en la E\+D\+U-\/\+C\+I\+AA N\+XP. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__hardware_ga84e58e8cc8e3fe349be97bcd3221c360}{rgb\+Leds} \{ \hyperlink{group__hardware_gga84e58e8cc8e3fe349be97bcd3221c360a5662baf6795c7030ea75e47a0019a61d}{Led\+\_\+\+Rojo} = 1, 
+\hyperlink{group__hardware_gga84e58e8cc8e3fe349be97bcd3221c360aa5ad7834a37faf1e2620fa3db1838a21}{Led\+\_\+\+Verde} = 2, 
+\hyperlink{group__hardware_gga84e58e8cc8e3fe349be97bcd3221c360a90357fded550cd38cda43991725234cb}{Led\+\_\+\+Azul} = 4
+ \}\begin{DoxyCompactList}\small\item\em Enumeración asociada a los terminales de los leds R\+GB. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__hardware_ga2a000bf02da2abba53355f3fcfdb2d0b}{board\+Leds} \{ \\*
+\hyperlink{group__hardware_gga2a000bf02da2abba53355f3fcfdb2d0ba76aaf0c615e41c008aa876ea4c183f4c}{led4} = Led\+\_\+\+Rojo, 
+\hyperlink{group__hardware_gga2a000bf02da2abba53355f3fcfdb2d0ba66b97e4de94e08d049b57ac98e315cad}{led5} = Led\+\_\+\+Verde, 
+\hyperlink{group__hardware_gga2a000bf02da2abba53355f3fcfdb2d0ba2c4a58277fd326a128900fe0904c2b1e}{led6} = Led\+\_\+\+Azul, 
+\hyperlink{group__hardware_gga2a000bf02da2abba53355f3fcfdb2d0bacc803913e7d21f9a6900861008580c5f}{led1} = 8, 
+\\*
+\hyperlink{group__hardware_gga2a000bf02da2abba53355f3fcfdb2d0ba9c2c88fba1581ccd42348c9e3c47df92}{led2} = 16, 
+\hyperlink{group__hardware_gga2a000bf02da2abba53355f3fcfdb2d0ba16d63d90ec9dc8c27019e7c28ff1cfc0}{led3} = 32
+ \}\begin{DoxyCompactList}\small\item\em Enumeración utilizada para identificar los leds presentes en la E\+D\+U-\/\+C\+I\+AA N\+XP. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__hardware_gab11a117f1e08391f23d1da05930e7acf}{system\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa los módulos básicos de la E\+D\+U-\/\+C\+I\+AA N\+XP. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{group__hardware_ga461352be081cdef66d03a73226849b41}{serial\+Write} (const uint8\+\_\+t $\ast$data, unsigned int data\+Len)
+\begin{DoxyCompactList}\small\item\em Carga una cadena de caracteres para ser enviada a través de la U\+S\+A\+RT. Debe considerarse que la transmisión se realiza sin bloqueo y a través de interrupciones. Para eso, esta función invoca a Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Send\+RB, la cuál copia la cadena en un buffer circular e inicia la transmición del primer caracter. Una vez disparada la interrupción que indica la finalización del envío, continúa con el siguiente caracter hasta que se completa la transmición de la cadena. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{group__hardware_ga39a8d4e4fafda759632e362b701d6338}{serial\+Read} (uint8\+\_\+t $\ast$data, unsigned int max\+Data)
+\begin{DoxyCompactList}\small\item\em Obtiene los caracteres disponibles en el buffer circular asociado al flujo de entrada de caracteres (\char`\"{}lee el puerto\char`\"{}). \end{DoxyCompactList}\item 
+void \hyperlink{group__hardware_gac20eca44aeea90e6f603831193cc9b28}{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Función implementada para procesar las interrupciones del puerto de comunicaciones serie. Esta función invoca a Chip\+\_\+\+U\+A\+R\+T\+\_\+\+I\+R\+Q\+R\+B\+Handler de modo de gestionar la asignación de los caracteres recibidos en la cola circular asociada a la entrada y continuar la transmisión de los datos asociados a la cola circular de salida. \end{DoxyCompactList}\item 
+void \hyperlink{group__hardware_ga4b6495dfec1dcc97e48043d7bca4da60}{set\+Led\+From\+Msk} (uint8\+\_\+t msk)
+\begin{DoxyCompactList}\small\item\em Enciend o apaga un led según la máscara dada como argumento. \end{DoxyCompactList}\item 
+void \hyperlink{group__hardware_ga3ac24a1bb2d63482077813f22c6930a1}{wait\+Key\+Press} (\hyperlink{group__hardware_ga8d70125ca4047f0f7ea513cd8568953d}{board\+Keys} key)
+\begin{DoxyCompactList}\small\item\em Espera a que se presione la tecla indicada a partir del argumento utilizado. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__hardware_gabe9050eab201da85d14532c4d009603a}{get\+Key\+Pressed} (void)
+\begin{DoxyCompactList}\small\item\em Retorna una máscara con el estado de las teclas. Si una tecla está presionada, retorna un bit en alto y si está suelta un bit en bajo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Declaraciones de funciones y constantes simbólicas correspondientes con la E\+D\+U-\/\+C\+I\+AA N\+XP. 
+
+\begin{DoxyDate}{Fecha}
+09/07/2018 
+\end{DoxyDate}

@@ -1,0 +1,362 @@
+.TH "LPC_ENET_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_ENET_T \- 10/100 MII & RMII Ethernet with timestamping register block structure  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <enet_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_CONFIG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_FRAME_FILTER\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_HASHTABLE_HIGH\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_HASHTABLE_LOW\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_MII_ADDR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_MII_DATA\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_FLOW_CTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_VLAN_TAG\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMAC_DEBUG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_RWAKE_FRFLT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_PMT_CTRL_STAT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP [2]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMAC_INTR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_INTR_MASK\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_ADDR0_HIGH\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_ADDR0_LOW\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED2\fP [430]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMAC_TIMESTP_CTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSUBSECOND_INCR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSECONDS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBNANOSECONDS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSECONDSUPDATE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNANOSECONDSUPDATE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBADDEND\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTARGETSECONDS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTARGETNANOSECONDS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBHIGHWORD\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTIMESTAMPSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPPSCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBAUXNANOSECONDS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBAUXSECONDS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED3\fP [562]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_BUS_MODE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_TRANS_POLL_DEMAND\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_REC_POLL_DEMAND\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_REC_DES_ADDR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_TRANS_DES_ADDR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_STAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_OP_MODE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_INT_EN\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDMA_MFRM_BUFOF\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA_REC_INT_WDT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED4\fP [8]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDMA_CURHOST_TRANS_DES\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDMA_CURHOST_REC_DES\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDMA_CURHOST_TRANS_BUF\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDMA_CURHOST_REC_BUF\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+10/100 MII & RMII Ethernet with timestamping register block structure 
+.PP
+Definición en la línea 47 del archivo enet_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t ADDEND"
+Time stamp addend register 
+.PP
+Definición en la línea 72 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t AUXNANOSECONDS"
+Auxiliary time stamp nanoseconds register 
+.PP
+Definición en la línea 78 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t AUXSECONDS"
+Auxiliary time stamp seconds register 
+.PP
+Definición en la línea 79 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_BUS_MODE"
+Bus Mode Register 
+.PP
+Definición en la línea 81 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t DMA_CURHOST_REC_BUF"
+Current host receive buffer address register 
+.PP
+Definición en la línea 95 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t DMA_CURHOST_REC_DES"
+Current host receive descriptor register 
+.PP
+Definición en la línea 93 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t DMA_CURHOST_TRANS_BUF"
+Current host transmit buffer address register 
+.PP
+Definición en la línea 94 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t DMA_CURHOST_TRANS_DES"
+Current host transmit descriptor register 
+.PP
+Definición en la línea 92 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_INT_EN"
+Interrupt enable register 
+.PP
+Definición en la línea 88 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t DMA_MFRM_BUFOF"
+Missed frame and buffer overflow register 
+.PP
+Definición en la línea 89 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_OP_MODE"
+Operation mode register 
+.PP
+Definición en la línea 87 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_REC_DES_ADDR"
+Receive descriptor list address register 
+.PP
+Definición en la línea 84 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_REC_INT_WDT"
+Receive interrupt watchdog timer register 
+.PP
+Definición en la línea 90 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_REC_POLL_DEMAND"
+Receive poll demand register 
+.PP
+Definición en la línea 83 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_STAT"
+Status register 
+.PP
+Definición en la línea 86 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_TRANS_DES_ADDR"
+Transmit descriptor list address register 
+.PP
+Definición en la línea 85 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA_TRANS_POLL_DEMAND"
+Transmit poll demand register 
+.PP
+Definición en la línea 82 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t HIGHWORD"
+System time higher word seconds register 
+.PP
+Definición en la línea 75 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_ADDR0_HIGH"
+MAC address 0 high register 
+.PP
+Definición en la línea 63 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_ADDR0_LOW"
+MAC address 0 low register 
+.PP
+Definición en la línea 64 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_CONFIG"
+< ETHERNET Structure MAC configuration register 
+.PP
+Definición en la línea 48 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t MAC_DEBUG"
+Debug register 
+.PP
+Definición en la línea 57 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_FLOW_CTRL"
+Flow control register 
+.PP
+Definición en la línea 54 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_FRAME_FILTER"
+MAC frame filter 
+.PP
+Definición en la línea 49 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_HASHTABLE_HIGH"
+Hash table high register 
+.PP
+Definición en la línea 50 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_HASHTABLE_LOW"
+Hash table low register 
+.PP
+Definición en la línea 51 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t MAC_INTR"
+Interrupt status register 
+.PP
+Definición en la línea 61 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_INTR_MASK"
+Interrupt mask register 
+.PP
+Definición en la línea 62 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_MII_ADDR"
+MII address register 
+.PP
+Definición en la línea 52 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_MII_DATA"
+MII data register 
+.PP
+Definición en la línea 53 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_PMT_CTRL_STAT"
+PMT control and status 
+.PP
+Definición en la línea 59 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_RWAKE_FRFLT"
+Remote wake-up frame filter 
+.PP
+Definición en la línea 58 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_TIMESTP_CTRL"
+Time stamp control register 
+.PP
+Definición en la línea 66 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MAC_VLAN_TAG"
+VLAN tag register 
+.PP
+Definición en la línea 55 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t NANOSECONDS"
+System time nanoseconds register 
+.PP
+Definición en la línea 69 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t NANOSECONDSUPDATE"
+System time nanoseconds update register 
+.PP
+Definición en la línea 71 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PPSCTRL"
+PPS control register 
+.PP
+Definición en la línea 77 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0"
+
+.PP
+Definición en la línea 56 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1[2]"
+
+.PP
+Definición en la línea 60 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED2[430]"
+
+.PP
+Definición en la línea 65 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED3[562]"
+
+.PP
+Definición en la línea 80 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED4[8]"
+
+.PP
+Definición en la línea 91 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t SECONDS"
+System time seconds register 
+.PP
+Definición en la línea 68 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SECONDSUPDATE"
+System time seconds update register 
+.PP
+Definición en la línea 70 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SUBSECOND_INCR"
+Sub-second increment register 
+.PP
+Definición en la línea 67 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TARGETNANOSECONDS"
+Target time nanoseconds register 
+.PP
+Definición en la línea 74 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TARGETSECONDS"
+Target time seconds register 
+.PP
+Definición en la línea 73 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t TIMESTAMPSTAT"
+Time stamp status register 
+.PP
+Definición en la línea 76 del archivo enet_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

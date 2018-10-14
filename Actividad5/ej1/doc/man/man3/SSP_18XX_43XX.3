@@ -1,0 +1,1336 @@
+.TH "SSP_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SSP_18XX_43XX \- CHIP: LPC18xx/43xx SSP driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_SSP_T\fP"
+.br
+.RI "\fISSP register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBSSP_ConfigFormat\fP"
+.br
+.ti -1c
+.RI "struct \fBSPI_Address_t\fP"
+.br
+.ti -1c
+.RI "struct \fBChip_SSP_DATA_SETUP_T\fP"
+.br
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSSP_CR0_DSS\fP(n)   ((uint32_t) ((n) & 0xF))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_FRF_SPI\fP   ((uint32_t) (0 << 4))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_FRF_TI\fP   ((uint32_t) (1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_FRF_MICROWIRE\fP   ((uint32_t) (2 << 4))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_CPOL_LO\fP   ((uint32_t) (0))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_CPOL_HI\fP   ((uint32_t) (1 << 6))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_CPHA_FIRST\fP   ((uint32_t) (0))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_CPHA_SECOND\fP   ((uint32_t) (1 << 7))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_SCR\fP(n)   ((uint32_t) ((n & 0xFF) << 8))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_SCR\fP(n)   ((uint32_t) ((n & 0xFF) << 8))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_BITMASK\fP   ((uint32_t) (0xFFFF))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR0_BITMASK\fP   ((uint32_t) (0xFFFF))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR1_LBM_EN\fP   ((uint32_t) (1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR1_SSP_EN\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR1_SLAVE_EN\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR1_MASTER_EN\fP   ((uint32_t) (0))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR1_SO_DISABLE\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CR1_BITMASK\fP   ((uint32_t) (0x0F))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CPSR_BITMASK\fP   ((uint32_t) (0xFF))"
+.br
+.ti -1c
+.RI "#define \fBSSP_DR_BITMASK\fP(n)   ((n) & 0xFFFF)"
+.br
+.ti -1c
+.RI "#define \fBSSP_SR_BITMASK\fP   ((uint32_t) (0x1F))"
+.br
+.ti -1c
+.RI "#define \fBSSP_ICR_BITMASK\fP   ((uint32_t) (0x03))"
+.br
+.ti -1c
+.RI "#define \fBSSP_CPHA_FIRST\fP   \fBSSP_CR0_CPHA_FIRST\fP"
+.br
+.ti -1c
+.RI "#define \fBSSP_CPHA_SECOND\fP   \fBSSP_CR0_CPHA_SECOND\fP"
+.br
+.ti -1c
+.RI "#define \fBSSP_CPOL_HI\fP   \fBSSP_CR0_CPOL_LO\fP"
+.br
+.ti -1c
+.RI "#define \fBSSP_CPOL_LO\fP   \fBSSP_CR0_CPOL_HI\fP"
+.br
+.ti -1c
+.RI "#define \fBSSP_SLAVE_MODE\fP   \fBSSP_CR1_SLAVE_EN\fP"
+.br
+.ti -1c
+.RI "#define \fBSSP_MASTER_MODE\fP   \fBSSP_CR1_MASTER_EN\fP"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fB_SSP_STATUS\fP \fBSSP_STATUS_T\fP"
+.br
+.RI "\fISSP Type of Status\&. \fP"
+.ti -1c
+.RI "typedef enum \fB_SSP_INTMASK\fP \fBSSP_INTMASK_T\fP"
+.br
+.RI "\fISSP Type of Interrupt Mask\&. \fP"
+.ti -1c
+.RI "typedef enum \fB_SSP_MASKINTSTATUS\fP \fBSSP_MASKINTSTATUS_T\fP"
+.br
+.RI "\fISSP Type of Mask Interrupt Status\&. \fP"
+.ti -1c
+.RI "typedef enum \fB_SSP_RAWINTSTATUS\fP \fBSSP_RAWINTSTATUS_T\fP"
+.br
+.RI "\fISSP Type of Raw Interrupt Status\&. \fP"
+.ti -1c
+.RI "typedef enum \fB_SSP_INTCLEAR\fP \fBSSP_INTCLEAR_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fB_SSP_DMA\fP \fBSSP_DMA_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_SSP_CLOCK_FORMAT\fP \fBCHIP_SSP_CLOCK_MODE_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_SSP_FRAME_FORMAT\fP \fBCHIP_SSP_FRAME_FORMAT_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_SSP_BITS\fP \fBCHIP_SSP_BITS_T\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBSSP_ConfigFormat\fP \fBSSP_ConfigFormat\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_SSP_MODE\fP \fBCHIP_SSP_MODE_T\fP"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_SSP_STATUS\fP { \fBSSP_STAT_TFE\fP = ((uint32_t)(1 << 0)), \fBSSP_STAT_TNF\fP = ((uint32_t)(1 << 1)), \fBSSP_STAT_RNE\fP = ((uint32_t)(1 << 2)), \fBSSP_STAT_RFF\fP = ((uint32_t)(1 << 3)), \fBSSP_STAT_BSY\fP = ((uint32_t)(1 << 4)) }
+.RI "\fISSP Type of Status\&. \fP""
+.br
+.ti -1c
+.RI "enum \fB_SSP_INTMASK\fP { \fBSSP_RORIM\fP = ((uint32_t)(1 << 0)), \fBSSP_RTIM\fP = ((uint32_t)(1 << 1)), \fBSSP_RXIM\fP = ((uint32_t)(1 << 2)), \fBSSP_TXIM\fP = ((uint32_t)(1 << 3)), \fBSSP_INT_MASK_BITMASK\fP = ((uint32_t)(0xF)) }
+.RI "\fISSP Type of Interrupt Mask\&. \fP""
+.br
+.ti -1c
+.RI "enum \fB_SSP_MASKINTSTATUS\fP { \fBSSP_RORMIS\fP = ((uint32_t)(1 << 0)), \fBSSP_RTMIS\fP = ((uint32_t)(1 << 1)), \fBSSP_RXMIS\fP = ((uint32_t)(1 << 2)), \fBSSP_TXMIS\fP = ((uint32_t)(1 << 3)), \fBSSP_MASK_INT_STAT_BITMASK\fP = ((uint32_t)(0xF)) }
+.RI "\fISSP Type of Mask Interrupt Status\&. \fP""
+.br
+.ti -1c
+.RI "enum \fB_SSP_RAWINTSTATUS\fP { \fBSSP_RORRIS\fP = ((uint32_t)(1 << 0)), \fBSSP_RTRIS\fP = ((uint32_t)(1 << 1)), \fBSSP_RXRIS\fP = ((uint32_t)(1 << 2)), \fBSSP_TXRIS\fP = ((uint32_t)(1 << 3)), \fBSSP_RAW_INT_STAT_BITMASK\fP = ((uint32_t)(0xF)) }
+.RI "\fISSP Type of Raw Interrupt Status\&. \fP""
+.br
+.ti -1c
+.RI "enum \fB_SSP_INTCLEAR\fP { \fBSSP_RORIC\fP = 0x0, \fBSSP_RTIC\fP = 0x1, \fBSSP_INT_CLEAR_BITMASK\fP = 0x3 }"
+.br
+.ti -1c
+.RI "enum \fB_SSP_DMA\fP { \fBSSP_DMA_RX\fP = (1u), \fBSSP_DMA_TX\fP = (1u << 1), \fBSSP_DMA_BITMASK\fP = ((uint32_t)(0x3)) }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_SSP_CLOCK_FORMAT\fP { \fBSSP_CLOCK_CPHA0_CPOL0\fP = (0 << 6), \fBSSP_CLOCK_CPHA0_CPOL1\fP = (1u << 6), \fBSSP_CLOCK_CPHA1_CPOL0\fP = (2u << 6), \fBSSP_CLOCK_CPHA1_CPOL1\fP = (3u << 6), \fBSSP_CLOCK_MODE0\fP = SSP_CLOCK_CPHA0_CPOL0, \fBSSP_CLOCK_MODE1\fP = SSP_CLOCK_CPHA1_CPOL0, \fBSSP_CLOCK_MODE2\fP = SSP_CLOCK_CPHA0_CPOL1, \fBSSP_CLOCK_MODE3\fP = SSP_CLOCK_CPHA1_CPOL1 }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_SSP_FRAME_FORMAT\fP { \fBSSP_FRAMEFORMAT_SPI\fP = (0 << 4), \fBCHIP_SSP_FRAME_FORMAT_TI\fP = (1u << 4), \fBSSP_FRAMEFORMAT_MICROWIRE\fP = (2u << 4) }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_SSP_BITS\fP { \fBSSP_BITS_4\fP = (3u << 0), \fBSSP_BITS_5\fP = (4u << 0), \fBSSP_BITS_6\fP = (5u << 0), \fBSSP_BITS_7\fP = (6u << 0), \fBSSP_BITS_8\fP = (7u << 0), \fBSSP_BITS_9\fP = (8u << 0), \fBSSP_BITS_10\fP = (9u << 0), \fBSSP_BITS_11\fP = (10u << 0), \fBSSP_BITS_12\fP = (11u << 0), \fBSSP_BITS_13\fP = (12u << 0), \fBSSP_BITS_14\fP = (13u << 0), \fBSSP_BITS_15\fP = (14u << 0), \fBSSP_BITS_16\fP = (15u << 0) }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_SSP_MODE\fP { \fBSSP_MODE_MASTER\fP = (0 << 2), \fBSSP_MODE_SLAVE\fP = (1u << 2) }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_Enable\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIEnable SSP operation\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_Disable\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIDisable SSP operation\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_EnableLoopBack\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIEnable loopback mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_DisableLoopBack\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIDisable loopback mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP \fBFlagStatus\fP \fBChip_SSP_GetStatus\fP (\fBLPC_SSP_T\fP *pSSP, \fBSSP_STATUS_T\fP Stat)"
+.br
+.RI "\fIGet the current status of SSP controller\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_SSP_GetIntStatus\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIGet the masked interrupt status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP \fBIntStatus\fP \fBChip_SSP_GetRawIntStatus\fP (\fBLPC_SSP_T\fP *pSSP, \fBSSP_RAWINTSTATUS_T\fP RawInt)"
+.br
+.RI "\fIGet the raw interrupt status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_SSP_GetDataSize\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIGet the number of bits transferred in each frame\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_ClearIntPending\fP (\fBLPC_SSP_T\fP *pSSP, \fBSSP_INTCLEAR_T\fP IntClear)"
+.br
+.RI "\fIClear the corresponding interrupt condition(s) in the SSP controller\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_Int_Enable\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIEnable interrupt for the SSP\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_Int_Disable\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIDisable interrupt for the SSP\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint16_t \fBChip_SSP_ReceiveFrame\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIGet received SSP data\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_SendFrame\fP (\fBLPC_SSP_T\fP *pSSP, uint16_t tx_data)"
+.br
+.RI "\fISend SSP 16-bit data\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_SetClockRate\fP (\fBLPC_SSP_T\fP *pSSP, uint32_t clk_rate, uint32_t prescale)"
+.br
+.RI "\fISet up output clocks per bit for SSP bus\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_SetFormat\fP (\fBLPC_SSP_T\fP *pSSP, uint32_t bits, uint32_t frameFormat, uint32_t clockMode)"
+.br
+.RI "\fISet up the SSP frame format\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_Set_Mode\fP (\fBLPC_SSP_T\fP *pSSP, uint32_t mode)"
+.br
+.RI "\fISet the SSP working as master or slave mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_DMA_Enable\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIEnable DMA for SSP\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SSP_DMA_Disable\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIDisable DMA for SSP\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_Int_FlushData\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIClean all data in RX FIFO of SSP\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_SSP_Int_RWFrames8Bits\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.RI "\fISSP Interrupt Read/Write with 8-bit frame width\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_SSP_Int_RWFrames16Bits\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.RI "\fISSP Interrupt Read/Write with 16-bit frame width\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_SSP_RWFrames_Blocking\fP (\fBLPC_SSP_T\fP *pSSP, \fBChip_SSP_DATA_SETUP_T\fP *xf_setup)"
+.br
+.RI "\fISSP Polling Read/Write in blocking mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_SSP_WriteFrames_Blocking\fP (\fBLPC_SSP_T\fP *pSSP, const uint8_t *buffer, uint32_t buffer_len)"
+.br
+.RI "\fISSP Polling Write in blocking mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_SSP_ReadFrames_Blocking\fP (\fBLPC_SSP_T\fP *pSSP, uint8_t *buffer, uint32_t buffer_len)"
+.br
+.RI "\fISSP Polling Read in blocking mode\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_Init\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIInitialize the SSP\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_DeInit\fP (\fBLPC_SSP_T\fP *pSSP)"
+.br
+.RI "\fIDeinitialise the SSP\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_SetMaster\fP (\fBLPC_SSP_T\fP *pSSP, bool master)"
+.br
+.RI "\fISet the SSP operating modes, master or slave\&. \fP"
+.ti -1c
+.RI "void \fBChip_SSP_SetBitRate\fP (\fBLPC_SSP_T\fP *pSSP, uint32_t bitRate)"
+.br
+.RI "\fISet the clock frequency for SSP interface\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define SSP_CPHA_FIRST   \fBSSP_CR0_CPHA_FIRST\fP"
+SSP configuration parameter defines Clock phase control bit 
+.PP
+Definición en la línea 480 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CPHA_SECOND   \fBSSP_CR0_CPHA_SECOND\fP"
+
+.PP
+Definición en la línea 481 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CPOL_HI   \fBSSP_CR0_CPOL_LO\fP"
+Clock polarity control bit 
+.PP
+Definición en la línea 490 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CPOL_LO   \fBSSP_CR0_CPOL_HI\fP"
+
+.PP
+Definición en la línea 491 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CPSR_BITMASK   ((uint32_t) (0xFF))"
+SSP CPSR bit mask 
+.PP
+Definición en la línea 109 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_BITMASK   ((uint32_t) (0xFFFF))"
+SSP CR0 bit mask 
+.PP
+Definición en la línea 86 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_BITMASK   ((uint32_t) (0xFFFF))"
+SSP CR0 bit mask 
+.PP
+Definición en la línea 86 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_CPHA_FIRST   ((uint32_t) (0))"
+SPI clock out phase bit (used in SPI mode only), (1) = captures data on the second clock transition of the frame, (0) = first 
+.PP
+Definición en la línea 78 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_CPHA_SECOND   ((uint32_t) (1 << 7))"
+
+.PP
+Definición en la línea 79 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_CPOL_HI   ((uint32_t) (1 << 6))"
+
+.PP
+Definición en la línea 75 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_CPOL_LO   ((uint32_t) (0))"
+SPI clock polarity bit (used in SPI mode only), (1) = maintains the bus clock high between frames, (0) = low 
+.PP
+Definición en la línea 74 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_DSS(n)   ((uint32_t) ((n) & 0xF))"
+Macro defines for CR0 registerSSP data size select, must be 4 bits to 16 bits 
+.PP
+Definición en la línea 65 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_FRF_MICROWIRE   ((uint32_t) (2 << 4))"
+SSP control 0 National Micro-wire mode 
+.PP
+Definición en la línea 71 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_FRF_SPI   ((uint32_t) (0 << 4))"
+SSP control 0 Motorola SPI mode 
+.PP
+Definición en la línea 67 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_FRF_TI   ((uint32_t) (1 << 4))"
+SSP control 0 TI synchronous serial mode 
+.PP
+Definición en la línea 69 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_SCR(n)   ((uint32_t) ((n & 0xFF) << 8))"
+SSP serial clock rate value load macro, divider rate is PERIPH_CLK / (cpsr * (SCR + 1)) 
+.PP
+Definición en la línea 89 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR0_SCR(n)   ((uint32_t) ((n & 0xFF) << 8))"
+SSP serial clock rate value load macro, divider rate is PERIPH_CLK / (cpsr * (SCR + 1)) 
+.PP
+Definición en la línea 89 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR1_BITMASK   ((uint32_t) (0x0F))"
+SSP CR1 bit mask 
+.PP
+Definición en la línea 106 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR1_LBM_EN   ((uint32_t) (1 << 0))"
+Macro defines for CR1 registerSSP control 1 loopback mode enable bit 
+.PP
+Definición en la línea 96 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR1_MASTER_EN   ((uint32_t) (0))"
+
+.PP
+Definición en la línea 101 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR1_SLAVE_EN   ((uint32_t) (1 << 2))"
+SSP control 1 slave enable 
+.PP
+Definición en la línea 100 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR1_SO_DISABLE   ((uint32_t) (1 << 3))"
+SSP control 1 slave out disable bit, disables transmit line in slave mode 
+.PP
+Definición en la línea 104 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_CR1_SSP_EN   ((uint32_t) (1 << 1))"
+SSP control 1 enable bit 
+.PP
+Definición en la línea 98 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_DR_BITMASK(n)   ((n) & 0xFFFF)"
+Macro defines for DR registerSSP data bit mask 
+.PP
+Definición en la línea 115 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_ICR_BITMASK   ((uint32_t) (0x03))"
+ICR bit mask 
+.PP
+Definición en la línea 125 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_MASTER_MODE   \fBSSP_CR1_MASTER_EN\fP"
+
+.PP
+Definición en la línea 495 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_SLAVE_MODE   \fBSSP_CR1_SLAVE_EN\fP"
+SSP master mode enable 
+.PP
+Definición en la línea 494 del archivo ssp_18xx_43xx\&.h\&.
+.SS "#define SSP_SR_BITMASK   ((uint32_t) (0x1F))"
+Macro defines for SR registerSSP SR bit mask 
+.PP
+Definición en la línea 122 del archivo ssp_18xx_43xx\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef enum \fBCHIP_SSP_BITS\fP  \fBCHIP_SSP_BITS_T\fP"
+
+.SS "typedef enum \fBCHIP_SSP_CLOCK_FORMAT\fP  \fBCHIP_SSP_CLOCK_MODE_T\fP"
+
+.SS "typedef enum \fBCHIP_SSP_FRAME_FORMAT\fP  \fBCHIP_SSP_FRAME_FORMAT_T\fP"
+
+.SS "typedef enum \fBCHIP_SSP_MODE\fP  \fBCHIP_SSP_MODE_T\fP"
+
+.SS "typedef struct \fBSSP_ConfigFormat\fP  \fBSSP_ConfigFormat\fP"
+
+.SS "typedef enum \fB_SSP_DMA\fP  \fBSSP_DMA_T\fP"
+
+.SS "typedef enum \fB_SSP_INTCLEAR\fP  \fBSSP_INTCLEAR_T\fP"
+
+.SS "typedef enum \fB_SSP_INTMASK\fP  \fBSSP_INTMASK_T\fP"
+
+.PP
+SSP Type of Interrupt Mask\&. 
+.SS "typedef enum \fB_SSP_MASKINTSTATUS\fP  \fBSSP_MASKINTSTATUS_T\fP"
+
+.PP
+SSP Type of Mask Interrupt Status\&. 
+.SS "typedef enum \fB_SSP_RAWINTSTATUS\fP  \fBSSP_RAWINTSTATUS_T\fP"
+
+.PP
+SSP Type of Raw Interrupt Status\&. 
+.SS "typedef enum \fB_SSP_STATUS\fP  \fBSSP_STATUS_T\fP"
+
+.PP
+SSP Type of Status\&. 
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fB_SSP_DMA\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_DMA_RX \fP\fP
+DMA RX Enable 
+.TP
+\fB\fISSP_DMA_TX \fP\fP
+DMA TX Enable 
+.TP
+\fB\fISSP_DMA_BITMASK \fP\fP
+.PP
+Definición en la línea 177 del archivo ssp_18xx_43xx\&.h\&.
+.SS "enum \fB_SSP_INTCLEAR\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_RORIC \fP\fP
+.TP
+\fB\fISSP_RTIC \fP\fP
+.TP
+\fB\fISSP_INT_CLEAR_BITMASK \fP\fP
+.PP
+Definición en la línea 171 del archivo ssp_18xx_43xx\&.h\&.
+.SS "enum \fB_SSP_INTMASK\fP"
+
+.PP
+SSP Type of Interrupt Mask\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_RORIM \fP\fP
+Overun 
+.TP
+\fB\fISSP_RTIM \fP\fP
+TimeOut 
+.TP
+\fB\fISSP_RXIM \fP\fP
+Rx FIFO is at least half full 
+.TP
+\fB\fISSP_TXIM \fP\fP
+Tx FIFO is at least half empty 
+.TP
+\fB\fISSP_INT_MASK_BITMASK \fP\fP
+.PP
+Definición en la línea 141 del archivo ssp_18xx_43xx\&.h\&.
+.SS "enum \fB_SSP_MASKINTSTATUS\fP"
+
+.PP
+SSP Type of Mask Interrupt Status\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_RORMIS \fP\fP
+Overun 
+.TP
+\fB\fISSP_RTMIS \fP\fP
+TimeOut 
+.TP
+\fB\fISSP_RXMIS \fP\fP
+Rx FIFO is at least half full 
+.TP
+\fB\fISSP_TXMIS \fP\fP
+Tx FIFO is at least half empty 
+.TP
+\fB\fISSP_MASK_INT_STAT_BITMASK \fP\fP
+.PP
+Definición en la línea 152 del archivo ssp_18xx_43xx\&.h\&.
+.SS "enum \fB_SSP_RAWINTSTATUS\fP"
+
+.PP
+SSP Type of Raw Interrupt Status\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_RORRIS \fP\fP
+Overun 
+.TP
+\fB\fISSP_RTRIS \fP\fP
+TimeOut 
+.TP
+\fB\fISSP_RXRIS \fP\fP
+Rx FIFO is at least half full 
+.TP
+\fB\fISSP_TXRIS \fP\fP
+Tx FIFO is at least half empty 
+.TP
+\fB\fISSP_RAW_INT_STAT_BITMASK \fP\fP
+.PP
+Definición en la línea 163 del archivo ssp_18xx_43xx\&.h\&.
+.SS "enum \fB_SSP_STATUS\fP"
+
+.PP
+SSP Type of Status\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_STAT_TFE \fP\fP
+TX FIFO Empty 
+.TP
+\fB\fISSP_STAT_TNF \fP\fP
+TX FIFO not full 
+.TP
+\fB\fISSP_STAT_RNE \fP\fP
+RX FIFO not empty 
+.TP
+\fB\fISSP_STAT_RFF \fP\fP
+RX FIFO full 
+.TP
+\fB\fISSP_STAT_BSY \fP\fP
+SSP Busy 
+.PP
+Definición en la línea 130 del archivo ssp_18xx_43xx\&.h\&.
+.SS "enum \fBCHIP_SSP_BITS\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_BITS_4 \fP\fP
+4 bits/frame 
+.TP
+\fB\fISSP_BITS_5 \fP\fP
+5 bits/frame 
+.TP
+\fB\fISSP_BITS_6 \fP\fP
+6 bits/frame 
+.TP
+\fB\fISSP_BITS_7 \fP\fP
+7 bits/frame 
+.TP
+\fB\fISSP_BITS_8 \fP\fP
+8 bits/frame 
+.TP
+\fB\fISSP_BITS_9 \fP\fP
+9 bits/frame 
+.TP
+\fB\fISSP_BITS_10 \fP\fP
+10 bits/frame 
+.TP
+\fB\fISSP_BITS_11 \fP\fP
+11 bits/frame 
+.TP
+\fB\fISSP_BITS_12 \fP\fP
+12 bits/frame 
+.TP
+\fB\fISSP_BITS_13 \fP\fP
+13 bits/frame 
+.TP
+\fB\fISSP_BITS_14 \fP\fP
+14 bits/frame 
+.TP
+\fB\fISSP_BITS_15 \fP\fP
+15 bits/frame 
+.TP
+\fB\fISSP_BITS_16 \fP\fP
+16 bits/frame 
+.PP
+Definición en la línea 209 del archivo ssp_18xx_43xx\&.h\&.
+.SS "enum \fBCHIP_SSP_CLOCK_FORMAT\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_CLOCK_CPHA0_CPOL0 \fP\fP
+CPHA = 0, CPOL = 0 
+.TP
+\fB\fISSP_CLOCK_CPHA0_CPOL1 \fP\fP
+CPHA = 0, CPOL = 1 
+.TP
+\fB\fISSP_CLOCK_CPHA1_CPOL0 \fP\fP
+CPHA = 1, CPOL = 0 
+.TP
+\fB\fISSP_CLOCK_CPHA1_CPOL1 \fP\fP
+CPHA = 1, CPOL = 1 
+.TP
+\fB\fISSP_CLOCK_MODE0 \fP\fP
+alias 
+.TP
+\fB\fISSP_CLOCK_MODE1 \fP\fP
+alias 
+.TP
+\fB\fISSP_CLOCK_MODE2 \fP\fP
+alias 
+.TP
+\fB\fISSP_CLOCK_MODE3 \fP\fP
+alias 
+.PP
+Definición en la línea 186 del archivo ssp_18xx_43xx\&.h\&.
+.SS "enum \fBCHIP_SSP_FRAME_FORMAT\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_FRAMEFORMAT_SPI \fP\fP
+Frame format: SPI 
+.TP
+\fB\fICHIP_SSP_FRAME_FORMAT_TI \fP\fP
+Frame format: TI SSI 
+.TP
+\fB\fISSP_FRAMEFORMAT_MICROWIRE \fP\fP
+Frame format: Microwire 
+.PP
+Definición en la línea 200 del archivo ssp_18xx_43xx\&.h\&.
+.SS "enum \fBCHIP_SSP_MODE\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISSP_MODE_MASTER \fP\fP
+Master mode 
+.TP
+\fB\fISSP_MODE_SLAVE \fP\fP
+Slave mode 
+.PP
+Definición en la línea 454 del archivo ssp_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_ClearIntPending (\fBLPC_SSP_T\fP * pSSP, \fBSSP_INTCLEAR_T\fP IntClear)"
+
+.PP
+Clear the corresponding interrupt condition(s) in the SSP controller\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.br
+\fIIntClear\fP Type of cleared interrupt, should be :
+.IP "\(bu" 2
+SSP_RORIC
+.IP "\(bu" 2
+SSP_RTIC 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Software can clear one or more interrupt condition(s) in the SSP controller 
+.RE
+.PP
+
+.PP
+Definición en la línea 341 del archivo ssp_18xx_43xx\&.h\&.
+.SS "void Chip_SSP_DeInit (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Deinitialise the SSP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The SSP controller is disabled 
+.RE
+.PP
+
+.PP
+Definición en la línea 461 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_Disable (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Disable SSP operation\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 249 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_DisableLoopBack (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Disable loopback mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Serial input is taken from the serial output (MOSI or MISO) rather than the serial input pin 
+.RE
+.PP
+
+.PP
+Definición en la línea 273 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_DMA_Disable (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Disable DMA for SSP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 446 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_DMA_Enable (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Enable DMA for SSP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 436 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_Enable (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Enable SSP operation\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 239 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_EnableLoopBack (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Enable loopback mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Serial input is taken from the serial output (MOSI or MISO) rather than the serial input pin 
+.RE
+.PP
+
+.PP
+Definición en la línea 261 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_SSP_GetDataSize (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Get the number of bits transferred in each frame\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+the number of bits transferred in each frame minus one 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The return value is 0x03 -> 0xF corresponding to 4bit -> 16bit transfer 
+.RE
+.PP
+
+.PP
+Definición en la línea 327 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_SSP_GetIntStatus (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Get the masked interrupt status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SSP Masked Interrupt Status Register value 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The return value contains a 1 for each interrupt condition that is asserted and enabled (masked) 
+.RE
+.PP
+
+.PP
+Definición en la línea 300 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP \fBIntStatus\fP Chip_SSP_GetRawIntStatus (\fBLPC_SSP_T\fP * pSSP, \fBSSP_RAWINTSTATUS_T\fP RawInt)"
+
+.PP
+Get the raw interrupt status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.br
+\fIRawInt\fP : Interrupt condition to be get status, shoud be :
+.IP "\(bu" 2
+SSP_RORRIS
+.IP "\(bu" 2
+SSP_RTRIS
+.IP "\(bu" 2
+SSP_RXRIS
+.IP "\(bu" 2
+SSP_TXRIS 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Raw interrupt status corresponding to interrupt condition , SET or RESET 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Get the status of each interrupt condition ,regardless of whether or not the interrupt is enabled 
+.RE
+.PP
+
+.PP
+Definición en la línea 316 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP \fBFlagStatus\fP Chip_SSP_GetStatus (\fBLPC_SSP_T\fP * pSSP, \fBSSP_STATUS_T\fP Stat)"
+
+.PP
+Get the current status of SSP controller\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.br
+\fIStat\fP : Type of status, should be :
+.IP "\(bu" 2
+SSP_STAT_TFE
+.IP "\(bu" 2
+SSP_STAT_TNF
+.IP "\(bu" 2
+SSP_STAT_RNE
+.IP "\(bu" 2
+SSP_STAT_RFF
+.IP "\(bu" 2
+SSP_STAT_BSY 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SSP controller status, SET or RESET 
+.RE
+.PP
+
+.PP
+Definición en la línea 289 del archivo ssp_18xx_43xx\&.h\&.
+.SS "void Chip_SSP_Init (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Initialize the SSP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 450 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_Int_Disable (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Disable interrupt for the SSP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 361 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_Int_Enable (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Enable interrupt for the SSP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 351 del archivo ssp_18xx_43xx\&.h\&.
+.SS "void Chip_SSP_Int_FlushData (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Clean all data in RX FIFO of SSP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 336 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP Chip_SSP_Int_RWFrames16Bits (\fBLPC_SSP_T\fP * pSSP, \fBChip_SSP_DATA_SETUP_T\fP * xf_setup)"
+
+.PP
+SSP Interrupt Read/Write with 16-bit frame width\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base SSP peripheral on the chip 
+.br
+\fIxf_setup\fP : Pointer to a SSP_DATA_SETUP_T structure that contains specified information about transmit/receive data configuration 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SUCCESS or ERROR 
+.RE
+.PP
+
+.PP
+Definición en la línea 383 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP Chip_SSP_Int_RWFrames8Bits (\fBLPC_SSP_T\fP * pSSP, \fBChip_SSP_DATA_SETUP_T\fP * xf_setup)"
+
+.PP
+SSP Interrupt Read/Write with 8-bit frame width\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base SSP peripheral on the chip 
+.br
+\fIxf_setup\fP : Pointer to a SSP_DATA_SETUP_T structure that contains specified information about transmit/receive data configuration 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SUCCESS or ERROR 
+.RE
+.PP
+
+.PP
+Definición en la línea 352 del archivo ssp_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_SSP_ReadFrames_Blocking (\fBLPC_SSP_T\fP * pSSP, uint8_t * buffer, uint32_t buffer_len)"
+
+.PP
+SSP Polling Read in blocking mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base SSP peripheral on the chip 
+.br
+\fIbuffer\fP : Buffer address 
+.br
+\fIbuffer_len\fP : The length of buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Actual data length has been transferred 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function can be used in both master and slave mode\&. First, a dummy writing operation is generated to clear data buffer\&. After that, a reading operation will receive the needed data 
+.RE
+.PP
+
+.PP
+Definición en la línea 268 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint16_t Chip_SSP_ReceiveFrame (\fBLPC_SSP_T\fP * pSSP)"
+
+.PP
+Get received SSP data\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SSP 16-bit data received 
+.RE
+.PP
+
+.PP
+Definición en la línea 371 del archivo ssp_18xx_43xx\&.h\&.
+.SS "uint32_t Chip_SSP_RWFrames_Blocking (\fBLPC_SSP_T\fP * pSSP, \fBChip_SSP_DATA_SETUP_T\fP * xf_setup)"
+
+.PP
+SSP Polling Read/Write in blocking mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base SSP peripheral on the chip 
+.br
+\fIxf_setup\fP : Pointer to a SSP_DATA_SETUP_T structure that contains specified information about transmit/receive data configuration 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Actual data length has been transferred 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function can be used in both master and slave mode\&. It starts with writing phase and after that, a reading phase is generated to read any data available in RX_FIFO\&. All needed information is prepared through xf_setup param\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 147 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_SendFrame (\fBLPC_SSP_T\fP * pSSP, uint16_t tx_data)"
+
+.PP
+Send SSP 16-bit data\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.br
+\fItx_data\fP : SSP 16-bit data to be transmited 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 382 del archivo ssp_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_Set_Mode (\fBLPC_SSP_T\fP * pSSP, uint32_t mode)"
+
+.PP
+Set the SSP working as master or slave mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.br
+\fImode\fP : Operating mode, should be
+.IP "\(bu" 2
+SSP_MODE_MASTER
+.IP "\(bu" 2
+SSP_MODE_SLAVE 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 426 del archivo ssp_18xx_43xx\&.h\&.
+.SS "void Chip_SSP_SetBitRate (\fBLPC_SSP_T\fP * pSSP, uint32_t bitRate)"
+
+.PP
+Set the clock frequency for SSP interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base SSP peripheral on the chip 
+.br
+\fIbitRate\fP : The SSP bit rate 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 425 del archivo ssp_18xx_43xx\&.c\&.
+.SS "void Chip_SSP_SetClockRate (\fBLPC_SSP_T\fP * pSSP, uint32_t clk_rate, uint32_t prescale)"
+
+.PP
+Set up output clocks per bit for SSP bus\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.br
+\fIclk_rate\fP fs: The number of prescaler-output clocks per bit on the bus, minus one 
+.br
+\fIprescale\fP : The factor by which the Prescaler divides the SSP peripheral clock PCLK 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The bit frequency is PCLK / (prescale x[clk_rate+1]) 
+.RE
+.PP
+
+.PP
+Definición en la línea 138 del archivo ssp_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SSP_SetFormat (\fBLPC_SSP_T\fP * pSSP, uint32_t bits, uint32_t frameFormat, uint32_t clockMode)"
+
+.PP
+Set up the SSP frame format\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base of SSP peripheral on the chip 
+.br
+\fIbits\fP : The number of bits transferred in each frame, should be SSP_BITS_4 to SSP_BITS_16 
+.br
+\fIframeFormat\fP : Frame format, should be :
+.IP "\(bu" 2
+SSP_FRAMEFORMAT_SPI
+.IP "\(bu" 2
+SSP_FRAME_FORMAT_TI
+.IP "\(bu" 2
+SSP_FRAMEFORMAT_MICROWIRE 
+.PP
+.br
+\fIclockMode\fP : Select Clock polarity and Clock phase, should be :
+.IP "\(bu" 2
+SSP_CLOCK_CPHA0_CPOL0
+.IP "\(bu" 2
+SSP_CLOCK_CPHA0_CPOL1
+.IP "\(bu" 2
+SSP_CLOCK_CPHA1_CPOL0
+.IP "\(bu" 2
+SSP_CLOCK_CPHA1_CPOL1 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Note: The clockFormat is only used in SPI mode 
+.RE
+.PP
+
+.PP
+Definición en la línea 413 del archivo ssp_18xx_43xx\&.h\&.
+.SS "void Chip_SSP_SetMaster (\fBLPC_SSP_T\fP * pSSP, bool master)"
+
+.PP
+Set the SSP operating modes, master or slave\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base SSP peripheral on the chip 
+.br
+\fImaster\fP : 1 to set master, 0 to set slave 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 414 del archivo ssp_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_SSP_WriteFrames_Blocking (\fBLPC_SSP_T\fP * pSSP, const uint8_t * buffer, uint32_t buffer_len)"
+
+.PP
+SSP Polling Write in blocking mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSSP\fP : The base SSP peripheral on the chip 
+.br
+\fIbuffer\fP : Buffer address 
+.br
+\fIbuffer_len\fP : Buffer length 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Actual data length has been transferred 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function can be used in both master and slave mode\&. First, a writing operation will send the needed data\&. After that, a dummy reading operation is generated to clear data buffer 
+.RE
+.PP
+
+.PP
+Definición en la línea 200 del archivo ssp_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

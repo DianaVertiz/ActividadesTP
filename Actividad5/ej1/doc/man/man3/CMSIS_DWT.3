@@ -1,0 +1,1416 @@
+.TH "CMSIS_DWT" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_DWT \- Data Watchpoint and Trace (DWT)
+.PP
+Type definitions for the Data Watchpoint and Trace (DWT)  
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBDWT_Type\fP"
+.br
+.RI "\fIStructure type to access the Data Watchpoint and Trace Register (DWT)\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDWT_CTRL_NUMCOMP_Pos\fP   28"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NUMCOMP_Msk\fP   (0xFUL << DWT_CTRL_NUMCOMP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOTRCPKT_Pos\fP   27"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOTRCPKT_Msk\fP   (0x1UL << DWT_CTRL_NOTRCPKT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOEXTTRIG_Pos\fP   26"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOEXTTRIG_Msk\fP   (0x1UL << DWT_CTRL_NOEXTTRIG_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOCYCCNT_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOCYCCNT_Msk\fP   (0x1UL << DWT_CTRL_NOCYCCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOPRFCNT_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOPRFCNT_Msk\fP   (0x1UL << DWT_CTRL_NOPRFCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCEVTENA_Pos\fP   22"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCEVTENA_Msk\fP   (0x1UL << DWT_CTRL_CYCEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_FOLDEVTENA_Pos\fP   21"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_FOLDEVTENA_Msk\fP   (0x1UL << DWT_CTRL_FOLDEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_LSUEVTENA_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_LSUEVTENA_Msk\fP   (0x1UL << DWT_CTRL_LSUEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SLEEPEVTENA_Pos\fP   19"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SLEEPEVTENA_Msk\fP   (0x1UL << DWT_CTRL_SLEEPEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCEVTENA_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCEVTENA_Msk\fP   (0x1UL << DWT_CTRL_EXCEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CPIEVTENA_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CPIEVTENA_Msk\fP   (0x1UL << DWT_CTRL_CPIEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCTRCENA_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCTRCENA_Msk\fP   (0x1UL << DWT_CTRL_EXCTRCENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_PCSAMPLENA_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_PCSAMPLENA_Msk\fP   (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SYNCTAP_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SYNCTAP_Msk\fP   (0x3UL << DWT_CTRL_SYNCTAP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCTAP_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCTAP_Msk\fP   (0x1UL << DWT_CTRL_CYCTAP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTINIT_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTINIT_Msk\fP   (0xFUL << DWT_CTRL_POSTINIT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTPRESET_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTPRESET_Msk\fP   (0xFUL << DWT_CTRL_POSTPRESET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCCNTENA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCCNTENA_Msk\fP   (0x1UL << DWT_CTRL_CYCCNTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CPICNT_CPICNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_CPICNT_CPICNT_Msk\fP   (0xFFUL << DWT_CPICNT_CPICNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_EXCCNT_EXCCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_EXCCNT_EXCCNT_Msk\fP   (0xFFUL << DWT_EXCCNT_EXCCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_SLEEPCNT_SLEEPCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_SLEEPCNT_SLEEPCNT_Msk\fP   (0xFFUL << DWT_SLEEPCNT_SLEEPCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_LSUCNT_LSUCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_LSUCNT_LSUCNT_Msk\fP   (0xFFUL << DWT_LSUCNT_LSUCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FOLDCNT_FOLDCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_FOLDCNT_FOLDCNT_Msk\fP   (0xFFUL << DWT_FOLDCNT_FOLDCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_MASK_MASK_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_MASK_MASK_Msk\fP   (0x1FUL << DWT_MASK_MASK_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_MATCHED_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_MATCHED_Msk\fP   (0x1UL << DWT_FUNCTION_MATCHED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR1_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR1_Msk\fP   (0xFUL << DWT_FUNCTION_DATAVADDR1_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR0_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR0_Msk\fP   (0xFUL << DWT_FUNCTION_DATAVADDR0_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVSIZE_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVSIZE_Msk\fP   (0x3UL << DWT_FUNCTION_DATAVSIZE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_LNK1ENA_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_LNK1ENA_Msk\fP   (0x1UL << DWT_FUNCTION_LNK1ENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVMATCH_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVMATCH_Msk\fP   (0x1UL << DWT_FUNCTION_DATAVMATCH_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_CYCMATCH_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_CYCMATCH_Msk\fP   (0x1UL << DWT_FUNCTION_CYCMATCH_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_EMITRANGE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_EMITRANGE_Msk\fP   (0x1UL << DWT_FUNCTION_EMITRANGE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_FUNCTION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_FUNCTION_Msk\fP   (0xFUL << DWT_FUNCTION_FUNCTION_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NUMCOMP_Pos\fP   28"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NUMCOMP_Msk\fP   (0xFUL << DWT_CTRL_NUMCOMP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOTRCPKT_Pos\fP   27"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOTRCPKT_Msk\fP   (0x1UL << DWT_CTRL_NOTRCPKT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOEXTTRIG_Pos\fP   26"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOEXTTRIG_Msk\fP   (0x1UL << DWT_CTRL_NOEXTTRIG_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOCYCCNT_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOCYCCNT_Msk\fP   (0x1UL << DWT_CTRL_NOCYCCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOPRFCNT_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOPRFCNT_Msk\fP   (0x1UL << DWT_CTRL_NOPRFCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCEVTENA_Pos\fP   22"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCEVTENA_Msk\fP   (0x1UL << DWT_CTRL_CYCEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_FOLDEVTENA_Pos\fP   21"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_FOLDEVTENA_Msk\fP   (0x1UL << DWT_CTRL_FOLDEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_LSUEVTENA_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_LSUEVTENA_Msk\fP   (0x1UL << DWT_CTRL_LSUEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SLEEPEVTENA_Pos\fP   19"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SLEEPEVTENA_Msk\fP   (0x1UL << DWT_CTRL_SLEEPEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCEVTENA_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCEVTENA_Msk\fP   (0x1UL << DWT_CTRL_EXCEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CPIEVTENA_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CPIEVTENA_Msk\fP   (0x1UL << DWT_CTRL_CPIEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCTRCENA_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCTRCENA_Msk\fP   (0x1UL << DWT_CTRL_EXCTRCENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_PCSAMPLENA_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_PCSAMPLENA_Msk\fP   (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SYNCTAP_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SYNCTAP_Msk\fP   (0x3UL << DWT_CTRL_SYNCTAP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCTAP_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCTAP_Msk\fP   (0x1UL << DWT_CTRL_CYCTAP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTINIT_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTINIT_Msk\fP   (0xFUL << DWT_CTRL_POSTINIT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTPRESET_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTPRESET_Msk\fP   (0xFUL << DWT_CTRL_POSTPRESET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCCNTENA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCCNTENA_Msk\fP   (0x1UL << DWT_CTRL_CYCCNTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CPICNT_CPICNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_CPICNT_CPICNT_Msk\fP   (0xFFUL << DWT_CPICNT_CPICNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_EXCCNT_EXCCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_EXCCNT_EXCCNT_Msk\fP   (0xFFUL << DWT_EXCCNT_EXCCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_SLEEPCNT_SLEEPCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_SLEEPCNT_SLEEPCNT_Msk\fP   (0xFFUL << DWT_SLEEPCNT_SLEEPCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_LSUCNT_LSUCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_LSUCNT_LSUCNT_Msk\fP   (0xFFUL << DWT_LSUCNT_LSUCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FOLDCNT_FOLDCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_FOLDCNT_FOLDCNT_Msk\fP   (0xFFUL << DWT_FOLDCNT_FOLDCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_MASK_MASK_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_MASK_MASK_Msk\fP   (0x1FUL << DWT_MASK_MASK_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_MATCHED_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_MATCHED_Msk\fP   (0x1UL << DWT_FUNCTION_MATCHED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR1_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR1_Msk\fP   (0xFUL << DWT_FUNCTION_DATAVADDR1_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR0_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR0_Msk\fP   (0xFUL << DWT_FUNCTION_DATAVADDR0_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVSIZE_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVSIZE_Msk\fP   (0x3UL << DWT_FUNCTION_DATAVSIZE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_LNK1ENA_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_LNK1ENA_Msk\fP   (0x1UL << DWT_FUNCTION_LNK1ENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVMATCH_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVMATCH_Msk\fP   (0x1UL << DWT_FUNCTION_DATAVMATCH_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_CYCMATCH_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_CYCMATCH_Msk\fP   (0x1UL << DWT_FUNCTION_CYCMATCH_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_EMITRANGE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_EMITRANGE_Msk\fP   (0x1UL << DWT_FUNCTION_EMITRANGE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_FUNCTION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_FUNCTION_Msk\fP   (0xFUL << DWT_FUNCTION_FUNCTION_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NUMCOMP_Pos\fP   28"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NUMCOMP_Msk\fP   (0xFUL << DWT_CTRL_NUMCOMP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOTRCPKT_Pos\fP   27"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOTRCPKT_Msk\fP   (0x1UL << DWT_CTRL_NOTRCPKT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOEXTTRIG_Pos\fP   26"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOEXTTRIG_Msk\fP   (0x1UL << DWT_CTRL_NOEXTTRIG_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOCYCCNT_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOCYCCNT_Msk\fP   (0x1UL << DWT_CTRL_NOCYCCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOPRFCNT_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_NOPRFCNT_Msk\fP   (0x1UL << DWT_CTRL_NOPRFCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCEVTENA_Pos\fP   22"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCEVTENA_Msk\fP   (0x1UL << DWT_CTRL_CYCEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_FOLDEVTENA_Pos\fP   21"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_FOLDEVTENA_Msk\fP   (0x1UL << DWT_CTRL_FOLDEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_LSUEVTENA_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_LSUEVTENA_Msk\fP   (0x1UL << DWT_CTRL_LSUEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SLEEPEVTENA_Pos\fP   19"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SLEEPEVTENA_Msk\fP   (0x1UL << DWT_CTRL_SLEEPEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCEVTENA_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCEVTENA_Msk\fP   (0x1UL << DWT_CTRL_EXCEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CPIEVTENA_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CPIEVTENA_Msk\fP   (0x1UL << DWT_CTRL_CPIEVTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCTRCENA_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_EXCTRCENA_Msk\fP   (0x1UL << DWT_CTRL_EXCTRCENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_PCSAMPLENA_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_PCSAMPLENA_Msk\fP   (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SYNCTAP_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_SYNCTAP_Msk\fP   (0x3UL << DWT_CTRL_SYNCTAP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCTAP_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCTAP_Msk\fP   (0x1UL << DWT_CTRL_CYCTAP_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTINIT_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTINIT_Msk\fP   (0xFUL << DWT_CTRL_POSTINIT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTPRESET_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_POSTPRESET_Msk\fP   (0xFUL << DWT_CTRL_POSTPRESET_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCCNTENA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_CTRL_CYCCNTENA_Msk\fP   (0x1UL << DWT_CTRL_CYCCNTENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_CPICNT_CPICNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_CPICNT_CPICNT_Msk\fP   (0xFFUL << DWT_CPICNT_CPICNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_EXCCNT_EXCCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_EXCCNT_EXCCNT_Msk\fP   (0xFFUL << DWT_EXCCNT_EXCCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_SLEEPCNT_SLEEPCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_SLEEPCNT_SLEEPCNT_Msk\fP   (0xFFUL << DWT_SLEEPCNT_SLEEPCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_LSUCNT_LSUCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_LSUCNT_LSUCNT_Msk\fP   (0xFFUL << DWT_LSUCNT_LSUCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FOLDCNT_FOLDCNT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_FOLDCNT_FOLDCNT_Msk\fP   (0xFFUL << DWT_FOLDCNT_FOLDCNT_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_MASK_MASK_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_MASK_MASK_Msk\fP   (0x1FUL << DWT_MASK_MASK_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_MATCHED_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_MATCHED_Msk\fP   (0x1UL << DWT_FUNCTION_MATCHED_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR1_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR1_Msk\fP   (0xFUL << DWT_FUNCTION_DATAVADDR1_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR0_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVADDR0_Msk\fP   (0xFUL << DWT_FUNCTION_DATAVADDR0_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVSIZE_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVSIZE_Msk\fP   (0x3UL << DWT_FUNCTION_DATAVSIZE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_LNK1ENA_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_LNK1ENA_Msk\fP   (0x1UL << DWT_FUNCTION_LNK1ENA_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVMATCH_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_DATAVMATCH_Msk\fP   (0x1UL << DWT_FUNCTION_DATAVMATCH_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_CYCMATCH_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_CYCMATCH_Msk\fP   (0x1UL << DWT_FUNCTION_CYCMATCH_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_EMITRANGE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_EMITRANGE_Msk\fP   (0x1UL << DWT_FUNCTION_EMITRANGE_Pos)"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_FUNCTION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDWT_FUNCTION_FUNCTION_Msk\fP   (0xFUL << DWT_FUNCTION_FUNCTION_Pos)"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Type definitions for the Data Watchpoint and Trace (DWT) 
+
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define DWT_CPICNT_CPICNT_Msk   (0xFFUL << DWT_CPICNT_CPICNT_Pos)"
+DWT CPICNT: CPICNT Mask 
+.PP
+Definición en la línea 796 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CPICNT_CPICNT_Msk   (0xFFUL << DWT_CPICNT_CPICNT_Pos)"
+DWT CPICNT: CPICNT Mask 
+.PP
+Definición en la línea 825 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CPICNT_CPICNT_Msk   (0xFFUL << DWT_CPICNT_CPICNT_Pos)"
+DWT CPICNT: CPICNT Mask 
+.PP
+Definición en la línea 858 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CPICNT_CPICNT_Pos   0"
+DWT CPICNT: CPICNT Position 
+.PP
+Definición en la línea 795 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CPICNT_CPICNT_Pos   0"
+DWT CPICNT: CPICNT Position 
+.PP
+Definición en la línea 824 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CPICNT_CPICNT_Pos   0"
+DWT CPICNT: CPICNT Position 
+.PP
+Definición en la línea 857 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_CPIEVTENA_Msk   (0x1UL << DWT_CTRL_CPIEVTENA_Pos)"
+DWT CTRL: CPIEVTENA Mask 
+.PP
+Definición en la línea 771 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_CPIEVTENA_Msk   (0x1UL << DWT_CTRL_CPIEVTENA_Pos)"
+DWT CTRL: CPIEVTENA Mask 
+.PP
+Definición en la línea 800 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_CPIEVTENA_Msk   (0x1UL << DWT_CTRL_CPIEVTENA_Pos)"
+DWT CTRL: CPIEVTENA Mask 
+.PP
+Definición en la línea 833 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_CPIEVTENA_Pos   17"
+DWT CTRL: CPIEVTENA Position 
+.PP
+Definición en la línea 770 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_CPIEVTENA_Pos   17"
+DWT CTRL: CPIEVTENA Position 
+.PP
+Definición en la línea 799 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_CPIEVTENA_Pos   17"
+DWT CTRL: CPIEVTENA Position 
+.PP
+Definición en la línea 832 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_CYCCNTENA_Msk   (0x1UL << DWT_CTRL_CYCCNTENA_Pos)"
+DWT CTRL: CYCCNTENA Mask 
+.PP
+Definición en la línea 792 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_CYCCNTENA_Msk   (0x1UL << DWT_CTRL_CYCCNTENA_Pos)"
+DWT CTRL: CYCCNTENA Mask 
+.PP
+Definición en la línea 821 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_CYCCNTENA_Msk   (0x1UL << DWT_CTRL_CYCCNTENA_Pos)"
+DWT CTRL: CYCCNTENA Mask 
+.PP
+Definición en la línea 854 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_CYCCNTENA_Pos   0"
+DWT CTRL: CYCCNTENA Position 
+.PP
+Definición en la línea 791 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_CYCCNTENA_Pos   0"
+DWT CTRL: CYCCNTENA Position 
+.PP
+Definición en la línea 820 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_CYCCNTENA_Pos   0"
+DWT CTRL: CYCCNTENA Position 
+.PP
+Definición en la línea 853 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_CYCEVTENA_Msk   (0x1UL << DWT_CTRL_CYCEVTENA_Pos)"
+DWT CTRL: CYCEVTENA Mask 
+.PP
+Definición en la línea 756 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_CYCEVTENA_Msk   (0x1UL << DWT_CTRL_CYCEVTENA_Pos)"
+DWT CTRL: CYCEVTENA Mask 
+.PP
+Definición en la línea 785 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_CYCEVTENA_Msk   (0x1UL << DWT_CTRL_CYCEVTENA_Pos)"
+DWT CTRL: CYCEVTENA Mask 
+.PP
+Definición en la línea 818 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_CYCEVTENA_Pos   22"
+DWT CTRL: CYCEVTENA Position 
+.PP
+Definición en la línea 755 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_CYCEVTENA_Pos   22"
+DWT CTRL: CYCEVTENA Position 
+.PP
+Definición en la línea 784 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_CYCEVTENA_Pos   22"
+DWT CTRL: CYCEVTENA Position 
+.PP
+Definición en la línea 817 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_CYCTAP_Msk   (0x1UL << DWT_CTRL_CYCTAP_Pos)"
+DWT CTRL: CYCTAP Mask 
+.PP
+Definición en la línea 783 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_CYCTAP_Msk   (0x1UL << DWT_CTRL_CYCTAP_Pos)"
+DWT CTRL: CYCTAP Mask 
+.PP
+Definición en la línea 812 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_CYCTAP_Msk   (0x1UL << DWT_CTRL_CYCTAP_Pos)"
+DWT CTRL: CYCTAP Mask 
+.PP
+Definición en la línea 845 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_CYCTAP_Pos   9"
+DWT CTRL: CYCTAP Position 
+.PP
+Definición en la línea 782 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_CYCTAP_Pos   9"
+DWT CTRL: CYCTAP Position 
+.PP
+Definición en la línea 811 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_CYCTAP_Pos   9"
+DWT CTRL: CYCTAP Position 
+.PP
+Definición en la línea 844 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_EXCEVTENA_Msk   (0x1UL << DWT_CTRL_EXCEVTENA_Pos)"
+DWT CTRL: EXCEVTENA Mask 
+.PP
+Definición en la línea 768 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_EXCEVTENA_Msk   (0x1UL << DWT_CTRL_EXCEVTENA_Pos)"
+DWT CTRL: EXCEVTENA Mask 
+.PP
+Definición en la línea 797 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_EXCEVTENA_Msk   (0x1UL << DWT_CTRL_EXCEVTENA_Pos)"
+DWT CTRL: EXCEVTENA Mask 
+.PP
+Definición en la línea 830 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_EXCEVTENA_Pos   18"
+DWT CTRL: EXCEVTENA Position 
+.PP
+Definición en la línea 767 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_EXCEVTENA_Pos   18"
+DWT CTRL: EXCEVTENA Position 
+.PP
+Definición en la línea 796 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_EXCEVTENA_Pos   18"
+DWT CTRL: EXCEVTENA Position 
+.PP
+Definición en la línea 829 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_EXCTRCENA_Msk   (0x1UL << DWT_CTRL_EXCTRCENA_Pos)"
+DWT CTRL: EXCTRCENA Mask 
+.PP
+Definición en la línea 774 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_EXCTRCENA_Msk   (0x1UL << DWT_CTRL_EXCTRCENA_Pos)"
+DWT CTRL: EXCTRCENA Mask 
+.PP
+Definición en la línea 803 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_EXCTRCENA_Msk   (0x1UL << DWT_CTRL_EXCTRCENA_Pos)"
+DWT CTRL: EXCTRCENA Mask 
+.PP
+Definición en la línea 836 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_EXCTRCENA_Pos   16"
+DWT CTRL: EXCTRCENA Position 
+.PP
+Definición en la línea 773 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_EXCTRCENA_Pos   16"
+DWT CTRL: EXCTRCENA Position 
+.PP
+Definición en la línea 802 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_EXCTRCENA_Pos   16"
+DWT CTRL: EXCTRCENA Position 
+.PP
+Definición en la línea 835 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_FOLDEVTENA_Msk   (0x1UL << DWT_CTRL_FOLDEVTENA_Pos)"
+DWT CTRL: FOLDEVTENA Mask 
+.PP
+Definición en la línea 759 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_FOLDEVTENA_Msk   (0x1UL << DWT_CTRL_FOLDEVTENA_Pos)"
+DWT CTRL: FOLDEVTENA Mask 
+.PP
+Definición en la línea 788 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_FOLDEVTENA_Msk   (0x1UL << DWT_CTRL_FOLDEVTENA_Pos)"
+DWT CTRL: FOLDEVTENA Mask 
+.PP
+Definición en la línea 821 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_FOLDEVTENA_Pos   21"
+DWT CTRL: FOLDEVTENA Position 
+.PP
+Definición en la línea 758 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_FOLDEVTENA_Pos   21"
+DWT CTRL: FOLDEVTENA Position 
+.PP
+Definición en la línea 787 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_FOLDEVTENA_Pos   21"
+DWT CTRL: FOLDEVTENA Position 
+.PP
+Definición en la línea 820 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_LSUEVTENA_Msk   (0x1UL << DWT_CTRL_LSUEVTENA_Pos)"
+DWT CTRL: LSUEVTENA Mask 
+.PP
+Definición en la línea 762 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_LSUEVTENA_Msk   (0x1UL << DWT_CTRL_LSUEVTENA_Pos)"
+DWT CTRL: LSUEVTENA Mask 
+.PP
+Definición en la línea 791 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_LSUEVTENA_Msk   (0x1UL << DWT_CTRL_LSUEVTENA_Pos)"
+DWT CTRL: LSUEVTENA Mask 
+.PP
+Definición en la línea 824 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_LSUEVTENA_Pos   20"
+DWT CTRL: LSUEVTENA Position 
+.PP
+Definición en la línea 761 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_LSUEVTENA_Pos   20"
+DWT CTRL: LSUEVTENA Position 
+.PP
+Definición en la línea 790 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_LSUEVTENA_Pos   20"
+DWT CTRL: LSUEVTENA Position 
+.PP
+Definición en la línea 823 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NOCYCCNT_Msk   (0x1UL << DWT_CTRL_NOCYCCNT_Pos)"
+DWT CTRL: NOCYCCNT Mask 
+.PP
+Definición en la línea 750 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NOCYCCNT_Msk   (0x1UL << DWT_CTRL_NOCYCCNT_Pos)"
+DWT CTRL: NOCYCCNT Mask 
+.PP
+Definición en la línea 779 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NOCYCCNT_Msk   (0x1UL << DWT_CTRL_NOCYCCNT_Pos)"
+DWT CTRL: NOCYCCNT Mask 
+.PP
+Definición en la línea 812 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NOCYCCNT_Pos   25"
+DWT CTRL: NOCYCCNT Position 
+.PP
+Definición en la línea 749 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NOCYCCNT_Pos   25"
+DWT CTRL: NOCYCCNT Position 
+.PP
+Definición en la línea 778 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NOCYCCNT_Pos   25"
+DWT CTRL: NOCYCCNT Position 
+.PP
+Definición en la línea 811 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NOEXTTRIG_Msk   (0x1UL << DWT_CTRL_NOEXTTRIG_Pos)"
+DWT CTRL: NOEXTTRIG Mask 
+.PP
+Definición en la línea 747 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NOEXTTRIG_Msk   (0x1UL << DWT_CTRL_NOEXTTRIG_Pos)"
+DWT CTRL: NOEXTTRIG Mask 
+.PP
+Definición en la línea 776 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NOEXTTRIG_Msk   (0x1UL << DWT_CTRL_NOEXTTRIG_Pos)"
+DWT CTRL: NOEXTTRIG Mask 
+.PP
+Definición en la línea 809 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NOEXTTRIG_Pos   26"
+DWT CTRL: NOEXTTRIG Position 
+.PP
+Definición en la línea 746 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NOEXTTRIG_Pos   26"
+DWT CTRL: NOEXTTRIG Position 
+.PP
+Definición en la línea 775 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NOEXTTRIG_Pos   26"
+DWT CTRL: NOEXTTRIG Position 
+.PP
+Definición en la línea 808 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NOPRFCNT_Msk   (0x1UL << DWT_CTRL_NOPRFCNT_Pos)"
+DWT CTRL: NOPRFCNT Mask 
+.PP
+Definición en la línea 753 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NOPRFCNT_Msk   (0x1UL << DWT_CTRL_NOPRFCNT_Pos)"
+DWT CTRL: NOPRFCNT Mask 
+.PP
+Definición en la línea 782 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NOPRFCNT_Msk   (0x1UL << DWT_CTRL_NOPRFCNT_Pos)"
+DWT CTRL: NOPRFCNT Mask 
+.PP
+Definición en la línea 815 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NOPRFCNT_Pos   24"
+DWT CTRL: NOPRFCNT Position 
+.PP
+Definición en la línea 752 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NOPRFCNT_Pos   24"
+DWT CTRL: NOPRFCNT Position 
+.PP
+Definición en la línea 781 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NOPRFCNT_Pos   24"
+DWT CTRL: NOPRFCNT Position 
+.PP
+Definición en la línea 814 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NOTRCPKT_Msk   (0x1UL << DWT_CTRL_NOTRCPKT_Pos)"
+DWT CTRL: NOTRCPKT Mask 
+.PP
+Definición en la línea 744 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NOTRCPKT_Msk   (0x1UL << DWT_CTRL_NOTRCPKT_Pos)"
+DWT CTRL: NOTRCPKT Mask 
+.PP
+Definición en la línea 773 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NOTRCPKT_Msk   (0x1UL << DWT_CTRL_NOTRCPKT_Pos)"
+DWT CTRL: NOTRCPKT Mask 
+.PP
+Definición en la línea 806 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NOTRCPKT_Pos   27"
+DWT CTRL: NOTRCPKT Position 
+.PP
+Definición en la línea 743 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NOTRCPKT_Pos   27"
+DWT CTRL: NOTRCPKT Position 
+.PP
+Definición en la línea 772 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NOTRCPKT_Pos   27"
+DWT CTRL: NOTRCPKT Position 
+.PP
+Definición en la línea 805 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NUMCOMP_Msk   (0xFUL << DWT_CTRL_NUMCOMP_Pos)"
+DWT CTRL: NUMCOMP Mask 
+.PP
+Definición en la línea 741 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NUMCOMP_Msk   (0xFUL << DWT_CTRL_NUMCOMP_Pos)"
+DWT CTRL: NUMCOMP Mask 
+.PP
+Definición en la línea 770 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NUMCOMP_Msk   (0xFUL << DWT_CTRL_NUMCOMP_Pos)"
+DWT CTRL: NUMCOMP Mask 
+.PP
+Definición en la línea 803 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_NUMCOMP_Pos   28"
+DWT CTRL: NUMCOMP Position 
+.PP
+Definición en la línea 740 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_NUMCOMP_Pos   28"
+DWT CTRL: NUMCOMP Position 
+.PP
+Definición en la línea 769 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_NUMCOMP_Pos   28"
+DWT CTRL: NUMCOMP Position 
+.PP
+Definición en la línea 802 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_PCSAMPLENA_Msk   (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)"
+DWT CTRL: PCSAMPLENA Mask 
+.PP
+Definición en la línea 777 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_PCSAMPLENA_Msk   (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)"
+DWT CTRL: PCSAMPLENA Mask 
+.PP
+Definición en la línea 806 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_PCSAMPLENA_Msk   (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)"
+DWT CTRL: PCSAMPLENA Mask 
+.PP
+Definición en la línea 839 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_PCSAMPLENA_Pos   12"
+DWT CTRL: PCSAMPLENA Position 
+.PP
+Definición en la línea 776 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_PCSAMPLENA_Pos   12"
+DWT CTRL: PCSAMPLENA Position 
+.PP
+Definición en la línea 805 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_PCSAMPLENA_Pos   12"
+DWT CTRL: PCSAMPLENA Position 
+.PP
+Definición en la línea 838 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_POSTINIT_Msk   (0xFUL << DWT_CTRL_POSTINIT_Pos)"
+DWT CTRL: POSTINIT Mask 
+.PP
+Definición en la línea 786 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_POSTINIT_Msk   (0xFUL << DWT_CTRL_POSTINIT_Pos)"
+DWT CTRL: POSTINIT Mask 
+.PP
+Definición en la línea 815 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_POSTINIT_Msk   (0xFUL << DWT_CTRL_POSTINIT_Pos)"
+DWT CTRL: POSTINIT Mask 
+.PP
+Definición en la línea 848 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_POSTINIT_Pos   5"
+DWT CTRL: POSTINIT Position 
+.PP
+Definición en la línea 785 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_POSTINIT_Pos   5"
+DWT CTRL: POSTINIT Position 
+.PP
+Definición en la línea 814 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_POSTINIT_Pos   5"
+DWT CTRL: POSTINIT Position 
+.PP
+Definición en la línea 847 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_POSTPRESET_Msk   (0xFUL << DWT_CTRL_POSTPRESET_Pos)"
+DWT CTRL: POSTPRESET Mask 
+.PP
+Definición en la línea 789 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_POSTPRESET_Msk   (0xFUL << DWT_CTRL_POSTPRESET_Pos)"
+DWT CTRL: POSTPRESET Mask 
+.PP
+Definición en la línea 818 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_POSTPRESET_Msk   (0xFUL << DWT_CTRL_POSTPRESET_Pos)"
+DWT CTRL: POSTPRESET Mask 
+.PP
+Definición en la línea 851 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_POSTPRESET_Pos   1"
+DWT CTRL: POSTPRESET Position 
+.PP
+Definición en la línea 788 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_POSTPRESET_Pos   1"
+DWT CTRL: POSTPRESET Position 
+.PP
+Definición en la línea 817 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_POSTPRESET_Pos   1"
+DWT CTRL: POSTPRESET Position 
+.PP
+Definición en la línea 850 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_SLEEPEVTENA_Msk   (0x1UL << DWT_CTRL_SLEEPEVTENA_Pos)"
+DWT CTRL: SLEEPEVTENA Mask 
+.PP
+Definición en la línea 765 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_SLEEPEVTENA_Msk   (0x1UL << DWT_CTRL_SLEEPEVTENA_Pos)"
+DWT CTRL: SLEEPEVTENA Mask 
+.PP
+Definición en la línea 794 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_SLEEPEVTENA_Msk   (0x1UL << DWT_CTRL_SLEEPEVTENA_Pos)"
+DWT CTRL: SLEEPEVTENA Mask 
+.PP
+Definición en la línea 827 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_SLEEPEVTENA_Pos   19"
+DWT CTRL: SLEEPEVTENA Position 
+.PP
+Definición en la línea 764 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_SLEEPEVTENA_Pos   19"
+DWT CTRL: SLEEPEVTENA Position 
+.PP
+Definición en la línea 793 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_SLEEPEVTENA_Pos   19"
+DWT CTRL: SLEEPEVTENA Position 
+.PP
+Definición en la línea 826 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_SYNCTAP_Msk   (0x3UL << DWT_CTRL_SYNCTAP_Pos)"
+DWT CTRL: SYNCTAP Mask 
+.PP
+Definición en la línea 780 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_SYNCTAP_Msk   (0x3UL << DWT_CTRL_SYNCTAP_Pos)"
+DWT CTRL: SYNCTAP Mask 
+.PP
+Definición en la línea 809 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_SYNCTAP_Msk   (0x3UL << DWT_CTRL_SYNCTAP_Pos)"
+DWT CTRL: SYNCTAP Mask 
+.PP
+Definición en la línea 842 del archivo core_cm4\&.h\&.
+.SS "#define DWT_CTRL_SYNCTAP_Pos   10"
+DWT CTRL: SYNCTAP Position 
+.PP
+Definición en la línea 779 del archivo core_sc300\&.h\&.
+.SS "#define DWT_CTRL_SYNCTAP_Pos   10"
+DWT CTRL: SYNCTAP Position 
+.PP
+Definición en la línea 808 del archivo core_cm3\&.h\&.
+.SS "#define DWT_CTRL_SYNCTAP_Pos   10"
+DWT CTRL: SYNCTAP Position 
+.PP
+Definición en la línea 841 del archivo core_cm4\&.h\&.
+.SS "#define DWT_EXCCNT_EXCCNT_Msk   (0xFFUL << DWT_EXCCNT_EXCCNT_Pos)"
+DWT EXCCNT: EXCCNT Mask 
+.PP
+Definición en la línea 800 del archivo core_sc300\&.h\&.
+.SS "#define DWT_EXCCNT_EXCCNT_Msk   (0xFFUL << DWT_EXCCNT_EXCCNT_Pos)"
+DWT EXCCNT: EXCCNT Mask 
+.PP
+Definición en la línea 829 del archivo core_cm3\&.h\&.
+.SS "#define DWT_EXCCNT_EXCCNT_Msk   (0xFFUL << DWT_EXCCNT_EXCCNT_Pos)"
+DWT EXCCNT: EXCCNT Mask 
+.PP
+Definición en la línea 862 del archivo core_cm4\&.h\&.
+.SS "#define DWT_EXCCNT_EXCCNT_Pos   0"
+DWT EXCCNT: EXCCNT Position 
+.PP
+Definición en la línea 799 del archivo core_sc300\&.h\&.
+.SS "#define DWT_EXCCNT_EXCCNT_Pos   0"
+DWT EXCCNT: EXCCNT Position 
+.PP
+Definición en la línea 828 del archivo core_cm3\&.h\&.
+.SS "#define DWT_EXCCNT_EXCCNT_Pos   0"
+DWT EXCCNT: EXCCNT Position 
+.PP
+Definición en la línea 861 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FOLDCNT_FOLDCNT_Msk   (0xFFUL << DWT_FOLDCNT_FOLDCNT_Pos)"
+DWT FOLDCNT: FOLDCNT Mask 
+.PP
+Definición en la línea 812 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FOLDCNT_FOLDCNT_Msk   (0xFFUL << DWT_FOLDCNT_FOLDCNT_Pos)"
+DWT FOLDCNT: FOLDCNT Mask 
+.PP
+Definición en la línea 841 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FOLDCNT_FOLDCNT_Msk   (0xFFUL << DWT_FOLDCNT_FOLDCNT_Pos)"
+DWT FOLDCNT: FOLDCNT Mask 
+.PP
+Definición en la línea 874 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FOLDCNT_FOLDCNT_Pos   0"
+DWT FOLDCNT: FOLDCNT Position 
+.PP
+Definición en la línea 811 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FOLDCNT_FOLDCNT_Pos   0"
+DWT FOLDCNT: FOLDCNT Position 
+.PP
+Definición en la línea 840 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FOLDCNT_FOLDCNT_Pos   0"
+DWT FOLDCNT: FOLDCNT Position 
+.PP
+Definición en la línea 873 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_CYCMATCH_Msk   (0x1UL << DWT_FUNCTION_CYCMATCH_Pos)"
+DWT FUNCTION: CYCMATCH Mask 
+.PP
+Definición en la línea 838 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_CYCMATCH_Msk   (0x1UL << DWT_FUNCTION_CYCMATCH_Pos)"
+DWT FUNCTION: CYCMATCH Mask 
+.PP
+Definición en la línea 867 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_CYCMATCH_Msk   (0x1UL << DWT_FUNCTION_CYCMATCH_Pos)"
+DWT FUNCTION: CYCMATCH Mask 
+.PP
+Definición en la línea 900 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_CYCMATCH_Pos   7"
+DWT FUNCTION: CYCMATCH Position 
+.PP
+Definición en la línea 837 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_CYCMATCH_Pos   7"
+DWT FUNCTION: CYCMATCH Position 
+.PP
+Definición en la línea 866 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_CYCMATCH_Pos   7"
+DWT FUNCTION: CYCMATCH Position 
+.PP
+Definición en la línea 899 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR0_Msk   (0xFUL << DWT_FUNCTION_DATAVADDR0_Pos)"
+DWT FUNCTION: DATAVADDR0 Mask 
+.PP
+Definición en la línea 826 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR0_Msk   (0xFUL << DWT_FUNCTION_DATAVADDR0_Pos)"
+DWT FUNCTION: DATAVADDR0 Mask 
+.PP
+Definición en la línea 855 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR0_Msk   (0xFUL << DWT_FUNCTION_DATAVADDR0_Pos)"
+DWT FUNCTION: DATAVADDR0 Mask 
+.PP
+Definición en la línea 888 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR0_Pos   12"
+DWT FUNCTION: DATAVADDR0 Position 
+.PP
+Definición en la línea 825 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR0_Pos   12"
+DWT FUNCTION: DATAVADDR0 Position 
+.PP
+Definición en la línea 854 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR0_Pos   12"
+DWT FUNCTION: DATAVADDR0 Position 
+.PP
+Definición en la línea 887 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR1_Msk   (0xFUL << DWT_FUNCTION_DATAVADDR1_Pos)"
+DWT FUNCTION: DATAVADDR1 Mask 
+.PP
+Definición en la línea 823 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR1_Msk   (0xFUL << DWT_FUNCTION_DATAVADDR1_Pos)"
+DWT FUNCTION: DATAVADDR1 Mask 
+.PP
+Definición en la línea 852 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR1_Msk   (0xFUL << DWT_FUNCTION_DATAVADDR1_Pos)"
+DWT FUNCTION: DATAVADDR1 Mask 
+.PP
+Definición en la línea 885 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR1_Pos   16"
+DWT FUNCTION: DATAVADDR1 Position 
+.PP
+Definición en la línea 822 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR1_Pos   16"
+DWT FUNCTION: DATAVADDR1 Position 
+.PP
+Definición en la línea 851 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVADDR1_Pos   16"
+DWT FUNCTION: DATAVADDR1 Position 
+.PP
+Definición en la línea 884 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVMATCH_Msk   (0x1UL << DWT_FUNCTION_DATAVMATCH_Pos)"
+DWT FUNCTION: DATAVMATCH Mask 
+.PP
+Definición en la línea 835 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVMATCH_Msk   (0x1UL << DWT_FUNCTION_DATAVMATCH_Pos)"
+DWT FUNCTION: DATAVMATCH Mask 
+.PP
+Definición en la línea 864 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVMATCH_Msk   (0x1UL << DWT_FUNCTION_DATAVMATCH_Pos)"
+DWT FUNCTION: DATAVMATCH Mask 
+.PP
+Definición en la línea 897 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVMATCH_Pos   8"
+DWT FUNCTION: DATAVMATCH Position 
+.PP
+Definición en la línea 834 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVMATCH_Pos   8"
+DWT FUNCTION: DATAVMATCH Position 
+.PP
+Definición en la línea 863 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVMATCH_Pos   8"
+DWT FUNCTION: DATAVMATCH Position 
+.PP
+Definición en la línea 896 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVSIZE_Msk   (0x3UL << DWT_FUNCTION_DATAVSIZE_Pos)"
+DWT FUNCTION: DATAVSIZE Mask 
+.PP
+Definición en la línea 829 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVSIZE_Msk   (0x3UL << DWT_FUNCTION_DATAVSIZE_Pos)"
+DWT FUNCTION: DATAVSIZE Mask 
+.PP
+Definición en la línea 858 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVSIZE_Msk   (0x3UL << DWT_FUNCTION_DATAVSIZE_Pos)"
+DWT FUNCTION: DATAVSIZE Mask 
+.PP
+Definición en la línea 891 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVSIZE_Pos   10"
+DWT FUNCTION: DATAVSIZE Position 
+.PP
+Definición en la línea 828 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVSIZE_Pos   10"
+DWT FUNCTION: DATAVSIZE Position 
+.PP
+Definición en la línea 857 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_DATAVSIZE_Pos   10"
+DWT FUNCTION: DATAVSIZE Position 
+.PP
+Definición en la línea 890 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_EMITRANGE_Msk   (0x1UL << DWT_FUNCTION_EMITRANGE_Pos)"
+DWT FUNCTION: EMITRANGE Mask 
+.PP
+Definición en la línea 841 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_EMITRANGE_Msk   (0x1UL << DWT_FUNCTION_EMITRANGE_Pos)"
+DWT FUNCTION: EMITRANGE Mask 
+.PP
+Definición en la línea 870 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_EMITRANGE_Msk   (0x1UL << DWT_FUNCTION_EMITRANGE_Pos)"
+DWT FUNCTION: EMITRANGE Mask 
+.PP
+Definición en la línea 903 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_EMITRANGE_Pos   5"
+DWT FUNCTION: EMITRANGE Position 
+.PP
+Definición en la línea 840 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_EMITRANGE_Pos   5"
+DWT FUNCTION: EMITRANGE Position 
+.PP
+Definición en la línea 869 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_EMITRANGE_Pos   5"
+DWT FUNCTION: EMITRANGE Position 
+.PP
+Definición en la línea 902 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_FUNCTION_Msk   (0xFUL << DWT_FUNCTION_FUNCTION_Pos)"
+DWT FUNCTION: FUNCTION Mask 
+.PP
+Definición en la línea 844 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_FUNCTION_Msk   (0xFUL << DWT_FUNCTION_FUNCTION_Pos)"
+DWT FUNCTION: FUNCTION Mask 
+.PP
+Definición en la línea 873 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_FUNCTION_Msk   (0xFUL << DWT_FUNCTION_FUNCTION_Pos)"
+DWT FUNCTION: FUNCTION Mask 
+.PP
+Definición en la línea 906 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_FUNCTION_Pos   0"
+DWT FUNCTION: FUNCTION Position 
+.PP
+Definición en la línea 843 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_FUNCTION_Pos   0"
+DWT FUNCTION: FUNCTION Position 
+.PP
+Definición en la línea 872 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_FUNCTION_Pos   0"
+DWT FUNCTION: FUNCTION Position 
+.PP
+Definición en la línea 905 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_LNK1ENA_Msk   (0x1UL << DWT_FUNCTION_LNK1ENA_Pos)"
+DWT FUNCTION: LNK1ENA Mask 
+.PP
+Definición en la línea 832 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_LNK1ENA_Msk   (0x1UL << DWT_FUNCTION_LNK1ENA_Pos)"
+DWT FUNCTION: LNK1ENA Mask 
+.PP
+Definición en la línea 861 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_LNK1ENA_Msk   (0x1UL << DWT_FUNCTION_LNK1ENA_Pos)"
+DWT FUNCTION: LNK1ENA Mask 
+.PP
+Definición en la línea 894 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_LNK1ENA_Pos   9"
+DWT FUNCTION: LNK1ENA Position 
+.PP
+Definición en la línea 831 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_LNK1ENA_Pos   9"
+DWT FUNCTION: LNK1ENA Position 
+.PP
+Definición en la línea 860 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_LNK1ENA_Pos   9"
+DWT FUNCTION: LNK1ENA Position 
+.PP
+Definición en la línea 893 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_MATCHED_Msk   (0x1UL << DWT_FUNCTION_MATCHED_Pos)"
+DWT FUNCTION: MATCHED Mask 
+.PP
+Definición en la línea 820 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_MATCHED_Msk   (0x1UL << DWT_FUNCTION_MATCHED_Pos)"
+DWT FUNCTION: MATCHED Mask 
+.PP
+Definición en la línea 849 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_MATCHED_Msk   (0x1UL << DWT_FUNCTION_MATCHED_Pos)"
+DWT FUNCTION: MATCHED Mask 
+.PP
+Definición en la línea 882 del archivo core_cm4\&.h\&.
+.SS "#define DWT_FUNCTION_MATCHED_Pos   24"
+DWT FUNCTION: MATCHED Position 
+.PP
+Definición en la línea 819 del archivo core_sc300\&.h\&.
+.SS "#define DWT_FUNCTION_MATCHED_Pos   24"
+DWT FUNCTION: MATCHED Position 
+.PP
+Definición en la línea 848 del archivo core_cm3\&.h\&.
+.SS "#define DWT_FUNCTION_MATCHED_Pos   24"
+DWT FUNCTION: MATCHED Position 
+.PP
+Definición en la línea 881 del archivo core_cm4\&.h\&.
+.SS "#define DWT_LSUCNT_LSUCNT_Msk   (0xFFUL << DWT_LSUCNT_LSUCNT_Pos)"
+DWT LSUCNT: LSUCNT Mask 
+.PP
+Definición en la línea 808 del archivo core_sc300\&.h\&.
+.SS "#define DWT_LSUCNT_LSUCNT_Msk   (0xFFUL << DWT_LSUCNT_LSUCNT_Pos)"
+DWT LSUCNT: LSUCNT Mask 
+.PP
+Definición en la línea 837 del archivo core_cm3\&.h\&.
+.SS "#define DWT_LSUCNT_LSUCNT_Msk   (0xFFUL << DWT_LSUCNT_LSUCNT_Pos)"
+DWT LSUCNT: LSUCNT Mask 
+.PP
+Definición en la línea 870 del archivo core_cm4\&.h\&.
+.SS "#define DWT_LSUCNT_LSUCNT_Pos   0"
+DWT LSUCNT: LSUCNT Position 
+.PP
+Definición en la línea 807 del archivo core_sc300\&.h\&.
+.SS "#define DWT_LSUCNT_LSUCNT_Pos   0"
+DWT LSUCNT: LSUCNT Position 
+.PP
+Definición en la línea 836 del archivo core_cm3\&.h\&.
+.SS "#define DWT_LSUCNT_LSUCNT_Pos   0"
+DWT LSUCNT: LSUCNT Position 
+.PP
+Definición en la línea 869 del archivo core_cm4\&.h\&.
+.SS "#define DWT_MASK_MASK_Msk   (0x1FUL << DWT_MASK_MASK_Pos)"
+DWT MASK: MASK Mask 
+.PP
+Definición en la línea 816 del archivo core_sc300\&.h\&.
+.SS "#define DWT_MASK_MASK_Msk   (0x1FUL << DWT_MASK_MASK_Pos)"
+DWT MASK: MASK Mask 
+.PP
+Definición en la línea 845 del archivo core_cm3\&.h\&.
+.SS "#define DWT_MASK_MASK_Msk   (0x1FUL << DWT_MASK_MASK_Pos)"
+DWT MASK: MASK Mask 
+.PP
+Definición en la línea 878 del archivo core_cm4\&.h\&.
+.SS "#define DWT_MASK_MASK_Pos   0"
+DWT MASK: MASK Position 
+.PP
+Definición en la línea 815 del archivo core_sc300\&.h\&.
+.SS "#define DWT_MASK_MASK_Pos   0"
+DWT MASK: MASK Position 
+.PP
+Definición en la línea 844 del archivo core_cm3\&.h\&.
+.SS "#define DWT_MASK_MASK_Pos   0"
+DWT MASK: MASK Position 
+.PP
+Definición en la línea 877 del archivo core_cm4\&.h\&.
+.SS "#define DWT_SLEEPCNT_SLEEPCNT_Msk   (0xFFUL << DWT_SLEEPCNT_SLEEPCNT_Pos)"
+DWT SLEEPCNT: SLEEPCNT Mask 
+.PP
+Definición en la línea 804 del archivo core_sc300\&.h\&.
+.SS "#define DWT_SLEEPCNT_SLEEPCNT_Msk   (0xFFUL << DWT_SLEEPCNT_SLEEPCNT_Pos)"
+DWT SLEEPCNT: SLEEPCNT Mask 
+.PP
+Definición en la línea 833 del archivo core_cm3\&.h\&.
+.SS "#define DWT_SLEEPCNT_SLEEPCNT_Msk   (0xFFUL << DWT_SLEEPCNT_SLEEPCNT_Pos)"
+DWT SLEEPCNT: SLEEPCNT Mask 
+.PP
+Definición en la línea 866 del archivo core_cm4\&.h\&.
+.SS "#define DWT_SLEEPCNT_SLEEPCNT_Pos   0"
+DWT SLEEPCNT: SLEEPCNT Position 
+.PP
+Definición en la línea 803 del archivo core_sc300\&.h\&.
+.SS "#define DWT_SLEEPCNT_SLEEPCNT_Pos   0"
+DWT SLEEPCNT: SLEEPCNT Position 
+.PP
+Definición en la línea 832 del archivo core_cm3\&.h\&.
+.SS "#define DWT_SLEEPCNT_SLEEPCNT_Pos   0"
+DWT SLEEPCNT: SLEEPCNT Position 
+.PP
+Definición en la línea 865 del archivo core_cm4\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

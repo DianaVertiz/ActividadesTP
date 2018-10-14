@@ -1,0 +1,80 @@
+.TH "LPC_Types_Public_Macros" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_Types_Public_Macros \- LPC Public Macros
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_BIT\fP(n)   (1 << (n))"
+.br
+.ti -1c
+.RI "#define \fB_SBF\fP(f,  v)   ((v) << (f))"
+.br
+.ti -1c
+.RI "#define \fB_BITMASK\fP(field_width)   ( \fB_BIT\fP(field_width) \- 1)"
+.br
+.ti -1c
+.RI "#define \fBNULL\fP   ((void *) 0)"
+.br
+.ti -1c
+.RI "#define \fBNELEMENTS\fP(array)   (sizeof(array) / sizeof(array[0]))"
+.br
+.ti -1c
+.RI "#define \fBSTATIC\fP   static"
+.br
+.ti -1c
+.RI "#define \fBEXTERN\fP   extern"
+.br
+.ti -1c
+.RI "#define \fBMAX\fP(a,  b)   (((a) > (b)) ? (a) : (b))"
+.br
+.ti -1c
+.RI "#define \fBMIN\fP(a,  b)   (((a) < (b)) ? (a) : (b))"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define _BIT(n)   (1 << (n))"
+
+.PP
+Definición en la línea 110 del archivo lpc_types\&.h\&.
+.SS "#define _BITMASK(field_width)   ( \fB_BIT\fP(field_width) \- 1)"
+
+.PP
+Definición en la línea 135 del archivo lpc_types\&.h\&.
+.SS "#define _SBF(f, v)   ((v) << (f))"
+
+.PP
+Definición en la línea 118 del archivo lpc_types\&.h\&.
+.SS "#define EXTERN   extern"
+
+.PP
+Definición en la línea 148 del archivo lpc_types\&.h\&.
+.SS "#define MAX(a, b)   (((a) > (b)) ? (a) : (b))"
+
+.PP
+Definición en la línea 151 del archivo lpc_types\&.h\&.
+.SS "#define MIN(a, b)   (((a) < (b)) ? (a) : (b))"
+
+.PP
+Definición en la línea 154 del archivo lpc_types\&.h\&.
+.SS "#define NELEMENTS(array)   (sizeof(array) / sizeof(array[0]))"
+
+.PP
+Definición en la línea 143 del archivo lpc_types\&.h\&.
+.SS "#define NULL   ((void *) 0)"
+
+.PP
+Definición en la línea 139 del archivo lpc_types\&.h\&.
+.SS "#define STATIC   static"
+
+.PP
+Definición en la línea 146 del archivo lpc_types\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

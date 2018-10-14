@@ -1,0 +1,700 @@
+.TH "SCT_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SCT_18XX_43XX \- CHIP: LPC18xx/43xx State Configurable Timer driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_SCT_T\fP"
+.br
+.RI "\fIState Configurable Timer register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCONFIG_SCT_nEV\fP   (16)"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_SCT_nRG\fP   (16)"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_SCT_nOU\fP   (16)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_16BIT_COUNTER\fP   0x00000000"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_32BIT_COUNTER\fP   0x00000001"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_CLKMODE_BUSCLK\fP   (0x0 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_CLKMODE_SCTCLK\fP   (0x1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_CLKMODE_INCLK\fP   (0x2 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_CLKMODE_INEDGECLK\fP   (0x3 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_NORELOADL_U\fP   (0x1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_NORELOADH\fP   (0x1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_AUTOLIMIT_L\fP   (0x1 << 17)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_AUTOLIMIT_H\fP   (0x1 << 18)"
+.br
+.ti -1c
+.RI "#define \fBCOUNTUP_TO_LIMIT_THEN_CLEAR_TO_ZERO\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCOUNTUP_TO_LIMIT_THEN_CLEAR_TO_ZERO\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCOUNTUP_TO\fP   LIMIT_THEN_COUNTDOWN_TO_ZERO 1"
+.br
+.ti -1c
+.RI "#define \fBCOUNTUP_TO\fP   LIMIT_THEN_COUNTDOWN_TO_ZERO 1"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_STOP_L\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_HALT_L\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_CLRCTR_L\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_BIDIR_L\fP(x)   (((x) & 0x01) << 4)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_PRE_L\fP(x)   (((x) & 0xFF) << 5)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_STOP_H\fP   (1 << 17)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_HALT_H\fP   (1 << 18)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_CLRCTR_H\fP   (1 << 19)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_BIDIR_H\fP(x)   (((x) & 0x01) << 20)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_PRE_H\fP(x)   (((x) & 0xFF) << 21)"
+.br
+.ti -1c
+.RI "#define \fBSCT_RES_NOCHANGE\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBSCT_RES_SET_OUTPUT\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_RES_CLEAR_OUTPUT\fP   (2)"
+.br
+.ti -1c
+.RI "#define \fBSCT_RES_TOGGLE_OUTPUT\fP   (3)"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBCHIP_SCT_MATCH_REG\fP \fBCHIP_SCT_MATCH_REG_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_SCT_EVENT\fP \fBCHIP_SCT_EVENT_T\fP"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_SCT_MATCH_REG\fP { \fBSCT_MATCH_0\fP = 0, \fBSCT_MATCH_1\fP = 1, \fBSCT_MATCH_2\fP = 2, \fBSCT_MATCH_3\fP = 3, \fBSCT_MATCH_4\fP = 4 }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_SCT_EVENT\fP { \fBSCT_EVT_0\fP = (1 << 0), \fBSCT_EVT_1\fP = (1 << 1), \fBSCT_EVT_2\fP = (1 << 2), \fBSCT_EVT_3\fP = (1 << 3), \fBSCT_EVT_4\fP = (1 << 4) }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_Config\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t value)"
+.br
+.RI "\fIConfigures the State Configurable Timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCT_SetClrControl\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t value, \fBFunctionalState\fP ena)"
+.br
+.RI "\fISet or Clear the Control register\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCT_SetConflictResolution\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t outnum, uint8_t value)"
+.br
+.RI "\fISet the conflict resolution\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetCount\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t count)"
+.br
+.RI "\fISet unified count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetCountL\fP (\fBLPC_SCT_T\fP *pSCT, uint16_t count)"
+.br
+.RI "\fISet lower count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetCountH\fP (\fBLPC_SCT_T\fP *pSCT, uint16_t count)"
+.br
+.RI "\fISet higher count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetMatchCount\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_MATCH_REG_T\fP n, uint32_t value)"
+.br
+.RI "\fISet unified match count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetControl\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t value)"
+.br
+.RI "\fISet control register in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_ClearControl\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t value)"
+.br
+.RI "\fIClear control register in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetMatchReload\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_MATCH_REG_T\fP n, uint32_t value)"
+.br
+.RI "\fISet unified match reload count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_EnableEventInt\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_EVENT_T\fP evt)"
+.br
+.RI "\fIEnable the interrupt for the specified event in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_DisableEventInt\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_EVENT_T\fP evt)"
+.br
+.RI "\fIDisable the interrupt for the specified event in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_ClearEventFlag\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_EVENT_T\fP evt)"
+.br
+.RI "\fIClear the specified event flag in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCT_Init\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIInitializes the State Configurable Timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCT_DeInit\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIDeinitializes the State Configurable Timer\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define CONFIG_SCT_nEV   (16)"
+Number of events 
+.PP
+Definición en la línea 47 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define CONFIG_SCT_nOU   (16)"
+Number of outputs 
+.PP
+Definición en la línea 49 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define CONFIG_SCT_nRG   (16)"
+Number of match/compare registers 
+.PP
+Definición en la línea 48 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define COUNTUP_TO   LIMIT_THEN_COUNTDOWN_TO_ZERO 1"
+
+.PP
+Definición en la línea 210 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define COUNTUP_TO   LIMIT_THEN_COUNTDOWN_TO_ZERO 1"
+
+.PP
+Definición en la línea 210 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define COUNTUP_TO_LIMIT_THEN_CLEAR_TO_ZERO   0"
+Direction for low or unified counter
+.PP
+Direction for high counter 
+.PP
+Definición en la línea 209 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define COUNTUP_TO_LIMIT_THEN_CLEAR_TO_ZERO   0"
+Direction for low or unified counter
+.PP
+Direction for high counter 
+.PP
+Definición en la línea 209 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_16BIT_COUNTER   0x00000000"
+Operate as 2 16-bit counters 
+.PP
+Definición en la línea 184 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_32BIT_COUNTER   0x00000001"
+Operate as 1 32-bit counter 
+.PP
+Definición en la línea 185 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_AUTOLIMIT_H   (0x1 << 18)"
+Limits counter(L) based on MATCH0 
+.PP
+Definición en la línea 195 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_AUTOLIMIT_L   (0x1 << 17)"
+Limits counter(L) based on MATCH0 
+.PP
+Definición en la línea 194 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_CLKMODE_BUSCLK   (0x0 << 1)"
+Bus clock 
+.PP
+Definición en la línea 187 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_CLKMODE_INCLK   (0x2 << 1)"
+Input clock selected in CLKSEL field 
+.PP
+Definición en la línea 189 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_CLKMODE_INEDGECLK   (0x3 << 1)"
+Input clock edge selected in CLKSEL field 
+.PP
+Definición en la línea 190 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_CLKMODE_SCTCLK   (0x1 << 1)"
+SCT clock 
+.PP
+Definición en la línea 188 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_NORELOADH   (0x1 << 8)"
+Operate as 1 32-bit counter 
+.PP
+Definición en la línea 193 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CONFIG_NORELOADL_U   (0x1 << 7)"
+Operate as 1 32-bit counter 
+.PP
+Definición en la línea 192 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_BIDIR_H(x)   (((x) & 0x01) << 20)"
+
+.PP
+Definición en la línea 214 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_BIDIR_L(x)   (((x) & 0x01) << 4)"
+Bidirectional bit 
+.PP
+Definición en la línea 206 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_CLRCTR_H   (1 << 19)"
+Clear high counter 
+.PP
+Definición en la línea 213 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_CLRCTR_L   (1 << 3)"
+Clear low or unified counter 
+.PP
+Definición en la línea 205 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_HALT_H   (1 << 18)"
+Halt high counter 
+.PP
+Definición en la línea 212 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_HALT_L   (1 << 2)"
+Halt low counter 
+.PP
+Definición en la línea 204 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_PRE_H(x)   (((x) & 0xFF) << 21)"
+Prescale clock for high counter 
+.PP
+Definición en la línea 215 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_PRE_L(x)   (((x) & 0xFF) << 5)"
+Prescale clock for low or unified counter 
+.PP
+Definición en la línea 207 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_STOP_H   (1 << 17)"
+Stop high counter 
+.PP
+Definición en la línea 211 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_CTRL_STOP_L   (1 << 1)"
+Stop low counter 
+.PP
+Definición en la línea 203 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_RES_CLEAR_OUTPUT   (2)"
+
+.PP
+Definición en la línea 222 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_RES_NOCHANGE   (0)"
+
+.PP
+Definición en la línea 220 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_RES_SET_OUTPUT   (1)"
+
+.PP
+Definición en la línea 221 del archivo sct_18xx_43xx\&.h\&.
+.SS "#define SCT_RES_TOGGLE_OUTPUT   (3)"
+
+.PP
+Definición en la línea 223 del archivo sct_18xx_43xx\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef enum \fBCHIP_SCT_EVENT\fP  \fBCHIP_SCT_EVENT_T\fP"
+SCT Event values enum 
+.SS "typedef enum \fBCHIP_SCT_MATCH_REG\fP  \fBCHIP_SCT_MATCH_REG_T\fP"
+SCT Match register values enum 
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBCHIP_SCT_EVENT\fP"
+SCT Event values enum 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISCT_EVT_0 \fP\fP
+Event 0 
+.TP
+\fB\fISCT_EVT_1 \fP\fP
+Event 1 
+.TP
+\fB\fISCT_EVT_2 \fP\fP
+Event 2 
+.TP
+\fB\fISCT_EVT_3 \fP\fP
+Event 3 
+.TP
+\fB\fISCT_EVT_4 \fP\fP
+Event 4 
+.PP
+Definición en la línea 239 del archivo sct_18xx_43xx\&.h\&.
+.SS "enum \fBCHIP_SCT_MATCH_REG\fP"
+SCT Match register values enum 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fISCT_MATCH_0 \fP\fP
+SCT Match register 0 
+.TP
+\fB\fISCT_MATCH_1 \fP\fP
+SCT Match register 1 
+.TP
+\fB\fISCT_MATCH_2 \fP\fP
+SCT Match register 2 
+.TP
+\fB\fISCT_MATCH_3 \fP\fP
+SCT Match register 3 
+.TP
+\fB\fISCT_MATCH_4 \fP\fP
+SCT Match register 4 
+.PP
+Definición en la línea 228 del archivo sct_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_ClearControl (\fBLPC_SCT_T\fP * pSCT, uint32_t value)"
+
+.PP
+Clear control register in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIvalue\fP : Value (ORed value of SCT_CTRL_* bits) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 350 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_ClearEventFlag (\fBLPC_SCT_T\fP * pSCT, \fBCHIP_SCT_EVENT_T\fP evt)"
+
+.PP
+Clear the specified event flag in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIevt\fP : Event value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 395 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_Config (\fBLPC_SCT_T\fP * pSCT, uint32_t value)"
+
+.PP
+Configures the State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIvalue\fP : The 32-bit CONFIG register value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 253 del archivo sct_18xx_43xx\&.h\&.
+.SS "void Chip_SCT_DeInit (\fBLPC_SCT_T\fP * pSCT)"
+
+.PP
+Deinitializes the State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 57 del archivo sct_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_DisableEventInt (\fBLPC_SCT_T\fP * pSCT, \fBCHIP_SCT_EVENT_T\fP evt)"
+
+.PP
+Disable the interrupt for the specified event in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIevt\fP : Event value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 384 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_EnableEventInt (\fBLPC_SCT_T\fP * pSCT, \fBCHIP_SCT_EVENT_T\fP evt)"
+
+.PP
+Enable the interrupt for the specified event in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIevt\fP : Event value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 373 del archivo sct_18xx_43xx\&.h\&.
+.SS "void Chip_SCT_Init (\fBLPC_SCT_T\fP * pSCT)"
+
+.PP
+Initializes the State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 51 del archivo sct_18xx_43xx\&.c\&.
+.SS "void Chip_SCT_SetClrControl (\fBLPC_SCT_T\fP * pSCT, uint32_t value, \fBFunctionalState\fP ena)"
+
+.PP
+Set or Clear the Control register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : Pointer to SCT register block 
+.br
+\fIvalue\fP : SCT Control register value 
+.br
+\fIena\fP : ENABLE - To set the fields specified by value : DISABLE - To clear the field specified by value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing Set or clear the control register bits as specified by the \fIvalue\fP parameter\&. If \fIena\fP is set to ENABLE, the mentioned register fields will be set\&. If \fIena\fP is set to DISABLE, the mentioned register fields will be cleared 
+.RE
+.PP
+
+.PP
+Definición en la línea 63 del archivo sct_18xx_43xx\&.c\&.
+.SS "void Chip_SCT_SetConflictResolution (\fBLPC_SCT_T\fP * pSCT, uint8_t outnum, uint8_t value)"
+
+.PP
+Set the conflict resolution\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : Pointer to SCT register block 
+.br
+\fIoutnum\fP : Output number 
+.br
+\fIvalue\fP : Output value
+.IP "\(bu" 2
+SCT_RES_NOCHANGE :No change
+.PP
+.RE
+.PP
+.IP "\(bu" 2
+SCT_RES_SET_OUTPUT :Set output
+.IP "\(bu" 2
+SCT_RES_CLEAR_OUTPUT :Clear output
+.IP "\(bu" 2
+SCT_RES_TOGGLE_OUTPUT :Toggle output : SCT_RES_NOCHANGE : DISABLE - To clear the field specified by value 
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing Set conflict resolution for the output \fIoutnum\fP 
+.RE
+.PP
+
+.PP
+
+.PP
+Definición en la línea 78 del archivo sct_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_SetControl (\fBLPC_SCT_T\fP * pSCT, uint32_t value)"
+
+.PP
+Set control register in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIvalue\fP : Value (ORed value of SCT_CTRL_* bits) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 339 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_SetCount (\fBLPC_SCT_T\fP * pSCT, uint32_t count)"
+
+.PP
+Set unified count value in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIcount\fP : The 32-bit count value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 294 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_SetCountH (\fBLPC_SCT_T\fP * pSCT, uint16_t count)"
+
+.PP
+Set higher count value in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIcount\fP : The 16-bit count value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 316 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_SetCountL (\fBLPC_SCT_T\fP * pSCT, uint16_t count)"
+
+.PP
+Set lower count value in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIcount\fP : The 16-bit count value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 305 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_SetMatchCount (\fBLPC_SCT_T\fP * pSCT, \fBCHIP_SCT_MATCH_REG_T\fP n, uint32_t value)"
+
+.PP
+Set unified match count value in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIn\fP : Match register value 
+.br
+\fIvalue\fP : The 32-bit match count value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 328 del archivo sct_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCT_SetMatchReload (\fBLPC_SCT_T\fP * pSCT, \fBCHIP_SCT_MATCH_REG_T\fP n, uint32_t value)"
+
+.PP
+Set unified match reload count value in State Configurable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIn\fP : Match register value 
+.br
+\fIvalue\fP : The 32-bit match count reload value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 362 del archivo sct_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

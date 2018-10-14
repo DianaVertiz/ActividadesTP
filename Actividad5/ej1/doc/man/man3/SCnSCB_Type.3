@@ -1,0 +1,54 @@
+.TH "SCnSCB_Type" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SCnSCB_Type \- Structure type to access the System Control and ID Register not in the SCB\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm3\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [1]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBICTR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [1]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBACTLR\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Structure type to access the System Control and ID Register not in the SCB\&. 
+.PP
+Definición en la línea 553 del archivo core_cm3\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t ACTLR"
+Offset: 0x008 (R/W) Auxiliary Control Register 
+.PP
+Definición en la línea 589 del archivo core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ICTR"
+Offset: 0x004 (R/ ) Interrupt Controller Type Register 
+.PP
+Definición en la línea 556 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED0"
+
+.PP
+Definición en la línea 555 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED1"
+
+.PP
+Definición en la línea 560 del archivo core_cm3\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,468 @@
+.TH "sdif_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sdif_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_SDMMC_T\fP"
+.br
+.RI "\fISD/MMC & SDIO register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBpSDMMC_DMA_T\fP"
+.br
+.RI "\fISDIO chained DMA descriptor\&. \fP"
+.ti -1c
+.RI "struct \fB_sdif_device\fP"
+.br
+.RI "\fISDIO device type\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMCI_DMADES0_OWN\fP   (1UL << 31)"
+.br
+.RI "\fISDIO DMA descriptor control (des0) register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_DMADES0_CES\fP   (1 << 30)"
+.br
+.ti -1c
+.RI "#define \fBMCI_DMADES0_ER\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBMCI_DMADES0_CH\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMCI_DMADES0_FS\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMCI_DMADES0_LD\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMCI_DMADES0_DIC\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMCI_DMADES1_BS1\fP(x)   (x)"
+.br
+.RI "\fISDIO DMA descriptor size (des1) register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_DMADES1_BS2\fP(x)   ((x) << 13)"
+.br
+.ti -1c
+.RI "#define \fBMCI_DMADES1_MAXTR\fP   4096"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_USE_INT_DMAC\fP   (1 << 25)"
+.br
+.RI "\fISDIO control register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_CTRL_CARDV_MASK\fP   (0x7 << 16)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_CEATA_INT_EN\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_SEND_AS_CCSD\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_SEND_CCSD\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_ABRT_READ_DATA\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_SEND_IRQ_RESP\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_READ_WAIT\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_INT_ENABLE\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_DMA_RESET\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_FIFO_RESET\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTRL_RESET\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMCI_POWER_ENABLE\fP   0x1"
+.br
+.RI "\fISDIO Power Enable register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_CLOCK_DIVIDER\fP(dn,  d2)   ((d2) << ((dn) * 8))"
+.br
+.RI "\fISDIO Clock divider register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_CLKSRC_CLKDIV0\fP   0"
+.br
+.RI "\fISDIO Clock source register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_CLKSRC_CLKDIV1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMCI_CLKSRC_CLKDIV2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMCI_CLKSRC_CLKDIV3\fP   3"
+.br
+.ti -1c
+.RI "#define \fBMCI_CLK_SOURCE\fP(clksrc)   (clksrc)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CLKEN_LOW_PWR\fP   (1 << 16)"
+.br
+.RI "\fISDIO Clock Enable register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_CLKEN_ENABLE\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMCI_TMOUT_DATA\fP(clks)   ((clks) << 8)"
+.br
+.RI "\fISDIO time-out register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_TMOUT_DATA_MSK\fP   0xFFFFFF00"
+.br
+.ti -1c
+.RI "#define \fBMCI_TMOUT_RESP\fP(clks)   ((clks) & 0xFF)"
+.br
+.ti -1c
+.RI "#define \fBMCI_TMOUT_RESP_MSK\fP   0xFF"
+.br
+.ti -1c
+.RI "#define \fBMCI_CTYPE_8BIT\fP   (1 << 16)"
+.br
+.RI "\fISDIO card-type register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_CTYPE_4BIT\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_SDIO\fP   (1 << 16)"
+.br
+.RI "\fISDIO Interrupt status & mask register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_INT_EBE\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_ACD\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_SBE\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_HLE\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_FRUN\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_HTO\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_DTO\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_RTO\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_DCRC\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_RCRC\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_RXDR\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_TXDR\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_DATA_OVER\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_CMD_DONE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_RESP_ERR\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMCI_INT_CD\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_START\fP   (1UL << 31)"
+.br
+.RI "\fISDIO Command register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_CMD_VOLT_SWITCH\fP   (1 << 28)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_BOOT_MODE\fP   (1 << 27)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_DISABLE_BOOT\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_EXPECT_BOOT_ACK\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_ENABLE_BOOT\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_CCS_EXP\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_CEATA_RD\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_UPD_CLK\fP   (1 << 21)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_INIT\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_STOP\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_PRV_DAT_WAIT\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_SEND_STOP\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_STRM_MODE\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_DAT_WR\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_DAT_EXP\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_RESP_CRC\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_RESP_LONG\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_RESP_EXP\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBMCI_CMD_INDX\fP(n)   ((n) & 0x1F)"
+.br
+.ti -1c
+.RI "#define \fBMCI_STS_GET_FCNT\fP(x)   (((x) >> 17) & 0x1FF)"
+.br
+.RI "\fISDIO status register definess\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_TX_WM\fP(x)   ((x) & 0xFFF)"
+.br
+.RI "\fISDIO FIFO threshold defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_RX_WM\fP(x)   (((x) & 0xFFF) << 16)"
+.br
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_DMA_MTS_1\fP   (0UL << 28)"
+.br
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_DMA_MTS_4\fP   (1UL << 28)"
+.br
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_DMA_MTS_8\fP   (2UL << 28)"
+.br
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_DMA_MTS_16\fP   (3UL << 28)"
+.br
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_DMA_MTS_32\fP   (4UL << 28)"
+.br
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_DMA_MTS_64\fP   (5UL << 28)"
+.br
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_DMA_MTS_128\fP   (6UL << 28)"
+.br
+.ti -1c
+.RI "#define \fBMCI_FIFOTH_DMA_MTS_256\fP   (7UL << 28)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_PBL1\fP   (0 << 8)"
+.br
+.RI "\fIBus mode register defines\&. \fP"
+.ti -1c
+.RI "#define \fBMCI_BMOD_PBL4\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_PBL8\fP   (2 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_PBL16\fP   (3 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_PBL32\fP   (4 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_PBL64\fP   (5 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_PBL128\fP   (6 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_PBL256\fP   (7 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_DE\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_DSL\fP(len)   ((len) << 2)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_FB\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMCI_BMOD_SWR\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBSD_FIFO_SZ\fP   32"
+.br
+.RI "\fICommonly used definitions\&. \fP"
+.ti -1c
+.RI "#define \fBUS_TIMEOUT\fP   1000000"
+.br
+.RI "\fISetup options for the SDIO driver\&. \fP"
+.ti -1c
+.RI "#define \fBMS_ACQUIRE_DELAY\fP   (10)"
+.br
+.ti -1c
+.RI "#define \fBINIT_OP_RETRIES\fP   50"
+.br
+.ti -1c
+.RI "#define \fBSET_OP_RETRIES\fP   1000"
+.br
+.ti -1c
+.RI "#define \fBSDIO_BUS_WIDTH\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSD_MMC_ENUM_CLOCK\fP   400000"
+.br
+.ti -1c
+.RI "#define \fBMMC_MAX_CLOCK\fP   20000000"
+.br
+.ti -1c
+.RI "#define \fBMMC_LOW_BUS_MAX_CLOCK\fP   26000000"
+.br
+.ti -1c
+.RI "#define \fBMMC_HIGH_BUS_MAX_CLOCK\fP   52000000"
+.br
+.ti -1c
+.RI "#define \fBSD_MAX_CLOCK\fP   25000000"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef uint32_t(* \fBMCI_IRQ_CB_FUNC_T\fP) (uint32_t)"
+.br
+.ti -1c
+.RI "typedef int32_t(* \fBPSCHECK_FUNC_T\fP) (void)"
+.br
+.ti -1c
+.RI "typedef void(* \fBPS_POWER_FUNC_T\fP) (int32_t enable)"
+.br
+.ti -1c
+.RI "typedef struct \fB_sdif_device\fP \fBsdif_device\fP"
+.br
+.RI "\fISDIO device type\&. \fP"
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SDIF_SetBlkSize\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t bytes)"
+.br
+.RI "\fISet block size for the transfer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SDIF_Reset\fP (\fBLPC_SDMMC_T\fP *pSDMMC, int32_t \fBreset\fP)"
+.br
+.RI "\fIReset card in slot\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int32_t \fBChip_SDIF_CardNDetect\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIDetect if an SD card is inserted\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP int32_t \fBChip_SDIF_CardWpOn\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIDetect if write protect is enabled\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SDIF_PowerOff\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIDisable slot power\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SDIF_PowerOn\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIEnable slot power\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SDIF_SetCardType\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t ctype)"
+.br
+.RI "\fIFunction to set card type\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_SDIF_GetIntStatus\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIReturns the raw SD interface interrupt status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SDIF_ClrIntStatus\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t iVal)"
+.br
+.RI "\fIClears the raw SD interface interrupt status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SDIF_SetIntMask\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t iVal)"
+.br
+.RI "\fISets the SD interface interrupt mask\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SDIF_SetBlkSizeByteCnt\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t blk_size)"
+.br
+.RI "\fISet block size and byte count for transfer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SDIF_SetByteCnt\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t bytes)"
+.br
+.RI "\fISet byte count for transfer\&. \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_Init\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIInitializes the SD/MMC card controller\&. \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_DeInit\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIShutdown the SD/MMC card controller\&. \fP"
+.ti -1c
+.RI "int32_t \fBChip_SDIF_SendCmd\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t cmd, uint32_t arg)"
+.br
+.RI "\fIFunction to send command to Card interface unit (CIU) \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_GetResponse\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t *resp)"
+.br
+.RI "\fIRead the response from the last command\&. \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_SetClock\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t clk_rate, uint32_t speed)"
+.br
+.RI "\fISets the SD bus clock speed\&. \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_SetClearIntFifo\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIFunction to clear interrupt & FIFOs\&. \fP"
+.ti -1c
+.RI "void \fBChip_SDIF_DmaSetup\fP (\fBLPC_SDMMC_T\fP *pSDMMC, \fBsdif_device\fP *psdif_dev, uint32_t addr, uint32_t size)"
+.br
+.RI "\fISetup DMA descriptors\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,89 @@
+.TH "LPC_CGU_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_CGU_T \- LPC18XX/43XX CGU register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cguccu_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [5]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFREQ_MON\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBXTAL_OSC_CTRL\fP"
+.br
+.ti -1c
+.RI "\fBCGU_PLL_REG_T\fP \fBPLL\fP [\fBCGU_AUDIO_PLL\fP+1]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPLL0AUDIO_FRAC\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPLL1_STAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPLL1_CTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIDIV_CTRL\fP [\fBCLK_IDIV_LAST\fP]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBASE_CLK\fP [\fBCLK_BASE_LAST\fP]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+LPC18XX/43XX CGU register block structure\&. 
+.PP
+Definición en la línea 66 del archivo cguccu_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t BASE_CLK[\fBCLK_BASE_LAST\fP]"
+(@ 0x4005005C) Start of base clock registers 
+.PP
+Definición en la línea 75 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FREQ_MON"
+(@ 0x40050014) Frequency monitor register 
+.PP
+Definición en la línea 68 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t IDIV_CTRL[\fBCLK_IDIV_LAST\fP]"
+(@ 0x40050048) Integer divider A-E control registers 
+.PP
+Definición en la línea 74 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fBCGU_PLL_REG_T\fP PLL[\fBCGU_AUDIO_PLL\fP+1]"
+(@ 0x4005001C) USB and audio PLL blocks 
+.PP
+Definición en la línea 70 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PLL0AUDIO_FRAC"
+(@ 0x4005003C) PLL0 (audio) 
+.PP
+Definición en la línea 71 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PLL1_CTRL"
+(@ 0x40050044) PLL1 control register 
+.PP
+Definición en la línea 73 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t PLL1_STAT"
+(@ 0x40050040) PLL1 status register 
+.PP
+Definición en la línea 72 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[5]"
+< (@ 0x40050000) CGU Structure 
+.PP
+Definición en la línea 67 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t XTAL_OSC_CTRL"
+(@ 0x40050018) Crystal oscillator control register 
+.PP
+Definición en la línea 69 del archivo cguccu_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

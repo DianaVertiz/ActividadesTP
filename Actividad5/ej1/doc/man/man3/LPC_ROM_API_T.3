@@ -1,0 +1,75 @@
+.TH "LPC_ROM_API_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_ROM_API_T \- LPC18XX High level ROM API structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <romapi_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "void(*const \fBiap_entry\fP )(uint32_t *, uint32_t *)"
+.br
+.ti -1c
+.RI "const \fBOTP_API_T\fP * \fBpOtp\fP"
+.br
+.ti -1c
+.RI "const \fBAES_API_T\fP * \fBpAes\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBreserved\fP [3]"
+.br
+.ti -1c
+.RI "const uint32_t \fBspifiApiBase\fP"
+.br
+.ti -1c
+.RI "const uint32_t \fBusbdApiBase\fP"
+.br
+.ti -1c
+.RI "const uint32_t \fBendMarker\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+LPC18XX High level ROM API structure\&. 
+.PP
+Definición en la línea 87 del archivo romapi_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "const uint32_t endMarker"
+API table end marker = 0x87654321 
+.PP
+Definición en la línea 94 del archivo romapi_18xx_43xx\&.h\&.
+.SS "void(*const iap_entry) (uint32_t *, uint32_t *)"
+IAP API entry function available on Flash parts only 
+.PP
+Definición en la línea 88 del archivo romapi_18xx_43xx\&.h\&.
+.SS "const \fBAES_API_T\fP* pAes"
+
+.PP
+Definición en la línea 90 del archivo romapi_18xx_43xx\&.h\&.
+.SS "const \fBOTP_API_T\fP* pOtp"
+
+.PP
+Definición en la línea 89 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t reserved[3]"
+
+.PP
+Definición en la línea 91 del archivo romapi_18xx_43xx\&.h\&.
+.SS "const uint32_t spifiApiBase"
+SPIFI API function table base address 
+.PP
+Definición en la línea 92 del archivo romapi_18xx_43xx\&.h\&.
+.SS "const uint32_t usbdApiBase"
+USBD API function table base address 
+.PP
+Definición en la línea 93 del archivo romapi_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

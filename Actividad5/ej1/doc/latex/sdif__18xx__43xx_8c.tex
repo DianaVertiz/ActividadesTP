@@ -1,0 +1,21 @@
+\hypertarget{sdif__18xx__43xx_8c}{}\section{Referencia del Archivo sdif\+\_\+18xx\+\_\+43xx.\+c}
+\label{sdif__18xx__43xx_8c}\index{sdif\+\_\+18xx\+\_\+43xx.\+c@{sdif\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___s_d_i_f__18_x_x__43_x_x_gaebb123439fc67c641876a795fce6160f}{Chip\+\_\+\+S\+D\+I\+F\+\_\+\+Init} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em Initializes the S\+D/\+M\+MC card controller. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_d_i_f__18_x_x__43_x_x_gaec05814b0956550eb414ed61a2845eb6}{Chip\+\_\+\+S\+D\+I\+F\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em Shutdown the S\+D/\+M\+MC card controller. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga4cee4237b975343d87b992cf4b90fed2}{Chip\+\_\+\+S\+D\+I\+F\+\_\+\+Send\+Cmd} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t cmd, uint32\+\_\+t arg)
+\begin{DoxyCompactList}\small\item\em Function to send command to Card interface unit (C\+IU) \end{DoxyCompactList}\item 
+void \hyperlink{group___s_d_i_f__18_x_x__43_x_x_gaf31ae80f99b27ee56f4ae341670058ca}{Chip\+\_\+\+S\+D\+I\+F\+\_\+\+Get\+Response} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t $\ast$resp)
+\begin{DoxyCompactList}\small\item\em Read the response from the last command. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga132a1984308917b6297db4ff0a5f9e9f}{Chip\+\_\+\+S\+D\+I\+F\+\_\+\+Set\+Clock} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, uint32\+\_\+t clk\+\_\+rate, uint32\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Sets the SD bus clock speed. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga8b2559327fedf08efe8a5e87ba6f6e54}{Chip\+\_\+\+S\+D\+I\+F\+\_\+\+Set\+Clear\+Int\+Fifo} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em Function to clear interrupt \& F\+I\+F\+Os. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga0c02401583b78fec76f6366730e1ff5f}{Chip\+\_\+\+S\+D\+I\+F\+\_\+\+Dma\+Setup} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga14a605aa797cde1201ae414437a32292}{sdif\+\_\+device} $\ast$psdif\+\_\+dev, uint32\+\_\+t addr, uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Setup D\+MA descriptors. \end{DoxyCompactList}\end{DoxyCompactItemize}

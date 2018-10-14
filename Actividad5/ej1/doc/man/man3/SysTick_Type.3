@@ -1,0 +1,54 @@
+.TH "SysTick_Type" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SysTick_Type \- Structure type to access the System Timer (SysTick)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm0\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBLOAD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBVAL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCALIB\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Structure type to access the System Timer (SysTick)\&. 
+.PP
+Definición en la línea 410 del archivo core_cm0\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__I\fP uint32_t CALIB"
+Offset: 0x00C (R/ ) SysTick Calibration Register 
+.PP
+Definición en la línea 415 del archivo core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t CTRL"
+Offset: 0x000 (R/W) SysTick Control and Status Register 
+.PP
+Definición en la línea 412 del archivo core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t LOAD"
+Offset: 0x004 (R/W) SysTick Reload Value Register 
+.PP
+Definición en la línea 413 del archivo core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t VAL"
+Offset: 0x008 (R/W) SysTick Current Value Register 
+.PP
+Definición en la línea 414 del archivo core_cm0\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,634 @@
+.TH "LCD_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LCD_18XX_43XX \- CHIP: LPC18xx/43xx LCD driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_LCD_T\fP"
+.br
+.RI "\fILCD Controller register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBLCD_PALETTE_ENTRY_T\fP"
+.br
+.RI "\fILCD Palette entry format\&. \fP"
+.ti -1c
+.RI "struct \fBLCD_CONFIG_T\fP"
+.br
+.RI "\fIA structure for LCD Configuration\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLCD_INTMSK_FUFIM\fP   0x2"
+.br
+.ti -1c
+.RI "#define \fBLCD_INTMSK_LNBUIM\fP   0x4"
+.br
+.ti -1c
+.RI "#define \fBLCD_INTMSK_VCOMPIM\fP   0x8"
+.br
+.ti -1c
+.RI "#define \fBLCD_INTMSK_BERIM\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBCLCDC_LCDCTRL_ENABLE\fP   \fB_BIT\fP(0)"
+.br
+.ti -1c
+.RI "#define \fBCLCDC_LCDCTRL_PWR\fP   \fB_BIT\fP(11)"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBLCD_PANEL_OPT_T\fP { \fBLCD_TFT\fP = 0x02, \fBLCD_MONO_4\fP = 0x01, \fBLCD_MONO_8\fP = 0x05, \fBLCD_CSTN\fP = 0x00 }
+.RI "\fILCD Panel type\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBLCD_COLOR_FORMAT_OPT_T\fP { \fBLCD_COLOR_FORMAT_RGB\fP = 0, \fBLCD_COLOR_FORMAT_BGR\fP }
+.RI "\fILCD Color Format\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBLCD_CURSOR_SIZE_OPT_T\fP { \fBLCD_CURSOR_32x32\fP = 0, \fBLCD_CURSOR_64x64\fP }
+.RI "\fILCD Cursor Size\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_LCD_Init\fP (\fBLPC_LCD_T\fP *pLCD, \fBLCD_CONFIG_T\fP *LCD_ConfigStruct)"
+.br
+.RI "\fIInitialize the LCD controller\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_DeInit\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIShutdown the LCD controller\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_PowerOn\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIPower-on the LCD Panel (power pin) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_PowerOff\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIPower-off the LCD Panel (power pin) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Enable\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIEnable/Disable the LCD Controller\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Disable\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIEnable/Disable the LCD Controller\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_SetUPFrameBuffer\fP (\fBLPC_LCD_T\fP *pLCD, void *buffer)"
+.br
+.RI "\fISet LCD Upper Panel Frame Buffer for Single Panel or Upper Panel Frame Buffer for Dual Panel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_SetLPFrameBuffer\fP (\fBLPC_LCD_T\fP *pLCD, void *buffer)"
+.br
+.RI "\fISet LCD Lower Panel Frame Buffer for Dual Panel\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_Cursor_Config\fP (\fBLPC_LCD_T\fP *pLCD, \fBLCD_CURSOR_SIZE_OPT_T\fP cursor_size, bool sync)"
+.br
+.RI "\fIConfigure Cursor\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_Enable\fP (\fBLPC_LCD_T\fP *pLCD, uint8_t cursor_num)"
+.br
+.RI "\fIEnable Cursor\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_Disable\fP (\fBLPC_LCD_T\fP *pLCD, uint8_t cursor_num)"
+.br
+.RI "\fIDisable Cursor\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_LoadPalette0\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t palette_color)"
+.br
+.RI "\fILoad Cursor Palette\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_LoadPalette1\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t palette_color)"
+.br
+.RI "\fILoad Cursor Palette\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_SetPos\fP (\fBLPC_LCD_T\fP *pLCD, uint16_t x, uint16_t y)"
+.br
+.RI "\fISet Cursor Position\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_SetClip\fP (\fBLPC_LCD_T\fP *pLCD, uint16_t x, uint16_t y)"
+.br
+.RI "\fISet Cursor Clipping Position\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_EnableInts\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t ints)"
+.br
+.RI "\fIEnable Controller Interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_DisableInts\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t ints)"
+.br
+.RI "\fIDisable Controller Interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_ClearInts\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t ints)"
+.br
+.RI "\fIClear Controller Interrupt\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_Cursor_WriteImage\fP (\fBLPC_LCD_T\fP *pLCD, uint8_t cursor_num, void *Image)"
+.br
+.RI "\fIWrite Cursor Image into Internal Cursor Image Buffer\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_LoadPalette\fP (\fBLPC_LCD_T\fP *pLCD, void *palette)"
+.br
+.RI "\fILoad LCD Palette\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define CLCDC_LCDCTRL_ENABLE   \fB_BIT\fP(0)"
+LCD control enable bit 
+.PP
+Definición en la línea 116 del archivo lcd_18xx_43xx\&.h\&.
+.SS "#define CLCDC_LCDCTRL_PWR   \fB_BIT\fP(11)"
+LCD control power enable bit 
+.PP
+Definición en la línea 117 del archivo lcd_18xx_43xx\&.h\&.
+.SS "#define LCD_INTMSK_BERIM   0x10"
+AHB master error interrupt enable 
+.PP
+Definición en la línea 114 del archivo lcd_18xx_43xx\&.h\&.
+.SS "#define LCD_INTMSK_FUFIM   0x2"
+LCD Interrupt control mask register bits FIFO underflow interrupt enable 
+.PP
+Definición en la línea 111 del archivo lcd_18xx_43xx\&.h\&.
+.SS "#define LCD_INTMSK_LNBUIM   0x4"
+LCD next base address update interrupt enable 
+.PP
+Definición en la línea 112 del archivo lcd_18xx_43xx\&.h\&.
+.SS "#define LCD_INTMSK_VCOMPIM   0x8"
+Vertical compare interrupt enable 
+.PP
+Definición en la línea 113 del archivo lcd_18xx_43xx\&.h\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBLCD_COLOR_FORMAT_OPT_T\fP"
+
+.PP
+LCD Color Format\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fILCD_COLOR_FORMAT_RGB \fP\fP
+.TP
+\fB\fILCD_COLOR_FORMAT_BGR \fP\fP
+.PP
+Definición en la línea 105 del archivo lcd_18xx_43xx\&.h\&.
+.SS "enum \fBLCD_CURSOR_SIZE_OPT_T\fP"
+
+.PP
+LCD Cursor Size\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fILCD_CURSOR_32x32 \fP\fP
+.TP
+\fB\fILCD_CURSOR_64x64 \fP\fP
+.PP
+Definición en la línea 145 del archivo lcd_18xx_43xx\&.h\&.
+.SS "enum \fBLCD_PANEL_OPT_T\fP"
+
+.PP
+LCD Panel type\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fILCD_TFT \fP\fP
+standard TFT 
+.TP
+\fB\fILCD_MONO_4 \fP\fP
+4-bit STN mono 
+.TP
+\fB\fILCD_MONO_8 \fP\fP
+8-bit STN mono 
+.TP
+\fB\fILCD_CSTN \fP\fP
+color STN 
+.PP
+Definición en la línea 95 del archivo lcd_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_ClearInts (\fBLPC_LCD_T\fP * pLCD, uint32_t ints)"
+
+.PP
+Clear Controller Interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIints\fP : OR'ed interrupt bits to clear 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 353 del archivo lcd_18xx_43xx\&.h\&.
+.SS "void Chip_LCD_Cursor_Config (\fBLPC_LCD_T\fP * pLCD, \fBLCD_CURSOR_SIZE_OPT_T\fP cursor_size, bool sync)"
+
+.PP
+Configure Cursor\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIcursor_size\fP : specify size of cursor
+.IP "\(bu" 2
+LCD_CURSOR_32x32 :cursor size is 32x32 pixels
+.IP "\(bu" 2
+LCD_CURSOR_64x64 :cursor size is 64x64 pixels 
+.PP
+.br
+\fIsync\fP : cursor sync mode
+.IP "\(bu" 2
+TRUE :cursor sync to the frame sync pulse
+.IP "\(bu" 2
+FALSE :cursor async mode 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 140 del archivo lcd_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_Cursor_Disable (\fBLPC_LCD_T\fP * pLCD, uint8_t cursor_num)"
+
+.PP
+Disable Cursor\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIcursor_num\fP : specify number of cursor is going to be written this param must < 4 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 266 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_Cursor_Enable (\fBLPC_LCD_T\fP * pLCD, uint8_t cursor_num)"
+
+.PP
+Enable Cursor\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIcursor_num\fP : specify number of cursor is going to be written this param must < 4 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 254 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_Cursor_LoadPalette0 (\fBLPC_LCD_T\fP * pLCD, uint32_t palette_color)"
+
+.PP
+Load Cursor Palette\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIpalette_color\fP : cursor palette 0 value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 277 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_Cursor_LoadPalette1 (\fBLPC_LCD_T\fP * pLCD, uint32_t palette_color)"
+
+.PP
+Load Cursor Palette\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIpalette_color\fP : cursor palette 1 value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 292 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_Cursor_SetClip (\fBLPC_LCD_T\fP * pLCD, uint16_t x, uint16_t y)"
+
+.PP
+Set Cursor Clipping Position\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIx\fP : horizontal position, should be in range: 0\&.\&.63 
+.br
+\fIy\fP : vertical position, should be in range: 0\&.\&.63 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 320 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_Cursor_SetPos (\fBLPC_LCD_T\fP * pLCD, uint16_t x, uint16_t y)"
+
+.PP
+Set Cursor Position\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIx\fP : horizontal position 
+.br
+\fIy\fP : vertical position 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 308 del archivo lcd_18xx_43xx\&.h\&.
+.SS "void Chip_LCD_Cursor_WriteImage (\fBLPC_LCD_T\fP * pLCD, uint8_t cursor_num, void * Image)"
+
+.PP
+Write Cursor Image into Internal Cursor Image Buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIcursor_num\fP : Cursor index 
+.br
+\fIImage\fP : Pointer to image data 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 147 del archivo lcd_18xx_43xx\&.c\&.
+.SS "void Chip_LCD_DeInit (\fBLPC_LCD_T\fP * pLCD)"
+
+.PP
+Shutdown the LCD controller\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 134 del archivo lcd_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_Disable (\fBLPC_LCD_T\fP * pLCD)"
+
+.PP
+Enable/Disable the LCD Controller\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 206 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_DisableInts (\fBLPC_LCD_T\fP * pLCD, uint32_t ints)"
+
+.PP
+Disable Controller Interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIints\fP : OR'ed interrupt bits to disable 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 342 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_Enable (\fBLPC_LCD_T\fP * pLCD)"
+
+.PP
+Enable/Disable the LCD Controller\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 196 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_EnableInts (\fBLPC_LCD_T\fP * pLCD, uint32_t ints)"
+
+.PP
+Enable Controller Interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIints\fP : OR'ed interrupt bits to enable 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 331 del archivo lcd_18xx_43xx\&.h\&.
+.SS "void Chip_LCD_Init (\fBLPC_LCD_T\fP * pLCD, \fBLCD_CONFIG_T\fP * LCD_ConfigStruct)"
+
+.PP
+Initialize the LCD controller\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fILCD_ConfigStruct\fP : Pointer to LCD configuration 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+LCD_FUNC_OK is executed successfully or LCD_FUNC_ERR on error 
+.RE
+.PP
+
+.PP
+Definición en la línea 53 del archivo lcd_18xx_43xx\&.c\&.
+.SS "void Chip_LCD_LoadPalette (\fBLPC_LCD_T\fP * pLCD, void * palette)"
+
+.PP
+Load LCD Palette\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIpalette\fP : Address of palette table to load 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 173 del archivo lcd_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_PowerOff (\fBLPC_LCD_T\fP * pLCD)"
+
+.PP
+Power-off the LCD Panel (power pin) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 183 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_PowerOn (\fBLPC_LCD_T\fP * pLCD)"
+
+.PP
+Power-on the LCD Panel (power pin) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 170 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_SetLPFrameBuffer (\fBLPC_LCD_T\fP * pLCD, void * buffer)"
+
+.PP
+Set LCD Lower Panel Frame Buffer for Dual Panel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIbuffer\fP : address of buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 229 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_LCD_SetUPFrameBuffer (\fBLPC_LCD_T\fP * pLCD, void * buffer)"
+
+.PP
+Set LCD Upper Panel Frame Buffer for Single Panel or Upper Panel Frame Buffer for Dual Panel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpLCD\fP : The base of LCD peripheral on the chip 
+.br
+\fIbuffer\fP : address of buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 218 del archivo lcd_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

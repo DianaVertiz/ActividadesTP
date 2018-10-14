@@ -1,0 +1,229 @@
+.TH "LPC_CREG_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_CREG_T \- CREG Register Block\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <creg_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCREG0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP [62]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMXMEMMAP\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCREG1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCREG2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCREG3\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCREG4\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCREG5\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMAMUX\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFLASHCFGA\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFLASHCFGB\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBETBCFG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCREG6\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBM4TXEVENT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED4\fP [51]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCHIPID\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED5\fP [65]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBM0SUBMEMMAP\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED6\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBM0SUBTXEVENT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED7\fP [58]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBM0APPTXEVENT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBM0APPMEMMAP\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED8\fP [62]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBUSB0FLADJ\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED9\fP [63]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBUSB1FLADJ\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+CREG Register Block\&. 
+.PP
+Definición en la línea 47 del archivo creg_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__I\fP uint32_t CHIPID"
+Part ID 
+.PP
+Definición en la línea 73 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CREG0"
+Chip configuration register 32 kHz oscillator output and BOD control register\&. 
+.PP
+Definición en la línea 49 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CREG1"
+Configuration Register 1 
+.PP
+Definición en la línea 56 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CREG2"
+Configuration Register 2 
+.PP
+Definición en la línea 57 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CREG3"
+Configuration Register 3 
+.PP
+Definición en la línea 58 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CREG4"
+Configuration Register 4 
+.PP
+Definición en la línea 59 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CREG5"
+Chip configuration register 5\&. Controls JTAG access\&. 
+.PP
+Definición en la línea 61 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CREG6"
+Chip configuration register 6\&. 
+.PP
+Definición en la línea 66 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMAMUX"
+DMA muxing control 
+.PP
+Definición en la línea 62 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ETBCFG"
+ETB RAM configuration 
+.PP
+Definición en la línea 65 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FLASHCFGA"
+Flash accelerator configuration register for flash bank A 
+.PP
+Definición en la línea 63 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FLASHCFGB"
+Flash accelerator configuration register for flash bank B 
+.PP
+Definición en la línea 64 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t M0APPMEMMAP"
+ARM Cortex M0APP memory mapping 
+.PP
+Definición en la línea 83 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t M0APPTXEVENT"
+M0APP IPC Event register 
+.PP
+Definición en la línea 82 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t M0SUBMEMMAP"
+M0SUB IPC Event memory mapping 
+.PP
+Definición en la línea 78 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t M0SUBTXEVENT"
+M0SUB IPC Event register 
+.PP
+Definición en la línea 80 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t M4TXEVENT"
+M4 IPC event register 
+.PP
+Definición en la línea 70 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MXMEMMAP"
+ARM Cortex-M3/M4 memory mapping 
+.PP
+Definición en la línea 51 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0"
+< CREG Structure 
+.PP
+Definición en la línea 48 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1[62]"
+
+.PP
+Definición en la línea 50 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED2"
+
+.PP
+Definición en la línea 55 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED4[51]"
+
+.PP
+Definición en la línea 71 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED5[65]"
+
+.PP
+Definición en la línea 77 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED6[2]"
+
+.PP
+Definición en la línea 79 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED7[58]"
+
+.PP
+Definición en la línea 81 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED8[62]"
+
+.PP
+Definición en la línea 84 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED9[63]"
+
+.PP
+Definición en la línea 87 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USB0FLADJ"
+USB0 frame length adjust register 
+.PP
+Definición en la línea 86 del archivo creg_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USB1FLADJ"
+USB1 frame length adjust register 
+.PP
+Definición en la línea 88 del archivo creg_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

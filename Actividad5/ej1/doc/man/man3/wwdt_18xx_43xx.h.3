@@ -1,0 +1,100 @@
+.TH "wwdt_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+wwdt_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_WWDT_T\fP"
+.br
+.RI "\fIWindowed Watchdog register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBWATCHDOG_WINDOW_SUPPORT\fP"
+.br
+.ti -1c
+.RI "#define \fBWDT_OSC\fP   (\fBCGU_IRC_FREQ\fP)"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_BITMASK\fP   ((uint32_t) 0x1F)"
+.br
+.RI "\fIWatchdog Mode register definitions\&. \fP"
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDEN\fP   ((uint32_t) (1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDRESET\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDTOF\fP   ((uint32_t) (1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDINT\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBWWDT_WDMOD_WDPROTECT\fP   ((uint32_t) (1 << 4))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_WWDT_Init\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIInitialize the Watchdog timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_WWDT_DeInit\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIShutdown the Watchdog timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_SetTimeOut\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t timeout)"
+.br
+.RI "\fISet WDT timeout constant value used for feed\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_Feed\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIFeed watchdog timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_SetWarning\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t timeout)"
+.br
+.RI "\fISet WWDT warning interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_SetWindow\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t timeout)"
+.br
+.RI "\fISet WWDT window time\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_SetOption\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t options)"
+.br
+.RI "\fIEnable watchdog timer options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_UnsetOption\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t options)"
+.br
+.RI "\fIDisable/clear watchdog timer options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_WWDT_Start\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIEnable WWDT activity\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_WWDT_GetStatus\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIRead WWDT status flag\&. \fP"
+.ti -1c
+.RI "void \fBChip_WWDT_ClearStatusFlag\fP (\fBLPC_WWDT_T\fP *pWWDT, uint32_t status)"
+.br
+.RI "\fIClear WWDT interrupt status flags\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_WWDT_GetCurrentCount\fP (\fBLPC_WWDT_T\fP *pWWDT)"
+.br
+.RI "\fIGet the current value of WDT\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

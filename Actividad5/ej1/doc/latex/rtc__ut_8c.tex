@@ -1,0 +1,97 @@
+\hypertarget{rtc__ut_8c}{}\section{Referencia del Archivo rtc\+\_\+ut.\+c}
+\label{rtc__ut_8c}\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+{\ttfamily \#include \char`\"{}rtc\+\_\+ut.\+h\char`\"{}}\\*
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rtc__ut_8c_a4fbe1b6bbb5e5f3ff7300e9ea9991f36}{S\+E\+C\+S\+P\+E\+R\+M\+IN}~(60)
+\item 
+\#define \hyperlink{rtc__ut_8c_ab86ce8e9674b0f354c5491b71148a867}{M\+I\+N\+S\+P\+E\+R\+H\+O\+UR}~(60)
+\item 
+\#define \hyperlink{rtc__ut_8c_a235e72e63a254ecde04f29148b3333fb}{S\+E\+C\+S\+P\+E\+R\+H\+O\+UR}~(\hyperlink{rtc__ut_8c_a4fbe1b6bbb5e5f3ff7300e9ea9991f36}{S\+E\+C\+S\+P\+E\+R\+M\+IN} $\ast$ \hyperlink{rtc__ut_8c_ab86ce8e9674b0f354c5491b71148a867}{M\+I\+N\+S\+P\+E\+R\+H\+O\+UR})
+\item 
+\#define \hyperlink{rtc__ut_8c_a77e3c323dfbddadb30abe56bc5395f91}{H\+O\+U\+R\+S\+P\+E\+R\+D\+AY}~(24)
+\item 
+\#define \hyperlink{rtc__ut_8c_a0711b3fc9ababc38239df227d1bd1e62}{S\+E\+C\+S\+P\+E\+R\+D\+AY}~(\hyperlink{rtc__ut_8c_a4fbe1b6bbb5e5f3ff7300e9ea9991f36}{S\+E\+C\+S\+P\+E\+R\+M\+IN} $\ast$ \hyperlink{rtc__ut_8c_ab86ce8e9674b0f354c5491b71148a867}{M\+I\+N\+S\+P\+E\+R\+H\+O\+UR} $\ast$ \hyperlink{rtc__ut_8c_a77e3c323dfbddadb30abe56bc5395f91}{H\+O\+U\+R\+S\+P\+E\+R\+D\+AY})
+\item 
+\#define \hyperlink{rtc__ut_8c_a9bcc879e9358166ad8cb333bd23baf65}{D\+A\+Y\+S\+P\+E\+R\+W\+E\+EK}~(7)
+\item 
+\#define \hyperlink{rtc__ut_8c_a0d7c8ba0f1a2d8e09a3d69b6b77e12c6}{M\+O\+N\+E\+T\+H\+S\+P\+E\+R\+Y\+E\+AR}~(12)
+\item 
+\#define \hyperlink{rtc__ut_8c_a1738188d2890c7a8c8a630b8a3ad8199}{D\+A\+Y\+S\+P\+E\+R\+Y\+E\+AR}~(365)
+\item 
+\#define \hyperlink{rtc__ut_8c_ada98beed36ef6162d9fa9a9856d67342}{D\+A\+Y\+S\+P\+E\+R\+L\+E\+A\+P\+Y\+E\+AR}~(366)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___r_t_c___u_t_gab32979b30c7fb280248d6aecd3dccfab}{Convert\+Rtc\+Time} (uint32\+\_\+t rtc\+Tick, struct tm $\ast$p\+Time)
+\begin{DoxyCompactList}\small\item\em Converts a R\+TC tick time to Universal time. \end{DoxyCompactList}\item 
+void \hyperlink{group___r_t_c___u_t_ga4923243ffbb19299329003af866ca4bb}{Convert\+Time\+Rtc} (struct tm $\ast$p\+Time, uint32\+\_\+t $\ast$rtc\+Tick)
+\begin{DoxyCompactList}\small\item\em Converts a Universal time to R\+TC tick time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}!D\+A\+Y\+S\+P\+E\+R\+L\+E\+A\+P\+Y\+E\+AR@{D\+A\+Y\+S\+P\+E\+R\+L\+E\+A\+P\+Y\+E\+AR}}
+\index{D\+A\+Y\+S\+P\+E\+R\+L\+E\+A\+P\+Y\+E\+AR@{D\+A\+Y\+S\+P\+E\+R\+L\+E\+A\+P\+Y\+E\+AR}!rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+\subsubsection[{\texorpdfstring{D\+A\+Y\+S\+P\+E\+R\+L\+E\+A\+P\+Y\+E\+AR}{DAYSPERLEAPYEAR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+A\+Y\+S\+P\+E\+R\+L\+E\+A\+P\+Y\+E\+AR~(366)}\hypertarget{rtc__ut_8c_ada98beed36ef6162d9fa9a9856d67342}{}\label{rtc__ut_8c_ada98beed36ef6162d9fa9a9856d67342}
+
+
+Definición en la línea 48 del archivo rtc\+\_\+ut.\+c.
+
+\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}!D\+A\+Y\+S\+P\+E\+R\+W\+E\+EK@{D\+A\+Y\+S\+P\+E\+R\+W\+E\+EK}}
+\index{D\+A\+Y\+S\+P\+E\+R\+W\+E\+EK@{D\+A\+Y\+S\+P\+E\+R\+W\+E\+EK}!rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+\subsubsection[{\texorpdfstring{D\+A\+Y\+S\+P\+E\+R\+W\+E\+EK}{DAYSPERWEEK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+A\+Y\+S\+P\+E\+R\+W\+E\+EK~(7)}\hypertarget{rtc__ut_8c_a9bcc879e9358166ad8cb333bd23baf65}{}\label{rtc__ut_8c_a9bcc879e9358166ad8cb333bd23baf65}
+
+
+Definición en la línea 45 del archivo rtc\+\_\+ut.\+c.
+
+\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}!D\+A\+Y\+S\+P\+E\+R\+Y\+E\+AR@{D\+A\+Y\+S\+P\+E\+R\+Y\+E\+AR}}
+\index{D\+A\+Y\+S\+P\+E\+R\+Y\+E\+AR@{D\+A\+Y\+S\+P\+E\+R\+Y\+E\+AR}!rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+\subsubsection[{\texorpdfstring{D\+A\+Y\+S\+P\+E\+R\+Y\+E\+AR}{DAYSPERYEAR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+A\+Y\+S\+P\+E\+R\+Y\+E\+AR~(365)}\hypertarget{rtc__ut_8c_a1738188d2890c7a8c8a630b8a3ad8199}{}\label{rtc__ut_8c_a1738188d2890c7a8c8a630b8a3ad8199}
+
+
+Definición en la línea 47 del archivo rtc\+\_\+ut.\+c.
+
+\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}!H\+O\+U\+R\+S\+P\+E\+R\+D\+AY@{H\+O\+U\+R\+S\+P\+E\+R\+D\+AY}}
+\index{H\+O\+U\+R\+S\+P\+E\+R\+D\+AY@{H\+O\+U\+R\+S\+P\+E\+R\+D\+AY}!rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+\subsubsection[{\texorpdfstring{H\+O\+U\+R\+S\+P\+E\+R\+D\+AY}{HOURSPERDAY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+O\+U\+R\+S\+P\+E\+R\+D\+AY~(24)}\hypertarget{rtc__ut_8c_a77e3c323dfbddadb30abe56bc5395f91}{}\label{rtc__ut_8c_a77e3c323dfbddadb30abe56bc5395f91}
+
+
+Definición en la línea 43 del archivo rtc\+\_\+ut.\+c.
+
+\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}!M\+I\+N\+S\+P\+E\+R\+H\+O\+UR@{M\+I\+N\+S\+P\+E\+R\+H\+O\+UR}}
+\index{M\+I\+N\+S\+P\+E\+R\+H\+O\+UR@{M\+I\+N\+S\+P\+E\+R\+H\+O\+UR}!rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+\subsubsection[{\texorpdfstring{M\+I\+N\+S\+P\+E\+R\+H\+O\+UR}{MINSPERHOUR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+I\+N\+S\+P\+E\+R\+H\+O\+UR~(60)}\hypertarget{rtc__ut_8c_ab86ce8e9674b0f354c5491b71148a867}{}\label{rtc__ut_8c_ab86ce8e9674b0f354c5491b71148a867}
+
+
+Definición en la línea 41 del archivo rtc\+\_\+ut.\+c.
+
+\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}!M\+O\+N\+E\+T\+H\+S\+P\+E\+R\+Y\+E\+AR@{M\+O\+N\+E\+T\+H\+S\+P\+E\+R\+Y\+E\+AR}}
+\index{M\+O\+N\+E\+T\+H\+S\+P\+E\+R\+Y\+E\+AR@{M\+O\+N\+E\+T\+H\+S\+P\+E\+R\+Y\+E\+AR}!rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+\subsubsection[{\texorpdfstring{M\+O\+N\+E\+T\+H\+S\+P\+E\+R\+Y\+E\+AR}{MONETHSPERYEAR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+O\+N\+E\+T\+H\+S\+P\+E\+R\+Y\+E\+AR~(12)}\hypertarget{rtc__ut_8c_a0d7c8ba0f1a2d8e09a3d69b6b77e12c6}{}\label{rtc__ut_8c_a0d7c8ba0f1a2d8e09a3d69b6b77e12c6}
+
+
+Definición en la línea 46 del archivo rtc\+\_\+ut.\+c.
+
+\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}!S\+E\+C\+S\+P\+E\+R\+D\+AY@{S\+E\+C\+S\+P\+E\+R\+D\+AY}}
+\index{S\+E\+C\+S\+P\+E\+R\+D\+AY@{S\+E\+C\+S\+P\+E\+R\+D\+AY}!rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+\subsubsection[{\texorpdfstring{S\+E\+C\+S\+P\+E\+R\+D\+AY}{SECSPERDAY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+C\+S\+P\+E\+R\+D\+AY~({\bf S\+E\+C\+S\+P\+E\+R\+M\+IN} $\ast$ {\bf M\+I\+N\+S\+P\+E\+R\+H\+O\+UR} $\ast$ {\bf H\+O\+U\+R\+S\+P\+E\+R\+D\+AY})}\hypertarget{rtc__ut_8c_a0711b3fc9ababc38239df227d1bd1e62}{}\label{rtc__ut_8c_a0711b3fc9ababc38239df227d1bd1e62}
+
+
+Definición en la línea 44 del archivo rtc\+\_\+ut.\+c.
+
+\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}!S\+E\+C\+S\+P\+E\+R\+H\+O\+UR@{S\+E\+C\+S\+P\+E\+R\+H\+O\+UR}}
+\index{S\+E\+C\+S\+P\+E\+R\+H\+O\+UR@{S\+E\+C\+S\+P\+E\+R\+H\+O\+UR}!rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+\subsubsection[{\texorpdfstring{S\+E\+C\+S\+P\+E\+R\+H\+O\+UR}{SECSPERHOUR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+C\+S\+P\+E\+R\+H\+O\+UR~({\bf S\+E\+C\+S\+P\+E\+R\+M\+IN} $\ast$ {\bf M\+I\+N\+S\+P\+E\+R\+H\+O\+UR})}\hypertarget{rtc__ut_8c_a235e72e63a254ecde04f29148b3333fb}{}\label{rtc__ut_8c_a235e72e63a254ecde04f29148b3333fb}
+
+
+Definición en la línea 42 del archivo rtc\+\_\+ut.\+c.
+
+\index{rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}!S\+E\+C\+S\+P\+E\+R\+M\+IN@{S\+E\+C\+S\+P\+E\+R\+M\+IN}}
+\index{S\+E\+C\+S\+P\+E\+R\+M\+IN@{S\+E\+C\+S\+P\+E\+R\+M\+IN}!rtc\+\_\+ut.\+c@{rtc\+\_\+ut.\+c}}
+\subsubsection[{\texorpdfstring{S\+E\+C\+S\+P\+E\+R\+M\+IN}{SECSPERMIN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+C\+S\+P\+E\+R\+M\+IN~(60)}\hypertarget{rtc__ut_8c_a4fbe1b6bbb5e5f3ff7300e9ea9991f36}{}\label{rtc__ut_8c_a4fbe1b6bbb5e5f3ff7300e9ea9991f36}
+
+
+Definición en la línea 40 del archivo rtc\+\_\+ut.\+c.
+

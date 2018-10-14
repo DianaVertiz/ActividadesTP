@@ -1,0 +1,378 @@
+.TH "I2CM_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+I2CM_18XX_43XX \- CHIP: LPC18xx/43xx I2C master-only driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBI2CM_XFER_T\fP"
+.br
+.RI "\fIMaster transfer data structure definitions\&. \fP"
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_I2CM_Init\fP (\fBLPC_I2C_T\fP *pI2C)"
+.br
+.RI "\fIInitialize I2C Interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2CM_DeInit\fP (\fBLPC_I2C_T\fP *pI2C)"
+.br
+.RI "\fIShutdown I2C Interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2CM_SetBusSpeed\fP (\fBLPC_I2C_T\fP *pI2C, uint32_t busSpeed)"
+.br
+.RI "\fISet up bus speed for LPC_I2C controller\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_XferHandler\fP (\fBLPC_I2C_T\fP *pI2C, \fBI2CM_XFER_T\fP *xfer)"
+.br
+.RI "\fITransfer state change handler handler\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2CM_Xfer\fP (\fBLPC_I2C_T\fP *pI2C, \fBI2CM_XFER_T\fP *xfer)"
+.br
+.RI "\fITransmit and Receive data in master mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_XferBlocking\fP (\fBLPC_I2C_T\fP *pI2C, \fBI2CM_XFER_T\fP *xfer)"
+.br
+.RI "\fITransmit and Receive data in master mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_Write\fP (\fBLPC_I2C_T\fP *pI2C, const uint8_t *buff, uint32_t len)"
+.br
+.RI "\fIWrite given buffer of data to I2C interface\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_Read\fP (\fBLPC_I2C_T\fP *pI2C, uint8_t *buff, uint32_t len)"
+.br
+.RI "\fIRead data from I2C slave to given buffer\&. \fP"
+.in -1c
+.in +1c
+.ti -1c
+.RI "#define \fBI2CM_XFER_OPTION_IGNORE_NACK\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBI2CM_XFER_OPTION_LAST_RX_ACK\fP   0x02"
+.br
+.in -1c
+.in +1c
+.ti -1c
+.RI "#define \fBI2CM_STATUS_OK\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_ERROR\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_NAK\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_BUS_ERROR\fP   0x03"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_SLAVE_NAK\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_ARBLOST\fP   0x05"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_BUSY\fP   0xFF"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+This driver only works in master mode\&. To describe the I2C transactions following symbols are used in driver documentation\&.
+.PP
+.SH "Key to symbols "
+.PP
+.PP
+S (1 bit) : Start bit P (1 bit) : Stop bit Rd/Wr (1 bit) : Read/Write bit\&. Rd equals 1, Wr equals 0\&. A, NA (1 bit) : Acknowledge and Not-Acknowledge bit\&. Addr (7 bits): I2C 7 bit address\&. Note that this can be expanded as usual to get a 10 bit I2C address\&. Data (8 bits): A plain data byte\&. Sometimes, I write DataLow, DataHigh for 16 bit data\&. [\&.\&.]: Data sent by I2C device, as opposed to data sent by the host adapter\&. 
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define I2CM_STATUS_ARBLOST   0x05"
+Arbitration lost\&. 
+.PP
+Definición en la línea 82 del archivo i2cm_18xx_43xx\&.h\&.
+.SS "#define I2CM_STATUS_BUS_ERROR   0x03"
+I2C bus error 
+.PP
+Definición en la línea 80 del archivo i2cm_18xx_43xx\&.h\&.
+.SS "#define I2CM_STATUS_BUSY   0xFF"
+I2C transmitter is busy\&. 
+.PP
+Definición en la línea 83 del archivo i2cm_18xx_43xx\&.h\&.
+.SS "#define I2CM_STATUS_ERROR   0x01"
+Unknown error condition\&. 
+.PP
+Definición en la línea 78 del archivo i2cm_18xx_43xx\&.h\&.
+.SS "#define I2CM_STATUS_NAK   0x02"
+No acknowledgement received from slave\&. 
+.PP
+Definición en la línea 79 del archivo i2cm_18xx_43xx\&.h\&.
+.SS "#define I2CM_STATUS_OK   0x00"
+I2CM_18XX_43XX_STATUS_TYPES I2C master transfer status typesRequested Request was executed successfully\&. 
+.PP
+Definición en la línea 77 del archivo i2cm_18xx_43xx\&.h\&.
+.SS "#define I2CM_STATUS_SLAVE_NAK   0x04"
+No device responded for given slave address during SLA+W or SLA+R 
+.PP
+Definición en la línea 81 del archivo i2cm_18xx_43xx\&.h\&.
+.SS "#define I2CM_XFER_OPTION_IGNORE_NACK   0x01"
+I2CM_18XX_43XX_OPTIONS_TYPES I2C master transfer optionsIgnore NACK during data transfer\&. By default transfer is aborted\&. 
+.PP
+Definición en la línea 65 del archivo i2cm_18xx_43xx\&.h\&.
+.SS "#define I2CM_XFER_OPTION_LAST_RX_ACK   0x02"
+ACK last byte received\&. By default we NACK last byte we receive per I2C spec\&. 
+.PP
+Definición en la línea 67 del archivo i2cm_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_I2CM_DeInit (\fBLPC_I2C_T\fP * pI2C)"
+
+.PP
+Shutdown I2C Interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2C\fP : Pointer to selected I2C peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function disables the I2C clock\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 68 del archivo i2cm_18xx_43xx\&.c\&.
+.SS "void Chip_I2CM_Init (\fBLPC_I2C_T\fP * pI2C)"
+
+.PP
+Initialize I2C Interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2C\fP : Pointer to selected I2C peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function enables the I2C clock\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 59 del archivo i2cm_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_I2CM_Read (\fBLPC_I2C_T\fP * pI2C, uint8_t * buff, uint32_t len)"
+
+.PP
+Read data from I2C slave to given buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2C\fP : Pointer to selected I2C peripheral 
+.br
+\fIbuff\fP : Pointer to buffer for data received from I2C slave 
+.br
+\fIlen\fP : Length of the buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Returns number of bytes read\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function is a blocking call\&. The function generates START/repeat-START condition on bus and starts reading data until requested number of bytes are read\&. No STOP condition is transmitted on the bus\&.
+.RE
+.PP
+S [Data0] A [Data1] A \&.\&.\&. [DataN] A 
+.PP
+Definición en la línea 234 del archivo i2cm_18xx_43xx\&.c\&.
+.SS "void Chip_I2CM_SetBusSpeed (\fBLPC_I2C_T\fP * pI2C, uint32_t busSpeed)"
+
+.PP
+Set up bus speed for LPC_I2C controller\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2C\fP : Pointer to selected I2C peripheral 
+.br
+\fIbusSpeed\fP : I2C bus clock rate 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Per I2C specification the busSpeed should be 
+.PD 0
+
+.IP "\(bu" 2
+100000 for Standard mode 
+.IP "\(bu" 2
+400000 for Fast mode 
+.IP "\(bu" 2
+1000000 for Fast mode plus IOCON registers corresponding to I2C pads should be updated according to the bus mode\&. 
+.PP
+.RE
+.PP
+
+.PP
+Definición en la línea 77 del archivo i2cm_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_I2CM_Write (\fBLPC_I2C_T\fP * pI2C, const uint8_t * buff, uint32_t len)"
+
+.PP
+Write given buffer of data to I2C interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2C\fP : Pointer to selected I2C peripheral 
+.br
+\fIbuff\fP : Pointer to buffer to be transmitted 
+.br
+\fIlen\fP : Length of the buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Returns number of bytes written\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function is a blocking call\&. The function generates START/repeat-START condition on bus and starts transmitting data until transfer finishes or a NACK is received\&. No STOP condition is transmitted on the bus\&.
+.RE
+.PP
+S Data0 [A] Data1 [A] \&.\&.\&. DataN [A] 
+.PP
+Definición en la línea 197 del archivo i2cm_18xx_43xx\&.c\&.
+.SS "void Chip_I2CM_Xfer (\fBLPC_I2C_T\fP * pI2C, \fBI2CM_XFER_T\fP * xfer)"
+
+.PP
+Transmit and Receive data in master mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2C\fP : Pointer to selected I2C peripheral 
+.br
+\fIxfer\fP : Pointer to a \fBI2CM_XFER_T\fP structure see notes below 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The parameter \fIxfer\fP should have its member \fIslaveAddr\fP initialized to the 7-Bit slave address to which the master will do the xfer, Bit0 to bit6 should have the address and Bit8 is ignored\&. During the transfer no code (like event handler) must change the content of the memory pointed to by \fIxfer\fP\&. The member of \fIxfer\fP, \fItxBuff\fP and \fItxSz\fP be initialized to the memory from which the I2C must pick the data to be transferred to slave and the number of bytes to send respectively, similarly \fIrxBuff\fP and \fIrxSz\fP must have pointer to memory where data received from slave be stored and the number of data to get from slave respectively\&. Following types of transfers are possible:
+.IP "\(bu" 2
+Write-only transfer: When \fIrxSz\fP member of \fIxfer\fP is set to 0\&. 
+.PP
+.nf
+   S Addr Wr [A] txBuff0 [A] txBuff1 [A] ... txBuffN [A] P
+
+.fi
+.PP
+.IP "  \(bu" 4
+If I2CM_XFER_OPTION_IGNORE_NACK is set in \fIoptions\fP member
+.PP
+S Addr Wr [A] txBuff0 [A or NA] \&.\&.\&. txBuffN [A or NA] P
+.PP
+
+.IP "\(bu" 2
+Read-only transfer: When \fItxSz\fP member of \fIxfer\fP is set to 0\&. 
+.PP
+.nf
+   S Addr Rd [A] [rxBuff0] A [rxBuff1] A ... [rxBuffN] NA P
+
+.fi
+.PP
+.IP "  \(bu" 4
+If I2CM_XFER_OPTION_LAST_RX_ACK is set in \fIoptions\fP member
+.PP
+S Addr Rd [A] [rxBuff0] A [rxBuff1] A \&.\&.\&. [rxBuffN] A P
+.PP
+
+.IP "\(bu" 2
+Read-Write transfer: When \fIrxSz\fP and @ txSz members of \fIxfer\fP are non-zero\&. 
+.PP
+.nf
+   S Addr Wr [A] txBuff0 [A] txBuff1 [A] ... txBuffN [A]
+       S Addr Rd [A] [rxBuff0] A [rxBuff1] A ... [rxBuffN] NA P
+.fi
+.PP
+ 
+.PP
+.RE
+.PP
+
+.PP
+Definición en la línea 170 del archivo i2cm_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_I2CM_XferBlocking (\fBLPC_I2C_T\fP * pI2C, \fBI2CM_XFER_T\fP * xfer)"
+
+.PP
+Transmit and Receive data in master mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2C\fP : Pointer to selected I2C peripheral 
+.br
+\fIxfer\fP : Pointer to a \fBI2CM_XFER_T\fP structure see notes below 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Returns non-zero value on successful completion of transfer\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function operates same as \fBChip_I2CM_Xfer()\fP, but is a blocking call\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 181 del archivo i2cm_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_I2CM_XferHandler (\fBLPC_I2C_T\fP * pI2C, \fBI2CM_XFER_T\fP * xfer)"
+
+.PP
+Transfer state change handler handler\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpI2C\fP : Pointer to selected I2C peripheral 
+.br
+\fIxfer\fP : Pointer to a \fBI2CM_XFER_T\fP structure see notes below 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Returns non-zero value on completion of transfer\&. The \fIstatus\fP member of \fIxfer\fP structure contains the current status of the transfer at the end of the call\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The parameter \fIxfer\fP should be same as the one passed to \fBChip_I2CM_Xfer()\fP routine\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 85 del archivo i2cm_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

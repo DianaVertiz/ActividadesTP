@@ -1,0 +1,69 @@
+.TH "COMMON_EEPROM" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+COMMON_EEPROM \- CHIP: Common Chip EEPROM commands
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBChip_EEPROM_Write\fP (uint32_t dstAdd, uint8_t *ptr, uint32_t byteswrt)"
+.br
+.RI "\fIWrite data to EEPROM\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_EEPROM_Read\fP (uint32_t srcAdd, uint8_t *ptr, uint32_t bytesrd)"
+.br
+.RI "\fIRead data from EEPROM\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de las funciones"
+.PP 
+.SS "uint8_t Chip_EEPROM_Read (uint32_t srcAdd, uint8_t * ptr, uint32_t bytesrd)"
+
+.PP
+Read data from EEPROM\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIsrcAdd\fP : EEPROM address to be read from 
+.br
+\fIptr\fP : Pointer to buffer to read to 
+.br
+\fIbytesrd\fP : Number of bytes to read from EEPROM 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+An IAP response definition from \fBiap\&.h\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 67 del archivo eeprom\&.c\&.
+.SS "uint8_t Chip_EEPROM_Write (uint32_t dstAdd, uint8_t * ptr, uint32_t byteswrt)"
+
+.PP
+Write data to EEPROM\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIdstAdd\fP : EEPROM address to be written to 
+.br
+\fIptr\fP : Pointer to buffer to write from 
+.br
+\fIbyteswrt\fP : Number of bytes to write to EEPROM 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+An IAP response definition from \fBiap\&.h\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 52 del archivo eeprom\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

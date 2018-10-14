@@ -1,0 +1,507 @@
+.TH "EEPROM_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EEPROM_18XX_43XX \- CHIP: LPC18xx/43xx EEPROM driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_EEPROM_T\fP"
+.br
+.RI "\fIEEPROM register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBEEPROM_START\fP   (0x20040000)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_PAGE_SIZE\fP   (128)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_PAGE_NUM\fP   (128)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_ADDRESS\fP(page,  offset)   (\fBEEPROM_START\fP + (\fBEEPROM_PAGE_SIZE\fP * (page)) + offset)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_CLOCK_DIV\fP   1500000"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_READ_WAIT_STATE_VAL\fP   0x58"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_WAIT_STATE_VAL\fP   0x232"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_CMD_ERASE_PRG_PAGE\fP   (6)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_AUTOPROG_OFF\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_AUTOPROG_AFT_1WORDWRITTEN\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_AUTOPROG_AFT_LASTWORDWRITTEN\fP   (2)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_PWRDWN\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_INT_ENDOFPROG\fP   (1 << 2)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_EnablePowerDown\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIPut EEPROM device in power down mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_DisablePowerDown\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIBring EEPROM device out of power down mode\&. \fP"
+.ti -1c
+.RI "void \fBChip_EEPROM_Init\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIInitializes EEPROM\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_DeInit\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIDe-initializes EEPROM\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetAutoProg\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mode)"
+.br
+.RI "\fISet Auto program mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetReadWaitState\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t ws)"
+.br
+.RI "\fISet EEPROM Read Wait State\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetWaitState\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t ws)"
+.br
+.RI "\fISet EEPROM wait state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetCmd\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t cmd)"
+.br
+.RI "\fISelect an EEPROM command\&. \fP"
+.ti -1c
+.RI "void \fBChip_EEPROM_EraseProgramPage\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIErase/Program an EEPROM page\&. \fP"
+.ti -1c
+.RI "void \fBChip_EEPROM_WaitForIntStatus\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fIWait for interrupt occurs\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_EnableInt\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fIEnable EEPROM interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_DisableInt\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fIDisable EEPROM interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_EEPROM_GetIntEnable\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIGet the value of the EEPROM interrupt enable register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_EEPROM_GetIntStatus\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIGet EEPROM interrupt status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetIntStatus\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fISet EEPROM interrupt status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_ClearIntStatus\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fIClear EEPROM interrupt status\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define EEPROM_ADDRESS(page, offset)   (\fBEEPROM_START\fP + (\fBEEPROM_PAGE_SIZE\fP * (page)) + offset)"
+Get the eeprom address 
+.PP
+Definición en la línea 52 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_AUTOPROG_AFT_1WORDWRITTEN   (1)"
+Erase/program cycle is triggered after 1 word is written 
+.PP
+Definición en la línea 86 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_AUTOPROG_AFT_LASTWORDWRITTEN   (2)"
+Erase/program cycle is triggered after a write to AHB address ending with \&.\&.\&.\&.\&.\&.1111100 (last word of a page) 
+.PP
+Definición en la línea 87 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_AUTOPROG_OFF   (0)"
+Auto programming off 
+.PP
+Definición en la línea 85 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_CLOCK_DIV   1500000"
+
+.PP
+Definición en la línea 53 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_CMD_ERASE_PRG_PAGE   (6)"
+EEPROM erase/program command 
+.PP
+Definición en la línea 80 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_INT_ENDOFPROG   (1 << 2)"
+
+.PP
+Definición en la línea 99 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_PAGE_NUM   (128)"
+The number of EEPROM pages\&. The last page is not writable\&. 
+.PP
+Definición en la línea 50 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_PAGE_SIZE   (128)"
+EEPROM byes per page 
+.PP
+Definición en la línea 48 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_PWRDWN   (1 << 0)"
+
+.PP
+Definición en la línea 94 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_READ_WAIT_STATE_VAL   0x58"
+
+.PP
+Definición en la línea 54 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_START   (0x20040000)"
+EEPROM start address 
+.PP
+Definición en la línea 46 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "#define EEPROM_WAIT_STATE_VAL   0x232"
+
+.PP
+Definición en la línea 55 del archivo eeprom_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_ClearIntStatus (\fBLPC_EEPROM_T\fP * pEEPROM, uint32_t mask)"
+
+.PP
+Clear EEPROM interrupt status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.br
+\fImask\fP : Interrupt mask (or-ed bits value of EEPROM_INT_*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 263 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_DeInit (\fBLPC_EEPROM_T\fP * pEEPROM)"
+
+.PP
+De-initializes EEPROM\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 133 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_DisableInt (\fBLPC_EEPROM_T\fP * pEEPROM, uint32_t mask)"
+
+.PP
+Disable EEPROM interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.br
+\fImask\fP : Interrupt mask (or-ed bits value of EEPROM_INT_*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 221 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_DisablePowerDown (\fBLPC_EEPROM_T\fP * pEEPROM)"
+
+.PP
+Bring EEPROM device out of power down mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 116 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_EnableInt (\fBLPC_EEPROM_T\fP * pEEPROM, uint32_t mask)"
+
+.PP
+Enable EEPROM interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.br
+\fImask\fP : Interrupt mask (or-ed bits value of EEPROM_INT_*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 210 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_EnablePowerDown (\fBLPC_EEPROM_T\fP * pEEPROM)"
+
+.PP
+Put EEPROM device in power down mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 106 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "void Chip_EEPROM_EraseProgramPage (\fBLPC_EEPROM_T\fP * pEEPROM)"
+
+.PP
+Erase/Program an EEPROM page\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 81 del archivo eeprom_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_EEPROM_GetIntEnable (\fBLPC_EEPROM_T\fP * pEEPROM)"
+
+.PP
+Get the value of the EEPROM interrupt enable register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+OR-ed bits value of EEPROM_INT_* 
+.RE
+.PP
+
+.PP
+Definición en la línea 231 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_EEPROM_GetIntStatus (\fBLPC_EEPROM_T\fP * pEEPROM)"
+
+.PP
+Get EEPROM interrupt status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+OR-ed bits value of EEPROM_INT_* 
+.RE
+.PP
+
+.PP
+Definición en la línea 241 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "void Chip_EEPROM_Init (\fBLPC_EEPROM_T\fP * pEEPROM)"
+
+.PP
+Initializes EEPROM\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 72 del archivo eeprom_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_SetAutoProg (\fBLPC_EEPROM_T\fP * pEEPROM, uint32_t mode)"
+
+.PP
+Set Auto program mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.br
+\fImode\fP : Auto Program Mode (One of EEPROM_AUTOPROG_* value) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 145 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_SetCmd (\fBLPC_EEPROM_T\fP * pEEPROM, uint32_t cmd)"
+
+.PP
+Select an EEPROM command\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.br
+\fIcmd\fP : EEPROM command 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The cmd is OR-ed bits value of EEPROM_CMD_* 
+.RE
+.PP
+
+.PP
+Definición en la línea 184 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_SetIntStatus (\fBLPC_EEPROM_T\fP * pEEPROM, uint32_t mask)"
+
+.PP
+Set EEPROM interrupt status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.br
+\fImask\fP : Interrupt mask (or-ed bits value of EEPROM_INT_*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 252 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_SetReadWaitState (\fBLPC_EEPROM_T\fP * pEEPROM, uint32_t ws)"
+
+.PP
+Set EEPROM Read Wait State\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.br
+\fIws\fP : Wait State value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Bits 7:0 represents wait state for Read Phase 2 and Bits 15:8 represents wait state for Read Phase1 
+.RE
+.PP
+
+.PP
+Definición en la línea 158 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_EEPROM_SetWaitState (\fBLPC_EEPROM_T\fP * pEEPROM, uint32_t ws)"
+
+.PP
+Set EEPROM wait state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.br
+\fIws\fP : Wait State value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Bits 7:0 represents wait state for Phase 3, Bits 15:8 represents wait state for Phase2, and Bits 23:16 represents wait state for Phase1 
+.RE
+.PP
+
+.PP
+Definición en la línea 172 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "void Chip_EEPROM_WaitForIntStatus (\fBLPC_EEPROM_T\fP * pEEPROM, uint32_t mask)"
+
+.PP
+Wait for interrupt occurs\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpEEPROM\fP : Pointer to EEPROM peripheral block structure 
+.br
+\fImask\fP : Expected interrupt 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 89 del archivo eeprom_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

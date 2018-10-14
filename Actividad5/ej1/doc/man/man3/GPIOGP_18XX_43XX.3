@@ -1,0 +1,318 @@
+.TH "GPIOGP_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GPIOGP_18XX_43XX \- CHIP: LPC18xx/43xx GPIO group driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_GPIOGROUPINT_T\fP"
+.br
+.RI "\fIGPIO grouped interrupt register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBGPIOGR_INT\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBGPIOGR_COMB\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBGPIOGR_TRIG\fP   (1 << 2)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_ClearIntStatus\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fIClear interrupt pending status for the selected group\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIOGP_GetIntStatus\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fIReturns current GPIO group inetrrupt pending status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectOrMode\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fISelected GPIO group functionality for trigger on any pin in group (OR mode) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectAndMode\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fISelected GPIO group functionality for trigger on all matching pins in group (AND mode) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectEdgeMode\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fISelected GPIO group functionality edge trigger mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectLevelMode\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group)"
+.br
+.RI "\fISelected GPIO group functionality level trigger mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectLowLevel\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fISet selected pins for the group and port to low level trigger\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_SelectHighLevel\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fISet selected pins for the group and port to high level trigger\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_DisableGroupPins\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fIDisabled selected pins for the group interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIOGP_EnableGroupPins\fP (\fBLPC_GPIOGROUPINT_T\fP *pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fIEnable selected pins for the group interrupt\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define GPIOGR_COMB   (1 << 1)"
+GPIO interrupt OR(0)/AND(1) mode bit 
+.PP
+Definición en la línea 59 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "#define GPIOGR_INT   (1 << 0)"
+LPC18xx/43xx GPIO group bit definitionsGPIO interrupt pending/clear bit 
+.PP
+Definición en la línea 58 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "#define GPIOGR_TRIG   (1 << 2)"
+GPIO interrupt edge(0)/level(1) mode bit 
+.PP
+Definición en la línea 60 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIOGP_ClearIntStatus (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group)"
+
+.PP
+Clear interrupt pending status for the selected group\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 68 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIOGP_DisableGroupPins (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+
+.PP
+Disabled selected pins for the group interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.br
+\fIport\fP : GPIO port number 
+.br
+\fIpinMask\fP : Or'ed value of pins to disable interrupt for (bit 0 = pin 0, 1 = pin1, etc\&.) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Disabled pins do not contrinute to the group interrupt\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 172 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIOGP_EnableGroupPins (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+
+.PP
+Enable selected pins for the group interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.br
+\fIport\fP : GPIO port number 
+.br
+\fIpinMask\fP : Or'ed value of pins to enable interrupt for (bit 0 = pin 0, 1 = pin1, etc\&.) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Enabled pins contribute to the group interrupt\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 189 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP bool Chip_GPIOGP_GetIntStatus (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group)"
+
+.PP
+Returns current GPIO group inetrrupt pending status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+true if the group interrupt is pending, otherwise false\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 82 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIOGP_SelectAndMode (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group)"
+
+.PP
+Selected GPIO group functionality for trigger on all matching pins in group (AND mode) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 104 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIOGP_SelectEdgeMode (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group)"
+
+.PP
+Selected GPIO group functionality edge trigger mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 115 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIOGP_SelectHighLevel (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+
+.PP
+Set selected pins for the group and port to high level trigger\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.br
+\fIport\fP : GPIO port number 
+.br
+\fIpinMask\fP : Or'ed value of pins to select for high level (bit 0 = pin 0, 1 = pin1, etc\&.) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 155 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIOGP_SelectLevelMode (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group)"
+
+.PP
+Selected GPIO group functionality level trigger mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 126 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIOGP_SelectLowLevel (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group, uint8_t port, uint32_t pinMask)"
+
+.PP
+Set selected pins for the group and port to low level trigger\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.br
+\fIport\fP : GPIO port number 
+.br
+\fIpinMask\fP : Or'ed value of pins to select for low level (bit 0 = pin 0, 1 = pin1, etc\&.) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 139 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_GPIOGP_SelectOrMode (\fBLPC_GPIOGROUPINT_T\fP * pGPIOGPINT, uint8_t group)"
+
+.PP
+Selected GPIO group functionality for trigger on any pin in group (OR mode) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPIOGPINT\fP : Pointer to GPIO group register block 
+.br
+\fIgroup\fP : GPIO group number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 93 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

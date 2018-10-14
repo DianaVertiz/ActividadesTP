@@ -1,0 +1,145 @@
+.TH "LPC_RTC_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_RTC_T \- Real Time Clock register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <rtc_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBILR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCIIR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBAMR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCTIME\fP [3]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTIME\fP [\fBRTC_TIMETYPE_LAST\fP]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCALIBRATION\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP [7]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBALRM\fP [\fBRTC_TIMETYPE_LAST\fP]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBERSTATUS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBERCONTROL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBERCOUNTERS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBERFIRSTSTAMP\fP [\fBRTC_EV_CHANNEL_NUM\fP]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED3\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBERLASTSTAMP\fP [\fBRTC_EV_CHANNEL_NUM\fP]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Real Time Clock register block structure\&. 
+.PP
+Definición en la línea 76 del archivo rtc_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t ALRM[\fBRTC_TIMETYPE_LAST\fP]"
+Alarm field registers 
+.PP
+Definición en la línea 86 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t AMR"
+Alarm Mask Register 
+.PP
+Definición en la línea 81 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CALIBRATION"
+Calibration Value Register 
+.PP
+Definición en la línea 84 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CCR"
+Clock Control Register 
+.PP
+Definición en la línea 79 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CIIR"
+Counter Increment Interrupt Register 
+.PP
+Definición en la línea 80 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CTIME[3]"
+Consolidated Time Register 0,1,2 
+.PP
+Definición en la línea 82 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ERCONTROL"
+Event Monitor/Recorder Control register 
+.PP
+Definición en la línea 89 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t ERCOUNTERS"
+Event Monitor/Recorder Counters register 
+.PP
+Definición en la línea 90 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t ERFIRSTSTAMP[\fBRTC_EV_CHANNEL_NUM\fP]"
+Event Monitor/Recorder First Stamp registers 
+.PP
+Definición en la línea 92 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t ERLASTSTAMP[\fBRTC_EV_CHANNEL_NUM\fP]"
+Event Monitor/Recorder Last Stamp registers 
+.PP
+Definición en la línea 94 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ERSTATUS"
+Event Monitor/Recorder Status register 
+.PP
+Definición en la línea 88 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ILR"
+< RTC Structure Interrupt Location Register 
+.PP
+Definición en la línea 77 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0"
+
+.PP
+Definición en la línea 78 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1[7]"
+
+.PP
+Definición en la línea 85 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED2"
+
+.PP
+Definición en la línea 91 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED3"
+
+.PP
+Definición en la línea 93 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TIME[\fBRTC_TIMETYPE_LAST\fP]"
+Timer field registers 
+.PP
+Definición en la línea 83 del archivo rtc_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,68 @@
+.TH "GPDMA_CH_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GPDMA_CH_T \- GPDMA Channel register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <gpdma_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSRCADDR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDESTADDR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBLLI\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONTROL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCONFIG\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP [3]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+GPDMA Channel register block structure\&. 
+.PP
+Definición en la línea 52 del archivo gpdma_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t CONFIG"
+DMA Channel Configuration Register 
+.PP
+Definición en la línea 57 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CONTROL"
+DMA Channel Control Register 
+.PP
+Definición en la línea 56 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DESTADDR"
+DMA Channel Destination Address Register 
+.PP
+Definición en la línea 54 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t LLI"
+DMA Channel Linked List Item Register 
+.PP
+Definición en la línea 55 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1[3]"
+
+.PP
+Definición en la línea 58 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SRCADDR"
+DMA Channel Source Address Register 
+.PP
+Definición en la línea 53 del archivo gpdma_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,312 @@
+.TH "emc_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+emc_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_EMC_T\fP"
+.br
+.RI "\fIExternal Memory Controller (EMC) register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBIP_EMC_DYN_DEVICE_CONFIG_T\fP"
+.br
+.RI "\fIEMC Dynamic Device Configuration structure used for IP drivers\&. \fP"
+.ti -1c
+.RI "struct \fBIP_EMC_DYN_CONFIG_T\fP"
+.br
+.RI "\fIEMC Dynamic Configure Struct\&. \fP"
+.ti -1c
+.RI "struct \fBIP_EMC_STATIC_CONFIG_T\fP"
+.br
+.RI "\fIEMC Static Configure Structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBEMC_ADDRESS_DYCS0\fP   (0x28000000)"
+.br
+.ti -1c
+.RI "#define \fBEMC_ADDRESS_DYCS1\fP   (0x30000000)"
+.br
+.ti -1c
+.RI "#define \fBEMC_ADDRESS_DYCS2\fP   (0x60000000)"
+.br
+.ti -1c
+.RI "#define \fBEMC_ADDRESS_DYCS3\fP   (0x70000000)"
+.br
+.ti -1c
+.RI "#define \fBEMC_ADDRESS_CS0\fP   (0x1C000000)"
+.br
+.ti -1c
+.RI "#define \fBEMC_ADDRESS_CS1\fP   (0x1D000000)"
+.br
+.ti -1c
+.RI "#define \fBEMC_ADDRESS_CS2\fP   (0x1E000000)"
+.br
+.ti -1c
+.RI "#define \fBEMC_ADDRESS_CS3\fP   (0x1F000000)"
+.br
+.ti -1c
+.RI "#define \fBEMC_SUPPORT_ONLY_PL172\fP"
+.br
+.RI "\fIEMC register support bitfields and mask\&. \fP"
+.ti -1c
+.RI "#define \fBEMC_CONFIG_ENDIAN_LITTLE\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBEMC_CONFIG_ENDIAN_BIG\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBEMC_CONFIG_BUFFER_ENABLE\fP   (1 << 19)"
+.br
+.ti -1c
+.RI "#define \fBEMC_CONFIG_WRITE_PROTECT\fP   (1 << 20)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_MD_BIT\fP   (3)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_MD_SDRAM\fP   (0 << \fBEMC_DYN_CONFIG_MD_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_MD_LPSDRAM\fP   (1 << \fBEMC_DYN_CONFIG_MD_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_LPSDRAM_BIT\fP   (12)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_LPSDRAM\fP   (1 << \fBEMC_DYN_CONFIG_LPSDRAM_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_SIZE_BIT\fP   (9)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_SIZE_16Mb\fP   (0x00 << EMC_DYN_CONFIG_DEV_SIZE_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_SIZE_64Mb\fP   (0x01 << EMC_DYN_CONFIG_DEV_SIZE_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_SIZE_128Mb\fP   (0x02 << EMC_DYN_CONFIG_DEV_SIZE_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_SIZE_256Mb\fP   (0x03 << EMC_DYN_CONFIG_DEV_SIZE_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_SIZE_512Mb\fP   (0x04 << EMC_DYN_CONFIG_DEV_SIZE_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_BUS_BIT\fP   (7)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_BUS_8\fP   (0x00 << EMC_DYN_CONFIG_DEV_BUS_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_BUS_16\fP   (0x01 << EMC_DYN_CONFIG_DEV_BUS_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DEV_BUS_32\fP   (0x02 << EMC_DYN_CONFIG_DEV_BUS_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DATA_BUS_WIDTH_BIT\fP   (14)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DATA_BUS_16\fP   (0x00 << EMC_DYN_CONFIG_DATA_BUS_WIDTH_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_DATA_BUS_32\fP   (0x01 << EMC_DYN_CONFIG_DATA_BUS_WIDTH_BIT)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_2Mx8_2BANKS_11ROWS_9COLS\fP   ((0x0 << 9) | (0x0 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_1Mx16_2BANKS_11ROWS_8COLS\fP   ((0x0 << 9) | (0x1 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_8Mx8_4BANKS_12ROWS_9COLS\fP   ((0x1 << 9) | (0x0 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_4Mx16_4BANKS_12ROWS_8COLS\fP   ((0x1 << 9) | (0x1 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_2Mx32_4BANKS_11ROWS_8COLS\fP   ((0x1 << 9) | (0x2 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_16Mx8_4BANKS_12ROWS_10COLS\fP   ((0x2 << 9) | (0x0 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_8Mx16_4BANKS_12ROWS_9COLS\fP   ((0x2 << 9) | (0x1 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_4Mx32_4BANKS_12ROWS_8COLS\fP   ((0x2 << 9) | (0x2 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_32Mx8_4BANKS_13ROWS_10COLS\fP   ((0x3 << 9) | (0x0 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_16Mx16_4BANKS_13ROWS_9COLS\fP   ((0x3 << 9) | (0x1 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_8Mx32_4BANKS_13ROWS_8COLS\fP   ((0x3 << 9) | (0x2 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_64Mx8_4BANKS_13ROWS_11COLS\fP   ((0x4 << 9) | (0x0 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONFIG_32Mx16_4BANKS_13ROWS_10COLS\fP   ((0x4 << 9) | (0x1 << 7))"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_BURST_LEN_BIT\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_BURST_LEN_1\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_BURST_LEN_2\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_BURST_LEN_4\fP   (2)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_BURST_LEN_8\fP   (3)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_BURST_LEN_FULL\fP   (7)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_BURST_TYPE_BIT\fP   (3)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_BURST_TYPE_SEQUENTIAL\fP   (0 << \fBEMC_DYN_MODE_BURST_TYPE_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_BURST_TYPE_INTERLEAVE\fP   (1 << \fBEMC_DYN_MODE_BURST_TYPE_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_CAS_BIT\fP   (4)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_CAS_1\fP   (1 << \fBEMC_DYN_MODE_CAS_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_CAS_2\fP   (2 << \fBEMC_DYN_MODE_CAS_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_CAS_3\fP   (3 << \fBEMC_DYN_MODE_CAS_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_OPMODE_BIT\fP   (7)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_OPMODE_STANDARD\fP   (0 << \fBEMC_DYN_MODE_OPMODE_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_WBMODE_BIT\fP   (9)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_WBMODE_PROGRAMMED\fP   (0 << \fBEMC_DYN_MODE_WBMODE_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_MODE_WBMODE_SINGLE_LOC\fP   (1 << \fBEMC_DYN_MODE_WBMODE_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_DYN_CONTROL_ENABLE\fP   (0x03)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_MEM_WIDTH_8\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_MEM_WIDTH_16\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_MEM_WIDTH_32\fP   (2)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_PAGE_MODE_BIT\fP   (3)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_PAGE_MODE_ENABLE\fP   (1 << \fBEMC_STATIC_CONFIG_PAGE_MODE_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_CS_POL_BIT\fP   (6)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_CS_POL_ACTIVE_HIGH\fP   (1 << \fBEMC_STATIC_CONFIG_CS_POL_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_CS_POL_ACTIVE_LOW\fP   (0 << \fBEMC_STATIC_CONFIG_CS_POL_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_BLS_BIT\fP   (7)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_BLS_HIGH\fP   (1 << \fBEMC_STATIC_CONFIG_BLS_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_BLS_LOW\fP   (0 << \fBEMC_STATIC_CONFIG_BLS_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_EW_BIT\fP   (8)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_EW_ENABLE\fP   (1 << \fBEMC_STATIC_CONFIG_EW_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBEMC_STATIC_CONFIG_EW_DISABLE\fP   (0 << \fBEMC_STATIC_CONFIG_EW_BIT\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ24_8_FP\fP(x)   ((x) * 256)"
+.br
+.ti -1c
+.RI "#define \fBEMC_NANOSECOND\fP(x)   \fBQ24_8_FP\fP(x)"
+.br
+.ti -1c
+.RI "#define \fBEMC_CLOCK\fP(x)   \fBQ24_8_FP\fP(\-(x))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_EMC_Dynamic_Init\fP (\fBIP_EMC_DYN_CONFIG_T\fP *Dynamic_Config)"
+.br
+.RI "\fIDyanmic memory setup\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Static_Init\fP (\fBIP_EMC_STATIC_CONFIG_T\fP *Static_Config)"
+.br
+.RI "\fIStatic memory setup\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Dynamic_Enable\fP (uint8_t Enable)"
+.br
+.RI "\fIEnable Dynamic Memory Controller\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Mirror\fP (uint8_t Enable)"
+.br
+.RI "\fIMirror CS1 to CS0 and DYCS0\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Enable\fP (uint8_t Enable)"
+.br
+.RI "\fIEnable EMC\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_LowPowerMode\fP (uint8_t Enable)"
+.br
+.RI "\fISet EMC LowPower Mode\&. \fP"
+.ti -1c
+.RI "void \fBChip_EMC_Init\fP (uint32_t Enable, uint32_t ClockRatio, uint32_t EndianMode)"
+.br
+.RI "\fIInitialize EMC\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EMC_SetStaticExtendedWait\fP (uint32_t Wait16Clks)"
+.br
+.RI "\fISet Static Memory Extended Wait in Clock\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

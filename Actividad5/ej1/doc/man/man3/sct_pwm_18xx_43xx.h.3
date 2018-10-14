@@ -1,0 +1,51 @@
+.TH "sct_pwm_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sct_pwm_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_SCTPWM_GetTicksPerCycle\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIGet number of ticks per PWM cycle\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_SCTPWM_PercentageToTicks\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t percent)"
+.br
+.RI "\fIConverts a percentage to ticks\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_SCTPWM_GetDutyCycle\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t index)"
+.br
+.RI "\fIGet number of ticks on per PWM cycle\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCTPWM_SetDutyCycle\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t index, uint32_t ticks)"
+.br
+.RI "\fIGet number of ticks on per PWM cycle\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCTPWM_Init\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIInitialize the SCT/PWM clock and reset\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCTPWM_Start\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIStart the SCT PWM\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCTPWM_Stop\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIStop the SCT PWM\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCTPWM_SetRate\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t freq)"
+.br
+.RI "\fISets the frequency of the generated PWM wave\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCTPWM_SetOutPin\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t index, uint8_t pin)"
+.br
+.RI "\fISetup the OUTPUT pin and associate it with an index\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

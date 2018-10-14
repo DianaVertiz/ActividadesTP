@@ -1,0 +1,124 @@
+.TH "LPC_EEPROM_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_EEPROM_T \- EEPROM register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <eeprom_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCMD\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRWSTATE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBAUTOPROG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBWSTATE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCLKDIV\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPWRDWN\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [1007]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTENCLR\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTENSET\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTEN\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTSTATCLR\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTSTATSET\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+EEPROM register block structure\&. 
+.PP
+Definición en la línea 60 del archivo eeprom_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t AUTOPROG"
+EEPROM auto programming register 
+.PP
+Definición en la línea 64 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CLKDIV"
+EEPROM clock divider register 
+.PP
+Definición en la línea 66 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CMD"
+EEPROM command register 
+.PP
+Definición en la línea 61 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTEN"
+EEPROM interrupt enable 
+.PP
+Definición en la línea 72 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTENCLR"
+EEPROM interrupt enable clear 
+.PP
+Definición en la línea 69 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTENSET"
+EEPROM interrupt enable set 
+.PP
+Definición en la línea 70 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTSTAT"
+EEPROM interrupt status 
+.PP
+Definición en la línea 71 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTSTATCLR"
+EEPROM interrupt status clear 
+.PP
+Definición en la línea 73 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTSTATSET"
+EEPROM interrupt status set 
+.PP
+Definición en la línea 74 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PWRDWN"
+EEPROM power-down register 
+.PP
+Definición en la línea 67 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED0"
+
+.PP
+Definición en la línea 62 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED2[1007]"
+
+.PP
+Definición en la línea 68 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RWSTATE"
+EEPROM read wait state register 
+.PP
+Definición en la línea 63 del archivo eeprom_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t WSTATE"
+EEPROM wait state register 
+.PP
+Definición en la línea 65 del archivo eeprom_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,1297 @@
+.TH "I2C_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+I2C_18XX_43XX \- CHIP: LPC18xx_43xx I2C driver
+.SS "Módulos"
+
+.in +1c
+.ti -1c
+.RI "\fBCHIP: LPC18xx/43xx I2C master\-only driver\fP"
+.br
+.in -1c
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_I2C_T\fP"
+.br
+.RI "\fII2C register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_AA\fP   ((0x04))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_SI\fP   ((0x08))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_STO\fP   ((0x10))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_STA\fP   ((0x20))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONSET_I2EN\fP   ((0x40))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_AAC\fP   ((1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_SIC\fP   ((1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_STOC\fP   ((1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_STAC\fP   ((1 << 5))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CONCLR_I2ENC\fP   ((1 << 6))"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_AA\fP   (1UL << 2)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_SI\fP   (1UL << 3)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_STO\fP   (1UL << 4)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_STA\fP   (1UL << 5)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CON_I2EN\fP   (1UL << 6)"
+.br
+.ti -1c
+.RI "#define \fBI2C_STAT_CODE_BITMASK\fP   ((0xF8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_STAT_CODE_ERROR\fP   ((0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_START\fP   ((0x08))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_RESTART\fP   ((0x10))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_SLAW_ACK\fP   ((0x18))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_SLAW_NACK\fP   ((0x20))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_DAT_ACK\fP   ((0x28))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_DAT_NACK\fP   ((0x30))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_TX_ARB_LOST\fP   ((0x38))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_START\fP   ((0x08))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_RESTART\fP   ((0x10))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_ARB_LOST\fP   ((0x38))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_SLAR_ACK\fP   ((0x40))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_SLAR_NACK\fP   ((0x48))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_DAT_ACK\fP   ((0x50))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_M_RX_DAT_NACK\fP   ((0x58))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_SLAW_ACK\fP   ((0x60))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_ARB_LOST_M_SLA\fP   ((0x68))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_GENCALL_ACK\fP   ((0x70))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_ARB_LOST_M_GENCALL\fP   ((0x78))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_PRE_SLA_DAT_ACK\fP   ((0x80))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_PRE_SLA_DAT_NACK\fP   ((0x88))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_PRE_GENCALL_DAT_ACK\fP   ((0x90))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_PRE_GENCALL_DAT_NACK\fP   ((0x98))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_RX_STA_STO_SLVREC_SLVTRX\fP   ((0xA0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_SLAR_ACK\fP   ((0xA8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_ARB_LOST_M_SLA\fP   ((0xB0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_DAT_ACK\fP   ((0xB8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_DAT_NACK\fP   ((0xC0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_S_TX_LAST_DAT_ACK\fP   ((0xC8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_SLAVE_TIME_OUT\fP   0x10000000UL"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2DAT_BITMASK\fP   ((0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2DAT_IDLE_CHAR\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MMCTRL_MM_ENA\fP   ((1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MMCTRL_ENA_SCL\fP   ((1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MMCTRL_MATCH_ALL\fP   ((1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MMCTRL_BITMASK\fP   ((0x07))"
+.br
+.ti -1c
+.RI "#define \fBI2DATA_BUFFER_BITMASK\fP   ((0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2ADR_GC\fP   ((1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2ADR_BITMASK\fP   ((0xFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2MASK_MASK\fP(n)   ((n & 0xFE))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2SCLH_BITMASK\fP   ((0xFFFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2SCLL_BITMASK\fP   ((0xFFFF))"
+.br
+.ti -1c
+.RI "#define \fBI2C_MONITOR_CFG_SCL_OUTPUT\fP   \fBI2C_I2MMCTRL_ENA_SCL\fP"
+.br
+.ti -1c
+.RI "#define \fBI2C_MONITOR_CFG_MATCHALL\fP   \fBI2C_I2MMCTRL_MATCH_ALL\fP"
+.br
+.in -1c
+.in +1c
+.ti -1c
+.RI "#define \fBRET_SLAVE_TX\fP   6"
+.br
+.RI "\fIReturn values for SLAVE handler\&. \fP"
+.ti -1c
+.RI "#define \fBRET_SLAVE_RX\fP   5"
+.br
+.ti -1c
+.RI "#define \fBRET_SLAVE_IDLE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBRET_SLAVE_BUSY\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_STA_STO_RECV\fP   0x20"
+.br
+.RI "\fII2C state handle return values\&. \fP"
+.ti -1c
+.RI "#define \fBI2C_I2STAT_NO_INF\fP   ((0xF8))"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2STAT_BUS_ERROR\fP   ((0x00))"
+.br
+.ti -1c
+.RI "#define \fBI2C_SETUP_STATUS_ARBF\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBI2C_SETUP_STATUS_NOACKF\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBI2C_SETUP_STATUS_DONE\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBI2C_OK\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBI2C_BYTE_SENT\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBI2C_BYTE_RECV\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBI2C_LAST_BYTE_RECV\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBI2C_SEND_END\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBI2C_RECV_END\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBI2C_STA_STO_RECV\fP   0x20"
+.br
+.RI "\fII2C state handle return values\&. \fP"
+.ti -1c
+.RI "#define \fBI2C_ERR\fP   (0x10000000)"
+.br
+.ti -1c
+.RI "#define \fBI2C_NAK_RECV\fP   (0x10000000 | 0x01)"
+.br
+.ti -1c
+.RI "#define \fBI2C_CheckError\fP(ErrorCode)   (ErrorCode & 0x10000000)"
+.br
+.ti -1c
+.RI "#define \fBI2C_MONITOR_CFG_SCL_OUTPUT\fP   \fBI2C_I2MMCTRL_ENA_SCL\fP"
+.br
+.ti -1c
+.RI "#define \fBI2C_MONITOR_CFG_MATCHALL\fP   \fBI2C_I2MMCTRL_MATCH_ALL\fP"
+.br
+.ti -1c
+.RI "enum \fBI2C_SLAVE_ID\fP { \fBI2C_SLAVE_GENERAL\fP, \fBI2C_SLAVE_0\fP, \fBI2C_SLAVE_1\fP, \fBI2C_SLAVE_2\fP, \fBI2C_SLAVE_3\fP, \fBI2C_SLAVE_NUM_INTERFACE\fP }
+.RI "\fII2C Slave Identifiers\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBI2C_STATUS_T\fP { \fBI2C_STATUS_DONE\fP, \fBI2C_STATUS_NAK\fP, \fBI2C_STATUS_ARBLOST\fP, \fBI2C_STATUS_BUSERR\fP, \fBI2C_STATUS_BUSY\fP, \fBI2C_STATUS_SLAVENAK\fP }
+.RI "\fII2C transfer status\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBI2C_ID\fP { \fBI2C0\fP, \fBI2C1\fP, \fBI2C_NUM_INTERFACE\fP }
+.RI "\fII2C interface IDs\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBI2C_EVENT_T\fP { \fBI2C_EVENT_WAIT\fP = 1, \fBI2C_EVENT_DONE\fP, \fBI2C_EVENT_LOCK\fP, \fBI2C_EVENT_UNLOCK\fP, \fBI2C_EVENT_SLAVE_RX\fP, \fBI2C_EVENT_SLAVE_TX\fP }
+.RI "\fII2C master events\&. \fP""
+.br
+.ti -1c
+.RI "typedef enum \fBI2C_ID\fP \fBI2C_ID_T\fP"
+.br
+.RI "\fII2C interface IDs\&. \fP"
+.ti -1c
+.RI "typedef void(* \fBI2C_EVENTHANDLER_T\fP) (\fBI2C_ID_T\fP, \fBI2C_EVENT_T\fP)"
+.br
+.RI "\fIEvent handler function type\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_Init\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIInitializes the LPC_I2C peripheral with specified parameter\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_DeInit\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIDe-initializes the I2C peripheral registers to their default reset values\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_SetClockRate\fP (\fBI2C_ID_T\fP id, uint32_t clockrate)"
+.br
+.RI "\fISet up clock rate for LPC_I2C peripheral\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2C_GetClockRate\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIGet current clock rate for LPC_I2C peripheral\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_MasterTransfer\fP (\fBI2C_ID_T\fP id, \fBI2C_XFER_T\fP *xfer)"
+.br
+.RI "\fITransmit and Receive data in master mode\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_MasterSend\fP (\fBI2C_ID_T\fP id, uint8_t slaveAddr, const uint8_t *buff, uint8_t len)"
+.br
+.RI "\fITransmit data to I2C slave using I2C Master mode\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_MasterCmdRead\fP (\fBI2C_ID_T\fP id, uint8_t slaveAddr, uint8_t cmd, uint8_t *buff, int len)"
+.br
+.RI "\fITransfer a command to slave and receive data from slave after a repeated start\&. \fP"
+.ti -1c
+.RI "\fBI2C_EVENTHANDLER_T\fP \fBChip_I2C_GetMasterEventHandler\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIGet pointer to current function handling the events\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_SetMasterEventHandler\fP (\fBI2C_ID_T\fP id, \fBI2C_EVENTHANDLER_T\fP event)"
+.br
+.RI "\fISet function that must handle I2C events\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_MasterRead\fP (\fBI2C_ID_T\fP id, uint8_t slaveAddr, uint8_t *buff, int len)"
+.br
+.RI "\fISet function that must handle I2C events\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_EventHandlerPolling\fP (\fBI2C_ID_T\fP id, \fBI2C_EVENT_T\fP event)"
+.br
+.RI "\fIDefault event handler for polling operation\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_EventHandler\fP (\fBI2C_ID_T\fP id, \fBI2C_EVENT_T\fP event)"
+.br
+.RI "\fIDefault event handler for interrupt base operation\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_MasterStateHandler\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fII2C Master transfer state change handler\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_Disable\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIDisable I2C peripheral's operation\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_IsMasterActive\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fIChecks if master xfer in progress\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_SlaveSetup\fP (\fBI2C_ID_T\fP id, \fBI2C_SLAVE_ID\fP sid, \fBI2C_XFER_T\fP *xfer, \fBI2C_EVENTHANDLER_T\fP event, uint8_t addrMask)"
+.br
+.RI "\fISetup a slave I2C device\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2C_SlaveStateHandler\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fII2C Slave event handler\&. \fP"
+.ti -1c
+.RI "int \fBChip_I2C_IsStateChanged\fP (\fBI2C_ID_T\fP id)"
+.br
+.RI "\fII2C peripheral state change checking\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define I2C_BYTE_RECV   0x02"
+
+.PP
+Definición en la línea 78 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_BYTE_SENT   0x01"
+
+.PP
+Definición en la línea 77 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_CheckError(ErrorCode)   (ErrorCode & 0x10000000)"
+
+.PP
+Definición en la línea 87 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_CON_AA   (1UL << 2)"
+Assert acknowledge bit 
+.PP
+Definición en la línea 84 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_CON_I2EN   (1UL << 6)"
+I2C interface bit 
+.PP
+Definición en la línea 88 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_CON_SI   (1UL << 3)"
+I2C interrupt bit 
+.PP
+Definición en la línea 85 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_CON_STA   (1UL << 5)"
+START flag bit 
+.PP
+Definición en la línea 87 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_CON_STO   (1UL << 4)"
+I2C STOP bit 
+.PP
+Definición en la línea 86 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_ERR   (0x10000000)"
+
+.PP
+Definición en la línea 84 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_I2ADR_BITMASK   ((0xFF))"
+I2C Slave Address registers bit mask 
+.PP
+Definición en la línea 171 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2ADR_GC   ((1 << 0))"
+General Call enable bit 
+.PP
+Definición en la línea 170 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONCLR_AAC   ((1 << 2))"
+Assert acknowledge Clear bit 
+.PP
+Definición en la línea 75 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONCLR_I2ENC   ((1 << 6))"
+I2C interface Disable bit 
+.PP
+Definición en la línea 79 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONCLR_SIC   ((1 << 3))"
+I2C interrupt Clear bit 
+.PP
+Definición en la línea 76 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONCLR_STAC   ((1 << 5))"
+START flag Clear bit 
+.PP
+Definición en la línea 78 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONCLR_STOC   ((1 << 4))"
+I2C STOP Clear bit 
+.PP
+Definición en la línea 77 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONSET_AA   ((0x04))"
+Assert acknowledge flag 
+.PP
+Definición en la línea 66 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONSET_I2EN   ((0x40))"
+I2C interface enable 
+.PP
+Definición en la línea 70 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONSET_SI   ((0x08))"
+I2C interrupt flag 
+.PP
+Definición en la línea 67 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONSET_STA   ((0x20))"
+START flag 
+.PP
+Definición en la línea 69 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2CONSET_STO   ((0x10))"
+STOP flag 
+.PP
+Definición en la línea 68 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2DAT_BITMASK   ((0xFF))"
+Mask for I2DAT register 
+.PP
+Definición en la línea 149 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2DAT_IDLE_CHAR   (0xFF)"
+Idle data value will be send out in slave mode in case of the actual expecting data requested from the master is greater than its sending data length that can be supported 
+.PP
+Definición en la línea 150 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2MASK_MASK(n)   ((n & 0xFE))"
+I2C Mask Register mask field 
+.PP
+Definición en la línea 176 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2MMCTRL_BITMASK   ((0x07))"
+Mask for I2MMCTRL register 
+.PP
+Definición en la línea 160 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2MMCTRL_ENA_SCL   ((1 << 1))"
+SCL output enable 
+.PP
+Definición en la línea 158 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2MMCTRL_MATCH_ALL   ((1 << 2))"
+Select interrupt register match 
+.PP
+Definición en la línea 159 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2MMCTRL_MM_ENA   ((1 << 0))"
+Monitor mode enable 
+.PP
+Definición en la línea 157 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2SCLH_BITMASK   ((0xFFFF))"
+I2C SCL HIGH duty cycle Register bit mask 
+.PP
+Definición en la línea 181 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2SCLL_BITMASK   ((0xFFFF))"
+I2C SCL LOW duty cycle Register bit mask 
+.PP
+Definición en la línea 186 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_BUS_ERROR   ((0x00))"
+Bus Error 
+.PP
+Definición en la línea 64 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_RX_ARB_LOST   ((0x38))"
+Arbitration lost 
+.PP
+Definición en la línea 112 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_RX_DAT_ACK   ((0x50))"
+Data has been received, ACK has been returned 
+.PP
+Definición en la línea 115 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_RX_DAT_NACK   ((0x58))"
+Data has been received, NACK has been returned 
+.PP
+Definición en la línea 116 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_RX_RESTART   ((0x10))"
+A repeat start condition has been transmitted 
+.PP
+Definición en la línea 111 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_RX_SLAR_ACK   ((0x40))"
+SLA+R has been transmitted, ACK has been received 
+.PP
+Definición en la línea 113 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_RX_SLAR_NACK   ((0x48))"
+SLA+R has been transmitted, NACK has been received 
+.PP
+Definición en la línea 114 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_RX_START   ((0x08))"
+A start condition has been transmitted 
+.PP
+Definición en la línea 110 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_TX_ARB_LOST   ((0x38))"
+Arbitration lost in SLA+R/W or Data bytes 
+.PP
+Definición en la línea 105 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_TX_DAT_ACK   ((0x28))"
+Data has been transmitted, ACK has been received 
+.PP
+Definición en la línea 103 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_TX_DAT_NACK   ((0x30))"
+Data has been transmitted, NACK has been received 
+.PP
+Definición en la línea 104 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_TX_RESTART   ((0x10))"
+A repeat start condition has been transmitted 
+.PP
+Definición en la línea 100 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_TX_SLAW_ACK   ((0x18))"
+SLA+W has been transmitted, ACK has been received 
+.PP
+Definición en la línea 101 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_TX_SLAW_NACK   ((0x20))"
+SLA+W has been transmitted, NACK has been received 
+.PP
+Definición en la línea 102 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_M_TX_START   ((0x08))"
+A start condition has been transmitted 
+.PP
+Definición en la línea 99 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_NO_INF   ((0xF8))"
+No relevant information 
+.PP
+Definición en la línea 63 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_RX_ARB_LOST_M_GENCALL   ((0x78))"
+Arbitration lost in SLA+R/W (GENERAL CALL) as master 
+.PP
+Definición en la línea 125 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_RX_ARB_LOST_M_SLA   ((0x68))"
+Arbitration lost in SLA+R/W as master 
+.PP
+Definición en la línea 122 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_RX_GENCALL_ACK   ((0x70))"
+General call address has been received, ACK has been returned 
+.PP
+Definición en la línea 124 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_RX_PRE_GENCALL_DAT_ACK   ((0x90))"
+Previously addressed with General Call; Data has been received and ACK has been returned 
+.PP
+Definición en la línea 129 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_RX_PRE_GENCALL_DAT_NACK   ((0x98))"
+Previously addressed with General Call; Data has been received and NOT ACK has been returned 
+.PP
+Definición en la línea 130 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_RX_PRE_SLA_DAT_ACK   ((0x80))"
+Previously addressed with own SLA; Data has been received, ACK has been returned 
+.PP
+Definición en la línea 127 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_RX_PRE_SLA_DAT_NACK   ((0x88))"
+Previously addressed with own SLA;Data has been received and NOT ACK has been returned 
+.PP
+Definición en la línea 128 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_RX_SLAW_ACK   ((0x60))"
+Own slave address has been received, ACK has been returned 
+.PP
+Definición en la línea 121 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_RX_STA_STO_SLVREC_SLVTRX   ((0xA0))"
+A STOP condition or repeated START condition has been received while still addressed as SLV/REC (Slave Receive) or SLV/TRX (Slave Transmit) 
+.PP
+Definición en la línea 131 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_TX_ARB_LOST_M_SLA   ((0xB0))"
+Arbitration lost in SLA+R/W as master 
+.PP
+Definición en la línea 139 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_TX_DAT_ACK   ((0xB8))"
+Data has been transmitted, ACK has been received 
+.PP
+Definición en la línea 141 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_TX_DAT_NACK   ((0xC0))"
+Data has been transmitted, NACK has been received 
+.PP
+Definición en la línea 142 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_TX_LAST_DAT_ACK   ((0xC8))"
+Last data byte in I2DAT has been transmitted (AA = 0); ACK has been received 
+.PP
+Definición en la línea 143 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_I2STAT_S_TX_SLAR_ACK   ((0xA8))"
+Own SLA+R has been received, ACK has been returned 
+.PP
+Definición en la línea 138 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_LAST_BYTE_RECV   0x04"
+
+.PP
+Definición en la línea 79 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_MONITOR_CFG_MATCHALL   \fBI2C_I2MMCTRL_MATCH_ALL\fP"
+Select interrupt register match 
+.PP
+Definición en la línea 93 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_MONITOR_CFG_MATCHALL   \fBI2C_I2MMCTRL_MATCH_ALL\fP"
+Select interrupt register match 
+.PP
+Definición en la línea 192 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_MONITOR_CFG_SCL_OUTPUT   \fBI2C_I2MMCTRL_ENA_SCL\fP"
+SCL output enable 
+.PP
+Definición en la línea 92 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_MONITOR_CFG_SCL_OUTPUT   \fBI2C_I2MMCTRL_ENA_SCL\fP"
+SCL output enable 
+.PP
+Definición en la línea 191 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_NAK_RECV   (0x10000000 | 0x01)"
+
+.PP
+Definición en la línea 85 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_OK   0x00"
+
+.PP
+Definición en la línea 76 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_RECV_END   0x10"
+
+.PP
+Definición en la línea 81 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_SEND_END   0x08"
+
+.PP
+Definición en la línea 80 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_SETUP_STATUS_ARBF   (1 << 8)"
+Arbitration false 
+.PP
+Definición en la línea 69 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_SETUP_STATUS_DONE   (1 << 10)"
+Status DONE 
+.PP
+Definición en la línea 71 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_SETUP_STATUS_NOACKF   (1 << 9)"
+No ACK returned 
+.PP
+Definición en la línea 70 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_SLAVE_TIME_OUT   0x10000000UL"
+Time out in case of using I2C slave mode 
+.PP
+Definición en la línea 144 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_STA_STO_RECV   0x20"
+
+.PP
+I2C state handle return values\&. 
+.PP
+Definición en la línea 82 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_STA_STO_RECV   0x20"
+
+.PP
+I2C state handle return values\&. 
+.PP
+Definición en la línea 82 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define I2C_STAT_CODE_BITMASK   ((0xF8))"
+Return Code mask in I2C status register 
+.PP
+Definición en la línea 93 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2C_STAT_CODE_ERROR   ((0xFF))"
+Return Code error mask in I2C status register 
+.PP
+Definición en la línea 94 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define I2DATA_BUFFER_BITMASK   ((0xFF))"
+I2C Data buffer register bit mask 
+.PP
+Definición en la línea 165 del archivo i2c_common_18xx_43xx\&.h\&.
+.SS "#define RET_SLAVE_BUSY   0"
+Return value, when slave is busy 
+.PP
+Definición en la línea 53 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define RET_SLAVE_IDLE   2"
+Return value, when slave enter idle mode 
+.PP
+Definición en la línea 52 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define RET_SLAVE_RX   5"
+Return value, when 1 byte RX'd successfully 
+.PP
+Definición en la línea 51 del archivo i2c_18xx_43xx\&.h\&.
+.SS "#define RET_SLAVE_TX   6"
+
+.PP
+Return values for SLAVE handler\&. 
+.PP
+\fBNota:\fP
+.RS 4
+Chip drivers will usally be designed to match their events with this valueReturn value, when 1 byte TX'd successfully 
+.RE
+.PP
+
+.PP
+Definición en la línea 50 del archivo i2c_18xx_43xx\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef void(* I2C_EVENTHANDLER_T) (\fBI2C_ID_T\fP, \fBI2C_EVENT_T\fP)"
+
+.PP
+Event handler function type\&. 
+.PP
+Definición en la línea 162 del archivo i2c_18xx_43xx\&.h\&.
+.SS "typedef enum \fBI2C_ID\fP  \fBI2C_ID_T\fP"
+
+.PP
+I2C interface IDs\&. 
+.PP
+\fBNota:\fP
+.RS 4
+All Chip functions will take this as the first parameter, I2C_NUM_INTERFACE must never be used for calling any Chip functions, it is only used to find the number of interfaces available in the Chip\&. 
+.RE
+.PP
+
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBI2C_EVENT_T\fP"
+
+.PP
+I2C master events\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fII2C_EVENT_WAIT \fP\fP
+I2C Wait event 
+.TP
+\fB\fII2C_EVENT_DONE \fP\fP
+Done event that wakes up Wait event 
+.TP
+\fB\fII2C_EVENT_LOCK \fP\fP
+Re-entrency lock event for I2C transfer 
+.TP
+\fB\fII2C_EVENT_UNLOCK \fP\fP
+Re-entrency unlock event for I2C transfer 
+.TP
+\fB\fII2C_EVENT_SLAVE_RX \fP\fP
+Slave receive event 
+.TP
+\fB\fII2C_EVENT_SLAVE_TX \fP\fP
+Slave transmit event 
+.PP
+Definición en la línea 150 del archivo i2c_18xx_43xx\&.h\&.
+.SS "enum \fBI2C_ID\fP"
+
+.PP
+I2C interface IDs\&. 
+.PP
+\fBNota:\fP
+.RS 4
+All Chip functions will take this as the first parameter, I2C_NUM_INTERFACE must never be used for calling any Chip functions, it is only used to find the number of interfaces available in the Chip\&. 
+.RE
+.PP
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fII2C0 \fP\fP
+ID I2C0 
+.TP
+\fB\fII2C1 \fP\fP
+ID I2C1 
+.TP
+\fB\fII2C_NUM_INTERFACE \fP\fP
+Number of I2C interfaces in the chip 
+.PP
+Definición en la línea 141 del archivo i2c_18xx_43xx\&.h\&.
+.SS "enum \fBI2C_SLAVE_ID\fP"
+
+.PP
+I2C Slave Identifiers\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fII2C_SLAVE_GENERAL \fP\fP
+Slave ID for general calls 
+.TP
+\fB\fII2C_SLAVE_0 \fP\fP
+Slave ID fo Slave Address 0 
+.TP
+\fB\fII2C_SLAVE_1 \fP\fP
+Slave ID fo Slave Address 1 
+.TP
+\fB\fII2C_SLAVE_2 \fP\fP
+Slave ID fo Slave Address 2 
+.TP
+\fB\fII2C_SLAVE_3 \fP\fP
+Slave ID fo Slave Address 3 
+.TP
+\fB\fII2C_SLAVE_NUM_INTERFACE \fP\fP
+Number of slave interfaces 
+.PP
+Definición en la línea 98 del archivo i2c_18xx_43xx\&.h\&.
+.SS "enum \fBI2C_STATUS_T\fP"
+
+.PP
+I2C transfer status\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fII2C_STATUS_DONE \fP\fP
+Transfer done successfully 
+.TP
+\fB\fII2C_STATUS_NAK \fP\fP
+NAK received during transfer 
+.TP
+\fB\fII2C_STATUS_ARBLOST \fP\fP
+Aribitration lost during transfer 
+.TP
+\fB\fII2C_STATUS_BUSERR \fP\fP
+Bus error in I2C transfer 
+.TP
+\fB\fII2C_STATUS_BUSY \fP\fP
+I2C is busy doing transfer 
+.TP
+\fB\fII2C_STATUS_SLAVENAK \fP\fP
+NAK received after SLA+W or SLA+R 
+.PP
+Definición en la línea 110 del archivo i2c_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_I2C_DeInit (\fBI2C_ID_T\fP id)"
+
+.PP
+De-initializes the I2C peripheral registers to their default reset values\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 375 del archivo i2c_18xx_43xx\&.c\&.
+.SS "void Chip_I2C_Disable (\fBI2C_ID_T\fP id)"
+
+.PP
+Disable I2C peripheral's operation\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 544 del archivo i2c_18xx_43xx\&.c\&.
+.SS "void Chip_I2C_EventHandler (\fBI2C_ID_T\fP id, \fBI2C_EVENT_T\fP event)"
+
+.PP
+Default event handler for interrupt base operation\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.br
+\fIevent\fP : Event ID of the event that called the function 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 330 del archivo i2c_18xx_43xx\&.c\&.
+.SS "void Chip_I2C_EventHandlerPolling (\fBI2C_ID_T\fP id, \fBI2C_EVENT_T\fP event)"
+
+.PP
+Default event handler for polling operation\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.br
+\fIevent\fP : Event ID of the event that called the function 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 346 del archivo i2c_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_I2C_GetClockRate (\fBI2C_ID_T\fP id)"
+
+.PP
+Get current clock rate for LPC_I2C peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The current I2C peripheral clock rate 
+.RE
+.PP
+
+.PP
+Definición en la línea 394 del archivo i2c_18xx_43xx\&.c\&.
+.SS "\fBI2C_EVENTHANDLER_T\fP Chip_I2C_GetMasterEventHandler (\fBI2C_ID_T\fP id)"
+
+.PP
+Get pointer to current function handling the events\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Pointer to function handing events of I2C 
+.RE
+.PP
+
+.PP
+Definición en la línea 410 del archivo i2c_18xx_43xx\&.c\&.
+.SS "void Chip_I2C_Init (\fBI2C_ID_T\fP id)"
+
+.PP
+Initializes the LPC_I2C peripheral with specified parameter\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 366 del archivo i2c_18xx_43xx\&.c\&.
+.SS "int Chip_I2C_IsMasterActive (\fBI2C_ID_T\fP id)"
+
+.PP
+Checks if master xfer in progress\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+1 if master xfer in progress 0 otherwise 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This API is generally used in interrupt handler of the application to decide whether to call master state handler or to call slave state handler 
+.RE
+.PP
+
+.PP
+Definición en la línea 481 del archivo i2c_18xx_43xx\&.c\&.
+.SS "int Chip_I2C_IsStateChanged (\fBI2C_ID_T\fP id)"
+
+.PP
+I2C peripheral state change checking\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+1 if I2C peripheral \fIid\fP has changed its state, 0 if there is no state change 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function must be used by the application when the polling has to be done based on state change\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 550 del archivo i2c_18xx_43xx\&.c\&.
+.SS "int Chip_I2C_MasterCmdRead (\fBI2C_ID_T\fP id, uint8_t slaveAddr, uint8_t cmd, uint8_t * buff, int len)"
+
+.PP
+Transfer a command to slave and receive data from slave after a repeated start\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.br
+\fIslaveAddr\fP : Slave address of the I2C device 
+.br
+\fIcmd\fP : Command (Address/Register) to be written 
+.br
+\fIbuff\fP : Pointer to memory that will hold the data received 
+.br
+\fIlen\fP : Number of bytes to receive 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of bytes successfully received 
+.RE
+.PP
+
+.PP
+Definición en la línea 457 del archivo i2c_18xx_43xx\&.c\&.
+.SS "int Chip_I2C_MasterRead (\fBI2C_ID_T\fP id, uint8_t slaveAddr, uint8_t * buff, int len)"
+
+.PP
+Set function that must handle I2C events\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.br
+\fIslaveAddr\fP : Slave address from which data be read 
+.br
+\fIbuff\fP : Pointer to memory where data read be stored 
+.br
+\fIlen\fP : Number of bytes to read from slave 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of bytes read successfully 
+.RE
+.PP
+
+.PP
+Definición en la línea 470 del archivo i2c_18xx_43xx\&.c\&.
+.SS "int Chip_I2C_MasterSend (\fBI2C_ID_T\fP id, uint8_t slaveAddr, const uint8_t * buff, uint8_t len)"
+
+.PP
+Transmit data to I2C slave using I2C Master mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&. etc) 
+.br
+\fIslaveAddr\fP : Slave address to which the data be written 
+.br
+\fIbuff\fP : Pointer to buffer having the array of data 
+.br
+\fIlen\fP : Number of bytes to be transfered from \fIbuff\fP 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of bytes successfully transfered 
+.RE
+.PP
+
+.PP
+Definición en la línea 444 del archivo i2c_18xx_43xx\&.c\&.
+.SS "void Chip_I2C_MasterStateHandler (\fBI2C_ID_T\fP id)"
+
+.PP
+I2C Master transfer state change handler\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Usually called from the appropriate Interrupt handler 
+.RE
+.PP
+
+.PP
+Definición en la línea 487 del archivo i2c_18xx_43xx\&.c\&.
+.SS "int Chip_I2C_MasterTransfer (\fBI2C_ID_T\fP id, \fBI2C_XFER_T\fP * xfer)"
+
+.PP
+Transmit and Receive data in master mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral selected (I2C0, I2C1 etc) 
+.br
+\fIxfer\fP : Pointer to a \fBI2C_XFER_T\fP structure see notes below 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Any of \fBI2C_STATUS_T\fP values, xfer->txSz will have number of bytes not sent due to error, xfer->rxSz will have the number of bytes yet to be received\&. 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The parameter \fIxfer\fP should have its member \fIslaveAddr\fP initialized to the 7-Bit slave address to which the master will do the xfer, Bit0 to bit6 should have the address and Bit8 is ignored\&. During the transfer no code (like event handler) must change the content of the memory pointed to by \fIxfer\fP\&. The member of \fIxfer\fP, \fItxBuff\fP and \fItxSz\fP be initialized to the memory from which the I2C must pick the data to be transfered to slave and the number of bytes to send respectively, similarly \fIrxBuff\fP and \fIrxSz\fP must have pointer to memroy where data received from slave be stored and the number of data to get from slave respectilvely\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 416 del archivo i2c_18xx_43xx\&.c\&.
+.SS "void Chip_I2C_SetClockRate (\fBI2C_ID_T\fP id, uint32_t clockrate)"
+
+.PP
+Set up clock rate for LPC_I2C peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.br
+\fIclockrate\fP : Target clock rate value to initialized I2C peripheral (Hz) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Parameter \fIclockrate\fP for I2C0 should be from 1000 up to 1000000 (1 KHz to 1 MHz), as I2C0 support Fast Mode Plus\&. If the \fIclockrate\fP is more than 400 KHz (Fast Plus Mode) Board_I2C_EnableFastPlus() must be called prior to calling this function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 384 del archivo i2c_18xx_43xx\&.c\&.
+.SS "int Chip_I2C_SetMasterEventHandler (\fBI2C_ID_T\fP id, \fBI2C_EVENTHANDLER_T\fP event)"
+
+.PP
+Set function that must handle I2C events\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.br
+\fIevent\fP : Pointer to function that will handle the event (Should not be NULL) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+1 when successful, 0 when a transfer is on going with its own event handler 
+.RE
+.PP
+
+.PP
+Definición en la línea 400 del archivo i2c_18xx_43xx\&.c\&.
+.SS "void Chip_I2C_SlaveSetup (\fBI2C_ID_T\fP id, \fBI2C_SLAVE_ID\fP sid, \fBI2C_XFER_T\fP * xfer, \fBI2C_EVENTHANDLER_T\fP event, uint8_t addrMask)"
+
+.PP
+Setup a slave I2C device\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.br
+\fIsid\fP : I2C Slave peripheral ID (I2C_SLAVE_0, I2C_SLAVE_1 etc) 
+.br
+\fIxfer\fP : Pointer to transfer structure (see note below for more info) 
+.br
+\fIevent\fP : Event handler for slave transfers 
+.br
+\fIaddrMask\fP : Address mask to use along with slave address (see notes below for more info) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Parameter \fIxfer\fP should point to a valid \fBI2C_XFER_T\fP structure object and must have \fIslaveAddr\fP initialized with 7bit Slave address (From Bit1 to Bit7), Bit0 when set enables general call handling, \fIslaveAddr\fP along with \fIaddrMask\fP will be used to match the slave address\&. \fIrxBuff\fP and \fItxBuff\fP must point to valid buffers where slave can receive or send the data from, size of which will be provided by \fIrxSz\fP and \fItxSz\fP respectively\&. Function pointed to by \fIevent\fP will be called for the following events \fBI2C_EVENT_SLAVE_RX\fP (One byte of data received successfully from the master and stored inside memory pointed by xfer->rxBuff, incremented the pointer and decremented the \fIxfer->rxSz\fP), \fBI2C_EVENT_SLAVE_TX\fP (One byte of data from xfer->txBuff was sent to master successfully, incremented the pointer and decremented xfer->txSz), \fBI2C_EVENT_DONE\fP (Master is done doing its transfers with the slave)\&.
+.br
+ 
+.br
+Bit-0 of the parameter \fIaddrMask\fP is reserved and should always be 0\&. Any bit (BIT1 to BIT7) set in \fIaddrMask\fP will make the corresponding bit in \fIxfer->slaveAddr\fP as don't care\&. Thit is, if \fIxfer->slaveAddr\fP is (0x10 << 1) and \fIaddrMask\fP is (0x03 << 1) then 0x10, 0x11, 0x12, 0x13 will all be considered as valid slave addresses for the registered slave\&. Upon receving any event \fIxfer->slaveAddr\fP (BIT1 to BIT7) will hold the actual address which was received from master\&.
+.br
+ 
+.br
+\fBGeneral Call Handling\fP
+.br
+ Slave can receive data from master using general call address (0x00)\&. General call handling must be setup as given below
+.IP "\(bu" 2
+Call \fBChip_I2C_SlaveSetup()\fP with argument \fIsid\fP as I2C_SLAVE_GENERAL
+.IP "  \(bu" 4
+xfer->slaveAddr ignored, argument \fIaddrMask\fP ignored
+.IP "  \(bu" 4
+function provided by \fIevent\fP will registered to be called when slave received data using addr 0x00
+.IP "  \(bu" 4
+xfer->rxBuff and xfer->rxSz should be valid in argument \fIxfer\fP 
+.PP
+
+.IP "\(bu" 2
+To handle General Call only (No other slaves are configured)
+.IP "  \(bu" 4
+Call \fBChip_I2C_SlaveSetup()\fP with sid as I2C_SLAVE_X (X=0,1,2,3)
+.IP "  \(bu" 4
+setup \fIxfer\fP with slaveAddr member set to 0, \fIevent\fP is ignored hence can be NULL
+.IP "  \(bu" 4
+provide \fIaddrMask\fP (typically 0, if not you better be knowing what you are doing)
+.PP
+
+.IP "\(bu" 2
+To handler General Call when other slave is active
+.IP "  \(bu" 4
+Call \fBChip_I2C_SlaveSetup()\fP with sid as I2C_SLAVE_X (X=0,1,2,3)
+.IP "  \(bu" 4
+setup \fIxfer\fP with slaveAddr member set to 7-Bit Slave address [from Bit1 to 7]
+.IP "  \(bu" 4
+Set Bit0 of \fIxfer->slaveAddr\fP as 1
+.IP "  \(bu" 4
+Provide appropriate \fIaddrMask\fP 
+.IP "  \(bu" 4
+Argument \fIevent\fP must point to function, that handles events from actual slaveAddress and not the GC 
+.PP
+
+.PP
+.RE
+.PP
+\fBAtención:\fP
+.RS 4
+If the slave has only one byte in its txBuff, once that byte is transfered to master the event handler will be called for event \fBI2C_EVENT_DONE\fP\&. If the master attempts to read more bytes in the same transfer then the slave hardware will send 0xFF to master till the end of transfer, event handler will not be called to notify this\&. For more info see section below
+.br
+ 
+.br
+\fB Last data handling in slave \fP
+.br
+ If the user wants to implement a slave which will read a byte from a specific location over and over again whenever master reads the slave\&. If the user initializes the xfer->txBuff as the location to read the byte from and xfer->txSz as 1, then say, if master reads one byte; slave will send the byte read from xfer->txBuff and will call the event handler with \fBI2C_EVENT_DONE\fP\&. If the master attempts to read another byte instead of sending the byte read from xfer->txBuff the slave hardware will send 0xFF and no event will occur\&. To handle this issue, slave should set xfer->txSz to 2, in which case when master reads the byte event handler will be called with \fBI2C_EVENT_SLAVE_TX\fP, in which the slave implementation can reset the buffer and size back to original location (i\&.e, xfer->txBuff--, xfer->txSz++), if the master reads another byte in the same transfer, byte read from xfer->txBuff will be sent and \fBI2C_EVENT_SLAVE_TX\fP will be called again, and the process repeats\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 495 del archivo i2c_18xx_43xx\&.c\&.
+.SS "void Chip_I2C_SlaveStateHandler (\fBI2C_ID_T\fP id)"
+
+.PP
+I2C Slave event handler\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIid\fP : I2C peripheral ID (I2C0, I2C1 \&.\&.\&. etc) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 518 del archivo i2c_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

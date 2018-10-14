@@ -1,0 +1,222 @@
+.TH "LPC_LCD_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_LCD_T \- LCD Controller register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <lcd_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTIMH\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTIMV\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPOL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBLE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBUPBASE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBLPBASE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBINTMSK\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTRAW\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBINTSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBINTCLR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBUPCURR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBLPCURR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [115]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint16_t \fBPAL\fP [256]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP [256]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCRSR_IMG\fP [256]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCRSR_CTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCRSR_CFG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCRSR_PAL0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCRSR_PAL1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCRSR_XY\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCRSR_CLIP\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED2\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCRSR_INTMSK\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCRSR_INTCLR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCRSR_INTRAW\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCRSR_INTSTAT\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+LCD Controller register block structure\&. 
+.PP
+Definición en la línea 47 del archivo lcd_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t CRSR_CFG"
+Cursor Configuration register 
+.PP
+Definición en la línea 66 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CRSR_CLIP"
+Cursor Clip Position register 
+.PP
+Definición en la línea 70 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CRSR_CTRL"
+Cursor Control register 
+.PP
+Definición en la línea 65 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CRSR_IMG[256]"
+Cursor Image registers 
+.PP
+Definición en la línea 64 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CRSR_INTCLR"
+Cursor Interrupt Clear register 
+.PP
+Definición en la línea 73 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CRSR_INTMSK"
+Cursor Interrupt Mask register 
+.PP
+Definición en la línea 72 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CRSR_INTRAW"
+Cursor Raw Interrupt Status register 
+.PP
+Definición en la línea 74 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CRSR_INTSTAT"
+Cursor Masked Interrupt Status register 
+.PP
+Definición en la línea 75 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CRSR_PAL0"
+Cursor Palette register 0 
+.PP
+Definición en la línea 67 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CRSR_PAL1"
+Cursor Palette register 1 
+.PP
+Definición en la línea 68 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CRSR_XY"
+Cursor XY Position register 
+.PP
+Definición en la línea 69 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTRL"
+LCD Control register 
+.PP
+Definición en la línea 54 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t INTCLR"
+Interrupt Clear register 
+.PP
+Definición en la línea 58 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t INTMSK"
+Interrupt Mask register 
+.PP
+Definición en la línea 55 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTRAW"
+Raw Interrupt Status register 
+.PP
+Definición en la línea 56 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t INTSTAT"
+Masked Interrupt Status register 
+.PP
+Definición en la línea 57 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t LE"
+Line End Control register 
+.PP
+Definición en la línea 51 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t LPBASE"
+Lower Panel Frame Base Address register 
+.PP
+Definición en la línea 53 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t LPCURR"
+Lower Panel Current Address Value register 
+.PP
+Definición en la línea 60 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint16_t PAL[256]"
+256x16-bit Color Palette registers 
+.PP
+Definición en la línea 62 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t POL"
+Clock and Signal Polarity Control register 
+.PP
+Definición en la línea 50 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[115]"
+
+.PP
+Definición en la línea 61 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1[256]"
+
+.PP
+Definición en la línea 63 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED2[2]"
+
+.PP
+Definición en la línea 71 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TIMH"
+< LCD Structure Horizontal Timing Control register 
+.PP
+Definición en la línea 48 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TIMV"
+Vertical Timing Control register 
+.PP
+Definición en la línea 49 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t UPBASE"
+Upper Panel Frame Base Address register 
+.PP
+Definición en la línea 52 del archivo lcd_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t UPCURR"
+Upper Panel Current Address Value register 
+.PP
+Definición en la línea 59 del archivo lcd_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

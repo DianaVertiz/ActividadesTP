@@ -1,0 +1,54 @@
+.TH "arm_cfft_instance_f32" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+arm_cfft_instance_f32 \- Instance structure for the floating-point CFFT/CIFFT function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <arm_math\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBfftLen\fP"
+.br
+.ti -1c
+.RI "const \fBfloat32_t\fP * \fBpTwiddle\fP"
+.br
+.ti -1c
+.RI "const uint16_t * \fBpBitRevTable\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBbitRevLength\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Instance structure for the floating-point CFFT/CIFFT function\&. 
+.PP
+Definición en la línea 2122 del archivo arm_math\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint16_t bitRevLength"
+bit reversal table length\&. 
+.PP
+Definición en la línea 2127 del archivo arm_math\&.h\&.
+.SS "uint16_t fftLen"
+length of the FFT\&. 
+.PP
+Definición en la línea 2124 del archivo arm_math\&.h\&.
+.SS "const uint16_t* pBitRevTable"
+points to the bit reversal table\&. 
+.PP
+Definición en la línea 2126 del archivo arm_math\&.h\&.
+.SS "const \fBfloat32_t\fP* pTwiddle"
+points to the Twiddle factor table\&. 
+.PP
+Definición en la línea 2125 del archivo arm_math\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

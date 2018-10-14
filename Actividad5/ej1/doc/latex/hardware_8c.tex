@@ -1,0 +1,35 @@
+\hypertarget{hardware_8c}{}\section{Referencia del Archivo hardware.\+c}
+\label{hardware_8c}\index{hardware.\+c@{hardware.\+c}}
+{\ttfamily \#include \char`\"{}hardware.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$lpc\+\_\+types.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__hardware_ga571c3b0aaee2fe73b34cb9a7e26de731}{B\+U\+F\+F\+Size}~512
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__hardware_gab11a117f1e08391f23d1da05930e7acf}{system\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa los módulos básicos de la E\+D\+U-\/\+C\+I\+AA N\+XP. \end{DoxyCompactList}\item 
+void \hyperlink{group__hardware_gac20eca44aeea90e6f603831193cc9b28}{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Función implementada para procesar las interrupciones del puerto de comunicaciones serie. Esta función invoca a Chip\+\_\+\+U\+A\+R\+T\+\_\+\+I\+R\+Q\+R\+B\+Handler de modo de gestionar la asignación de los caracteres recibidos en la cola circular asociada a la entrada y continuar la transmisión de los datos asociados a la cola circular de salida. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{group__hardware_ga461352be081cdef66d03a73226849b41}{serial\+Write} (const uint8\+\_\+t $\ast$data, unsigned int data\+Len)
+\begin{DoxyCompactList}\small\item\em Carga una cadena de caracteres para ser enviada a través de la U\+S\+A\+RT. Debe considerarse que la transmisión se realiza sin bloqueo y a través de interrupciones. Para eso, esta función invoca a Chip\+\_\+\+U\+A\+R\+T\+\_\+\+Send\+RB, la cuál copia la cadena en un buffer circular e inicia la transmición del primer caracter. Una vez disparada la interrupción que indica la finalización del envío, continúa con el siguiente caracter hasta que se completa la transmición de la cadena. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{group__hardware_ga39a8d4e4fafda759632e362b701d6338}{serial\+Read} (uint8\+\_\+t $\ast$data, unsigned int max\+Data)
+\begin{DoxyCompactList}\small\item\em Obtiene los caracteres disponibles en el buffer circular asociado al flujo de entrada de caracteres (\char`\"{}lee el puerto\char`\"{}). \end{DoxyCompactList}\item 
+void \hyperlink{group__hardware_ga4b6495dfec1dcc97e48043d7bca4da60}{set\+Led\+From\+Msk} (uint8\+\_\+t msk)
+\begin{DoxyCompactList}\small\item\em Enciend o apaga un led según la máscara dada como argumento. \end{DoxyCompactList}\item 
+void \hyperlink{group__hardware_ga3ac24a1bb2d63482077813f22c6930a1}{wait\+Key\+Press} (\hyperlink{group__hardware_ga8d70125ca4047f0f7ea513cd8568953d}{board\+Keys} key)
+\begin{DoxyCompactList}\small\item\em Espera a que se presione la tecla indicada a partir del argumento utilizado. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__hardware_gabe9050eab201da85d14532c4d009603a}{get\+Key\+Pressed} (void)
+\begin{DoxyCompactList}\small\item\em Retorna una máscara con el estado de las teclas. Si una tecla está presionada, retorna un bit en alto y si está suelta un bit en bajo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \hyperlink{group__hardware_ga74ceed751e84a920be263a7fe3da67f0}{Ext\+Rate\+In} = 0
+\begin{DoxyCompactList}\small\item\em Clock rate on the C\+L\+K\+IN pin This value is defined externally to the chip layer and contains the value in Hz for the C\+L\+K\+IN pin for the board. If this pin isn\textquotesingle{}t used, this rate can be 0. \end{DoxyCompactList}\item 
+const uint32\+\_\+t \hyperlink{group__hardware_ga2e84f0502f9a7fdd271b97c588696e6f}{Osc\+Rate\+In} = 12000000
+\begin{DoxyCompactList}\small\item\em System oscillator rate This value is defined externally to the chip layer and contains the value in Hz for the external oscillator for the board. If using the internal oscillator, this rate can be 0. \end{DoxyCompactList}\end{DoxyCompactItemize}

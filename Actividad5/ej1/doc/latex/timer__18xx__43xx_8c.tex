@@ -1,0 +1,30 @@
+\hypertarget{timer__18xx__43xx_8c}{}\section{Referencia del Archivo timer\+\_\+18xx\+\_\+43xx.\+c}
+\label{timer__18xx__43xx_8c}\index{timer\+\_\+18xx\+\_\+43xx.\+c@{timer\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{chip__clocks_8h_a45bb23228b9831321626c103ada7c60b}{C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} \hyperlink{timer__18xx__43xx_8c_a1332fda871bbfb75835999bff951a676}{Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Get\+Clock\+Index} (\hyperlink{struct_l_p_c___t_i_m_e_r___t}{L\+P\+C\+\_\+\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+T\+MR)
+\item 
+void \hyperlink{group___t_i_m_e_r__18_x_x__43_x_x_gac2ca0aff00ae8a651e129afba400c833}{Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Init} (\hyperlink{struct_l_p_c___t_i_m_e_r___t}{L\+P\+C\+\_\+\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+T\+MR)
+\begin{DoxyCompactList}\small\item\em Initialize a timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___t_i_m_e_r__18_x_x__43_x_x_gaa52f3e33303d7d4f1e2325586a21a5c0}{Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___t_i_m_e_r___t}{L\+P\+C\+\_\+\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+T\+MR)
+\begin{DoxyCompactList}\small\item\em Shutdown a timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___t_i_m_e_r__18_x_x__43_x_x_gaba0336e88cc662505e2dde1eabff1aaf}{Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Reset} (\hyperlink{struct_l_p_c___t_i_m_e_r___t}{L\+P\+C\+\_\+\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+T\+MR)
+\begin{DoxyCompactList}\small\item\em Resets the timer terminal and prescale counts to 0. \end{DoxyCompactList}\item 
+void \hyperlink{group___t_i_m_e_r__18_x_x__43_x_x_gaf58d175fd6011349b7331055422b9e28}{Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Ext\+Match\+Control\+Set} (\hyperlink{struct_l_p_c___t_i_m_e_r___t}{L\+P\+C\+\_\+\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+T\+MR, int8\+\_\+t initial\+\_\+state, \hyperlink{group___t_i_m_e_r__18_x_x__43_x_x_ga15be0f559655d587ad466689f639ab72}{T\+I\+M\+E\+R\+\_\+\+P\+I\+N\+\_\+\+M\+A\+T\+C\+H\+\_\+\+S\+T\+A\+T\+E\+\_\+T} match\+State, int8\+\_\+t matchnum)
+\begin{DoxyCompactList}\small\item\em Sets external match control (M\+A\+Tn.\+matchnum) pin control. For the pin selected with matchnum, sets the function of the pin that occurs on a terminal count match for the match count. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\index{timer\+\_\+18xx\+\_\+43xx.\+c@{timer\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Get\+Clock\+Index@{Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Get\+Clock\+Index}}
+\index{Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Get\+Clock\+Index@{Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Get\+Clock\+Index}!timer\+\_\+18xx\+\_\+43xx.\+c@{timer\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Get\+Clock\+Index(\+L\+P\+C\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+T\+M\+R)}{Chip_TIMER_GetClockIndex(LPC_TIMER_T *pTMR)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf C\+H\+I\+P\+\_\+\+C\+C\+U\+\_\+\+C\+L\+K\+\_\+T} Chip\+\_\+\+T\+I\+M\+E\+R\+\_\+\+Get\+Clock\+Index (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+T\+MR}
+\end{DoxyParamCaption}
+)}\hypertarget{timer__18xx__43xx_8c_a1332fda871bbfb75835999bff951a676}{}\label{timer__18xx__43xx_8c_a1332fda871bbfb75835999bff951a676}
+
+
+Definición en la línea 47 del archivo timer\+\_\+18xx\+\_\+43xx.\+c.
+

@@ -1,0 +1,61 @@
+.TH "LPC_GPIOGROUPINT_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_GPIOGROUPINT_T \- GPIO grouped interrupt register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <gpiogroup_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [7]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPORT_POL\fP [8]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPORT_ENA\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [1000]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+GPIO grouped interrupt register block structure\&. 
+.PP
+Definición en la línea 47 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t CTRL"
+< GPIO_GROUP_INTn Structure GPIO grouped interrupt control register 
+.PP
+Definición en la línea 48 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PORT_ENA[8]"
+GPIO grouped interrupt port m enable register 
+.PP
+Definición en la línea 51 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PORT_POL[8]"
+GPIO grouped interrupt port polarity register 
+.PP
+Definición en la línea 50 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[7]"
+
+.PP
+Definición en la línea 49 del archivo gpiogroup_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED1[1000]"
+
+.PP
+Definición en la línea 52 del archivo gpiogroup_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

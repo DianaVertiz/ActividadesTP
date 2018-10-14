@@ -1,0 +1,54 @@
+.TH "ENET_RXDESC_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ENET_RXDESC_T \- Structure of a receive descriptor (without timestamp)  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <enet_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSTATUS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBB1ADD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBB2ADD\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Structure of a receive descriptor (without timestamp) 
+.PP
+Definición en la línea 430 del archivo enet_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t B1ADD"
+Buffer 1 address 
+.PP
+Definición en la línea 433 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t B2ADD"
+Buffer 2 or next descriptor address 
+.PP
+Definición en la línea 434 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTRL"
+Buffer 1/2 byte counts and control 
+.PP
+Definición en la línea 432 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t STATUS"
+RDES status word 
+.PP
+Definición en la línea 431 del archivo enet_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

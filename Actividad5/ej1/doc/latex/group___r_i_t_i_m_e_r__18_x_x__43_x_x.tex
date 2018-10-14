@@ -1,0 +1,367 @@
+\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}
+\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T}
+\begin{DoxyCompactList}\small\item\em Repetitive Interrupt Timer register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga35abb740dd6c6be63ef5ee80db909f48}{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+I\+NT}~((uint32\+\_\+t) (1))
+\item 
+\#define \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga16cdab6f304738d645d704ae2d161412}{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+C\+LR}~((uint32\+\_\+t) \hyperlink{group___l_p_c___types___public___macros_ga7ee022f5e5a971a8324e4b7572d49170}{\+\_\+\+B\+IT}(1))
+\item 
+\#define \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga5b766561bf28441b64bc533325e43be0}{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+BR}~((uint32\+\_\+t) \hyperlink{group___l_p_c___types___public___macros_ga7ee022f5e5a971a8324e4b7572d49170}{\+\_\+\+B\+IT}(2))
+\item 
+\#define \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gae2134d5c74919d6016d09b7d410b7b3d}{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+T\+EN}~((uint32\+\_\+t) \hyperlink{group___l_p_c___types___public___macros_ga7ee022f5e5a971a8324e4b7572d49170}{\+\_\+\+B\+IT}(3))
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga9a8dc91573ba6d4556d787a62a8a3f7e}{Chip\+\_\+\+R\+I\+T\+\_\+\+Init} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer)
+\begin{DoxyCompactList}\small\item\em Initialize the R\+IT. \end{DoxyCompactList}\item 
+void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga31be6db37bc84b88664bd37e537bb881}{Chip\+\_\+\+R\+I\+T\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer)
+\begin{DoxyCompactList}\small\item\em Shutdown the R\+IT. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gaba98c3b55b7ca11112f49974f2cd6288}{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer)
+\begin{DoxyCompactList}\small\item\em Enable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga5ef90f2824763c979997e64ea8d6991b}{Chip\+\_\+\+R\+I\+T\+\_\+\+Disable} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer)
+\begin{DoxyCompactList}\small\item\em Disable Timer. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gafc64603f85a635e7c6ebe67346fdafe4}{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Enable} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer)
+\begin{DoxyCompactList}\small\item\em Enable timer debug. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga947baa4953f68d0de72b1df7dcd9d584}{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Disable} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer)
+\begin{DoxyCompactList}\small\item\em Disable timer debug. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_gab7d263072f745b4f3913fb0afc434c4e}{Int\+Status} \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga07641ae11bdca849c8f3335c32f23a23}{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Int\+Status} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer)
+\begin{DoxyCompactList}\small\item\em Check whether interrupt flag is set or not. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gab02713f81fe5c3e646149e9971fe99ca}{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+C\+O\+M\+P\+V\+AL} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer, uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Set a tick value for the interrupt to time out. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga5a595690c38256c0cee81cdda9c38bda}{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable\+C\+T\+RL} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer, uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Enables or clears the R\+IT or interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga16ba8104cee04723ddd751b99655f01d}{Chip\+\_\+\+R\+I\+T\+\_\+\+Clear\+Int} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer)
+\begin{DoxyCompactList}\small\item\em Clears the R\+IT interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga8993e210c53f74ba84933ef5ef4b58ad}{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Counter} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer)
+\begin{DoxyCompactList}\small\item\em Returns the current R\+IT Counter value. \end{DoxyCompactList}\item 
+void \hyperlink{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga9473901c9e5ba4867c14597473cacf2b}{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+Timer\+Interval} (\hyperlink{struct_l_p_c___r_i_t_i_m_e_r___t}{L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+R\+I\+Timer, uint32\+\_\+t time\+\_\+interval)
+\begin{DoxyCompactList}\small\item\em Set timer interval value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+BR@{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+BR}}
+\index{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+BR@{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+BR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+BR}{RIT_CTRL_ENBR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+BR~((uint32\+\_\+t) {\bf \+\_\+\+B\+IT}(2))}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga5b766561bf28441b64bc533325e43be0}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga5b766561bf28441b64bc533325e43be0}
+Set timer enable on debug 
+
+Definición en la línea 66 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+C\+LR@{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+C\+LR}}
+\index{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+C\+LR@{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+C\+LR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+C\+LR}{RIT_CTRL_ENCLR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+C\+LR~((uint32\+\_\+t) {\bf \+\_\+\+B\+IT}(1))}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga16cdab6f304738d645d704ae2d161412}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga16cdab6f304738d645d704ae2d161412}
+Set timer enable clear to 0 when the counter value equals the masked compare value 
+
+Definición en la línea 64 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+I\+NT@{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+I\+NT}}
+\index{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+I\+NT@{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+I\+NT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+I\+NT}{RIT_CTRL_INT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+I\+NT~((uint32\+\_\+t) (1))}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga35abb740dd6c6be63ef5ee80db909f48}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga35abb740dd6c6be63ef5ee80db909f48}
+Set by H/W when the counter value equals the masked compare value 
+
+Definición en la línea 62 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+T\+EN@{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+T\+EN}}
+\index{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+T\+EN@{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+T\+EN}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+T\+EN}{RIT_CTRL_TEN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+\+T\+EN~((uint32\+\_\+t) {\bf \+\_\+\+B\+IT}(3))}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gae2134d5c74919d6016d09b7d410b7b3d}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gae2134d5c74919d6016d09b7d410b7b3d}
+Set timer enable 
+
+Definición en la línea 68 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Clear\+Int@{Chip\+\_\+\+R\+I\+T\+\_\+\+Clear\+Int}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Clear\+Int@{Chip\+\_\+\+R\+I\+T\+\_\+\+Clear\+Int}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Clear\+Int(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer)}{Chip_RIT_ClearInt(LPC_RITIMER_T *pRITimer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+R\+I\+T\+\_\+\+Clear\+Int (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga16ba8104cee04723ddd751b99655f01d}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga16ba8104cee04723ddd751b99655f01d}
+
+
+Clears the R\+IT interrupt. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 158 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+De\+Init@{Chip\+\_\+\+R\+I\+T\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+De\+Init@{Chip\+\_\+\+R\+I\+T\+\_\+\+De\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+De\+Init(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer)}{Chip_RIT_DeInit(LPC_RITIMER_T *pRITimer)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+R\+I\+T\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga31be6db37bc84b88664bd37e537bb881}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga31be6db37bc84b88664bd37e537bb881}
+
+
+Shutdown the R\+IT. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 61 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Disable@{Chip\+\_\+\+R\+I\+T\+\_\+\+Disable}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Disable@{Chip\+\_\+\+R\+I\+T\+\_\+\+Disable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Disable(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer)}{Chip_RIT_Disable(LPC_RITIMER_T *pRITimer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+R\+I\+T\+\_\+\+Disable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga5ef90f2824763c979997e64ea8d6991b}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga5ef90f2824763c979997e64ea8d6991b}
+
+
+Disable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 99 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Enable@{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable@{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer)}{Chip_RIT_Enable(LPC_RITIMER_T *pRITimer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+R\+I\+T\+\_\+\+Enable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gaba98c3b55b7ca11112f49974f2cd6288}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gaba98c3b55b7ca11112f49974f2cd6288}
+
+
+Enable Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 89 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Enable\+C\+T\+RL@{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable\+C\+T\+RL}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable\+C\+T\+RL@{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable\+C\+T\+RL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Enable\+C\+T\+R\+L(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer, uint32\+\_\+t val)}{Chip_RIT_EnableCTRL(LPC_RITIMER_T *pRITimer, uint32_t val)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+R\+I\+T\+\_\+\+Enable\+C\+T\+RL (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer, }
+\item[{uint32\+\_\+t}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga5a595690c38256c0cee81cdda9c38bda}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga5a595690c38256c0cee81cdda9c38bda}
+
+
+Enables or clears the R\+IT or interrupt. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+{\em val} & \+: R\+IT to be set, one or more R\+I\+T\+\_\+\+C\+T\+R\+L\+\_\+$\ast$ values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 148 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Counter@{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Counter}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Counter@{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Counter}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Counter(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer)}{Chip_RIT_GetCounter(LPC_RITIMER_T *pRITimer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Counter (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga8993e210c53f74ba84933ef5ef4b58ad}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga8993e210c53f74ba84933ef5ef4b58ad}
+
+
+Returns the current R\+IT Counter value. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+the current timer counter value 
+\end{DoxyReturn}
+
+
+Definición en la línea 168 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Int\+Status@{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Int\+Status}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Int\+Status@{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Int\+Status}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Int\+Status(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer)}{Chip_RIT_GetIntStatus(LPC_RITIMER_T *pRITimer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Int\+Status} Chip\+\_\+\+R\+I\+T\+\_\+\+Get\+Int\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga07641ae11bdca849c8f3335c32f23a23}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga07641ae11bdca849c8f3335c32f23a23}
+
+
+Check whether interrupt flag is set or not. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Current interrupt status, either ET or U\+N\+S\+ET 
+\end{DoxyReturn}
+
+
+Definición en la línea 84 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Init@{Chip\+\_\+\+R\+I\+T\+\_\+\+Init}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Init@{Chip\+\_\+\+R\+I\+T\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Init(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer)}{Chip_RIT_Init(LPC_RITIMER_T *pRITimer)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+R\+I\+T\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga9a8dc91573ba6d4556d787a62a8a3f7e}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga9a8dc91573ba6d4556d787a62a8a3f7e}
+
+
+Initialize the R\+IT. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 51 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+C\+O\+M\+P\+V\+AL@{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+C\+O\+M\+P\+V\+AL}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+C\+O\+M\+P\+V\+AL@{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+C\+O\+M\+P\+V\+AL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+C\+O\+M\+P\+V\+A\+L(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer, uint32\+\_\+t val)}{Chip_RIT_SetCOMPVAL(LPC_RITIMER_T *pRITimer, uint32_t val)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+C\+O\+M\+P\+V\+AL (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer, }
+\item[{uint32\+\_\+t}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gab02713f81fe5c3e646149e9971fe99ca}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gab02713f81fe5c3e646149e9971fe99ca}
+
+
+Set a tick value for the interrupt to time out. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+{\em val} & \+: value (in ticks) of the interrupt to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 137 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+Timer\+Interval@{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+Timer\+Interval}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+Timer\+Interval@{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+Timer\+Interval}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+Timer\+Interval(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer, uint32\+\_\+t time\+\_\+interval)}{Chip_RIT_SetTimerInterval(LPC_RITIMER_T *pRITimer, uint32_t time_interval)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+R\+I\+T\+\_\+\+Set\+Timer\+Interval (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer, }
+\item[{uint32\+\_\+t}]{time\+\_\+interval}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga9473901c9e5ba4867c14597473cacf2b}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga9473901c9e5ba4867c14597473cacf2b}
+
+
+Set timer interval value. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+{\em time\+\_\+interval} & \+: timer interval value (ms) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 68 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Disable@{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Disable}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Disable@{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Disable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Disable(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer)}{Chip_RIT_TimerDebugDisable(LPC_RITIMER_T *pRITimer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Disable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga947baa4953f68d0de72b1df7dcd9d584}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_ga947baa4953f68d0de72b1df7dcd9d584}
+
+
+Disable timer debug. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 119 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}!Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Enable@{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Enable}}
+\index{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Enable@{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Enable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Repetitive Interrupt Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Enable(\+L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+R\+I\+Timer)}{Chip_RIT_TimerDebugEnable(LPC_RITIMER_T *pRITimer)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+R\+I\+T\+\_\+\+Timer\+Debug\+Enable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+R\+I\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+R\+I\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gafc64603f85a635e7c6ebe67346fdafe4}{}\label{group___r_i_t_i_m_e_r__18_x_x__43_x_x_gafc64603f85a635e7c6ebe67346fdafe4}
+
+
+Enable timer debug. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+R\+I\+Timer} & \+: R\+I\+Timer peripheral selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 109 del archivo ritimer\+\_\+18xx\+\_\+43xx.\+h.
+

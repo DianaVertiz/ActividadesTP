@@ -1,0 +1,104 @@
+.TH "LPC_SPIFI_CHIPHW" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_SPIFI_CHIPHW \- SPIFI controller hardware register structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <spifi_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "volatile uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "volatile uint32_t \fBCMD\fP"
+.br
+.ti -1c
+.RI "volatile uint32_t \fBADDR\fP"
+.br
+.ti -1c
+.RI "volatile uint32_t \fBDATINTM\fP"
+.br
+.ti -1c
+.RI "volatile uint32_t \fBCACHELIMIT\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   volatile uint8_t \fBDAT8\fP"
+.br
+.ti -1c
+.RI "   volatile uint16_t \fBDAT16\fP"
+.br
+.ti -1c
+.RI "   volatile uint32_t \fBDAT32\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "volatile uint32_t \fBMEMCMD\fP"
+.br
+.ti -1c
+.RI "volatile uint32_t \fBSTAT\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+SPIFI controller hardware register structure\&. 
+.PP
+Definición en la línea 62 del archivo spifi_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "union { \&.\&.\&. } "
+
+.SS "volatile uint32_t ADDR"
+SPIFI address register 
+.PP
+Definición en la línea 65 del archivo spifi_18xx_43xx\&.h\&.
+.SS "volatile uint32_t CACHELIMIT"
+SPIFI cache limit register 
+.PP
+Definición en la línea 67 del archivo spifi_18xx_43xx\&.h\&.
+.SS "volatile uint32_t CMD"
+SPIFI command register 
+.PP
+Definición en la línea 64 del archivo spifi_18xx_43xx\&.h\&.
+.SS "volatile uint32_t CTRL"
+SPIFI control register 
+.PP
+Definición en la línea 63 del archivo spifi_18xx_43xx\&.h\&.
+.SS "volatile uint16_t DAT16"
+SPIFI 16 bit data 
+.PP
+Definición en la línea 70 del archivo spifi_18xx_43xx\&.h\&.
+.SS "volatile uint32_t DAT32"
+SPIFI 32 bit data 
+.PP
+Definición en la línea 71 del archivo spifi_18xx_43xx\&.h\&.
+.SS "volatile uint8_t DAT8"
+SPIFI 8 bit data 
+.PP
+Definición en la línea 69 del archivo spifi_18xx_43xx\&.h\&.
+.SS "volatile uint32_t DATINTM"
+SPIFI intermediate data register 
+.PP
+Definición en la línea 66 del archivo spifi_18xx_43xx\&.h\&.
+.SS "volatile uint32_t MEMCMD"
+SPIFI memory command register 
+.PP
+Definición en la línea 74 del archivo spifi_18xx_43xx\&.h\&.
+.SS "volatile uint32_t STAT"
+SPIFI status register 
+.PP
+Definición en la línea 75 del archivo spifi_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

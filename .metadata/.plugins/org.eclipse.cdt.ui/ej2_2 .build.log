@@ -1,0 +1,6 @@
+18:44:20 **** Build of configuration Default for project ej2_2  ****
+make all 
+make: *** No hay ninguna regla para construir el objetivo 'all'.  Alto.
+
+18:44:20 Build Finished (took 368ms)
+

@@ -1,0 +1,6 @@
+17:40:41 **** Incremental Build of configuration Default for project ej1 ****
+make all 
+make: No se hace nada para 'all'.
+
+17:40:41 Build Finished (took 375ms)
+

@@ -1,0 +1,805 @@
+\hypertarget{i2c__18xx__43xx_8c}{}\section{Referencia del Archivo i2c\+\_\+18xx\+\_\+43xx.\+c}
+\label{i2c__18xx__43xx_8c}\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structi2c__interface}{i2c\+\_\+interface}
+\item 
+struct \hyperlink{structi2c__slave__interface}{i2c\+\_\+slave\+\_\+interface}
+\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{i2c__18xx__43xx_8c_abea9604e05f3e083418b20480dd489be}{I2\+C\+\_\+\+C\+O\+N\+\_\+\+F\+L\+A\+GS}~(\hyperlink{group___i2_c__18_x_x__43_x_x_gafd39e9ced8b71fd55deb05d7a23752b9}{I2\+C\+\_\+\+C\+O\+N\+\_\+\+AA} $\vert$ \hyperlink{group___i2_c__18_x_x__43_x_x_gad53ba19314d57093aaa5076897604a50}{I2\+C\+\_\+\+C\+O\+N\+\_\+\+SI} $\vert$ \hyperlink{group___i2_c__18_x_x__43_x_x_ga9704c03008de747eb42bde530a67350b}{I2\+C\+\_\+\+C\+O\+N\+\_\+\+S\+TO} $\vert$ \hyperlink{group___i2_c__18_x_x__43_x_x_ga75e0835be79d812d1e6df8b0a5150365}{I2\+C\+\_\+\+C\+O\+N\+\_\+\+S\+TA})
+\item 
+\#define \hyperlink{i2c__18xx__43xx_8c_a8c1990d550d8d55a5ea4fa1971761248}{L\+P\+C\+\_\+\+I2\+Cx}(id)~((i2c\mbox{[}id\mbox{]}.ip))
+\item 
+\#define \hyperlink{i2c__18xx__43xx_8c_a5e0f45ab7d0384aca4e43b03f6b2759a}{S\+L\+A\+V\+E\+\_\+\+A\+C\+T\+I\+VE}(iic)~(((iic)-\/$>$flags \& 0x\+F\+F00) != 0)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{i2c__18xx__43xx_8c_a17af46cefb0e538e13e29a6610cdc404}{enable\+Clk} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{i2c__18xx__43xx_8c_a8e3474e1fe1ce21215ce79bccbf1948a}{disable\+Clk} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{i2c__18xx__43xx_8c_adc2269b7b400fa4dbcafb913668383dc}{get\+Clk\+Rate} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{i2c__18xx__43xx_8c_a98ebe9d56104a1959ca9ec5874b93029}{start\+Master\+Xfer} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{i2c__18xx__43xx_8c_a0f8b2c1a7c00b5e622b3a6f273cd5177}{start\+Slaver\+Xfer} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} int \hyperlink{i2c__18xx__43xx_8c_adf0dffdb74771c1f98a5e959e6dca498}{is\+I2\+C\+Bus\+Free} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} int \hyperlink{i2c__18xx__43xx_8c_acecb6f0eb209426fd06808350763e595}{get\+Cur\+State} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} int \hyperlink{i2c__18xx__43xx_8c_aa5d73e6cbd7622d475d0d050c68a6c4c}{is\+Master\+State} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} void \hyperlink{i2c__18xx__43xx_8c_af91368f1e251abafa6a1b435ee225895}{set\+Slave\+Addr} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, \hyperlink{group___i2_c__18_x_x__43_x_x_ga5fb1ba338fb3822bb6ca012adc4194bf}{I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID} sid, uint8\+\_\+t addr, uint8\+\_\+t mask)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} int \hyperlink{i2c__18xx__43xx_8c_a4c1168486165c01fd04e1d916fbd1219}{is\+Slave\+Addr\+Matching} (uint8\+\_\+t addr1, uint8\+\_\+t addr2, uint8\+\_\+t mask)
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{group___i2_c__18_x_x__43_x_x_ga5fb1ba338fb3822bb6ca012adc4194bf}{I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID} \hyperlink{i2c__18xx__43xx_8c_ac0fd3495916f00cddcafb945862e32e1}{lookup\+Slave\+Index} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, uint8\+\_\+t slave\+Addr)
+\item 
+int \hyperlink{i2c__18xx__43xx_8c_a27f3909b10ee0d79e0e35c4b6aff56f3}{handle\+Master\+Xfer\+State} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, \hyperlink{struct_i2_c___x_f_e_r___t}{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer)
+\item 
+\hyperlink{group___i2_c__18_x_x__43_x_x_ga5fb1ba338fb3822bb6ca012adc4194bf}{I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID} \hyperlink{i2c__18xx__43xx_8c_a405d3f3d822c2995731a6770c75136b5}{get\+Slave\+Index} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\item 
+int \hyperlink{i2c__18xx__43xx_8c_ae23b684a3e974c4780c7b96d3b540343}{handle\+Slave\+Xfer\+State} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, \hyperlink{struct_i2_c___x_f_e_r___t}{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer)
+\item 
+void \hyperlink{i2c__18xx__43xx_8c_a06b84fe3fad7ffd4ccb93f2683781936}{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id, \hyperlink{group___i2_c__18_x_x__43_x_x_gacb2cd4e03ea48339d327e4f387441bf3}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+T} event)
+\begin{DoxyCompactList}\small\item\em Default event handler for interrupt base operation. \end{DoxyCompactList}\item 
+void \hyperlink{i2c__18xx__43xx_8c_aaa89a66d658a41325b3c5e56bc059401}{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler\+Polling} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id, \hyperlink{group___i2_c__18_x_x__43_x_x_gacb2cd4e03ea48339d327e4f387441bf3}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+T} event)
+\begin{DoxyCompactList}\small\item\em Default event handler for polling operation. \end{DoxyCompactList}\item 
+void \hyperlink{i2c__18xx__43xx_8c_ab79263d278814945df2cd44c5db7b514}{Chip\+\_\+\+I2\+C\+\_\+\+Init} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\begin{DoxyCompactList}\small\item\em Initializes the L\+P\+C\+\_\+\+I2C peripheral with specified parameter. \end{DoxyCompactList}\item 
+void \hyperlink{i2c__18xx__43xx_8c_a334c2c12edda443a7e949a1ea4a6a646}{Chip\+\_\+\+I2\+C\+\_\+\+De\+Init} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\begin{DoxyCompactList}\small\item\em De-\/initializes the I2C peripheral registers to their default reset values. \end{DoxyCompactList}\item 
+void \hyperlink{i2c__18xx__43xx_8c_a17fac5d72058db8eed11d247e78b74ed}{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Clock\+Rate} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id, uint32\+\_\+t clockrate)
+\begin{DoxyCompactList}\small\item\em Set up clock rate for L\+P\+C\+\_\+\+I2C peripheral. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{i2c__18xx__43xx_8c_a6b13511432337d21b8cd325651cc5b63}{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Clock\+Rate} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\begin{DoxyCompactList}\small\item\em Get current clock rate for L\+P\+C\+\_\+\+I2C peripheral. \end{DoxyCompactList}\item 
+int \hyperlink{i2c__18xx__43xx_8c_a1fc3fc0946344e9551d9eef0bbf610b9}{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Master\+Event\+Handler} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id, \hyperlink{group___i2_c__18_x_x__43_x_x_gaef152f4dc1487d90573810007489082e}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+H\+A\+N\+D\+L\+E\+R\+\_\+T} event)
+\begin{DoxyCompactList}\small\item\em Set function that must handle I2C events. \end{DoxyCompactList}\item 
+\hyperlink{group___i2_c__18_x_x__43_x_x_gaef152f4dc1487d90573810007489082e}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+H\+A\+N\+D\+L\+E\+R\+\_\+T} \hyperlink{i2c__18xx__43xx_8c_afad03b4f6c0ecb3f59f014ab63bfda5c}{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Master\+Event\+Handler} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\begin{DoxyCompactList}\small\item\em Get pointer to current function handling the events. \end{DoxyCompactList}\item 
+int \hyperlink{i2c__18xx__43xx_8c_a5f89391d66048894f4365d3b2b7df267}{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Transfer} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id, \hyperlink{struct_i2_c___x_f_e_r___t}{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer)
+\begin{DoxyCompactList}\small\item\em Transmit and Receive data in master mode. \end{DoxyCompactList}\item 
+int \hyperlink{i2c__18xx__43xx_8c_a9ff549bdb526786d313c141b11cab43e}{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Send} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id, uint8\+\_\+t slave\+Addr, const uint8\+\_\+t $\ast$buff, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Transmit data to I2C slave using I2C Master mode. \end{DoxyCompactList}\item 
+int \hyperlink{i2c__18xx__43xx_8c_a4a875b456dfe68acbe8ce1fc74d88bd3}{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Cmd\+Read} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id, uint8\+\_\+t slave\+Addr, uint8\+\_\+t cmd, uint8\+\_\+t $\ast$buff, int len)
+\begin{DoxyCompactList}\small\item\em Transfer a command to slave and receive data from slave after a repeated start. \end{DoxyCompactList}\item 
+int \hyperlink{i2c__18xx__43xx_8c_ae816049843eb162c803b5058ebd9a25c}{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Read} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id, uint8\+\_\+t slave\+Addr, uint8\+\_\+t $\ast$buff, int len)
+\begin{DoxyCompactList}\small\item\em Set function that must handle I2C events. \end{DoxyCompactList}\item 
+int \hyperlink{i2c__18xx__43xx_8c_a5fdf29aff7847c93373cf02da41285e1}{Chip\+\_\+\+I2\+C\+\_\+\+Is\+Master\+Active} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\begin{DoxyCompactList}\small\item\em Checks if master xfer in progress. \end{DoxyCompactList}\item 
+void \hyperlink{i2c__18xx__43xx_8c_a179362e42a3de931ff7f57ca698254fa}{Chip\+\_\+\+I2\+C\+\_\+\+Master\+State\+Handler} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\begin{DoxyCompactList}\small\item\em I2C Master transfer state change handler. \end{DoxyCompactList}\item 
+void \hyperlink{i2c__18xx__43xx_8c_af6ea40668dde26e406f76ff3ddeda527}{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id, \hyperlink{group___i2_c__18_x_x__43_x_x_ga5fb1ba338fb3822bb6ca012adc4194bf}{I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID} sid, \hyperlink{struct_i2_c___x_f_e_r___t}{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer, \hyperlink{group___i2_c__18_x_x__43_x_x_gaef152f4dc1487d90573810007489082e}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+H\+A\+N\+D\+L\+E\+R\+\_\+T} event, uint8\+\_\+t addr\+Mask)
+\begin{DoxyCompactList}\small\item\em Setup a slave I2C device. \end{DoxyCompactList}\item 
+void \hyperlink{i2c__18xx__43xx_8c_a650618a5f4717c46ae3ea304142ddc03}{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+State\+Handler} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\begin{DoxyCompactList}\small\item\em I2C Slave event handler. \end{DoxyCompactList}\item 
+void \hyperlink{i2c__18xx__43xx_8c_a68f1d630224edab35ba796373c5867c0}{Chip\+\_\+\+I2\+C\+\_\+\+Disable} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\begin{DoxyCompactList}\small\item\em Disable I2C peripheral\textquotesingle{}s operation. \end{DoxyCompactList}\item 
+int \hyperlink{i2c__18xx__43xx_8c_a4240d03d5dda43ddc8afd527b3172318}{Chip\+\_\+\+I2\+C\+\_\+\+Is\+State\+Changed} (\hyperlink{group___i2_c__18_x_x__43_x_x_ga957556a4d900506cd4cba8427afd81e6}{I2\+C\+\_\+\+I\+D\+\_\+T} id)
+\begin{DoxyCompactList}\small\item\em I2C peripheral state change checking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!I2\+C\+\_\+\+C\+O\+N\+\_\+\+F\+L\+A\+GS@{I2\+C\+\_\+\+C\+O\+N\+\_\+\+F\+L\+A\+GS}}
+\index{I2\+C\+\_\+\+C\+O\+N\+\_\+\+F\+L\+A\+GS@{I2\+C\+\_\+\+C\+O\+N\+\_\+\+F\+L\+A\+GS}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{I2\+C\+\_\+\+C\+O\+N\+\_\+\+F\+L\+A\+GS}{I2C_CON_FLAGS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+C\+O\+N\+\_\+\+F\+L\+A\+GS~({\bf I2\+C\+\_\+\+C\+O\+N\+\_\+\+AA} $\vert$ {\bf I2\+C\+\_\+\+C\+O\+N\+\_\+\+SI} $\vert$ {\bf I2\+C\+\_\+\+C\+O\+N\+\_\+\+S\+TO} $\vert$ {\bf I2\+C\+\_\+\+C\+O\+N\+\_\+\+S\+TA})}\hypertarget{i2c__18xx__43xx_8c_abea9604e05f3e083418b20480dd489be}{}\label{i2c__18xx__43xx_8c_abea9604e05f3e083418b20480dd489be}
+
+
+Definición en la línea 39 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!L\+P\+C\+\_\+\+I2\+Cx@{L\+P\+C\+\_\+\+I2\+Cx}}
+\index{L\+P\+C\+\_\+\+I2\+Cx@{L\+P\+C\+\_\+\+I2\+Cx}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{L\+P\+C\+\_\+\+I2\+Cx}{LPC_I2Cx}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+P\+C\+\_\+\+I2\+Cx(
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~((i2c\mbox{[}id\mbox{]}.ip))}\hypertarget{i2c__18xx__43xx_8c_a8c1990d550d8d55a5ea4fa1971761248}{}\label{i2c__18xx__43xx_8c_a8c1990d550d8d55a5ea4fa1971761248}
+
+
+Definición en la línea 40 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!S\+L\+A\+V\+E\+\_\+\+A\+C\+T\+I\+VE@{S\+L\+A\+V\+E\+\_\+\+A\+C\+T\+I\+VE}}
+\index{S\+L\+A\+V\+E\+\_\+\+A\+C\+T\+I\+VE@{S\+L\+A\+V\+E\+\_\+\+A\+C\+T\+I\+VE}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{S\+L\+A\+V\+E\+\_\+\+A\+C\+T\+I\+VE}{SLAVE_ACTIVE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+L\+A\+V\+E\+\_\+\+A\+C\+T\+I\+VE(
+\begin{DoxyParamCaption}
+\item[{}]{iic}
+\end{DoxyParamCaption}
+)~(((iic)-\/$>$flags \& 0x\+F\+F00) != 0)}\hypertarget{i2c__18xx__43xx_8c_a5e0f45ab7d0384aca4e43b03f6b2759a}{}\label{i2c__18xx__43xx_8c_a5e0f45ab7d0384aca4e43b03f6b2759a}
+
+
+Definición en la línea 41 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+
+
+\subsection{Documentación de las funciones}
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+De\+Init@{Chip\+\_\+\+I2\+C\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+De\+Init@{Chip\+\_\+\+I2\+C\+\_\+\+De\+Init}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+De\+Init(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{Chip_I2C_DeInit(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a334c2c12edda443a7e949a1ea4a6a646}{}\label{i2c__18xx__43xx_8c_a334c2c12edda443a7e949a1ea4a6a646}
+
+
+De-\/initializes the I2C peripheral registers to their default reset values. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 375 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Disable@{Chip\+\_\+\+I2\+C\+\_\+\+Disable}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Disable@{Chip\+\_\+\+I2\+C\+\_\+\+Disable}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Disable(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{Chip_I2C_Disable(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+\_\+\+Disable (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a68f1d630224edab35ba796373c5867c0}{}\label{i2c__18xx__43xx_8c_a68f1d630224edab35ba796373c5867c0}
+
+
+Disable I2C peripheral\textquotesingle{}s operation. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 544 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id, I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+T event)}{Chip_I2C_EventHandler(I2C_ID_T id, I2C_EVENT_T event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id, }
+\item[{{\bf I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+T}}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a06b84fe3fad7ffd4ccb93f2683781936}{}\label{i2c__18xx__43xx_8c_a06b84fe3fad7ffd4ccb93f2683781936}
+
+
+Default event handler for interrupt base operation. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+{\em event} & \+: Event ID of the event that called the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 330 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler\+Polling@{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler\+Polling}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler\+Polling@{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler\+Polling}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler\+Polling(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id, I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+T event)}{Chip_I2C_EventHandlerPolling(I2C_ID_T id, I2C_EVENT_T event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+\_\+\+Event\+Handler\+Polling (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id, }
+\item[{{\bf I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+T}}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_aaa89a66d658a41325b3c5e56bc059401}{}\label{i2c__18xx__43xx_8c_aaa89a66d658a41325b3c5e56bc059401}
+
+
+Default event handler for polling operation. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+{\em event} & \+: Event ID of the event that called the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 346 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Get\+Clock\+Rate@{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Clock\+Rate}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Clock\+Rate@{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Clock\+Rate}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Clock\+Rate(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{Chip_I2C_GetClockRate(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Chip\+\_\+\+I2\+C\+\_\+\+Get\+Clock\+Rate (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a6b13511432337d21b8cd325651cc5b63}{}\label{i2c__18xx__43xx_8c_a6b13511432337d21b8cd325651cc5b63}
+
+
+Get current clock rate for L\+P\+C\+\_\+\+I2C peripheral. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+The current I2C peripheral clock rate 
+\end{DoxyReturn}
+
+
+Definición en la línea 394 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Get\+Master\+Event\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Master\+Event\+Handler}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Master\+Event\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Master\+Event\+Handler}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Get\+Master\+Event\+Handler(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{Chip_I2C_GetMasterEventHandler(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I2\+C\+\_\+\+E\+V\+E\+N\+T\+H\+A\+N\+D\+L\+E\+R\+\_\+T} Chip\+\_\+\+I2\+C\+\_\+\+Get\+Master\+Event\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_afad03b4f6c0ecb3f59f014ab63bfda5c}{}\label{i2c__18xx__43xx_8c_afad03b4f6c0ecb3f59f014ab63bfda5c}
+
+
+Get pointer to current function handling the events. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Pointer to function handing events of I2C 
+\end{DoxyReturn}
+
+
+Definición en la línea 410 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Init@{Chip\+\_\+\+I2\+C\+\_\+\+Init}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Init@{Chip\+\_\+\+I2\+C\+\_\+\+Init}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Init(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{Chip_I2C_Init(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_ab79263d278814945df2cd44c5db7b514}{}\label{i2c__18xx__43xx_8c_ab79263d278814945df2cd44c5db7b514}
+
+
+Initializes the L\+P\+C\+\_\+\+I2C peripheral with specified parameter. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 366 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Is\+Master\+Active@{Chip\+\_\+\+I2\+C\+\_\+\+Is\+Master\+Active}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Is\+Master\+Active@{Chip\+\_\+\+I2\+C\+\_\+\+Is\+Master\+Active}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Is\+Master\+Active(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{Chip_I2C_IsMasterActive(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}int Chip\+\_\+\+I2\+C\+\_\+\+Is\+Master\+Active (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a5fdf29aff7847c93373cf02da41285e1}{}\label{i2c__18xx__43xx_8c_a5fdf29aff7847c93373cf02da41285e1}
+
+
+Checks if master xfer in progress. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+1 if master xfer in progress 0 otherwise 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This A\+PI is generally used in interrupt handler of the application to decide whether to call master state handler or to call slave state handler 
+\end{DoxyNote}
+
+
+Definición en la línea 481 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Is\+State\+Changed@{Chip\+\_\+\+I2\+C\+\_\+\+Is\+State\+Changed}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Is\+State\+Changed@{Chip\+\_\+\+I2\+C\+\_\+\+Is\+State\+Changed}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Is\+State\+Changed(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{Chip_I2C_IsStateChanged(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}int Chip\+\_\+\+I2\+C\+\_\+\+Is\+State\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a4240d03d5dda43ddc8afd527b3172318}{}\label{i2c__18xx__43xx_8c_a4240d03d5dda43ddc8afd527b3172318}
+
+
+I2C peripheral state change checking. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+1 if I2C peripheral {\itshape id} has changed its state, 0 if there is no state change 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function must be used by the application when the polling has to be done based on state change. 
+\end{DoxyNote}
+
+
+Definición en la línea 550 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Master\+Cmd\+Read@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Cmd\+Read}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Cmd\+Read@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Cmd\+Read}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Cmd\+Read(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id, uint8\+\_\+t slave\+Addr, uint8\+\_\+t cmd, uint8\+\_\+t $\ast$buff, int len)}{Chip_I2C_MasterCmdRead(I2C_ID_T id, uint8_t slaveAddr, uint8_t cmd, uint8_t *buff, int len)}}]{\setlength{\rightskip}{0pt plus 5cm}int Chip\+\_\+\+I2\+C\+\_\+\+Master\+Cmd\+Read (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id, }
+\item[{uint8\+\_\+t}]{slave\+Addr, }
+\item[{uint8\+\_\+t}]{cmd, }
+\item[{uint8\+\_\+t $\ast$}]{buff, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a4a875b456dfe68acbe8ce1fc74d88bd3}{}\label{i2c__18xx__43xx_8c_a4a875b456dfe68acbe8ce1fc74d88bd3}
+
+
+Transfer a command to slave and receive data from slave after a repeated start. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+{\em slave\+Addr} & \+: Slave address of the I2C device \\
+\hline
+{\em cmd} & \+: Command (Address/\+Register) to be written \\
+\hline
+{\em buff} & \+: Pointer to memory that will hold the data received \\
+\hline
+{\em len} & \+: Number of bytes to receive \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Number of bytes successfully received 
+\end{DoxyReturn}
+
+
+Definición en la línea 457 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Master\+Read@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Read}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Read@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Read}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Read(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id, uint8\+\_\+t slave\+Addr, uint8\+\_\+t $\ast$buff, int len)}{Chip_I2C_MasterRead(I2C_ID_T id, uint8_t slaveAddr, uint8_t *buff, int len)}}]{\setlength{\rightskip}{0pt plus 5cm}int Chip\+\_\+\+I2\+C\+\_\+\+Master\+Read (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id, }
+\item[{uint8\+\_\+t}]{slave\+Addr, }
+\item[{uint8\+\_\+t $\ast$}]{buff, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_ae816049843eb162c803b5058ebd9a25c}{}\label{i2c__18xx__43xx_8c_ae816049843eb162c803b5058ebd9a25c}
+
+
+Set function that must handle I2C events. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+{\em slave\+Addr} & \+: Slave address from which data be read \\
+\hline
+{\em buff} & \+: Pointer to memory where data read be stored \\
+\hline
+{\em len} & \+: Number of bytes to read from slave \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Number of bytes read successfully 
+\end{DoxyReturn}
+
+
+Definición en la línea 470 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Master\+Send@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Send}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Send@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Send}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Send(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id, uint8\+\_\+t slave\+Addr, const uint8\+\_\+t $\ast$buff, uint8\+\_\+t len)}{Chip_I2C_MasterSend(I2C_ID_T id, uint8_t slaveAddr, const uint8_t *buff, uint8_t len)}}]{\setlength{\rightskip}{0pt plus 5cm}int Chip\+\_\+\+I2\+C\+\_\+\+Master\+Send (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id, }
+\item[{uint8\+\_\+t}]{slave\+Addr, }
+\item[{const uint8\+\_\+t $\ast$}]{buff, }
+\item[{uint8\+\_\+t}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a9ff549bdb526786d313c141b11cab43e}{}\label{i2c__18xx__43xx_8c_a9ff549bdb526786d313c141b11cab43e}
+
+
+Transmit data to I2C slave using I2C Master mode. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 .. etc) \\
+\hline
+{\em slave\+Addr} & \+: Slave address to which the data be written \\
+\hline
+{\em buff} & \+: Pointer to buffer having the array of data \\
+\hline
+{\em len} & \+: Number of bytes to be transfered from {\itshape buff} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Number of bytes successfully transfered 
+\end{DoxyReturn}
+
+
+Definición en la línea 444 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Master\+State\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+State\+Handler}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Master\+State\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+State\+Handler}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Master\+State\+Handler(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{Chip_I2C_MasterStateHandler(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+\_\+\+Master\+State\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a179362e42a3de931ff7f57ca698254fa}{}\label{i2c__18xx__43xx_8c_a179362e42a3de931ff7f57ca698254fa}
+
+
+I2C Master transfer state change handler. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Usually called from the appropriate Interrupt handler 
+\end{DoxyNote}
+
+
+Definición en la línea 487 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Master\+Transfer@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Transfer}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Transfer@{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Transfer}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Master\+Transfer(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id, I2\+C\+\_\+\+X\+F\+E\+R\+\_\+\+T $\ast$xfer)}{Chip_I2C_MasterTransfer(I2C_ID_T id, I2C_XFER_T *xfer)}}]{\setlength{\rightskip}{0pt plus 5cm}int Chip\+\_\+\+I2\+C\+\_\+\+Master\+Transfer (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id, }
+\item[{{\bf I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$}]{xfer}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a5f89391d66048894f4365d3b2b7df267}{}\label{i2c__18xx__43xx_8c_a5f89391d66048894f4365d3b2b7df267}
+
+
+Transmit and Receive data in master mode. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral selected (I2\+C0, I2\+C1 etc) \\
+\hline
+{\em xfer} & \+: Pointer to a \hyperlink{struct_i2_c___x_f_e_r___t}{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} structure see notes below \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Any of \hyperlink{group___i2_c__18_x_x__43_x_x_ga21aa839302786105dcf6a96be0e6e8bc}{I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+T} values, xfer-\/$>$tx\+Sz will have number of bytes not sent due to error, xfer-\/$>$rx\+Sz will have the number of bytes yet to be received. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+The parameter {\itshape xfer} should have its member {\itshape slave\+Addr} initialized to the 7-\/\+Bit slave address to which the master will do the xfer, Bit0 to bit6 should have the address and Bit8 is ignored. During the transfer no code (like event handler) must change the content of the memory pointed to by {\itshape xfer}. The member of {\itshape xfer}, {\itshape tx\+Buff} and {\itshape tx\+Sz} be initialized to the memory from which the I2C must pick the data to be transfered to slave and the number of bytes to send respectively, similarly {\itshape rx\+Buff} and {\itshape rx\+Sz} must have pointer to memroy where data received from slave be stored and the number of data to get from slave respectilvely. 
+\end{DoxyNote}
+
+
+Definición en la línea 416 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Set\+Clock\+Rate@{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Clock\+Rate}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Clock\+Rate@{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Clock\+Rate}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Clock\+Rate(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id, uint32\+\_\+t clockrate)}{Chip_I2C_SetClockRate(I2C_ID_T id, uint32_t clockrate)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+\_\+\+Set\+Clock\+Rate (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id, }
+\item[{uint32\+\_\+t}]{clockrate}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a17fac5d72058db8eed11d247e78b74ed}{}\label{i2c__18xx__43xx_8c_a17fac5d72058db8eed11d247e78b74ed}
+
+
+Set up clock rate for L\+P\+C\+\_\+\+I2C peripheral. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+{\em clockrate} & \+: Target clock rate value to initialized I2C peripheral (Hz) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Parameter {\itshape clockrate} for I2\+C0 should be from 1000 up to 1000000 (1 K\+Hz to 1 M\+Hz), as I2\+C0 support Fast Mode Plus. If the {\itshape clockrate} is more than 400 K\+Hz (Fast Plus Mode) Board\+\_\+\+I2\+C\+\_\+\+Enable\+Fast\+Plus() must be called prior to calling this function. 
+\end{DoxyNote}
+
+
+Definición en la línea 384 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Set\+Master\+Event\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Master\+Event\+Handler}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Master\+Event\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Master\+Event\+Handler}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Set\+Master\+Event\+Handler(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id, I2\+C\+\_\+\+E\+V\+E\+N\+T\+H\+A\+N\+D\+L\+E\+R\+\_\+\+T event)}{Chip_I2C_SetMasterEventHandler(I2C_ID_T id, I2C_EVENTHANDLER_T event)}}]{\setlength{\rightskip}{0pt plus 5cm}int Chip\+\_\+\+I2\+C\+\_\+\+Set\+Master\+Event\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id, }
+\item[{{\bf I2\+C\+\_\+\+E\+V\+E\+N\+T\+H\+A\+N\+D\+L\+E\+R\+\_\+T}}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a1fc3fc0946344e9551d9eef0bbf610b9}{}\label{i2c__18xx__43xx_8c_a1fc3fc0946344e9551d9eef0bbf610b9}
+
+
+Set function that must handle I2C events. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+{\em event} & \+: Pointer to function that will handle the event (Should not be N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+1 when successful, 0 when a transfer is on going with its own event handler 
+\end{DoxyReturn}
+
+
+Definición en la línea 400 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup@{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup@{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id, I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+I\+D sid, I2\+C\+\_\+\+X\+F\+E\+R\+\_\+\+T $\ast$xfer, I2\+C\+\_\+\+E\+V\+E\+N\+T\+H\+A\+N\+D\+L\+E\+R\+\_\+\+T event, uint8\+\_\+t addr\+Mask)}{Chip_I2C_SlaveSetup(I2C_ID_T id, I2C_SLAVE_ID sid, I2C_XFER_T *xfer, I2C_EVENTHANDLER_T event, uint8_t addrMask)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id, }
+\item[{{\bf I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID}}]{sid, }
+\item[{{\bf I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$}]{xfer, }
+\item[{{\bf I2\+C\+\_\+\+E\+V\+E\+N\+T\+H\+A\+N\+D\+L\+E\+R\+\_\+T}}]{event, }
+\item[{uint8\+\_\+t}]{addr\+Mask}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_af6ea40668dde26e406f76ff3ddeda527}{}\label{i2c__18xx__43xx_8c_af6ea40668dde26e406f76ff3ddeda527}
+
+
+Setup a slave I2C device. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+{\em sid} & \+: I2C Slave peripheral ID (I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+0, I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+1 etc) \\
+\hline
+{\em xfer} & \+: Pointer to transfer structure (see note below for more info) \\
+\hline
+{\em event} & \+: Event handler for slave transfers \\
+\hline
+{\em addr\+Mask} & \+: Address mask to use along with slave address (see notes below for more info) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Parameter {\itshape xfer} should point to a valid \hyperlink{struct_i2_c___x_f_e_r___t}{I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} structure object and must have {\itshape slave\+Addr} initialized with 7bit Slave address (From Bit1 to Bit7), Bit0 when set enables general call handling, {\itshape slave\+Addr} along with {\itshape addr\+Mask} will be used to match the slave address. {\itshape rx\+Buff} and {\itshape tx\+Buff} must point to valid buffers where slave can receive or send the data from, size of which will be provided by {\itshape rx\+Sz} and {\itshape tx\+Sz} respectively. Function pointed to by {\itshape event} will be called for the following events \hyperlink{i2c__18xx__43xx_8h_gacb2cd4e03ea48339d327e4f387441bf3a290fcc1bb657102af26daa1b84472848}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+S\+L\+A\+V\+E\+\_\+\+RX} (One byte of data received successfully from the master and stored inside memory pointed by xfer-\/$>$rx\+Buff, incremented the pointer and decremented the {\itshape xfer-\/$>$rx\+Sz}), \hyperlink{i2c__18xx__43xx_8h_gacb2cd4e03ea48339d327e4f387441bf3a3911d9b6505f77f0bed3f21b2710ca58}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+S\+L\+A\+V\+E\+\_\+\+TX} (One byte of data from xfer-\/$>$tx\+Buff was sent to master successfully, incremented the pointer and decremented xfer-\/$>$tx\+Sz), \hyperlink{i2c__18xx__43xx_8h_gacb2cd4e03ea48339d327e4f387441bf3a43d00f7d92100d4af6df5514e4ccf1d1}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+D\+O\+NE} (Master is done doing its transfers with the slave).~\newline
+ ~\newline
+Bit-\/0 of the parameter {\itshape addr\+Mask} is reserved and should always be 0. Any bit (B\+I\+T1 to B\+I\+T7) set in {\itshape addr\+Mask} will make the corresponding bit in {\itshape xfer-\/$>$slave\+Addr} as don\textquotesingle{}t care. Thit is, if {\itshape xfer-\/$>$slave\+Addr} is (0x10 $<$$<$ 1) and {\itshape addr\+Mask} is (0x03 $<$$<$ 1) then 0x10, 0x11, 0x12, 0x13 will all be considered as valid slave addresses for the registered slave. Upon receving any event {\itshape xfer-\/$>$slave\+Addr} (B\+I\+T1 to B\+I\+T7) will hold the actual address which was received from master.~\newline
+ ~\newline
+{\bfseries General Call Handling}~\newline
+ Slave can receive data from master using general call address (0x00). General call handling must be setup as given below
+\begin{DoxyItemize}
+\item Call \hyperlink{group___i2_c__18_x_x__43_x_x_gaf6ea40668dde26e406f76ff3ddeda527}{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup()} with argument {\itshape sid} as I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+G\+E\+N\+E\+R\+AL
+\begin{DoxyItemize}
+\item xfer-\/$>$slave\+Addr ignored, argument {\itshape addr\+Mask} ignored
+\item function provided by {\itshape event} will registered to be called when slave received data using addr 0x00
+\item xfer-\/$>$rx\+Buff and xfer-\/$>$rx\+Sz should be valid in argument {\itshape xfer} 
+\end{DoxyItemize}
+\item To handle General Call only (No other slaves are configured)
+\begin{DoxyItemize}
+\item Call \hyperlink{group___i2_c__18_x_x__43_x_x_gaf6ea40668dde26e406f76ff3ddeda527}{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup()} with sid as I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+X (X=0,1,2,3)
+\item setup {\itshape xfer} with slave\+Addr member set to 0, {\itshape event} is ignored hence can be N\+U\+LL
+\item provide {\itshape addr\+Mask} (typically 0, if not you better be knowing what you are doing)
+\end{DoxyItemize}
+\item To handler General Call when other slave is active
+\begin{DoxyItemize}
+\item Call \hyperlink{group___i2_c__18_x_x__43_x_x_gaf6ea40668dde26e406f76ff3ddeda527}{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+Setup()} with sid as I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+X (X=0,1,2,3)
+\item setup {\itshape xfer} with slave\+Addr member set to 7-\/\+Bit Slave address \mbox{[}from Bit1 to 7\mbox{]}
+\item Set Bit0 of {\itshape xfer-\/$>$slave\+Addr} as 1
+\item Provide appropriate {\itshape addr\+Mask} 
+\item Argument {\itshape event} must point to function, that handles events from actual slave\+Address and not the GC 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyWarning}{Atención}
+If the slave has only one byte in its tx\+Buff, once that byte is transfered to master the event handler will be called for event \hyperlink{i2c__18xx__43xx_8h_gacb2cd4e03ea48339d327e4f387441bf3a43d00f7d92100d4af6df5514e4ccf1d1}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+D\+O\+NE}. If the master attempts to read more bytes in the same transfer then the slave hardware will send 0x\+FF to master till the end of transfer, event handler will not be called to notify this. For more info see section below~\newline
+ ~\newline
+{\bfseries  Last data handling in slave }~\newline
+ If the user wants to implement a slave which will read a byte from a specific location over and over again whenever master reads the slave. If the user initializes the xfer-\/$>$tx\+Buff as the location to read the byte from and xfer-\/$>$tx\+Sz as 1, then say, if master reads one byte; slave will send the byte read from xfer-\/$>$tx\+Buff and will call the event handler with \hyperlink{i2c__18xx__43xx_8h_gacb2cd4e03ea48339d327e4f387441bf3a43d00f7d92100d4af6df5514e4ccf1d1}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+D\+O\+NE}. If the master attempts to read another byte instead of sending the byte read from xfer-\/$>$tx\+Buff the slave hardware will send 0x\+FF and no event will occur. To handle this issue, slave should set xfer-\/$>$tx\+Sz to 2, in which case when master reads the byte event handler will be called with \hyperlink{i2c__18xx__43xx_8h_gacb2cd4e03ea48339d327e4f387441bf3a3911d9b6505f77f0bed3f21b2710ca58}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+S\+L\+A\+V\+E\+\_\+\+TX}, in which the slave implementation can reset the buffer and size back to original location (i.\+e, xfer-\/$>$tx\+Buff--, xfer-\/$>$tx\+Sz++), if the master reads another byte in the same transfer, byte read from xfer-\/$>$tx\+Buff will be sent and \hyperlink{i2c__18xx__43xx_8h_gacb2cd4e03ea48339d327e4f387441bf3a3911d9b6505f77f0bed3f21b2710ca58}{I2\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+S\+L\+A\+V\+E\+\_\+\+TX} will be called again, and the process repeats. 
+\end{DoxyWarning}
+
+
+Definición en la línea 495 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!Chip\+\_\+\+I2\+C\+\_\+\+Slave\+State\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+State\+Handler}}
+\index{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+State\+Handler@{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+State\+Handler}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+I2\+C\+\_\+\+Slave\+State\+Handler(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{Chip_I2C_SlaveStateHandler(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+I2\+C\+\_\+\+Slave\+State\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a650618a5f4717c46ae3ea304142ddc03}{}\label{i2c__18xx__43xx_8c_a650618a5f4717c46ae3ea304142ddc03}
+
+
+I2C Slave event handler. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & \+: I2C peripheral ID (I2\+C0, I2\+C1 ... etc) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 518 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!disable\+Clk@{disable\+Clk}}
+\index{disable\+Clk@{disable\+Clk}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{disable\+Clk(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{disableClk(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void disable\+Clk (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a8e3474e1fe1ce21215ce79bccbf1948a}{}\label{i2c__18xx__43xx_8c_a8e3474e1fe1ce21215ce79bccbf1948a}
+
+
+Definición en la línea 81 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!enable\+Clk@{enable\+Clk}}
+\index{enable\+Clk@{enable\+Clk}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{enable\+Clk(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{enableClk(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void enable\+Clk (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a17af46cefb0e538e13e29a6610cdc404}{}\label{i2c__18xx__43xx_8c_a17af46cefb0e538e13e29a6610cdc404}
+
+
+Definición en la línea 76 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!get\+Clk\+Rate@{get\+Clk\+Rate}}
+\index{get\+Clk\+Rate@{get\+Clk\+Rate}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{get\+Clk\+Rate(\+I2\+C\+\_\+\+I\+D\+\_\+\+T id)}{getClkRate(I2C_ID_T id)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t get\+Clk\+Rate (
+\begin{DoxyParamCaption}
+\item[{{\bf I2\+C\+\_\+\+I\+D\+\_\+T}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_adc2269b7b400fa4dbcafb913668383dc}{}\label{i2c__18xx__43xx_8c_adc2269b7b400fa4dbcafb913668383dc}
+
+
+Definición en la línea 87 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!get\+Cur\+State@{get\+Cur\+State}}
+\index{get\+Cur\+State@{get\+Cur\+State}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{get\+Cur\+State(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C)}{getCurState(LPC_I2C_T *pI2C)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} int get\+Cur\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_acecb6f0eb209426fd06808350763e595}{}\label{i2c__18xx__43xx_8c_acecb6f0eb209426fd06808350763e595}
+
+
+Definición en la línea 119 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!get\+Slave\+Index@{get\+Slave\+Index}}
+\index{get\+Slave\+Index@{get\+Slave\+Index}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{get\+Slave\+Index(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C)}{getSlaveIndex(LPC_I2C_T *pI2C)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID} get\+Slave\+Index (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a405d3f3d822c2995731a6770c75136b5}{}\label{i2c__18xx__43xx_8c_a405d3f3d822c2995731a6770c75136b5}
+
+
+Definición en la línea 248 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!handle\+Master\+Xfer\+State@{handle\+Master\+Xfer\+State}}
+\index{handle\+Master\+Xfer\+State@{handle\+Master\+Xfer\+State}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{handle\+Master\+Xfer\+State(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, I2\+C\+\_\+\+X\+F\+E\+R\+\_\+\+T $\ast$xfer)}{handleMasterXferState(LPC_I2C_T *pI2C, I2C_XFER_T *xfer)}}]{\setlength{\rightskip}{0pt plus 5cm}int handle\+Master\+Xfer\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{{\bf I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$}]{xfer}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a27f3909b10ee0d79e0e35c4b6aff56f3}{}\label{i2c__18xx__43xx_8c_a27f3909b10ee0d79e0e35c4b6aff56f3}
+
+
+Definición en la línea 175 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!handle\+Slave\+Xfer\+State@{handle\+Slave\+Xfer\+State}}
+\index{handle\+Slave\+Xfer\+State@{handle\+Slave\+Xfer\+State}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{handle\+Slave\+Xfer\+State(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, I2\+C\+\_\+\+X\+F\+E\+R\+\_\+\+T $\ast$xfer)}{handleSlaveXferState(LPC_I2C_T *pI2C, I2C_XFER_T *xfer)}}]{\setlength{\rightskip}{0pt plus 5cm}int handle\+Slave\+Xfer\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{{\bf I2\+C\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$}]{xfer}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_ae23b684a3e974c4780c7b96d3b540343}{}\label{i2c__18xx__43xx_8c_ae23b684a3e974c4780c7b96d3b540343}
+
+
+Definición en la línea 265 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!is\+I2\+C\+Bus\+Free@{is\+I2\+C\+Bus\+Free}}
+\index{is\+I2\+C\+Bus\+Free@{is\+I2\+C\+Bus\+Free}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{is\+I2\+C\+Bus\+Free(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C)}{isI2CBusFree(LPC_I2C_T *pI2C)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} int is\+I2\+C\+Bus\+Free (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_adf0dffdb74771c1f98a5e959e6dca498}{}\label{i2c__18xx__43xx_8c_adf0dffdb74771c1f98a5e959e6dca498}
+
+
+Definición en la línea 113 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!is\+Master\+State@{is\+Master\+State}}
+\index{is\+Master\+State@{is\+Master\+State}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{is\+Master\+State(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C)}{isMasterState(LPC_I2C_T *pI2C)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} int is\+Master\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_aa5d73e6cbd7622d475d0d050c68a6c4c}{}\label{i2c__18xx__43xx_8c_aa5d73e6cbd7622d475d0d050c68a6c4c}
+
+
+Definición en la línea 125 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!is\+Slave\+Addr\+Matching@{is\+Slave\+Addr\+Matching}}
+\index{is\+Slave\+Addr\+Matching@{is\+Slave\+Addr\+Matching}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{is\+Slave\+Addr\+Matching(uint8\+\_\+t addr1, uint8\+\_\+t addr2, uint8\+\_\+t mask)}{isSlaveAddrMatching(uint8_t addr1, uint8_t addr2, uint8_t mask)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} int is\+Slave\+Addr\+Matching (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{addr1, }
+\item[{uint8\+\_\+t}]{addr2, }
+\item[{uint8\+\_\+t}]{mask}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a4c1168486165c01fd04e1d916fbd1219}{}\label{i2c__18xx__43xx_8c_a4c1168486165c01fd04e1d916fbd1219}
+
+
+Definición en la línea 145 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!lookup\+Slave\+Index@{lookup\+Slave\+Index}}
+\index{lookup\+Slave\+Index@{lookup\+Slave\+Index}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{lookup\+Slave\+Index(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, uint8\+\_\+t slave\+Addr)}{lookupSlaveIndex(LPC_I2C_T *pI2C, uint8_t slaveAddr)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID} lookup\+Slave\+Index (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{uint8\+\_\+t}]{slave\+Addr}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_ac0fd3495916f00cddcafb945862e32e1}{}\label{i2c__18xx__43xx_8c_ac0fd3495916f00cddcafb945862e32e1}
+
+
+Definición en la línea 152 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!set\+Slave\+Addr@{set\+Slave\+Addr}}
+\index{set\+Slave\+Addr@{set\+Slave\+Addr}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{set\+Slave\+Addr(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C, I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+I\+D sid, uint8\+\_\+t addr, uint8\+\_\+t mask)}{setSlaveAddr(LPC_I2C_T *pI2C, I2C_SLAVE_ID sid, uint8_t addr, uint8_t mask)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} void set\+Slave\+Addr (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C, }
+\item[{{\bf I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+ID}}]{sid, }
+\item[{uint8\+\_\+t}]{addr, }
+\item[{uint8\+\_\+t}]{mask}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_af91368f1e251abafa6a1b435ee225895}{}\label{i2c__18xx__43xx_8c_af91368f1e251abafa6a1b435ee225895}
+
+
+Definición en la línea 131 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!start\+Master\+Xfer@{start\+Master\+Xfer}}
+\index{start\+Master\+Xfer@{start\+Master\+Xfer}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{start\+Master\+Xfer(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C)}{startMasterXfer(LPC_I2C_T *pI2C)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void start\+Master\+Xfer (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a98ebe9d56104a1959ca9ec5874b93029}{}\label{i2c__18xx__43xx_8c_a98ebe9d56104a1959ca9ec5874b93029}
+
+
+Definición en la línea 93 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}!start\+Slaver\+Xfer@{start\+Slaver\+Xfer}}
+\index{start\+Slaver\+Xfer@{start\+Slaver\+Xfer}!i2c\+\_\+18xx\+\_\+43xx.\+c@{i2c\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{start\+Slaver\+Xfer(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+T $\ast$p\+I2\+C)}{startSlaverXfer(LPC_I2C_T *pI2C)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void start\+Slaver\+Xfer (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$}]{p\+I2C}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__18xx__43xx_8c_a0f8b2c1a7c00b5e622b3a6f273cd5177}{}\label{i2c__18xx__43xx_8c_a0f8b2c1a7c00b5e622b3a6f273cd5177}
+
+
+Definición en la línea 103 del archivo i2c\+\_\+18xx\+\_\+43xx.\+c.
+

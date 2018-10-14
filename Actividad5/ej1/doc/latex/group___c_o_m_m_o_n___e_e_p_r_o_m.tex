@@ -1,0 +1,73 @@
+\hypertarget{group___c_o_m_m_o_n___e_e_p_r_o_m}{}\section{C\+H\+IP\+: Common Chip E\+E\+P\+R\+OM commands}
+\label{group___c_o_m_m_o_n___e_e_p_r_o_m}\index{C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands@{C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands}}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{group___c_o_m_m_o_n___e_e_p_r_o_m_gad6f8a672d415b0b1a33d02f83926413d}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Write} (uint32\+\_\+t dst\+Add, uint8\+\_\+t $\ast$ptr, uint32\+\_\+t byteswrt)
+\begin{DoxyCompactList}\small\item\em Write data to E\+E\+P\+R\+OM. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___c_o_m_m_o_n___e_e_p_r_o_m_gab445a8d7640f7f5332c78171995f8d32}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Read} (uint32\+\_\+t src\+Add, uint8\+\_\+t $\ast$ptr, uint32\+\_\+t bytesrd)
+\begin{DoxyCompactList}\small\item\em Read data from E\+E\+P\+R\+OM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands@{C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands}!Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Read@{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Read}}
+\index{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Read@{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Read}!C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands@{C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Read(uint32\+\_\+t src\+Add, uint8\+\_\+t $\ast$ptr, uint32\+\_\+t bytesrd)}{Chip_EEPROM_Read(uint32_t srcAdd, uint8_t *ptr, uint32_t bytesrd)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Read (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{src\+Add, }
+\item[{uint8\+\_\+t $\ast$}]{ptr, }
+\item[{uint32\+\_\+t}]{bytesrd}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_o_m_m_o_n___e_e_p_r_o_m_gab445a8d7640f7f5332c78171995f8d32}{}\label{group___c_o_m_m_o_n___e_e_p_r_o_m_gab445a8d7640f7f5332c78171995f8d32}
+
+
+Read data from E\+E\+P\+R\+OM. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em src\+Add} & \+: E\+E\+P\+R\+OM address to be read from \\
+\hline
+{\em ptr} & \+: Pointer to buffer to read to \\
+\hline
+{\em bytesrd} & \+: Number of bytes to read from E\+E\+P\+R\+OM \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+An I\+AP response definition from \hyperlink{iap_8h}{iap.\+h} 
+\end{DoxyReturn}
+
+
+Definición en la línea 67 del archivo eeprom.\+c.
+
+\index{C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands@{C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands}!Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Write@{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Write}}
+\index{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Write@{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Write}!C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands@{C\+H\+I\+P\+: Common Chip E\+E\+P\+R\+O\+M commands}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Write(uint32\+\_\+t dst\+Add, uint8\+\_\+t $\ast$ptr, uint32\+\_\+t byteswrt)}{Chip_EEPROM_Write(uint32_t dstAdd, uint8_t *ptr, uint32_t byteswrt)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Write (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{dst\+Add, }
+\item[{uint8\+\_\+t $\ast$}]{ptr, }
+\item[{uint32\+\_\+t}]{byteswrt}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_o_m_m_o_n___e_e_p_r_o_m_gad6f8a672d415b0b1a33d02f83926413d}{}\label{group___c_o_m_m_o_n___e_e_p_r_o_m_gad6f8a672d415b0b1a33d02f83926413d}
+
+
+Write data to E\+E\+P\+R\+OM. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em dst\+Add} & \+: E\+E\+P\+R\+OM address to be written to \\
+\hline
+{\em ptr} & \+: Pointer to buffer to write from \\
+\hline
+{\em byteswrt} & \+: Number of bytes to write to E\+E\+P\+R\+OM \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+An I\+AP response definition from \hyperlink{iap_8h}{iap.\+h} 
+\end{DoxyReturn}
+
+
+Definición en la línea 52 del archivo eeprom.\+c.
+

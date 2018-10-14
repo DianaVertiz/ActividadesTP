@@ -1,0 +1,78 @@
+.TH "GPDMA_CH_CFG_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GPDMA_CH_CFG_T \- GPDMA structure using for DMA configuration\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <gpdma_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBChannelNum\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTransferSize\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTransferWidth\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBSrcAddr\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBDstAddr\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTransferType\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+GPDMA structure using for DMA configuration\&. 
+.PP
+Definición en la línea 157 del archivo gpdma_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint32_t ChannelNum"
+DMA channel number, should be in range from 0 to 7\&. Note: DMA channel 0 has the highest priority and DMA channel 7 the lowest priority\&. 
+.PP
+Definición en la línea 158 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "uint32_t DstAddr"
+Physical Destination Address, used in case TransferType is chosen as GPDMA_TRANSFERTYPE_M2M or GPDMA_TRANSFERTYPE_P2M 
+.PP
+Definición en la línea 167 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "uint32_t SrcAddr"
+Physical Source Address, used in case TransferType is chosen as GPDMA_TRANSFERTYPE_M2M or GPDMA_TRANSFERTYPE_M2P 
+.PP
+Definición en la línea 165 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "uint32_t TransferSize"
+Length/Size of transfer 
+.PP
+Definición en la línea 163 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "uint32_t TransferType"
+Transfer Type, should be one of the following:
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_M2M: Memory to memory - DMA control
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_M2P: Memory to peripheral - DMA control
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_P2M: Peripheral to memory - DMA control
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_P2P: Source peripheral to destination peripheral - DMA control 
+.PP
+
+.PP
+Definición en la línea 169 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "uint32_t TransferWidth"
+Transfer width - used for TransferType is GPDMA_TRANSFERTYPE_M2M only 
+.PP
+Definición en la línea 164 del archivo gpdma_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

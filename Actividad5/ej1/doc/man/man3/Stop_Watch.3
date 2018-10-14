@@ -1,0 +1,244 @@
+.TH "Stop_Watch" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Stop_Watch \- CHIP: Stopwatch primitives\&.
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBStopWatch_Init\fP (void)"
+.br
+.RI "\fIInitialize stopwatch\&. \fP"
+.ti -1c
+.RI "uint32_t \fBStopWatch_Start\fP (void)"
+.br
+.RI "\fIStart a stopwatch\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBStopWatch_Elapsed\fP (uint32_t startTime)"
+.br
+.RI "\fIReturns number of ticks elapsed since stopwatch was started\&. \fP"
+.ti -1c
+.RI "uint32_t \fBStopWatch_TicksPerSecond\fP (void)"
+.br
+.RI "\fIReturns number of ticks per second of the stopwatch timer\&. \fP"
+.ti -1c
+.RI "uint32_t \fBStopWatch_TicksToMs\fP (uint32_t ticks)"
+.br
+.RI "\fIConverts from stopwatch ticks to mS\&. \fP"
+.ti -1c
+.RI "uint32_t \fBStopWatch_TicksToUs\fP (uint32_t ticks)"
+.br
+.RI "\fIConverts from stopwatch ticks to uS\&. \fP"
+.ti -1c
+.RI "uint32_t \fBStopWatch_MsToTicks\fP (uint32_t mS)"
+.br
+.RI "\fIConverts from mS to stopwatch ticks\&. \fP"
+.ti -1c
+.RI "uint32_t \fBStopWatch_UsToTicks\fP (uint32_t uS)"
+.br
+.RI "\fIConverts from uS to stopwatch ticks\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBStopWatch_DelayTicks\fP (uint32_t ticks)"
+.br
+.RI "\fIDelays the given number of ticks using stopwatch primitives\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBStopWatch_DelayMs\fP (uint32_t mS)"
+.br
+.RI "\fIDelays the given number of mS using stopwatch primitives\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBStopWatch_DelayUs\fP (uint32_t uS)"
+.br
+.RI "\fIDelays the given number of uS using stopwatch primitives\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void StopWatch_DelayMs (uint32_t mS)"
+
+.PP
+Delays the given number of mS using stopwatch primitives\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fImS\fP : Number of mS to delay 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 114 del archivo stopwatch\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void StopWatch_DelayTicks (uint32_t ticks)"
+
+.PP
+Delays the given number of ticks using stopwatch primitives\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIticks\fP : Number of ticks to delay 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 103 del archivo stopwatch\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void StopWatch_DelayUs (uint32_t uS)"
+
+.PP
+Delays the given number of uS using stopwatch primitives\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIuS\fP : Number of uS to delay 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 126 del archivo stopwatch\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t StopWatch_Elapsed (uint32_t startTime)"
+
+.PP
+Returns number of ticks elapsed since stopwatch was started\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIstartTime\fP : Time returned by \fBStopWatch_Start()\fP\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of ticks elapsed since stopwatch was started 
+.RE
+.PP
+
+.PP
+Definición en la línea 59 del archivo stopwatch\&.h\&.
+.SS "void StopWatch_Init (void)"
+
+.PP
+Initialize stopwatch\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 57 del archivo stopwatch_18xx_43xx\&.c\&.
+.SS "uint32_t StopWatch_MsToTicks (uint32_t mS)"
+
+.PP
+Converts from mS to stopwatch ticks\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fImS\fP : Duration in mS to convert to ticks\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of ticks in given number of mS 
+.RE
+.PP
+
+.PP
+Definición en la línea 97 del archivo stopwatch_18xx_43xx\&.c\&.
+.SS "uint32_t StopWatch_Start (void)"
+
+.PP
+Start a stopwatch\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current cycle count 
+.RE
+.PP
+
+.PP
+Definición en la línea 72 del archivo stopwatch_18xx_43xx\&.c\&.
+.SS "uint32_t StopWatch_TicksPerSecond (void)"
+
+.PP
+Returns number of ticks per second of the stopwatch timer\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of ticks per second of the stopwatch timer 
+.RE
+.PP
+
+.PP
+Definición en la línea 79 del archivo stopwatch_18xx_43xx\&.c\&.
+.SS "uint32_t StopWatch_TicksToMs (uint32_t ticks)"
+
+.PP
+Converts from stopwatch ticks to mS\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIticks\fP : Duration in ticks to convert to mS\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of mS in given number of ticks 
+.RE
+.PP
+
+.PP
+Definición en la línea 85 del archivo stopwatch_18xx_43xx\&.c\&.
+.SS "uint32_t StopWatch_TicksToUs (uint32_t ticks)"
+
+.PP
+Converts from stopwatch ticks to uS\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIticks\fP : Duration in ticks to convert to uS\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of uS in given number of ticks 
+.RE
+.PP
+
+.PP
+Definición en la línea 91 del archivo stopwatch_18xx_43xx\&.c\&.
+.SS "uint32_t StopWatch_UsToTicks (uint32_t uS)"
+
+.PP
+Converts from uS to stopwatch ticks\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIuS\fP : Duration in uS to convert to ticks\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of ticks in given number of uS 
+.RE
+.PP
+
+.PP
+Definición en la línea 103 del archivo stopwatch_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

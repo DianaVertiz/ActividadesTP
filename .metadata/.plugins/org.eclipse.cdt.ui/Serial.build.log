@@ -1,0 +1,8 @@
+23:20:34 **** Incremental Build of configuration Default for project Serial ****
+make all 
+  - operaciones.c...ok
+   text	   data	    bss	    dec	    hex	filename
+  10736	      0	   1200	  11936	   2ea0	out/firmware.elf
+
+23:20:35 Build Finished (took 602ms)
+

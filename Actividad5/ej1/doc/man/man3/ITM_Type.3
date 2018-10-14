@@ -1,0 +1,271 @@
+.TH "ITM_Type" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ITM_Type \- Structure type to access the Instrumentation Trace Macrocell Register (ITM)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm3\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint8_t \fBu8\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint16_t \fBu16\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBu32\fP"
+.br
+.ti -1c
+.RI "} \fBPORT\fP [32]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [864]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTER\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [15]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [15]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTCR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED3\fP [29]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBIWR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBIRR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIMCR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED4\fP [43]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBLAR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBLSR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED5\fP [6]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID4\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID5\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID6\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID7\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID3\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCID0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCID1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCID2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCID3\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint8_t \fBu8\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint16_t \fBu16\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBu32\fP"
+.br
+.ti -1c
+.RI "} \fBPORT\fP [32]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint8_t \fBu8\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint16_t \fBu16\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBu32\fP"
+.br
+.ti -1c
+.RI "} \fBPORT\fP [32]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Structure type to access the Instrumentation Trace Macrocell Register (ITM)\&. 
+.PP
+Definición en la línea 640 del archivo core_cm3\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__I\fP uint32_t CID0"
+Offset: 0xFF0 (R/ ) ITM Component Identification Register #0 
+.PP
+Definición en la línea 670 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t CID1"
+Offset: 0xFF4 (R/ ) ITM Component Identification Register #1 
+.PP
+Definición en la línea 671 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t CID2"
+Offset: 0xFF8 (R/ ) ITM Component Identification Register #2 
+.PP
+Definición en la línea 672 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t CID3"
+Offset: 0xFFC (R/ ) ITM Component Identification Register #3 
+.PP
+Definición en la línea 673 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t IMCR"
+Offset: 0xF00 (R/W) ITM Integration Mode Control Register 
+.PP
+Definición en la línea 657 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t IRR"
+Offset: 0xEFC (R/ ) ITM Integration Read Register 
+.PP
+Definición en la línea 656 del archivo core_cm3\&.h\&.
+.SS "\fB__O\fP uint32_t IWR"
+Offset: 0xEF8 ( /W) ITM Integration Write Register 
+.PP
+Definición en la línea 655 del archivo core_cm3\&.h\&.
+.SS "\fB__O\fP uint32_t LAR"
+Offset: 0xFB0 ( /W) ITM Lock Access Register 
+.PP
+Definición en la línea 659 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t LSR"
+Offset: 0xFB4 (R/ ) ITM Lock Status Register 
+.PP
+Definición en la línea 660 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t PID0"
+Offset: 0xFE0 (R/ ) ITM Peripheral Identification Register #0 
+.PP
+Definición en la línea 666 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t PID1"
+Offset: 0xFE4 (R/ ) ITM Peripheral Identification Register #1 
+.PP
+Definición en la línea 667 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t PID2"
+Offset: 0xFE8 (R/ ) ITM Peripheral Identification Register #2 
+.PP
+Definición en la línea 668 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t PID3"
+Offset: 0xFEC (R/ ) ITM Peripheral Identification Register #3 
+.PP
+Definición en la línea 669 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t PID4"
+Offset: 0xFD0 (R/ ) ITM Peripheral Identification Register #4 
+.PP
+Definición en la línea 662 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t PID5"
+Offset: 0xFD4 (R/ ) ITM Peripheral Identification Register #5 
+.PP
+Definición en la línea 663 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t PID6"
+Offset: 0xFD8 (R/ ) ITM Peripheral Identification Register #6 
+.PP
+Definición en la línea 664 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t PID7"
+Offset: 0xFDC (R/ ) ITM Peripheral Identification Register #7 
+.PP
+Definición en la línea 665 del archivo core_cm3\&.h\&.
+.SS "__O { \&.\&.\&. }    PORT[32]"
+Offset: 0x000 ( /W) ITM Stimulus Port Registers 
+.SS "__O { \&.\&.\&. }    PORT[32]"
+Offset: 0x000 ( /W) ITM Stimulus Port Registers 
+.SS "__O { \&.\&.\&. }    PORT[32]"
+Offset: 0x000 ( /W) ITM Stimulus Port Registers 
+.SS "uint32_t RESERVED0"
+
+.PP
+Definición en la línea 648 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED1"
+
+.PP
+Definición en la línea 650 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED2"
+
+.PP
+Definición en la línea 652 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED3"
+
+.PP
+Definición en la línea 654 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED4"
+
+.PP
+Definición en la línea 658 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED5"
+
+.PP
+Definición en la línea 661 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t TCR"
+Offset: 0xE80 (R/W) ITM Trace Control Register 
+.PP
+Definición en la línea 653 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t TER"
+Offset: 0xE00 (R/W) ITM Trace Enable Register 
+.PP
+Definición en la línea 649 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t TPR"
+Offset: 0xE40 (R/W) ITM Trace Privilege Register 
+.PP
+Definición en la línea 651 del archivo core_cm3\&.h\&.
+.SS "\fB__O\fP uint16_t u16"
+Offset: 0x000 ( /W) ITM Stimulus Port 16-bit 
+.PP
+Definición en la línea 645 del archivo core_cm3\&.h\&.
+.SS "\fB__O\fP uint32_t u32"
+Offset: 0x000 ( /W) ITM Stimulus Port 32-bit 
+.PP
+Definición en la línea 646 del archivo core_cm3\&.h\&.
+.SS "\fB__O\fP uint8_t u8"
+Offset: 0x000 ( /W) ITM Stimulus Port 8-bit 
+.PP
+Definición en la línea 644 del archivo core_cm3\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

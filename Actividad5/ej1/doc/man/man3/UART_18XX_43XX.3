@@ -1,0 +1,2095 @@
+.TH "UART_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UART_18XX_43XX \- CHIP: LPC18xx/43xx UART driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_USART_T\fP"
+.br
+.RI "\fIUSART register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUART_RBR_MASKBIT\fP   (0xFF)"
+.br
+.RI "\fIMacro defines for UART Receive Buffer register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_LOAD_DLL\fP(div)   ((div) & 0xFF)"
+.br
+.RI "\fIMacro defines for UART Divisor Latch LSB register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_DLL_MASKBIT\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_LOAD_DLM\fP(div)   (((div) >> 8) & 0xFF)"
+.br
+.RI "\fIMacro defines for UART Divisor Latch MSB register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_DLM_MASKBIT\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_RBRINT\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Interrupt Enable Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_IER_THREINT\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_RLSINT\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_MSINT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_CTSINT\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_ABEOINT\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_ABTOINT\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBUART_IER_BITMASK\fP   (0x307)"
+.br
+.ti -1c
+.RI "#define \fBUART1_IER_BITMASK\fP   (0x30F)"
+.br
+.ti -1c
+.RI "#define \fBUART2_IER_BITMASK\fP   (0x38F)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTSTAT_PEND\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Interrupt Identification Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_IIR_FIFO_EN\fP   (3 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_ABEO_INT\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_ABTO_INT\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_BITMASK\fP   (0x3CF)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_MASK\fP   (7 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_RLS\fP   (3 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_RDA\fP   (2 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_CTI\fP   (6 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_THRE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_IIR_INTID_MODEM\fP   (0 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_FIFO_EN\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART FIFO Control Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_FCR_RX_RS\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TX_RS\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_DMAMODE_SEL\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_BITMASK\fP   (0xCF)"
+.br
+.ti -1c
+.RI "#define \fBUART_TX_FIFO_SIZE\fP   (16)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TRG_LEV0\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TRG_LEV1\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TRG_LEV2\fP   (2 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_FCR_TRG_LEV3\fP   (3 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN_MASK\fP   (3 << 0)"
+.br
+.RI "\fIMacro defines for UART Line Control Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN5\fP   (0 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN6\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN7\fP   (2 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_WLEN8\fP   (3 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_SBS_MASK\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_SBS_1BIT\fP   (0 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_SBS_2BIT\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_EN\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_DIS\fP   (0 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_ODD\fP   (0 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_EVEN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_F_1\fP   (2 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_PARITY_F_0\fP   (3 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_BREAK_EN\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_DLAB_EN\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_LCR_BITMASK\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_DTR_CTRL\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Modem Control Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_MCR_RTS_CTRL\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_LOOPB_EN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_AUTO_RTS_EN\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_AUTO_CTS_EN\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_MCR_BITMASK\fP   (0xD3)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_RDR\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Line Status Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_LSR_OE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_PE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_FE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_BI\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_THRE\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_TEMT\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_RXFE\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_TXFE\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_LSR_BITMASK\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART1_LSR_BITMASK\fP   (0x1FF)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_DELTA_CTS\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Modem Status Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_MSR_DELTA_DSR\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_LO2HI_RI\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_DELTA_DCD\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_CTS\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_DSR\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_RI\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_DCD\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBUART_MSR_BITMASK\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_START\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Auto baudrate control register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_ACR_MODE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_AUTO_RESTART\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_ABEOINT_CLR\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_ABTOINT_CLR\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_BITMASK\fP   (0x307)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_MODE0\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBUART_ACR_MODE1\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_NMM_EN\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART RS485 Control register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_RX_DIS\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_AADEN\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_SEL_DTR\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_DCTRL_EN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_OINV_1\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_RS485CTRL_BITMASK\fP   (0x3F)"
+.br
+.ti -1c
+.RI "#define \fBUART_ICR_IRDAEN\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART IrDA Control Register - valid for 11xx, 17xx/40xx UART0/2/3, 18xx/43xx UART3 only\&. \fP"
+.ti -1c
+.RI "#define \fBUART_ICR_IRDAINV\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_ICR_FIXPULSE_EN\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_ICR_PULSEDIV\fP(n)   ((n & 0x07) << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_ICR_BITMASK\fP   (0x3F)"
+.br
+.ti -1c
+.RI "#define \fBUART_HDEN_HDEN\fP   ((1 << 0))"
+.br
+.RI "\fIMacro defines for UART half duplex register - ???? \fP"
+.ti -1c
+.RI "#define \fBUART_SCICTRL_SCIEN\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Smart card interface Control Register - valid for 11xx, 18xx/43xx UART0/2/3 only\&. \fP"
+.ti -1c
+.RI "#define \fBUART_SCICTRL_NACKDIS\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_SCICTRL_PROTSEL_T1\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_SCICTRL_TXRETRY\fP(n)   ((n & 0x07) << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_SCICTRL_GUARDTIME\fP(n)   ((n & 0xFF) << 8)"
+.br
+.ti -1c
+.RI "#define \fBUART_FDR_DIVADDVAL\fP(n)   (n & 0x0F)"
+.br
+.RI "\fIMacro defines for UART Fractional Divider Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_FDR_MULVAL\fP(n)   ((n << 4) & 0xF0)"
+.br
+.ti -1c
+.RI "#define \fBUART_FDR_BITMASK\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBUART_TER1_TXEN\fP   (1 << 7)"
+.br
+.RI "\fIMacro defines for UART Tx Enable Register\&. \fP"
+.ti -1c
+.RI "#define \fBUART_TER2_TXEN\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_SYNC\fP   (1 << 0)"
+.br
+.RI "\fIMacro defines for UART Synchronous Control Register - 11xx, 18xx/43xx UART0/2/3 only\&. \fP"
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_CSRC_MASTER\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_FES\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_TSBYPASS\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_CSCEN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_STARTSTOPDISABLE\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBUART_SYNCCTRL_CCCLR\fP   (1 << 6)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_TXEnable\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIEnable transmission on UART TxD pin\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_TXDisable\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIDisable transmission on UART TxD pin\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SendByte\fP (\fBLPC_USART_T\fP *pUART, uint8_t data)"
+.br
+.RI "\fITransmit a single data byte through the UART peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_UART_ReadByte\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIRead a single byte data from the UART peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_IntEnable\fP (\fBLPC_USART_T\fP *pUART, uint32_t intMask)"
+.br
+.RI "\fIEnable UART interrupts\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_IntDisable\fP (\fBLPC_USART_T\fP *pUART, uint32_t intMask)"
+.br
+.RI "\fIDisable UART interrupts\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_GetIntsEnabled\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturns UART interrupts that are enabled\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_ReadIntIDReg\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIRead the Interrupt Identification Register (IIR) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetupFIFOS\fP (\fBLPC_USART_T\fP *pUART, uint32_t fcr)"
+.br
+.RI "\fISetup the UART FIFOs\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_ConfigData\fP (\fBLPC_USART_T\fP *pUART, uint32_t config)"
+.br
+.RI "\fIConfigure data width, parity and stop bits\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_EnableDivisorAccess\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIEnable access to Divisor Latches\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_DisableDivisorAccess\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIDisable access to Divisor Latches\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetDivisorLatches\fP (\fBLPC_USART_T\fP *pUART, uint8_t dll, uint8_t dlm)"
+.br
+.RI "\fISet LSB and MSB divisor latch registers\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_ReadModemControl\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturn modem control register/status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetModemControl\fP (\fBLPC_USART_T\fP *pUART, uint32_t mcr)"
+.br
+.RI "\fISet modem control register/status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_ClearModemControl\fP (\fBLPC_USART_T\fP *pUART, uint32_t mcr)"
+.br
+.RI "\fIClear modem control register/status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_ReadLineStatus\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturn Line Status register/status (LSR) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_UART_ReadModemStatus\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturn Modem Status register/status (MSR) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetScratch\fP (\fBLPC_USART_T\fP *pUART, uint8_t data)"
+.br
+.RI "\fIWrite a byte to the scratchpad register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_UART_ReadScratch\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturns current byte value in the scratchpad register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetAutoBaudReg\fP (\fBLPC_USART_T\fP *pUART, uint32_t acr)"
+.br
+.RI "\fISet autobaud register options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_ClearAutoBaudReg\fP (\fBLPC_USART_T\fP *pUART, uint32_t acr)"
+.br
+.RI "\fIClear autobaud register options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetRS485Flags\fP (\fBLPC_USART_T\fP *pUART, uint32_t ctrl)"
+.br
+.RI "\fISet RS485 control register options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_ClearRS485Flags\fP (\fBLPC_USART_T\fP *pUART, uint32_t ctrl)"
+.br
+.RI "\fIClear RS485 control register options\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetRS485Addr\fP (\fBLPC_USART_T\fP *pUART, uint8_t addr)"
+.br
+.RI "\fISet RS485 address match value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_UART_GetRS485Addr\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIRead RS485 address match value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_UART_SetRS485Delay\fP (\fBLPC_USART_T\fP *pUART, uint8_t dly)"
+.br
+.RI "\fISet RS485 direction control (RTS or DTR) delay value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_UART_GetRS485Delay\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIRead RS485 direction control (RTS or DTR) delay value\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_Init\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIInitializes the pUART peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_DeInit\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIDe-initializes the pUART peripheral\&. \fP"
+.ti -1c
+.RI "\fBFlagStatus\fP \fBChip_UART_CheckBusy\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fICheck whether if UART is busy or not\&. \fP"
+.ti -1c
+.RI "int \fBChip_UART_Send\fP (\fBLPC_USART_T\fP *pUART, const void *data, int numBytes)"
+.br
+.RI "\fITransmit a byte array through the UART peripheral (non-blocking) \fP"
+.ti -1c
+.RI "int \fBChip_UART_Read\fP (\fBLPC_USART_T\fP *pUART, void *data, int numBytes)"
+.br
+.RI "\fIRead data through the UART peripheral (non-blocking) \fP"
+.ti -1c
+.RI "uint32_t \fBChip_UART_SetBaud\fP (\fBLPC_USART_T\fP *pUART, uint32_t baudrate)"
+.br
+.RI "\fISets best dividers to get a target bit rate (without fractional divider) \fP"
+.ti -1c
+.RI "uint32_t \fBChip_UART_SetBaudFDR\fP (\fBLPC_USART_T\fP *pUART, uint32_t baud)"
+.br
+.RI "\fISets best dividers to get a target bit rate (with fractional divider) \fP"
+.ti -1c
+.RI "int \fBChip_UART_SendBlocking\fP (\fBLPC_USART_T\fP *pUART, const void *data, int numBytes)"
+.br
+.RI "\fITransmit a byte array through the UART peripheral (blocking) \fP"
+.ti -1c
+.RI "int \fBChip_UART_ReadBlocking\fP (\fBLPC_USART_T\fP *pUART, void *data, int numBytes)"
+.br
+.RI "\fIRead data through the UART peripheral (blocking) \fP"
+.ti -1c
+.RI "void \fBChip_UART_RXIntHandlerRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB)"
+.br
+.RI "\fIUART receive-only interrupt handler for ring buffers\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_TXIntHandlerRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB)"
+.br
+.RI "\fIUART transmit-only interrupt handler for ring buffers\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_UART_SendRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB, const void *data, int bytes)"
+.br
+.RI "\fIPopulate a transmit ring buffer and start UART transmit\&. \fP"
+.ti -1c
+.RI "int \fBChip_UART_ReadRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB, void *data, int bytes)"
+.br
+.RI "\fICopy data from a receive ring buffer\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_IRQRBHandler\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRXRB, \fBRINGBUFF_T\fP *pTXRB)"
+.br
+.RI "\fIUART receive/transmit interrupt handler for ring buffers\&. \fP"
+.ti -1c
+.RI "\fBFlagStatus\fP \fBChip_UART_GetABEOStatus\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturns the Auto Baud status\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_ABCmd\fP (\fBLPC_USART_T\fP *pUART, uint32_t mode, bool autorestart, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIStart/stop autobaud operation\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define UART1_IER_BITMASK   (0x30F)"
+UART1 interrupt enable register bit mask - valid for 11xx only 
+.PP
+Definición en la línea 123 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART1_LSR_BITMASK   (0x1FF)"
+UART1 Line status bit mask - valid for 11xx, 18xx/43xx UART0/2/3 only 
+.PP
+Definición en la línea 209 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART2_IER_BITMASK   (0x38F)"
+UART2 interrupt enable register bit mask - valid for 17xx/40xx UART1, 18xx/43xx UART1 only 
+.PP
+Definición en la línea 124 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ACR_ABEOINT_CLR   (1 << 8)"
+UART End of auto-baud interrupt clear 
+.PP
+Definición en la línea 230 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ACR_ABTOINT_CLR   (1 << 9)"
+UART Auto-baud time-out interrupt clear 
+.PP
+Definición en la línea 231 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ACR_AUTO_RESTART   (1 << 2)"
+UART Auto baudrate restart 
+.PP
+Definición en la línea 229 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ACR_BITMASK   (0x307)"
+UART Auto Baudrate register bit mask 
+.PP
+Definición en la línea 232 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ACR_MODE   (1 << 1)"
+UART Auto baudrate Mode 1 
+.PP
+Definición en la línea 228 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ACR_MODE0   (0)"
+Autobaud modesAuto baudrate Mode 0 
+.PP
+Definición en la línea 237 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ACR_MODE1   (1)"
+Auto baudrate Mode 1 
+.PP
+Definición en la línea 238 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ACR_START   (1 << 0)"
+
+.PP
+Macro defines for UART Auto baudrate control register\&. UART Auto-baud start 
+.PP
+Definición en la línea 227 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_DLL_MASKBIT   (0xFF)"
+Divisor latch LSB bit mask 
+.PP
+Definición en la línea 104 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_DLM_MASKBIT   (0xFF)"
+Divisor latch MSB bit mask 
+.PP
+Definición en la línea 110 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FCR_BITMASK   (0xCF)"
+UART FIFO control bit mask 
+.PP
+Definición en la línea 150 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FCR_DMAMODE_SEL   (1 << 3)"
+UART DMA mode selection - valid for 17xx/40xx, 18xx/43xx only 
+.PP
+Definición en la línea 149 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FCR_FIFO_EN   (1 << 0)"
+
+.PP
+Macro defines for UART FIFO Control Register\&. UART FIFO enable 
+.PP
+Definición en la línea 146 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FCR_RX_RS   (1 << 1)"
+UART RX FIFO reset 
+.PP
+Definición en la línea 147 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FCR_TRG_LEV0   (0)"
+UART FIFO trigger level 0: 1 character 
+.PP
+Definición en la línea 155 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FCR_TRG_LEV1   (1 << 6)"
+UART FIFO trigger level 1: 4 character 
+.PP
+Definición en la línea 156 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FCR_TRG_LEV2   (2 << 6)"
+UART FIFO trigger level 2: 8 character 
+.PP
+Definición en la línea 157 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FCR_TRG_LEV3   (3 << 6)"
+UART FIFO trigger level 3: 14 character 
+.PP
+Definición en la línea 158 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FCR_TX_RS   (1 << 2)"
+UART TX FIFO reset 
+.PP
+Definición en la línea 148 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FDR_BITMASK   (0xFF)"
+UART Fractional Divider register bit mask 
+.PP
+Definición en la línea 285 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FDR_DIVADDVAL(n)   (n & 0x0F)"
+
+.PP
+Macro defines for UART Fractional Divider Register\&. Baud-rate generation pre-scaler divisor 
+.PP
+Definición en la línea 283 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_FDR_MULVAL(n)   ((n << 4) & 0xF0)"
+Baud-rate pre-scaler multiplier value 
+.PP
+Definición en la línea 284 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_HDEN_HDEN   ((1 << 0))"
+
+.PP
+Macro defines for UART half duplex register - ???? enable half-duplex mode 
+.PP
+Definición en la línea 269 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ICR_BITMASK   (0x3F)"
+UART IRDA bit mask 
+.PP
+Definición en la línea 264 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ICR_FIXPULSE_EN   (1 << 2)"
+IrDA fixed pulse width mode 
+.PP
+Definición en la línea 262 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ICR_IRDAEN   (1 << 0)"
+
+.PP
+Macro defines for UART IrDA Control Register - valid for 11xx, 17xx/40xx UART0/2/3, 18xx/43xx UART3 only\&. IrDA mode enable 
+.PP
+Definición en la línea 260 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ICR_IRDAINV   (1 << 1)"
+IrDA serial input inverted 
+.PP
+Definición en la línea 261 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_ICR_PULSEDIV(n)   ((n & 0x07) << 3)"
+PulseDiv - Configures the pulse when FixPulseEn = 1 
+.PP
+Definición en la línea 263 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IER_ABEOINT   (1 << 8)"
+Enables the end of auto-baud interrupt 
+.PP
+Definición en la línea 120 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IER_ABTOINT   (1 << 9)"
+Enables the auto-baud time-out interrupt 
+.PP
+Definición en la línea 121 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IER_BITMASK   (0x307)"
+UART interrupt enable register bit mask - valid for 13xx, 17xx/40xx UART0/2/3, 18xx/43xx UART0/2/3 only 
+.PP
+Definición en la línea 122 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IER_CTSINT   (1 << 7)"
+CTS signal transition interrupt enable - valid for 17xx/40xx UART1, 18xx/43xx UART1 only 
+.PP
+Definición en la línea 119 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IER_MSINT   (1 << 3)"
+Modem status interrupt enable - valid for 11xx, 17xx/40xx UART1, 18xx/43xx UART1 only 
+.PP
+Definición en la línea 118 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IER_RBRINT   (1 << 0)"
+
+.PP
+Macro defines for UART Interrupt Enable Register\&. RBR Interrupt enable 
+.PP
+Definición en la línea 115 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IER_RLSINT   (1 << 2)"
+RX line status interrupt enable 
+.PP
+Definición en la línea 117 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IER_THREINT   (1 << 1)"
+THR Interrupt enable 
+.PP
+Definición en la línea 116 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_ABEO_INT   (1 << 8)"
+End of auto-baud interrupt 
+.PP
+Definición en la línea 131 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_ABTO_INT   (1 << 9)"
+Auto-baud time-out interrupt 
+.PP
+Definición en la línea 132 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_BITMASK   (0x3CF)"
+UART interrupt identification register bit mask 
+.PP
+Definición en la línea 133 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_FIFO_EN   (3 << 6)"
+These bits are equivalent to FCR[0] 
+.PP
+Definición en la línea 130 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_INTID_CTI   (6 << 1)"
+Interrupt identification: Character time-out indicator interrupt 
+.PP
+Definición en la línea 139 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_INTID_MASK   (7 << 1)"
+Interrupt identification: Interrupt ID mask 
+.PP
+Definición en la línea 136 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_INTID_MODEM   (0 << 1)"
+Interrupt identification: Modem interrupt 
+.PP
+Definición en la línea 141 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_INTID_RDA   (2 << 1)"
+Interrupt identification: Receive data available interrupt 
+.PP
+Definición en la línea 138 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_INTID_RLS   (3 << 1)"
+Interrupt identification: Receive line interrupt 
+.PP
+Definición en la línea 137 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_INTID_THRE   (1 << 1)"
+Interrupt identification: THRE interrupt 
+.PP
+Definición en la línea 140 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_IIR_INTSTAT_PEND   (1 << 0)"
+
+.PP
+Macro defines for UART Interrupt Identification Register\&. Interrupt pending status - Active low 
+.PP
+Definición en la línea 129 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_BITMASK   (0xFF)"
+UART line control bit mask 
+.PP
+Definición en la línea 184 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_BREAK_EN   (1 << 6)"
+UART Break transmission enable 
+.PP
+Definición en la línea 182 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_DLAB_EN   (1 << 7)"
+UART Divisor Latches Access bit enable 
+.PP
+Definición en la línea 183 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_PARITY_DIS   (0 << 3)"
+UART Parity Disable 
+.PP
+Definición en la línea 177 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_PARITY_EN   (1 << 3)"
+UART Parity Enable 
+.PP
+Definición en la línea 176 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_PARITY_EVEN   (1 << 4)"
+UART Parity select: Even parity 
+.PP
+Definición en la línea 179 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_PARITY_F_0   (3 << 4)"
+UART Parity select: Forced 0 stick parity 
+.PP
+Definición en la línea 181 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_PARITY_F_1   (2 << 4)"
+UART Parity select: Forced 1 stick parity 
+.PP
+Definición en la línea 180 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_PARITY_ODD   (0 << 4)"
+UART Parity select: Odd parity 
+.PP
+Definición en la línea 178 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_SBS_1BIT   (0 << 2)"
+UART stop bit select: 1 stop bit 
+.PP
+Definición en la línea 172 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_SBS_2BIT   (1 << 2)"
+UART stop bit select: 2 stop bits (in 5 bit data mode, 1\&.5 stop bits) 
+.PP
+Definición en la línea 173 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_SBS_MASK   (1 << 2)"
+UART stop bit select: bit mask 
+.PP
+Definición en la línea 171 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_WLEN5   (0 << 0)"
+UART word length select: 5 bit data mode 
+.PP
+Definición en la línea 165 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_WLEN6   (1 << 0)"
+UART word length select: 6 bit data mode 
+.PP
+Definición en la línea 166 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_WLEN7   (2 << 0)"
+UART word length select: 7 bit data mode 
+.PP
+Definición en la línea 167 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_WLEN8   (3 << 0)"
+UART word length select: 8 bit data mode 
+.PP
+Definición en la línea 168 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LCR_WLEN_MASK   (3 << 0)"
+
+.PP
+Macro defines for UART Line Control Register\&. UART word length select bit mask 
+.PP
+Definición en la línea 164 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LOAD_DLL(div)   ((div) & 0xFF)"
+
+.PP
+Macro defines for UART Divisor Latch LSB register\&. Macro for loading LSB of divisor 
+.PP
+Definición en la línea 103 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LOAD_DLM(div)   (((div) >> 8) & 0xFF)"
+
+.PP
+Macro defines for UART Divisor Latch MSB register\&. Macro for loading MSB of divisors 
+.PP
+Definición en la línea 109 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_BI   (1 << 4)"
+Line status: Break interrupt 
+.PP
+Definición en la línea 203 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_BITMASK   (0xFF)"
+UART Line status bit mask 
+.PP
+Definición en la línea 208 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_FE   (1 << 3)"
+Line status: Framing error 
+.PP
+Definición en la línea 202 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_OE   (1 << 1)"
+Line status: Overrun error 
+.PP
+Definición en la línea 200 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_PE   (1 << 2)"
+Line status: Parity error 
+.PP
+Definición en la línea 201 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_RDR   (1 << 0)"
+
+.PP
+Macro defines for UART Line Status Register\&. Line status: Receive data ready 
+.PP
+Definición en la línea 199 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_RXFE   (1 << 7)"
+Line status: Error in RX FIFO 
+.PP
+Definición en la línea 206 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_TEMT   (1 << 6)"
+Line status: Transmitter empty 
+.PP
+Definición en la línea 205 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_THRE   (1 << 5)"
+Line status: Transmit holding register empty 
+.PP
+Definición en la línea 204 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_LSR_TXFE   (1 << 8)"
+Line status: Error in RX FIFO 
+.PP
+Definición en la línea 207 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MCR_AUTO_CTS_EN   (1 << 7)"
+Enable Auto CTS flow-control 
+.PP
+Definición en la línea 193 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MCR_AUTO_RTS_EN   (1 << 6)"
+Enable Auto RTS flow-control 
+.PP
+Definición en la línea 192 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MCR_BITMASK   (0xD3)"
+UART bit mask value 
+.PP
+Definición en la línea 194 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MCR_DTR_CTRL   (1 << 0)"
+
+.PP
+Macro defines for UART Modem Control Register\&. Source for modem output pin DTR 
+.PP
+Definición en la línea 189 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MCR_LOOPB_EN   (1 << 4)"
+Loop back mode select 
+.PP
+Definición en la línea 191 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MCR_RTS_CTRL   (1 << 1)"
+Source for modem output pin RTS 
+.PP
+Definición en la línea 190 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MSR_BITMASK   (0xFF)"
+Modem status: MSR register bit-mask value 
+.PP
+Definición en la línea 222 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MSR_CTS   (1 << 4)"
+Modem status: Clear To Send State 
+.PP
+Definición en la línea 218 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MSR_DCD   (1 << 7)"
+Modem status: Data Carrier Detect State 
+.PP
+Definición en la línea 221 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MSR_DELTA_CTS   (1 << 0)"
+
+.PP
+Macro defines for UART Modem Status Register\&. Modem status: State change of input CTS 
+.PP
+Definición en la línea 214 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MSR_DELTA_DCD   (1 << 3)"
+Modem status: State change of input DCD 
+.PP
+Definición en la línea 217 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MSR_DELTA_DSR   (1 << 1)"
+Modem status: State change of input DSR 
+.PP
+Definición en la línea 215 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MSR_DSR   (1 << 5)"
+Modem status: Data Set Ready State 
+.PP
+Definición en la línea 219 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MSR_LO2HI_RI   (1 << 2)"
+Modem status: Low to high transition of input RI 
+.PP
+Definición en la línea 216 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_MSR_RI   (1 << 6)"
+Modem status: Ring Indicator State 
+.PP
+Definición en la línea 220 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_RBR_MASKBIT   (0xFF)"
+
+.PP
+Macro defines for UART Receive Buffer register\&. UART Received Buffer mask bit (8 bits) 
+.PP
+Definición en la línea 98 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_RS485CTRL_AADEN   (1 << 2)"
+Auto Address Detect (AAD) is enabled 
+.PP
+Definición en la línea 245 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_RS485CTRL_BITMASK   (0x3F)"
+RS485 control bit-mask value 
+.PP
+Definición en la línea 255 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_RS485CTRL_DCTRL_EN   (1 << 4)"
+Enable Auto Direction Control 
+.PP
+Definición en la línea 249 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_RS485CTRL_NMM_EN   (1 << 0)"
+
+.PP
+Macro defines for UART RS485 Control register\&. RS-485/EIA-485 Normal Multi-drop Mode (NMM) is disabled 
+.PP
+Definición en la línea 243 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_RS485CTRL_OINV_1   (1 << 5)"
+This bit reverses the polarity of the direction control signal on the RTS (or DTR) pin\&. The direction control pin will be driven to logic '1' when the transmitter has data to be sent 
+.PP
+Definición en la línea 250 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_RS485CTRL_RX_DIS   (1 << 1)"
+The receiver is disabled 
+.PP
+Definición en la línea 244 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_RS485CTRL_SEL_DTR   (1 << 3)"
+If direction control is enabled (bit DCTRL = 1), pin DTR is used for direction control 
+.PP
+Definición en la línea 246 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SCICTRL_GUARDTIME(n)   ((n & 0xFF) << 8)"
+Extra guard time 
+.PP
+Definición en la línea 278 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SCICTRL_NACKDIS   (1 << 1)"
+NACK response is inhibited 
+.PP
+Definición en la línea 275 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SCICTRL_PROTSEL_T1   (1 << 2)"
+ISO7816-3 protocol T1 is selected 
+.PP
+Definición en la línea 276 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SCICTRL_SCIEN   (1 << 0)"
+
+.PP
+Macro defines for UART Smart card interface Control Register - valid for 11xx, 18xx/43xx UART0/2/3 only\&. enable asynchronous half-duplex smart card interface 
+.PP
+Definición en la línea 274 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SCICTRL_TXRETRY(n)   ((n & 0x07) << 5)"
+number of retransmission 
+.PP
+Definición en la línea 277 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SYNCCTRL_CCCLR   (1 << 6)"
+stop continuous clock 
+.PP
+Definición en la línea 302 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SYNCCTRL_CSCEN   (1 << 4)"
+Continuous running clock enable (master mode only) 
+.PP
+Definición en la línea 300 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SYNCCTRL_CSRC_MASTER   (1 << 1)"
+synchronous master mode 
+.PP
+Definición en la línea 297 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SYNCCTRL_FES   (1 << 2)"
+sample on falling edge 
+.PP
+Definición en la línea 298 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SYNCCTRL_STARTSTOPDISABLE   (1 << 5)"
+Do not send start/stop bit 
+.PP
+Definición en la línea 301 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SYNCCTRL_SYNC   (1 << 0)"
+
+.PP
+Macro defines for UART Synchronous Control Register - 11xx, 18xx/43xx UART0/2/3 only\&. enable synchronous mode 
+.PP
+Definición en la línea 296 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_SYNCCTRL_TSBYPASS   (1 << 3)"
+to be defined 
+.PP
+Definición en la línea 299 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_TER1_TXEN   (1 << 7)"
+
+.PP
+Macro defines for UART Tx Enable Register\&. Transmit enable bit - valid for 11xx, 13xx, 17xx/40xx only 
+.PP
+Definición en la línea 290 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_TER2_TXEN   (1 << 0)"
+Transmit enable bit - valid for 18xx/43xx only 
+.PP
+Definición en la línea 291 del archivo uart_18xx_43xx\&.h\&.
+.SS "#define UART_TX_FIFO_SIZE   (16)"
+
+.PP
+Definición en la línea 152 del archivo uart_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_UART_ABCmd (\fBLPC_USART_T\fP * pUART, uint32_t mode, bool autorestart, \fBFunctionalState\fP NewState)"
+
+.PP
+Start/stop autobaud operation\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fImode\fP : Autobaud mode (UART_ACR_MODE0 or UART_ACR_MODE1) 
+.br
+\fIautorestart\fP : Enable autorestart (true to enable or false to disable) 
+.br
+\fINewState\fP : ENABLE to start autobaud operation, DISABLE to stop autobaud operation 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 394 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBFlagStatus\fP Chip_UART_CheckBusy (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Check whether if UART is busy or not\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected pUART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+RESET if UART is not busy, otherwise return SET 
+.RE
+.PP
+
+.PP
+Definición en la línea 165 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_ClearAutoBaudReg (\fBLPC_USART_T\fP * pUART, uint32_t acr)"
+
+.PP
+Clear autobaud register options\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIacr\fP : Or'ed values to clear for ACR register 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use an Or'ed value of UART_ACR_* definitions with this call to clear specific options\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 574 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_ClearModemControl (\fBLPC_USART_T\fP * pUART, uint32_t mcr)"
+
+.PP
+Clear modem control register/status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fImcr\fP : Modem control register flags to clear 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use an Or'ed value of UART_MCR_* definitions with this call to clear specific options\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 503 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_ClearRS485Flags (\fBLPC_USART_T\fP * pUART, uint32_t ctrl)"
+
+.PP
+Clear RS485 control register options\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIctrl\fP : Or'ed values to clear for RS485 control register 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use an Or'ed value of UART_RS485CTRL_* definitions with this call to clear specific options\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 600 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_ConfigData (\fBLPC_USART_T\fP * pUART, uint32_t config)"
+
+.PP
+Configure data width, parity and stop bits\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected pUART peripheral 
+.br
+\fIconfig\fP : UART configuration, OR'ed values of UART_LCR_* defines 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Select OR'ed config options for the UART from the UART_LCR_* definitions\&. For example, a configuration of 8 data bits, 1 stop bit, and even (enabled) parity would be (UART_LCR_WLEN8 | UART_LCR_SBS_1BIT | UART_LCR_PARITY_EN | UART_LCR_PARITY_EVEN) 
+.RE
+.PP
+
+.PP
+Definición en la línea 428 del archivo uart_18xx_43xx\&.h\&.
+.SS "void Chip_UART_DeInit (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+De-initializes the pUART peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected pUART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 138 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_DisableDivisorAccess (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Disable access to Divisor Latches\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 448 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_EnableDivisorAccess (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Enable access to Divisor Latches\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 438 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBFlagStatus\fP Chip_UART_GetABEOStatus (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Returns the Auto Baud status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+RESET if autobaud not completed, SET if autobaud completed 
+.RE
+.PP
+
+.PP
+Definición en la línea 387 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_UART_GetIntsEnabled (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Returns UART interrupts that are enabled\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Returns the enabled UART interrupts 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use an OR'ed value of UART_IER_* definitions with this function to determine which interrupts are enabled\&. You can check for multiple enabled bits if needed\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 388 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_UART_GetRS485Addr (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Read RS485 address match value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Address match value for RS-485/EIA-485 mode 
+.RE
+.PP
+
+.PP
+Definición en la línea 621 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_UART_GetRS485Delay (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Read RS485 direction control (RTS or DTR) delay value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+direction control (RTS or DTR) delay value 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This delay time is in periods of the baud clock\&. Any delay time from 0 to 255 bit times may be programmed\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 646 del archivo uart_18xx_43xx\&.h\&.
+.SS "void Chip_UART_Init (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Initializes the pUART peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected pUART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 96 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_IntDisable (\fBLPC_USART_T\fP * pUART, uint32_t intMask)"
+
+.PP
+Disable UART interrupts\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIintMask\fP : OR'ed Interrupts to disable in the Interrupt Enable Register (IER) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use an OR'ed value of UART_IER_* definitions with this function to disable specific UART interrupts\&. The Divisor Latch Access Bit (DLAB) in LCR must be cleared in order to access the IER register\&. This function doesn't alter the DLAB state 
+.RE
+.PP
+
+.PP
+Definición en la línea 375 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_IntEnable (\fBLPC_USART_T\fP * pUART, uint32_t intMask)"
+
+.PP
+Enable UART interrupts\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIintMask\fP : OR'ed Interrupts to enable in the Interrupt Enable Register (IER) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use an OR'ed value of UART_IER_* definitions with this function to enable specific UART interrupts\&. The Divisor Latch Access Bit (DLAB) in LCR must be cleared in order to access the IER register\&. This function doesn't alter the DLAB state 
+.RE
+.PP
+
+.PP
+Definición en la línea 360 del archivo uart_18xx_43xx\&.h\&.
+.SS "void Chip_UART_IRQRBHandler (\fBLPC_USART_T\fP * pUART, \fBRINGBUFF_T\fP * pRXRB, \fBRINGBUFF_T\fP * pTXRB)"
+
+.PP
+UART receive/transmit interrupt handler for ring buffers\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIpRXRB\fP : Pointer to transmit ring buffer 
+.br
+\fIpTXRB\fP : Pointer to receive ring buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This provides a basic implementation of the UART IRQ handler for support of a ring buffer implementation for transmit and receive\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 305 del archivo uart_18xx_43xx\&.c\&.
+.SS "int Chip_UART_Read (\fBLPC_USART_T\fP * pUART, void * data, int numBytes)"
+
+.PP
+Read data through the UART peripheral (non-blocking) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIdata\fP : Pointer to bytes array to fill 
+.br
+\fInumBytes\fP : Size of the passed data array 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The actual number of bytes read 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function reads data from the receive FIFO until either all the data has been read or the passed buffer is completely full\&. This function will not block\&. This function ignores errors\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 192 del archivo uart_18xx_43xx\&.c\&.
+.SS "int Chip_UART_ReadBlocking (\fBLPC_USART_T\fP * pUART, void * data, int numBytes)"
+
+.PP
+Read data through the UART peripheral (blocking) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIdata\fP : Pointer to data array to fill 
+.br
+\fInumBytes\fP : Size of the passed data array 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The size of the dat array 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function reads data from the receive FIFO until the passed buffer is completely full\&. The function will block until full\&. This function ignores errors\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 209 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_UART_ReadByte (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Read a single byte data from the UART peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+A single byte of data read 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function reads a byte from the UART receive FIFO or receive hold register regard regardless of UART state\&. The FIFO status should be read first prior to using this function 
+.RE
+.PP
+
+.PP
+Definición en la línea 345 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_UART_ReadIntIDReg (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Read the Interrupt Identification Register (IIR) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current pending interrupt status per the IIR register 
+.RE
+.PP
+
+.PP
+Definición en la línea 398 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_UART_ReadLineStatus (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Return Line Status register/status (LSR) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Line Status register (status) 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Mask bits of the returned status value with UART_LSR_* definitions for specific statuses\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 515 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_UART_ReadModemControl (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Return modem control register/status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Modem control register (status) 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Mask bits of the returned status value with UART_MCR_* definitions for specific statuses\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 477 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_UART_ReadModemStatus (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Return Modem Status register/status (MSR) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Modem Status register (status) 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Mask bits of the returned status value with UART_MSR_* definitions for specific statuses\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 527 del archivo uart_18xx_43xx\&.h\&.
+.SS "int Chip_UART_ReadRB (\fBLPC_USART_T\fP * pUART, \fBRINGBUFF_T\fP * pRB, void * data, int bytes)"
+
+.PP
+Copy data from a receive ring buffer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIpRB\fP : Pointer to ring buffer structure to use 
+.br
+\fIdata\fP : Pointer to buffer to fill from ring buffer 
+.br
+\fIbytes\fP : Size of the passed buffer in bytes 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The number of bytes placed into the ring buffer 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Will move the data from the RX ring buffer up to the the maximum passed buffer size\&. Returns 0 if there is no data in the ring buffer\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 297 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_UART_ReadScratch (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Returns current byte value in the scratchpad register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Byte value read from scratchpad register 
+.RE
+.PP
+
+.PP
+Definición en la línea 548 del archivo uart_18xx_43xx\&.h\&.
+.SS "void Chip_UART_RXIntHandlerRB (\fBLPC_USART_T\fP * pUART, \fBRINGBUFF_T\fP * pRB)"
+
+.PP
+UART receive-only interrupt handler for ring buffers\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIpRB\fP : Pointer to ring buffer structure to use 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+If ring buffer support is desired for the receive side of data transfer, the UART interrupt should call this function for a receive based interrupt status\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 247 del archivo uart_18xx_43xx\&.c\&.
+.SS "int Chip_UART_Send (\fBLPC_USART_T\fP * pUART, const void * data, int numBytes)"
+
+.PP
+Transmit a byte array through the UART peripheral (non-blocking) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIdata\fP : Pointer to bytes to transmit 
+.br
+\fInumBytes\fP : Number of bytes to transmit 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The actual number of bytes placed into the FIFO 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function places data into the transmit FIFO until either all the data is in the FIFO or the FIFO is full\&. This function will not block in the FIFO is full\&. The actual number of bytes placed into the FIFO is returned\&. This function ignores errors\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 148 del archivo uart_18xx_43xx\&.c\&.
+.SS "int Chip_UART_SendBlocking (\fBLPC_USART_T\fP * pUART, const void * data, int numBytes)"
+
+.PP
+Transmit a byte array through the UART peripheral (blocking) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIdata\fP : Pointer to data to transmit 
+.br
+\fInumBytes\fP : Number of bytes to transmit 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The number of bytes transmitted 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function will send or place all bytes into the transmit FIFO\&. This function will block until the last bytes are in the FIFO\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 176 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_SendByte (\fBLPC_USART_T\fP * pUART, uint8_t data)"
+
+.PP
+Transmit a single data byte through the UART peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIdata\fP : Byte to transmit 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function attempts to place a byte into the UART transmit FIFO or transmit hold register regard regardless of UART state 
+.RE
+.PP
+
+.PP
+Definición en la línea 332 del archivo uart_18xx_43xx\&.h\&.
+.SS "uint32_t Chip_UART_SendRB (\fBLPC_USART_T\fP * pUART, \fBRINGBUFF_T\fP * pRB, const void * data, int bytes)"
+
+.PP
+Populate a transmit ring buffer and start UART transmit\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIpRB\fP : Pointer to ring buffer structure to use 
+.br
+\fIdata\fP : Pointer to buffer to move to ring buffer 
+.br
+\fIbytes\fP : Number of bytes to move 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The number of bytes placed into the ring buffer 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Will move the data into the TX ring buffer and start the transfer\&. If the number of bytes returned is less than the number of bytes to send, the ring buffer is considered full\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 275 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_SetAutoBaudReg (\fBLPC_USART_T\fP * pUART, uint32_t acr)"
+
+.PP
+Set autobaud register options\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIacr\fP : Or'ed values to set for ACR register 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use an Or'ed value of UART_ACR_* definitions with this call to set specific options\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 561 del archivo uart_18xx_43xx\&.h\&.
+.SS "uint32_t Chip_UART_SetBaud (\fBLPC_USART_T\fP * pUART, uint32_t baudrate)"
+
+.PP
+Sets best dividers to get a target bit rate (without fractional divider) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIbaudrate\fP : Target baud rate (baud rate = bit rate) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The actual baud rate, or 0 if no rate can be found 
+.RE
+.PP
+
+.PP
+Definición en la línea 225 del archivo uart_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_UART_SetBaudFDR (\fBLPC_USART_T\fP * pUART, uint32_t baud)"
+
+.PP
+Sets best dividers to get a target bit rate (with fractional divider) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIbaud\fP : Target baud rate (baud rate = bit rate) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The actual baud rate, or 0 if no rate can be found 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The maximum bit rate possible is (clk / 16), the next possible bit rate is (clk / 32), the next possible bit rate is (clk / 48), no rates in-between any of the above three maximum rates could be set using this API\&. Fractional dividers can only be used for rates lower than (clk / 48) where \fIclk\fP is the base clock of the UART\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 325 del archivo uart_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_SetDivisorLatches (\fBLPC_USART_T\fP * pUART, uint8_t dll, uint8_t dlm)"
+
+.PP
+Set LSB and MSB divisor latch registers\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIdll\fP : Divisor Latch LSB value 
+.br
+\fIdlm\fP : Divisor Latch MSB value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The Divisor Latch Access Bit (DLAB) in LCR must be set in order to access the USART Divisor Latches\&. This function doesn't alter the DLAB state\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 463 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_SetModemControl (\fBLPC_USART_T\fP * pUART, uint32_t mcr)"
+
+.PP
+Set modem control register/status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fImcr\fP : Modem control register flags to set 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use an Or'ed value of UART_MCR_* definitions with this call to set specific options\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 490 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_SetRS485Addr (\fBLPC_USART_T\fP * pUART, uint8_t addr)"
+
+.PP
+Set RS485 address match value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIaddr\fP : Address match value for RS-485/EIA-485 mode 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 611 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_SetRS485Delay (\fBLPC_USART_T\fP * pUART, uint8_t dly)"
+
+.PP
+Set RS485 direction control (RTS or DTR) delay value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIdly\fP : direction control (RTS or DTR) delay value 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This delay time is in periods of the baud clock\&. Any delay time from 0 to 255 bit times may be programmed\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 634 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_SetRS485Flags (\fBLPC_USART_T\fP * pUART, uint32_t ctrl)"
+
+.PP
+Set RS485 control register options\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIctrl\fP : Or'ed values to set for RS485 control register 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use an Or'ed value of UART_RS485CTRL_* definitions with this call to set specific options\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 587 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_SetScratch (\fBLPC_USART_T\fP * pUART, uint8_t data)"
+
+.PP
+Write a byte to the scratchpad register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIdata\fP : Byte value to write 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 538 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_SetupFIFOS (\fBLPC_USART_T\fP * pUART, uint32_t fcr)"
+
+.PP
+Setup the UART FIFOs\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIfcr\fP : FIFO control register setup OR'ed flags 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Use OR'ed value of UART_FCR_* definitions with this function to select specific options\&. For example, to enable the FIFOs with a RX trip level of 8 characters, use something like (UART_FCR_FIFO_EN | UART_FCR_TRG_LEV2) 
+.RE
+.PP
+
+.PP
+Definición en la línea 413 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_TXDisable (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Disable transmission on UART TxD pin\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected pUART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 319 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_UART_TXEnable (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Enable transmission on UART TxD pin\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected pUART peripheral 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 309 del archivo uart_18xx_43xx\&.h\&.
+.SS "void Chip_UART_TXIntHandlerRB (\fBLPC_USART_T\fP * pUART, \fBRINGBUFF_T\fP * pRB)"
+
+.PP
+UART transmit-only interrupt handler for ring buffers\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpUART\fP : Pointer to selected UART peripheral 
+.br
+\fIpRB\fP : Pointer to ring buffer structure to use 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+If ring buffer support is desired for the transmit side of data transfer, the UART interrupt should call this function for a transmit based interrupt status\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 257 del archivo uart_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

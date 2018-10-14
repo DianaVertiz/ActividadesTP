@@ -1,0 +1,1952 @@
+.TH "ENET_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ENET_18XX_43XX \- CHIP: LPC18xx/43xx Ethernet driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_ENET_T\fP"
+.br
+.RI "\fI10/100 MII & RMII Ethernet with timestamping register block structure \fP"
+.ti -1c
+.RI "struct \fBENET_TXDESC_T\fP"
+.br
+.RI "\fIStructure of a transmit descriptor (without timestamp) \fP"
+.ti -1c
+.RI "struct \fBENET_ENHTXDESC_T\fP"
+.br
+.RI "\fIStructure of a enhanced transmit descriptor (with timestamp) \fP"
+.ti -1c
+.RI "struct \fBENET_RXDESC_T\fP"
+.br
+.RI "\fIStructure of a receive descriptor (without timestamp) \fP"
+.ti -1c
+.RI "struct \fBENET_ENHRXDESC_T\fP"
+.br
+.RI "\fIStructure of a enhanced receive descriptor (with timestamp) \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAC_CFG_RE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_TE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DF\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_BL\fP(n)   ((n) << 5)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_ACS\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_LUD\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DR\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_IPC\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DM\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_LM\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DO\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_FES\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_PS\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_DCRS\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_IFG\fP(n)   ((n) << 17)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_JE\fP   (1 << 20)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_JD\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBMAC_CFG_WD\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_PR\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_DAIF\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_PM\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_DBF\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_PCF\fP(n)   ((n) << 6)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_SAIF\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_SAF\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FF_RA\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_GB\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_W\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_CR\fP(n)   ((n) << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_GR\fP(n)   ((n) << 6)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIIA_PA\fP(n)   ((n) << 11)"
+.br
+.ti -1c
+.RI "#define \fBMAC_MIID_GDMSK\fP   (0xFFFF)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_FCB\fP   (1 << 0)"
+.br
+.RI "\fIMAC_FLOW_CONTROL register bit defines\&. \fP"
+.ti -1c
+.RI "#define \fBMAC_FC_TFE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_RFE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_UP\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_PLT\fP(n)   ((n) << 4)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_DZPQ\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMAC_FC_PT\fP(n)   ((n) << 16)"
+.br
+.ti -1c
+.RI "#define \fBMAC_VT_VL\fP(n)   ((n) << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_VT_ETC\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_PD\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_MPE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_WFE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_MPR\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_WFR\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_GU\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMAC_PMT_WFFRPR\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBMAC_IM_PMT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_ADRH_MO\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBMAC_ADRH_MO\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSENA\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSCFUP\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSINIT\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSUPDT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSTRIG\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSADDR\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSENAL\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSCTRL\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSVER2\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSIPENA\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSIPV6E\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSIPV4E\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSEVNT\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSMSTR\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSCLKT\fP(n)   ((n) << 16)"
+.br
+.ti -1c
+.RI "#define \fBMAC_TS_TSENMA\fP   (1 << 18)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_SWR\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_DA\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_DSL\fP(n)   ((n) << 2)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_ATDS\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_PBL\fP(n)   ((n) << 8)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_PR\fP(n)   ((n) << 14)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_FB\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_RPBL\fP(n)   ((n) << 17)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_USP\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_PBL8X\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_AAL\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_MB\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBDMA_BM_TXPR\fP   (1 << 27)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_TI\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_TPS\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_TU\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_TJT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_OVF\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_UNF\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_RI\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_RU\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_RPS\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_RWT\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_ETI\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_FBI\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_ERI\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_AIE\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_NIS\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBDMA_ST_ALL\fP   (0x1E7FF)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_SR\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_OSF\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_RTC\fP(n)   ((n) << 3)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_FUF\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_FEF\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_ST\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_TTC\fP(n)   ((n) << 14)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_FTF\fP   (1 << 20)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_TSF\fP   (1 << 21)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_DFF\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_RSF\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBDMA_OM_DT\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_TIE\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_TSE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_TUE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_TJE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_OVE\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_UNE\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_RIE\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_RUE\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_RSE\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_RWE\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_ETE\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_FBE\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_ERE\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_AIE\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBDMA_IE_NIE\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBDMA_MFRM_FMCMSK\fP   (0xFFFF)"
+.br
+.ti -1c
+.RI "#define \fBDMA_MFRM_OC\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBDMA_MFRM_FMA\fP(n)   (((n) & 0x0FFE0000) >> 17)"
+.br
+.ti -1c
+.RI "#define \fBDMA_MFRM_OF\fP   (1 << 28)"
+.br
+.ti -1c
+.RI "#define \fBTDES_DB\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBTDES_UF\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ED\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBTDES_CCMSK\fP(n)   (((n) & 0x000000F0) >> 3)"
+.br
+.ti -1c
+.RI "#define \fBTDES_VF\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBTDES_EC\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBTDES_LC\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NC\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBTDES_LCAR\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBTDES_IPE\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBTDES_FF\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBTDES_JT\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ES\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBTDES_IHE\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBTDES_TTSS\fP   (1 << 17)"
+.br
+.ti -1c
+.RI "#define \fBTDES_OWN\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_IC\fP   (1UL << 30)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_LS\fP   (1 << 29)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_FS\fP   (1 << 28)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_DC\fP   (1 << 27)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_DP\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_TTSE\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_CIC\fP(n)   ((n) << 22)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_TER\fP   (1 << 21)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_TCH\fP   (1 << 20)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_IC\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_FS\fP   (1 << 30)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_LS\fP   (1 << 29)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_CIC\fP(n)   ((n) << 27)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_DC\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_TER\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_TCH\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_DP\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_TTSE\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_BS2\fP(n)   (((n) & 0x3FF) << 11)"
+.br
+.ti -1c
+.RI "#define \fBTDES_NORM_BS1\fP(n)   (((n) & 0x3FF) << 0)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_BS2\fP(n)   (((n) & 0xFFF) << 16)"
+.br
+.ti -1c
+.RI "#define \fBTDES_ENH_BS1\fP(n)   (((n) & 0xFFF) << 0)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ESA\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBRDES_CE\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBRDES_DRE\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBRDES_RE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBRDES_RWT\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBRDES_FT\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBRDES_LC\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBRDES_TSA\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBRDES_LS\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBRDES_FS\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBRDES_VLAN\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBRDES_OE\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBRDES_LE\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBRDES_SAF\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBRDES_DE\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ES\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBRDES_FLMSK\fP(n)   (((n) & 0x3FFF0000) >> 16)"
+.br
+.ti -1c
+.RI "#define \fBRDES_AFM\fP   (1 << 30)"
+.br
+.ti -1c
+.RI "#define \fBRDES_OWN\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBRDES_DINT\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBRDES_NORM_RER\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBRDES_NORM_RCH\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBRDES_NORM_BS2\fP(n)   (((n) & 0x3FF) << 11)"
+.br
+.ti -1c
+.RI "#define \fBRDES_NORM_BS1\fP(n)   (((n) & 0x3FF) << 0)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_RER\fP   (1 << 15)"
+.br
+.RI "\fIREC_DESC_ENH_T only CTRL field bit defines\&. \fP"
+.ti -1c
+.RI "#define \fBRDES_ENH_RCH\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_BS2\fP(n)   (((n) & 0xFFF) << 16)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_BS1\fP(n)   (((n) & 0xFFF) << 0)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPPL\fP(n)   (((n) & 0x7) >> 2)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPHE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPPLE\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPCSB\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPV4\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_IPV6\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBRDES_ENH_MTMSK\fP(n)   (((n) & 0xF) >> 8)"
+.br
+.ti -1c
+.RI "#define \fBEMAC_ETH_MAX_FLEN\fP   (1536)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_Reset\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIResets the ethernet interface\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_SetADDR\fP (\fBLPC_ENET_T\fP *pENET, const uint8_t *macAddr)"
+.br
+.RI "\fISets the address of the interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_SetupMII\fP (\fBLPC_ENET_T\fP *pENET, uint32_t div, uint8_t addr)"
+.br
+.RI "\fISets up the PHY link clock divider and PHY address\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_StartMIIWrite\fP (\fBLPC_ENET_T\fP *pENET, uint8_t reg, uint16_t data)"
+.br
+.RI "\fIStarts a PHY write via the MII\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_StartMIIRead\fP (\fBLPC_ENET_T\fP *pENET, uint8_t reg)"
+.br
+.RI "\fIStarts a PHY read via the MII\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_ENET_IsMIIBusy\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIReturns MII link (PHY) busy status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint16_t \fBChip_ENET_ReadMIIData\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIReturns the value read from the PHY\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_TXEnable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIEnables ethernet transmit\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_TXDisable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIDisables ethernet transmit\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_RXEnable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIEnables ethernet packet reception\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_RXDisable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIDisables ethernet packet reception\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_RMIIEnable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIEnable RMII ethernet operation\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_MIIEnable\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIEnable MII ethernet operation\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_SetDuplex\fP (\fBLPC_ENET_T\fP *pENET, bool full)"
+.br
+.RI "\fISets full or half duplex for the interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_SetSpeed\fP (\fBLPC_ENET_T\fP *pENET, bool speed100)"
+.br
+.RI "\fISets speed for the interface\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_InitDescriptors\fP (\fBLPC_ENET_T\fP *pENET, \fBENET_ENHTXDESC_T\fP *pTXDescs, \fBENET_ENHRXDESC_T\fP *pRXDescs)"
+.br
+.RI "\fIConfigures the initial ethernet descriptors\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_RXStart\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIStarts receive polling of RX descriptors\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ENET_TXStart\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIStarts transmit polling of TX descriptors\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_Init\fP (\fBLPC_ENET_T\fP *pENET, uint32_t phyAddr)"
+.br
+.RI "\fIInitialize ethernet interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_ENET_DeInit\fP (\fBLPC_ENET_T\fP *pENET)"
+.br
+.RI "\fIDe-initialize the ethernet interface\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define DMA_BM_AAL   (1 << 25)"
+Address-aligned beats 
+.PP
+Definición en la línea 222 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_ATDS   (1 << 7)"
+Alternate (Enhanced) descriptor size 
+.PP
+Definición en la línea 215 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_DA   (1 << 1)"
+DMA arbitration scheme, 1 = TX has priority over TX 
+.PP
+Definición en la línea 213 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_DSL(n)   ((n) << 2)"
+Descriptor skip length, n = see manual 
+.PP
+Definición en la línea 214 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_FB   (1 << 16)"
+Fixed burst 
+.PP
+Definición en la línea 218 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_MB   (1 << 26)"
+Mixed burst 
+.PP
+Definición en la línea 223 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_PBL(n)   ((n) << 8)"
+Programmable burst length, n = see manual 
+.PP
+Definición en la línea 216 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_PBL8X   (1 << 24)"
+8 x PBL mode 
+.PP
+Definición en la línea 221 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_PR(n)   ((n) << 14)"
+Rx-to-Tx priority ratio, n = see manual 
+.PP
+Definición en la línea 217 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_RPBL(n)   ((n) << 17)"
+RxDMA PBL, n = see manual 
+.PP
+Definición en la línea 219 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_SWR   (1 << 0)"
+Software reset 
+.PP
+Definición en la línea 212 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_TXPR   (1 << 27)"
+Transmit DMA has higher priority than receive DMA 
+.PP
+Definición en la línea 224 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_BM_USP   (1 << 23)"
+Use separate PBL 
+.PP
+Definición en la línea 220 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_AIE   (1 << 15)"
+Abnormal interrupt summary enable 
+.PP
+Definición en la línea 278 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_ERE   (1 << 14)"
+Early receive interrupt enable 
+.PP
+Definición en la línea 277 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_ETE   (1 << 10)"
+Early transmit interrupt enable 
+.PP
+Definición en la línea 275 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_FBE   (1 << 13)"
+Fatal bus error enable 
+.PP
+Definición en la línea 276 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_NIE   (1 << 16)"
+Normal interrupt summary enable 
+.PP
+Definición en la línea 279 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_OVE   (1 << 4)"
+Overflow interrupt enable 
+.PP
+Definición en la línea 269 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_RIE   (1 << 6)"
+Receive interrupt enable 
+.PP
+Definición en la línea 271 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_RSE   (1 << 8)"
+Received stopped enable 
+.PP
+Definición en la línea 273 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_RUE   (1 << 7)"
+Receive buffer unavailable enable 
+.PP
+Definición en la línea 272 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_RWE   (1 << 9)"
+Receive watchdog timeout enable 
+.PP
+Definición en la línea 274 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_TIE   (1 << 0)"
+Transmit interrupt enable 
+.PP
+Definición en la línea 265 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_TJE   (1 << 3)"
+Transmit jabber timeout enable 
+.PP
+Definición en la línea 268 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_TSE   (1 << 1)"
+Transmit stopped enable 
+.PP
+Definición en la línea 266 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_TUE   (1 << 2)"
+Transmit buffer unavailable enable 
+.PP
+Definición en la línea 267 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_IE_UNE   (1 << 5)"
+Underflow interrupt enable 
+.PP
+Definición en la línea 270 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_MFRM_FMA(n)   (((n) & 0x0FFE0000) >> 17)"
+Number of frames missed by the application mask/shift 
+.PP
+Definición en la línea 286 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_MFRM_FMCMSK   (0xFFFF)"
+Number of frames missed mask 
+.PP
+Definición en la línea 284 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_MFRM_OC   (1 << 16)"
+Overflow bit for missed frame counter 
+.PP
+Definición en la línea 285 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_MFRM_OF   (1 << 28)"
+Overflow bit for FIFO overflow counter 
+.PP
+Definición en la línea 287 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_DFF   (1 << 24)"
+Disable flushing of received frames 
+.PP
+Definición en la línea 258 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_DT   (1 << 26)"
+Disable Dropping of TCP/IP Checksum Error Frames 
+.PP
+Definición en la línea 260 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_FEF   (1 << 7)"
+Forward error frames 
+.PP
+Definición en la línea 253 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_FTF   (1 << 20)"
+Flush transmit FIFO 
+.PP
+Definición en la línea 256 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_FUF   (1 << 6)"
+Forward undersized good frames 
+.PP
+Definición en la línea 252 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_OSF   (1 << 2)"
+Operate on second frame 
+.PP
+Definición en la línea 250 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_RSF   (1 << 25)"
+Receive store and forward 
+.PP
+Definición en la línea 259 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_RTC(n)   ((n) << 3)"
+Receive threshold control, n = see manual 
+.PP
+Definición en la línea 251 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_SR   (1 << 1)"
+Start/stop receive 
+.PP
+Definición en la línea 249 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_ST   (1 << 13)"
+Start/Stop Transmission Command 
+.PP
+Definición en la línea 254 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_TSF   (1 << 21)"
+Transmit store and forward 
+.PP
+Definición en la línea 257 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_OM_TTC(n)   ((n) << 14)"
+Transmit threshold control, n = see manual 
+.PP
+Definición en la línea 255 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_AIE   (1 << 15)"
+Abnormal interrupt summary 
+.PP
+Definición en la línea 242 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_ALL   (0x1E7FF)"
+All interrupts 
+.PP
+Definición en la línea 244 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_ERI   (1 << 14)"
+Early receive interrupt 
+.PP
+Definición en la línea 241 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_ETI   (1 << 10)"
+Early transmit interrupt 
+.PP
+Definición en la línea 239 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_FBI   (1 << 13)"
+Fatal bus error interrupt 
+.PP
+Definición en la línea 240 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_NIS   (1 << 16)"
+Normal interrupt summary 
+.PP
+Definición en la línea 243 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_OVF   (1 << 4)"
+Receive overflow 
+.PP
+Definición en la línea 233 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_RI   (1 << 6)"
+Receive interrupt 
+.PP
+Definición en la línea 235 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_RPS   (1 << 8)"
+Received process stopped 
+.PP
+Definición en la línea 237 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_RU   (1 << 7)"
+Receive buffer unavailable 
+.PP
+Definición en la línea 236 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_RWT   (1 << 9)"
+Receive watchdog timeout 
+.PP
+Definición en la línea 238 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_TI   (1 << 0)"
+Transmit interrupt 
+.PP
+Definición en la línea 229 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_TJT   (1 << 3)"
+Transmit jabber timeout 
+.PP
+Definición en la línea 232 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_TPS   (1 << 1)"
+Transmit process stopped 
+.PP
+Definición en la línea 230 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_TU   (1 << 2)"
+Transmit buffer unavailable 
+.PP
+Definición en la línea 231 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define DMA_ST_UNF   (1 << 5)"
+Transmit underflow 
+.PP
+Definición en la línea 234 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define EMAC_ETH_MAX_FLEN   (1536)"
+
+.PP
+Definición en la línea 401 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_ADRH_MO   (1UL << 31)"
+Always 1 when writing register 
+.PP
+Definición en la línea 187 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_ADRH_MO   (1UL << 31)"
+Always 1 when writing register 
+.PP
+Definición en la línea 187 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_ACS   (1 << 7)"
+Automatic Pad/CRC Stripping 
+.PP
+Definición en la línea 105 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_BL(n)   ((n) << 5)"
+Back-Off Limit 
+.PP
+Definición en la línea 104 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_DCRS   (1 << 16)"
+Disable carrier sense during transmission 
+.PP
+Definición en la línea 114 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_DF   (1 << 4)"
+Deferral Check 
+.PP
+Definición en la línea 103 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_DM   (1 << 11)"
+Duplex Mode, 1 = full, 0 = half 
+.PP
+Definición en la línea 109 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_DO   (1 << 13)"
+Disable Receive Own 
+.PP
+Definición en la línea 111 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_DR   (1 << 9)"
+Disable Retry 
+.PP
+Definición en la línea 107 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_FES   (1 << 14)"
+Speed, 1 = 100Mbps, 0 = 10Mbos 
+.PP
+Definición en la línea 112 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_IFG(n)   ((n) << 17)"
+Inter-frame gap, 40\&.\&.96, n incs by 8 
+.PP
+Definición en la línea 115 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_IPC   (1 << 10)"
+Checksum Offload 
+.PP
+Definición en la línea 108 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_JD   (1 << 22)"
+Jabber Disable 
+.PP
+Definición en la línea 117 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_JE   (1 << 20)"
+Jumbo Frame Enable 
+.PP
+Definición en la línea 116 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_LM   (1 << 12)"
+Loopback Mode 
+.PP
+Definición en la línea 110 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_LUD   (1 << 8)"
+Link Up/Down, 1 = up 
+.PP
+Definición en la línea 106 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_PS   (1 << 15)"
+Port select, must always be 1 
+.PP
+Definición en la línea 113 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_RE   (1 << 2)"
+Receiver enable 
+.PP
+Definición en la línea 101 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_TE   (1 << 3)"
+Transmitter Enable 
+.PP
+Definición en la línea 102 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_CFG_WD   (1 << 23)"
+Watchdog Disable 
+.PP
+Definición en la línea 118 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FC_DZPQ   (1 << 7)"
+Disable Zero-Quanta Pause 
+.PP
+Definición en la línea 154 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FC_FCB   (1 << 0)"
+
+.PP
+MAC_FLOW_CONTROL register bit defines\&. Flow Control Busy/Backpressure Activate 
+.PP
+Definición en la línea 149 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FC_PLT(n)   ((n) << 4)"
+Pause Low Threshold, n = see manual 
+.PP
+Definición en la línea 153 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FC_PT(n)   ((n) << 16)"
+Pause time 
+.PP
+Definición en la línea 155 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FC_RFE   (1 << 2)"
+Receive Flow Control Enable 
+.PP
+Definición en la línea 151 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FC_TFE   (1 << 1)"
+Transmit Flow Control Enable 
+.PP
+Definición en la línea 150 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FC_UP   (1 << 3)"
+Unicast Pause Frame Detect 
+.PP
+Definición en la línea 152 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FF_DAIF   (1 << 3)"
+DA Inverse Filtering 
+.PP
+Definición en la línea 124 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FF_DBF   (1 << 5)"
+Disable Broadcast Frames 
+.PP
+Definición en la línea 126 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FF_PCF(n)   ((n) << 6)"
+Pass Control Frames, n = see user manual 
+.PP
+Definición en la línea 127 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FF_PM   (1 << 4)"
+Pass All Multicast 
+.PP
+Definición en la línea 125 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FF_PR   (1 << 0)"
+Promiscuous Mode 
+.PP
+Definición en la línea 123 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FF_RA   (1UL << 31)"
+Receive all 
+.PP
+Definición en la línea 130 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FF_SAF   (1 << 9)"
+Source Address Filter Enable 
+.PP
+Definición en la línea 129 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_FF_SAIF   (1 << 8)"
+SA Inverse Filtering 
+.PP
+Definición en la línea 128 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_IM_PMT   (1 << 3)"
+PMT Interrupt Mask 
+.PP
+Definición en la línea 177 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_MIIA_CR(n)   ((n) << 2)"
+CSR clock range, n = see manual 
+.PP
+Definición en la línea 137 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_MIIA_GB   (1 << 0)"
+MII busy 
+.PP
+Definición en la línea 135 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_MIIA_GR(n)   ((n) << 6)"
+MII register\&. n = 0\&.\&.31 
+.PP
+Definición en la línea 138 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_MIIA_PA(n)   ((n) << 11)"
+Physical layer address, n = 0\&.\&.31 
+.PP
+Definición en la línea 139 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_MIIA_W   (1 << 1)"
+MII write 
+.PP
+Definición en la línea 136 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_MIID_GDMSK   (0xFFFF)"
+MII data mask 
+.PP
+Definición en la línea 144 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_PMT_GU   (1 << 9)"
+Global Unicast 
+.PP
+Definición en la línea 171 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_PMT_MPE   (1 << 1)"
+Magic packet enable 
+.PP
+Definición en la línea 167 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_PMT_MPR   (1 << 5)"
+Magic Packet Received 
+.PP
+Definición en la línea 169 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_PMT_PD   (1 << 0)"
+Power-down 
+.PP
+Definición en la línea 166 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_PMT_WFE   (1 << 2)"
+Wake-up frame enable 
+.PP
+Definición en la línea 168 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_PMT_WFFRPR   (1UL << 31)"
+Wake-up Frame Filter Register Pointer Reset 
+.PP
+Definición en la línea 172 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_PMT_WFR   (1 << 6)"
+Wake-up Frame Received 
+.PP
+Definición en la línea 170 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSADDR   (1 << 5)"
+Addend Reg Update 
+.PP
+Definición en la línea 197 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSCFUP   (1 << 1)"
+Time Stamp Fine or Coarse Update 
+.PP
+Definición en la línea 193 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSCLKT(n)   ((n) << 16)"
+Select the type of clock node, n = see menual 
+.PP
+Definición en la línea 206 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSCTRL   (1 << 9)"
+Time Stamp Digital or Binary rollover control 
+.PP
+Definición en la línea 199 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSENA   (1 << 0)"
+Time Stamp Enable 
+.PP
+Definición en la línea 192 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSENAL   (1 << 8)"
+Enable Time Stamp for All Frames 
+.PP
+Definición en la línea 198 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSENMA   (1 << 18)"
+Enable MAC address for PTP frame filtering 
+.PP
+Definición en la línea 207 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSEVNT   (1 << 14)"
+Enable Time Stamp Snapshot for Event Messages 
+.PP
+Definición en la línea 204 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSINIT   (1 << 2)"
+Time Stamp Initialize 
+.PP
+Definición en la línea 194 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSIPENA   (1 << 11)"
+Enable Time Stamp Snapshot for PTP over Ethernet frames 
+.PP
+Definición en la línea 201 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSIPV4E   (1 << 13)"
+Enable Time Stamp Snapshot for IPv4 frames 
+.PP
+Definición en la línea 203 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSIPV6E   (1 << 12)"
+Enable Time Stamp Snapshot for IPv6 frames 
+.PP
+Definición en la línea 202 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSMSTR   (1 << 15)"
+Enable Snapshot for Messages Relevant to Master 
+.PP
+Definición en la línea 205 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSTRIG   (1 << 4)"
+Time Stamp Interrupt Trigger Enable 
+.PP
+Definición en la línea 196 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSUPDT   (1 << 3)"
+Time Stamp Update 
+.PP
+Definición en la línea 195 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_TS_TSVER2   (1 << 10)"
+Enable PTP packet snooping for version 2 format 
+.PP
+Definición en la línea 200 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_VT_ETC   (1 << 7)"
+Enable 12-Bit VLAN Tag Comparison 
+.PP
+Definición en la línea 161 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define MAC_VT_VL(n)   ((n) << 0)"
+VLAN Tag Identifier for Receive Frames 
+.PP
+Definición en la línea 160 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_AFM   (1 << 30)"
+Destination Address Filter Fail 
+.PP
+Definición en la línea 363 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_CE   (1 << 1)"
+CRC Error 
+.PP
+Definición en la línea 347 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_DE   (1 << 14)"
+Descriptor Error 
+.PP
+Definición en la línea 360 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_DINT   (1UL << 31)"
+Disable interrupt on completion 
+.PP
+Definición en la línea 369 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_DRE   (1 << 2)"
+Dribble Bit Error 
+.PP
+Definición en la línea 348 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_BS1(n)   (((n) & 0xFFF) << 0)"
+Buffer 1 size, enhanced descriptor 
+.PP
+Definición en la línea 385 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_BS2(n)   (((n) & 0xFFF) << 16)"
+Buffer 2 size, enhanced descriptor 
+.PP
+Definición en la línea 384 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_IPCSB   (1 << 5)"
+IP Checksum Bypassed, enhanced descripto 
+.PP
+Definición en la línea 393 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_IPHE   (1 << 3)"
+IP Header Error, enhanced descripto 
+.PP
+Definición en la línea 391 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_IPPL(n)   (((n) & 0x7) >> 2)"
+IP Payload Type mask and shift, enhanced descripto 
+.PP
+Definición en la línea 390 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_IPPLE   (1 << 4)"
+IP Payload Error, enhanced descripto 
+.PP
+Definición en la línea 392 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_IPV4   (1 << 6)"
+IPv4 Packet Received, enhanced descripto 
+.PP
+Definición en la línea 394 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_IPV6   (1 << 7)"
+IPv6 Packet Received, enhanced descripto 
+.PP
+Definición en la línea 395 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_MTMSK(n)   (((n) & 0xF) >> 8)"
+Message Type mask and shift, enhanced descripto 
+.PP
+Definición en la línea 396 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_RCH   (1 << 14)"
+Second Address Chained, enhanced descriptor 
+.PP
+Definición en la línea 383 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ENH_RER   (1 << 15)"
+
+.PP
+REC_DESC_ENH_T only CTRL field bit defines\&. Receive End of Ring, enhanced descriptor 
+.PP
+Definición en la línea 382 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ES   (1 << 15)"
+ES: Error Summary 
+.PP
+Definición en la línea 361 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_ESA   (1 << 0)"
+Extended Status Available/Rx MAC Address 
+.PP
+Definición en la línea 346 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_FLMSK(n)   (((n) & 0x3FFF0000) >> 16)"
+Frame Length mask and shift 
+.PP
+Definición en la línea 362 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_FS   (1 << 9)"
+First Descriptor 
+.PP
+Definición en la línea 355 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_FT   (1 << 5)"
+Frame Type 
+.PP
+Definición en la línea 351 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_LC   (1 << 6)"
+Late Collision 
+.PP
+Definición en la línea 352 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_LE   (1 << 12)"
+Length Error 
+.PP
+Definición en la línea 358 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_LS   (1 << 8)"
+Last Descriptor 
+.PP
+Definición en la línea 354 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_NORM_BS1(n)   (((n) & 0x3FF) << 0)"
+Buffer 1 size, normal descriptor 
+.PP
+Definición en la línea 377 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_NORM_BS2(n)   (((n) & 0x3FF) << 11)"
+Buffer 2 size, normal descriptor 
+.PP
+Definición en la línea 376 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_NORM_RCH   (1 << 24)"
+Second Address Chained, normal descriptor 
+.PP
+Definición en la línea 375 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_NORM_RER   (1 << 25)"
+Receive End of Ring, normal descriptor 
+.PP
+Definición en la línea 374 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_OE   (1 << 11)"
+Overflow Error 
+.PP
+Definición en la línea 357 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_OWN   (1UL << 31)"
+Own Bit 
+.PP
+Definición en la línea 364 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_RE   (1 << 3)"
+Receive Error 
+.PP
+Definición en la línea 349 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_RWT   (1 << 4)"
+Receive Watchdog Timeout 
+.PP
+Definición en la línea 350 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_SAF   (1 << 13)"
+Source Address Filter Fail 
+.PP
+Definición en la línea 359 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_TSA   (1 << 7)"
+Timestamp Available/IP Checksum Error (Type1) /Giant Frame 
+.PP
+Definición en la línea 353 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define RDES_VLAN   (1 << 10)"
+VLAN Tag 
+.PP
+Definición en la línea 356 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_CCMSK(n)   (((n) & 0x000000F0) >> 3)"
+CC: Collision Count (Status field) mask and shift 
+.PP
+Definición en la línea 295 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_DB   (1 << 0)"
+Deferred Bit 
+.PP
+Definición en la línea 292 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_EC   (1 << 8)"
+Excessive Collision 
+.PP
+Definición en la línea 297 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ED   (1 << 2)"
+Excessive Deferral 
+.PP
+Definición en la línea 294 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_BS1(n)   (((n) & 0xFFF) << 0)"
+Buffer 1 size, enhanced descriptor 
+.PP
+Definición en la línea 341 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_BS2(n)   (((n) & 0xFFF) << 16)"
+Buffer 2 size, enhanced descriptor 
+.PP
+Definición en la línea 340 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_CIC(n)   ((n) << 22)"
+Checksum Insertion Control, enhanced descriptor 
+.PP
+Definición en la línea 318 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_DC   (1 << 27)"
+Disable CRC, enhanced descriptor 
+.PP
+Definición en la línea 315 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_DP   (1 << 26)"
+Disable Pad, enhanced descriptor 
+.PP
+Definición en la línea 316 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_FS   (1 << 28)"
+First Segment, enhanced descriptor 
+.PP
+Definición en la línea 314 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_IC   (1UL << 30)"
+Interrupt on Completion, enhanced descriptor 
+.PP
+Definición en la línea 312 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_LS   (1 << 29)"
+Last Segment, enhanced descriptor 
+.PP
+Definición en la línea 313 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_TCH   (1 << 20)"
+Second Address Chained, enhanced descriptor 
+.PP
+Definición en la línea 320 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_TER   (1 << 21)"
+Transmit End of Ring, enhanced descriptor 
+.PP
+Definición en la línea 319 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ENH_TTSE   (1 << 25)"
+Transmit Timestamp Enable, enhanced descriptor 
+.PP
+Definición en la línea 317 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_ES   (1 << 15)"
+Error Summary 
+.PP
+Definición en la línea 304 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_FF   (1 << 13)"
+Frame Flushed 
+.PP
+Definición en la línea 302 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_IHE   (1 << 16)"
+IP Header Error 
+.PP
+Definición en la línea 305 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_IPE   (1 << 12)"
+IP Payload Error 
+.PP
+Definición en la línea 301 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_JT   (1 << 14)"
+Jabber Timeout 
+.PP
+Definición en la línea 303 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_LC   (1 << 9)"
+Late Collision 
+.PP
+Definición en la línea 298 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_LCAR   (1 << 11)"
+Loss of Carrier 
+.PP
+Definición en la línea 300 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NC   (1 << 10)"
+No Carrier 
+.PP
+Definición en la línea 299 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_BS1(n)   (((n) & 0x3FF) << 0)"
+Buffer 1 size, normal descriptor 
+.PP
+Definición en la línea 335 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_BS2(n)   (((n) & 0x3FF) << 11)"
+Buffer 2 size, normal descriptor 
+.PP
+Definición en la línea 334 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_CIC(n)   ((n) << 27)"
+Checksum Insertion Control, normal descriptor 
+.PP
+Definición en la línea 328 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_DC   (1 << 26)"
+Disable CRC, normal descriptor 
+.PP
+Definición en la línea 329 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_DP   (1 << 23)"
+Disable Pad, normal descriptor 
+.PP
+Definición en la línea 332 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_FS   (1 << 30)"
+First Segment, normal descriptor 
+.PP
+Definición en la línea 326 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_IC   (1UL << 31)"
+Interrupt on Completion, normal descriptor 
+.PP
+Definición en la línea 325 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_LS   (1 << 29)"
+Last Segment, normal descriptor 
+.PP
+Definición en la línea 327 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_TCH   (1 << 24)"
+Second Address Chained, normal descriptor 
+.PP
+Definición en la línea 331 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_TER   (1 << 25)"
+Transmit End of Ring, normal descriptor 
+.PP
+Definición en la línea 330 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_NORM_TTSE   (1 << 22)"
+Transmit Timestamp Enable, normal descriptor 
+.PP
+Definición en la línea 333 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_OWN   (1UL << 31)"
+Own Bit 
+.PP
+Definición en la línea 307 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_TTSS   (1 << 17)"
+Transmit Timestamp Status 
+.PP
+Definición en la línea 306 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_UF   (1 << 1)"
+Underflow Error 
+.PP
+Definición en la línea 293 del archivo enet_18xx_43xx\&.h\&.
+.SS "#define TDES_VF   (1 << 7)"
+VLAN Frame 
+.PP
+Definición en la línea 296 del archivo enet_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_ENET_DeInit (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+De-initialize the ethernet interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 123 del archivo enet_18xx_43xx\&.c\&.
+.SS "void Chip_ENET_Init (\fBLPC_ENET_T\fP * pENET, uint32_t phyAddr)"
+
+.PP
+Initialize ethernet interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.br
+\fIphyAddr\fP : Address of the Phy [valid range 0 to 31] 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Performs basic initialization of the ethernet interface in a default state\&. This is enough to place the interface in a usable state, but may require more setup outside this function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 87 del archivo enet_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_InitDescriptors (\fBLPC_ENET_T\fP * pENET, \fBENET_ENHTXDESC_T\fP * pTXDescs, \fBENET_ENHRXDESC_T\fP * pRXDescs)"
+
+.PP
+Configures the initial ethernet descriptors\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.br
+\fIpTXDescs\fP : Pointer to TX descriptor list 
+.br
+\fIpRXDescs\fP : Pointer to RX descriptor list 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 624 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP bool Chip_ENET_IsMIIBusy (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Returns MII link (PHY) busy status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Returns true if busy, otherwise false 
+.RE
+.PP
+
+.PP
+Definición en la línea 518 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_MIIEnable (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Enable MII ethernet operation\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function must be called to enable the MII PHY, and must be called before calling any Ethernet functions\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 596 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint16_t Chip_ENET_ReadMIIData (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Returns the value read from the PHY\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Read value from PHY 
+.RE
+.PP
+
+.PP
+Definición en la línea 528 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_Reset (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Resets the ethernet interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Resets the ethernet interface\&. This should be called prior to Chip_ENET_Init with a small delay after this call\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 458 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_RMIIEnable (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Enable RMII ethernet operation\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function must be called to enable the internal RMII PHY, and must be called before calling any Ethernet functions\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 583 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_RXDisable (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Disables ethernet packet reception\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 570 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_RXEnable (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Enables ethernet packet reception\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 559 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_RXStart (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Starts receive polling of RX descriptors\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 637 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_SetADDR (\fBLPC_ENET_T\fP * pENET, const uint8_t * macAddr)"
+
+.PP
+Sets the address of the interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.br
+\fImacAddr\fP : Pointer to the 6 bytes used for the MAC address 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 472 del archivo enet_18xx_43xx\&.h\&.
+.SS "void Chip_ENET_SetDuplex (\fBLPC_ENET_T\fP * pENET, bool full)"
+
+.PP
+Sets full or half duplex for the interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.br
+\fIfull\fP : true to selected full duplex, false for half 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 162 del archivo enet_18xx_43xx\&.c\&.
+.SS "void Chip_ENET_SetSpeed (\fBLPC_ENET_T\fP * pENET, bool speed100)"
+
+.PP
+Sets speed for the interface\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.br
+\fIspeed100\fP : true to select 100Mbps mode, false for 10Mbps 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 173 del archivo enet_18xx_43xx\&.c\&.
+.SS "void Chip_ENET_SetupMII (\fBLPC_ENET_T\fP * pENET, uint32_t div, uint8_t addr)"
+
+.PP
+Sets up the PHY link clock divider and PHY address\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.br
+\fIdiv\fP : Divider index, not a divider value, see user manual 
+.br
+\fIaddr\fP : PHY address, used with MII read and write 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 138 del archivo enet_18xx_43xx\&.c\&.
+.SS "void Chip_ENET_StartMIIRead (\fBLPC_ENET_T\fP * pENET, uint8_t reg)"
+
+.PP
+Starts a PHY read via the MII\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.br
+\fIreg\fP : PHY register to read 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Start a PHY read operation\&. Does not block, requires calling IP_ENET_IsMIIBusy to determine when read is complete and calling IP_ENET_ReadMIIData to get the data\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 154 del archivo enet_18xx_43xx\&.c\&.
+.SS "void Chip_ENET_StartMIIWrite (\fBLPC_ENET_T\fP * pENET, uint8_t reg, uint16_t data)"
+
+.PP
+Starts a PHY write via the MII\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.br
+\fIreg\fP : PHY register to write 
+.br
+\fIdata\fP : Data to write to PHY register 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Start a PHY write operation\&. Does not block, requires calling IP_ENET_IsMIIBusy to determine when write is complete\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 145 del archivo enet_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_TXDisable (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Disables ethernet transmit\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 549 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_TXEnable (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Enables ethernet transmit\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 538 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ENET_TXStart (\fBLPC_ENET_T\fP * pENET)"
+
+.PP
+Starts transmit polling of TX descriptors\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpENET\fP : The base of ENET peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 648 del archivo enet_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

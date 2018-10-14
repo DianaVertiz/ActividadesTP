@@ -1,0 +1,90 @@
+\hypertarget{spifi__18xx__43xx_8h}{}\section{Referencia del Archivo spifi\+\_\+18xx\+\_\+43xx.\+h}
+\label{spifi__18xx__43xx_8h}\index{spifi\+\_\+18xx\+\_\+43xx.\+h@{spifi\+\_\+18xx\+\_\+43xx.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w}{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}
+\begin{DoxyCompactList}\small\item\em S\+P\+I\+FI controller hardware register structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE}~inline
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga96d43de9db048410b9d6d57de97a708d}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+TO}(t)~((t) $<$$<$ 0)
+\begin{DoxyCompactList}\small\item\em S\+P\+I\+FI controller control register bit definitions. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga97562b0e2b41883d0f15e129f4b96cd7}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+C\+S\+HI}(c)~((c) $<$$<$ 16)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gaa87d14cdbb5575d56021c4fe68ec3d9f}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+D\+A\+T\+A\+\_\+\+P\+R\+E\+F\+E\+T\+C\+H\+\_\+\+D\+I\+S\+A\+B\+LE}(d)~((d) $<$$<$ 21)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga3b934a3fc067d9b8676c6de1b4fe5f8f}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+T\+EN}(i)~((i) $<$$<$ 22)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga9b92eaf07dc9eea3aed22b1e624965b2}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+M\+O\+D\+E3}(m)~((m) $<$$<$ 23)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gaba671674e51b96229b672241cefb237a}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+P\+R\+E\+F\+E\+T\+C\+H\+\_\+\+D\+I\+S\+A\+B\+LE}(d)~((d) $<$$<$ 27)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga8d532e0a2c0eb178d12e6bddcb404258}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+D\+U\+AL}(d)~((d) $<$$<$ 28)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gae4723057aa3654dc684a0bd8064b43bc}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+R\+F\+C\+LK}(m)~((m) $<$$<$ 29)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gabfd85e2aff4c3555e6fc18bda821ad06}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+F\+B\+C\+LK}(m)~((m) $<$$<$ 30)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gab58259ae0278e7d9b67794189eab3267}{S\+P\+I\+F\+I\+\_\+\+C\+T\+R\+L\+\_\+\+D\+M\+A\+EN}(m)~((m) $<$$<$ 31)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gaf442534842b5a9acbcbd5de592cfda45}{S\+P\+I\+F\+I\+\_\+\+S\+T\+A\+T\+\_\+\+R\+E\+S\+ET}~(1 $<$$<$ 4)
+\begin{DoxyCompactList}\small\item\em S\+P\+I\+FI controller status register bit definitions. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gadfdb72835ddc68c37bfb1ffa717c5ff9}{S\+P\+I\+F\+I\+\_\+\+S\+T\+A\+T\+\_\+\+I\+N\+T\+RQ}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gad955fdb12bb88d2101f849d26a904e01}{S\+P\+I\+F\+I\+\_\+\+S\+T\+A\+T\+\_\+\+C\+MD}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga9ea174bcbe5ba8a6fa264bae5d53d04b}{S\+P\+I\+F\+I\+\_\+\+S\+T\+A\+T\+\_\+\+M\+C\+I\+N\+IT}~(1)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga219e33d9f9b85778db628b90809100b3}{S\+P\+I\+F\+I\+\_\+\+C\+M\+D\+\_\+\+D\+A\+T\+A\+L\+EN}(l)~((l) $<$$<$ 0)
+\begin{DoxyCompactList}\small\item\em S\+P\+I\+FI controller command register bit definitions. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga449d4320c92e867b827ca0ac35a4345c}{S\+P\+I\+F\+I\+\_\+\+C\+M\+D\+\_\+\+P\+O\+L\+L\+RS}(p)~((p) $<$$<$ 14)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gaf42dda7aced397d5d66a91e53a7ac59e}{S\+P\+I\+F\+I\+\_\+\+C\+M\+D\+\_\+\+D\+O\+UT}(d)~((d) $<$$<$ 15)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga6ba616a9213dff16023f9b5b52c0f07e}{S\+P\+I\+F\+I\+\_\+\+C\+M\+D\+\_\+\+I\+N\+T\+ER}(i)~((i) $<$$<$ 16)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga3fa2803ce803501ed89aeb51a9ff1715}{S\+P\+I\+F\+I\+\_\+\+C\+M\+D\+\_\+\+F\+I\+E\+L\+D\+F\+O\+RM}(p)~((p) $<$$<$ 19)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga588e2c6094c256d799970bdad73cfd6a}{S\+P\+I\+F\+I\+\_\+\+C\+M\+D\+\_\+\+F\+R\+A\+M\+E\+F\+O\+RM}(f)~((f) $<$$<$ 21)
+\item 
+\#define \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga39b31bb8811dbd645fcbc13e3260bdad}{S\+P\+I\+F\+I\+\_\+\+C\+M\+D\+\_\+\+O\+P\+C\+O\+DE}(o)~((uint32\+\_\+t) (o) $<$$<$ 24)
+\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}typedefs\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w}{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW} \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___a_p_i_ga69ca4e6bace5ac7e7a2ae3cdc0d569b3}{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+T}
+\begin{DoxyCompactList}\small\item\em S\+P\+I\+FI controller hardware register structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ga83a0cb36aa268d35220e3d3e25453bd8}{S\+P\+I\+F\+I\+\_\+\+F\+R\+A\+M\+E\+F\+O\+R\+M\+\_\+T} \{ \\*
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gga83a0cb36aa268d35220e3d3e25453bd8a7ab8d7bdd5049867baaa844a849d5064}{S\+P\+I\+F\+I\+\_\+\+F\+R\+A\+M\+E\+F\+O\+R\+M\+\_\+\+OP} = 1, 
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gga83a0cb36aa268d35220e3d3e25453bd8a8b5ae3e8e4b6d054f6209e3ae9f60240}{S\+P\+I\+F\+I\+\_\+\+F\+R\+A\+M\+E\+F\+O\+R\+M\+\_\+\+O\+P\+\_\+1\+A\+D\+D\+R\+E\+SS} = 2, 
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gga83a0cb36aa268d35220e3d3e25453bd8ac2ef53b5e3e5b22924a84a692cfb1d34}{S\+P\+I\+F\+I\+\_\+\+F\+R\+A\+M\+E\+F\+O\+R\+M\+\_\+\+O\+P\+\_\+2\+A\+D\+D\+R\+E\+SS} = 3, 
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gga83a0cb36aa268d35220e3d3e25453bd8acbe7cef5c879c104868e87e1ba02e48b}{S\+P\+I\+F\+I\+\_\+\+F\+R\+A\+M\+E\+F\+O\+R\+M\+\_\+\+O\+P\+\_\+3\+A\+D\+D\+R\+E\+SS} = 4, 
+\\*
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gga83a0cb36aa268d35220e3d3e25453bd8a6e7d0e18073d1831d0689d1f1da914a8}{S\+P\+I\+F\+I\+\_\+\+F\+R\+A\+M\+E\+F\+O\+R\+M\+\_\+\+O\+P\+\_\+4\+A\+D\+D\+R\+E\+SS} = 5, 
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gga83a0cb36aa268d35220e3d3e25453bd8abf603149dbd5f454517389b8a4a25572}{S\+P\+I\+F\+I\+\_\+\+F\+R\+A\+M\+E\+F\+O\+R\+M\+\_\+\+N\+O\+O\+P\+\_\+3\+A\+D\+D\+R\+E\+SS} = 6, 
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gga83a0cb36aa268d35220e3d3e25453bd8acd367818a9c5d4c534e8e853f9ebde99}{S\+P\+I\+F\+I\+\_\+\+F\+R\+A\+M\+E\+F\+O\+R\+M\+\_\+\+N\+O\+O\+P\+\_\+4\+A\+D\+D\+R\+E\+SS} = 7
+ \}\begin{DoxyCompactList}\small\item\em frame form definitions \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_gae4177c2639b4aa20ccdc833c2ef42123}{S\+P\+I\+F\+I\+\_\+\+F\+I\+E\+L\+D\+F\+O\+R\+M\+\_\+T} \{ \hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ggae4177c2639b4aa20ccdc833c2ef42123a0f1c08fd008999a26a107832f197056b}{S\+P\+I\+F\+I\+\_\+\+F\+I\+E\+L\+D\+F\+O\+R\+M\+\_\+\+A\+L\+L\+\_\+\+S\+E\+R\+I\+AL} = 0, 
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ggae4177c2639b4aa20ccdc833c2ef42123a17508b57237f5ad5279edea2ad530c64}{S\+P\+I\+F\+I\+\_\+\+F\+I\+E\+L\+D\+F\+O\+R\+M\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+O\+P\+C\+O\+D\+E\+\_\+\+A\+D\+D\+R\+E\+SS} = 1, 
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ggae4177c2639b4aa20ccdc833c2ef42123a70c54a68cea6104e63f2792a499725c1}{S\+P\+I\+F\+I\+\_\+\+F\+I\+E\+L\+D\+F\+O\+R\+M\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+O\+P\+C\+O\+DE} = 2, 
+\hyperlink{group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m_ggae4177c2639b4aa20ccdc833c2ef42123ae53fbc22c0a50c907fb6046be3a651b5}{S\+P\+I\+F\+I\+\_\+\+F\+I\+E\+L\+D\+F\+O\+R\+M\+\_\+\+N\+O\+\_\+\+S\+E\+R\+I\+AL} = 3
+ \}\begin{DoxyCompactList}\small\item\em serial type definitions \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{spifi\+\_\+18xx\+\_\+43xx.\+h@{spifi\+\_\+18xx\+\_\+43xx.\+h}!I\+N\+L\+I\+NE@{I\+N\+L\+I\+NE}}
+\index{I\+N\+L\+I\+NE@{I\+N\+L\+I\+NE}!spifi\+\_\+18xx\+\_\+43xx.\+h@{spifi\+\_\+18xx\+\_\+43xx.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+L\+I\+NE}{INLINE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+L\+I\+NE~inline}\hypertarget{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{}\label{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}
+
+
+Definición en la línea 46 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+

@@ -1,0 +1,222 @@
+\hypertarget{group___a_t_i_m_e_r__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx Alarm Timer driver}
+\label{group___a_t_i_m_e_r__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___a_t_i_m_e_r___t}{L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T}
+\begin{DoxyCompactList}\small\item\em Alarm Timer register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___a_t_i_m_e_r__18_x_x__43_x_x_ga0d20b10ad91803e126b2a85c4881a95c}{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Init} (\hyperlink{struct_l_p_c___a_t_i_m_e_r___t}{L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+A\+T\+I\+M\+ER, uint32\+\_\+t Preset\+Value)
+\begin{DoxyCompactList}\small\item\em Initialize Alarm Timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_t_i_m_e_r__18_x_x__43_x_x_ga638a1690aa7cbbfb64bd05961555fc74}{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___a_t_i_m_e_r___t}{L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+A\+T\+I\+M\+ER)
+\begin{DoxyCompactList}\small\item\em Close A\+T\+I\+M\+ER device. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___a_t_i_m_e_r__18_x_x__43_x_x_ga8bf9123a5620d2dd178fa60b9a93aaa0}{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Enable} (\hyperlink{struct_l_p_c___a_t_i_m_e_r___t}{L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+A\+T\+I\+M\+ER)
+\begin{DoxyCompactList}\small\item\em Enable A\+T\+I\+M\+ER Interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___a_t_i_m_e_r__18_x_x__43_x_x_gac6a9084b0b4e2a1a1995aaf5d22ca7d2}{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Disable} (\hyperlink{struct_l_p_c___a_t_i_m_e_r___t}{L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+A\+T\+I\+M\+ER)
+\begin{DoxyCompactList}\small\item\em Disable A\+T\+I\+M\+ER Interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___a_t_i_m_e_r__18_x_x__43_x_x_ga0572abacb9a1995bc71b9d94f3e4bd93}{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Clear\+Int\+Status} (\hyperlink{struct_l_p_c___a_t_i_m_e_r___t}{L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+A\+T\+I\+M\+ER)
+\begin{DoxyCompactList}\small\item\em Clear A\+T\+I\+M\+ER Interrupt Status. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___a_t_i_m_e_r__18_x_x__43_x_x_gab14af39f45e3b5c3e029d653476142db}{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Set\+Int\+Status} (\hyperlink{struct_l_p_c___a_t_i_m_e_r___t}{L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+A\+T\+I\+M\+ER)
+\begin{DoxyCompactList}\small\item\em Set A\+T\+I\+M\+ER Interrupt Status. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___a_t_i_m_e_r__18_x_x__43_x_x_gae0b0e01b311f6a0ee48c3f518ed2b4cc}{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Update\+Preset\+Value} (\hyperlink{struct_l_p_c___a_t_i_m_e_r___t}{L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+A\+T\+I\+M\+ER, uint32\+\_\+t Preset\+Value)
+\begin{DoxyCompactList}\small\item\em Update Preset value. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___a_t_i_m_e_r__18_x_x__43_x_x_ga0bb6a4c4ff315c739c697ac023494619}{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Get\+Preset\+Value} (\hyperlink{struct_l_p_c___a_t_i_m_e_r___t}{L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$p\+A\+T\+I\+M\+ER)
+\begin{DoxyCompactList}\small\item\em Read value of preset register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}!Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Clear\+Int\+Status@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Clear\+Int\+Status}}
+\index{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Clear\+Int\+Status@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Clear\+Int\+Status}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Clear\+Int\+Status(\+L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+A\+T\+I\+M\+E\+R)}{Chip_ATIMER_ClearIntStatus(LPC_ATIMER_T *pATIMER)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Clear\+Int\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+A\+T\+I\+M\+ER}
+\end{DoxyParamCaption}
+)}\hypertarget{group___a_t_i_m_e_r__18_x_x__43_x_x_ga0572abacb9a1995bc71b9d94f3e4bd93}{}\label{group___a_t_i_m_e_r__18_x_x__43_x_x_ga0572abacb9a1995bc71b9d94f3e4bd93}
+
+
+Clear A\+T\+I\+M\+ER Interrupt Status. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+A\+T\+I\+M\+ER} & \+: The base of A\+T\+I\+M\+ER peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 99 del archivo atimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}!Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+De\+Init@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+De\+Init@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+De\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+De\+Init(\+L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+A\+T\+I\+M\+E\+R)}{Chip_ATIMER_DeInit(LPC_ATIMER_T *pATIMER)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+A\+T\+I\+M\+ER}
+\end{DoxyParamCaption}
+)}\hypertarget{group___a_t_i_m_e_r__18_x_x__43_x_x_ga638a1690aa7cbbfb64bd05961555fc74}{}\label{group___a_t_i_m_e_r__18_x_x__43_x_x_ga638a1690aa7cbbfb64bd05961555fc74}
+
+
+Close A\+T\+I\+M\+ER device. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+A\+T\+I\+M\+ER} & \+: The base of A\+T\+I\+M\+ER peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 58 del archivo atimer\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}!Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Get\+Preset\+Value@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Get\+Preset\+Value}}
+\index{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Get\+Preset\+Value@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Get\+Preset\+Value}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Get\+Preset\+Value(\+L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+A\+T\+I\+M\+E\+R)}{Chip_ATIMER_GetPresetValue(LPC_ATIMER_T *pATIMER)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Get\+Preset\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+A\+T\+I\+M\+ER}
+\end{DoxyParamCaption}
+)}\hypertarget{group___a_t_i_m_e_r__18_x_x__43_x_x_ga0bb6a4c4ff315c739c697ac023494619}{}\label{group___a_t_i_m_e_r__18_x_x__43_x_x_ga0bb6a4c4ff315c739c697ac023494619}
+
+
+Read value of preset register. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+A\+T\+I\+M\+ER} & \+: The base of A\+T\+I\+M\+ER peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Value of capture register 
+\end{DoxyReturn}
+
+
+Definición en la línea 130 del archivo atimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}!Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Init@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Init}}
+\index{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Init@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Init(\+L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+A\+T\+I\+M\+E\+R, uint32\+\_\+t Preset\+Value)}{Chip_ATIMER_Init(LPC_ATIMER_T *pATIMER, uint32_t PresetValue)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+A\+T\+I\+M\+ER, }
+\item[{uint32\+\_\+t}]{Preset\+Value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___a_t_i_m_e_r__18_x_x__43_x_x_ga0d20b10ad91803e126b2a85c4881a95c}{}\label{group___a_t_i_m_e_r__18_x_x__43_x_x_ga0d20b10ad91803e126b2a85c4881a95c}
+
+
+Initialize Alarm Timer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+A\+T\+I\+M\+ER} & \+: The base of A\+T\+I\+M\+ER peripheral on the chip \\
+\hline
+{\em Preset\+Value} & \+: Count of 1 to 1024s for Alarm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 51 del archivo atimer\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}!Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Disable@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Disable}}
+\index{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Disable@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Disable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Disable(\+L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+A\+T\+I\+M\+E\+R)}{Chip_ATIMER_IntDisable(LPC_ATIMER_T *pATIMER)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Disable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+A\+T\+I\+M\+ER}
+\end{DoxyParamCaption}
+)}\hypertarget{group___a_t_i_m_e_r__18_x_x__43_x_x_gac6a9084b0b4e2a1a1995aaf5d22ca7d2}{}\label{group___a_t_i_m_e_r__18_x_x__43_x_x_gac6a9084b0b4e2a1a1995aaf5d22ca7d2}
+
+
+Disable A\+T\+I\+M\+ER Interrupt. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+A\+T\+I\+M\+ER} & \+: The base of A\+T\+I\+M\+ER peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 89 del archivo atimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}!Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Enable@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Enable}}
+\index{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Enable@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Enable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Enable(\+L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+A\+T\+I\+M\+E\+R)}{Chip_ATIMER_IntEnable(LPC_ATIMER_T *pATIMER)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Int\+Enable (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+A\+T\+I\+M\+ER}
+\end{DoxyParamCaption}
+)}\hypertarget{group___a_t_i_m_e_r__18_x_x__43_x_x_ga8bf9123a5620d2dd178fa60b9a93aaa0}{}\label{group___a_t_i_m_e_r__18_x_x__43_x_x_ga8bf9123a5620d2dd178fa60b9a93aaa0}
+
+
+Enable A\+T\+I\+M\+ER Interrupt. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+A\+T\+I\+M\+ER} & \+: The base of A\+T\+I\+M\+ER peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 79 del archivo atimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}!Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Set\+Int\+Status@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Set\+Int\+Status}}
+\index{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Set\+Int\+Status@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Set\+Int\+Status}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Set\+Int\+Status(\+L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+A\+T\+I\+M\+E\+R)}{Chip_ATIMER_SetIntStatus(LPC_ATIMER_T *pATIMER)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Set\+Int\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+A\+T\+I\+M\+ER}
+\end{DoxyParamCaption}
+)}\hypertarget{group___a_t_i_m_e_r__18_x_x__43_x_x_gab14af39f45e3b5c3e029d653476142db}{}\label{group___a_t_i_m_e_r__18_x_x__43_x_x_gab14af39f45e3b5c3e029d653476142db}
+
+
+Set A\+T\+I\+M\+ER Interrupt Status. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+A\+T\+I\+M\+ER} & \+: The base of A\+T\+I\+M\+ER peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 109 del archivo atimer\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}!Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Update\+Preset\+Value@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Update\+Preset\+Value}}
+\index{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Update\+Preset\+Value@{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Update\+Preset\+Value}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Alarm Timer driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Update\+Preset\+Value(\+L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+T $\ast$p\+A\+T\+I\+M\+E\+R, uint32\+\_\+t Preset\+Value)}{Chip_ATIMER_UpdatePresetValue(LPC_ATIMER_T *pATIMER, uint32_t PresetValue)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+\+Update\+Preset\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+A\+T\+I\+M\+E\+R\+\_\+T} $\ast$}]{p\+A\+T\+I\+M\+ER, }
+\item[{uint32\+\_\+t}]{Preset\+Value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___a_t_i_m_e_r__18_x_x__43_x_x_gae0b0e01b311f6a0ee48c3f518ed2b4cc}{}\label{group___a_t_i_m_e_r__18_x_x__43_x_x_gae0b0e01b311f6a0ee48c3f518ed2b4cc}
+
+
+Update Preset value. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+A\+T\+I\+M\+ER} & \+: The base of A\+T\+I\+M\+ER peripheral on the chip \\
+\hline
+{\em Preset\+Value} & \+: updated preset value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 120 del archivo atimer\+\_\+18xx\+\_\+43xx.\+h.
+

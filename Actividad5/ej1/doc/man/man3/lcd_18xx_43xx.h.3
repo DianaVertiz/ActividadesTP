@@ -1,0 +1,149 @@
+.TH "lcd_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lcd_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_LCD_T\fP"
+.br
+.RI "\fILCD Controller register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBLCD_PALETTE_ENTRY_T\fP"
+.br
+.RI "\fILCD Palette entry format\&. \fP"
+.ti -1c
+.RI "struct \fBLCD_CONFIG_T\fP"
+.br
+.RI "\fIA structure for LCD Configuration\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLCD_INTMSK_FUFIM\fP   0x2"
+.br
+.ti -1c
+.RI "#define \fBLCD_INTMSK_LNBUIM\fP   0x4"
+.br
+.ti -1c
+.RI "#define \fBLCD_INTMSK_VCOMPIM\fP   0x8"
+.br
+.ti -1c
+.RI "#define \fBLCD_INTMSK_BERIM\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBCLCDC_LCDCTRL_ENABLE\fP   \fB_BIT\fP(0)"
+.br
+.ti -1c
+.RI "#define \fBCLCDC_LCDCTRL_PWR\fP   \fB_BIT\fP(11)"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBLCD_PANEL_OPT_T\fP { \fBLCD_TFT\fP = 0x02, \fBLCD_MONO_4\fP = 0x01, \fBLCD_MONO_8\fP = 0x05, \fBLCD_CSTN\fP = 0x00 }
+.RI "\fILCD Panel type\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBLCD_COLOR_FORMAT_OPT_T\fP { \fBLCD_COLOR_FORMAT_RGB\fP = 0, \fBLCD_COLOR_FORMAT_BGR\fP }
+.RI "\fILCD Color Format\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBLCD_CURSOR_SIZE_OPT_T\fP { \fBLCD_CURSOR_32x32\fP = 0, \fBLCD_CURSOR_64x64\fP }
+.RI "\fILCD Cursor Size\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_LCD_Init\fP (\fBLPC_LCD_T\fP *pLCD, \fBLCD_CONFIG_T\fP *LCD_ConfigStruct)"
+.br
+.RI "\fIInitialize the LCD controller\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_DeInit\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIShutdown the LCD controller\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_PowerOn\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIPower-on the LCD Panel (power pin) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_PowerOff\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIPower-off the LCD Panel (power pin) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Enable\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIEnable/Disable the LCD Controller\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Disable\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIEnable/Disable the LCD Controller\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_SetUPFrameBuffer\fP (\fBLPC_LCD_T\fP *pLCD, void *buffer)"
+.br
+.RI "\fISet LCD Upper Panel Frame Buffer for Single Panel or Upper Panel Frame Buffer for Dual Panel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_SetLPFrameBuffer\fP (\fBLPC_LCD_T\fP *pLCD, void *buffer)"
+.br
+.RI "\fISet LCD Lower Panel Frame Buffer for Dual Panel\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_Cursor_Config\fP (\fBLPC_LCD_T\fP *pLCD, \fBLCD_CURSOR_SIZE_OPT_T\fP cursor_size, bool sync)"
+.br
+.RI "\fIConfigure Cursor\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_Enable\fP (\fBLPC_LCD_T\fP *pLCD, uint8_t cursor_num)"
+.br
+.RI "\fIEnable Cursor\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_Disable\fP (\fBLPC_LCD_T\fP *pLCD, uint8_t cursor_num)"
+.br
+.RI "\fIDisable Cursor\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_LoadPalette0\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t palette_color)"
+.br
+.RI "\fILoad Cursor Palette\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_LoadPalette1\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t palette_color)"
+.br
+.RI "\fILoad Cursor Palette\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_SetPos\fP (\fBLPC_LCD_T\fP *pLCD, uint16_t x, uint16_t y)"
+.br
+.RI "\fISet Cursor Position\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_Cursor_SetClip\fP (\fBLPC_LCD_T\fP *pLCD, uint16_t x, uint16_t y)"
+.br
+.RI "\fISet Cursor Clipping Position\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_EnableInts\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t ints)"
+.br
+.RI "\fIEnable Controller Interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_DisableInts\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t ints)"
+.br
+.RI "\fIDisable Controller Interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_LCD_ClearInts\fP (\fBLPC_LCD_T\fP *pLCD, uint32_t ints)"
+.br
+.RI "\fIClear Controller Interrupt\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_Cursor_WriteImage\fP (\fBLPC_LCD_T\fP *pLCD, uint8_t cursor_num, void *Image)"
+.br
+.RI "\fIWrite Cursor Image into Internal Cursor Image Buffer\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_LoadPalette\fP (\fBLPC_LCD_T\fP *pLCD, void *palette)"
+.br
+.RI "\fILoad LCD Palette\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

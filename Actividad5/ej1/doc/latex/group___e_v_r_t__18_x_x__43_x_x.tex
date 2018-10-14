@@ -1,0 +1,379 @@
+\hypertarget{group___e_v_r_t__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx Event router driver}
+\label{group___e_v_r_t__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___e_v_r_t___t}{L\+P\+C\+\_\+\+E\+V\+R\+T\+\_\+T}
+\begin{DoxyCompactList}\small\item\em Event Router register structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga2475491cb73d4089705caa28008c8634}{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+CE}(n)
+\begin{DoxyCompactList}\small\item\em Macro for checking for a valid E\+V\+RT source. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga258c7be7764bf695a3e958d2caee184a}{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+T\+Y\+PE}(n)
+\begin{DoxyCompactList}\small\item\em Macro for checking for a valid E\+V\+RT state type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}typedefs\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{group___e_v_r_t__18_x_x__43_x_x_gad3cd727405aa5446c2319375ad1b7276}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+RC} \hyperlink{group___e_v_r_t__18_x_x__43_x_x_gaa43c01b5839b8ef001017d1d1150b16d}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T}
+\begin{DoxyCompactList}\small\item\em E\+V\+RT input sources. \end{DoxyCompactList}\item 
+typedef enum \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga721fc5bcb9c562312b880ba4cd5b96a6}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+VE} \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga41e06d681302344e72fc1eca77f708b4}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T}
+\begin{DoxyCompactList}\small\item\em E\+V\+RT input state detecting type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___e_v_r_t__18_x_x__43_x_x_gad3cd727405aa5446c2319375ad1b7276}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+RC} \{ \\*
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a9c416a3fe74ad5eb4ee2ea317b0ba6a2}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P0}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a029903b17a9f7eda087aad58a49311fd}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P1}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a1a18c48764492ea1b7fde3c583eaf831}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P2}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276aa1b1b57634540a29e9439ed14bc3a7d2}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P3}, 
+\\*
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a8518b7b4702493a5763c5c8fdc78ea80}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+T\+I\+M\+ER}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a396d3f44af364e05e36cad9a2c0b07fa}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+TC}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ae927ed724d574e85bb217b681be89c6c}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D1}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a5d60c9e8a3f28fa5c9e8f7f4f8b3bf70}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+W\+DT}, 
+\\*
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a2194c834bb85b90dd8951f4cee9e72b2}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+E\+T\+H\+E\+R\+N\+ET}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a4873c081b216709b81c287bda03f946e}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B0}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a46c621bfd8fb7612c538d0188e32f5d6}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B1}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ac7a40593c0a59a94b41bc6f5f5ea0ade}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+S\+D\+IO}, 
+\\*
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276acbe2a61f9d7d1079ba0fe059c02badb2}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+C\+AN}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a3d09c16edc5aaf931067d5a95e0d12d4}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R2}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ac2cde7d22824282b0b4664c91851bd51}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R6}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ad7837b1baab7cf963d41152f18ca7caf}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+Q\+EI}, 
+\\*
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ab221b6dd3f6c3ffaa7be09851bc6a96e}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R14}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ae1eee006e0e51c5867c22cded241bab8}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a887386904af16b2610c0e77eb23c4f4c}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a8980bc0e34c2d2cd0097a1db5f5ca938}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+ET}, 
+\\*
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a86e06696aafff8c1d80b78522ccc1781}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D\+\_\+\+R\+E\+S\+ET}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ad5457c1d7b5940a8862e3bd12b90c8bb}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+WN}
+ \}\begin{DoxyCompactList}\small\item\em E\+V\+RT input sources. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga721fc5bcb9c562312b880ba4cd5b96a6}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+VE} \{ \hyperlink{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6a8e3a18193d78a0bf6f15f48e9acbd63f}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+O\+W\+\_\+\+L\+E\+V\+EL}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6af7f90ce420d1b32c2e46e6e4ee175860}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+G\+H\+\_\+\+L\+E\+V\+EL}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6aa4bea1e2dc8bdabd93ca8f070a57a506}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE}, 
+\hyperlink{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6abe05f14607f49a7e163ab870ea32d0d9}{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE}
+ \}\begin{DoxyCompactList}\small\item\em E\+V\+RT input state detecting type. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga5320424173f844bb1484ae1523e3454a}{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the E\+V\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga4a317e0d292116144f6a6951c0bf25fa}{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Config\+Int\+Src\+Active\+Type} (\hyperlink{group___e_v_r_t__18_x_x__43_x_x_gaa43c01b5839b8ef001017d1d1150b16d}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T} E\+V\+R\+T\+\_\+\+Src, \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga41e06d681302344e72fc1eca77f708b4}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T} type)
+\begin{DoxyCompactList}\small\item\em Set up the type of interrupt type for a source to E\+V\+RT. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_gab7d263072f745b4f3913fb0afc434c4e}{Int\+Status} \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga48a251beebd268a78fd7ecad4a542a35}{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Is\+Source\+Interrupting} (\hyperlink{group___e_v_r_t__18_x_x__43_x_x_gaa43c01b5839b8ef001017d1d1150b16d}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T} E\+V\+R\+T\+\_\+\+Src)
+\begin{DoxyCompactList}\small\item\em Check if a source is sending interrupt to E\+V\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga4133d67f8986d48e1adbfee519423233}{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Set\+Up\+Int\+Src} (\hyperlink{group___e_v_r_t__18_x_x__43_x_x_gaa43c01b5839b8ef001017d1d1150b16d}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T} E\+V\+R\+T\+\_\+\+Src, \hyperlink{group___l_p_c___types___public___types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{Functional\+State} state)
+\begin{DoxyCompactList}\small\item\em Enable or disable interrupt sources to E\+V\+RT. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga10a603696d2fe037b9567a82893a5d41}{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+De\+Init} (void)
+\begin{DoxyCompactList}\small\item\em De-\/initializes the E\+V\+RT peripheral. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ga22d61b16b552be8d515301d9a75ec256}{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Clr\+Pend\+Int\+Src} (\hyperlink{group___e_v_r_t__18_x_x__43_x_x_gaa43c01b5839b8ef001017d1d1150b16d}{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T} E\+V\+R\+T\+\_\+\+Src)
+\begin{DoxyCompactList}\small\item\em Clear pending interrupt E\+V\+RT source. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+CE@{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+CE}}
+\index{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+CE@{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+CE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+CE}{PARAM_EVRT_SOURCE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+CE(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga2475491cb73d4089705caa28008c8634}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga2475491cb73d4089705caa28008c8634}
+{\bfseries Valor\+:}
+\begin{DoxyCode}
+((n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a9c416a3fe74ad5eb4ee2ea317b0ba6a2}{EVRT\_SRC\_WAKEUP0}) || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a029903b17a9f7eda087aad58a49311fd}{EVRT\_SRC\_WAKEUP1}) \(\backslash\)
+                                 || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a1a18c48764492ea1b7fde3c583eaf831}{EVRT\_SRC\_WAKEUP2}) || (n == 
+      \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276aa1b1b57634540a29e9439ed14bc3a7d2}{EVRT\_SRC\_WAKEUP3}) \(\backslash\)
+                                 || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a8518b7b4702493a5763c5c8fdc78ea80}{EVRT\_SRC\_ATIMER}) || (n == 
+      \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a396d3f44af364e05e36cad9a2c0b07fa}{EVRT\_SRC\_RTC}) \(\backslash\)
+                                 || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ae927ed724d574e85bb217b681be89c6c}{EVRT\_SRC\_BOD1}) || (n == 
+      \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a5d60c9e8a3f28fa5c9e8f7f4f8b3bf70}{EVRT\_SRC\_WWDT}) \(\backslash\)
+                                 || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a2194c834bb85b90dd8951f4cee9e72b2}{EVRT\_SRC\_ETHERNET}) || (n == 
+      \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a4873c081b216709b81c287bda03f946e}{EVRT\_SRC\_USB0}) \(\backslash\)
+                                 || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a46c621bfd8fb7612c538d0188e32f5d6}{EVRT\_SRC\_USB1}) || (n == 
+      \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276acbe2a61f9d7d1079ba0fe059c02badb2}{EVRT\_SRC\_CCAN}) || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ac7a40593c0a59a94b41bc6f5f5ea0ade}{EVRT\_SRC\_SDIO}) \(\backslash\)
+                                 || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a3d09c16edc5aaf931067d5a95e0d12d4}{EVRT\_SRC\_COMBINE\_TIMER2}) || (n == 
+      \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ac2cde7d22824282b0b4664c91851bd51}{EVRT\_SRC\_COMBINE\_TIMER6}) \(\backslash\)
+                                 || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ad7837b1baab7cf963d41152f18ca7caf}{EVRT\_SRC\_QEI}) || (n == 
+      \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ab221b6dd3f6c3ffaa7be09851bc6a96e}{EVRT\_SRC\_COMBINE\_TIMER14}) \(\backslash\)
+                                 || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a8980bc0e34c2d2cd0097a1db5f5ca938}{EVRT\_SRC\_RESET}) || (n == 
+      \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a86e06696aafff8c1d80b78522ccc1781}{EVRT\_SRC\_BOD\_RESET}) || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ad5457c1d7b5940a8862e3bd12b90c8bb}{EVRT\_SRC\_DEEP\_POWER\_DOWN})) \(\backslash\)
+\end{DoxyCode}
+
+
+Macro for checking for a valid E\+V\+RT source. 
+
+
+
+Definición en la línea 90 del archivo evrt\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+T\+Y\+PE@{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+T\+Y\+PE}}
+\index{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+T\+Y\+PE@{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+T\+Y\+PE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+T\+Y\+PE}{PARAM_EVRT_SOURCE_ACTIVE_TYPE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+A\+R\+A\+M\+\_\+\+E\+V\+R\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+T\+Y\+PE(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga258c7be7764bf695a3e958d2caee184a}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga258c7be7764bf695a3e958d2caee184a}
+{\bfseries Valor\+:}
+\begin{DoxyCode}
+((n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6a8e3a18193d78a0bf6f15f48e9acbd63f}{EVRT\_SRC\_ACTIVE\_LOW\_LEVEL}) || (n == 
+      \hyperlink{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6af7f90ce420d1b32c2e46e6e4ee175860}{EVRT\_SRC\_ACTIVE\_HIGH\_LEVEL})   \(\backslash\)
+                                          || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6aa4bea1e2dc8bdabd93ca8f070a57a506}{EVRT\_SRC\_ACTIVE\_FALLING\_EDGE}
+      ) || (n == \hyperlink{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6abe05f14607f49a7e163ab870ea32d0d9}{EVRT\_SRC\_ACTIVE\_RISING\_EDGE}))
+\end{DoxyCode}
+
+
+Macro for checking for a valid E\+V\+RT state type. 
+
+
+
+Definición en la línea 113 del archivo evrt\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de los \textquotesingle{}typedefs\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T@{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T}}
+\index{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T@{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T}{CHIP_EVRT_SRC_ACTIVE_T}}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+VE}  {\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T}}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga41e06d681302344e72fc1eca77f708b4}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga41e06d681302344e72fc1eca77f708b4}
+
+
+E\+V\+RT input state detecting type. 
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T@{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T}}
+\index{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T@{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T}{CHIP_EVRT_SRC_T}}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+RC}  {\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T}}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_gaa43c01b5839b8ef001017d1d1150b16d}{}\label{group___e_v_r_t__18_x_x__43_x_x_gaa43c01b5839b8ef001017d1d1150b16d}
+
+
+E\+V\+RT input sources. 
+
+
+
+\subsection{Documentación de las enumeraciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+RC@{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+RC}}
+\index{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+RC@{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+RC}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+RC}{CHIP_EVRT_SRC}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+RC}}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_gad3cd727405aa5446c2319375ad1b7276}{}\label{group___e_v_r_t__18_x_x__43_x_x_gad3cd727405aa5446c2319375ad1b7276}
+
+
+E\+V\+RT input sources. 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P0@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P0}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P0@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P0}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P0\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a9c416a3fe74ad5eb4ee2ea317b0ba6a2}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a9c416a3fe74ad5eb4ee2ea317b0ba6a2}
+}]W\+A\+K\+E\+U\+P0 event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P1@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P1@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P1}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P1\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a029903b17a9f7eda087aad58a49311fd}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a029903b17a9f7eda087aad58a49311fd}
+}]W\+A\+K\+E\+U\+P1 event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P2@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P2@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P2}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P2\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a1a18c48764492ea1b7fde3c583eaf831}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a1a18c48764492ea1b7fde3c583eaf831}
+}]W\+A\+K\+E\+U\+P2 event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P3@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P3}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P3@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P3}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+A\+K\+E\+U\+P3\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276aa1b1b57634540a29e9439ed14bc3a7d2}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276aa1b1b57634540a29e9439ed14bc3a7d2}
+}]W\+A\+K\+E\+U\+P3 event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+T\+I\+M\+ER@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+T\+I\+M\+ER}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+T\+I\+M\+ER@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+T\+I\+M\+ER}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+T\+I\+M\+ER\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a8518b7b4702493a5763c5c8fdc78ea80}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a8518b7b4702493a5763c5c8fdc78ea80}
+}]Alarm timer event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+TC@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+TC}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+TC@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+TC}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+TC\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a396d3f44af364e05e36cad9a2c0b07fa}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a396d3f44af364e05e36cad9a2c0b07fa}
+}]R\+TC event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D1@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D1@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D1}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D1\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ae927ed724d574e85bb217b681be89c6c}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ae927ed724d574e85bb217b681be89c6c}
+}]B\+OD event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+W\+DT@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+W\+DT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+W\+DT@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+W\+DT}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+W\+W\+DT\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a5d60c9e8a3f28fa5c9e8f7f4f8b3bf70}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a5d60c9e8a3f28fa5c9e8f7f4f8b3bf70}
+}]W\+W\+DT event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+E\+T\+H\+E\+R\+N\+ET@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+E\+T\+H\+E\+R\+N\+ET}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+E\+T\+H\+E\+R\+N\+ET@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+E\+T\+H\+E\+R\+N\+ET}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+E\+T\+H\+E\+R\+N\+ET\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a2194c834bb85b90dd8951f4cee9e72b2}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a2194c834bb85b90dd8951f4cee9e72b2}
+}]Ethernet event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B0@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B0}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B0@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B0}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B0\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a4873c081b216709b81c287bda03f946e}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a4873c081b216709b81c287bda03f946e}
+}]U\+S\+B0 event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B1@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B1@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B1}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+U\+S\+B1\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a46c621bfd8fb7612c538d0188e32f5d6}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a46c621bfd8fb7612c538d0188e32f5d6}
+}]U\+S\+B1 event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+S\+D\+IO@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+S\+D\+IO}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+S\+D\+IO@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+S\+D\+IO}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+S\+D\+IO\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ac7a40593c0a59a94b41bc6f5f5ea0ade}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ac7a40593c0a59a94b41bc6f5f5ea0ade}
+}]Reserved \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+C\+AN@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+C\+AN}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+C\+AN@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+C\+AN}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+C\+AN\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276acbe2a61f9d7d1079ba0fe059c02badb2}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276acbe2a61f9d7d1079ba0fe059c02badb2}
+}]C\+\_\+\+C\+AN event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R2@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R2@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R2}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R2\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a3d09c16edc5aaf931067d5a95e0d12d4}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a3d09c16edc5aaf931067d5a95e0d12d4}
+}]Combined timer 2 event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R6@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R6}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R6@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R6}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R6\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ac2cde7d22824282b0b4664c91851bd51}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ac2cde7d22824282b0b4664c91851bd51}
+}]Combined timer 6 event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+Q\+EI@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+Q\+EI}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+Q\+EI@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+Q\+EI}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+Q\+EI\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ad7837b1baab7cf963d41152f18ca7caf}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ad7837b1baab7cf963d41152f18ca7caf}
+}]Q\+EI event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R14@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R14}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R14@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R14}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+C\+O\+M\+B\+I\+N\+E\+\_\+\+T\+I\+M\+E\+R14\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ab221b6dd3f6c3ffaa7be09851bc6a96e}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ab221b6dd3f6c3ffaa7be09851bc6a96e}
+}]Combined timer 14 event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D1\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ae1eee006e0e51c5867c22cded241bab8}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ae1eee006e0e51c5867c22cded241bab8}
+}]Reserved \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D2\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a887386904af16b2610c0e77eb23c4f4c}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a887386904af16b2610c0e77eb23c4f4c}
+}]Reserved \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+ET@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+ET}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+ET@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+ET}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+R\+E\+S\+ET\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a8980bc0e34c2d2cd0097a1db5f5ca938}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a8980bc0e34c2d2cd0097a1db5f5ca938}
+}]Reset event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D\+\_\+\+R\+E\+S\+ET@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D\+\_\+\+R\+E\+S\+ET}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D\+\_\+\+R\+E\+S\+ET@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D\+\_\+\+R\+E\+S\+ET}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+B\+O\+D\+\_\+\+R\+E\+S\+ET\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a86e06696aafff8c1d80b78522ccc1781}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276a86e06696aafff8c1d80b78522ccc1781}
+}]Reset event router source \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+WN@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+WN}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+WN@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+WN}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+D\+E\+E\+P\+\_\+\+P\+O\+W\+E\+R\+\_\+\+D\+O\+WN\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ad5457c1d7b5940a8862e3bd12b90c8bb}{}\label{group___e_v_r_t__18_x_x__43_x_x_ggad3cd727405aa5446c2319375ad1b7276ad5457c1d7b5940a8862e3bd12b90c8bb}
+}]Reset event router source \end{description}
+\end{Desc}
+
+
+Definición en la línea 62 del archivo evrt\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+VE@{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+VE}}
+\index{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+VE@{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+VE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+VE}{CHIP_EVRT_SRC_ACTIVE}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+VE}}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga721fc5bcb9c562312b880ba4cd5b96a6}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga721fc5bcb9c562312b880ba4cd5b96a6}
+
+
+E\+V\+RT input state detecting type. 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+O\+W\+\_\+\+L\+E\+V\+EL@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+O\+W\+\_\+\+L\+E\+V\+EL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+O\+W\+\_\+\+L\+E\+V\+EL@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+O\+W\+\_\+\+L\+E\+V\+EL}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+O\+W\+\_\+\+L\+E\+V\+EL\hypertarget{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6a8e3a18193d78a0bf6f15f48e9acbd63f}{}\label{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6a8e3a18193d78a0bf6f15f48e9acbd63f}
+}]Active low level \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+G\+H\+\_\+\+L\+E\+V\+EL@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+G\+H\+\_\+\+L\+E\+V\+EL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+G\+H\+\_\+\+L\+E\+V\+EL@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+G\+H\+\_\+\+L\+E\+V\+EL}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+G\+H\+\_\+\+L\+E\+V\+EL\hypertarget{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6af7f90ce420d1b32c2e46e6e4ee175860}{}\label{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6af7f90ce420d1b32c2e46e6e4ee175860}
+}]Active high level \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE\hypertarget{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6aa4bea1e2dc8bdabd93ca8f070a57a506}{}\label{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6aa4bea1e2dc8bdabd93ca8f070a57a506}
+}]Active falling edge \index{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE@{E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE}}\item[{\em 
+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE\hypertarget{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6abe05f14607f49a7e163ab870ea32d0d9}{}\label{group___e_v_r_t__18_x_x__43_x_x_gga721fc5bcb9c562312b880ba4cd5b96a6abe05f14607f49a7e163ab870ea32d0d9}
+}]Active rising edge \end{description}
+\end{Desc}
+
+
+Definición en la línea 103 del archivo evrt\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Clr\+Pend\+Int\+Src@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Clr\+Pend\+Int\+Src}}
+\index{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Clr\+Pend\+Int\+Src@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Clr\+Pend\+Int\+Src}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Clr\+Pend\+Int\+Src(\+C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+T E\+V\+R\+T\+\_\+\+Src)}{Chip_EVRT_ClrPendIntSrc(CHIP_EVRT_SRC_T EVRT_Src)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Clr\+Pend\+Int\+Src (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T}}]{E\+V\+R\+T\+\_\+\+Src}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga22d61b16b552be8d515301d9a75ec256}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga22d61b16b552be8d515301d9a75ec256}
+
+
+Clear pending interrupt E\+V\+RT source. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em E\+V\+R\+T\+\_\+\+Src} & \+: E\+V\+RT source, should be one of C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 160 del archivo evrt\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Config\+Int\+Src\+Active\+Type@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Config\+Int\+Src\+Active\+Type}}
+\index{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Config\+Int\+Src\+Active\+Type@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Config\+Int\+Src\+Active\+Type}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Config\+Int\+Src\+Active\+Type(\+C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+T E\+V\+R\+T\+\_\+\+Src, C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+T type)}{Chip_EVRT_ConfigIntSrcActiveType(CHIP_EVRT_SRC_T EVRT_Src, CHIP_EVRT_SRC_ACTIVE_T type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Config\+Int\+Src\+Active\+Type (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T}}]{E\+V\+R\+T\+\_\+\+Src, }
+\item[{{\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T}}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga4a317e0d292116144f6a6951c0bf25fa}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga4a317e0d292116144f6a6951c0bf25fa}
+
+
+Set up the type of interrupt type for a source to E\+V\+RT. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em E\+V\+R\+T\+\_\+\+Src} & \+: E\+V\+RT source, should be one of C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T type \\
+\hline
+{\em type} & \+: E\+V\+RT type, should be one of C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+T type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 65 del archivo evrt\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!Chip\+\_\+\+E\+V\+R\+T\+\_\+\+De\+Init@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+De\+Init@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+De\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+De\+Init(void)}{Chip_EVRT_DeInit(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+E\+V\+R\+T\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga10a603696d2fe037b9567a82893a5d41}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga10a603696d2fe037b9567a82893a5d41}
+
+
+De-\/initializes the E\+V\+RT peripheral. 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 149 del archivo evrt\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Init@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Init}}
+\index{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Init@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Init(void)}{Chip_EVRT_Init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga5320424173f844bb1484ae1523e3454a}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga5320424173f844bb1484ae1523e3454a}
+
+
+Initialize the E\+V\+RT. 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 51 del archivo evrt\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Is\+Source\+Interrupting@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Is\+Source\+Interrupting}}
+\index{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Is\+Source\+Interrupting@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Is\+Source\+Interrupting}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Is\+Source\+Interrupting(\+C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+T E\+V\+R\+T\+\_\+\+Src)}{Chip_EVRT_IsSourceInterrupting(CHIP_EVRT_SRC_T EVRT_Src)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Int\+Status} Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Is\+Source\+Interrupting (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T}}]{E\+V\+R\+T\+\_\+\+Src}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga48a251beebd268a78fd7ecad4a542a35}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga48a251beebd268a78fd7ecad4a542a35}
+
+
+Check if a source is sending interrupt to E\+V\+RT. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em E\+V\+R\+T\+\_\+\+Src} & \+: E\+V\+RT source, should be one of C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true if the interrupt from the source is pending, otherwise false 
+\end{DoxyReturn}
+
+
+Definición en la línea 105 del archivo evrt\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}!Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Set\+Up\+Int\+Src@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Set\+Up\+Int\+Src}}
+\index{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Set\+Up\+Int\+Src@{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Set\+Up\+Int\+Src}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Event router driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Set\+Up\+Int\+Src(\+C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+\+T E\+V\+R\+T\+\_\+\+Src, Functional\+State state)}{Chip_EVRT_SetUpIntSrc(CHIP_EVRT_SRC_T EVRT_Src, FunctionalState state)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+V\+R\+T\+\_\+\+Set\+Up\+Int\+Src (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T}}]{E\+V\+R\+T\+\_\+\+Src, }
+\item[{{\bf Functional\+State}}]{state}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_v_r_t__18_x_x__43_x_x_ga4133d67f8986d48e1adbfee519423233}{}\label{group___e_v_r_t__18_x_x__43_x_x_ga4133d67f8986d48e1adbfee519423233}
+
+
+Enable or disable interrupt sources to E\+V\+RT. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em E\+V\+R\+T\+\_\+\+Src} & \+: E\+V\+RT source, should be one of C\+H\+I\+P\+\_\+\+E\+V\+R\+T\+\_\+\+S\+R\+C\+\_\+T type \\
+\hline
+{\em state} & \+: E\+N\+A\+B\+LE or D\+I\+S\+A\+B\+LE to enable or disable event router source \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 94 del archivo evrt\+\_\+18xx\+\_\+43xx.\+c.
+

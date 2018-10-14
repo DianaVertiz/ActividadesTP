@@ -1,0 +1,116 @@
+#include "sysUtils.h"
+#include "chip.h"
+#include "hardware.h"
+#include "microrl.h"
+
+microrl_t rl;
+
+volatile uint8_t habilitado = 0;
+volatile uint8_t flag_refresco = 0;
+volatile uint8_t cuentas = 0;
+const char msg1[] = "Ejemplo usando ring buffers\r\n";
+const char msg2[] = "TEC2 habilita y deshabilita el conteo\r\n";
+const char msg3[] = "Habilitado el conteo, el mismo se muestra por pantalla\r\n";
+const char msg4[] = "Deshabilitado el conteo, ingrese un caracter para mostrar el eco\r\n";
+/**
+ * Manejo de interrupciones asociadas a la tecla 1
+ */
+void GPIO1_IRQHandler(void)
+{
+	/*limpiar el estado de la interrupción*/
+	Chip_PININT_ClearIntStatus (LPC_GPIO_PIN_INT , PININTCH (TEC1_IRQ));
+	delayMs(300);
+	cuentas ++;
+	flag_refresco = 1;
+}
+
+/**
+ * Manejo de interrupciones asociadas a la tecla 2
+ */
+void GPIO2_IRQHandler(void)
+{
+	Chip_PININT_ClearIntStatus (LPC_GPIO_PIN_INT , PININTCH (TEC2_IRQ));
+	delayMs(300);
+	if(habilitado)
+	{
+		NVIC_DisableIRQ(PIN_INT1_IRQn);
+		disable_SysTick();
+		setLedFromMsk(0);
+		NVIC_EnableIRQ(USART2_IRQn);
+	}
+	else
+	{	NVIC_DisableIRQ(USART2_IRQn);
+		configurar_SysTick();
+		/*importante el orden, la forma alternativa es deshabilitar el periférico
+	 	 con el Chip_PININT_DisableIntLow*/
+		Chip_PININT_ClearIntStatus (LPC_GPIO_PIN_INT , PININTCH (TEC1_IRQ));
+		NVIC_ClearPendingIRQ (PIN_INT1_IRQn);
+
+		NVIC_EnableIRQ(PIN_INT1_IRQn);
+		setLedFromMsk((0x0F & cuentas)<<2);
+		Chip_UART_SendBlocking(LPC_USART2,"\n\r",strlen("\n\r"));
+	}
+
+	habilitado = (habilitado + 1)%2;
+}
+
+/**
+ * Manejo de interrupciones asociadas a la tecla 4
+ */
+void GPIO4_IRQHandler(void)
+{
+	Chip_PININT_ClearIntStatus (LPC_GPIO_PIN_INT , PININTCH (TEC4_IRQ));
+	delayMs(300);
+	cuentas = 0;
+	flag_refresco = 1;
+}
+
+
+void SysTick_Handler (void)
+{
+	//uint8_t mask = cuentas & 0x0F;
+	if(flag_refresco)
+	{
+		displayCounter(cuentas);
+		USARTSendInt(cuentas);
+		flag_refresco = 0;
+	}
+}
+
+void UART2_IRQHandler(void)
+{
+	//Chip_UART_IRQRBHandler(LPC_USART2, &rxRing, &txRing);
+	//uint8_t data = Chip_UART_ReadByte(LPC_USART2);
+	//microrl_insert_char(&rl, data);
+}
+
+int main(void)
+{
+	uint8_t key;
+	uint8_t bytes;
+	inicializar_sistema();
+	inicializar_leds();
+	inicializar_teclado();
+	init_interrupciones();
+	inicializar_USART();
+	//configurar_SysTick();
+
+	print (msg1);
+
+	//microrl_init(&rl, print);
+	//microrl_set_execute_callback(&rl, cmdExecute);
+	//microrl_set_sigint_callback(&rl, sigint);
+
+  while (1)
+  {
+	  /*uint8_t key =0;
+
+	  if(!habilitado)
+	  {
+		  terminal_eco(key);
+	  }*/
+
+	  __WFI();
+  }
+  return 0;
+}

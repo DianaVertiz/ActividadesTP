@@ -1,0 +1,54 @@
+.TH "LPC_RITIMER_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_RITIMER_T \- Repetitive Interrupt Timer register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ritimer_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCOMPVAL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMASK\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCOUNTER\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Repetitive Interrupt Timer register block structure\&. 
+.PP
+Definición en la línea 47 del archivo ritimer_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t COMPVAL"
+< RITIMER Structure Compare register 
+.PP
+Definición en la línea 48 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t COUNTER"
+32-bit counter 
+.PP
+Definición en la línea 51 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTRL"
+Control register\&. 
+.PP
+Definición en la línea 50 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MASK"
+Mask register\&. This register holds the 32-bit mask value\&. A 1 written to any bit will force a compare on the corresponding bit of the counter and compare register\&. 
+.PP
+Definición en la línea 49 del archivo ritimer_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

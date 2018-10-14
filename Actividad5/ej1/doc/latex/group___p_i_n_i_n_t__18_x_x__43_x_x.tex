@@ -1,0 +1,537 @@
+\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}
+\label{group___p_i_n_i_n_t__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T}
+\begin{DoxyCompactList}\small\item\em L\+P\+C18xx/43xx Pin Interrupt and Pattern Match register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaba419aacec8ac614ec6d121e05bf79cd}{P\+I\+N\+I\+N\+T\+C\+H0}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gae8f33cd2dabaa92a5e3dd4d8dbe5f6ed}{P\+I\+N\+I\+N\+T\+C\+H1}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaabd4245998a4e0c9ee040916b8b5c62f}{P\+I\+N\+I\+N\+T\+C\+H2}~(1 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga83ffe2314036836a570861fdfb983e75}{P\+I\+N\+I\+N\+T\+C\+H3}~(1 $<$$<$ 3)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaeff8dc2ad86edbabd3b871c3c0676e9b}{P\+I\+N\+I\+N\+T\+C\+H4}~(1 $<$$<$ 4)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga39cebaf09c7a9f77d607dbf344c53f82}{P\+I\+N\+I\+N\+T\+C\+H5}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gac067933ca09f529b57e1f6c9f55109ca}{P\+I\+N\+I\+N\+T\+C\+H6}~(1 $<$$<$ 6)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0f3c2aeafda4746d1c275164fd5dc832}{P\+I\+N\+I\+N\+T\+C\+H7}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga8d78afc0f4b847de15629e9cd297fd72}{P\+I\+N\+I\+N\+T\+CH}(ch)~(1 $<$$<$ (ch))
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga7d5f017f430fbecd18810fa08e7baef0}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Init} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Initialize Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaffd71b90ad59df213ae6ce90a4687727}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em De-\/\+Initialize Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga07505a16cf0d80d7dde607ebab062534}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Edge} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Configure the pins as edge sensitive in Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga4a9efb559231903508b66858a43b552d}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Level} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Configure the pins as level sensitive in Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga25520f739f79f23c523c02cc8376dc94}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+High\+Enabled} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Return current P\+I\+N\+I\+NT rising edge or high level interrupt enable state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaeb6881b3447233e72edca9abd87e8f13}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+High} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Enable high edge/level P\+I\+N\+I\+NT interrupts for pins. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga9e337046dac41a61cfcfaa4059b403a9}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+High} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Disable high edge/level P\+I\+N\+I\+NT interrupts for pins. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gab1378b396f6d1ba5a192153b40504353}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Low\+Enabled} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Return current P\+I\+N\+I\+NT falling edge or low level interrupt enable state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga314265e0674903dee85767e974b77b7d}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+Low} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Enable low edge/level P\+I\+N\+I\+NT interrupts for pins. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_gaaf5ace298255f4720f545b39c1053389}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+Low} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Disable low edge/level P\+I\+N\+I\+NT interrupts for pins. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga41e14d3b9450d31efea7c1c35081426b}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Rise\+States} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Return pin states that have a detected latched high edge (R\+I\+SE) state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga66b7cbb3ab402c14cd89602820211f67}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Rise\+States} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Clears pin states that had a latched high edge (R\+I\+SE) state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga71d71a0537b91ed76457a8f65165c4ec}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Fall\+States} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Return pin states that have a detected latched falling edge (F\+A\+LL) state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga1290614d9a1761b3e926b3de79a4ca23}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Fall\+States} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Clears pin states that had a latched falling edge (F\+A\+LL) state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0c5e739048c5033c2d4020520100856c}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Int\+Status} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT)
+\begin{DoxyCompactList}\small\item\em Get interrupt status from Pin interrupt block. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0a1d6ec4462429278d065017109c8634}{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Int\+Status} (\hyperlink{struct_l_p_c___p_i_n___i_n_t___t}{L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$p\+P\+I\+N\+I\+NT, uint32\+\_\+t pins)
+\begin{DoxyCompactList}\small\item\em Clear interrupt status in Pin interrupt block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!P\+I\+N\+I\+N\+T\+CH@{P\+I\+N\+I\+N\+T\+CH}}
+\index{P\+I\+N\+I\+N\+T\+CH@{P\+I\+N\+I\+N\+T\+CH}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{P\+I\+N\+I\+N\+T\+CH}{PININTCH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+I\+N\+T\+CH(
+\begin{DoxyParamCaption}
+\item[{}]{ch}
+\end{DoxyParamCaption}
+)~(1 $<$$<$ (ch))}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga8d78afc0f4b847de15629e9cd297fd72}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga8d78afc0f4b847de15629e9cd297fd72}
+
+
+Definición en la línea 72 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!P\+I\+N\+I\+N\+T\+C\+H0@{P\+I\+N\+I\+N\+T\+C\+H0}}
+\index{P\+I\+N\+I\+N\+T\+C\+H0@{P\+I\+N\+I\+N\+T\+C\+H0}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{P\+I\+N\+I\+N\+T\+C\+H0}{PININTCH0}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+I\+N\+T\+C\+H0~(1 $<$$<$ 0)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_gaba419aacec8ac614ec6d121e05bf79cd}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_gaba419aacec8ac614ec6d121e05bf79cd}
+L\+P\+C18xx/43xx Pin Interrupt channel values 
+
+Definición en la línea 64 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!P\+I\+N\+I\+N\+T\+C\+H1@{P\+I\+N\+I\+N\+T\+C\+H1}}
+\index{P\+I\+N\+I\+N\+T\+C\+H1@{P\+I\+N\+I\+N\+T\+C\+H1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{P\+I\+N\+I\+N\+T\+C\+H1}{PININTCH1}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+I\+N\+T\+C\+H1~(1 $<$$<$ 1)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_gae8f33cd2dabaa92a5e3dd4d8dbe5f6ed}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_gae8f33cd2dabaa92a5e3dd4d8dbe5f6ed}
+
+
+Definición en la línea 65 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!P\+I\+N\+I\+N\+T\+C\+H2@{P\+I\+N\+I\+N\+T\+C\+H2}}
+\index{P\+I\+N\+I\+N\+T\+C\+H2@{P\+I\+N\+I\+N\+T\+C\+H2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{P\+I\+N\+I\+N\+T\+C\+H2}{PININTCH2}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+I\+N\+T\+C\+H2~(1 $<$$<$ 2)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_gaabd4245998a4e0c9ee040916b8b5c62f}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_gaabd4245998a4e0c9ee040916b8b5c62f}
+
+
+Definición en la línea 66 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!P\+I\+N\+I\+N\+T\+C\+H3@{P\+I\+N\+I\+N\+T\+C\+H3}}
+\index{P\+I\+N\+I\+N\+T\+C\+H3@{P\+I\+N\+I\+N\+T\+C\+H3}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{P\+I\+N\+I\+N\+T\+C\+H3}{PININTCH3}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+I\+N\+T\+C\+H3~(1 $<$$<$ 3)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga83ffe2314036836a570861fdfb983e75}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga83ffe2314036836a570861fdfb983e75}
+
+
+Definición en la línea 67 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!P\+I\+N\+I\+N\+T\+C\+H4@{P\+I\+N\+I\+N\+T\+C\+H4}}
+\index{P\+I\+N\+I\+N\+T\+C\+H4@{P\+I\+N\+I\+N\+T\+C\+H4}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{P\+I\+N\+I\+N\+T\+C\+H4}{PININTCH4}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+I\+N\+T\+C\+H4~(1 $<$$<$ 4)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_gaeff8dc2ad86edbabd3b871c3c0676e9b}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_gaeff8dc2ad86edbabd3b871c3c0676e9b}
+
+
+Definición en la línea 68 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!P\+I\+N\+I\+N\+T\+C\+H5@{P\+I\+N\+I\+N\+T\+C\+H5}}
+\index{P\+I\+N\+I\+N\+T\+C\+H5@{P\+I\+N\+I\+N\+T\+C\+H5}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{P\+I\+N\+I\+N\+T\+C\+H5}{PININTCH5}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+I\+N\+T\+C\+H5~(1 $<$$<$ 5)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga39cebaf09c7a9f77d607dbf344c53f82}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga39cebaf09c7a9f77d607dbf344c53f82}
+
+
+Definición en la línea 69 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!P\+I\+N\+I\+N\+T\+C\+H6@{P\+I\+N\+I\+N\+T\+C\+H6}}
+\index{P\+I\+N\+I\+N\+T\+C\+H6@{P\+I\+N\+I\+N\+T\+C\+H6}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{P\+I\+N\+I\+N\+T\+C\+H6}{PININTCH6}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+I\+N\+T\+C\+H6~(1 $<$$<$ 6)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_gac067933ca09f529b57e1f6c9f55109ca}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_gac067933ca09f529b57e1f6c9f55109ca}
+
+
+Definición en la línea 70 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!P\+I\+N\+I\+N\+T\+C\+H7@{P\+I\+N\+I\+N\+T\+C\+H7}}
+\index{P\+I\+N\+I\+N\+T\+C\+H7@{P\+I\+N\+I\+N\+T\+C\+H7}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{P\+I\+N\+I\+N\+T\+C\+H7}{PININTCH7}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I\+N\+I\+N\+T\+C\+H7~(1 $<$$<$ 7)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0f3c2aeafda4746d1c275164fd5dc832}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0f3c2aeafda4746d1c275164fd5dc832}
+
+
+Definición en la línea 71 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Fall\+States@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Fall\+States}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Fall\+States@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Fall\+States}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Fall\+States(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T, uint32\+\_\+t pins)}{Chip_PININT_ClearFallStates(LPC_PIN_INT_T *pPININT, uint32_t pins)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Fall\+States (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT, }
+\item[{uint32\+\_\+t}]{pins}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga1290614d9a1761b3e926b3de79a4ca23}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga1290614d9a1761b3e926b3de79a4ca23}
+
+
+Clears pin states that had a latched falling edge (F\+A\+LL) state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+{\em pins} & \+: Pins with latched states to clear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 218 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Int\+Status@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Int\+Status}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Int\+Status@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Int\+Status}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Int\+Status(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T, uint32\+\_\+t pins)}{Chip_PININT_ClearIntStatus(LPC_PIN_INT_T *pPININT, uint32_t pins)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Int\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT, }
+\item[{uint32\+\_\+t}]{pins}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0a1d6ec4462429278d065017109c8634}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0a1d6ec4462429278d065017109c8634}
+
+
+Clear interrupt status in Pin interrupt block. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+{\em pins} & \+: Pin interrupts to clear (O\+Red value of P\+I\+N\+I\+N\+T\+C\+H$\ast$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 239 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Rise\+States@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Rise\+States}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Rise\+States@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Rise\+States}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Rise\+States(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T, uint32\+\_\+t pins)}{Chip_PININT_ClearRiseStates(LPC_PIN_INT_T *pPININT, uint32_t pins)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Clear\+Rise\+States (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT, }
+\item[{uint32\+\_\+t}]{pins}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga66b7cbb3ab402c14cd89602820211f67}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga66b7cbb3ab402c14cd89602820211f67}
+
+
+Clears pin states that had a latched high edge (R\+I\+SE) state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+{\em pins} & \+: Pins with latched states to clear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 197 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+De\+Init@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+De\+Init@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+De\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+De\+Init(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T)}{Chip_PININT_DeInit(LPC_PIN_INT_T *pPININT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_gaffd71b90ad59df213ae6ce90a4687727}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_gaffd71b90ad59df213ae6ce90a4687727}
+
+
+De-\/\+Initialize Pin interrupt block. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 87 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+High@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+High}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+High@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+High}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+High(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T, uint32\+\_\+t pins)}{Chip_PININT_DisableIntHigh(LPC_PIN_INT_T *pPININT, uint32_t pins)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+High (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT, }
+\item[{uint32\+\_\+t}]{pins}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga9e337046dac41a61cfcfaa4059b403a9}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga9e337046dac41a61cfcfaa4059b403a9}
+
+
+Disable high edge/level P\+I\+N\+I\+NT interrupts for pins. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+{\em pins} & \+: Pins to disable (O\+Red value of P\+I\+N\+I\+N\+T\+C\+H$\ast$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 141 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+Low@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+Low}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+Low@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+Low}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+Low(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T, uint32\+\_\+t pins)}{Chip_PININT_DisableIntLow(LPC_PIN_INT_T *pPININT, uint32_t pins)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Disable\+Int\+Low (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT, }
+\item[{uint32\+\_\+t}]{pins}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_gaaf5ace298255f4720f545b39c1053389}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_gaaf5ace298255f4720f545b39c1053389}
+
+
+Disable low edge/level P\+I\+N\+I\+NT interrupts for pins. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+{\em pins} & \+: Pins to disable (O\+Red value of P\+I\+N\+I\+N\+T\+C\+H$\ast$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 176 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+High@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+High}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+High@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+High}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+High(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T, uint32\+\_\+t pins)}{Chip_PININT_EnableIntHigh(LPC_PIN_INT_T *pPININT, uint32_t pins)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+High (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT, }
+\item[{uint32\+\_\+t}]{pins}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_gaeb6881b3447233e72edca9abd87e8f13}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_gaeb6881b3447233e72edca9abd87e8f13}
+
+
+Enable high edge/level P\+I\+N\+I\+NT interrupts for pins. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+{\em pins} & \+: Pins to enable (O\+Red value of P\+I\+N\+I\+N\+T\+C\+H$\ast$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 130 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+Low@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+Low}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+Low@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+Low}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+Low(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T, uint32\+\_\+t pins)}{Chip_PININT_EnableIntLow(LPC_PIN_INT_T *pPININT, uint32_t pins)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Enable\+Int\+Low (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT, }
+\item[{uint32\+\_\+t}]{pins}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga314265e0674903dee85767e974b77b7d}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga314265e0674903dee85767e974b77b7d}
+
+
+Enable low edge/level P\+I\+N\+I\+NT interrupts for pins. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+{\em pins} & \+: Pins to enable (O\+Red value of P\+I\+N\+I\+N\+T\+C\+H$\ast$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 165 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Fall\+States@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Fall\+States}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Fall\+States@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Fall\+States}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Fall\+States(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T)}{Chip_PININT_GetFallStates(LPC_PIN_INT_T *pPININT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Fall\+States (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga71d71a0537b91ed76457a8f65165c4ec}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga71d71a0537b91ed76457a8f65165c4ec}
+
+
+Return pin states that have a detected latched falling edge (F\+A\+LL) state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+P\+I\+N\+I\+NT states (bit n = high) with a latched rise state detected 
+\end{DoxyReturn}
+
+
+Definición en la línea 207 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+High\+Enabled@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+High\+Enabled}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+High\+Enabled@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+High\+Enabled}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+High\+Enabled(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T)}{Chip_PININT_GetHighEnabled(LPC_PIN_INT_T *pPININT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+High\+Enabled (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga25520f739f79f23c523c02cc8376dc94}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga25520f739f79f23c523c02cc8376dc94}
+
+
+Return current P\+I\+N\+I\+NT rising edge or high level interrupt enable state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+A bifield containing the high edge/level interrupt enables for each interrupt. Bit 0 = P\+I\+N\+I\+N\+T0, 1 = P\+I\+N\+I\+N\+T1, etc. For each bit, a 0 means the high edge/level interrupt is disabled, while a 1 means it\textquotesingle{}s enabled. 
+\end{DoxyReturn}
+
+
+Definición en la línea 119 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Int\+Status@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Int\+Status}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Int\+Status@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Int\+Status}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Int\+Status(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T)}{Chip_PININT_GetIntStatus(LPC_PIN_INT_T *pPININT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Int\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0c5e739048c5033c2d4020520100856c}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga0c5e739048c5033c2d4020520100856c}
+
+
+Get interrupt status from Pin interrupt block. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Interrupt status (bit n for P\+I\+N\+I\+N\+Tn = high means interrupt ie pending) 
+\end{DoxyReturn}
+
+
+Definición en la línea 228 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Low\+Enabled@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Low\+Enabled}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Low\+Enabled@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Low\+Enabled}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Low\+Enabled(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T)}{Chip_PININT_GetLowEnabled(LPC_PIN_INT_T *pPININT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Low\+Enabled (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_gab1378b396f6d1ba5a192153b40504353}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_gab1378b396f6d1ba5a192153b40504353}
+
+
+Return current P\+I\+N\+I\+NT falling edge or low level interrupt enable state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+A bifield containing the low edge/level interrupt enables for each interrupt. Bit 0 = P\+I\+N\+I\+N\+T0, 1 = P\+I\+N\+I\+N\+T1, etc. For each bit, a 0 means the low edge/level interrupt is disabled, while a 1 means it\textquotesingle{}s enabled. 
+\end{DoxyReturn}
+
+
+Definición en la línea 154 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Rise\+States@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Rise\+States}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Rise\+States@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Rise\+States}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Rise\+States(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T)}{Chip_PININT_GetRiseStates(LPC_PIN_INT_T *pPININT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Get\+Rise\+States (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga41e14d3b9450d31efea7c1c35081426b}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga41e14d3b9450d31efea7c1c35081426b}
+
+
+Return pin states that have a detected latched high edge (R\+I\+SE) state. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+P\+I\+N\+I\+NT states (bit n = high) with a latched rise state detected 
+\end{DoxyReturn}
+
+
+Definición en la línea 186 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Init@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Init}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Init@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Init(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T)}{Chip_PININT_Init(LPC_PIN_INT_T *pPININT)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga7d5f017f430fbecd18810fa08e7baef0}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga7d5f017f430fbecd18810fa08e7baef0}
+
+
+Initialize Pin interrupt block. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function should be used after the \hyperlink{group___g_p_i_o__18_x_x__43_x_x_gad799db2a825ded50fc7998f228db1b24}{Chip\+\_\+\+G\+P\+I\+O\+\_\+\+Init()} function. 
+\end{DoxyNote}
+
+
+Definición en la línea 80 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Edge@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Edge}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Edge@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Edge}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Edge(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T, uint32\+\_\+t pins)}{Chip_PININT_SetPinModeEdge(LPC_PIN_INT_T *pPININT, uint32_t pins)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT, }
+\item[{uint32\+\_\+t}]{pins}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga07505a16cf0d80d7dde607ebab062534}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga07505a16cf0d80d7dde607ebab062534}
+
+
+Configure the pins as edge sensitive in Pin interrupt block. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+{\em pins} & \+: Pins (O\+Red value of P\+I\+N\+I\+N\+T\+C\+H$\ast$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 95 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}!Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Level@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Level}}
+\index{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Level@{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Level}!C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx Pin Interrupt and Pattern Match driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Level(\+L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+\+T $\ast$p\+P\+I\+N\+I\+N\+T, uint32\+\_\+t pins)}{Chip_PININT_SetPinModeLevel(LPC_PIN_INT_T *pPININT, uint32_t pins)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+P\+I\+N\+I\+N\+T\+\_\+\+Set\+Pin\+Mode\+Level (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+P\+I\+N\+\_\+\+I\+N\+T\+\_\+T} $\ast$}]{p\+P\+I\+N\+I\+NT, }
+\item[{uint32\+\_\+t}]{pins}
+\end{DoxyParamCaption}
+)}\hypertarget{group___p_i_n_i_n_t__18_x_x__43_x_x_ga4a9efb559231903508b66858a43b552d}{}\label{group___p_i_n_i_n_t__18_x_x__43_x_x_ga4a9efb559231903508b66858a43b552d}
+
+
+Configure the pins as level sensitive in Pin interrupt block. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+P\+I\+N\+I\+NT} & \+: The base address of Pin interrupt block \\
+\hline
+{\em pins} & \+: Pins (O\+Red value of P\+I\+N\+I\+N\+T\+C\+H$\ast$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 106 del archivo pinint\+\_\+18xx\+\_\+43xx.\+h.
+

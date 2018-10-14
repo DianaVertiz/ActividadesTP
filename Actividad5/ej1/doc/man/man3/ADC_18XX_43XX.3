@@ -1,0 +1,690 @@
+.TH "ADC_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ADC_18XX_43XX \- CHIP: LPC18xx/43xx A/D conversion driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_ADC_T\fP"
+.br
+.RI "\fI10 or 12-bit ADC register block structure \fP"
+.ti -1c
+.RI "struct \fBADC_CLOCK_SETUP_T\fP"
+.br
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBADC_ACC_10BITS\fP"
+.br
+.ti -1c
+.RI "#define \fBADC_MAX_SAMPLE_RATE\fP   400000"
+.br
+.ti -1c
+.RI "#define \fBADC_DR_RESULT\fP(n)   ((((n) >> 6) & 0x3FF))"
+.br
+.RI "\fIADC register support bitfields and mask\&. \fP"
+.ti -1c
+.RI "#define \fBADC_CR_BITACC\fP(n)   ((((n) & 0x7) << 17))"
+.br
+.ti -1c
+.RI "#define \fBADC_DR_DONE\fP(n)   (((n) >> 31))"
+.br
+.ti -1c
+.RI "#define \fBADC_DR_OVERRUN\fP(n)   ((((n) >> 30) & (1UL)))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_CH_SEL\fP(n)   ((1UL << (n)))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_CLKDIV\fP(n)   ((((n) & 0xFF) << 8))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_BURST\fP   ((1UL << 16))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_PDN\fP   ((1UL << 21))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_MASK\fP   ((7UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_MODE_SEL\fP(SEL)   ((SEL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_NOW\fP   ((1UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_CTOUT15\fP   ((2UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_CTOUT8\fP   ((3UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_ADCTRIG0\fP   ((4UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_ADCTRIG1\fP   ((5UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_START_MCOA2\fP   ((6UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBADC_CR_EDGE\fP   ((1UL << 27))"
+.br
+.ti -1c
+.RI "#define \fBADC_SAMPLE_RATE_CONFIG_MASK\fP   (\fBADC_CR_CLKDIV\fP(0xFF) | ADC_CR_BITACC(0x07))"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBIP_ADC_STATUS\fP \fBADC_STATUS_T\fP"
+.br
+.RI "\fIADC status register used for IP drivers\&. \fP"
+.ti -1c
+.RI "typedef enum \fBCHIP_ADC_CHANNEL\fP \fBADC_CHANNEL_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_ADC_RESOLUTION\fP \fBADC_RESOLUTION_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_ADC_EDGE_CFG\fP \fBADC_EDGE_CFG_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_ADC_START_MODE\fP \fBADC_START_MODE_T\fP"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBIP_ADC_STATUS\fP { \fBADC_DR_DONE_STAT\fP, \fBADC_DR_OVERRUN_STAT\fP, \fBADC_DR_ADINT_STAT\fP }
+.RI "\fIADC status register used for IP drivers\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBCHIP_ADC_CHANNEL\fP { \fBADC_CH0\fP = 0, \fBADC_CH1\fP, \fBADC_CH2\fP, \fBADC_CH3\fP, \fBADC_CH4\fP, \fBADC_CH5\fP, \fBADC_CH6\fP, \fBADC_CH7\fP }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_ADC_RESOLUTION\fP { \fBADC_10BITS\fP = 0, \fBADC_9BITS\fP, \fBADC_8BITS\fP, \fBADC_7BITS\fP, \fBADC_6BITS\fP, \fBADC_5BITS\fP, \fBADC_4BITS\fP, \fBADC_3BITS\fP }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_ADC_EDGE_CFG\fP { \fBADC_TRIGGERMODE_RISING\fP = 0, \fBADC_TRIGGERMODE_FALLING\fP }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_ADC_START_MODE\fP { \fBADC_NO_START\fP = 0, \fBADC_START_NOW\fP, \fBADC_START_ON_CTOUT15\fP, \fBADC_START_ON_CTOUT8\fP, \fBADC_START_ON_ADCTRIG0\fP, \fBADC_START_ON_ADCTRIG1\fP, \fBADC_START_ON_MCOA2\fP }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_ADC_Init\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CLOCK_SETUP_T\fP *ADCSetup)"
+.br
+.RI "\fIInitialize the ADC peripheral and the ADC setup structure to default value\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_DeInit\fP (\fBLPC_ADC_T\fP *pADC)"
+.br
+.RI "\fIShutdown ADC\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_ADC_ReadValue\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, uint16_t *data)"
+.br
+.RI "\fIRead the ADC value from a channel\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_ADC_ReadByte\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CHANNEL_T\fP channel, uint8_t *data)"
+.br
+.RI "\fIRead the ADC value and convert it to 8bits value\&. \fP"
+.ti -1c
+.RI "\fBFlagStatus\fP \fBChip_ADC_ReadStatus\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, uint32_t StatusType)"
+.br
+.RI "\fIRead the ADC channel status\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_Int_SetChannelCmd\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable interrupt for ADC channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ADC_Int_SetGlobalCmd\fP (\fBLPC_ADC_T\fP *pADC, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable global interrupt for ADC channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetStartMode\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_START_MODE_T\fP mode, \fBADC_EDGE_CFG_T\fP EdgeOption)"
+.br
+.RI "\fISelect the mode starting the AD conversion\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetSampleRate\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CLOCK_SETUP_T\fP *ADCSetup, uint32_t rate)"
+.br
+.RI "\fISet the ADC Sample rate\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetResolution\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CLOCK_SETUP_T\fP *ADCSetup, \fBADC_RESOLUTION_T\fP resolution)"
+.br
+.RI "\fISet the ADC accuracy bits\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_EnableChannel\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CHANNEL_T\fP channel, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable or disable the ADC channel on ADC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetBurstCmd\fP (\fBLPC_ADC_T\fP *pADC, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable burst mode\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define ADC_ACC_10BITS"
+
+.PP
+Definición en la línea 44 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_BITACC(n)   ((((n) & 0x7) << 17))"
+Number of ADC accuracy bits 
+.PP
+Definición en la línea 65 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_BURST   ((1UL << 16))"
+Repeated conversions A/D enable bit 
+.PP
+Definición en la línea 70 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_CH_SEL(n)   ((1UL << (n)))"
+Selects which of the AD0\&.0:7 pins is (are) to be sampled and converted 
+.PP
+Definición en la línea 68 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_CLKDIV(n)   ((((n) & 0xFF) << 8))"
+The APB clock (PCLK) is divided by (this value plus one) to produce the clock for the A/D 
+.PP
+Definición en la línea 69 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_EDGE   ((1UL << 27))"
+Start conversion on a falling edge on the selected CAP/MAT signal 
+.PP
+Definición en la línea 80 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_PDN   ((1UL << 21))"
+ADC convert is operational 
+.PP
+Definición en la línea 71 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_START_ADCTRIG0   ((4UL << 24))"
+Start conversion when the edge selected by bit 27 occurs on ADCTRIG0 
+.PP
+Definición en la línea 77 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_START_ADCTRIG1   ((5UL << 24))"
+Start conversion when the edge selected by bit 27 occurs on ADCTRIG1 
+.PP
+Definición en la línea 78 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_START_CTOUT15   ((2UL << 24))"
+Start conversion when the edge selected by bit 27 occurs on CTOUT_15 
+.PP
+Definición en la línea 75 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_START_CTOUT8   ((3UL << 24))"
+Start conversion when the edge selected by bit 27 occurs on CTOUT_8 
+.PP
+Definición en la línea 76 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_START_MASK   ((7UL << 24))"
+ADC start mask bits 
+.PP
+Definición en la línea 72 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_START_MCOA2   ((6UL << 24))"
+Start conversion when the edge selected by bit 27 occurs on Motocon PWM output MCOA2 
+.PP
+Definición en la línea 79 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_START_MODE_SEL(SEL)   ((SEL << 24))"
+Select Start Mode 
+.PP
+Definición en la línea 73 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_CR_START_NOW   ((1UL << 24))"
+Start conversion now 
+.PP
+Definición en la línea 74 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_DR_DONE(n)   (((n) >> 31))"
+Mask for reading the ADC done status 
+.PP
+Definición en la línea 66 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_DR_OVERRUN(n)   ((((n) >> 30) & (1UL)))"
+Mask for reading the ADC overrun status 
+.PP
+Definición en la línea 67 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_DR_RESULT(n)   ((((n) >> 6) & 0x3FF))"
+
+.PP
+ADC register support bitfields and mask\&. Mask for getting the 10 bits ADC data read value 
+.PP
+Definición en la línea 64 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_MAX_SAMPLE_RATE   400000"
+
+.PP
+Definición en la línea 46 del archivo adc_18xx_43xx\&.h\&.
+.SS "#define ADC_SAMPLE_RATE_CONFIG_MASK   (\fBADC_CR_CLKDIV\fP(0xFF) | ADC_CR_BITACC(0x07))"
+
+.PP
+Definición en la línea 81 del archivo adc_18xx_43xx\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef enum \fBCHIP_ADC_CHANNEL\fP  \fBADC_CHANNEL_T\fP"
+The channels on one ADC peripheral 
+.SS "typedef enum \fBCHIP_ADC_EDGE_CFG\fP  \fBADC_EDGE_CFG_T\fP"
+Edge configuration, which controls rising or falling edge on the selected signal for the start of a conversion 
+.SS "typedef enum \fBCHIP_ADC_RESOLUTION\fP  \fBADC_RESOLUTION_T\fP"
+The number of bits of accuracy of the result in the LS bits of ADDR 
+.SS "typedef enum \fBCHIP_ADC_START_MODE\fP  \fBADC_START_MODE_T\fP"
+Start mode, which controls the start of an A/D conversion when the BURST bit is 0\&. 
+.SS "typedef enum \fBIP_ADC_STATUS\fP  \fBADC_STATUS_T\fP"
+
+.PP
+ADC status register used for IP drivers\&. 
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBCHIP_ADC_CHANNEL\fP"
+The channels on one ADC peripheral 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIADC_CH0 \fP\fP
+ADC channel 0 
+.TP
+\fB\fIADC_CH1 \fP\fP
+ADC channel 1 
+.TP
+\fB\fIADC_CH2 \fP\fP
+ADC channel 2 
+.TP
+\fB\fIADC_CH3 \fP\fP
+ADC channel 3 
+.TP
+\fB\fIADC_CH4 \fP\fP
+ADC channel 4 
+.TP
+\fB\fIADC_CH5 \fP\fP
+ADC channel 5 
+.TP
+\fB\fIADC_CH6 \fP\fP
+ADC channel 6 
+.TP
+\fB\fIADC_CH7 \fP\fP
+ADC channel 7 
+.PP
+Definición en la línea 93 del archivo adc_18xx_43xx\&.h\&.
+.SS "enum \fBCHIP_ADC_EDGE_CFG\fP"
+Edge configuration, which controls rising or falling edge on the selected signal for the start of a conversion 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIADC_TRIGGERMODE_RISING \fP\fP
+Trigger event: rising edge 
+.TP
+\fB\fIADC_TRIGGERMODE_FALLING \fP\fP
+Trigger event: falling edge 
+.PP
+Definición en la línea 117 del archivo adc_18xx_43xx\&.h\&.
+.SS "enum \fBCHIP_ADC_RESOLUTION\fP"
+The number of bits of accuracy of the result in the LS bits of ADDR 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIADC_10BITS \fP\fP
+ADC 10 bits 
+.TP
+\fB\fIADC_9BITS \fP\fP
+ADC 9 bits 
+.TP
+\fB\fIADC_8BITS \fP\fP
+ADC 8 bits 
+.TP
+\fB\fIADC_7BITS \fP\fP
+ADC 7 bits 
+.TP
+\fB\fIADC_6BITS \fP\fP
+ADC 6 bits 
+.TP
+\fB\fIADC_5BITS \fP\fP
+ADC 5 bits 
+.TP
+\fB\fIADC_4BITS \fP\fP
+ADC 4 bits 
+.TP
+\fB\fIADC_3BITS \fP\fP
+ADC 3 bits 
+.PP
+Definición en la línea 105 del archivo adc_18xx_43xx\&.h\&.
+.SS "enum \fBCHIP_ADC_START_MODE\fP"
+Start mode, which controls the start of an A/D conversion when the BURST bit is 0\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIADC_NO_START \fP\fP
+.TP
+\fB\fIADC_START_NOW \fP\fP
+Start conversion now 
+.TP
+\fB\fIADC_START_ON_CTOUT15 \fP\fP
+Start conversion when the edge selected by bit 27 occurs on CTOUT_15 
+.TP
+\fB\fIADC_START_ON_CTOUT8 \fP\fP
+Start conversion when the edge selected by bit 27 occurs on CTOUT_8 
+.TP
+\fB\fIADC_START_ON_ADCTRIG0 \fP\fP
+Start conversion when the edge selected by bit 27 occurs on ADCTRIG0 
+.TP
+\fB\fIADC_START_ON_ADCTRIG1 \fP\fP
+Start conversion when the edge selected by bit 27 occurs on ADCTRIG1 
+.TP
+\fB\fIADC_START_ON_MCOA2 \fP\fP
+Start conversion when the edge selected by bit 27 occurs on Motocon PWM output MCOA2 
+.PP
+Definición en la línea 123 del archivo adc_18xx_43xx\&.h\&.
+.SS "enum \fBIP_ADC_STATUS\fP"
+
+.PP
+ADC status register used for IP drivers\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIADC_DR_DONE_STAT \fP\fP
+ADC data register staus 
+.TP
+\fB\fIADC_DR_OVERRUN_STAT \fP\fP
+ADC data overrun staus 
+.TP
+\fB\fIADC_DR_ADINT_STAT \fP\fP
+ADC interrupt status 
+.PP
+Definición en la línea 86 del archivo adc_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_ADC_DeInit (\fBLPC_ADC_T\fP * pADC)"
+
+.PP
+Shutdown ADC\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 142 del archivo adc_18xx_43xx\&.c\&.
+.SS "void Chip_ADC_EnableChannel (\fBLPC_ADC_T\fP * pADC, \fBADC_CHANNEL_T\fP channel, \fBFunctionalState\fP NewState)"
+
+.PP
+Enable or disable the ADC channel on ADC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIchannel\fP : Channel to be enable or disable 
+.br
+\fINewState\fP : New state, should be:
+.IP "\(bu" 2
+ENABLE
+.IP "\(bu" 2
+DISABLE 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 222 del archivo adc_18xx_43xx\&.c\&.
+.SS "void Chip_ADC_Init (\fBLPC_ADC_T\fP * pADC, \fBADC_CLOCK_SETUP_T\fP * ADCSetup)"
+
+.PP
+Initialize the ADC peripheral and the ADC setup structure to default value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIADCSetup\fP : ADC setup structure to be set 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Default setting for ADC is 400kHz - 10bits 
+.RE
+.PP
+
+.PP
+Definición en la línea 120 del archivo adc_18xx_43xx\&.c\&.
+.SS "void Chip_ADC_Int_SetChannelCmd (\fBLPC_ADC_T\fP * pADC, uint8_t channel, \fBFunctionalState\fP NewState)"
+
+.PP
+Enable/Disable interrupt for ADC channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIchannel\fP : ADC channel to read 
+.br
+\fINewState\fP : New state, ENABLE or DISABLE 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SET or RESET 
+.RE
+.PP
+
+.PP
+Definición en la línea 176 del archivo adc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_ADC_Int_SetGlobalCmd (\fBLPC_ADC_T\fP * pADC, \fBFunctionalState\fP NewState)"
+
+.PP
+Enable/Disable global interrupt for ADC channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fINewState\fP : New state, ENABLE or DISABLE 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 198 del archivo adc_18xx_43xx\&.h\&.
+.SS "\fBStatus\fP Chip_ADC_ReadByte (\fBLPC_ADC_T\fP * pADC, \fBADC_CHANNEL_T\fP channel, uint8_t * data)"
+
+.PP
+Read the ADC value and convert it to 8bits value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIchannel\fP selected channel 
+.br
+\fIdata\fP : Storage for data 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Status : ERROR or SUCCESS 
+.RE
+.PP
+
+.PP
+Definición en la línea 247 del archivo adc_18xx_43xx\&.c\&.
+.SS "\fBFlagStatus\fP Chip_ADC_ReadStatus (\fBLPC_ADC_T\fP * pADC, uint8_t channel, uint32_t StatusType)"
+
+.PP
+Read the ADC channel status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIchannel\fP : ADC channel to read 
+.br
+\fIStatusType\fP : Status type of ADC_DR_* 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SET or RESET 
+.RE
+.PP
+
+.PP
+Definición en la línea 156 del archivo adc_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP Chip_ADC_ReadValue (\fBLPC_ADC_T\fP * pADC, uint8_t channel, uint16_t * data)"
+
+.PP
+Read the ADC value from a channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIchannel\fP : ADC channel to read 
+.br
+\fIdata\fP : Pointer to where to put data 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SUCCESS or ERROR if no conversion is ready 
+.RE
+.PP
+
+.PP
+Definición en la línea 150 del archivo adc_18xx_43xx\&.c\&.
+.SS "void Chip_ADC_SetBurstCmd (\fBLPC_ADC_T\fP * pADC, \fBFunctionalState\fP NewState)"
+
+.PP
+Enable burst mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fINewState\fP : New state, should be:
+.IP "\(bu" 2
+ENABLE
+.IP "\(bu" 2
+DISABLE 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 234 del archivo adc_18xx_43xx\&.c\&.
+.SS "void Chip_ADC_SetResolution (\fBLPC_ADC_T\fP * pADC, \fBADC_CLOCK_SETUP_T\fP * ADCSetup, \fBADC_RESOLUTION_T\fP resolution)"
+
+.PP
+Set the ADC accuracy bits\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIADCSetup\fP : ADC setup structure to be modified 
+.br
+\fIresolution\fP : The resolution, should be ADC_10BITS -> ADC_3BITS 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 215 del archivo adc_18xx_43xx\&.c\&.
+.SS "void Chip_ADC_SetSampleRate (\fBLPC_ADC_T\fP * pADC, \fBADC_CLOCK_SETUP_T\fP * ADCSetup, uint32_t rate)"
+
+.PP
+Set the ADC Sample rate\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIADCSetup\fP : ADC setup structure to be modified 
+.br
+\fIrate\fP : Sample rate, should be set so the clock for A/D converter is less than or equal to 4\&.5MHz\&. 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 201 del archivo adc_18xx_43xx\&.c\&.
+.SS "void Chip_ADC_SetStartMode (\fBLPC_ADC_T\fP * pADC, \fBADC_START_MODE_T\fP mode, \fBADC_EDGE_CFG_T\fP EdgeOption)"
+
+.PP
+Select the mode starting the AD conversion\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpADC\fP : The base of ADC peripheral on the chip 
+.br
+\fImode\fP : Stating mode, should be :
+.IP "\(bu" 2
+ADC_NO_START : Must be set for Burst mode
+.IP "\(bu" 2
+ADC_START_NOW : Start conversion now
+.IP "\(bu" 2
+ADC_START_ON_CTOUT15 : Start conversion when the edge selected by bit 27 occurs on CTOUT_15
+.IP "\(bu" 2
+ADC_START_ON_CTOUT8 : Start conversion when the edge selected by bit 27 occurs on CTOUT_8
+.IP "\(bu" 2
+ADC_START_ON_ADCTRIG0 : Start conversion when the edge selected by bit 27 occurs on ADCTRIG0
+.IP "\(bu" 2
+ADC_START_ON_ADCTRIG1 : Start conversion when the edge selected by bit 27 occurs on ADCTRIG1
+.IP "\(bu" 2
+ADC_START_ON_MCOA2 : Start conversion when the edge selected by bit 27 occurs on Motocon PWM output MCOA2 
+.PP
+.br
+\fIEdgeOption\fP : Stating Edge Condition, should be :
+.IP "\(bu" 2
+ADC_TRIGGERMODE_RISING : Trigger event on rising edge
+.IP "\(bu" 2
+ADC_TRIGGERMODE_FALLING : Trigger event on falling edge 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 187 del archivo adc_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,79 @@
+.TH "aes_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+aes_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBCHIP_AES_OP_MODE\fP \fBCHIP_AES_OP_MODE_T\fP"
+.br
+.RI "\fIAES Engine operation mode\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_AES_OP_MODE\fP { \fBCHIP_AES_API_CMD_ENCODE_ECB\fP, \fBCHIP_AES_API_CMD_DECODE_ECB\fP, \fBCHIP_AES_API_CMD_ENCODE_CBC\fP, \fBCHIP_AES_API_CMD_DECODE_CBC\fP }
+.RI "\fIAES Engine operation mode\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_AES_Init\fP (void)"
+.br
+.RI "\fIInitialize the AES Engine function\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_SetMode\fP (\fBCHIP_AES_OP_MODE_T\fP AesMode)"
+.br
+.RI "\fISet operation mode in AES Engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadKey\fP (uint32_t keyNum)"
+.br
+.RI "\fILoad 128-bit AES user key in AES Engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadKeyRNG\fP (void)"
+.br
+.RI "\fILoad randomly generated key in AES engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadKeySW\fP (uint8_t *pKey)"
+.br
+.RI "\fILoad 128-bit AES software defined user key in AES Engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadIV_SW\fP (uint8_t *pVector)"
+.br
+.RI "\fILoad 128-bit AES initialization vector in AES Engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadIV_IC\fP (void)"
+.br
+.RI "\fILoad IC specific 128-bit AES initialization vector in AES Engine\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_Operate\fP (uint8_t *pDatOut, uint8_t *pDatIn, uint32_t Size)"
+.br
+.RI "\fIOperate AES Engine\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_ProgramKey\fP (uint32_t KeyNum, uint8_t *pKey)"
+.br
+.RI "\fIProgram 128-bit AES Key in OTP\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_Config_DMA\fP (uint32_t channel_id)"
+.br
+.RI "\fIChecks for valid AES configuration of the chip and setup DMA channel to process an AES data block\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_OperateDMA\fP (uint32_t channel_id, uint8_t *dataOutAddr, uint8_t *dataInAddr, uint32_t size)"
+.br
+.RI "\fIChecks for valid AES configuration of the chip and enables DMA channel to process an AES data block\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_GetStatusDMA\fP (uint32_t channel_id)"
+.br
+.RI "\fIRead status of DMA channels that process an AES data block\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

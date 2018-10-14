@@ -1,0 +1,262 @@
+.TH "SCT_PWM_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SCT_PWM_18XX_43XX \- CHIP: LPC18XX_43XX State Configurable Timer PWM driver
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_SCTPWM_GetTicksPerCycle\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIGet number of ticks per PWM cycle\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_SCTPWM_PercentageToTicks\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t percent)"
+.br
+.RI "\fIConverts a percentage to ticks\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_SCTPWM_GetDutyCycle\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t index)"
+.br
+.RI "\fIGet number of ticks on per PWM cycle\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCTPWM_SetDutyCycle\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t index, uint32_t ticks)"
+.br
+.RI "\fIGet number of ticks on per PWM cycle\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCTPWM_Init\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIInitialize the SCT/PWM clock and reset\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCTPWM_Start\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIStart the SCT PWM\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCTPWM_Stop\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIStop the SCT PWM\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCTPWM_SetRate\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t freq)"
+.br
+.RI "\fISets the frequency of the generated PWM wave\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCTPWM_SetOutPin\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t index, uint8_t pin)"
+.br
+.RI "\fISetup the OUTPUT pin and associate it with an index\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+For more information on how to use the driver please visit the FAQ page at \fCwww\&.lpcware\&.com\fP 
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_SCTPWM_GetDutyCycle (\fBLPC_SCT_T\fP * pSCT, uint8_t index)"
+
+.PP
+Get number of ticks on per PWM cycle\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIindex\fP : Index of the PWM 1 to N (see notes) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number ot ticks for which the output will be ON per cycle 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+\fIindex\fP will be 1 to N where N is the 'Number of
+         match registers available in the SCT - 1' or 'Number of OUTPUT pins available in the SCT' whichever is minimum\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 86 del archivo sct_pwm_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_SCTPWM_GetTicksPerCycle (\fBLPC_SCT_T\fP * pSCT)"
+
+.PP
+Get number of ticks per PWM cycle\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number ot ticks that will be counted per cycle 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Return value of this function will be vaild only after calling \fBChip_SCTPWM_SetRate()\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 56 del archivo sct_pwm_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCTPWM_Init (\fBLPC_SCT_T\fP * pSCT)"
+
+.PP
+Initialize the SCT/PWM clock and reset\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 113 del archivo sct_pwm_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_SCTPWM_PercentageToTicks (\fBLPC_SCT_T\fP * pSCT, uint8_t percent)"
+
+.PP
+Converts a percentage to ticks\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIpercent\fP : Percentage to convert (0 - 100) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number ot ticks corresponding to given percentage 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Do not use this function when using very low pwm rate (like 100Hz or less), on a chip that has very high frequency as the calculation might cause integer overflow 
+.RE
+.PP
+
+.PP
+Definición en la línea 71 del archivo sct_pwm_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCTPWM_SetDutyCycle (\fBLPC_SCT_T\fP * pSCT, uint8_t index, uint32_t ticks)"
+
+.PP
+Get number of ticks on per PWM cycle\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIindex\fP : Index of the PWM 1 to N (see notes) 
+.br
+\fIticks\fP : Number of ticks the output should say ON 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+\fIindex\fP will be 1 to N where N is the 'Number of
+         match registers available in the SCT - 1' or 'Number of OUTPUT pins available in the SCT' whichever is minimum\&. The new duty cycle will be effective only after completion of current PWM cycle\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 103 del archivo sct_pwm_18xx_43xx\&.h\&.
+.SS "void Chip_SCTPWM_SetOutPin (\fBLPC_SCT_T\fP * pSCT, uint8_t index, uint8_t pin)"
+
+.PP
+Setup the OUTPUT pin and associate it with an index\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of the SCT peripheral on the chip 
+.br
+\fIindex\fP : Index of PWM 1 to N (see notes) 
+.br
+\fIpin\fP : COUT pin to be associated with the index 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+\fIindex\fP will be 1 to N where N is the 'Number of
+         match registers available in the SCT - 1' or 'Number of OUTPUT pins available in the SCT' whichever is minimum\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 51 del archivo sct_pwm_18xx_43xx\&.c\&.
+.SS "void Chip_SCTPWM_SetRate (\fBLPC_SCT_T\fP * pSCT, uint32_t freq)"
+
+.PP
+Sets the frequency of the generated PWM wave\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.br
+\fIfreq\fP : Frequency in Hz 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 67 del archivo sct_pwm_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCTPWM_Start (\fBLPC_SCT_T\fP * pSCT)"
+
+.PP
+Start the SCT PWM\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function must be called after all the configuration is completed\&. Do not call \fBChip_SCTPWM_SetRate()\fP or \fBChip_SCTPWM_SetOutPin()\fP after the SCT/PWM is started\&. Use \fBChip_SCTPWM_Stop()\fP to stop the SCT/PWM before reconfiguring, \fBChip_SCTPWM_SetDutyCycle()\fP can be called when the SCT/PWM is running to change the DutyCycle\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 129 del archivo sct_pwm_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_SCTPWM_Stop (\fBLPC_SCT_T\fP * pSCT)"
+
+.PP
+Stop the SCT PWM\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSCT\fP : The base of SCT peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 139 del archivo sct_pwm_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

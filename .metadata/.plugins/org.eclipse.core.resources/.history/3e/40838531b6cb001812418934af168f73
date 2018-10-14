@@ -1,0 +1,50 @@
+#include "chip.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stopwatch.h>
+#include "../inc/morseCode.h"
+#include "hardware.h"
+#include "operaciones.h"
+
+volatile uint8_t habilitado = 0;
+
+
+void GPIO1_IRQHandler(void)
+{
+	/*limpiar el estado de la interrupción*/
+	Chip_PININT_ClearIntStatus (LPC_GPIO_PIN_INT , PININTCH (TEC1_IRQ));
+	delayMs(300);
+
+	habilitado = (habilitado + 1)%2;
+}
+
+void UART2_IRQHandler(void)
+{
+
+	Chip_UART_IRQRBHandler(LPC_USART2, &rxRing, &txRing);
+}
+
+
+int main ( int argc , char * argv [])
+{
+	uint32_t aux = 0;
+	inicializar_sistema();
+	inicializar_leds();
+	inicializar_teclado();
+	init_interrupciones();
+	inicializar_USART();
+	//configurar_SysTick();
+
+	while (1)
+	{
+		if(!habilitado)
+		{
+			terminal_eco(key);
+		}
+		__WFI();
+	}
+
+
+	return 0;
+}
+

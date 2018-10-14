@@ -1,0 +1,438 @@
+\hypertarget{struct_l_p_c___u_s_b_h_s___t}{}\section{Referencia de la Estructura L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}
+\label{struct_l_p_c___u_s_b_h_s___t}\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+
+
+U\+SB High-\/\+Speed register block structure.  
+
+
+
+
+{\ttfamily \#include $<$usbhs\+\_\+18xx\+\_\+43xx.\+h$>$}
+
+\subsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_af58c5fd1a07d6436db757863729ffc99}{R\+E\+S\+E\+R\+V\+E\+D0} \mbox{[}64\mbox{]}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_af21648bd693741c08a0d9a8a7cbfda19}{C\+A\+P\+L\+E\+N\+G\+TH}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_ae39ae814acf9cd8199acd30e6603e6ff}{H\+C\+S\+P\+A\+R\+A\+MS}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_aa2d415865b92e80f9abbb893f15c0bed}{H\+C\+C\+P\+A\+R\+A\+MS}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a00aaa32c956f5b42a9a5978efc85bdcd}{R\+E\+S\+E\+R\+V\+E\+D1} \mbox{[}5\mbox{]}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_ad5c89e60eca897d24aafc92005a7f477}{D\+C\+I\+V\+E\+R\+S\+I\+ON}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a8fa48cb2c9267b161766a3a5d2591e29}{R\+E\+S\+E\+R\+V\+E\+D2} \mbox{[}7\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_ae6942ad74f6fe7c21f0c3cbaa6ae8ee1}{USBCMD\_H}\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_aa717d3a3ddc444c944da23ff3ce81d84}{USBCMD\_D}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_abebf0c674a65b6bd7e9d2f4565bcc04c}{USBSTS\_H}\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a0753b65b5d34850997d44e38edf3444f}{USBSTS\_D}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a67b4a2c7b9dd79a4671688c69a348949}{USBINTR\_H}\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_adc4b59f09357786ae059e4390b039709}{USBINTR\_D}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_aca60a62e0bc2025ddef5c46243e87a0f}{FRINDEX\_H}\\
+\>\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\_\_I} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a8660cd5f0c2390601da8087c9e5496b1}{FRINDEX\_D}\\
+\}; \\
+
+\end{tabbing}\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a0dccf23b0301eb78ab61f90a3e6ae594}{R\+E\+S\+E\+R\+V\+E\+D3}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a220024dbd2ce8566ae29c4fd779bdfea}{PERIODICLISTBASE}\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a281cfe97943157d3dcea5f30c203d20a}{DEVICEADDR}\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_ae8e8b435efd599e7cb730809e3ba6dea}{ASYNCLISTADDR}\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a59d3d4b2c95485fdfd1aca397407cb9c}{ENDPOINTLISTADDR}\\
+\}; \\
+
+\end{tabbing}\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a1c8a382a4d6ca96899df6d1979cd9637}{T\+T\+C\+T\+RL}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a7d519a319a72374b4701099098ea8c9c}{B\+U\+R\+S\+T\+S\+I\+ZE}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a3c352ffa30d3a84981a1dead4eca34fa}{T\+X\+F\+I\+L\+L\+T\+U\+N\+I\+NG}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_adcde36755ddc4fd76b5514815f2fb143}{R\+E\+S\+E\+R\+V\+E\+D4} \mbox{[}2\mbox{]}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_ac6b9be3c87326d058790a7e5c38c9f41}{U\+L\+P\+I\+V\+I\+E\+W\+P\+O\+RT}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a1a34c86d05dddf89fae40a694b7dc8f1}{B\+I\+N\+T\+E\+R\+V\+AL}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_aad4a9fdd99ed4783645771045d0926cf}{E\+N\+D\+P\+T\+N\+AK}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_aa815df0960fe8c19f268c141d9a3a1a4}{E\+N\+D\+P\+T\+N\+A\+K\+EN}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_aa83bddd1f180bafbb96085399f847cd7}{R\+E\+S\+E\+R\+V\+E\+D5}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a793643c9430524a34502b27c87132339}{PORTSC1\_H}\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a3f95ae68d823fd2a4f4fc31381c092c5}{PORTSC1\_D}\\
+\}; \\
+
+\end{tabbing}\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a5a044e9fe400f6f23a32a60c515fb417}{R\+E\+S\+E\+R\+V\+E\+D6} \mbox{[}7\mbox{]}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_adb35a61c216301a0918d07fd20b51dcb}{O\+T\+G\+SC}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a70a3a542fad485210b58ba013ff46212}{USBMODE\_H}\\
+\>\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO} uint32\_t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a47f4e360b36ece77b5379d738fde7f12}{USBMODE\_D}\\
+\}; \\
+
+\end{tabbing}\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_accba48676fff8fcbf244de513e0bafa3}{E\+N\+D\+P\+T\+S\+E\+T\+U\+P\+S\+T\+AT}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_aec0e228a214e4aa40c884097c7378b20}{E\+N\+D\+P\+T\+P\+R\+I\+ME}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_aded3da9b001d55174b4f9feddbae2fe5}{E\+N\+D\+P\+T\+F\+L\+U\+SH}
+\item 
+\hyperlink{core__sc300_8h_af63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a0ef4c759cd3e09a6ef5ffc333f0ad582}{E\+N\+D\+P\+T\+S\+T\+AT}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_aa9bc539392d3adc43d746fd2c3f96bd0}{E\+N\+D\+P\+T\+C\+O\+M\+P\+L\+E\+TE}
+\item 
+\hyperlink{core__sc300_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO} uint32\+\_\+t \hyperlink{struct_l_p_c___u_s_b_h_s___t_a6b661f29ba1596d4f44ce8491966c684}{E\+N\+D\+P\+T\+C\+T\+RL} \mbox{[}6\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+U\+SB High-\/\+Speed register block structure. 
+
+Definición en la línea 47 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de los campos}
+\subsubsection[{\texorpdfstring{"@72}{@72}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct_l_p_c___u_s_b_h_s___t_a245837c07d01b0306c66d523161bd4a0}{}\label{struct_l_p_c___u_s_b_h_s___t_a245837c07d01b0306c66d523161bd4a0}
+\subsubsection[{\texorpdfstring{"@74}{@74}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct_l_p_c___u_s_b_h_s___t_a704adea3b88e68b23f564afbd83b031c}{}\label{struct_l_p_c___u_s_b_h_s___t_a704adea3b88e68b23f564afbd83b031c}
+\subsubsection[{\texorpdfstring{"@76}{@76}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct_l_p_c___u_s_b_h_s___t_ada98f0501fcae40aa205ffd2b28cae1c}{}\label{struct_l_p_c___u_s_b_h_s___t_ada98f0501fcae40aa205ffd2b28cae1c}
+\subsubsection[{\texorpdfstring{"@78}{@78}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct_l_p_c___u_s_b_h_s___t_a9925e05943ee16239454d53dece55de9}{}\label{struct_l_p_c___u_s_b_h_s___t_a9925e05943ee16239454d53dece55de9}
+\subsubsection[{\texorpdfstring{"@80}{@80}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct_l_p_c___u_s_b_h_s___t_a5a9b64d7886ca8923537e763df32c665}{}\label{struct_l_p_c___u_s_b_h_s___t_a5a9b64d7886ca8923537e763df32c665}
+\subsubsection[{\texorpdfstring{"@82}{@82}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct_l_p_c___u_s_b_h_s___t_af2975e33dafed041be3f84b9c97456a1}{}\label{struct_l_p_c___u_s_b_h_s___t_af2975e33dafed041be3f84b9c97456a1}
+\subsubsection[{\texorpdfstring{"@84}{@84}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct_l_p_c___u_s_b_h_s___t_a42a7410ddd8e34ffd2820d05803bc096}{}\label{struct_l_p_c___u_s_b_h_s___t_a42a7410ddd8e34ffd2820d05803bc096}
+\subsubsection[{\texorpdfstring{"@86}{@86}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct_l_p_c___u_s_b_h_s___t_ab86e193b7459adff66f308513da2b07b}{}\label{struct_l_p_c___u_s_b_h_s___t_ab86e193b7459adff66f308513da2b07b}
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!A\+S\+Y\+N\+C\+L\+I\+S\+T\+A\+D\+DR@{A\+S\+Y\+N\+C\+L\+I\+S\+T\+A\+D\+DR}}
+\index{A\+S\+Y\+N\+C\+L\+I\+S\+T\+A\+D\+DR@{A\+S\+Y\+N\+C\+L\+I\+S\+T\+A\+D\+DR}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{A\+S\+Y\+N\+C\+L\+I\+S\+T\+A\+D\+DR}{ASYNCLISTADDR}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t A\+S\+Y\+N\+C\+L\+I\+S\+T\+A\+D\+DR}\hypertarget{struct_l_p_c___u_s_b_h_s___t_ae8e8b435efd599e7cb730809e3ba6dea}{}\label{struct_l_p_c___u_s_b_h_s___t_ae8e8b435efd599e7cb730809e3ba6dea}
+Address of endpoint list in memory (host mode) 
+
+Definición en la línea 82 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!B\+I\+N\+T\+E\+R\+V\+AL@{B\+I\+N\+T\+E\+R\+V\+AL}}
+\index{B\+I\+N\+T\+E\+R\+V\+AL@{B\+I\+N\+T\+E\+R\+V\+AL}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{B\+I\+N\+T\+E\+R\+V\+AL}{BINTERVAL}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t B\+I\+N\+T\+E\+R\+V\+AL}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a1a34c86d05dddf89fae40a694b7dc8f1}{}\label{struct_l_p_c___u_s_b_h_s___t_a1a34c86d05dddf89fae40a694b7dc8f1}
+Length of virtual frame 
+
+Definición en la línea 91 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!B\+U\+R\+S\+T\+S\+I\+ZE@{B\+U\+R\+S\+T\+S\+I\+ZE}}
+\index{B\+U\+R\+S\+T\+S\+I\+ZE@{B\+U\+R\+S\+T\+S\+I\+ZE}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{B\+U\+R\+S\+T\+S\+I\+ZE}{BURSTSIZE}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t B\+U\+R\+S\+T\+S\+I\+ZE}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a7d519a319a72374b4701099098ea8c9c}{}\label{struct_l_p_c___u_s_b_h_s___t_a7d519a319a72374b4701099098ea8c9c}
+Programmable burst size 
+
+Definición en la línea 87 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!C\+A\+P\+L\+E\+N\+G\+TH@{C\+A\+P\+L\+E\+N\+G\+TH}}
+\index{C\+A\+P\+L\+E\+N\+G\+TH@{C\+A\+P\+L\+E\+N\+G\+TH}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{C\+A\+P\+L\+E\+N\+G\+TH}{CAPLENGTH}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t C\+A\+P\+L\+E\+N\+G\+TH}\hypertarget{struct_l_p_c___u_s_b_h_s___t_af21648bd693741c08a0d9a8a7cbfda19}{}\label{struct_l_p_c___u_s_b_h_s___t_af21648bd693741c08a0d9a8a7cbfda19}
+Capability register length 
+
+Definición en la línea 49 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!D\+C\+I\+V\+E\+R\+S\+I\+ON@{D\+C\+I\+V\+E\+R\+S\+I\+ON}}
+\index{D\+C\+I\+V\+E\+R\+S\+I\+ON@{D\+C\+I\+V\+E\+R\+S\+I\+ON}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{D\+C\+I\+V\+E\+R\+S\+I\+ON}{DCIVERSION}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t D\+C\+I\+V\+E\+R\+S\+I\+ON}\hypertarget{struct_l_p_c___u_s_b_h_s___t_ad5c89e60eca897d24aafc92005a7f477}{}\label{struct_l_p_c___u_s_b_h_s___t_ad5c89e60eca897d24aafc92005a7f477}
+Device interface version number 
+
+Definición en la línea 53 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!D\+E\+V\+I\+C\+E\+A\+D\+DR@{D\+E\+V\+I\+C\+E\+A\+D\+DR}}
+\index{D\+E\+V\+I\+C\+E\+A\+D\+DR@{D\+E\+V\+I\+C\+E\+A\+D\+DR}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{D\+E\+V\+I\+C\+E\+A\+D\+DR}{DEVICEADDR}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t D\+E\+V\+I\+C\+E\+A\+D\+DR}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a281cfe97943157d3dcea5f30c203d20a}{}\label{struct_l_p_c___u_s_b_h_s___t_a281cfe97943157d3dcea5f30c203d20a}
+U\+SB device address 
+
+Definición en la línea 78 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!E\+N\+D\+P\+O\+I\+N\+T\+L\+I\+S\+T\+A\+D\+DR@{E\+N\+D\+P\+O\+I\+N\+T\+L\+I\+S\+T\+A\+D\+DR}}
+\index{E\+N\+D\+P\+O\+I\+N\+T\+L\+I\+S\+T\+A\+D\+DR@{E\+N\+D\+P\+O\+I\+N\+T\+L\+I\+S\+T\+A\+D\+DR}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{E\+N\+D\+P\+O\+I\+N\+T\+L\+I\+S\+T\+A\+D\+DR}{ENDPOINTLISTADDR}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t E\+N\+D\+P\+O\+I\+N\+T\+L\+I\+S\+T\+A\+D\+DR}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a59d3d4b2c95485fdfd1aca397407cb9c}{}\label{struct_l_p_c___u_s_b_h_s___t_a59d3d4b2c95485fdfd1aca397407cb9c}
+Address of endpoint list in memory (device mode) 
+
+Definición en la línea 83 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!E\+N\+D\+P\+T\+C\+O\+M\+P\+L\+E\+TE@{E\+N\+D\+P\+T\+C\+O\+M\+P\+L\+E\+TE}}
+\index{E\+N\+D\+P\+T\+C\+O\+M\+P\+L\+E\+TE@{E\+N\+D\+P\+T\+C\+O\+M\+P\+L\+E\+TE}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{E\+N\+D\+P\+T\+C\+O\+M\+P\+L\+E\+TE}{ENDPTCOMPLETE}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t E\+N\+D\+P\+T\+C\+O\+M\+P\+L\+E\+TE}\hypertarget{struct_l_p_c___u_s_b_h_s___t_aa9bc539392d3adc43d746fd2c3f96bd0}{}\label{struct_l_p_c___u_s_b_h_s___t_aa9bc539392d3adc43d746fd2c3f96bd0}
+Endpoint complete 
+
+Definición en la línea 111 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!E\+N\+D\+P\+T\+C\+T\+RL@{E\+N\+D\+P\+T\+C\+T\+RL}}
+\index{E\+N\+D\+P\+T\+C\+T\+RL@{E\+N\+D\+P\+T\+C\+T\+RL}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{E\+N\+D\+P\+T\+C\+T\+RL}{ENDPTCTRL}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t E\+N\+D\+P\+T\+C\+T\+RL\mbox{[}6\mbox{]}}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a6b661f29ba1596d4f44ce8491966c684}{}\label{struct_l_p_c___u_s_b_h_s___t_a6b661f29ba1596d4f44ce8491966c684}
+Endpoint control 0 
+
+Definición en la línea 112 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!E\+N\+D\+P\+T\+F\+L\+U\+SH@{E\+N\+D\+P\+T\+F\+L\+U\+SH}}
+\index{E\+N\+D\+P\+T\+F\+L\+U\+SH@{E\+N\+D\+P\+T\+F\+L\+U\+SH}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{E\+N\+D\+P\+T\+F\+L\+U\+SH}{ENDPTFLUSH}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t E\+N\+D\+P\+T\+F\+L\+U\+SH}\hypertarget{struct_l_p_c___u_s_b_h_s___t_aded3da9b001d55174b4f9feddbae2fe5}{}\label{struct_l_p_c___u_s_b_h_s___t_aded3da9b001d55174b4f9feddbae2fe5}
+Endpoint de-\/initialization 
+
+Definición en la línea 109 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!E\+N\+D\+P\+T\+N\+AK@{E\+N\+D\+P\+T\+N\+AK}}
+\index{E\+N\+D\+P\+T\+N\+AK@{E\+N\+D\+P\+T\+N\+AK}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{E\+N\+D\+P\+T\+N\+AK}{ENDPTNAK}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t E\+N\+D\+P\+T\+N\+AK}\hypertarget{struct_l_p_c___u_s_b_h_s___t_aad4a9fdd99ed4783645771045d0926cf}{}\label{struct_l_p_c___u_s_b_h_s___t_aad4a9fdd99ed4783645771045d0926cf}
+Endpoint N\+AK (device mode) 
+
+Definición en la línea 92 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!E\+N\+D\+P\+T\+N\+A\+K\+EN@{E\+N\+D\+P\+T\+N\+A\+K\+EN}}
+\index{E\+N\+D\+P\+T\+N\+A\+K\+EN@{E\+N\+D\+P\+T\+N\+A\+K\+EN}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{E\+N\+D\+P\+T\+N\+A\+K\+EN}{ENDPTNAKEN}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t E\+N\+D\+P\+T\+N\+A\+K\+EN}\hypertarget{struct_l_p_c___u_s_b_h_s___t_aa815df0960fe8c19f268c141d9a3a1a4}{}\label{struct_l_p_c___u_s_b_h_s___t_aa815df0960fe8c19f268c141d9a3a1a4}
+Endpoint N\+AK Enable (device mode) 
+
+Definición en la línea 93 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!E\+N\+D\+P\+T\+P\+R\+I\+ME@{E\+N\+D\+P\+T\+P\+R\+I\+ME}}
+\index{E\+N\+D\+P\+T\+P\+R\+I\+ME@{E\+N\+D\+P\+T\+P\+R\+I\+ME}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{E\+N\+D\+P\+T\+P\+R\+I\+ME}{ENDPTPRIME}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t E\+N\+D\+P\+T\+P\+R\+I\+ME}\hypertarget{struct_l_p_c___u_s_b_h_s___t_aec0e228a214e4aa40c884097c7378b20}{}\label{struct_l_p_c___u_s_b_h_s___t_aec0e228a214e4aa40c884097c7378b20}
+Endpoint initialization 
+
+Definición en la línea 108 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!E\+N\+D\+P\+T\+S\+E\+T\+U\+P\+S\+T\+AT@{E\+N\+D\+P\+T\+S\+E\+T\+U\+P\+S\+T\+AT}}
+\index{E\+N\+D\+P\+T\+S\+E\+T\+U\+P\+S\+T\+AT@{E\+N\+D\+P\+T\+S\+E\+T\+U\+P\+S\+T\+AT}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{E\+N\+D\+P\+T\+S\+E\+T\+U\+P\+S\+T\+AT}{ENDPTSETUPSTAT}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t E\+N\+D\+P\+T\+S\+E\+T\+U\+P\+S\+T\+AT}\hypertarget{struct_l_p_c___u_s_b_h_s___t_accba48676fff8fcbf244de513e0bafa3}{}\label{struct_l_p_c___u_s_b_h_s___t_accba48676fff8fcbf244de513e0bafa3}
+Endpoint setup status 
+
+Definición en la línea 107 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!E\+N\+D\+P\+T\+S\+T\+AT@{E\+N\+D\+P\+T\+S\+T\+AT}}
+\index{E\+N\+D\+P\+T\+S\+T\+AT@{E\+N\+D\+P\+T\+S\+T\+AT}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{E\+N\+D\+P\+T\+S\+T\+AT}{ENDPTSTAT}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t E\+N\+D\+P\+T\+S\+T\+AT}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a0ef4c759cd3e09a6ef5ffc333f0ad582}{}\label{struct_l_p_c___u_s_b_h_s___t_a0ef4c759cd3e09a6ef5ffc333f0ad582}
+Endpoint status 
+
+Definición en la línea 110 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!F\+R\+I\+N\+D\+E\+X\+\_\+D@{F\+R\+I\+N\+D\+E\+X\+\_\+D}}
+\index{F\+R\+I\+N\+D\+E\+X\+\_\+D@{F\+R\+I\+N\+D\+E\+X\+\_\+D}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{F\+R\+I\+N\+D\+E\+X\+\_\+D}{FRINDEX_D}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t F\+R\+I\+N\+D\+E\+X\+\_\+D}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a8660cd5f0c2390601da8087c9e5496b1}{}\label{struct_l_p_c___u_s_b_h_s___t_a8660cd5f0c2390601da8087c9e5496b1}
+U\+SB frame index (device mode) 
+
+Definición en la línea 72 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!F\+R\+I\+N\+D\+E\+X\+\_\+H@{F\+R\+I\+N\+D\+E\+X\+\_\+H}}
+\index{F\+R\+I\+N\+D\+E\+X\+\_\+H@{F\+R\+I\+N\+D\+E\+X\+\_\+H}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{F\+R\+I\+N\+D\+E\+X\+\_\+H}{FRINDEX_H}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t F\+R\+I\+N\+D\+E\+X\+\_\+H}\hypertarget{struct_l_p_c___u_s_b_h_s___t_aca60a62e0bc2025ddef5c46243e87a0f}{}\label{struct_l_p_c___u_s_b_h_s___t_aca60a62e0bc2025ddef5c46243e87a0f}
+U\+SB frame index (host mode) 
+
+Definición en la línea 71 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!H\+C\+C\+P\+A\+R\+A\+MS@{H\+C\+C\+P\+A\+R\+A\+MS}}
+\index{H\+C\+C\+P\+A\+R\+A\+MS@{H\+C\+C\+P\+A\+R\+A\+MS}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{H\+C\+C\+P\+A\+R\+A\+MS}{HCCPARAMS}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t H\+C\+C\+P\+A\+R\+A\+MS}\hypertarget{struct_l_p_c___u_s_b_h_s___t_aa2d415865b92e80f9abbb893f15c0bed}{}\label{struct_l_p_c___u_s_b_h_s___t_aa2d415865b92e80f9abbb893f15c0bed}
+Host controller capability parameters 
+
+Definición en la línea 51 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!H\+C\+S\+P\+A\+R\+A\+MS@{H\+C\+S\+P\+A\+R\+A\+MS}}
+\index{H\+C\+S\+P\+A\+R\+A\+MS@{H\+C\+S\+P\+A\+R\+A\+MS}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{H\+C\+S\+P\+A\+R\+A\+MS}{HCSPARAMS}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t H\+C\+S\+P\+A\+R\+A\+MS}\hypertarget{struct_l_p_c___u_s_b_h_s___t_ae39ae814acf9cd8199acd30e6603e6ff}{}\label{struct_l_p_c___u_s_b_h_s___t_ae39ae814acf9cd8199acd30e6603e6ff}
+Host controller structural parameters 
+
+Definición en la línea 50 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!O\+T\+G\+SC@{O\+T\+G\+SC}}
+\index{O\+T\+G\+SC@{O\+T\+G\+SC}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{O\+T\+G\+SC}{OTGSC}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t O\+T\+G\+SC}\hypertarget{struct_l_p_c___u_s_b_h_s___t_adb35a61c216301a0918d07fd20b51dcb}{}\label{struct_l_p_c___u_s_b_h_s___t_adb35a61c216301a0918d07fd20b51dcb}
+O\+TG status and control 
+
+Definición en la línea 101 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!P\+E\+R\+I\+O\+D\+I\+C\+L\+I\+S\+T\+B\+A\+SE@{P\+E\+R\+I\+O\+D\+I\+C\+L\+I\+S\+T\+B\+A\+SE}}
+\index{P\+E\+R\+I\+O\+D\+I\+C\+L\+I\+S\+T\+B\+A\+SE@{P\+E\+R\+I\+O\+D\+I\+C\+L\+I\+S\+T\+B\+A\+SE}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{P\+E\+R\+I\+O\+D\+I\+C\+L\+I\+S\+T\+B\+A\+SE}{PERIODICLISTBASE}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t P\+E\+R\+I\+O\+D\+I\+C\+L\+I\+S\+T\+B\+A\+SE}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a220024dbd2ce8566ae29c4fd779bdfea}{}\label{struct_l_p_c___u_s_b_h_s___t_a220024dbd2ce8566ae29c4fd779bdfea}
+Frame list base address 
+
+Definición en la línea 77 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!P\+O\+R\+T\+S\+C1\+\_\+D@{P\+O\+R\+T\+S\+C1\+\_\+D}}
+\index{P\+O\+R\+T\+S\+C1\+\_\+D@{P\+O\+R\+T\+S\+C1\+\_\+D}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{P\+O\+R\+T\+S\+C1\+\_\+D}{PORTSC1_D}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t P\+O\+R\+T\+S\+C1\+\_\+D}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a3f95ae68d823fd2a4f4fc31381c092c5}{}\label{struct_l_p_c___u_s_b_h_s___t_a3f95ae68d823fd2a4f4fc31381c092c5}
+Port 1 status/control (device mode) 
+
+Definición en la línea 97 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!P\+O\+R\+T\+S\+C1\+\_\+H@{P\+O\+R\+T\+S\+C1\+\_\+H}}
+\index{P\+O\+R\+T\+S\+C1\+\_\+H@{P\+O\+R\+T\+S\+C1\+\_\+H}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{P\+O\+R\+T\+S\+C1\+\_\+H}{PORTSC1_H}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t P\+O\+R\+T\+S\+C1\+\_\+H}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a793643c9430524a34502b27c87132339}{}\label{struct_l_p_c___u_s_b_h_s___t_a793643c9430524a34502b27c87132339}
+Port 1 status/control (host mode) 
+
+Definición en la línea 96 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!R\+E\+S\+E\+R\+V\+E\+D0@{R\+E\+S\+E\+R\+V\+E\+D0}}
+\index{R\+E\+S\+E\+R\+V\+E\+D0@{R\+E\+S\+E\+R\+V\+E\+D0}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{R\+E\+S\+E\+R\+V\+E\+D0}{RESERVED0}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t R\+E\+S\+E\+R\+V\+E\+D0\mbox{[}64\mbox{]}}\hypertarget{struct_l_p_c___u_s_b_h_s___t_af58c5fd1a07d6436db757863729ffc99}{}\label{struct_l_p_c___u_s_b_h_s___t_af58c5fd1a07d6436db757863729ffc99}
+$<$ U\+SB Structure 
+
+Definición en la línea 48 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!R\+E\+S\+E\+R\+V\+E\+D1@{R\+E\+S\+E\+R\+V\+E\+D1}}
+\index{R\+E\+S\+E\+R\+V\+E\+D1@{R\+E\+S\+E\+R\+V\+E\+D1}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{R\+E\+S\+E\+R\+V\+E\+D1}{RESERVED1}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t R\+E\+S\+E\+R\+V\+E\+D1\mbox{[}5\mbox{]}}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a00aaa32c956f5b42a9a5978efc85bdcd}{}\label{struct_l_p_c___u_s_b_h_s___t_a00aaa32c956f5b42a9a5978efc85bdcd}
+
+
+Definición en la línea 52 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!R\+E\+S\+E\+R\+V\+E\+D2@{R\+E\+S\+E\+R\+V\+E\+D2}}
+\index{R\+E\+S\+E\+R\+V\+E\+D2@{R\+E\+S\+E\+R\+V\+E\+D2}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{R\+E\+S\+E\+R\+V\+E\+D2}{RESERVED2}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t R\+E\+S\+E\+R\+V\+E\+D2\mbox{[}7\mbox{]}}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a8fa48cb2c9267b161766a3a5d2591e29}{}\label{struct_l_p_c___u_s_b_h_s___t_a8fa48cb2c9267b161766a3a5d2591e29}
+
+
+Definición en la línea 54 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!R\+E\+S\+E\+R\+V\+E\+D3@{R\+E\+S\+E\+R\+V\+E\+D3}}
+\index{R\+E\+S\+E\+R\+V\+E\+D3@{R\+E\+S\+E\+R\+V\+E\+D3}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{R\+E\+S\+E\+R\+V\+E\+D3}{RESERVED3}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t R\+E\+S\+E\+R\+V\+E\+D3}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a0dccf23b0301eb78ab61f90a3e6ae594}{}\label{struct_l_p_c___u_s_b_h_s___t_a0dccf23b0301eb78ab61f90a3e6ae594}
+
+
+Definición en la línea 75 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!R\+E\+S\+E\+R\+V\+E\+D4@{R\+E\+S\+E\+R\+V\+E\+D4}}
+\index{R\+E\+S\+E\+R\+V\+E\+D4@{R\+E\+S\+E\+R\+V\+E\+D4}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{R\+E\+S\+E\+R\+V\+E\+D4}{RESERVED4}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t R\+E\+S\+E\+R\+V\+E\+D4\mbox{[}2\mbox{]}}\hypertarget{struct_l_p_c___u_s_b_h_s___t_adcde36755ddc4fd76b5514815f2fb143}{}\label{struct_l_p_c___u_s_b_h_s___t_adcde36755ddc4fd76b5514815f2fb143}
+
+
+Definición en la línea 89 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!R\+E\+S\+E\+R\+V\+E\+D5@{R\+E\+S\+E\+R\+V\+E\+D5}}
+\index{R\+E\+S\+E\+R\+V\+E\+D5@{R\+E\+S\+E\+R\+V\+E\+D5}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{R\+E\+S\+E\+R\+V\+E\+D5}{RESERVED5}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t R\+E\+S\+E\+R\+V\+E\+D5}\hypertarget{struct_l_p_c___u_s_b_h_s___t_aa83bddd1f180bafbb96085399f847cd7}{}\label{struct_l_p_c___u_s_b_h_s___t_aa83bddd1f180bafbb96085399f847cd7}
+
+
+Definición en la línea 94 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!R\+E\+S\+E\+R\+V\+E\+D6@{R\+E\+S\+E\+R\+V\+E\+D6}}
+\index{R\+E\+S\+E\+R\+V\+E\+D6@{R\+E\+S\+E\+R\+V\+E\+D6}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{R\+E\+S\+E\+R\+V\+E\+D6}{RESERVED6}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+I} uint32\+\_\+t R\+E\+S\+E\+R\+V\+E\+D6\mbox{[}7\mbox{]}}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a5a044e9fe400f6f23a32a60c515fb417}{}\label{struct_l_p_c___u_s_b_h_s___t_a5a044e9fe400f6f23a32a60c515fb417}
+
+
+Definición en la línea 100 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!T\+T\+C\+T\+RL@{T\+T\+C\+T\+RL}}
+\index{T\+T\+C\+T\+RL@{T\+T\+C\+T\+RL}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{T\+T\+C\+T\+RL}{TTCTRL}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t T\+T\+C\+T\+RL}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a1c8a382a4d6ca96899df6d1979cd9637}{}\label{struct_l_p_c___u_s_b_h_s___t_a1c8a382a4d6ca96899df6d1979cd9637}
+Asynchronous buffer status for embedded TT (host mode) 
+
+Definición en la línea 86 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!T\+X\+F\+I\+L\+L\+T\+U\+N\+I\+NG@{T\+X\+F\+I\+L\+L\+T\+U\+N\+I\+NG}}
+\index{T\+X\+F\+I\+L\+L\+T\+U\+N\+I\+NG@{T\+X\+F\+I\+L\+L\+T\+U\+N\+I\+NG}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{T\+X\+F\+I\+L\+L\+T\+U\+N\+I\+NG}{TXFILLTUNING}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t T\+X\+F\+I\+L\+L\+T\+U\+N\+I\+NG}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a3c352ffa30d3a84981a1dead4eca34fa}{}\label{struct_l_p_c___u_s_b_h_s___t_a3c352ffa30d3a84981a1dead4eca34fa}
+Host transmit pre-\/buffer packet tuning (host mode) 
+
+Definición en la línea 88 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!U\+L\+P\+I\+V\+I\+E\+W\+P\+O\+RT@{U\+L\+P\+I\+V\+I\+E\+W\+P\+O\+RT}}
+\index{U\+L\+P\+I\+V\+I\+E\+W\+P\+O\+RT@{U\+L\+P\+I\+V\+I\+E\+W\+P\+O\+RT}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{U\+L\+P\+I\+V\+I\+E\+W\+P\+O\+RT}{ULPIVIEWPORT}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t U\+L\+P\+I\+V\+I\+E\+W\+P\+O\+RT}\hypertarget{struct_l_p_c___u_s_b_h_s___t_ac6b9be3c87326d058790a7e5c38c9f41}{}\label{struct_l_p_c___u_s_b_h_s___t_ac6b9be3c87326d058790a7e5c38c9f41}
+U\+L\+PI viewport 
+
+Definición en la línea 90 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!U\+S\+B\+C\+M\+D\+\_\+D@{U\+S\+B\+C\+M\+D\+\_\+D}}
+\index{U\+S\+B\+C\+M\+D\+\_\+D@{U\+S\+B\+C\+M\+D\+\_\+D}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+C\+M\+D\+\_\+D}{USBCMD_D}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t U\+S\+B\+C\+M\+D\+\_\+D}\hypertarget{struct_l_p_c___u_s_b_h_s___t_aa717d3a3ddc444c944da23ff3ce81d84}{}\label{struct_l_p_c___u_s_b_h_s___t_aa717d3a3ddc444c944da23ff3ce81d84}
+U\+SB command (device mode) 
+
+Definición en la línea 57 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!U\+S\+B\+C\+M\+D\+\_\+H@{U\+S\+B\+C\+M\+D\+\_\+H}}
+\index{U\+S\+B\+C\+M\+D\+\_\+H@{U\+S\+B\+C\+M\+D\+\_\+H}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+C\+M\+D\+\_\+H}{USBCMD_H}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t U\+S\+B\+C\+M\+D\+\_\+H}\hypertarget{struct_l_p_c___u_s_b_h_s___t_ae6942ad74f6fe7c21f0c3cbaa6ae8ee1}{}\label{struct_l_p_c___u_s_b_h_s___t_ae6942ad74f6fe7c21f0c3cbaa6ae8ee1}
+U\+SB command (host mode) 
+
+Definición en la línea 56 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!U\+S\+B\+I\+N\+T\+R\+\_\+D@{U\+S\+B\+I\+N\+T\+R\+\_\+D}}
+\index{U\+S\+B\+I\+N\+T\+R\+\_\+D@{U\+S\+B\+I\+N\+T\+R\+\_\+D}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+I\+N\+T\+R\+\_\+D}{USBINTR_D}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t U\+S\+B\+I\+N\+T\+R\+\_\+D}\hypertarget{struct_l_p_c___u_s_b_h_s___t_adc4b59f09357786ae059e4390b039709}{}\label{struct_l_p_c___u_s_b_h_s___t_adc4b59f09357786ae059e4390b039709}
+U\+SB interrupt enable (device mode) 
+
+Definición en la línea 67 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!U\+S\+B\+I\+N\+T\+R\+\_\+H@{U\+S\+B\+I\+N\+T\+R\+\_\+H}}
+\index{U\+S\+B\+I\+N\+T\+R\+\_\+H@{U\+S\+B\+I\+N\+T\+R\+\_\+H}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+I\+N\+T\+R\+\_\+H}{USBINTR_H}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t U\+S\+B\+I\+N\+T\+R\+\_\+H}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a67b4a2c7b9dd79a4671688c69a348949}{}\label{struct_l_p_c___u_s_b_h_s___t_a67b4a2c7b9dd79a4671688c69a348949}
+U\+SB interrupt enable (host mode) 
+
+Definición en la línea 66 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!U\+S\+B\+M\+O\+D\+E\+\_\+D@{U\+S\+B\+M\+O\+D\+E\+\_\+D}}
+\index{U\+S\+B\+M\+O\+D\+E\+\_\+D@{U\+S\+B\+M\+O\+D\+E\+\_\+D}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+M\+O\+D\+E\+\_\+D}{USBMODE_D}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t U\+S\+B\+M\+O\+D\+E\+\_\+D}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a47f4e360b36ece77b5379d738fde7f12}{}\label{struct_l_p_c___u_s_b_h_s___t_a47f4e360b36ece77b5379d738fde7f12}
+U\+SB mode (device mode) 
+
+Definición en la línea 104 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!U\+S\+B\+M\+O\+D\+E\+\_\+H@{U\+S\+B\+M\+O\+D\+E\+\_\+H}}
+\index{U\+S\+B\+M\+O\+D\+E\+\_\+H@{U\+S\+B\+M\+O\+D\+E\+\_\+H}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+M\+O\+D\+E\+\_\+H}{USBMODE_H}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t U\+S\+B\+M\+O\+D\+E\+\_\+H}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a70a3a542fad485210b58ba013ff46212}{}\label{struct_l_p_c___u_s_b_h_s___t_a70a3a542fad485210b58ba013ff46212}
+U\+SB mode (host mode) 
+
+Definición en la línea 103 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!U\+S\+B\+S\+T\+S\+\_\+D@{U\+S\+B\+S\+T\+S\+\_\+D}}
+\index{U\+S\+B\+S\+T\+S\+\_\+D@{U\+S\+B\+S\+T\+S\+\_\+D}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+S\+T\+S\+\_\+D}{USBSTS_D}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t U\+S\+B\+S\+T\+S\+\_\+D}\hypertarget{struct_l_p_c___u_s_b_h_s___t_a0753b65b5d34850997d44e38edf3444f}{}\label{struct_l_p_c___u_s_b_h_s___t_a0753b65b5d34850997d44e38edf3444f}
+U\+SB status (device mode) 
+
+Definición en la línea 62 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}!U\+S\+B\+S\+T\+S\+\_\+H@{U\+S\+B\+S\+T\+S\+\_\+H}}
+\index{U\+S\+B\+S\+T\+S\+\_\+H@{U\+S\+B\+S\+T\+S\+\_\+H}!L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T@{L\+P\+C\+\_\+\+U\+S\+B\+H\+S\+\_\+T}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+S\+T\+S\+\_\+H}{USBSTS_H}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+\+IO} uint32\+\_\+t U\+S\+B\+S\+T\+S\+\_\+H}\hypertarget{struct_l_p_c___u_s_b_h_s___t_abebf0c674a65b6bd7e9d2f4565bcc04c}{}\label{struct_l_p_c___u_s_b_h_s___t_abebf0c674a65b6bd7e9d2f4565bcc04c}
+U\+SB status (host mode) 
+
+Definición en la línea 61 del archivo usbhs\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{usbhs__18xx__43xx_8h}{usbhs\+\_\+18xx\+\_\+43xx.\+h}\end{DoxyCompactItemize}

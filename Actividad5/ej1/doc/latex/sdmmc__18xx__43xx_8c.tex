@@ -1,0 +1,42 @@
+\hypertarget{sdmmc__18xx__43xx_8c}{}\section{Referencia del Archivo sdmmc\+\_\+18xx\+\_\+43xx.\+c}
+\label{sdmmc__18xx__43xx_8c}\index{sdmmc\+\_\+18xx\+\_\+43xx.\+c@{sdmmc\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sdmmc__18xx__43xx_8c_a7a1384fa803a44ead4367141b9ee824d}{S\+D\+\_\+\+I\+N\+T\+\_\+\+E\+R\+R\+OR}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaa3fa974f4b97abae649e0c85845d0ba5}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+State} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em Get card\textquotesingle{}s current state (idle, transfer, program, etc.) \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga54405e71b2cefcdf5d91cfcb36ef24c0}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Acquire} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gaa558c8e6f8957a2a9014f575b7beabe5}{mci\+\_\+card\+\_\+struct} $\ast$pcardinfo)
+\begin{DoxyCompactList}\small\item\em Function to enumerate the S\+D/\+M\+M\+C/\+S\+D\+H\+C/\+M\+M\+C+ cards. \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga1868dbbd245105bdb93679c1c975532f}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em Get the device size of S\+D/\+M\+MC card (after enumeration) \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_gad6a8510859b4572e2caa914c236dcae0}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Blocks} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC)
+\begin{DoxyCompactList}\small\item\em Get the number of device blocks of S\+D/\+M\+MC card (after enumeration) Since Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Get\+Device\+Size is limited to 32 bits cards with greater than 2 G\+Bytes of data will not be correct, in such cases users can use this function to get the size of the card in blocks. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga9edeed44956f79b1078f566928c06d15}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Read\+Blocks} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, void $\ast$buffer, int32\+\_\+t start\+\_\+block, int32\+\_\+t num\+\_\+blocks)
+\begin{DoxyCompactList}\small\item\em Performs the read of data from the S\+D/\+M\+MC card. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___s_d_m_m_c__18_x_x__43_x_x_ga5d3b431fec6b4c335a7aa9bc0febfcc1}{Chip\+\_\+\+S\+D\+M\+M\+C\+\_\+\+Write\+Blocks} (\hyperlink{struct_l_p_c___s_d_m_m_c___t}{L\+P\+C\+\_\+\+S\+D\+M\+M\+C\+\_\+T} $\ast$p\+S\+D\+M\+MC, void $\ast$buffer, int32\+\_\+t start\+\_\+block, int32\+\_\+t num\+\_\+blocks)
+\begin{DoxyCompactList}\small\item\em Performs write of data to the S\+D/\+M\+MC card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{sdmmc\+\_\+18xx\+\_\+43xx.\+c@{sdmmc\+\_\+18xx\+\_\+43xx.\+c}!S\+D\+\_\+\+I\+N\+T\+\_\+\+E\+R\+R\+OR@{S\+D\+\_\+\+I\+N\+T\+\_\+\+E\+R\+R\+OR}}
+\index{S\+D\+\_\+\+I\+N\+T\+\_\+\+E\+R\+R\+OR@{S\+D\+\_\+\+I\+N\+T\+\_\+\+E\+R\+R\+OR}!sdmmc\+\_\+18xx\+\_\+43xx.\+c@{sdmmc\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{S\+D\+\_\+\+I\+N\+T\+\_\+\+E\+R\+R\+OR}{SD_INT_ERROR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+\_\+\+I\+N\+T\+\_\+\+E\+R\+R\+OR}\hypertarget{sdmmc__18xx__43xx_8c_a7a1384fa803a44ead4367141b9ee824d}{}\label{sdmmc__18xx__43xx_8c_a7a1384fa803a44ead4367141b9ee824d}
+{\bfseries Valor\+:}
+\begin{DoxyCode}
+(\hyperlink{group___s_d_i_f__18_x_x__43_x_x_gac892bd5bdfe01ac6c20aa6e3e963a4e8}{MCI\_INT\_RESP\_ERR} | \hyperlink{group___s_d_i_f__18_x_x__43_x_x_gad6321a8ea092c32b03e665a49bfde39e}{MCI\_INT\_RCRC} | \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga7b29c9ec8226501bc5c9363400edcdc4}{MCI\_INT\_DCRC} | 
+      \hyperlink{group___s_d_i_f__18_x_x__43_x_x_gaf3b31f8bad5c195a9d967f0ac1554d96}{\(\backslash\)}
+\hyperlink{group___s_d_i_f__18_x_x__43_x_x_gaf3b31f8bad5c195a9d967f0ac1554d96}{                      MCI\_INT\_RTO} | \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga515757db2f83ec9f35a2485deacc4d12}{MCI\_INT\_DTO} | 
+      \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga5e15cb0f80c0ee9611bc27d7e6fac07c}{MCI\_INT\_HTO} | \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga994f02807d4a2a7c3ee5439377b2df4c}{MCI\_INT\_FRUN} | \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga85ab64ac3a31eaae9c54f676a74225ea}{MCI\_INT\_HLE} | \hyperlink{group___s_d_i_f__18_x_x__43_x_x_gacff300d16826c691118a351ac88295c5}{\(\backslash\)}
+\hyperlink{group___s_d_i_f__18_x_x__43_x_x_gacff300d16826c691118a351ac88295c5}{                      MCI\_INT\_SBE} | \hyperlink{group___s_d_i_f__18_x_x__43_x_x_ga45a1e61dc2a02f1603da359344921818}{MCI\_INT\_EBE})
+\end{DoxyCode}
+
+
+Definición en la línea 43 del archivo sdmmc\+\_\+18xx\+\_\+43xx.\+c.
+

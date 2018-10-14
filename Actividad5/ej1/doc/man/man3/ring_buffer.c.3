@@ -1,0 +1,60 @@
+.TH "ring_buffer.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ring_buffer.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'ring_buffer\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRB_INDH\fP(rb)   ((rb)\->head & ((rb)\->count \- 1))"
+.br
+.ti -1c
+.RI "#define \fBRB_INDT\fP(rb)   ((rb)\->tail & ((rb)\->count \- 1))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "int \fBRingBuffer_Init\fP (\fBRINGBUFF_T\fP *RingBuff, void *buffer, int itemSize, int count)"
+.br
+.RI "\fIInitialize ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_Insert\fP (\fBRINGBUFF_T\fP *RingBuff, const void *data)"
+.br
+.RI "\fIInsert a single item into ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_InsertMult\fP (\fBRINGBUFF_T\fP *RingBuff, const void *data, int num)"
+.br
+.RI "\fIInsert an array of items into ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_Pop\fP (\fBRINGBUFF_T\fP *RingBuff, void *data)"
+.br
+.RI "\fIPop an item from the ring buffer\&. \fP"
+.ti -1c
+.RI "int \fBRingBuffer_PopMult\fP (\fBRINGBUFF_T\fP *RingBuff, void *data, int num)"
+.br
+.RI "\fIPop an array of items from the ring buffer\&. \fP"
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define RB_INDH(rb)   ((rb)\->head & ((rb)\->count \- 1))"
+
+.PP
+Definición en la línea 39 del archivo ring_buffer\&.c\&.
+.SS "#define RB_INDT(rb)   ((rb)\->tail & ((rb)\->count \- 1))"
+
+.PP
+Definición en la línea 40 del archivo ring_buffer\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

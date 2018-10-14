@@ -1,0 +1,71 @@
+.TH "hardware.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hardware.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'hardware\&.h'\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <lpc_types\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBUFFSize\fP   512"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBsystemInit\fP (void)"
+.br
+.RI "\fIInicializa los módulos básicos de la EDU-CIAA NXP\&. \fP"
+.ti -1c
+.RI "void \fBUART2_IRQHandler\fP (void)"
+.br
+.RI "\fIFunción implementada para procesar las interrupciones del puerto de comunicaciones serie\&. Esta función invoca a Chip_UART_IRQRBHandler de modo de gestionar la asignación de los caracteres recibidos en la cola circular asociada a la entrada y continuar la transmisión de los datos asociados a la cola circular de salida\&. \fP"
+.ti -1c
+.RI "unsigned int \fBserialWrite\fP (const uint8_t *data, unsigned int dataLen)"
+.br
+.RI "\fICarga una cadena de caracteres para ser enviada a través de la USART\&. Debe considerarse que la transmisión se realiza sin bloqueo y a través de interrupciones\&. Para eso, esta función invoca a Chip_UART_SendRB, la cuál copia la cadena en un buffer circular e inicia la transmición del primer caracter\&. Una vez disparada la interrupción que indica la finalización del envío, continúa con el siguiente caracter hasta que se completa la transmición de la cadena\&. \fP"
+.ti -1c
+.RI "unsigned int \fBserialRead\fP (uint8_t *data, unsigned int maxData)"
+.br
+.RI "\fIObtiene los caracteres disponibles en el buffer circular asociado al flujo de entrada de caracteres ('lee el puerto')\&. \fP"
+.ti -1c
+.RI "void \fBsetLedFromMsk\fP (uint8_t msk)"
+.br
+.RI "\fIEnciend o apaga un led según la máscara dada como argumento\&. \fP"
+.ti -1c
+.RI "void \fBwaitKeyPress\fP (\fBboardKeys\fP key)"
+.br
+.RI "\fIEspera a que se presione la tecla indicada a partir del argumento utilizado\&. \fP"
+.ti -1c
+.RI "uint8_t \fBgetKeyPressed\fP (void)"
+.br
+.RI "\fIRetorna una máscara con el estado de las teclas\&. Si una tecla está presionada, retorna un bit en alto y si está suelta un bit en bajo\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const uint32_t \fBExtRateIn\fP = 0"
+.br
+.RI "\fIClock rate on the CLKIN pin This value is defined externally to the chip layer and contains the value in Hz for the CLKIN pin for the board\&. If this pin isn't used, this rate can be 0\&. \fP"
+.ti -1c
+.RI "const uint32_t \fBOscRateIn\fP = 12000000"
+.br
+.RI "\fISystem oscillator rate This value is defined externally to the chip layer and contains the value in Hz for the external oscillator for the board\&. If using the internal oscillator, this rate can be 0\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

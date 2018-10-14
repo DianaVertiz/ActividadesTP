@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Ejercicio 1 - TP 5: Globales</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="ciaaLogo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ejercicio 1 - TP 5
+   </div>
+   <div id="projectbrief">contadores e interrupciones</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="modules.html"><span>Módulos</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li class="current"><a href="globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="globals.html"><span>Todo</span></a></li>
+      <li><a href="globals_func.html"><span>Funciones</span></a></li>
+      <li><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_type.html"><span>'typedefs'</span></a></li>
+      <li class="current"><a href="globals_enum.html"><span>Enumeraciones</span></a></li>
+      <li><a href="globals_eval.html"><span>Valores&#160;de&#160;enumeraciones</span></a></li>
+      <li><a href="globals_defs.html"><span>'defines'</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index__"><span>_</span></a></li>
+      <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li class="current"><a href="#index_t"><span>t</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals_enum.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a class="anchor" id="index__"></a>- _ -</h3><ul>
+<li>_SSP_DMA
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gaee679ef8477b8e31bf174e66e2984caf">ssp_18xx_43xx.h</a>
+</li>
+<li>_SSP_INTCLEAR
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga59cc14c5381f32c16286c45bd6a3ece0">ssp_18xx_43xx.h</a>
+</li>
+<li>_SSP_INTMASK
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gab6a0ac593093184dd21c95f53b30f4ef">ssp_18xx_43xx.h</a>
+</li>
+<li>_SSP_MASKINTSTATUS
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gafaff4574b830e5b94dcaf7ca8da399e8">ssp_18xx_43xx.h</a>
+</li>
+<li>_SSP_RAWINTSTATUS
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga2042535e55396776c81a7235ed95db35">ssp_18xx_43xx.h</a>
+</li>
+<li>_SSP_STATUS
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga4ec33a0121a2ccab848c7b37907d9e9d">ssp_18xx_43xx.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>arm_status
+: <a class="el" href="arm__math_8h.html#a5e459c6409dfcd2927bb8a57491d7cf6">arm_math.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>boardKeys
+: <a class="el" href="group__hardware.html#ga8d70125ca4047f0f7ea513cd8568953d">hardware.h</a>
+</li>
+<li>boardLeds
+: <a class="el" href="group__hardware.html#ga2a000bf02da2abba53355f3fcfdb2d0b">hardware.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>CCAN_LEC_T
+: <a class="el" href="group___c_c_a_n__18_x_x__43_x_x.html#gad7a3e9e736dfb04f5faff4954a01591a">ccan_18xx_43xx.h</a>
+</li>
+<li>CCAN_MSG_IF_T
+: <a class="el" href="group___c_c_a_n__18_x_x__43_x_x.html#gac90da0138c430750d2d7d55d4448cae7">ccan_18xx_43xx.h</a>
+</li>
+<li>CCAN_TRANSFER_DIR_T
+: <a class="el" href="group___c_c_a_n__18_x_x__43_x_x.html#gac400be6c4ae22b8b773b0bea6e9c5f02">ccan_18xx_43xx.h</a>
+</li>
+<li>CHIP_ADC_CHANNEL
+: <a class="el" href="group___a_d_c__18_x_x__43_x_x.html#ga67b0a9ec8f34cf712b1f1c0119ba3d50">adc_18xx_43xx.h</a>
+</li>
+<li>CHIP_ADC_EDGE_CFG
+: <a class="el" href="group___a_d_c__18_x_x__43_x_x.html#gaba28e4e0734cc41087bae0c96d5090a8">adc_18xx_43xx.h</a>
+</li>
+<li>CHIP_ADC_RESOLUTION
+: <a class="el" href="group___a_d_c__18_x_x__43_x_x.html#ga6da04ef4d158a6d61909481ed94df1a3">adc_18xx_43xx.h</a>
+</li>
+<li>CHIP_ADC_START_MODE
+: <a class="el" href="group___a_d_c__18_x_x__43_x_x.html#ga125e3c848732e5fa6e064354f618f57c">adc_18xx_43xx.h</a>
+</li>
+<li>CHIP_AES_OP_MODE
+: <a class="el" href="group___a_e_s__18_x_x__43_x_x.html#gae6ec18c3dfb817d9b4440eaaf6edd3e5">aes_18xx_43xx.h</a>
+</li>
+<li>CHIP_CCU_CLK
+: <a class="el" href="chip__clocks_8h.html#a500a6084ba2d6361fa16b75205a8a513">chip_clocks.h</a>
+</li>
+<li>CHIP_CGU_BASE_CLK
+: <a class="el" href="chip__clocks_8h.html#a7ffa0364100f6211eb00290d309133d0">chip_clocks.h</a>
+</li>
+<li>CHIP_CGU_CLKIN
+: <a class="el" href="group___c_l_o_c_k__18_x_x__43_x_x.html#ga419aa2b9970dcf4930eb44871da9e377">chip_clocks.h</a>
+</li>
+<li>CHIP_CGU_IDIV
+: <a class="el" href="chip__clocks_8h.html#ad9480404e0134b79428e4c7efdd5869d">chip_clocks.h</a>
+</li>
+<li>CHIP_CGU_USB_AUDIO_PLL
+: <a class="el" href="group___c_l_o_c_k__18_x_x__43_x_x.html#gabdd04536f16b3c7b588757d024e53da6">cguccu_18xx_43xx.h</a>
+</li>
+<li>CHIP_EVRT_SRC
+: <a class="el" href="group___e_v_r_t__18_x_x__43_x_x.html#gad3cd727405aa5446c2319375ad1b7276">evrt_18xx_43xx.h</a>
+</li>
+<li>CHIP_EVRT_SRC_ACTIVE
+: <a class="el" href="group___e_v_r_t__18_x_x__43_x_x.html#ga721fc5bcb9c562312b880ba4cd5b96a6">evrt_18xx_43xx.h</a>
+</li>
+<li>CHIP_OTP_BOOT_SRC
+: <a class="el" href="group___o_t_p__18_x_x__43_x_x.html#ga6e90c3dfad51a2a8591e531b0a788134">otp_18xx_43xx.h</a>
+</li>
+<li>CHIP_PMC_PWR_STATE_T
+: <a class="el" href="group___p_m_c__18_x_x__43_x_x.html#ga69f642b5034785c56bb9c45e4dd780de">pmc_18xx_43xx.h</a>
+</li>
+<li>CHIP_RGU_RST
+: <a class="el" href="group___r_g_u__18_x_x__43_x_x.html#gaba95b3f477c73ccfad274a65a9c97a9e">rgu_18xx_43xx.h</a>
+</li>
+<li>CHIP_SCT_EVENT
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#gae9508d79393246da4eda561eff0ec9e3">sct_18xx_43xx.h</a>
+</li>
+<li>CHIP_SCT_MATCH_REG
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga642884ed46b523a1106a6505950e0259">sct_18xx_43xx.h</a>
+</li>
+<li>CHIP_SSP_BITS
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga2f99e08511788c146ae9b35023e4a61c">ssp_18xx_43xx.h</a>
+</li>
+<li>CHIP_SSP_CLOCK_FORMAT
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gab423240914ad746147aeb31f483e9553">ssp_18xx_43xx.h</a>
+</li>
+<li>CHIP_SSP_FRAME_FORMAT
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gad3ae555ad43caa2b2a47bc4769d8fe50">ssp_18xx_43xx.h</a>
+</li>
+<li>CHIP_SSP_MODE
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga2a375ed10848e3661b9b015fea1cf39b">ssp_18xx_43xx.h</a>
+</li>
+<li>CREG_FLASHTIM_T
+: <a class="el" href="group___c_r_e_g__18_x_x__43_x_x.html#gaecbf266e1dc43b19d1cca3b7cc800786">creg_18xx_43xx.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>ErrorCode_t
+: <a class="el" href="error_8h.html#a905255056c349318139d94aa4523d516">error.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>FlagStatus
+: <a class="el" href="group___l_p_c___types___public___types.html#ga89136caac2e14c55151f527ac02daaff">lpc_types.h</a>
+</li>
+<li>FunctionalState
+: <a class="el" href="group___l_p_c___types___public___types.html#gac9a7e9a35d2513ec15c3b537aaa4fba1">lpc_types.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>GPDMA_FLOW_CONTROL_T
+: <a class="el" href="group___g_p_d_m_a__18_x_x__43_x_x.html#ga2cb59b641cd840f22780c44be1208133">gpdma_18xx_43xx.h</a>
+</li>
+<li>GPDMA_STATECLEAR_T
+: <a class="el" href="group___g_p_d_m_a__18_x_x__43_x_x.html#gabbb281ef4b818f2e60167cf766f94fdb">gpdma_18xx_43xx.h</a>
+</li>
+<li>GPDMA_STATUS_T
+: <a class="el" href="group___g_p_d_m_a__18_x_x__43_x_x.html#ga2f4aa97bd0ffa5046c8e2b17028d99cc">gpdma_18xx_43xx.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>HSADC_CHANNEL_ID_EN_T
+: <a class="el" href="group___h_s_a_d_c__18_x_x__43_x_x.html#ga4033a9f5f07fbc57e03d0592680729c6">hsadc_18xx_43xx.h</a>
+</li>
+<li>HSADC_DCBIAS_T
+: <a class="el" href="group___h_s_a_d_c__18_x_x__43_x_x.html#ga1769145f3b2f1c12f4cd23d3b5151e93">hsadc_18xx_43xx.h</a>
+</li>
+<li>HSADC_TRIGGER_MASK_T
+: <a class="el" href="group___h_s_a_d_c__18_x_x__43_x_x.html#gabacdffe94b42f1dc1c339dab9a20772c">hsadc_18xx_43xx.h</a>
+</li>
+<li>HSADC_TRIGGER_MODE_T
+: <a class="el" href="group___h_s_a_d_c__18_x_x__43_x_x.html#gab4aa68023c03604cc1333eed859073e9">hsadc_18xx_43xx.h</a>
+</li>
+<li>HSADC_TRIGGER_SYNC_T
+: <a class="el" href="group___h_s_a_d_c__18_x_x__43_x_x.html#ga2b37f3b76e8523e0035f2b275ddb36ce">hsadc_18xx_43xx.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>I2C_EVENT_T
+: <a class="el" href="group___i2_c__18_x_x__43_x_x.html#gacb2cd4e03ea48339d327e4f387441bf3">i2c_18xx_43xx.h</a>
+</li>
+<li>I2C_ID
+: <a class="el" href="group___i2_c__18_x_x__43_x_x.html#gaec46000c6a1fe2c12c9a0c7ee3677626">i2c_18xx_43xx.h</a>
+</li>
+<li>I2C_SLAVE_ID
+: <a class="el" href="group___i2_c__18_x_x__43_x_x.html#ga5fb1ba338fb3822bb6ca012adc4194bf">i2c_18xx_43xx.h</a>
+</li>
+<li>I2C_STATUS_T
+: <a class="el" href="group___i2_c__18_x_x__43_x_x.html#ga21aa839302786105dcf6a96be0e6e8bc">i2c_18xx_43xx.h</a>
+</li>
+<li>I2S_DMA_CHANNEL_T
+: <a class="el" href="group___i2_s__18_x_x__43_x_x.html#gac04c1583101ddd661886d9677683421b">i2s_18xx_43xx.h</a>
+</li>
+<li>IP_ADC_STATUS
+: <a class="el" href="group___a_d_c__18_x_x__43_x_x.html#ga4cdc8cd4b1ae4721ff5de44c783f310a">adc_18xx_43xx.h</a>
+</li>
+<li>IP_DAC_CURRENT_OPT
+: <a class="el" href="group___d_a_c__18_x_x__43_x_x.html#gae1ca4fc402c9d7e40090ce7897613194">dac_18xx_43xx.h</a>
+</li>
+<li>IP_RTC_EV_MODE
+: <a class="el" href="group___r_t_c__18_x_x__43_x_x.html#gaefde431348a2ce3d7721a63780e9d9ba">rtc_18xx_43xx.h</a>
+</li>
+<li>IP_TIMER_CAP_SRC_STATE
+: <a class="el" href="group___t_i_m_e_r__18_x_x__43_x_x.html#ga1ceafbd6fb46418e292878934efb63aa">timer_18xx_43xx.h</a>
+</li>
+<li>IP_TIMER_PIN_MATCH_STATE
+: <a class="el" href="group___t_i_m_e_r__18_x_x__43_x_x.html#ga29caa12f43ff996d3ebbf7d5f9036f2c">timer_18xx_43xx.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>LCD_COLOR_FORMAT_OPT_T
+: <a class="el" href="group___l_c_d__18_x_x__43_x_x.html#gac365c31cd880844cf31747394cd0f93a">lcd_18xx_43xx.h</a>
+</li>
+<li>LCD_CURSOR_SIZE_OPT_T
+: <a class="el" href="group___l_c_d__18_x_x__43_x_x.html#gacd66e01df306369e87e482a36a2cc66b">lcd_18xx_43xx.h</a>
+</li>
+<li>LCD_PANEL_OPT_T
+: <a class="el" href="group___l_c_d__18_x_x__43_x_x.html#gaceee4b8b7afdc1a97b365dc2feb4ecca">lcd_18xx_43xx.h</a>
+</li>
+<li>LPC18XX_IRQn_Type
+: <a class="el" href="group___c_m_s_i_s__18_x_x___i_r_q.html#gaa44deabd252bda567898bae35a086adc">cmsis_18xx.h</a>
+</li>
+<li>LPC43XX_IRQn_Type
+: <a class="el" href="group___c_m_s_i_s__43_x_x___i_r_q.html#ga2018a6433701e9ee9b34797425127919">config_43xx/cmsis_43xx.h</a>
+, <a class="el" href="group___c_m_s_i_s__43_x_x___i_r_q.html#ga2018a6433701e9ee9b34797425127919">inc/cmsis_43xx.h</a>
+</li>
+<li>LPC43XX_M0_IRQn_Type
+: <a class="el" href="group___c_m_s_i_s__43_x_x___m0___i_r_q.html#ga402456eb2f4f5b3dc2a53f725eed9485">config_43xx_m0sub/cmsis_43xx_m0sub.h</a>
+, <a class="el" href="group___c_m_s_i_s__43_x_x___m0___i_r_q.html#ga402456eb2f4f5b3dc2a53f725eed9485">inc/cmsis_43xx_m0sub.h</a>
+, <a class="el" href="group___c_m_s_i_s__43_x_x___m0___i_r_q.html#ga402456eb2f4f5b3dc2a53f725eed9485">inc/cmsis_43xx_m0app.h</a>
+, <a class="el" href="group___c_m_s_i_s__43_x_x___m0___i_r_q.html#ga402456eb2f4f5b3dc2a53f725eed9485">config_43xx_m0app/cmsis_43xx_m0app.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>rgbLeds
+: <a class="el" href="group__hardware.html#ga84e58e8cc8e3fe349be97bcd3221c360">hardware.h</a>
+</li>
+<li>RTC_EV_CHANNEL_T
+: <a class="el" href="group___r_t_c__18_x_x__43_x_x.html#gaac7e8d7c66860037449fdde1bdfb657b">rtc_18xx_43xx.h</a>
+</li>
+<li>RTC_INT_OPT_T
+: <a class="el" href="group___r_t_c__18_x_x__43_x_x.html#gacbb4f3e21ac0f90878c95afe11f49161">rtc_18xx_43xx.h</a>
+</li>
+<li>RTC_TIMEINDEX_T
+: <a class="el" href="group___r_t_c__18_x_x__43_x_x.html#ga8144898fe628404d396db06dc8aac0e0">rtc_18xx_43xx.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SD_APP_CMD_T
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga1bf27ef97c5e846aa2b0f8372583502a">sdmmc.h</a>
+</li>
+<li>SDIO_EVENT
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gadd0623c80c89d5be930a9a40f0bd8f38">sdio_18xx_43xx.h</a>
+</li>
+<li>SDMMC_RESPONSE_T
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga3c7486874b09a91a717cc43d090c4faa">sdmmc.h</a>
+</li>
+<li>SDMMC_STATE_T
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga3d5ee2c34be91e20a16b951a7b23f098">sdmmc.h</a>
+</li>
+<li>SPIFI_FIELDFORM_T
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gae4177c2639b4aa20ccdc833c2ef42123">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_FRAMEFORM_T
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga83a0cb36aa268d35220e3d3e25453bd8">spifi_18xx_43xx.h</a>
+</li>
+<li>Status
+: <a class="el" href="group___l_p_c___types___public___types.html#ga67a0db04d321a74b7e7fcfd3f1a3f70b">lpc_types.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>TRANSFER_BLOCK_T
+: <a class="el" href="group___l_p_c___types___public___types.html#gaf5297347bed33665c55dd0e9c7840403">lpc_types.h</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

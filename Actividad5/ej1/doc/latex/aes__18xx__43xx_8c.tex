@@ -1,0 +1,78 @@
+\hypertarget{aes__18xx__43xx_8c}{}\section{Referencia del Archivo aes\+\_\+18xx\+\_\+43xx.\+c}
+\label{aes__18xx__43xx_8c}\index{aes\+\_\+18xx\+\_\+43xx.\+c@{aes\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{aes__18xx__43xx_8c_ae89217c6df7f4222bb461e372b67ab89}{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE}~0x10400100
+\item 
+\#define \hyperlink{aes__18xx__43xx_8c_ab9e962b0f24804d7c1f434b7973a5328}{A\+E\+S\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET}~0x2
+\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}typedefs\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{aes__18xx__43xx_8c_a7af168c34b32c76f8e41dff3627a3fa4}{V\+\_\+\+F\+P\+\_\+V}) (void)
+\item 
+typedef uint32\+\_\+t($\ast$ \hyperlink{aes__18xx__43xx_8c_a77450cd37c65d2a74bf1eb78fee8b7a7}{U32\+\_\+\+F\+P\+\_\+V}) (void)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___a_e_s__18_x_x__43_x_x_gafdf5bd7d491d506493c5989097221f2b}{Chip\+\_\+\+A\+E\+S\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the A\+ES Engine function. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___a_e_s__18_x_x__43_x_x_gaa78732f8682a60cb228dc9c11bf18484}{Chip\+\_\+\+A\+E\+S\+\_\+\+Set\+Mode} (\hyperlink{group___a_e_s__18_x_x__43_x_x_ga8dd50510d4144a9b12042487fdd42813}{C\+H\+I\+P\+\_\+\+A\+E\+S\+\_\+\+O\+P\+\_\+\+M\+O\+D\+E\+\_\+T} Aes\+Mode)
+\begin{DoxyCompactList}\small\item\em Set operation mode in A\+ES Engine. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_e_s__18_x_x__43_x_x_gaa72ef978d5d346c71a7db8d9d9d5e2a7}{Chip\+\_\+\+A\+E\+S\+\_\+\+Load\+Key} (uint32\+\_\+t key\+Num)
+\begin{DoxyCompactList}\small\item\em Load 128-\/bit A\+ES user key in A\+ES Engine. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_e_s__18_x_x__43_x_x_ga42594f5deded064b6f03ee79af7d0aa8}{Chip\+\_\+\+A\+E\+S\+\_\+\+Load\+Key\+R\+NG} (void)
+\begin{DoxyCompactList}\small\item\em Load randomly generated key in A\+ES engine. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_e_s__18_x_x__43_x_x_ga395abcf71c77a979c3ce44c8e4d7abe9}{Chip\+\_\+\+A\+E\+S\+\_\+\+Load\+Key\+SW} (uint8\+\_\+t $\ast$p\+Key)
+\begin{DoxyCompactList}\small\item\em Load 128-\/bit A\+ES software defined user key in A\+ES Engine. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_e_s__18_x_x__43_x_x_ga9585571d1a075ed01c739217ca65ffbc}{Chip\+\_\+\+A\+E\+S\+\_\+\+Load\+I\+V\+\_\+\+SW} (uint8\+\_\+t $\ast$p\+Vector)
+\begin{DoxyCompactList}\small\item\em Load 128-\/bit A\+ES initialization vector in A\+ES Engine. \end{DoxyCompactList}\item 
+void \hyperlink{group___a_e_s__18_x_x__43_x_x_ga28b082ffabc8a8346b4490757899ab49}{Chip\+\_\+\+A\+E\+S\+\_\+\+Load\+I\+V\+\_\+\+IC} (void)
+\begin{DoxyCompactList}\small\item\em Load IC specific 128-\/bit A\+ES initialization vector in A\+ES Engine. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___a_e_s__18_x_x__43_x_x_ga332c304d0fe1a3a0eb15529fe95dc0bb}{Chip\+\_\+\+A\+E\+S\+\_\+\+Operate} (uint8\+\_\+t $\ast$p\+Dat\+Out, uint8\+\_\+t $\ast$p\+Dat\+In, uint32\+\_\+t Size)
+\begin{DoxyCompactList}\small\item\em Operate A\+ES Engine. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___a_e_s__18_x_x__43_x_x_gae8e51b0b68f782ac19e8d4157f666fc2}{Chip\+\_\+\+A\+E\+S\+\_\+\+Program\+Key} (uint32\+\_\+t Key\+Num, uint8\+\_\+t $\ast$p\+Key)
+\begin{DoxyCompactList}\small\item\em Program 128-\/bit A\+ES Key in O\+TP. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___a_e_s__18_x_x__43_x_x_gaee31f907e01cfaa8448d215aa9920e9f}{Chip\+\_\+\+A\+E\+S\+\_\+\+Config\+\_\+\+D\+MA} (uint32\+\_\+t channel\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Checks for valid A\+ES configuration of the chip and setup D\+MA channel to process an A\+ES data block. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___a_e_s__18_x_x__43_x_x_ga47b80d4262083a8d9ebdaf8bce58b9c9}{Chip\+\_\+\+A\+E\+S\+\_\+\+Operate\+D\+MA} (uint32\+\_\+t channel\+\_\+id, uint8\+\_\+t $\ast$data\+Out\+Addr, uint8\+\_\+t $\ast$data\+In\+Addr, uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Checks for valid A\+ES configuration of the chip and enables D\+MA channel to process an A\+ES data block. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___a_e_s__18_x_x__43_x_x_gabc7a95a818dfe7de0ffd09a40a63ffb2}{Chip\+\_\+\+A\+E\+S\+\_\+\+Get\+Status\+D\+MA} (uint32\+\_\+t channel\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Read status of D\+MA channels that process an A\+ES data block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{aes\+\_\+18xx\+\_\+43xx.\+c@{aes\+\_\+18xx\+\_\+43xx.\+c}!A\+E\+S\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET@{A\+E\+S\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET}}
+\index{A\+E\+S\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET@{A\+E\+S\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET}!aes\+\_\+18xx\+\_\+43xx.\+c@{aes\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{A\+E\+S\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET}{AES_API_TABLE_OFFSET}}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+E\+S\+\_\+\+A\+P\+I\+\_\+\+T\+A\+B\+L\+E\+\_\+\+O\+F\+F\+S\+ET~0x2}\hypertarget{aes__18xx__43xx_8c_ab9e962b0f24804d7c1f434b7973a5328}{}\label{aes__18xx__43xx_8c_ab9e962b0f24804d7c1f434b7973a5328}
+
+
+Definición en la línea 39 del archivo aes\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{aes\+\_\+18xx\+\_\+43xx.\+c@{aes\+\_\+18xx\+\_\+43xx.\+c}!B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE@{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE}}
+\index{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE@{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE}!aes\+\_\+18xx\+\_\+43xx.\+c@{aes\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE}{BOOTROM_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+O\+O\+T\+R\+O\+M\+\_\+\+B\+A\+SE~0x10400100}\hypertarget{aes__18xx__43xx_8c_ae89217c6df7f4222bb461e372b67ab89}{}\label{aes__18xx__43xx_8c_ae89217c6df7f4222bb461e372b67ab89}
+
+
+Definición en la línea 38 del archivo aes\+\_\+18xx\+\_\+43xx.\+c.
+
+
+
+\subsection{Documentación de los \textquotesingle{}typedefs\textquotesingle{}}
+\index{aes\+\_\+18xx\+\_\+43xx.\+c@{aes\+\_\+18xx\+\_\+43xx.\+c}!U32\+\_\+\+F\+P\+\_\+V@{U32\+\_\+\+F\+P\+\_\+V}}
+\index{U32\+\_\+\+F\+P\+\_\+V@{U32\+\_\+\+F\+P\+\_\+V}!aes\+\_\+18xx\+\_\+43xx.\+c@{aes\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{U32\+\_\+\+F\+P\+\_\+V}{U32_FP_V}}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint32\+\_\+t($\ast$ U32\+\_\+\+F\+P\+\_\+V) (void)}\hypertarget{aes__18xx__43xx_8c_a77450cd37c65d2a74bf1eb78fee8b7a7}{}\label{aes__18xx__43xx_8c_a77450cd37c65d2a74bf1eb78fee8b7a7}
+
+
+Definición en la línea 42 del archivo aes\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{aes\+\_\+18xx\+\_\+43xx.\+c@{aes\+\_\+18xx\+\_\+43xx.\+c}!V\+\_\+\+F\+P\+\_\+V@{V\+\_\+\+F\+P\+\_\+V}}
+\index{V\+\_\+\+F\+P\+\_\+V@{V\+\_\+\+F\+P\+\_\+V}!aes\+\_\+18xx\+\_\+43xx.\+c@{aes\+\_\+18xx\+\_\+43xx.\+c}}
+\subsubsection[{\texorpdfstring{V\+\_\+\+F\+P\+\_\+V}{V_FP_V}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ V\+\_\+\+F\+P\+\_\+V) (void)}\hypertarget{aes__18xx__43xx_8c_a7af168c34b32c76f8e41dff3627a3fa4}{}\label{aes__18xx__43xx_8c_a7af168c34b32c76f8e41dff3627a3fa4}
+
+
+Definición en la línea 41 del archivo aes\+\_\+18xx\+\_\+43xx.\+c.
+

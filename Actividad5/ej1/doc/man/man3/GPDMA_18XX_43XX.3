@@ -1,0 +1,1030 @@
+.TH "GPDMA_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GPDMA_18XX_43XX \- CHIP: LPC18xx/43xx General Purpose DMA driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBGPDMA_CH_T\fP"
+.br
+.RI "\fIGPDMA Channel register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBLPC_GPDMA_T\fP"
+.br
+.RI "\fIGPDMA register block\&. \fP"
+.ti -1c
+.RI "struct \fBGPDMA_CH_CFG_T\fP"
+.br
+.RI "\fIGPDMA structure using for DMA configuration\&. \fP"
+.ti -1c
+.RI "struct \fBDMA_ChannelHandle_t\fP"
+.br
+.RI "\fIDMA channel handle structure\&. \fP"
+.ti -1c
+.RI "struct \fBDMA_TransferDescriptor\fP"
+.br
+.RI "\fITransfer Descriptor structure typedef\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBGPDMA_NUMBER_CHANNELS\fP   8"
+.br
+.RI "\fINumber of channels on GPDMA\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_TransferSize\fP(n)   (((n & 0xFFF) << 0))"
+.br
+.RI "\fIMacro defines for DMA channel control registers\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_SBSize\fP(n)   (((n & 0x07) << 12))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_DBSize\fP(n)   (((n & 0x07) << 15))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_SWidth\fP(n)   (((n & 0x07) << 18))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_DWidth\fP(n)   (((n & 0x07) << 21))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_SI\fP   ((1UL << 26))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_DI\fP   ((1UL << 27))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_SrcTransUseAHBMaster1\fP   ((1UL << 24))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_DestTransUseAHBMaster1\fP   ((1UL << 25))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_Prot1\fP   ((1UL << 28))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_Prot2\fP   ((1UL << 29))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_Prot3\fP   ((1UL << 30))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxControl_I\fP   ((1UL << 31))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACConfig_E\fP   ((0x01))"
+.br
+.RI "\fIMacro defines for DMA Configuration register\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_DMACConfig_M\fP   ((0x02))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACConfig_BITMASK\fP   ((0x03))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_E\fP   ((1UL << 0))"
+.br
+.RI "\fIMacro defines for DMA Channel Configuration registers\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_SrcPeripheral\fP(n)   (((n & 0x1F) << 1))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_DestPeripheral\fP(n)   (((n & 0x1F) << 6))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_TransferType\fP(n)   (((n & 0x7) << 11))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_IE\fP   ((1UL << 14))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_ITC\fP   ((1UL << 15))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_L\fP   ((1UL << 16))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_A\fP   ((1UL << 17))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_DMACCxConfig_H\fP   ((1UL << 18))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MEMORY\fP   ((0UL))"
+.br
+.RI "\fIGPDMA request connections\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT0_0\fP   ((1UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART0_Tx\fP   ((2UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT0_1\fP   ((3UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART0_Rx\fP   ((4UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT1_0\fP   ((5UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART1_Tx\fP   ((6UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT1_1\fP   ((7UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART1_Rx\fP   ((8UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT2_0\fP   ((9UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART2_Tx\fP   ((10UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT2_1\fP   ((11UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART2_Rx\fP   ((12UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT3_0\fP   ((13UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART3_Tx\fP   ((14UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SCT_0\fP   ((15UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_MAT3_1\fP   ((16UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_UART3_Rx\fP   ((17UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SCT_1\fP   ((18UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SSP0_Rx\fP   ((19UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_I2S_Tx_Channel_0\fP   ((20UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SSP0_Tx\fP   ((21UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_I2S_Rx_Channel_1\fP   ((22UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SSP1_Rx\fP   ((23UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_SSP1_Tx\fP   ((24UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_ADC_0\fP   ((25UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_ADC_1\fP   ((26UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_DAC\fP   ((27UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_I2S1_Tx_Channel_0\fP   ((28UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_CONN_I2S1_Rx_Channel_1\fP   ((29UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_1\fP   ((0UL))"
+.br
+.RI "\fIGPDMA Burst size in Source and Destination definitions\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_4\fP   ((1UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_8\fP   ((2UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_16\fP   ((3UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_32\fP   ((4UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_64\fP   ((5UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_128\fP   ((6UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_BSIZE_256\fP   ((7UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_WIDTH_BYTE\fP   ((0UL))"
+.br
+.RI "\fIWidth in Source transfer width and Destination transfer width definitions\&. \fP"
+.ti -1c
+.RI "#define \fBGPDMA_WIDTH_HALFWORD\fP   ((1UL))"
+.br
+.ti -1c
+.RI "#define \fBGPDMA_WIDTH_WORD\fP   ((2UL))"
+.br
+.ti -1c
+.RI "#define \fBDMA_CONTROLLER\fP   0"
+.br
+.RI "\fIFlow control definitions\&. \fP"
+.ti -1c
+.RI "#define \fBSRC_PER_CONTROLLER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDST_PER_CONTROLLER\fP   2"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBDMA_TransferDescriptor\fP \fBDMA_TransferDescriptor_t\fP"
+.br
+.RI "\fITransfer Descriptor structure typedef\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBGPDMA_STATECLEAR_T\fP { \fBGPDMA_STATCLR_INTTC\fP, \fBGPDMA_STATCLR_INTERR\fP }
+.RI "\fIGPDMA Interrupt Clear Status\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBGPDMA_STATUS_T\fP { \fBGPDMA_STAT_INT\fP, \fBGPDMA_STAT_INTTC\fP, \fBGPDMA_STAT_INTERR\fP, \fBGPDMA_STAT_RAWINTTC\fP, \fBGPDMA_STAT_RAWINTERR\fP, \fBGPDMA_STAT_ENABLED_CH\fP }
+.RI "\fIGPDMA Type of Interrupt Status\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBGPDMA_FLOW_CONTROL_T\fP { \fBGPDMA_TRANSFERTYPE_M2M_CONTROLLER_DMA\fP = ((0UL)), \fBGPDMA_TRANSFERTYPE_M2P_CONTROLLER_DMA\fP = ((1UL)), \fBGPDMA_TRANSFERTYPE_P2M_CONTROLLER_DMA\fP = ((2UL)), \fBGPDMA_TRANSFERTYPE_P2P_CONTROLLER_DMA\fP = ((3UL)), \fBGPDMA_TRANSFERTYPE_P2P_CONTROLLER_DestPERIPHERAL\fP = ((4UL)), \fBGPDMA_TRANSFERTYPE_M2P_CONTROLLER_PERIPHERAL\fP = ((5UL)), \fBGPDMA_TRANSFERTYPE_P2M_CONTROLLER_PERIPHERAL\fP = ((6UL)), \fBGPDMA_TRANSFERTYPE_P2P_CONTROLLER_SrcPERIPHERAL\fP = ((7UL)) }
+.RI "\fIGPDMA Type of DMA controller\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_GPDMA_Init\fP (\fBLPC_GPDMA_T\fP *pGPDMA)"
+.br
+.RI "\fIInitialize the GPDMA\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_DeInit\fP (\fBLPC_GPDMA_T\fP *pGPDMA)"
+.br
+.RI "\fIShutdown the GPDMA\&. \fP"
+.ti -1c
+.RI "int \fBChip_GPDMA_InitChannelCfg\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_CH_CFG_T\fP *GPDMACfg, uint8_t ChannelNum, uint32_t src, uint32_t dst, uint32_t Size, \fBGPDMA_FLOW_CONTROL_T\fP TransferType)"
+.br
+.RI "\fIInitialize channel configuration strucutre\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_ChannelCmd\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t channelNum, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable or Disable the GPDMA Channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_Stop\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum)"
+.br
+.RI "\fIStop a stream DMA transfer\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_Interrupt\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum)"
+.br
+.RI "\fIThe GPDMA stream interrupt status checking\&. \fP"
+.ti -1c
+.RI "\fBIntStatus\fP \fBChip_GPDMA_IntGetStatus\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_STATUS_T\fP type, uint8_t channel)"
+.br
+.RI "\fIRead the status from different registers according to the type\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPDMA_ClearIntPending\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBGPDMA_STATECLEAR_T\fP type, uint8_t channel)"
+.br
+.RI "\fIClear the Interrupt Flag from different registers according to the type\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_GPDMA_GetFreeChannel\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint32_t PeripheralConnection_ID)"
+.br
+.RI "\fIGet a free GPDMA channel for one DMA connection\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_Transfer\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum, uint32_t src, uint32_t dst, \fBGPDMA_FLOW_CONTROL_T\fP TransferType, uint32_t Size)"
+.br
+.RI "\fIDo a DMA transfer M2M, M2P,P2M or P2P\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_SGTransfer\fP (\fBLPC_GPDMA_T\fP *pGPDMA, uint8_t ChannelNum, const \fBDMA_TransferDescriptor_t\fP *DMADescriptor, \fBGPDMA_FLOW_CONTROL_T\fP TransferType)"
+.br
+.RI "\fIDo a DMA transfer using linked list of descriptors\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_GPDMA_PrepareDescriptor\fP (\fBLPC_GPDMA_T\fP *pGPDMA, \fBDMA_TransferDescriptor_t\fP *DMADescriptor, uint32_t src, uint32_t dst, uint32_t Size, \fBGPDMA_FLOW_CONTROL_T\fP TransferType, const \fBDMA_TransferDescriptor_t\fP *NextDescriptor)"
+.br
+.RI "\fIPrepare a single DMA descriptor\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define DMA_CONTROLLER   0"
+
+.PP
+Flow control definitions\&. Flow control is DMA controller 
+.PP
+Definición en la línea 233 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define DST_PER_CONTROLLER   2"
+Flow control is Destination peripheral controller 
+.PP
+Definición en la línea 235 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_BSIZE_1   ((0UL))"
+
+.PP
+GPDMA Burst size in Source and Destination definitions\&. Burst size = 1 
+.PP
+Definición en la línea 214 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_BSIZE_128   ((6UL))"
+Burst size = 128 
+.PP
+Definición en la línea 220 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_BSIZE_16   ((3UL))"
+Burst size = 16 
+.PP
+Definición en la línea 217 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_BSIZE_256   ((7UL))"
+Burst size = 256 
+.PP
+Definición en la línea 221 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_BSIZE_32   ((4UL))"
+Burst size = 32 
+.PP
+Definición en la línea 218 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_BSIZE_4   ((1UL))"
+Burst size = 4 
+.PP
+Definición en la línea 215 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_BSIZE_64   ((5UL))"
+Burst size = 64 
+.PP
+Definición en la línea 219 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_BSIZE_8   ((2UL))"
+Burst size = 8 
+.PP
+Definición en la línea 216 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_ADC_0   ((25UL))"
+ADC 0 
+.PP
+Definición en la línea 205 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_ADC_1   ((26UL))"
+ADC 1 
+.PP
+Definición en la línea 206 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_DAC   ((27UL))"
+DAC 
+.PP
+Definición en la línea 207 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_I2S1_Rx_Channel_1   ((29UL))"
+I2S1 Rx on channel 0 
+.PP
+Definición en la línea 209 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_I2S1_Tx_Channel_0   ((28UL))"
+I2S1 Tx on channel 0 
+.PP
+Definición en la línea 208 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_I2S_Rx_Channel_1   ((22UL))"
+I2S0 Rx on channel 0 
+.PP
+Definición en la línea 202 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_I2S_Tx_Channel_0   ((20UL))"
+I2S0 Tx on channel 0 
+.PP
+Definición en la línea 200 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_MAT0_0   ((1UL))"
+MAT0\&.0 
+.PP
+Definición en la línea 181 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_MAT0_1   ((3UL))"
+MAT0\&.1 
+.PP
+Definición en la línea 183 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_MAT1_0   ((5UL))"
+MAT1\&.0 
+.PP
+Definición en la línea 185 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_MAT1_1   ((7UL))"
+MAT1\&.1 
+.PP
+Definición en la línea 187 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_MAT2_0   ((9UL))"
+MAT2\&.0 
+.PP
+Definición en la línea 189 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_MAT2_1   ((11UL))"
+MAT2\&.1 
+.PP
+Definición en la línea 191 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_MAT3_0   ((13UL))"
+MAT3\&.0 
+.PP
+Definición en la línea 193 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_MAT3_1   ((16UL))"
+MAT3\&.1 
+.PP
+Definición en la línea 196 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_MEMORY   ((0UL))"
+
+.PP
+GPDMA request connections\&. MEMORY 
+.PP
+Definición en la línea 180 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_SCT_0   ((15UL))"
+SCT timer channel 0 
+.PP
+Definición en la línea 195 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_SCT_1   ((18UL))"
+SCT timer channel 1 
+.PP
+Definición en la línea 198 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_SSP0_Rx   ((19UL))"
+SSP0 Rx 
+.PP
+Definición en la línea 199 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_SSP0_Tx   ((21UL))"
+SSP0 Tx 
+.PP
+Definición en la línea 201 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_SSP1_Rx   ((23UL))"
+SSP1 Rx 
+.PP
+Definición en la línea 203 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_SSP1_Tx   ((24UL))"
+SSP1 Tx 
+.PP
+Definición en la línea 204 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_UART0_Rx   ((4UL))"
+UART0 Rx 
+.PP
+Definición en la línea 184 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_UART0_Tx   ((2UL))"
+UART0 Tx 
+.PP
+Definición en la línea 182 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_UART1_Rx   ((8UL))"
+UART1 Rx 
+.PP
+Definición en la línea 188 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_UART1_Tx   ((6UL))"
+UART1 Tx 
+.PP
+Definición en la línea 186 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_UART2_Rx   ((12UL))"
+UART2 Rx 
+.PP
+Definición en la línea 192 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_UART2_Tx   ((10UL))"
+UART2 Tx 
+.PP
+Definición en la línea 190 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_UART3_Rx   ((17UL))"
+UART3 Rx 
+.PP
+Definición en la línea 197 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_CONN_UART3_Tx   ((14UL))"
+UART3 Tx 
+.PP
+Definición en la línea 194 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACConfig_BITMASK   ((0x03))"
+
+.PP
+Definición en la línea 105 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACConfig_E   ((0x01))"
+
+.PP
+Macro defines for DMA Configuration register\&. DMA Controller enable 
+.PP
+Definición en la línea 103 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACConfig_M   ((0x02))"
+AHB Master endianness configuration 
+.PP
+Definición en la línea 104 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxConfig_A   ((1UL << 17))"
+Active 
+.PP
+Definición en la línea 117 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxConfig_DestPeripheral(n)   (((n & 0x1F) << 6))"
+Destination peripheral 
+.PP
+Definición en la línea 112 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxConfig_E   ((1UL << 0))"
+
+.PP
+Macro defines for DMA Channel Configuration registers\&. DMA control enable 
+.PP
+Definición en la línea 110 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxConfig_H   ((1UL << 18))"
+Halt 
+.PP
+Definición en la línea 118 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxConfig_IE   ((1UL << 14))"
+Interrupt error mask 
+.PP
+Definición en la línea 114 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxConfig_ITC   ((1UL << 15))"
+Terminal count interrupt mask 
+.PP
+Definición en la línea 115 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxConfig_L   ((1UL << 16))"
+Lock 
+.PP
+Definición en la línea 116 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxConfig_SrcPeripheral(n)   (((n & 0x1F) << 1))"
+Source peripheral 
+.PP
+Definición en la línea 111 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxConfig_TransferType(n)   (((n & 0x7) << 11))"
+This value indicates the type of transfer 
+.PP
+Definición en la línea 113 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_DBSize(n)   (((n & 0x07) << 15))"
+Destination burst size 
+.PP
+Definición en la línea 88 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_DestTransUseAHBMaster1   ((1UL << 25))"
+Destination AHB master select in 18xx43xx 
+.PP
+Definición en la línea 94 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_DI   ((1UL << 27))"
+Destination increment 
+.PP
+Definición en la línea 92 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_DWidth(n)   (((n & 0x07) << 21))"
+Destination transfer width 
+.PP
+Definición en la línea 90 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_I   ((1UL << 31))"
+Terminal count interrupt enable bit 
+.PP
+Definición en la línea 98 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_Prot1   ((1UL << 28))"
+Indicates that the access is in user mode or privileged mode 
+.PP
+Definición en la línea 95 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_Prot2   ((1UL << 29))"
+Indicates that the access is bufferable or not bufferable 
+.PP
+Definición en la línea 96 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_Prot3   ((1UL << 30))"
+Indicates that the access is cacheable or not cacheable 
+.PP
+Definición en la línea 97 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_SBSize(n)   (((n & 0x07) << 12))"
+Source burst size 
+.PP
+Definición en la línea 87 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_SI   ((1UL << 26))"
+Source increment 
+.PP
+Definición en la línea 91 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_SrcTransUseAHBMaster1   ((1UL << 24))"
+Source AHB master select in 18xx43xx 
+.PP
+Definición en la línea 93 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_SWidth(n)   (((n & 0x07) << 18))"
+Source transfer width 
+.PP
+Definición en la línea 89 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_DMACCxControl_TransferSize(n)   (((n & 0xFFF) << 0))"
+
+.PP
+Macro defines for DMA channel control registers\&. Transfer size 
+.PP
+Definición en la línea 86 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_NUMBER_CHANNELS   8"
+
+.PP
+Number of channels on GPDMA\&. 
+.PP
+Definición en la línea 47 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_WIDTH_BYTE   ((0UL))"
+
+.PP
+Width in Source transfer width and Destination transfer width definitions\&. Width = 1 byte 
+.PP
+Definición en la línea 226 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_WIDTH_HALFWORD   ((1UL))"
+Width = 2 bytes 
+.PP
+Definición en la línea 227 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define GPDMA_WIDTH_WORD   ((2UL))"
+Width = 4 bytes 
+.PP
+Definición en la línea 228 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "#define SRC_PER_CONTROLLER   1"
+Flow control is Source peripheral controller 
+.PP
+Definición en la línea 234 del archivo gpdma_18xx_43xx\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef struct \fBDMA_TransferDescriptor\fP  \fBDMA_TransferDescriptor_t\fP"
+
+.PP
+Transfer Descriptor structure typedef\&. 
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBGPDMA_FLOW_CONTROL_T\fP"
+
+.PP
+GPDMA Type of DMA controller\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIGPDMA_TRANSFERTYPE_M2M_CONTROLLER_DMA \fP\fP
+Memory to memory - DMA control 
+.TP
+\fB\fIGPDMA_TRANSFERTYPE_M2P_CONTROLLER_DMA \fP\fP
+Memory to peripheral - DMA control 
+.TP
+\fB\fIGPDMA_TRANSFERTYPE_P2M_CONTROLLER_DMA \fP\fP
+Peripheral to memory - DMA control 
+.TP
+\fB\fIGPDMA_TRANSFERTYPE_P2P_CONTROLLER_DMA \fP\fP
+Source peripheral to destination peripheral - DMA control 
+.TP
+\fB\fIGPDMA_TRANSFERTYPE_P2P_CONTROLLER_DestPERIPHERAL \fP\fP
+Source peripheral to destination peripheral - destination peripheral control 
+.TP
+\fB\fIGPDMA_TRANSFERTYPE_M2P_CONTROLLER_PERIPHERAL \fP\fP
+Memory to peripheral - peripheral control 
+.TP
+\fB\fIGPDMA_TRANSFERTYPE_P2M_CONTROLLER_PERIPHERAL \fP\fP
+Peripheral to memory - peripheral control 
+.TP
+\fB\fIGPDMA_TRANSFERTYPE_P2P_CONTROLLER_SrcPERIPHERAL \fP\fP
+Source peripheral to destination peripheral - source peripheral control 
+.PP
+Definición en la línea 143 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "enum \fBGPDMA_STATECLEAR_T\fP"
+
+.PP
+GPDMA Interrupt Clear Status\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIGPDMA_STATCLR_INTTC \fP\fP
+GPDMA Interrupt Terminal Count Request Clear 
+.TP
+\fB\fIGPDMA_STATCLR_INTERR \fP\fP
+GPDMA Interrupt Error Clear 
+.PP
+Definición en la línea 123 del archivo gpdma_18xx_43xx\&.h\&.
+.SS "enum \fBGPDMA_STATUS_T\fP"
+
+.PP
+GPDMA Type of Interrupt Status\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIGPDMA_STAT_INT \fP\fP
+GPDMA Interrupt Status 
+.TP
+\fB\fIGPDMA_STAT_INTTC \fP\fP
+GPDMA Interrupt Terminal Count Request Status 
+.TP
+\fB\fIGPDMA_STAT_INTERR \fP\fP
+GPDMA Interrupt Error Status 
+.TP
+\fB\fIGPDMA_STAT_RAWINTTC \fP\fP
+GPDMA Raw Interrupt Terminal Count Status 
+.TP
+\fB\fIGPDMA_STAT_RAWINTERR \fP\fP
+GPDMA Raw Error Interrupt Status 
+.TP
+\fB\fIGPDMA_STAT_ENABLED_CH \fP\fP
+GPDMA Enabled Channel Status 
+.PP
+Definición en la línea 131 del archivo gpdma_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_GPDMA_ChannelCmd (\fBLPC_GPDMA_T\fP * pGPDMA, uint8_t channelNum, \fBFunctionalState\fP NewState)"
+
+.PP
+Enable or Disable the GPDMA Channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fIchannelNum\fP : The GPDMA channel : 0 - 7 
+.br
+\fINewState\fP : ENABLE to enable GPDMA or DISABLE to disable GPDMA 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 587 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "void Chip_GPDMA_ClearIntPending (\fBLPC_GPDMA_T\fP * pGPDMA, \fBGPDMA_STATECLEAR_T\fP type, uint8_t channel)"
+
+.PP
+Clear the Interrupt Flag from different registers according to the type\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fItype\fP : Flag mode, should be:
+.IP "\(bu" 2
+GPDMA_STATCLR_INTTC : GPDMA Interrupt Terminal Count Request
+.IP "\(bu" 2
+GPDMA_STATCLR_INTERR : GPDMA Interrupt Error 
+.PP
+.br
+\fIchannel\fP : The GPDMA channel : 0 - 7 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 574 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "void Chip_GPDMA_DeInit (\fBLPC_GPDMA_T\fP * pGPDMA)"
+
+.PP
+Shutdown the GPDMA\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 452 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "uint8_t Chip_GPDMA_GetFreeChannel (\fBLPC_GPDMA_T\fP * pGPDMA, uint32_t PeripheralConnection_ID)"
+
+.PP
+Get a free GPDMA channel for one DMA connection\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fIPeripheralConnection_ID\fP : Some chip fix each peripheral DMA connection on a specified channel ( have not used in 17xx/40xx ) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+The channel number which is selected 
+.RE
+.PP
+
+.PP
+Definición en la línea 733 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "void Chip_GPDMA_Init (\fBLPC_GPDMA_T\fP * pGPDMA)"
+
+.PP
+Initialize the GPDMA\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 430 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "int Chip_GPDMA_InitChannelCfg (\fBLPC_GPDMA_T\fP * pGPDMA, \fBGPDMA_CH_CFG_T\fP * GPDMACfg, uint8_t ChannelNum, uint32_t src, uint32_t dst, uint32_t Size, \fBGPDMA_FLOW_CONTROL_T\fP TransferType)"
+
+.PP
+Initialize channel configuration strucutre\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fIGPDMACfg\fP : Pointer to configuration structure to be initialized 
+.br
+\fIChannelNum\fP : Channel used for transfer \fImust be obtained using \fBChip_GPDMA_GetFreeChannel()\fP\fP 
+.br
+\fIsrc\fP : Address of Memory or one of \fBPeripheralConnection_ID \fP, which is the source 
+.br
+\fIdst\fP : Address of Memory or one of \fBPeripheralConnection_ID \fP, which is the destination 
+.br
+\fISize\fP : The number of DMA transfers 
+.br
+\fITransferType\fP : Select the transfer controller and the type of transfer\&. (See, \fBGPDMA_FLOW_CONTROL_T\fP) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+ERROR on error, SUCCESS on success 
+.RE
+.PP
+
+.PP
+Definición en la línea 496 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP Chip_GPDMA_Interrupt (\fBLPC_GPDMA_T\fP * pGPDMA, uint8_t ChannelNum)"
+
+.PP
+The GPDMA stream interrupt status checking\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fIChannelNum\fP : Channel Number to be checked on interruption 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Status:
+.IP "\(bu" 2
+SUCCESS : DMA transfer success
+.IP "\(bu" 2
+ERROR : DMA transfer failed 
+.PP
+.RE
+.PP
+
+.PP
+Definición en la línea 474 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "\fBIntStatus\fP Chip_GPDMA_IntGetStatus (\fBLPC_GPDMA_T\fP * pGPDMA, \fBGPDMA_STATUS_T\fP type, uint8_t channel)"
+
+.PP
+Read the status from different registers according to the type\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fItype\fP : Status mode, should be:
+.IP "\(bu" 2
+GPDMA_STAT_INT : GPDMA Interrupt Status
+.IP "\(bu" 2
+GPDMA_STAT_INTTC : GPDMA Interrupt Terminal Count Request Status
+.IP "\(bu" 2
+GPDMA_STAT_INTERR : GPDMA Interrupt Error Status
+.IP "\(bu" 2
+GPDMA_STAT_RAWINTTC : GPDMA Raw Interrupt Terminal Count Status
+.IP "\(bu" 2
+GPDMA_STAT_RAWINTERR : GPDMA Raw Error Interrupt Status
+.IP "\(bu" 2
+GPDMA_STAT_ENABLED_CH : GPDMA Enabled Channel Status 
+.PP
+.br
+\fIchannel\fP : The GPDMA channel : 0 - 7 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SET is interrupt is pending or RESET if not pending 
+.RE
+.PP
+TODO check the channel <=8 type is exited
+.PP
+Definición en la línea 547 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP Chip_GPDMA_PrepareDescriptor (\fBLPC_GPDMA_T\fP * pGPDMA, \fBDMA_TransferDescriptor_t\fP * DMADescriptor, uint32_t src, uint32_t dst, uint32_t Size, \fBGPDMA_FLOW_CONTROL_T\fP TransferType, const \fBDMA_TransferDescriptor_t\fP * NextDescriptor)"
+
+.PP
+Prepare a single DMA descriptor\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fIDMADescriptor\fP : DMA Descriptor to be initialized 
+.br
+\fIsrc\fP : Address of Memory or one of \fBPeripheralConnection_ID \fP, which is the source 
+.br
+\fIdst\fP : Address of Memory or one of \fBPeripheralConnection_ID \fP, which is the destination 
+.br
+\fISize\fP : The number of DMA transfers 
+.br
+\fITransferType\fP : Select the transfer controller and the type of transfer\&. (See, \fBGPDMA_FLOW_CONTROL_T\fP) 
+.br
+\fINextDescriptor\fP : Pointer to next descriptor (0 if no more descriptors available) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+ERROR on error, SUCCESS on success 
+.RE
+.PP
+
+.PP
+Definición en la línea 649 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP Chip_GPDMA_SGTransfer (\fBLPC_GPDMA_T\fP * pGPDMA, uint8_t ChannelNum, const \fBDMA_TransferDescriptor_t\fP * DMADescriptor, \fBGPDMA_FLOW_CONTROL_T\fP TransferType)"
+
+.PP
+Do a DMA transfer using linked list of descriptors\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fIChannelNum\fP : Channel used for transfer \fImust be obtained using \fBChip_GPDMA_GetFreeChannel()\fP\fP 
+.br
+\fIDMADescriptor\fP : First node in the linked list of descriptors 
+.br
+\fITransferType\fP : Select the transfer controller and the type of transfer\&. (See, \fBGPDMA_FLOW_CONTROL_T\fP) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+ERROR on error, SUCCESS on success 
+.RE
+.PP
+
+.PP
+Definición en la línea 692 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "void Chip_GPDMA_Stop (\fBLPC_GPDMA_T\fP * pGPDMA, uint8_t ChannelNum)"
+
+.PP
+Stop a stream DMA transfer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fIChannelNum\fP : Channel Number to be closed 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 458 del archivo gpdma_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP Chip_GPDMA_Transfer (\fBLPC_GPDMA_T\fP * pGPDMA, uint8_t ChannelNum, uint32_t src, uint32_t dst, \fBGPDMA_FLOW_CONTROL_T\fP TransferType, uint32_t Size)"
+
+.PP
+Do a DMA transfer M2M, M2P,P2M or P2P\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpGPDMA\fP : The base of GPDMA on the chip 
+.br
+\fIChannelNum\fP : Channel used for transfer 
+.br
+\fIsrc\fP : Address of Memory or PeripheralConnection_ID which is the source 
+.br
+\fIdst\fP : Address of Memory or PeripheralConnection_ID which is the destination 
+.br
+\fITransferType\fP Select the transfer controller and the type of transfer\&. Should be:
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_M2M_CONTROLLER_DMA
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_M2P_CONTROLLER_DMA
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_P2M_CONTROLLER_DMA
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_P2P_CONTROLLER_DMA
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_P2P_CONTROLLER_DestPERIPHERAL
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_M2P_CONTROLLER_PERIPHERAL
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_P2M_CONTROLLER_PERIPHERAL
+.IP "\(bu" 2
+GPDMA_TRANSFERTYPE_P2P_CONTROLLER_SrcPERIPHERAL 
+.PP
+.br
+\fISize\fP : The number of DMA transfers 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+ERROR on error, SUCCESS on success 
+.RE
+.PP
+
+.PP
+Definición en la línea 603 del archivo gpdma_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

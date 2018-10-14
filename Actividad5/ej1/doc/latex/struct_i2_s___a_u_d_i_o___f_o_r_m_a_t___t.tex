@@ -1,0 +1,56 @@
+\hypertarget{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t}{}\section{Referencia de la Estructura I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T}
+\label{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t}\index{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T@{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T}}
+
+
+I2S Audio Format Structure.  
+
+
+
+
+{\ttfamily \#include $<$i2s\+\_\+18xx\+\_\+43xx.\+h$>$}
+
+\subsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t_a930ec675cfdc1a0f18f3414583f7b950}{Sample\+Rate}
+\item 
+uint8\+\_\+t \hyperlink{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t_af735e23324626601fb3ef1ba2f9098ca}{Channel\+Number}
+\item 
+uint8\+\_\+t \hyperlink{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t_af7bd178db9673a9753c589a27fa0495f}{Word\+Width}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+I2S Audio Format Structure. 
+
+Definición en la línea 216 del archivo i2s\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de los campos}
+\index{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T@{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T}!Channel\+Number@{Channel\+Number}}
+\index{Channel\+Number@{Channel\+Number}!I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T@{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T}}
+\subsubsection[{\texorpdfstring{Channel\+Number}{ChannelNumber}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Channel\+Number}\hypertarget{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t_af735e23324626601fb3ef1ba2f9098ca}{}\label{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t_af735e23324626601fb3ef1ba2f9098ca}
+Channel Number -\/ 1 is mono, 2 is stereo 
+
+Definición en la línea 218 del archivo i2s\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T@{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T}!Sample\+Rate@{Sample\+Rate}}
+\index{Sample\+Rate@{Sample\+Rate}!I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T@{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T}}
+\subsubsection[{\texorpdfstring{Sample\+Rate}{SampleRate}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Sample\+Rate}\hypertarget{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t_a930ec675cfdc1a0f18f3414583f7b950}{}\label{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t_a930ec675cfdc1a0f18f3414583f7b950}
+Sample Rate 
+
+Definición en la línea 217 del archivo i2s\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T@{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T}!Word\+Width@{Word\+Width}}
+\index{Word\+Width@{Word\+Width}!I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T@{I2\+S\+\_\+\+A\+U\+D\+I\+O\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+T}}
+\subsubsection[{\texorpdfstring{Word\+Width}{WordWidth}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Word\+Width}\hypertarget{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t_af7bd178db9673a9753c589a27fa0495f}{}\label{struct_i2_s___a_u_d_i_o___f_o_r_m_a_t___t_af7bd178db9673a9753c589a27fa0495f}
+Word Width -\/ 8, 16 or 32 bits 
+
+Definición en la línea 219 del archivo i2s\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{i2s__18xx__43xx_8h}{i2s\+\_\+18xx\+\_\+43xx.\+h}\end{DoxyCompactItemize}

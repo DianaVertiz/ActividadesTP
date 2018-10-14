@@ -1,0 +1,69 @@
+\hypertarget{group___r_o_m_a_p_i__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx\+\_\+43xx R\+OM A\+PI declarations and functions}
+\label{group___r_o_m_a_p_i__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_o_t_p___a_p_i___t}{O\+T\+P\+\_\+\+A\+P\+I\+\_\+T}
+\begin{DoxyCompactList}\small\item\em L\+P\+C18\+X\+X\+\_\+43\+XX O\+TP A\+PI structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_a_e_s___a_p_i___t}{A\+E\+S\+\_\+\+A\+P\+I\+\_\+T}
+\begin{DoxyCompactList}\small\item\em L\+P\+C18\+X\+X\+\_\+43\+XX A\+ES A\+PI structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_l_p_c___r_o_m___a_p_i___t}{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+T}
+\begin{DoxyCompactList}\small\item\em L\+P\+C18\+XX High level R\+OM A\+PI structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___r_o_m_a_p_i__18_x_x__43_x_x_gafd3ca6cb0ad8c0c0b5be437a8387e51b}{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+B\+A\+S\+E\+\_\+\+L\+OC}~0x10400100
+\item 
+\#define \hyperlink{group___r_o_m_a_p_i__18_x_x__43_x_x_ga93f07fc38c09c20a7141e175ce599ef7}{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+PI}~((\hyperlink{struct_l_p_c___r_o_m___a_p_i___t}{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+T} $\ast$) \hyperlink{group___p_e_r_i_p_h__43_x_x___b_a_s_e_ga2ae00d891b7603694f3a1eb640013f63}{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+B\+A\+SE})
+\item 
+\#define \hyperlink{group___r_o_m_a_p_i__18_x_x__43_x_x_ga3d74da11ceb6b4ccf6d3730825406515}{I\+A\+P\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+L\+O\+C\+A\+T\+I\+ON}~($\ast$((uint32\+\_\+t $\ast$) 0x10400100))
+\item 
+\#define \hyperlink{group___r_o_m_a_p_i__18_x_x__43_x_x_gafb9244f2e5a4884eb1bf5fb89c2b7f5b}{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+A}~0
+\begin{DoxyCompactList}\small\item\em I\+AP flash bank definitions. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___r_o_m_a_p_i__18_x_x__43_x_x_ga1000a64e320d9e09ba9c671bbb380dd2}{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+B}~1
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}!I\+A\+P\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+L\+O\+C\+A\+T\+I\+ON@{I\+A\+P\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+L\+O\+C\+A\+T\+I\+ON}}
+\index{I\+A\+P\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+L\+O\+C\+A\+T\+I\+ON@{I\+A\+P\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+L\+O\+C\+A\+T\+I\+ON}!C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}}
+\subsubsection[{\texorpdfstring{I\+A\+P\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+L\+O\+C\+A\+T\+I\+ON}{IAP_ENTRY_LOCATION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+A\+P\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+L\+O\+C\+A\+T\+I\+ON~($\ast$((uint32\+\_\+t $\ast$) 0x10400100))}\hypertarget{group___r_o_m_a_p_i__18_x_x__43_x_x_ga3d74da11ceb6b4ccf6d3730825406515}{}\label{group___r_o_m_a_p_i__18_x_x__43_x_x_ga3d74da11ceb6b4ccf6d3730825406515}
+
+
+Definición en la línea 103 del archivo romapi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}!I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+A@{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+A}}
+\index{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+A@{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+A}!C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}}
+\subsubsection[{\texorpdfstring{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+A}{IAP_FLASH_BANK_A}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+A~0}\hypertarget{group___r_o_m_a_p_i__18_x_x__43_x_x_gafb9244f2e5a4884eb1bf5fb89c2b7f5b}{}\label{group___r_o_m_a_p_i__18_x_x__43_x_x_gafb9244f2e5a4884eb1bf5fb89c2b7f5b}
+
+
+I\+AP flash bank definitions. 
+
+
+
+Definición en la línea 108 del archivo romapi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}!I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+B@{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+B}}
+\index{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+B@{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+B}!C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}}
+\subsubsection[{\texorpdfstring{I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+B}{IAP_FLASH_BANK_B}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+A\+P\+\_\+\+F\+L\+A\+S\+H\+\_\+\+B\+A\+N\+K\+\_\+B~1}\hypertarget{group___r_o_m_a_p_i__18_x_x__43_x_x_ga1000a64e320d9e09ba9c671bbb380dd2}{}\label{group___r_o_m_a_p_i__18_x_x__43_x_x_ga1000a64e320d9e09ba9c671bbb380dd2}
+
+
+Definición en la línea 109 del archivo romapi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}!L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+PI@{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+PI}}
+\index{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+PI@{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+PI}!C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}}
+\subsubsection[{\texorpdfstring{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+PI}{LPC_ROM_API}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+PI~(({\bf L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+T} $\ast$) {\bf L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+B\+A\+SE})}\hypertarget{group___r_o_m_a_p_i__18_x_x__43_x_x_ga93f07fc38c09c20a7141e175ce599ef7}{}\label{group___r_o_m_a_p_i__18_x_x__43_x_x_ga93f07fc38c09c20a7141e175ce599ef7}
+
+
+Definición en la línea 100 del archivo romapi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}!L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+B\+A\+S\+E\+\_\+\+L\+OC@{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+B\+A\+S\+E\+\_\+\+L\+OC}}
+\index{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+B\+A\+S\+E\+\_\+\+L\+OC@{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+B\+A\+S\+E\+\_\+\+L\+OC}!C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions@{C\+H\+I\+P\+: L\+P\+C18xx\+\_\+43xx R\+O\+M A\+P\+I declarations and functions}}
+\subsubsection[{\texorpdfstring{L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+B\+A\+S\+E\+\_\+\+L\+OC}{LPC_ROM_API_BASE_LOC}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+P\+C\+\_\+\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+B\+A\+S\+E\+\_\+\+L\+OC~0x10400100}\hypertarget{group___r_o_m_a_p_i__18_x_x__43_x_x_gafd3ca6cb0ad8c0c0b5be437a8387e51b}{}\label{group___r_o_m_a_p_i__18_x_x__43_x_x_gafd3ca6cb0ad8c0c0b5be437a8387e51b}
+
+
+Definición en la línea 99 del archivo romapi\+\_\+18xx\+\_\+43xx.\+h.
+

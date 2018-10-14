@@ -1,0 +1,54 @@
+.TH "ENET_TXDESC_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ENET_TXDESC_T \- Structure of a transmit descriptor (without timestamp)  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <enet_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTRLSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBSIZE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBB1ADD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBB2ADD\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Structure of a transmit descriptor (without timestamp) 
+.PP
+Definición en la línea 406 del archivo enet_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t B1ADD"
+Buffer 1 address 
+.PP
+Definición en la línea 409 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t B2ADD"
+Buffer 2 or next descriptor address 
+.PP
+Definición en la línea 410 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t BSIZE"
+Buffer 1/2 byte counts 
+.PP
+Definición en la línea 408 del archivo enet_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTRLSTAT"
+TDES control and status word 
+.PP
+Definición en la línea 407 del archivo enet_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

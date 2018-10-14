@@ -1,0 +1,54 @@
+.TH "arm_biquad_cas_df1_32x64_ins_q31" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+arm_biquad_cas_df1_32x64_ins_q31 \- Instance structure for the high precision Q31 Biquad cascade filter\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <arm_math\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBnumStages\fP"
+.br
+.ti -1c
+.RI "\fBq63_t\fP * \fBpState\fP"
+.br
+.ti -1c
+.RI "\fBq31_t\fP * \fBpCoeffs\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBpostShift\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Instance structure for the high precision Q31 Biquad cascade filter\&. 
+.PP
+Definición en la línea 3642 del archivo arm_math\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint8_t numStages"
+number of 2nd order stages in the filter\&. Overall order is 2*numStages\&. 
+.PP
+Definición en la línea 3644 del archivo arm_math\&.h\&.
+.SS "\fBq31_t\fP* pCoeffs"
+points to the array of coefficients\&. The array is of length 5*numStages\&. 
+.PP
+Definición en la línea 3646 del archivo arm_math\&.h\&.
+.SS "uint8_t postShift"
+additional shift, in bits, applied to each output sample\&. 
+.PP
+Definición en la línea 3647 del archivo arm_math\&.h\&.
+.SS "\fBq63_t\fP* pState"
+points to the array of state coefficients\&. The array is of length 4*numStages\&. 
+.PP
+Definición en la línea 3645 del archivo arm_math\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

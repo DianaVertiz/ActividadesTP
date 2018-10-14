@@ -1,0 +1,143 @@
+.TH "PMC_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PMC_18XX_43XX \- CHIP: LPC18xx/43xx Power Management Controller driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_PMC_T\fP"
+.br
+.RI "\fIPower Management Controller register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPMC_PWR_DEEP_SLEEP_MODE\fP   0x3000AA"
+.br
+.RI "\fIPower Management Controller power modes Setting this mode will not make IO loose the state\&. \fP"
+.ti -1c
+.RI "#define \fBPMC_PWR_POWER_DOWN_MODE\fP   0x30FCBA"
+.br
+.ti -1c
+.RI "#define \fBPMC_PWR_DEEP_POWER_DOWN_MODE\fP   0x30FF7F"
+.br
+.ti -1c
+.RI "#define \fBPMC_PWR_DEEP_SLEEP_MODE_NO_IO\fP   0x3F00AA"
+.br
+.RI "\fIPower Management Controller power modes (IO powerdown) Setting this mode will make the IO loose the state\&. \fP"
+.ti -1c
+.RI "#define \fBPMC_PWR_POWER_DOWN_MODE_NO_IO\fP   0x3FFCBA"
+.br
+.ti -1c
+.RI "#define \fBPMC_PWR_DEEP_POWER_DOWN_MODE_NO_IO\fP   0x3FFF7F"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_PMC_PWR_STATE_T\fP { \fBPMC_DeepSleep\fP = PMC_PWR_DEEP_SLEEP_MODE, \fBPMC_PowerDown\fP = PMC_PWR_POWER_DOWN_MODE, \fBPMC_DeepPowerDown\fP = PMC_PWR_DEEP_POWER_DOWN_MODE }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_PMC_Sleep\fP (void)"
+.br
+.RI "\fISet to sleep power state\&. \fP"
+.ti -1c
+.RI "void \fBChip_PMC_Set_PwrState\fP (\fBCHIP_PMC_PWR_STATE_T\fP PwrState)"
+.br
+.RI "\fISet to sleep power mode\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define PMC_PWR_DEEP_POWER_DOWN_MODE   0x30FF7F"
+
+.PP
+Definición en la línea 59 del archivo pmc_18xx_43xx\&.h\&.
+.SS "#define PMC_PWR_DEEP_POWER_DOWN_MODE_NO_IO   0x3FFF7F"
+
+.PP
+Definición en la línea 67 del archivo pmc_18xx_43xx\&.h\&.
+.SS "#define PMC_PWR_DEEP_SLEEP_MODE   0x3000AA"
+
+.PP
+Power Management Controller power modes Setting this mode will not make IO loose the state\&. 
+.PP
+Definición en la línea 57 del archivo pmc_18xx_43xx\&.h\&.
+.SS "#define PMC_PWR_DEEP_SLEEP_MODE_NO_IO   0x3F00AA"
+
+.PP
+Power Management Controller power modes (IO powerdown) Setting this mode will make the IO loose the state\&. 
+.PP
+Definición en la línea 65 del archivo pmc_18xx_43xx\&.h\&.
+.SS "#define PMC_PWR_POWER_DOWN_MODE   0x30FCBA"
+
+.PP
+Definición en la línea 58 del archivo pmc_18xx_43xx\&.h\&.
+.SS "#define PMC_PWR_POWER_DOWN_MODE_NO_IO   0x3FFCBA"
+
+.PP
+Definición en la línea 66 del archivo pmc_18xx_43xx\&.h\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBCHIP_PMC_PWR_STATE_T\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIPMC_DeepSleep \fP\fP
+Deep sleep state 
+.TP
+\fB\fIPMC_PowerDown \fP\fP
+Power Down state 
+.TP
+\fB\fIPMC_DeepPowerDown \fP\fP
+Power Down state 
+.PP
+Definición en la línea 72 del archivo pmc_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void Chip_PMC_Set_PwrState (\fBCHIP_PMC_PWR_STATE_T\fP PwrState)"
+
+.PP
+Set to sleep power mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIPwrState\fP : Power State as specified in /a CHIP_PMC_PWR_STATE_T enum 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 58 del archivo pmc_18xx_43xx\&.c\&.
+.SS "void Chip_PMC_Sleep (void)"
+
+.PP
+Set to sleep power state\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 51 del archivo pmc_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

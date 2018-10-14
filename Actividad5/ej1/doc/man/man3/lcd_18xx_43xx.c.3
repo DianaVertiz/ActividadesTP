@@ -1,0 +1,38 @@
+.TH "lcd_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lcd_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_LCD_Init\fP (\fBLPC_LCD_T\fP *pLCD, \fBLCD_CONFIG_T\fP *LCD_ConfigStruct)"
+.br
+.RI "\fIInitialize the LCD controller\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_DeInit\fP (\fBLPC_LCD_T\fP *pLCD)"
+.br
+.RI "\fIShutdown the LCD controller\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_Cursor_Config\fP (\fBLPC_LCD_T\fP *pLCD, \fBLCD_CURSOR_SIZE_OPT_T\fP cursor_size, bool sync)"
+.br
+.RI "\fIConfigure Cursor\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_Cursor_WriteImage\fP (\fBLPC_LCD_T\fP *pLCD, uint8_t cursor_num, void *Image)"
+.br
+.RI "\fIWrite Cursor Image into Internal Cursor Image Buffer\&. \fP"
+.ti -1c
+.RI "void \fBChip_LCD_LoadPalette\fP (\fBLPC_LCD_T\fP *pLCD, void *palette)"
+.br
+.RI "\fILoad LCD Palette\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

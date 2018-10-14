@@ -1,0 +1,130 @@
+.TH "eeprom_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+eeprom_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_EEPROM_T\fP"
+.br
+.RI "\fIEEPROM register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBEEPROM_START\fP   (0x20040000)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_PAGE_SIZE\fP   (128)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_PAGE_NUM\fP   (128)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_ADDRESS\fP(page,  offset)   (\fBEEPROM_START\fP + (\fBEEPROM_PAGE_SIZE\fP * (page)) + offset)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_CLOCK_DIV\fP   1500000"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_READ_WAIT_STATE_VAL\fP   0x58"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_WAIT_STATE_VAL\fP   0x232"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_CMD_ERASE_PRG_PAGE\fP   (6)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_AUTOPROG_OFF\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_AUTOPROG_AFT_1WORDWRITTEN\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_AUTOPROG_AFT_LASTWORDWRITTEN\fP   (2)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_PWRDWN\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBEEPROM_INT_ENDOFPROG\fP   (1 << 2)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_EnablePowerDown\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIPut EEPROM device in power down mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_DisablePowerDown\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIBring EEPROM device out of power down mode\&. \fP"
+.ti -1c
+.RI "void \fBChip_EEPROM_Init\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIInitializes EEPROM\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_DeInit\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIDe-initializes EEPROM\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetAutoProg\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mode)"
+.br
+.RI "\fISet Auto program mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetReadWaitState\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t ws)"
+.br
+.RI "\fISet EEPROM Read Wait State\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetWaitState\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t ws)"
+.br
+.RI "\fISet EEPROM wait state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetCmd\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t cmd)"
+.br
+.RI "\fISelect an EEPROM command\&. \fP"
+.ti -1c
+.RI "void \fBChip_EEPROM_EraseProgramPage\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIErase/Program an EEPROM page\&. \fP"
+.ti -1c
+.RI "void \fBChip_EEPROM_WaitForIntStatus\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fIWait for interrupt occurs\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_EnableInt\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fIEnable EEPROM interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_DisableInt\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fIDisable EEPROM interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_EEPROM_GetIntEnable\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIGet the value of the EEPROM interrupt enable register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_EEPROM_GetIntStatus\fP (\fBLPC_EEPROM_T\fP *pEEPROM)"
+.br
+.RI "\fIGet EEPROM interrupt status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_SetIntStatus\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fISet EEPROM interrupt status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EEPROM_ClearIntStatus\fP (\fBLPC_EEPROM_T\fP *pEEPROM, uint32_t mask)"
+.br
+.RI "\fIClear EEPROM interrupt status\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

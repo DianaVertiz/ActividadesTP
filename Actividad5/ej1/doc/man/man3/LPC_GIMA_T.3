@@ -1,0 +1,82 @@
+.TH "LPC_GIMA_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_GIMA_T \- Global Input Multiplexer Array (GIMA) register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <gima_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCAP0_IN\fP [4][4]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTIN_IN\fP [8]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBADCHS_TRIGGER_IN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEVENTROUTER_13_IN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEVENTROUTER_14_IN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBEVENTROUTER_16_IN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBADCSTART0_IN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBADCSTART1_IN\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Global Input Multiplexer Array (GIMA) register block structure\&. 
+.PP
+Definición en la línea 47 del archivo gima_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t ADCHS_TRIGGER_IN"
+ADCHS trigger input multiplexer (GIMA output 24) 
+.PP
+Definición en la línea 50 del archivo gima_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ADCSTART0_IN"
+ADC start0 input multiplexer (GIMA output 28) 
+.PP
+Definición en la línea 54 del archivo gima_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ADCSTART1_IN"
+ADC start1 input multiplexer (GIMA output 29) 
+.PP
+Definición en la línea 55 del archivo gima_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CAP0_IN[4][4]"
+< GIMA Structure Timer x CAP0_y capture input multiplexer (GIMA output ((x*4)+y)) 
+.PP
+Definición en la línea 48 del archivo gima_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTIN_IN[8]"
+SCT CTIN_x capture input multiplexer (GIMA output (16+x)) 
+.PP
+Definición en la línea 49 del archivo gima_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t EVENTROUTER_13_IN"
+Event router input 13 multiplexer (GIMA output 25) 
+.PP
+Definición en la línea 51 del archivo gima_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t EVENTROUTER_14_IN"
+Event router input 14 multiplexer (GIMA output 26) 
+.PP
+Definición en la línea 52 del archivo gima_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t EVENTROUTER_16_IN"
+Event router input 16 multiplexer (GIMA output 27) 
+.PP
+Definición en la línea 53 del archivo gima_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

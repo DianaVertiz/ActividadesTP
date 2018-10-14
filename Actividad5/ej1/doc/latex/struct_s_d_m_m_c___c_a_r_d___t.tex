@@ -1,0 +1,155 @@
+\hypertarget{struct_s_d_m_m_c___c_a_r_d___t}{}\section{Referencia de la Estructura S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}
+\label{struct_s_d_m_m_c___c_a_r_d___t}\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+
+
+S\+D/\+M\+MC Card specific setup data structure.  
+
+
+
+
+{\ttfamily \#include $<$sdmmc.\+h$>$}
+
+\subsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_af8dec199f0e5b3e398572384f304a9b9}{response} \mbox{[}4\mbox{]}
+\item 
+uint32\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_aa4aa8ca8ef253ab8b2e4cf237ec93f0f}{cid} \mbox{[}4\mbox{]}
+\item 
+uint32\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_a19d36c084d93f976533cb7f3747617a7}{csd} \mbox{[}4\mbox{]}
+\item 
+uint32\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_ab0fd82a526e95803db0f7c06ed428f8f}{ext\+\_\+csd} \mbox{[}512/4\mbox{]}
+\item 
+uint32\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_a21344812dcaa40c24fcd631b7b8915ea}{card\+\_\+type}
+\item 
+uint16\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_a507feb31eecad24ea6e75566817e4961}{rca}
+\item 
+uint32\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_a220859a8b5da0232739a11cbe7f79fc5}{speed}
+\item 
+uint32\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_a8fb8b36eb880c86464ec8baf1b5c202a}{block\+\_\+len}
+\item 
+uint64\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_a316beaaf7640003a2c28fbfa5fc222dd}{device\+\_\+size}
+\item 
+uint32\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_a90cee613097870780dda8c7f8a7e21b7}{blocknr}
+\item 
+uint32\+\_\+t \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_a428a59667f1ee33f4287059b902fad00}{clk\+\_\+rate}
+\item 
+\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_gad8f6b6485a8de8a55a8cdee88788a64c}{S\+D\+M\+M\+C\+\_\+\+E\+V\+S\+E\+T\+U\+P\+\_\+\+F\+U\+N\+C\+\_\+T} \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_a863f41c39cc6b5316fa1ae19f30116a8}{evsetup\+\_\+cb}
+\item 
+\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga3379c3596d02e20e0531dc1287df505f}{S\+D\+M\+M\+C\+\_\+\+E\+V\+W\+A\+I\+T\+\_\+\+F\+U\+N\+C\+\_\+T} \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_aba83ee702d85b5e9dc7f00a9561a200c}{waitfunc\+\_\+cb}
+\item 
+\hyperlink{group___c_h_i_p___s_d_m_m_c___definitions_ga910711513843f370e9b251ec60b245e7}{S\+D\+M\+M\+C\+\_\+\+M\+S\+D\+E\+L\+A\+Y\+\_\+\+F\+U\+N\+C\+\_\+T} \hyperlink{struct_s_d_m_m_c___c_a_r_d___t_aef75c297850362bd49b19f70475f7bad}{msdelay\+\_\+func}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+S\+D/\+M\+MC Card specific setup data structure. 
+
+Definición en la línea 193 del archivo sdmmc.\+h.
+
+
+
+\subsection{Documentación de los campos}
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!block\+\_\+len@{block\+\_\+len}}
+\index{block\+\_\+len@{block\+\_\+len}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{block\+\_\+len}{block_len}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t block\+\_\+len}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_a8fb8b36eb880c86464ec8baf1b5c202a}{}\label{struct_s_d_m_m_c___c_a_r_d___t_a8fb8b36eb880c86464ec8baf1b5c202a}
+Card sector size 
+
+Definición en la línea 201 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!blocknr@{blocknr}}
+\index{blocknr@{blocknr}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{blocknr}{blocknr}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t blocknr}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_a90cee613097870780dda8c7f8a7e21b7}{}\label{struct_s_d_m_m_c___c_a_r_d___t_a90cee613097870780dda8c7f8a7e21b7}
+Block Number 
+
+Definición en la línea 203 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!card\+\_\+type@{card\+\_\+type}}
+\index{card\+\_\+type@{card\+\_\+type}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{card\+\_\+type}{card_type}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t card\+\_\+type}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_a21344812dcaa40c24fcd631b7b8915ea}{}\label{struct_s_d_m_m_c___c_a_r_d___t_a21344812dcaa40c24fcd631b7b8915ea}
+Card Type 
+
+Definición en la línea 198 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!cid@{cid}}
+\index{cid@{cid}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{cid}{cid}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t cid\mbox{[}4\mbox{]}}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_aa4aa8ca8ef253ab8b2e4cf237ec93f0f}{}\label{struct_s_d_m_m_c___c_a_r_d___t_aa4aa8ca8ef253ab8b2e4cf237ec93f0f}
+C\+ID of acquired card 
+
+Definición en la línea 195 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!clk\+\_\+rate@{clk\+\_\+rate}}
+\index{clk\+\_\+rate@{clk\+\_\+rate}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{clk\+\_\+rate}{clk_rate}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t clk\+\_\+rate}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_a428a59667f1ee33f4287059b902fad00}{}\label{struct_s_d_m_m_c___c_a_r_d___t_a428a59667f1ee33f4287059b902fad00}
+
+
+Definición en la línea 204 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!csd@{csd}}
+\index{csd@{csd}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{csd}{csd}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t csd\mbox{[}4\mbox{]}}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_a19d36c084d93f976533cb7f3747617a7}{}\label{struct_s_d_m_m_c___c_a_r_d___t_a19d36c084d93f976533cb7f3747617a7}
+C\+SD of acquired card 
+
+Definición en la línea 196 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!device\+\_\+size@{device\+\_\+size}}
+\index{device\+\_\+size@{device\+\_\+size}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{device\+\_\+size}{device_size}}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t device\+\_\+size}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_a316beaaf7640003a2c28fbfa5fc222dd}{}\label{struct_s_d_m_m_c___c_a_r_d___t_a316beaaf7640003a2c28fbfa5fc222dd}
+Device Size 
+
+Definición en la línea 202 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!evsetup\+\_\+cb@{evsetup\+\_\+cb}}
+\index{evsetup\+\_\+cb@{evsetup\+\_\+cb}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{evsetup\+\_\+cb}{evsetup_cb}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+M\+M\+C\+\_\+\+E\+V\+S\+E\+T\+U\+P\+\_\+\+F\+U\+N\+C\+\_\+T} evsetup\+\_\+cb}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_a863f41c39cc6b5316fa1ae19f30116a8}{}\label{struct_s_d_m_m_c___c_a_r_d___t_a863f41c39cc6b5316fa1ae19f30116a8}
+Clock rate Function to setup event information 
+
+Definición en la línea 205 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!ext\+\_\+csd@{ext\+\_\+csd}}
+\index{ext\+\_\+csd@{ext\+\_\+csd}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{ext\+\_\+csd}{ext_csd}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t ext\+\_\+csd\mbox{[}512/4\mbox{]}}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_ab0fd82a526e95803db0f7c06ed428f8f}{}\label{struct_s_d_m_m_c___c_a_r_d___t_ab0fd82a526e95803db0f7c06ed428f8f}
+Ext C\+SD 
+
+Definición en la línea 197 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!msdelay\+\_\+func@{msdelay\+\_\+func}}
+\index{msdelay\+\_\+func@{msdelay\+\_\+func}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{msdelay\+\_\+func}{msdelay_func}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+M\+M\+C\+\_\+\+M\+S\+D\+E\+L\+A\+Y\+\_\+\+F\+U\+N\+C\+\_\+T} msdelay\+\_\+func}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_aef75c297850362bd49b19f70475f7bad}{}\label{struct_s_d_m_m_c___c_a_r_d___t_aef75c297850362bd49b19f70475f7bad}
+Function to sleep in ms 
+
+Definición en la línea 207 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!rca@{rca}}
+\index{rca@{rca}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{rca}{rca}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t rca}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_a507feb31eecad24ea6e75566817e4961}{}\label{struct_s_d_m_m_c___c_a_r_d___t_a507feb31eecad24ea6e75566817e4961}
+Relative address assigned to card 
+
+Definición en la línea 199 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!response@{response}}
+\index{response@{response}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{response}{response}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t response\mbox{[}4\mbox{]}}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_af8dec199f0e5b3e398572384f304a9b9}{}\label{struct_s_d_m_m_c___c_a_r_d___t_af8dec199f0e5b3e398572384f304a9b9}
+Most recent response 
+
+Definición en la línea 194 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!speed@{speed}}
+\index{speed@{speed}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{speed}{speed}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t speed}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_a220859a8b5da0232739a11cbe7f79fc5}{}\label{struct_s_d_m_m_c___c_a_r_d___t_a220859a8b5da0232739a11cbe7f79fc5}
+Speed 
+
+Definición en la línea 200 del archivo sdmmc.\+h.
+
+\index{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}!waitfunc\+\_\+cb@{waitfunc\+\_\+cb}}
+\index{waitfunc\+\_\+cb@{waitfunc\+\_\+cb}!S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T@{S\+D\+M\+M\+C\+\_\+\+C\+A\+R\+D\+\_\+T}}
+\subsubsection[{\texorpdfstring{waitfunc\+\_\+cb}{waitfunc_cb}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+D\+M\+M\+C\+\_\+\+E\+V\+W\+A\+I\+T\+\_\+\+F\+U\+N\+C\+\_\+T} waitfunc\+\_\+cb}\hypertarget{struct_s_d_m_m_c___c_a_r_d___t_aba83ee702d85b5e9dc7f00a9561a200c}{}\label{struct_s_d_m_m_c___c_a_r_d___t_aba83ee702d85b5e9dc7f00a9561a200c}
+Function to wait for event 
+
+Definición en la línea 206 del archivo sdmmc.\+h.
+
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sdmmc_8h}{sdmmc.\+h}\end{DoxyCompactItemize}

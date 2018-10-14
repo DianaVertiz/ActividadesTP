@@ -1,0 +1,185 @@
+!SESSION 2018-09-05 06:42:16.505 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_AR
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-09-05 06:51:39.451
+!MESSAGE Indexed 'ej01' (47 sources, 135 headers) in 4,18 sec: 12.801 declarations; 17.712 references; 25 unresolved inclusions; 1.544 syntax errors; 5.798 unresolved names (16%)
+
+!ENTRY ilg.gnuarmeclipse.packs.data 4 1 2018-09-05 07:25:33.680
+!MESSAGE File .repos.xml does not exist, using defaults.
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-09-05 07:33:23.816
+!MESSAGE Indexed 'ej01' (47 sources, 170 headers) in 2,58 sec: 13.795 declarations; 21.789 references; 20 unresolved inclusions; 1.547 syntax errors; 3.206 unresolved names (8,3%)
+!SESSION 2018-09-05 07:43:41.772 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_AR
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 06:46:18.057
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 06:46:18.638
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 06:50:24.534
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 06:50:24.877
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 06:50:30.857
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.graphing.ui.commands.SaveGraphImage
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 06:50:30.857
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ExportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 06:50:30.857
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ImportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 06:50:30.859
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.RunScriptCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 06:50:30.859
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.commands.ImportTapset
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 06:50:30.860
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.editor.commands.file.OpenFileCommand
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:07:59.322
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:07:59.669
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:09:02.113
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:09:02.478
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:09:02.989
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.graphing.ui.commands.SaveGraphImage
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:09:02.989
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ExportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:09:02.989
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ImportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:09:02.990
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.editor.commands.file.OpenFileCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:09:02.991
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.RunScriptCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:09:02.992
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.commands.ImportTapset
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:10:33.013
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:10:33.363
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:10:33.879
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.graphing.ui.commands.SaveGraphImage
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:10:33.879
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ExportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:10:33.879
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ImportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:10:33.880
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.editor.commands.file.OpenFileCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:10:33.881
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.RunScriptCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:10:33.881
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.commands.ImportTapset
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:11:02.097
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:11:02.440
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:14:36.648
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:14:36.988
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:14:37.506
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.graphing.ui.commands.SaveGraphImage
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:14:37.506
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ExportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:14:37.506
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ImportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:14:37.507
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.editor.commands.file.OpenFileCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:14:37.508
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.RunScriptCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:14:37.508
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.commands.ImportTapset
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:20:28.522
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.debug.gdbjtag.qemu 4 1 2018-09-06 07:20:28.867
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2018-09-06 07:28:09.885
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2018-09-06 07:28:10.236
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2018-09-06 07:32:27.488
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2018-09-06 07:32:27.830
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2018-09-06 07:32:58.349
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2018-09-06 07:32:58.695
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:32:59.226
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.graphing.ui.commands.SaveGraphImage
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:32:59.226
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ExportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:32:59.226
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.ImportDataSetCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:32:59.226
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.editor.commands.file.OpenFileCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:32:59.227
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.RunScriptCommand
+
+!ENTRY org.eclipse.ui 4 4 2018-09-06 07:32:59.228
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.linuxtools.systemtap.ui.ide.commands.ImportTapset
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2018-09-06 07:35:07.792
+!MESSAGE /home/diana/ciaa-ide/openocd-0.9.0/src/openocd -c gdb_port 3333 -c telnet_port 4444 -f openocd/lpc4337.cfg -c echo "Started by GNU ARM Eclipse"
+
+!ENTRY ilg.gnuarmeclipse.packs.core 4 1 2018-09-06 07:35:08.140
+!MESSAGE /home/diana/ciaa-ide/gcc-arm-none-eabi-5_4-2016q3/bin/arm-none-eabi-gdb --interpreter=mi2 --nx

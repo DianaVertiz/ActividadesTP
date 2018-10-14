@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;TP6_ej4/src/pila.c&apos; to &apos;morseCode.c&apos;" description="Rename resource &apos;pila.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/pila.c" name="morseCode.c" stamp="1539055434417" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;TP6_ej4/inc/pila.h&apos; to &apos;morseCode.h&apos;" description="Rename resource &apos;pila.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="inc/pila.h" name="morseCode.h" stamp="1539055453419" updateReferences="true"/>
+</session>

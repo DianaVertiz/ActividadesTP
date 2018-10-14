@@ -1,0 +1,47 @@
+.TH "cmsis_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cmsis_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'core_cm4\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__CM4_REV\fP   0x0001"
+.br
+.ti -1c
+.RI "#define \fB__MPU_PRESENT\fP   1"
+.br
+.ti -1c
+.RI "#define \fB__NVIC_PRIO_BITS\fP   3"
+.br
+.ti -1c
+.RI "#define \fB__Vendor_SysTickConfig\fP   0"
+.br
+.ti -1c
+.RI "#define \fB__FPU_PRESENT\fP   1"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBLPC43XX_IRQn_Type\fP \fBIRQn_Type\fP"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBLPC43XX_IRQn_Type\fP { \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBMemoryManagement_IRQn\fP = -12, \fBBusFault_IRQn\fP = -11, \fBUsageFault_IRQn\fP = -10, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBDAC_IRQn\fP = 0, \fBM0APP_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBRESERVED2_IRQn\fP = 4, \fBETHERNET_IRQn\fP = 5, \fBSDIO_IRQn\fP = 6, \fBLCD_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBTIMER0_IRQn\fP = 12, \fBTIMER1_IRQn\fP = 13, \fBTIMER2_IRQn\fP = 14, \fBTIMER3_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 29, \fBRESERVED4_IRQn\fP = 30, \fBSGPIO_INT_IRQn\fP = 31, \fBPIN_INT0_IRQn\fP = 32, \fBPIN_INT1_IRQn\fP = 33, \fBPIN_INT2_IRQn\fP = 34, \fBPIN_INT3_IRQn\fP = 35, \fBPIN_INT4_IRQn\fP = 36, \fBPIN_INT5_IRQn\fP = 37, \fBPIN_INT6_IRQn\fP = 38, \fBPIN_INT7_IRQn\fP = 39, \fBGINT0_IRQn\fP = 40, \fBGINT1_IRQn\fP = 41, \fBEVENTROUTER_IRQn\fP = 42, \fBC_CAN1_IRQn\fP = 43, \fBRESERVED6_IRQn\fP = 44, \fBADCHS_IRQn\fP = 45, \fBATIMER_IRQn\fP = 46, \fBRTC_IRQn\fP = 47, \fBRESERVED8_IRQn\fP = 48, \fBWWDT_IRQn\fP = 49, \fBM0SUB_IRQn\fP = 50, \fBC_CAN0_IRQn\fP = 51, \fBQEI_IRQn\fP = 52, \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBMemoryManagement_IRQn\fP = -12, \fBBusFault_IRQn\fP = -11, \fBUsageFault_IRQn\fP = -10, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBDAC_IRQn\fP = 0, \fBM0APP_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBRESERVED2_IRQn\fP = 4, \fBETHERNET_IRQn\fP = 5, \fBSDIO_IRQn\fP = 6, \fBLCD_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBTIMER0_IRQn\fP = 12, \fBTIMER1_IRQn\fP = 13, \fBTIMER2_IRQn\fP = 14, \fBTIMER3_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 29, \fBRESERVED4_IRQn\fP = 30, \fBSGPIO_INT_IRQn\fP = 31, \fBPIN_INT0_IRQn\fP = 32, \fBPIN_INT1_IRQn\fP = 33, \fBPIN_INT2_IRQn\fP = 34, \fBPIN_INT3_IRQn\fP = 35, \fBPIN_INT4_IRQn\fP = 36, \fBPIN_INT5_IRQn\fP = 37, \fBPIN_INT6_IRQn\fP = 38, \fBPIN_INT7_IRQn\fP = 39, \fBGINT0_IRQn\fP = 40, \fBGINT1_IRQn\fP = 41, \fBEVENTROUTER_IRQn\fP = 42, \fBC_CAN1_IRQn\fP = 43, \fBRESERVED6_IRQn\fP = 44, \fBADCHS_IRQn\fP = 45, \fBATIMER_IRQn\fP = 46, \fBRTC_IRQn\fP = 47, \fBRESERVED8_IRQn\fP = 48, \fBWWDT_IRQn\fP = 49, \fBM0SUB_IRQn\fP = 50, \fBC_CAN0_IRQn\fP = 51, \fBQEI_IRQn\fP = 52 }"
+.br
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

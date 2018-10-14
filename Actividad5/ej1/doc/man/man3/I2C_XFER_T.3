@@ -1,0 +1,68 @@
+.TH "I2C_XFER_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+I2C_XFER_T \- Master transfer data structure definitions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <i2c_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBslaveAddr\fP"
+.br
+.ti -1c
+.RI "const uint8_t * \fBtxBuff\fP"
+.br
+.ti -1c
+.RI "int \fBtxSz\fP"
+.br
+.ti -1c
+.RI "uint8_t * \fBrxBuff\fP"
+.br
+.ti -1c
+.RI "int \fBrxSz\fP"
+.br
+.ti -1c
+.RI "\fBI2C_STATUS_T\fP \fBstatus\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Master transfer data structure definitions\&. 
+.PP
+Definición en la línea 122 del archivo i2c_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint8_t* rxBuff"
+Pointer memory where bytes received from I2C be stored 
+.PP
+Definición en la línea 127 del archivo i2c_18xx_43xx\&.h\&.
+.SS "int rxSz"
+Number of bytes to received, if 0 only transmission we be carried on 
+.PP
+Definición en la línea 128 del archivo i2c_18xx_43xx\&.h\&.
+.SS "uint8_t slaveAddr"
+7-bit I2C Slave address 
+.PP
+Definición en la línea 123 del archivo i2c_18xx_43xx\&.h\&.
+.SS "\fBI2C_STATUS_T\fP status"
+Status of the current I2C transfer 
+.PP
+Definición en la línea 130 del archivo i2c_18xx_43xx\&.h\&.
+.SS "const uint8_t* txBuff"
+Pointer to array of bytes to be transmitted 
+.PP
+Definición en la línea 124 del archivo i2c_18xx_43xx\&.h\&.
+.SS "int txSz"
+Number of bytes in transmit array, if 0 only receive transfer will be carried on 
+.PP
+Definición en la línea 125 del archivo i2c_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

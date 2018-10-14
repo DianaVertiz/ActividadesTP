@@ -1,0 +1,19 @@
+\hypertarget{sysinit__18xx__43xx_8c}{}\section{Referencia del Archivo sysinit\+\_\+18xx\+\_\+43xx.\+c}
+\label{sysinit__18xx__43xx_8c}\index{sysinit\+\_\+18xx\+\_\+43xx.\+c@{sysinit\+\_\+18xx\+\_\+43xx.\+c}}
+{\ttfamily \#include \char`\"{}chip.\+h\char`\"{}}\\*
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_c_l_k___b_a_s_e___s_t_a_t_e_s}{C\+L\+K\+\_\+\+B\+A\+S\+E\+\_\+\+S\+T\+A\+T\+ES}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga54251628aeac543524d98d4db12c39f9}{Chip\+\_\+\+Setup\+Core\+Clock} (\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} clkin, uint32\+\_\+t core\+\_\+freq, bool setbase)
+\begin{DoxyCompactList}\small\item\em Clock and P\+LL initialization based input given in {\itshape clkin}. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga18737e4a022570724c77c5cdea9c0258}{Chip\+\_\+\+Setup\+Xtal\+Clocking} (void)
+\begin{DoxyCompactList}\small\item\em Clock and P\+LL initialization based on the external oscillator. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga6eff97a8da15798119eada6c5f000404}{Chip\+\_\+\+Setup\+Irc\+Clocking} (void)
+\begin{DoxyCompactList}\small\item\em Clock and P\+LL initialization based on the internal oscillator. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga3450fa020f6b569cc2deb69c11e11b7c}{Chip\+\_\+\+System\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Set up and initialize hardware prior to call to \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()} \end{DoxyCompactList}\end{DoxyCompactItemize}

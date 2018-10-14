@@ -1,0 +1,133 @@
+.TH "lpc_types.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lpc_types.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTRUE\fP   (1)"
+.br
+.RI "\fIBoolean Type definition\&. \fP"
+.ti -1c
+.RI "#define \fBFALSE\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBPARAM_SETSTATE\fP(State)   ((State == \fBRESET\fP) || (State == \fBSET\fP))"
+.br
+.ti -1c
+.RI "#define \fBPARAM_FUNCTIONALSTATE\fP(State)   ((State == \fBDISABLE\fP) || (State == \fBENABLE\fP))"
+.br
+.ti -1c
+.RI "#define \fB_BIT\fP(n)   (1 << (n))"
+.br
+.ti -1c
+.RI "#define \fB_SBF\fP(f,  v)   ((v) << (f))"
+.br
+.ti -1c
+.RI "#define \fB_BITMASK\fP(field_width)   ( \fB_BIT\fP(field_width) \- 1)"
+.br
+.ti -1c
+.RI "#define \fBNULL\fP   ((void *) 0)"
+.br
+.ti -1c
+.RI "#define \fBNELEMENTS\fP(array)   (sizeof(array) / sizeof(array[0]))"
+.br
+.ti -1c
+.RI "#define \fBSTATIC\fP   static"
+.br
+.ti -1c
+.RI "#define \fBEXTERN\fP   extern"
+.br
+.ti -1c
+.RI "#define \fBMAX\fP(a,  b)   (((a) > (b)) ? (a) : (b))"
+.br
+.ti -1c
+.RI "#define \fBMIN\fP(a,  b)   (((a) < (b)) ? (a) : (b))"
+.br
+.ti -1c
+.RI "#define \fBINLINE\fP   inline"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBFlagStatus\fP \fBIntStatus\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBFlagStatus\fP \fBSetState\fP"
+.br
+.ti -1c
+.RI "typedef void(* \fBPFV\fP) ()"
+.br
+.ti -1c
+.RI "typedef int32_t(* \fBPFI\fP) ()"
+.br
+.ti -1c
+.RI "typedef char \fBCHAR\fP"
+.br
+.ti -1c
+.RI "typedef uint8_t \fBUNS_8\fP"
+.br
+.ti -1c
+.RI "typedef int8_t \fBINT_8\fP"
+.br
+.ti -1c
+.RI "typedef uint16_t \fBUNS_16\fP"
+.br
+.ti -1c
+.RI "typedef int16_t \fBINT_16\fP"
+.br
+.ti -1c
+.RI "typedef uint32_t \fBUNS_32\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBINT_32\fP"
+.br
+.ti -1c
+.RI "typedef int64_t \fBINT_64\fP"
+.br
+.ti -1c
+.RI "typedef uint64_t \fBUNS_64\fP"
+.br
+.ti -1c
+.RI "typedef bool \fBBOOL_32\fP"
+.br
+.ti -1c
+.RI "typedef bool \fBBOOL_16\fP"
+.br
+.ti -1c
+.RI "typedef bool \fBBOOL_8\fP"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBFlagStatus\fP { \fBRESET\fP = 0, \fBSET\fP = !RESET }
+.RI "\fIBoolean Type definition\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBFunctionalState\fP { \fBDISABLE\fP = 0, \fBENABLE\fP = !DISABLE }
+.RI "\fIFunctional State Definition\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBStatus\fP { \fBERROR\fP = 0, \fBSUCCESS\fP = !ERROR }"
+.br
+.ti -1c
+.RI "enum \fBTRANSFER_BLOCK_T\fP { \fBNONE_BLOCKING\fP = 0, \fBBLOCKING\fP }"
+.br
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,1421 @@
+.TH "RTC_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RTC_18XX_43XX \- CHIP: LPC18xx/43xx Real Time Clock driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_RTC_T\fP"
+.br
+.RI "\fIReal Time Clock register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBLPC_REGFILE_T\fP"
+.br
+.RI "\fIRegister File register block structure\&. \fP"
+.ti -1c
+.RI "struct \fBRTC_EV_TIMESTAMP_T\fP"
+.br
+.RI "\fIEvent Monitor/Recorder Timestamp structure\&. \fP"
+.ti -1c
+.RI "struct \fBRTC_TIME_T\fP"
+.br
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRTC_EV_SUPPORT\fP   1				/* Event Monitor/Recorder support */"
+.br
+.ti -1c
+.RI "#define \fBRTC_ILR_BITMASK\fP   ((0x00000003))"
+.br
+.ti -1c
+.RI "#define \fBRTC_IRL_RTCCIF\fP   ((1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBRTC_IRL_RTCALF\fP   ((1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CCR_BITMASK\fP   ((0x00000013))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CCR_CLKEN\fP   ((1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CCR_CTCRST\fP   ((1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CCR_CCALEN\fP   ((1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AMR_CIIR_IMSEC\fP   ((1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AMR_CIIR_IMMIN\fP   ((1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AMR_CIIR_IMHOUR\fP   ((1 << 2))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AMR_CIIR_IMDOM\fP   ((1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AMR_CIIR_IMDOW\fP   ((1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AMR_CIIR_IMDOY\fP   ((1 << 5))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AMR_CIIR_IMMON\fP   ((1 << 6))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AMR_CIIR_IMYEAR\fP   ((1 << 7))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AMR_CIIR_BITMASK\fP   ((0xFF))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AUX_RTC_OSCF\fP   ((1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBRTC_AUXEN_RTC_OSCFEN\fP   ((1 << 4))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CTIME0_SECONDS_MASK\fP   ((0x3F))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CTIME0_MINUTES_MASK\fP   ((0x3F00))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CTIME0_HOURS_MASK\fP   ((0x1F0000))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CTIME0_DOW_MASK\fP   ((0x7000000))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CTIME1_DOM_MASK\fP   ((0x1F))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CTIME1_MONTH_MASK\fP   ((0xF00))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CTIME1_YEAR_MASK\fP   ((0xFFF0000))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CTIME2_DOY_MASK\fP   ((0xFFF))"
+.br
+.ti -1c
+.RI "#define \fBRTC_SEC_MASK\fP   (0x0000003F)"
+.br
+.ti -1c
+.RI "#define \fBRTC_MIN_MASK\fP   (0x0000003F)"
+.br
+.ti -1c
+.RI "#define \fBRTC_HOUR_MASK\fP   (0x0000001F)"
+.br
+.ti -1c
+.RI "#define \fBRTC_DOM_MASK\fP   (0x0000001F)"
+.br
+.ti -1c
+.RI "#define \fBRTC_DOW_MASK\fP   (0x00000007)"
+.br
+.ti -1c
+.RI "#define \fBRTC_DOY_MASK\fP   (0x000001FF)"
+.br
+.ti -1c
+.RI "#define \fBRTC_MONTH_MASK\fP   (0x0000000F)"
+.br
+.ti -1c
+.RI "#define \fBRTC_YEAR_MASK\fP   (0x00000FFF)"
+.br
+.ti -1c
+.RI "#define \fBRTC_SECOND_MAX\fP   59"
+.br
+.ti -1c
+.RI "#define \fBRTC_MINUTE_MAX\fP   59"
+.br
+.ti -1c
+.RI "#define \fBRTC_HOUR_MAX\fP   23"
+.br
+.ti -1c
+.RI "#define \fBRTC_MONTH_MIN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBRTC_MONTH_MAX\fP   12"
+.br
+.ti -1c
+.RI "#define \fBRTC_DAYOFMONTH_MIN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBRTC_DAYOFMONTH_MAX\fP   31"
+.br
+.ti -1c
+.RI "#define \fBRTC_DAYOFWEEK_MAX\fP   6"
+.br
+.ti -1c
+.RI "#define \fBRTC_DAYOFYEAR_MIN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBRTC_DAYOFYEAR_MAX\fP   366"
+.br
+.ti -1c
+.RI "#define \fBRTC_YEAR_MAX\fP   4095"
+.br
+.ti -1c
+.RI "#define \fBRTC_CALIBRATION_CALVAL_MASK\fP   ((0x1FFFF))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CALIBRATION_LIBDIR\fP   ((1 << 17))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CALIBRATION_MAX\fP   ((0x20000))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CALIB_DIR_FORWARD\fP   ((uint8_t) (0))"
+.br
+.ti -1c
+.RI "#define \fBRTC_CALIB_DIR_BACKWARD\fP   ((uint8_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_BITMASK\fP   ((uint32_t) 0xC0F03C0F)"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_INTWAKE_EN\fP   ((uint32_t) (1 << 0))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_GPCLEAR_EN\fP   ((uint32_t) (1 << 1))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_POL_NEGATIVE\fP   (0)		/* Event as positive edge */"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_POL_POSITIVE\fP   ((uint32_t) (1 << 2))	/* Event as negative edge */"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_INPUT_EN\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_CHANNEL_CONFIG_BITMASK\fP(ch)   ((uint32_t) (0x0F << (10 * ch)))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_CHANNEL_CONFIG\fP(ch,  \fBflag\fP)   ((uint32_t) (\fBflag\fP << (10 * ch)))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_MODE_MASK\fP   (((uint32_t) 3) << 30)"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_MODE_CLK_DISABLE\fP   (((uint32_t) 0) << 30)"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_MODE_16HZ\fP   (((uint32_t) 1) << 30)"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_MODE_64HZ\fP   (((uint32_t) 2) << 30)"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_MODE_1KHZ\fP   (((uint32_t) 3) << 30)"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERCTRL_MODE\fP(n)   (((uint32_t) n) << 30)"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERSTATUS_CHANNEL_EV\fP(ch)   ((uint32_t) (1 << ch))		/* At least 1 event has occurred on a specific channel */"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERSTATUS_GPCLEARED\fP   ((uint32_t) (1 << 3))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ERSTATUS_WAKEUP\fP   ((uint32_t) (((uint32_t) 1) << 31))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ER_COUNTER\fP(ch,  n)   ((uint32_t) ((n >> (8 * ch)) & 0x07))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ER_TIMESTAMP_SEC\fP(n)   ((uint32_t) (n & 0x3F))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ER_TIMESTAMP_MIN\fP(n)   ((uint32_t) ((n >> 6) & 0x3F))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ER_TIMESTAMP_HOUR\fP(n)   ((uint32_t) ((n >> 12) & 0x1F))"
+.br
+.ti -1c
+.RI "#define \fBRTC_ER_TIMESTAMP_DOY\fP(n)   ((uint32_t) ((n >> 17) & 0x1FF))"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBIP_RTC_EV_MODE\fP \fBRTC_EV_MODE_T\fP"
+.br
+.RI "\fIEvent Monitor/Recorder Mode definition\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBRTC_TIMEINDEX_T\fP { \fBRTC_TIMETYPE_SECOND\fP, \fBRTC_TIMETYPE_MINUTE\fP, \fBRTC_TIMETYPE_HOUR\fP, \fBRTC_TIMETYPE_DAYOFMONTH\fP, \fBRTC_TIMETYPE_DAYOFWEEK\fP, \fBRTC_TIMETYPE_DAYOFYEAR\fP, \fBRTC_TIMETYPE_MONTH\fP, \fBRTC_TIMETYPE_YEAR\fP, \fBRTC_TIMETYPE_LAST\fP }
+.RI "\fIRTC time type option\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBRTC_EV_CHANNEL_T\fP { \fBRTC_EV_CHANNEL_1\fP = 0, \fBRTC_EV_CHANNEL_2\fP, \fBRTC_EV_CHANNEL_3\fP, \fBRTC_EV_CHANNEL_NUM\fP }
+.RI "\fIEvent Channel Identifier definitions\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBIP_RTC_EV_MODE\fP { \fBRTC_EV_MODE_DISABLE\fP = 0, \fBRTC_EV_MODE_ENABLE_16HZ\fP = 1, \fBRTC_EV_MODE_ENABLE_64HZ\fP = 2, \fBRTC_EV_MODE_ENABLE_1KHZ\fP = 3, \fBRTC_EV_MODE_LAST\fP }
+.RI "\fIEvent Monitor/Recorder Mode definition\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBRTC_INT_OPT_T\fP { \fBRTC_INT_COUNTER_INCREASE\fP = RTC_IRL_RTCCIF, \fBRTC_INT_ALARM\fP = RTC_IRL_RTCALF }
+.RI "\fIRTC enumeration\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_RTC_ResetClockTickCounter\fP (\fBLPC_RTC_T\fP *pRTC)"
+.br
+.RI "\fIReset clock tick counter in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_Enable\fP (\fBLPC_RTC_T\fP *pRTC, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIStart/Stop RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_CntIncrIntConfig\fP (\fBLPC_RTC_T\fP *pRTC, uint32_t cntrMask, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable Counter increment interrupt for a time type in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_AlarmIntConfig\fP (\fBLPC_RTC_T\fP *pRTC, uint32_t alarmMask, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable Alarm interrupt for a time type in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RTC_SetTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIMEINDEX_T\fP Timetype, uint32_t TimeValue)"
+.br
+.RI "\fISet current time value for a time type in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_RTC_GetTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIMEINDEX_T\fP Timetype)"
+.br
+.RI "\fIGet current time value for a type time type\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_SetFullTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIME_T\fP *pFullTime)"
+.br
+.RI "\fISet full time in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_GetFullTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIME_T\fP *pFullTime)"
+.br
+.RI "\fIGet full time from the RTC peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RTC_SetAlarmTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIMEINDEX_T\fP Timetype, uint32_t ALValue)"
+.br
+.RI "\fISet alarm time value for a time type\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_RTC_GetAlarmTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIMEINDEX_T\fP Timetype)"
+.br
+.RI "\fIGet alarm time value for a time type\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_SetFullAlarmTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIME_T\fP *pFullTime)"
+.br
+.RI "\fISet full alarm time in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_GetFullAlarmTime\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_TIME_T\fP *pFullTime)"
+.br
+.RI "\fIGet full alarm time in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_REGFILE_Write\fP (\fBLPC_REGFILE_T\fP *pRegFile, uint8_t index, uint32_t value)"
+.br
+.RI "\fIWrite value to General purpose registers\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_REGFILE_Read\fP (\fBLPC_REGFILE_T\fP *pRegFile, uint8_t index)"
+.br
+.RI "\fIRead value from General purpose registers\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_CalibCounterCmd\fP (\fBLPC_RTC_T\fP *pRTC, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable calibration counter in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RTC_CalibConfig\fP (\fBLPC_RTC_T\fP *pRTC, uint32_t CalibValue, uint8_t CalibDir)"
+.br
+.RI "\fIConfigures Calibration in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RTC_ClearIntPending\fP (\fBLPC_RTC_T\fP *pRTC, uint32_t IntType)"
+.br
+.RI "\fIClear specified Location interrupt pending in the RTC peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP \fBIntStatus\fP \fBChip_RTC_GetIntPending\fP (\fBLPC_RTC_T\fP *pRTC, uint32_t IntType)"
+.br
+.RI "\fICheck whether if specified location interrupt in the RTC peripheral is set or not\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RTC_EV_Config\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_EV_CHANNEL_T\fP ch, uint32_t \fBflag\fP)"
+.br
+.RI "\fIConfigure a specific event channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RTC_EV_SetMode\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_EV_MODE_T\fP mode)"
+.br
+.RI "\fIEnable/Disable and select clock frequency for Event Monitor/Recorder\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_RTC_EV_GetStatus\fP (\fBLPC_RTC_T\fP *pRTC)"
+.br
+.RI "\fIGet Event Monitor/Recorder Status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RTC_EV_ClearStatus\fP (\fBLPC_RTC_T\fP *pRTC, uint32_t \fBflag\fP)"
+.br
+.RI "\fIClear Event Monitor/Recorder Status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP \fBFlagStatus\fP \fBChip_RTC_EV_GetChannelStatus\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_EV_CHANNEL_T\fP ch)"
+.br
+.RI "\fIGet status of a specific event channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RTC_EV_ClearChannelStatus\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_EV_CHANNEL_T\fP ch)"
+.br
+.RI "\fIClear status of a specific event channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_RTC_EV_GetCounter\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_EV_CHANNEL_T\fP ch)"
+.br
+.RI "\fIGet counter value of a specific event channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_EV_GetFirstTimeStamp\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_EV_CHANNEL_T\fP ch, \fBRTC_EV_TIMESTAMP_T\fP *pTimeStamp)"
+.br
+.RI "\fIGet first time stamp of a specific event channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_EV_GetLastTimeStamp\fP (\fBLPC_RTC_T\fP *pRTC, \fBRTC_EV_CHANNEL_T\fP ch, \fBRTC_EV_TIMESTAMP_T\fP *pTimeStamp)"
+.br
+.RI "\fIGet last time stamp of a specific event channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_Init\fP (\fBLPC_RTC_T\fP *pRTC)"
+.br
+.RI "\fIInitialize the RTC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_RTC_DeInit\fP (\fBLPC_RTC_T\fP *pRTC)"
+.br
+.RI "\fIDe-initialize the RTC peripheral\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define RTC_AMR_CIIR_BITMASK   ((0xFF))"
+CIIR bit mask 
+.PP
+Definición en la línea 147 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AMR_CIIR_IMDOM   ((1 << 3))"
+Counter Increment Interrupt bit for day of month 
+.PP
+Definición en la línea 137 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AMR_CIIR_IMDOW   ((1 << 4))"
+Counter Increment Interrupt bit for day of week 
+.PP
+Definición en la línea 139 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AMR_CIIR_IMDOY   ((1 << 5))"
+Counter Increment Interrupt bit for day of year 
+.PP
+Definición en la línea 141 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AMR_CIIR_IMHOUR   ((1 << 2))"
+Counter Increment Interrupt bit for hour 
+.PP
+Definición en la línea 135 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AMR_CIIR_IMMIN   ((1 << 1))"
+Counter Increment Interrupt bit for minute 
+.PP
+Definición en la línea 133 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AMR_CIIR_IMMON   ((1 << 6))"
+Counter Increment Interrupt bit for month 
+.PP
+Definición en la línea 143 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AMR_CIIR_IMSEC   ((1 << 0))"
+Counter Increment Interrupt bit for second 
+.PP
+Definición en la línea 131 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AMR_CIIR_IMYEAR   ((1 << 7))"
+Counter Increment Interrupt bit for year 
+.PP
+Definición en la línea 145 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AUX_RTC_OSCF   ((1 << 4))"
+RTC Oscillator Fail detect flag 
+.PP
+Definición en la línea 153 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_AUXEN_RTC_OSCFEN   ((1 << 4))"
+Oscillator Fail Detect interrupt enable 
+.PP
+Definición en la línea 159 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CALIB_DIR_BACKWARD   ((uint8_t) (1))"
+
+.PP
+Definición en la línea 224 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CALIB_DIR_FORWARD   ((uint8_t) (0))"
+Calibration definitions 
+.PP
+Definición en la línea 223 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CALIBRATION_CALVAL_MASK   ((0x1FFFF))"
+Calibration value 
+.PP
+Definición en la línea 217 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CALIBRATION_LIBDIR   ((1 << 17))"
+Calibration direction 
+.PP
+Definición en la línea 219 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CALIBRATION_MAX   ((0x20000))"
+Calibration max value 
+.PP
+Definición en la línea 221 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CCR_BITMASK   ((0x00000013))"
+CCR register mask 
+.PP
+Definición en la línea 119 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CCR_CCALEN   ((1 << 4))"
+Calibration counter enable 
+.PP
+Definición en la línea 125 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CCR_CLKEN   ((1 << 0))"
+Clock enable 
+.PP
+Definición en la línea 121 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CCR_CTCRST   ((1 << 1))"
+Clock reset 
+.PP
+Definición en la línea 123 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CTIME0_DOW_MASK   ((0x7000000))"
+
+.PP
+Definición en la línea 167 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CTIME0_HOURS_MASK   ((0x1F0000))"
+
+.PP
+Definición en la línea 166 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CTIME0_MINUTES_MASK   ((0x3F00))"
+
+.PP
+Definición en la línea 165 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CTIME0_SECONDS_MASK   ((0x3F))"
+
+.PP
+Definición en la línea 164 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CTIME1_DOM_MASK   ((0x1F))"
+
+.PP
+Definición en la línea 172 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CTIME1_MONTH_MASK   ((0xF00))"
+
+.PP
+Definición en la línea 173 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CTIME1_YEAR_MASK   ((0xFFF0000))"
+
+.PP
+Definición en la línea 174 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_CTIME2_DOY_MASK   ((0xFFF))"
+
+.PP
+Definición en la línea 179 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_DAYOFMONTH_MAX   31"
+Maximum value of day of month 
+.PP
+Definición en la línea 207 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_DAYOFMONTH_MIN   1"
+Minimum value of day of month 
+.PP
+Definición en la línea 206 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_DAYOFWEEK_MAX   6"
+Maximum value of day of week 
+.PP
+Definición en la línea 208 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_DAYOFYEAR_MAX   366"
+Maximum value of day of year 
+.PP
+Definición en la línea 210 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_DAYOFYEAR_MIN   1"
+Minimum value of day of year 
+.PP
+Definición en la línea 209 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_DOM_MASK   (0x0000001F)"
+DOM register mask 
+.PP
+Definición en la línea 191 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_DOW_MASK   (0x00000007)"
+DOW register mask 
+.PP
+Definición en la línea 193 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_DOY_MASK   (0x000001FF)"
+DOY register mask 
+.PP
+Definición en la línea 195 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ER_COUNTER(ch, n)   ((uint32_t) ((n >> (8 * ch)) & 0x07))"
+Value of the counter for Events occurred on a specific channel 
+.PP
+Definición en la línea 267 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ER_TIMESTAMP_DOY(n)   ((uint32_t) ((n >> 17) & 0x1FF))"
+
+.PP
+Definición en la línea 275 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ER_TIMESTAMP_HOUR(n)   ((uint32_t) ((n >> 12) & 0x1F))"
+
+.PP
+Definición en la línea 274 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ER_TIMESTAMP_MIN(n)   ((uint32_t) ((n >> 6) & 0x3F))"
+
+.PP
+Definición en la línea 273 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ER_TIMESTAMP_SEC(n)   ((uint32_t) (n & 0x3F))"
+
+.PP
+Definición en la línea 272 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_BITMASK   ((uint32_t) 0xC0F03C0F)"
+Event Monitor/Recorder Control register mask 
+.PP
+Definición en la línea 231 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_CHANNEL_CONFIG(ch, \fBflag\fP)   ((uint32_t) (\fBflag\fP << (10 * ch)))"
+
+.PP
+Definición en la línea 243 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_CHANNEL_CONFIG_BITMASK(ch)   ((uint32_t) (0x0F << (10 * ch)))"
+Configure a specific channel 
+.PP
+Definición en la línea 242 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_GPCLEAR_EN   ((uint32_t) (1 << 1))"
+Enables automatically clearing the RTC general purpose registers when an event occurs 
+.PP
+Definición en la línea 235 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_INPUT_EN   ((uint32_t) (1 << 3))"
+Enable event input\&. 
+.PP
+Definición en la línea 240 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_INTWAKE_EN   ((uint32_t) (1 << 0))"
+Enable event interrupt and wakeup 
+.PP
+Definición en la línea 233 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_MODE(n)   (((uint32_t) n) << 30)"
+
+.PP
+Definición en la línea 251 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_MODE_16HZ   (((uint32_t) 1) << 30)"
+
+.PP
+Definición en la línea 248 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_MODE_1KHZ   (((uint32_t) 3) << 30)"
+
+.PP
+Definición en la línea 250 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_MODE_64HZ   (((uint32_t) 2) << 30)"
+
+.PP
+Definición en la línea 249 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_MODE_CLK_DISABLE   (((uint32_t) 0) << 30)"
+
+.PP
+Definición en la línea 247 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_MODE_MASK   (((uint32_t) 3) << 30)"
+Enable Event Monitor/Recorder and select its operating frequency\&. 
+.PP
+Definición en la línea 246 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_POL_NEGATIVE   (0)		/* Event as positive edge */"
+Select polarity for a channel event on the input pin\&. 
+.PP
+Definición en la línea 237 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERCTRL_POL_POSITIVE   ((uint32_t) (1 << 2))	/* Event as negative edge */"
+
+.PP
+Definición en la línea 238 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERSTATUS_CHANNEL_EV(ch)   ((uint32_t) (1 << ch))		/* At least 1 event has occurred on a specific channel */"
+Event Flag for a specific channel 
+.PP
+Definición en la línea 257 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERSTATUS_GPCLEARED   ((uint32_t) (1 << 3))"
+General purpose registers have been asynchronous cleared\&. 
+.PP
+Definición en la línea 259 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ERSTATUS_WAKEUP   ((uint32_t) (((uint32_t) 1) << 31))"
+An interrupt/wakeup request is pending\&. 
+.PP
+Definición en la línea 261 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_EV_SUPPORT   1				/* Event Monitor/Recorder support */"
+
+.PP
+Definición en la línea 44 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_HOUR_MASK   (0x0000001F)"
+HOUR register mask 
+.PP
+Definición en la línea 189 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_HOUR_MAX   23"
+Maximum value of hour 
+.PP
+Definición en la línea 203 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_ILR_BITMASK   ((0x00000003))"
+ILR register mask 
+.PP
+Definición en la línea 109 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_IRL_RTCALF   ((1 << 1))"
+Bit inform the source interrupt is alarm match 
+.PP
+Definición en la línea 113 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_IRL_RTCCIF   ((1 << 0))"
+Bit inform the source interrupt is counter increment 
+.PP
+Definición en la línea 111 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_MIN_MASK   (0x0000003F)"
+MIN register mask 
+.PP
+Definición en la línea 187 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_MINUTE_MAX   59"
+Maximum value of minute 
+.PP
+Definición en la línea 202 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_MONTH_MASK   (0x0000000F)"
+MONTH register mask 
+.PP
+Definición en la línea 197 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_MONTH_MAX   12"
+Maximum value of month 
+.PP
+Definición en la línea 205 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_MONTH_MIN   1"
+Minimum value of month 
+.PP
+Definición en la línea 204 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_SEC_MASK   (0x0000003F)"
+SEC register mask 
+.PP
+Definición en la línea 185 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_SECOND_MAX   59"
+Maximum value of second 
+.PP
+Definición en la línea 201 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_YEAR_MASK   (0x00000FFF)"
+YEAR register mask 
+.PP
+Definición en la línea 199 del archivo rtc_18xx_43xx\&.h\&.
+.SS "#define RTC_YEAR_MAX   4095"
+Maximum value of year 
+.PP
+Definición en la línea 211 del archivo rtc_18xx_43xx\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef enum \fBIP_RTC_EV_MODE\fP  \fBRTC_EV_MODE_T\fP"
+
+.PP
+Event Monitor/Recorder Mode definition\&. 
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBIP_RTC_EV_MODE\fP"
+
+.PP
+Event Monitor/Recorder Mode definition\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIRTC_EV_MODE_DISABLE \fP\fP
+Event Monitor/Recoder is disabled 
+.TP
+\fB\fIRTC_EV_MODE_ENABLE_16HZ \fP\fP
+Event Monitor/Recoder is enabled and use 16Hz sample clock for event input 
+.TP
+\fB\fIRTC_EV_MODE_ENABLE_64HZ \fP\fP
+Event Monitor/Recoder is enabled and use 64Hz sample clock for event input 
+.TP
+\fB\fIRTC_EV_MODE_ENABLE_1KHZ \fP\fP
+Event Monitor/Recoder is enabled and use 1kHz sample clock for event input 
+.TP
+\fB\fIRTC_EV_MODE_LAST \fP\fP
+.PP
+Definición en la línea 280 del archivo rtc_18xx_43xx\&.h\&.
+.SS "enum \fBRTC_EV_CHANNEL_T\fP"
+
+.PP
+Event Channel Identifier definitions\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIRTC_EV_CHANNEL_1 \fP\fP
+.TP
+\fB\fIRTC_EV_CHANNEL_2 \fP\fP
+.TP
+\fB\fIRTC_EV_CHANNEL_3 \fP\fP
+.TP
+\fB\fIRTC_EV_CHANNEL_NUM \fP\fP
+.PP
+Definición en la línea 65 del archivo rtc_18xx_43xx\&.h\&.
+.SS "enum \fBRTC_INT_OPT_T\fP"
+
+.PP
+RTC enumeration\&. RTC interrupt source 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIRTC_INT_COUNTER_INCREASE \fP\fP
+Counter Increment Interrupt 
+.TP
+\fB\fIRTC_INT_ALARM \fP\fP
+The alarm interrupt 
+.PP
+Definición en la línea 305 del archivo rtc_18xx_43xx\&.h\&.
+.SS "enum \fBRTC_TIMEINDEX_T\fP"
+
+.PP
+RTC time type option\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIRTC_TIMETYPE_SECOND \fP\fP
+Second 
+.TP
+\fB\fIRTC_TIMETYPE_MINUTE \fP\fP
+Month 
+.TP
+\fB\fIRTC_TIMETYPE_HOUR \fP\fP
+Hour 
+.TP
+\fB\fIRTC_TIMETYPE_DAYOFMONTH \fP\fP
+Day of month 
+.TP
+\fB\fIRTC_TIMETYPE_DAYOFWEEK \fP\fP
+Day of week 
+.TP
+\fB\fIRTC_TIMETYPE_DAYOFYEAR \fP\fP
+Day of year 
+.TP
+\fB\fIRTC_TIMETYPE_MONTH \fP\fP
+Month 
+.TP
+\fB\fIRTC_TIMETYPE_YEAR \fP\fP
+Year 
+.TP
+\fB\fIRTC_TIMETYPE_LAST \fP\fP
+.PP
+Definición en la línea 49 del archivo rtc_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_REGFILE_Read (\fBLPC_REGFILE_T\fP * pRegFile, uint8_t index)"
+
+.PP
+Read value from General purpose registers\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRegFile\fP : RegFile peripheral selected 
+.br
+\fIindex\fP : General purpose register index 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Read Value 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+These General purpose registers can be used to store important information when the main power supply is off\&. The value in these registers is not affected by chip reset\&. These registers are powered in the RTC power domain\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 453 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_REGFILE_Write (\fBLPC_REGFILE_T\fP * pRegFile, uint8_t index, uint32_t value)"
+
+.PP
+Write value to General purpose registers\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRegFile\fP : RegFile peripheral selected 
+.br
+\fIindex\fP : General purpose register index 
+.br
+\fIvalue\fP : Value to write 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+These General purpose registers can be used to store important information when the main power supply is off\&. The value in these registers is not affected by chip reset\&. These registers are powered in the RTC power domain\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 438 del archivo rtc_18xx_43xx\&.h\&.
+.SS "void Chip_RTC_AlarmIntConfig (\fBLPC_RTC_T\fP * pRTC, uint32_t alarmMask, \fBFunctionalState\fP NewState)"
+
+.PP
+Enable/Disable Alarm interrupt for a time type in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIalarmMask\fP : Or'ed bit values for ALARM types (RTC_AMR_CIIR_IM*) 
+.br
+\fINewState\fP : ENABLE or DISABLE 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 120 del archivo rtc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RTC_CalibConfig (\fBLPC_RTC_T\fP * pRTC, uint32_t CalibValue, uint8_t CalibDir)"
+
+.PP
+Configures Calibration in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fICalibValue\fP : Calibration value, should be in range from 0 to 131,072 
+.br
+\fICalibDir\fP : Calibration Direction, should be:
+.IP "\(bu" 2
+RTC_CALIB_DIR_FORWARD :Forward calibration
+.IP "\(bu" 2
+RTC_CALIB_DIR_BACKWARD :Backward calibration 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 477 del archivo rtc_18xx_43xx\&.h\&.
+.SS "void Chip_RTC_CalibCounterCmd (\fBLPC_RTC_T\fP * pRTC, \fBFunctionalState\fP NewState)"
+
+.PP
+Enable/Disable calibration counter in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fINewState\fP : New State of this function, should be:
+.IP "\(bu" 2
+ENABLE :The calibration counter is enabled and counting
+.IP "\(bu" 2
+DISABLE :The calibration counter is disabled and reset to zero 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 188 del archivo rtc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RTC_ClearIntPending (\fBLPC_RTC_T\fP * pRTC, uint32_t IntType)"
+
+.PP
+Clear specified Location interrupt pending in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIIntType\fP : Interrupt location type, should be:
+.IP "\(bu" 2
+RTC_INT_COUNTER_INCREASE :Clear Counter Increment Interrupt pending\&.
+.IP "\(bu" 2
+RTC_INT_ALARM :Clear alarm interrupt pending 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 491 del archivo rtc_18xx_43xx\&.h\&.
+.SS "void Chip_RTC_CntIncrIntConfig (\fBLPC_RTC_T\fP * pRTC, uint32_t cntrMask, \fBFunctionalState\fP NewState)"
+
+.PP
+Enable/Disable Counter increment interrupt for a time type in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIcntrMask\fP : Or'ed bit values for time types (RTC_AMR_CIIR_IM*) 
+.br
+\fINewState\fP : ENABLE or DISABLE 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 107 del archivo rtc_18xx_43xx\&.c\&.
+.SS "void Chip_RTC_DeInit (\fBLPC_RTC_T\fP * pRTC)"
+
+.PP
+De-initialize the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 79 del archivo rtc_18xx_43xx\&.c\&.
+.SS "void Chip_RTC_Enable (\fBLPC_RTC_T\fP * pRTC, \fBFunctionalState\fP NewState)"
+
+.PP
+Start/Stop RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fINewState\fP : New State of this function, should be:
+.IP "\(bu" 2
+ENABLE :The time counters are enabled
+.IP "\(bu" 2
+DISABLE :The time counters are disabled 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 97 del archivo rtc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RTC_EV_ClearChannelStatus (\fBLPC_RTC_T\fP * pRTC, \fBRTC_EV_CHANNEL_T\fP ch)"
+
+.PP
+Clear status of a specific event channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIch\fP : Channel number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 580 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RTC_EV_ClearStatus (\fBLPC_RTC_T\fP * pRTC, uint32_t flag)"
+
+.PP
+Clear Event Monitor/Recorder Status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIflag\fP : Or-ed bit value of RTC_ERSTATUS_GPCLEARED and RTC_ERSTATUS_WAKEUP 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 558 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RTC_EV_Config (\fBLPC_RTC_T\fP * pRTC, \fBRTC_EV_CHANNEL_T\fP ch, uint32_t flag)"
+
+.PP
+Configure a specific event channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIch\fP : Channel number 
+.br
+\fIflag\fP : Configuration flag 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+flag is or-ed bit value of RTC_ERCTRL_INTWAKE_EN,RTC_ERCTRL_GPCLEAR_EN, RTC_ERCTRL_POL_POSITIVE and RTC_ERCTRL_INPUT_EN\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 520 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP \fBFlagStatus\fP Chip_RTC_EV_GetChannelStatus (\fBLPC_RTC_T\fP * pRTC, \fBRTC_EV_CHANNEL_T\fP ch)"
+
+.PP
+Get status of a specific event channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIch\fP : Channel number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+SET (At least 1 event occurred on the channel), RESET: no event occured\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 569 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_RTC_EV_GetCounter (\fBLPC_RTC_T\fP * pRTC, \fBRTC_EV_CHANNEL_T\fP ch)"
+
+.PP
+Get counter value of a specific event channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIch\fP : Channel number 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+counter value 
+.RE
+.PP
+
+.PP
+Definición en la línea 591 del archivo rtc_18xx_43xx\&.h\&.
+.SS "void Chip_RTC_EV_GetFirstTimeStamp (\fBLPC_RTC_T\fP * pRTC, \fBRTC_EV_CHANNEL_T\fP ch, \fBRTC_EV_TIMESTAMP_T\fP * pTimeStamp)"
+
+.PP
+Get first time stamp of a specific event channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIch\fP : Channel number 
+.br
+\fIpTimeStamp\fP : pointer to Timestamp buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing\&. 
+.RE
+.PP
+
+.SS "void Chip_RTC_EV_GetLastTimeStamp (\fBLPC_RTC_T\fP * pRTC, \fBRTC_EV_CHANNEL_T\fP ch, \fBRTC_EV_TIMESTAMP_T\fP * pTimeStamp)"
+
+.PP
+Get last time stamp of a specific event channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIch\fP : Channel number 
+.br
+\fIpTimeStamp\fP : pointer to Timestamp buffer 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing\&. 
+.RE
+.PP
+
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_RTC_EV_GetStatus (\fBLPC_RTC_T\fP * pRTC)"
+
+.PP
+Get Event Monitor/Recorder Status\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Or-ed bit value of RTC_ERSTATUS_GPCLEARED and RTC_ERSTATUS_WAKEUP 
+.RE
+.PP
+
+.PP
+Definición en la línea 547 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RTC_EV_SetMode (\fBLPC_RTC_T\fP * pRTC, \fBRTC_EV_MODE_T\fP mode)"
+
+.PP
+Enable/Disable and select clock frequency for Event Monitor/Recorder\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fImode\fP : selected mode 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 534 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_RTC_GetAlarmTime (\fBLPC_RTC_T\fP * pRTC, \fBRTC_TIMEINDEX_T\fP Timetype)"
+
+.PP
+Get alarm time value for a time type\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fITimetype\fP : Time index field to get 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Value of Alarm time according to specified time type 
+.RE
+.PP
+
+.PP
+Definición en la línea 406 del archivo rtc_18xx_43xx\&.h\&.
+.SS "void Chip_RTC_GetFullAlarmTime (\fBLPC_RTC_T\fP * pRTC, \fBRTC_TIME_T\fP * pFullTime)"
+
+.PP
+Get full alarm time in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIpFullTime\fP : Pointer to full time record to fill 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 178 del archivo rtc_18xx_43xx\&.c\&.
+.SS "void Chip_RTC_GetFullTime (\fBLPC_RTC_T\fP * pRTC, \fBRTC_TIME_T\fP * pFullTime)"
+
+.PP
+Get full time from the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIpFullTime\fP : Pointer to full time record to fill 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 152 del archivo rtc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP \fBIntStatus\fP Chip_RTC_GetIntPending (\fBLPC_RTC_T\fP * pRTC, uint32_t IntType)"
+
+.PP
+Check whether if specified location interrupt in the RTC peripheral is set or not\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIIntType\fP : Interrupt location type, should be:
+.IP "\(bu" 2
+RTC_INT_COUNTER_INCREASE: Counter Increment Interrupt block generated an interrupt\&.
+.IP "\(bu" 2
+RTC_INT_ALARM: Alarm generated an interrupt\&. 
+.PP
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+New state of specified Location interrupt in RTC peripheral, SET OR RESET 
+.RE
+.PP
+
+.PP
+Definición en la línea 504 del archivo rtc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_RTC_GetTime (\fBLPC_RTC_T\fP * pRTC, \fBRTC_TIMEINDEX_T\fP Timetype)"
+
+.PP
+Get current time value for a type time type\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fITimetype\fP : Time field index type to get 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Value of time field according to specified time type 
+.RE
+.PP
+
+.PP
+Definición en la línea 367 del archivo rtc_18xx_43xx\&.h\&.
+.SS "void Chip_RTC_Init (\fBLPC_RTC_T\fP * pRTC)"
+
+.PP
+Initialize the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 51 del archivo rtc_18xx_43xx\&.c\&.
+.SS "void Chip_RTC_ResetClockTickCounter (\fBLPC_RTC_T\fP * pRTC)"
+
+.PP
+Reset clock tick counter in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 85 del archivo rtc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RTC_SetAlarmTime (\fBLPC_RTC_T\fP * pRTC, \fBRTC_TIMEINDEX_T\fP Timetype, uint32_t ALValue)"
+
+.PP
+Set alarm time value for a time type\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fITimetype\fP : Time index field to set 
+.br
+\fIALValue\fP : Alarm time value to set 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 395 del archivo rtc_18xx_43xx\&.h\&.
+.SS "void Chip_RTC_SetFullAlarmTime (\fBLPC_RTC_T\fP * pRTC, \fBRTC_TIME_T\fP * pFullTime)"
+
+.PP
+Set full alarm time in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIpFullTime\fP : Pointer to full time record to set alarm 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 168 del archivo rtc_18xx_43xx\&.c\&.
+.SS "void Chip_RTC_SetFullTime (\fBLPC_RTC_T\fP * pRTC, \fBRTC_TIME_T\fP * pFullTime)"
+
+.PP
+Set full time in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fIpFullTime\fP : Pointer to full time data 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 132 del archivo rtc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RTC_SetTime (\fBLPC_RTC_T\fP * pRTC, \fBRTC_TIMEINDEX_T\fP Timetype, uint32_t TimeValue)"
+
+.PP
+Set current time value for a time type in the RTC peripheral\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRTC\fP : RTC peripheral selected 
+.br
+\fITimetype\fP : time field index type to set 
+.br
+\fITimeValue\fP : Value to palce in time field 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 356 del archivo rtc_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,38 @@
+.TH "chip_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+chip_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_USB0_Init\fP (void)"
+.br
+.RI "\fIUSB0 Pin and clock initialization Calling this function will initialize the USB0 pins and the clock\&. \fP"
+.ti -1c
+.RI "void \fBChip_USB1_Init\fP (void)"
+.br
+.RI "\fIUSB1 Pin and clock initialization Calling this function will initialize the USB0 pins and the clock\&. \fP"
+.ti -1c
+.RI "void \fBSystemCoreClockUpdate\fP (void)"
+.br
+.RI "\fIUpdate system core clock rate, should be called if the system has a clock rate change\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBSystemCoreClock\fP"
+.br
+.RI "\fICurrent system clock rate, mainly used for sysTick\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

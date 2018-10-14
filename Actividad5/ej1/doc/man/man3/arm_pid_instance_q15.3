@@ -1,0 +1,68 @@
+.TH "arm_pid_instance_q15" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+arm_pid_instance_q15 \- Instance structure for the Q15 PID Control\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <arm_math\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fBq15_t\fP \fBA0\fP"
+.br
+.ti -1c
+.RI "\fBq31_t\fP \fBA1\fP"
+.br
+.ti -1c
+.RI "\fBq15_t\fP \fBstate\fP [3]"
+.br
+.ti -1c
+.RI "\fBq15_t\fP \fBKp\fP"
+.br
+.ti -1c
+.RI "\fBq15_t\fP \fBKi\fP"
+.br
+.ti -1c
+.RI "\fBq15_t\fP \fBKd\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Instance structure for the Q15 PID Control\&. 
+.PP
+Definición en la línea 1734 del archivo arm_math\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fBq15_t\fP A0"
+The derived gain, A0 = Kp + Ki + Kd \&. 
+.PP
+Definición en la línea 1736 del archivo arm_math\&.h\&.
+.SS "\fBq31_t\fP A1"
+The derived gain A1 = -Kp - 2Kd | Kd\&. 
+.PP
+Definición en la línea 1741 del archivo arm_math\&.h\&.
+.SS "\fBq15_t\fP Kd"
+The derivative gain\&. 
+.PP
+Definición en la línea 1746 del archivo arm_math\&.h\&.
+.SS "\fBq15_t\fP Ki"
+The integral gain\&. 
+.PP
+Definición en la línea 1745 del archivo arm_math\&.h\&.
+.SS "\fBq15_t\fP Kp"
+The proportional gain\&. 
+.PP
+Definición en la línea 1744 del archivo arm_math\&.h\&.
+.SS "\fBq15_t\fP state[3]"
+The state array of length 3\&. 
+.PP
+Definición en la línea 1743 del archivo arm_math\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,151 @@
+.TH "gpio_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gpio_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_GPIO_T\fP"
+.br
+.RI "\fIGPIO port register block structure\&. \fP"
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_GPIO_Init\fP (\fBLPC_GPIO_T\fP *pGPIO)"
+.br
+.RI "\fIInitialize GPIO block\&. \fP"
+.ti -1c
+.RI "void \fBChip_GPIO_DeInit\fP (\fBLPC_GPIO_T\fP *pGPIO)"
+.br
+.RI "\fIDe-Initialize GPIO block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_WritePortBit\fP (\fBLPC_GPIO_T\fP *pGPIO, uint32_t port, uint8_t pin, bool setting)"
+.br
+.RI "\fISet a GPIO port/bit state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinState\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin, bool setting)"
+.br
+.RI "\fISet a GPIO pin state via the GPIO byte register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIO_ReadPortBit\fP (\fBLPC_GPIO_T\fP *pGPIO, uint32_t port, uint8_t pin)"
+.br
+.RI "\fIRead a GPIO state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIO_GetPinState\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fIGet a GPIO pin state via the GPIO byte register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_WriteDirBit\fP (\fBLPC_GPIO_T\fP *pGPIO, uint32_t port, uint8_t bit, bool setting)"
+.br
+.RI "\fISet a GPIO direction\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinDIROutput\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fISet GPIO direction for a single GPIO pin to an output\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinDIRInput\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fISet GPIO direction for a single GPIO pin to an input\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinDIR\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin, bool output)"
+.br
+.RI "\fISet GPIO direction for a single GPIO pin\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIO_ReadDirBit\fP (\fBLPC_GPIO_T\fP *pGPIO, uint32_t port, uint8_t bit)"
+.br
+.RI "\fIRead a GPIO direction (out or in) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_GPIO_GetPinDIR\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fIGet GPIO direction for a single GPIO pin\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetDir\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t portNum, uint32_t bitValue, uint8_t out)"
+.br
+.RI "\fISet Direction for a GPIO port\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortDIROutput\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fISet GPIO direction for a all selected GPIO pins to an output\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortDIRInput\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pinMask)"
+.br
+.RI "\fISet GPIO direction for a all selected GPIO pins to an input\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortDIR\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pinMask, bool outSet)"
+.br
+.RI "\fISet GPIO direction for a all selected GPIO pins to an input or output\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_GetPortDIR\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port)"
+.br
+.RI "\fIGet GPIO direction for a all GPIO pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortMask\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t mask)"
+.br
+.RI "\fISet GPIO port mask value for GPIO masked read and write\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_GetPortMask\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port)"
+.br
+.RI "\fIGet GPIO port mask value used for GPIO masked read and write\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t value)"
+.br
+.RI "\fISet all GPIO raw pin states (regardless of masking) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_GetPortValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port)"
+.br
+.RI "\fIGet all GPIO raw pin states (regardless of masking) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetMaskedPortValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t value)"
+.br
+.RI "\fISet all GPIO pin states, but mask via the MASKP0 register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_GetMaskedPortValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port)"
+.br
+.RI "\fIGet all GPIO pin statesm but mask via the MASKP0 register\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t portNum, uint32_t bitValue)"
+.br
+.RI "\fISet a GPIO port/bit to the high state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortOutHigh\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pins)"
+.br
+.RI "\fISet selected GPIO output pins to the high state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinOutHigh\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fISet an individual GPIO output pin to the high state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_ClearValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t portNum, uint32_t bitValue)"
+.br
+.RI "\fISet a GPIO port/bit to the low state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortOutLow\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pins)"
+.br
+.RI "\fISet selected GPIO output pins to the low state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinOutLow\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fISet an individual GPIO output pin to the low state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPortToggle\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint32_t pins)"
+.br
+.RI "\fIToggle selected GPIO output pins to the opposite state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_GPIO_SetPinToggle\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t port, uint8_t pin)"
+.br
+.RI "\fIToggle an individual GPIO output pin to the opposite state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_GPIO_ReadValue\fP (\fBLPC_GPIO_T\fP *pGPIO, uint8_t portNum)"
+.br
+.RI "\fIRead current bit states for the selected port\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

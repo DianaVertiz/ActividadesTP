@@ -1,0 +1,1523 @@
+\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx High speed A\+DC driver}
+\label{group___h_s_a_d_c__18_x_x__43_x_x}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_h_s_a_d_c_i_n_t_c_t_r_l___t}{H\+S\+A\+D\+C\+I\+N\+T\+C\+T\+R\+L\+\_\+T}
+\begin{DoxyCompactList}\small\item\em High speed A\+DC interrupt control structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T}
+\begin{DoxyCompactList}\small\item\em H\+S\+A\+DC register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga125fd0f116ea9e450347efe49ecc9673}{H\+S\+A\+D\+C\+\_\+\+M\+A\+X\+\_\+\+S\+A\+M\+P\+L\+E\+V\+AL}~0x\+F\+FF
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga3e9186020c5e406feed470a1808363f3}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+O\+NE}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga5c0a9c9126e736e08a7bb6330a8da5da}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+O\+V\+E\+R\+R\+UN}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gabf5cce50eca68e4c98b7d7d878e34ce8}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+IN}~(0 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga0d03219d2f21b7082c71e737f9291238}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+E\+L\+OW}~(1 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga2ff163a7e694c903c3ea800b69ff357f}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+A\+B\+O\+VE}~(2 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gab8577fad41f87c7822073b4b0e1b40c3}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+GE}(val)~((val) \& 0x\+C)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga232e739e7c2601b9c0e3cdaede3ff83e}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+N\+O\+NE}~(0 $<$$<$ 4)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga5256afbf3a733f1e1598086bcae21313}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+D\+O\+WN}~(1 $<$$<$ 4)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga61403d754e6e74e765939cbcdf668458}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+UP}~(2 $<$$<$ 4)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gabe3b261486872f47b15142374e8ba513}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+NG}(val)~((val) \& 0x30)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga59cfae9793b32fc984aa56b25e579e85}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+A\+TA}(val)~((val) $>$$>$ 6)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga5ae1350581db3acfa2450f482f64a14d}{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+M\+A\+SK}~(0x\+F\+F\+F)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga4e9d547e690f73b5e1cef272e5272239}{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+LE}(val)~((val) \& 0x\+F\+F\+F)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga46dfa5dab0fc08a4e9126be14eec1f1c}{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+I\+D\+\_\+\+M\+A\+SK}~(0x7000)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaa90d96f985440d9588a1b0a3d3b30d9e}{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+ID}(val)~(((val) $>$$>$ 12) \& 0x7)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga024359046ed5aea283f5ca303828ebaf}{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY}~(0x1 $<$$<$ 15)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga59b2c13550ce54537ddba69cec51bd0b}{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+H\+I\+F\+T\+P\+A\+C\+K\+ED}(val)~((val) $>$$>$ 16)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga135c335cef689d7ecc14af1f5bd0ac6b}{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+P\+A\+C\+K\+E\+D\+M\+A\+SK}~(1\+U\+L $<$$<$ 31)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga02a0ec797250b260c4ffa4e52e256a44}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+CH}(ch)~(ch)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaba66d1c1c7ce5508696f9da464b680c9}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+H\+A\+LT}~(1 $<$$<$ 3)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gade13fb1864987d1b1d8054ae6f861167}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+I\+NT}~(1 $<$$<$ 4)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga5cb818c7f3deae6a0bd626acde3f4278}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+P\+O\+W\+E\+R\+D\+O\+WN}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gace04d08e17d8ef4aea5dcdd739977f52}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+N\+E\+XT}~(0 $<$$<$ 6)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga2490e58198cd0d81251bb81a725d8d78}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+F\+I\+R\+ST}~(1 $<$$<$ 6)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaf2255ed7cd48d9ffe08cde080aec9f30}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+S\+W\+AP}~(2 $<$$<$ 6)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gae778cc41c05fd0ab48557d5729cdca3e}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+M\+A\+T\+CH}(val)~((val) $<$$<$ 8)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gab8aa894027316458bbbc14e6c3eb0822}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+N\+O\+NE}~(0 $<$$<$ 22)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gac7411ef8756584fe30770ef9ee1bd5d2}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+A}~(1 $<$$<$ 22)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gad679e07226e8388ddbff3b47b34a0f15}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+B}~(2 $<$$<$ 22)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga1dcff8ddcbf4b49f060bda8d1d8d5a75}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+ER}~(1 $<$$<$ 24)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gadb7ad7a7ee1d43b9bb873d19b318c26a}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+T\+A\+B\+LE}~(1\+U\+L $<$$<$ 31)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga13e783f301fd2cd457c2679f4d2cc2cc}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+F\+U\+LL}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gafac0940c99898d7e391d1ac3c05ba719}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gab3b9780b70691c1beb059b701e29e6b3}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW}~(1 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga829571c11e7c8e7a44966820acffcaa3}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+D\+O\+NE}~(1 $<$$<$ 3)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga40cb66b32360ce6cbd98aa0ce3de31a5}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+E\+R\+R\+OR}~(1 $<$$<$ 4)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga8bb38fa225bf592f805b7979459cbfc2}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+O\+VF}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gad015ea52167f05024a42c4be5b8deac3}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+U\+NF}~(1 $<$$<$ 6)
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga2fdf9432486e0e74575f360a8280923d}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+B\+R\+A\+N\+GE}(ch)~(1 $<$$<$ ((ch $\ast$ 5) + 0))
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga55155119335413cd579ff9da9888b209}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+A\+R\+A\+N\+GE}(ch)~(1 $<$$<$ ((ch $\ast$ 5) + 1))
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga7ec226dc9dc901248ee36696803097b2}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+D\+C\+R\+O\+SS}(ch)~(1 $<$$<$ ((ch $\ast$ 5) + 2))
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga63d87a4bacb160ac3e6e68f21daf8580}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+U\+C\+R\+O\+SS}(ch)~(1 $<$$<$ ((ch $\ast$ 5) + 3))
+\item 
+\#define \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gad4bd824de161be1ab9a6aa9860bc2d74}{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+O\+V\+E\+R\+R\+UN}(ch)~(1 $<$$<$ ((ch $\ast$ 5) + 4))
+\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gabacdffe94b42f1dc1c339dab9a20772c}{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+T} \{ \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772caacc058b469367e54d9cb0b79c893c27b}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+O\+FF} = 0, 
+\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772ca60a0ed78169b3ca42913125055400dd1}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+SW} = 1, 
+\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772caa757019f18616753839c7817d7e633d9}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+XT} = 2, 
+\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772ca565a4a6ef822ca662af662b13d06c4b9}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+B\+O\+TH} = 3
+ \}
+\item 
+enum \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gab4aa68023c03604cc1333eed859073e9}{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+T} \{ \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9ad7129b13b7955c2995a91774947869f2}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+R\+I\+S\+E\+E\+XT} = (0 $<$$<$ 2), 
+\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9ac157643a91f076c5864d316234f72c0f}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+F\+A\+L\+L\+E\+XT} = (1 $<$$<$ 2), 
+\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9a15370950a068bae8a811f325302e2afe}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+L\+O\+W\+E\+XT} = (2 $<$$<$ 2), 
+\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9acdf358d24d8f8407d365a01f7a671419}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+H\+I\+G\+H\+E\+XT} = (3 $<$$<$ 2)
+ \}
+\item 
+enum \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga2b37f3b76e8523e0035f2b275ddb36ce}{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+T} \{ \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gga2b37f3b76e8523e0035f2b275ddb36ceae6d8612bb563af3ba4e3a484208a0f1f}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+N\+O\+E\+X\+T\+S\+Y\+NC} = (0 $<$$<$ 4), 
+\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gga2b37f3b76e8523e0035f2b275ddb36cea9db72f3e619659809c61aee822029be3}{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+X\+T\+S\+Y\+NC} = (1 $<$$<$ 4)
+ \}
+\item 
+enum \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga4033a9f5f07fbc57e03d0592680729c6}{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+T} \{ \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gga4033a9f5f07fbc57e03d0592680729c6ae5aacde39c419c9e7c2fd90129d7249e}{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+N\+O\+NE} = (0 $<$$<$ 5), 
+\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gga4033a9f5f07fbc57e03d0592680729c6a0f3c586fdd4936cddfcdfd428d515e08}{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+A\+DD} = (1 $<$$<$ 5)
+ \}
+\item 
+enum \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga1769145f3b2f1c12f4cd23d3b5151e93}{H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T} \{ \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gga1769145f3b2f1c12f4cd23d3b5151e93aa3bf2d188fb6405ed2a0e2a7cf93cf5f}{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+O\+D\+C\+B\+I\+AS} = 0, 
+\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gga1769145f3b2f1c12f4cd23d3b5151e93a18b6321e47d50b140029523a47b1662f}{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+D\+C\+B\+I\+AS} = 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gad72fb94bbb485c84687a4e75c63090ea}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Init} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Initialize the High speed A\+DC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga2d9740d012a9043c462acbc468e1931d}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Shutdown H\+S\+A\+DC. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga9b6a95c8e73bf397768ea3f97ed7de25}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Flush\+F\+I\+FO} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Flush High speed A\+DC F\+I\+FO. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gab01d315ee383688f0dea4aa939e5220f}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Load\+D\+M\+A\+Desc} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Load a descriptor table from memory by requesting a D\+MA write. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga217f6d1396eb48c4a17232b837fda910}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+F\+O\+Level} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Returns current H\+S\+A\+DC F\+I\+FO fill level. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaafa52aef03cf64be7d329895ad90ac40}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+F\+I\+FO} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t trip, bool packed)
+\begin{DoxyCompactList}\small\item\em Sets up H\+S\+A\+DC F\+I\+FO trip level and packing. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gace987c7627a672a963e26ecdf03b1dda}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+S\+W\+Trigger} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Starts a manual (software) trigger of H\+S\+A\+DC descriptors. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaebc1767d0184f03d21ecaf84510b81f9}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Active\+Descriptor} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t table, uint8\+\_\+t desc)
+\begin{DoxyCompactList}\small\item\em Set active table descriptor index and number. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint8\+\_\+t \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga5f206e1b3c69fd04462b01963e996745}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Index} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Returns currently active descriptor index being processed. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint8\+\_\+t \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gacd5c5496e4c6525848481d23d3d47907}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Table} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Returns currently active descriptor table being processed. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gabf28fc7440ea22cdc228fb9e2107ccf0}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power\+Down\+Mode} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Enables A\+DC power down mode. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga84152d56e357d1b892d32aaa7b88621e}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power\+Down\+Mode} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Disables A\+DC power down mode. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga8c4af826fb55c7aa1dfe4cf96cb1b1c2}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Configure\+Trigger} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gabacdffe94b42f1dc1c339dab9a20772c}{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+T} mask, \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gab4aa68023c03604cc1333eed859073e9}{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+T} mode, \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga2b37f3b76e8523e0035f2b275ddb36ce}{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+T} sync, \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga4033a9f5f07fbc57e03d0592680729c6}{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+T} ch\+ID, uint16\+\_\+t recovery\+Time)
+\begin{DoxyCompactList}\small\item\em Configure H\+S\+A\+DC trigger source and recovery time. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga86ed5ab3da9ea3a6bbfd138530d5d73d}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+Low\+Value} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t thrnum, uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Set H\+S\+A\+DC Threshold low value. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga0690a0edb51bd4070384c35196f1a73d}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+High\+Value} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t thrnum, uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Set H\+S\+A\+DC Threshold high value. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga6bcc415a97846f5d97ebd62a7606606f}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Last\+Sample} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Read a A\+DC last sample register. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga70b879056a35cdf9cc6f9c2928883973}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Speed} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t channel, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Setup speed for a input channel. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga776d07e6bc51347515f92ed36a9da561}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Power\+Speed} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, bool comp2)
+\begin{DoxyCompactList}\small\item\em Setup (common) H\+S\+A\+DC power and speed settings. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaf754b858ff1c0c0d2993aaedad394867}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+A\+C\+D\+C\+Bias} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t channel, \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga1769145f3b2f1c12f4cd23d3b5151e93}{H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T} dc\+In\+Neg, \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga1769145f3b2f1c12f4cd23d3b5151e93}{H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T} dc\+In\+Pos)
+\begin{DoxyCompactList}\small\item\em Setup A\+C-\/\+DC coupling selection for a channel. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gab95b239db991c736bfb93db97d8794d9}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Enable H\+S\+A\+DC power control and band gap reference. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gadc1d32d51f7740e560ba04c3d770afa2}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Disable H\+S\+A\+DC power control and band gap reference. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga0c89dc698fbb5f5c70b471bad3c15ae4}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+FO} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Reads the H\+S\+A\+DC F\+I\+FO. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaaa3661b82ab37e1cb31e248713451705}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+Desc\+Entry} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t table, uint8\+\_\+t desc\+No, uint32\+\_\+t desc)
+\begin{DoxyCompactList}\small\item\em Sets up a raw H\+S\+A\+DC descriptor entry. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga61445a76cda41f938d5be8f291caa520}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Update\+Desc\+Table} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t table)
+\begin{DoxyCompactList}\small\item\em Update all descriptors of a table. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga24e4d3b6c692290b746f93933e7d8468}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Ints} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t int\+Grp, uint32\+\_\+t int\+Mask)
+\begin{DoxyCompactList}\small\item\em Enable an interrupt for H\+S\+A\+DC interrupt group 0 or 1. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga025dae344ffc8264013d51df110ddd3b}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Ints} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t int\+Grp, uint32\+\_\+t int\+Mask)
+\begin{DoxyCompactList}\small\item\em Disables an interrupt for H\+S\+A\+DC interrupt group 0 or 1. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga7147bf5e39b3a6d90e949381b950e632}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Enabled\+Ints} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t int\+Grp)
+\begin{DoxyCompactList}\small\item\em Returns enabled interrupt for H\+S\+A\+DC interrupt group 0 or 1. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gabbda546278f45c736514ca6491a7c3fd}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Int\+Status} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t int\+Grp)
+\begin{DoxyCompactList}\small\item\em Returns status for H\+S\+A\+DC interrupt group 0 or 1. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gae82a73631a4bfab5393ba6468b4624f0}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Clear\+Int\+Status} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t int\+Grp, uint32\+\_\+t sts\+Mask)
+\begin{DoxyCompactList}\small\item\em Clear a status for H\+S\+A\+DC interrupt group 0 or 1. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga4594b318a86bb5a6532fbba4f8f70b2f}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Int\+Status} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC, uint8\+\_\+t int\+Grp, uint32\+\_\+t sts\+Mask)
+\begin{DoxyCompactList}\small\item\em Sets a status for H\+S\+A\+DC interrupt group 0 or 1. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gae05840f7109ac514c0a6c696013c0b4c}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Base\+Clock\+Rate} (\hyperlink{struct_l_p_c___h_s_a_d_c___t}{L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$p\+H\+S\+A\+DC)
+\begin{DoxyCompactList}\small\item\em Returns the clock rate in Hz for the H\+S\+A\+DC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+F\+I\+R\+ST@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+F\+I\+R\+ST}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+F\+I\+R\+ST@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+F\+I\+R\+ST}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+F\+I\+R\+ST}{HSADC_DESC_BRANCH_FIRST}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+F\+I\+R\+ST~(1 $<$$<$ 6)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga2490e58198cd0d81251bb81a725d8d78}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga2490e58198cd0d81251bb81a725d8d78}
+Branch to the first descriptor 
+
+Definición en la línea 413 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+N\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+N\+E\+XT}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+N\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+N\+E\+XT}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+N\+E\+XT}{HSADC_DESC_BRANCH_NEXT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+N\+E\+XT~(0 $<$$<$ 6)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gace04d08e17d8ef4aea5dcdd739977f52}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gace04d08e17d8ef4aea5dcdd739977f52}
+Continue with next descriptor 
+
+Definición en la línea 412 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+S\+W\+AP@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+S\+W\+AP}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+S\+W\+AP@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+S\+W\+AP}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+S\+W\+AP}{HSADC_DESC_BRANCH_SWAP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+\+S\+W\+AP~(2 $<$$<$ 6)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gaf2255ed7cd48d9ffe08cde080aec9f30}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gaf2255ed7cd48d9ffe08cde080aec9f30}
+Swap tables and branch to the first descriptor of the new table 
+
+Definición en la línea 414 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+CH@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+CH}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+CH@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+CH}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+CH}{HSADC_DESC_CH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+CH(
+\begin{DoxyParamCaption}
+\item[{}]{ch}
+\end{DoxyParamCaption}
+)~(ch)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga02a0ec797250b260c4ffa4e52e256a44}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga02a0ec797250b260c4ffa4e52e256a44}
+H\+S\+A\+DC descriptor registers bit fields and support macros Converter input channel 
+
+Definición en la línea 408 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+H\+A\+LT@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+H\+A\+LT}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+H\+A\+LT@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+H\+A\+LT}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+H\+A\+LT}{HSADC_DESC_HALT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+H\+A\+LT~(1 $<$$<$ 3)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gaba66d1c1c7ce5508696f9da464b680c9}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gaba66d1c1c7ce5508696f9da464b680c9}
+Descriptor halt after conversion bit 
+
+Definición en la línea 409 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+I\+NT@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+I\+NT}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+I\+NT@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+I\+NT}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+I\+NT}{HSADC_DESC_INT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+I\+NT~(1 $<$$<$ 4)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gade13fb1864987d1b1d8054ae6f861167}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gade13fb1864987d1b1d8054ae6f861167}
+Raise interrupt when A\+DC result is available bit 
+
+Definición en la línea 410 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+M\+A\+T\+CH@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+M\+A\+T\+CH}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+M\+A\+T\+CH@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+M\+A\+T\+CH}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+M\+A\+T\+CH}{HSADC_DESC_MATCH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+M\+A\+T\+CH(
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~((val) $<$$<$ 8)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gae778cc41c05fd0ab48557d5729cdca3e}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gae778cc41c05fd0ab48557d5729cdca3e}
+Match value used to trigger a descriptor 
+
+Definición en la línea 415 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+P\+O\+W\+E\+R\+D\+O\+WN@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+P\+O\+W\+E\+R\+D\+O\+WN}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+P\+O\+W\+E\+R\+D\+O\+WN@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+P\+O\+W\+E\+R\+D\+O\+WN}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+P\+O\+W\+E\+R\+D\+O\+WN}{HSADC_DESC_POWERDOWN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+P\+O\+W\+E\+R\+D\+O\+WN~(1 $<$$<$ 5)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga5cb818c7f3deae6a0bd626acde3f4278}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga5cb818c7f3deae6a0bd626acde3f4278}
+Power down after this conversion bit 
+
+Definición en la línea 411 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+ER@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+ER}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+ER@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+ER}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+ER}{HSADC_DESC_RESET_TIMER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+ER~(1 $<$$<$ 24)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga1dcff8ddcbf4b49f060bda8d1d8d5a75}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga1dcff8ddcbf4b49f060bda8d1d8d5a75}
+Reset descriptor timer 
+
+Definición en la línea 419 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+A@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+A}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+A@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+A}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+A}{HSADC_DESC_THRESH_A}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+A~(1 $<$$<$ 22)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gac7411ef8756584fe30770ef9ee1bd5d2}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gac7411ef8756584fe30770ef9ee1bd5d2}
+Use A threshold detection 
+
+Definición en la línea 417 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+B@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+B}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+B@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+B}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+B}{HSADC_DESC_THRESH_B}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+B~(2 $<$$<$ 22)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gad679e07226e8388ddbff3b47b34a0f15}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gad679e07226e8388ddbff3b47b34a0f15}
+Use B threshold detection 
+
+Definición en la línea 418 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+N\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+N\+O\+NE}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+N\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+N\+O\+NE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+N\+O\+NE}{HSADC_DESC_THRESH_NONE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+N\+O\+NE~(0 $<$$<$ 22)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gab8aa894027316458bbbc14e6c3eb0822}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gab8aa894027316458bbbc14e6c3eb0822}
+No threshold detection performed 
+
+Definición en la línea 416 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+T\+A\+B\+LE@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+T\+A\+B\+LE}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+T\+A\+B\+LE@{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+T\+A\+B\+LE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+T\+A\+B\+LE}{HSADC_DESC_UPDATE_TABLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+T\+A\+B\+LE~(1\+U\+L $<$$<$ 31)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gadb7ad7a7ee1d43b9bb873d19b318c26a}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gadb7ad7a7ee1d43b9bb873d19b318c26a}
+Update table with all 8 descriptors of this table 
+
+Definición en la línea 420 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+ID@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+ID}}
+\index{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+ID@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+ID}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+ID}{HSADC_FIFO_CHAN_ID}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+ID(
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~(((val) $>$$>$ 12) \& 0x7)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gaa90d96f985440d9588a1b0a3d3b30d9e}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gaa90d96f985440d9588a1b0a3d3b30d9e}
+Macro for stripping out sample data 
+
+Definición en la línea 386 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+I\+D\+\_\+\+M\+A\+SK@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+I\+D\+\_\+\+M\+A\+SK}}
+\index{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+I\+D\+\_\+\+M\+A\+SK@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+I\+D\+\_\+\+M\+A\+SK}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+I\+D\+\_\+\+M\+A\+SK}{HSADC_FIFO_CHAN_ID_MASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+C\+H\+A\+N\+\_\+\+I\+D\+\_\+\+M\+A\+SK~(0x7000)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga46dfa5dab0fc08a4e9126be14eec1f1c}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga46dfa5dab0fc08a4e9126be14eec1f1c}
+Channel ID mask 
+
+Definición en la línea 385 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY}}
+\index{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY}{HSADC_FIFO_EMPTY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY~(0x1 $<$$<$ 15)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga024359046ed5aea283f5ca303828ebaf}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga024359046ed5aea283f5ca303828ebaf}
+F\+I\+FO empty (invalid sample) 
+
+Definición en la línea 387 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+P\+A\+C\+K\+E\+D\+M\+A\+SK@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+P\+A\+C\+K\+E\+D\+M\+A\+SK}}
+\index{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+P\+A\+C\+K\+E\+D\+M\+A\+SK@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+P\+A\+C\+K\+E\+D\+M\+A\+SK}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+P\+A\+C\+K\+E\+D\+M\+A\+SK}{HSADC_FIFO_PACKEDMASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+P\+A\+C\+K\+E\+D\+M\+A\+SK~(1\+U\+L $<$$<$ 31)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga135c335cef689d7ecc14af1f5bd0ac6b}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga135c335cef689d7ecc14af1f5bd0ac6b}
+Packed sample check mask 
+
+Definición en la línea 389 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+LE@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+LE}}
+\index{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+LE@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+LE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+LE}{HSADC_FIFO_SAMPLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+LE(
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~((val) \& 0x\+F\+F\+F)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga4e9d547e690f73b5e1cef272e5272239}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga4e9d547e690f73b5e1cef272e5272239}
+Macro for stripping out unpacked sample data 
+
+Definición en la línea 384 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+M\+A\+SK@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+M\+A\+SK}}
+\index{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+M\+A\+SK@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+M\+A\+SK}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+M\+A\+SK}{HSADC_FIFO_SAMPLE_MASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+M\+A\+SK~(0x\+F\+F\+F)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga5ae1350581db3acfa2450f482f64a14d}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga5ae1350581db3acfa2450f482f64a14d}
+H\+S\+A\+DC F\+I\+FO registers bit fields for unpacked sample in lower 16 bits 12-\/bit sample mask (unpacked) 
+
+Definición en la línea 383 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+H\+I\+F\+T\+P\+A\+C\+K\+ED@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+H\+I\+F\+T\+P\+A\+C\+K\+ED}}
+\index{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+H\+I\+F\+T\+P\+A\+C\+K\+ED@{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+H\+I\+F\+T\+P\+A\+C\+K\+ED}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+H\+I\+F\+T\+P\+A\+C\+K\+ED}{HSADC_FIFO_SHIFTPACKED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+H\+I\+F\+T\+P\+A\+C\+K\+ED(
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~((val) $>$$>$ 16)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga59b2c13550ce54537ddba69cec51bd0b}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga59b2c13550ce54537ddba69cec51bd0b}
+Shifts the packed F\+I\+FO sample into the lower 16-\/bits of a word 
+
+Definición en la línea 388 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+O\+VF@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+O\+VF}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+O\+VF@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+O\+VF}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+O\+VF}{HSADC_INT0_ADC_OVF}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+O\+VF~(1 $<$$<$ 5)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga8bb38fa225bf592f805b7979459cbfc2}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga8bb38fa225bf592f805b7979459cbfc2}
+Converted sample value was over range of the 12 bit output code 
+
+Definición en la línea 465 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+U\+NF@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+U\+NF}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+U\+NF@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+U\+NF}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+U\+NF}{HSADC_INT0_ADC_UNF}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+A\+D\+C\+\_\+\+U\+NF~(1 $<$$<$ 6)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gad015ea52167f05024a42c4be5b8deac3}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gad015ea52167f05024a42c4be5b8deac3}
+Converted sample value was under range of the 12 bit output code 
+
+Definición en la línea 466 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+D\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+D\+O\+NE}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+D\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+D\+O\+NE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+D\+O\+NE}{HSADC_INT0_DSCR_DONE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+D\+O\+NE~(1 $<$$<$ 3)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga829571c11e7c8e7a44966820acffcaa3}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga829571c11e7c8e7a44966820acffcaa3}
+The descriptor I\+N\+T\+E\+R\+R\+U\+PT field was enabled and its sample is converted 
+
+Definición en la línea 463 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+E\+R\+R\+OR@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+E\+R\+R\+OR}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+E\+R\+R\+OR@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+E\+R\+R\+OR}{HSADC_INT0_DSCR_ERROR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+D\+S\+C\+R\+\_\+\+E\+R\+R\+OR~(1 $<$$<$ 4)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga40cb66b32360ce6cbd98aa0ce3de31a5}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga40cb66b32360ce6cbd98aa0ce3de31a5}
+The A\+DC was not fully woken up when a sample was converted and the conversion results is unreliable 
+
+Definición en la línea 464 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY}{HSADC_INT0_FIFO_EMPTY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+E\+M\+P\+TY~(1 $<$$<$ 1)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gafac0940c99898d7e391d1ac3c05ba719}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gafac0940c99898d7e391d1ac3c05ba719}
+F\+I\+FO is empty 
+
+Definición en la línea 461 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+F\+U\+LL@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+F\+U\+LL}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+F\+U\+LL@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+F\+U\+LL}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+F\+U\+LL}{HSADC_INT0_FIFO_FULL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+F\+U\+LL~(1 $<$$<$ 0)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga13e783f301fd2cd457c2679f4d2cc2cc}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga13e783f301fd2cd457c2679f4d2cc2cc}
+number of samples in F\+I\+FO is more than F\+I\+F\+O\+\_\+\+L\+E\+V\+EL 
+
+Definición en la línea 460 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW}{HSADC_INT0_FIFO_OVERFLOW}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+\+F\+I\+F\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW~(1 $<$$<$ 2)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gab3b9780b70691c1beb059b701e29e6b3}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gab3b9780b70691c1beb059b701e29e6b3}
+F\+I\+FO was full; conversion sample is not stored and lost 
+
+Definición en la línea 462 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+O\+V\+E\+R\+R\+UN@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+O\+V\+E\+R\+R\+UN}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+O\+V\+E\+R\+R\+UN@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+O\+V\+E\+R\+R\+UN}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+O\+V\+E\+R\+R\+UN}{HSADC_INT1_OVERRUN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+O\+V\+E\+R\+R\+UN(
+\begin{DoxyParamCaption}
+\item[{}]{ch}
+\end{DoxyParamCaption}
+)~(1 $<$$<$ ((ch $\ast$ 5) + 4))}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gad4bd824de161be1ab9a6aa9860bc2d74}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gad4bd824de161be1ab9a6aa9860bc2d74}
+New conversion on channel completed and has overwritten the previous contents of register L\+A\+S\+T\+\_\+\+S\+A\+M\+P\+LE \mbox{[}0\mbox{]} before it has been read 
+
+Definición en la línea 474 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+A\+R\+A\+N\+GE@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+A\+R\+A\+N\+GE}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+A\+R\+A\+N\+GE@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+A\+R\+A\+N\+GE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+A\+R\+A\+N\+GE}{HSADC_INT1_THCMP_ARANGE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+A\+R\+A\+N\+GE(
+\begin{DoxyParamCaption}
+\item[{}]{ch}
+\end{DoxyParamCaption}
+)~(1 $<$$<$ ((ch $\ast$ 5) + 1))}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga55155119335413cd579ff9da9888b209}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga55155119335413cd579ff9da9888b209}
+Input channel result above range 
+
+Definición en la línea 471 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+B\+R\+A\+N\+GE@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+B\+R\+A\+N\+GE}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+B\+R\+A\+N\+GE@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+B\+R\+A\+N\+GE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+B\+R\+A\+N\+GE}{HSADC_INT1_THCMP_BRANGE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+B\+R\+A\+N\+GE(
+\begin{DoxyParamCaption}
+\item[{}]{ch}
+\end{DoxyParamCaption}
+)~(1 $<$$<$ ((ch $\ast$ 5) + 0))}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga2fdf9432486e0e74575f360a8280923d}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga2fdf9432486e0e74575f360a8280923d}
+Input channel result below range 
+
+Definición en la línea 470 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+D\+C\+R\+O\+SS@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+D\+C\+R\+O\+SS}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+D\+C\+R\+O\+SS@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+D\+C\+R\+O\+SS}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+D\+C\+R\+O\+SS}{HSADC_INT1_THCMP_DCROSS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+D\+C\+R\+O\+SS(
+\begin{DoxyParamCaption}
+\item[{}]{ch}
+\end{DoxyParamCaption}
+)~(1 $<$$<$ ((ch $\ast$ 5) + 2))}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga7ec226dc9dc901248ee36696803097b2}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga7ec226dc9dc901248ee36696803097b2}
+Input channel result downward threshold crossing detected 
+
+Definición en la línea 472 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+U\+C\+R\+O\+SS@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+U\+C\+R\+O\+SS}}
+\index{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+U\+C\+R\+O\+SS@{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+U\+C\+R\+O\+SS}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+U\+C\+R\+O\+SS}{HSADC_INT1_THCMP_UCROSS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+\+T\+H\+C\+M\+P\+\_\+\+U\+C\+R\+O\+SS(
+\begin{DoxyParamCaption}
+\item[{}]{ch}
+\end{DoxyParamCaption}
+)~(1 $<$$<$ ((ch $\ast$ 5) + 3))}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga63d87a4bacb160ac3e6e68f21daf8580}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga63d87a4bacb160ac3e6e68f21daf8580}
+Input channel result upward threshold crossing detected 
+
+Definición en la línea 473 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+NG@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+NG}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+NG@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+NG}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+NG}{HSADC_LS_CROSSING}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+NG(
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~((val) \& 0x30)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gabe3b261486872f47b15142374e8ba513}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gabe3b261486872f47b15142374e8ba513}
+Mask for threshold crossing comparison result 
+
+Definición en la línea 288 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+D\+O\+WN@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+D\+O\+WN}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+D\+O\+WN@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+D\+O\+WN}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+D\+O\+WN}{HSADC_LS_CROSSING_DOWN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+D\+O\+WN~(1 $<$$<$ 4)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga5256afbf3a733f1e1598086bcae21313}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga5256afbf3a733f1e1598086bcae21313}
+Downward threshold crossing detected 
+
+Definición en la línea 286 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+N\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+N\+O\+NE}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+N\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+N\+O\+NE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+N\+O\+NE}{HSADC_LS_CROSSING_NONE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+N\+O\+NE~(0 $<$$<$ 4)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga232e739e7c2601b9c0e3cdaede3ff83e}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga232e739e7c2601b9c0e3cdaede3ff83e}
+No threshold crossing detected 
+
+Definición en la línea 285 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+UP@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+UP}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+UP@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+UP}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+UP}{HSADC_LS_CROSSING_UP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+\+UP~(2 $<$$<$ 4)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga61403d754e6e74e765939cbcdf668458}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga61403d754e6e74e765939cbcdf668458}
+Upward threshold crossing detected 
+
+Definición en la línea 287 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+A\+TA@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+A\+TA}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+A\+TA@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+A\+TA}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+A\+TA}{HSADC_LS_DATA}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+A\+TA(
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~((val) $>$$>$ 6)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga59cfae9793b32fc984aa56b25e579e85}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga59cfae9793b32fc984aa56b25e579e85}
+Mask data value out of sample 
+
+Definición en la línea 289 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+O\+NE}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+O\+NE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+O\+NE}{HSADC_LS_DONE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+O\+NE~(1 $<$$<$ 0)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga3e9186020c5e406feed470a1808363f3}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga3e9186020c5e406feed470a1808363f3}
+H\+S\+A\+DC last sample registers bit fields Sample conversion complete bit 
+
+Definición en la línea 279 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+O\+V\+E\+R\+R\+UN@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+O\+V\+E\+R\+R\+UN}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+O\+V\+E\+R\+R\+UN@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+O\+V\+E\+R\+R\+UN}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+O\+V\+E\+R\+R\+UN}{HSADC_LS_OVERRUN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+O\+V\+E\+R\+R\+UN~(1 $<$$<$ 1)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga5c0a9c9126e736e08a7bb6330a8da5da}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga5c0a9c9126e736e08a7bb6330a8da5da}
+Sample overrun bit 
+
+Definición en la línea 280 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+GE@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+GE}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+GE@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+GE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+GE}{HSADC_LS_RANGE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+GE(
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~((val) \& 0x\+C)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gab8577fad41f87c7822073b4b0e1b40c3}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gab8577fad41f87c7822073b4b0e1b40c3}
+Mask for threshold crossing comparison result 
+
+Definición en la línea 284 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+A\+B\+O\+VE@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+A\+B\+O\+VE}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+A\+B\+O\+VE@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+A\+B\+O\+VE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+A\+B\+O\+VE}{HSADC_LS_RANGE_ABOVE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+A\+B\+O\+VE~(2 $<$$<$ 2)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga2ff163a7e694c903c3ea800b69ff357f}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga2ff163a7e694c903c3ea800b69ff357f}
+Threshold range comparison is above range 
+
+Definición en la línea 283 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+E\+L\+OW@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+E\+L\+OW}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+E\+L\+OW@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+E\+L\+OW}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+E\+L\+OW}{HSADC_LS_RANGE_BELOW}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+E\+L\+OW~(1 $<$$<$ 2)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga0d03219d2f21b7082c71e737f9291238}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga0d03219d2f21b7082c71e737f9291238}
+Threshold range comparison is below range 
+
+Definición en la línea 282 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+IN@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+IN}}
+\index{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+IN@{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+IN}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+IN}{HSADC_LS_RANGE_IN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+\+IN~(0 $<$$<$ 2)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gabf5cce50eca68e4c98b7d7d878e34ce8}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gabf5cce50eca68e4c98b7d7d878e34ce8}
+Threshold range comparison is in range 
+
+Definición en la línea 281 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+M\+A\+X\+\_\+\+S\+A\+M\+P\+L\+E\+V\+AL@{H\+S\+A\+D\+C\+\_\+\+M\+A\+X\+\_\+\+S\+A\+M\+P\+L\+E\+V\+AL}}
+\index{H\+S\+A\+D\+C\+\_\+\+M\+A\+X\+\_\+\+S\+A\+M\+P\+L\+E\+V\+AL@{H\+S\+A\+D\+C\+\_\+\+M\+A\+X\+\_\+\+S\+A\+M\+P\+L\+E\+V\+AL}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+M\+A\+X\+\_\+\+S\+A\+M\+P\+L\+E\+V\+AL}{HSADC_MAX_SAMPLEVAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+S\+A\+D\+C\+\_\+\+M\+A\+X\+\_\+\+S\+A\+M\+P\+L\+E\+V\+AL~0x\+F\+FF}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga125fd0f116ea9e450347efe49ecc9673}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga125fd0f116ea9e450347efe49ecc9673}
+
+
+Definición en la línea 82 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las enumeraciones}
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+T}}
+\index{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+T}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+T}{HSADC_CHANNEL_ID_EN_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+T}}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga4033a9f5f07fbc57e03d0592680729c6}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga4033a9f5f07fbc57e03d0592680729c6}
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+N\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+N\+O\+NE}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+N\+O\+NE@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+N\+O\+NE}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+N\+O\+NE\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gga4033a9f5f07fbc57e03d0592680729c6ae5aacde39c419c9e7c2fd90129d7249e}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gga4033a9f5f07fbc57e03d0592680729c6ae5aacde39c419c9e7c2fd90129d7249e}
+}]do not add channel ID to F\+I\+FO output data \index{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+A\+DD@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+A\+DD}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+A\+DD@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+A\+DD}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+A\+DD\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gga4033a9f5f07fbc57e03d0592680729c6a0f3c586fdd4936cddfcdfd428d515e08}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gga4033a9f5f07fbc57e03d0592680729c6a0f3c586fdd4936cddfcdfd428d515e08}
+}]add channel ID to F\+I\+FO output data \end{description}
+\end{Desc}
+
+
+Definición en la línea 235 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T}}
+\index{H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T}{HSADC_DCBIAS_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T}}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga1769145f3b2f1c12f4cd23d3b5151e93}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga1769145f3b2f1c12f4cd23d3b5151e93}
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+O\+D\+C\+B\+I\+AS@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+O\+D\+C\+B\+I\+AS}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+O\+D\+C\+B\+I\+AS@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+O\+D\+C\+B\+I\+AS}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+O\+D\+C\+B\+I\+AS\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gga1769145f3b2f1c12f4cd23d3b5151e93aa3bf2d188fb6405ed2a0e2a7cf93cf5f}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gga1769145f3b2f1c12f4cd23d3b5151e93aa3bf2d188fb6405ed2a0e2a7cf93cf5f}
+}]No DC bias \index{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+D\+C\+B\+I\+AS@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+D\+C\+B\+I\+AS}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+D\+C\+B\+I\+AS@{H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+D\+C\+B\+I\+AS}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+D\+C\+B\+I\+AS\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gga1769145f3b2f1c12f4cd23d3b5151e93a18b6321e47d50b140029523a47b1662f}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gga1769145f3b2f1c12f4cd23d3b5151e93a18b6321e47d50b140029523a47b1662f}
+}]DC bias on vin\+\_\+neg side \end{description}
+\end{Desc}
+
+
+Definición en la línea 336 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+T}}
+\index{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+T}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+T}{HSADC_TRIGGER_MASK_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+T}}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gabacdffe94b42f1dc1c339dab9a20772c}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gabacdffe94b42f1dc1c339dab9a20772c}
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+O\+FF@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+O\+FF}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+O\+FF@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+O\+FF}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+O\+FF\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772caacc058b469367e54d9cb0b79c893c27b}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772caacc058b469367e54d9cb0b79c893c27b}
+}]A\+D\+C\+HS triggers off \index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+SW@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+SW}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+SW@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+SW}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+SW\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772ca60a0ed78169b3ca42913125055400dd1}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772ca60a0ed78169b3ca42913125055400dd1}
+}]A\+D\+C\+HS software trigger only \index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+XT}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+XT}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+XT\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772caa757019f18616753839c7817d7e633d9}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772caa757019f18616753839c7817d7e633d9}
+}]A\+D\+C\+HS external trigger only \index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+B\+O\+TH@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+B\+O\+TH}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+B\+O\+TH@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+B\+O\+TH}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+B\+O\+TH\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772ca565a4a6ef822ca662af662b13d06c4b9}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ggabacdffe94b42f1dc1c339dab9a20772ca565a4a6ef822ca662af662b13d06c4b9}
+}]A\+D\+C\+HS both software and external triggers allowed \end{description}
+\end{Desc}
+
+
+Definición en la línea 213 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+T}}
+\index{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+T}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+T}{HSADC_TRIGGER_MODE_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+T}}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gab4aa68023c03604cc1333eed859073e9}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gab4aa68023c03604cc1333eed859073e9}
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+R\+I\+S\+E\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+R\+I\+S\+E\+E\+XT}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+R\+I\+S\+E\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+R\+I\+S\+E\+E\+XT}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+R\+I\+S\+E\+E\+XT\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9ad7129b13b7955c2995a91774947869f2}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9ad7129b13b7955c2995a91774947869f2}
+}]A\+D\+C\+HS rising external trigger \index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+F\+A\+L\+L\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+F\+A\+L\+L\+E\+XT}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+F\+A\+L\+L\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+F\+A\+L\+L\+E\+XT}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+F\+A\+L\+L\+E\+XT\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9ac157643a91f076c5864d316234f72c0f}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9ac157643a91f076c5864d316234f72c0f}
+}]A\+D\+C\+HS falling external trigger \index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+L\+O\+W\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+L\+O\+W\+E\+XT}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+L\+O\+W\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+L\+O\+W\+E\+XT}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+L\+O\+W\+E\+XT\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9a15370950a068bae8a811f325302e2afe}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9a15370950a068bae8a811f325302e2afe}
+}]A\+D\+C\+HS low external trigger \index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+H\+I\+G\+H\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+H\+I\+G\+H\+E\+XT}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+H\+I\+G\+H\+E\+XT@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+H\+I\+G\+H\+E\+XT}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+H\+I\+G\+H\+E\+XT\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9acdf358d24d8f8407d365a01f7a671419}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ggab4aa68023c03604cc1333eed859073e9acdf358d24d8f8407d365a01f7a671419}
+}]A\+D\+C\+HS high external trigger \end{description}
+\end{Desc}
+
+
+Definición en la línea 221 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+T}}
+\index{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+T@{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+T}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+T}{HSADC_TRIGGER_SYNC_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+T}}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga2b37f3b76e8523e0035f2b275ddb36ce}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga2b37f3b76e8523e0035f2b275ddb36ce}
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+N\+O\+E\+X\+T\+S\+Y\+NC@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+N\+O\+E\+X\+T\+S\+Y\+NC}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+N\+O\+E\+X\+T\+S\+Y\+NC@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+N\+O\+E\+X\+T\+S\+Y\+NC}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+N\+O\+E\+X\+T\+S\+Y\+NC\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gga2b37f3b76e8523e0035f2b275ddb36ceae6d8612bb563af3ba4e3a484208a0f1f}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gga2b37f3b76e8523e0035f2b275ddb36ceae6d8612bb563af3ba4e3a484208a0f1f}
+}]do not synchronize external trigger input \index{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+X\+T\+S\+Y\+NC@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+X\+T\+S\+Y\+NC}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+X\+T\+S\+Y\+NC@{H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+X\+T\+S\+Y\+NC}}\item[{\em 
+H\+S\+A\+D\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+X\+T\+S\+Y\+NC\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gga2b37f3b76e8523e0035f2b275ddb36cea9db72f3e619659809c61aee822029be3}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gga2b37f3b76e8523e0035f2b275ddb36cea9db72f3e619659809c61aee822029be3}
+}]synchronize external trigger input \end{description}
+\end{Desc}
+
+
+Definición en la línea 229 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Clear\+Int\+Status@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Clear\+Int\+Status}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Clear\+Int\+Status@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Clear\+Int\+Status}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Clear\+Int\+Status(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t int\+Grp, uint32\+\_\+t sts\+Mask)}{Chip_HSADC_ClearIntStatus(LPC_HSADC_T *pHSADC, uint8_t intGrp, uint32_t stsMask)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Clear\+Int\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{int\+Grp, }
+\item[{uint32\+\_\+t}]{sts\+Mask}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gae82a73631a4bfab5393ba6468b4624f0}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gae82a73631a4bfab5393ba6468b4624f0}
+
+
+Clear a status for H\+S\+A\+DC interrupt group 0 or 1. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em int\+Grp} & \+: Interrupt group 0 or 1 \\
+\hline
+{\em sts\+Mask} & \+: Statuses to clear, use H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+$\ast$ for group 0 and H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+$\ast$ values for group 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 536 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Configure\+Trigger@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Configure\+Trigger}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Configure\+Trigger@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Configure\+Trigger}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Configure\+Trigger(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+\+T mask, H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+T mode, H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+\+T sync, H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+\+T ch\+I\+D, uint16\+\_\+t recovery\+Time)}{Chip_HSADC_ConfigureTrigger(LPC_HSADC_T *pHSADC, HSADC_TRIGGER_MASK_T mask, HSADC_TRIGGER_MODE_T mode, HSADC_TRIGGER_SYNC_T sync, HSADC_CHANNEL_ID_EN_T chID, uint16_t recoveryTime)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Configure\+Trigger (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{{\bf H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+A\+S\+K\+\_\+T}}]{mask, }
+\item[{{\bf H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+T}}]{mode, }
+\item[{{\bf H\+S\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+Y\+N\+C\+\_\+T}}]{sync, }
+\item[{{\bf H\+S\+A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+I\+D\+\_\+\+E\+N\+\_\+T}}]{ch\+ID, }
+\item[{uint16\+\_\+t}]{recovery\+Time}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga8c4af826fb55c7aa1dfe4cf96cb1b1c2}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga8c4af826fb55c7aa1dfe4cf96cb1b1c2}
+
+
+Configure H\+S\+A\+DC trigger source and recovery time. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+{\em mask} & \+: H\+S\+A\+DC trigger configuration mask type \\
+\hline
+{\em mode} & \+: H\+S\+A\+DC trigger configuration mode type \\
+\hline
+{\em sync} & \+: H\+S\+A\+DC trigger configuration sync type \\
+\hline
+{\em ch\+ID} & \+: H\+S\+A\+DC trigger configuration channel ID enable \\
+\hline
+{\em recovery\+Time} & \+: A\+DC recovery time (in H\+S\+A\+DC clocks) from powerdown (255 max) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 250 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+De\+Init@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+De\+Init@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+De\+Init}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+De\+Init(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_DeInit(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga2d9740d012a9043c462acbc468e1931d}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga2d9740d012a9043c462acbc468e1931d}
+
+
+Shutdown H\+S\+A\+DC. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 78 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Ints@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Ints}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Ints@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Ints}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Ints(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t int\+Grp, uint32\+\_\+t int\+Mask)}{Chip_HSADC_DisableInts(LPC_HSADC_T *pHSADC, uint8_t intGrp, uint32_t intMask)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Ints (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{int\+Grp, }
+\item[{uint32\+\_\+t}]{int\+Mask}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga025dae344ffc8264013d51df110ddd3b}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga025dae344ffc8264013d51df110ddd3b}
+
+
+Disables an interrupt for H\+S\+A\+DC interrupt group 0 or 1. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em int\+Grp} & \+: Interrupt group 0 or 1 \\
+\hline
+{\em int\+Mask} & \+: Interrupts to disable, use H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+$\ast$ for group 0 and H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+$\ast$ values for group 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 497 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_DisablePower(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gadc1d32d51f7740e560ba04c3d770afa2}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gadc1d32d51f7740e560ba04c3d770afa2}
+
+
+Disable H\+S\+A\+DC power control and band gap reference. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function disables both the H\+S\+A\+DC power and band gap reference. 
+\end{DoxyNote}
+
+
+Definición en la línea 377 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power\+Down\+Mode@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power\+Down\+Mode}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power\+Down\+Mode@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power\+Down\+Mode}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power\+Down\+Mode(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_DisablePowerDownMode(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Disable\+Power\+Down\+Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga84152d56e357d1b892d32aaa7b88621e}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga84152d56e357d1b892d32aaa7b88621e}
+
+
+Disables A\+DC power down mode. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+In most cases, this function doesn\textquotesingle{}t need to be used as the descriptors control power as needed. 
+\end{DoxyNote}
+
+
+Definición en la línea 207 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Ints@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Ints}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Ints@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Ints}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Ints(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t int\+Grp, uint32\+\_\+t int\+Mask)}{Chip_HSADC_EnableInts(LPC_HSADC_T *pHSADC, uint8_t intGrp, uint32_t intMask)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Ints (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{int\+Grp, }
+\item[{uint32\+\_\+t}]{int\+Mask}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga24e4d3b6c692290b746f93933e7d8468}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga24e4d3b6c692290b746f93933e7d8468}
+
+
+Enable an interrupt for H\+S\+A\+DC interrupt group 0 or 1. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em int\+Grp} & \+: Interrupt group 0 or 1 \\
+\hline
+{\em int\+Mask} & \+: Interrupts to enable, use H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+$\ast$ for group 0 and H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+$\ast$ values for group 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 484 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_EnablePower(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gab95b239db991c736bfb93db97d8794d9}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gab95b239db991c736bfb93db97d8794d9}
+
+
+Enable H\+S\+A\+DC power control and band gap reference. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function enables both the H\+S\+A\+DC power and band gap reference. 
+\end{DoxyNote}
+
+
+Definición en la línea 365 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power\+Down\+Mode@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power\+Down\+Mode}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power\+Down\+Mode@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power\+Down\+Mode}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power\+Down\+Mode(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_EnablePowerDownMode(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Enable\+Power\+Down\+Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gabf28fc7440ea22cdc228fb9e2107ccf0}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gabf28fc7440ea22cdc228fb9e2107ccf0}
+
+
+Enables A\+DC power down mode. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+In most cases, this function doesn\textquotesingle{}t need to be used as the descriptors control power as needed. 
+\end{DoxyNote}
+
+
+Definición en la línea 195 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Flush\+F\+I\+FO@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Flush\+F\+I\+FO}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Flush\+F\+I\+FO@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Flush\+F\+I\+FO}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Flush\+F\+I\+F\+O(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_FlushFIFO(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Flush\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga9b6a95c8e73bf397768ea3f97ed7de25}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga9b6a95c8e73bf397768ea3f97ed7de25}
+
+
+Flush High speed A\+DC F\+I\+FO. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 103 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Index@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Index}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Index@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Index}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Index(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_GetActiveDescriptorIndex(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint8\+\_\+t Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Index (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga5f206e1b3c69fd04462b01963e996745}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga5f206e1b3c69fd04462b01963e996745}
+
+
+Returns currently active descriptor index being processed. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+the current active descriptor index, 0 to 7 
+\end{DoxyReturn}
+
+
+Definición en la línea 173 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Table@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Table}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Table@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Table}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Table(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_GetActiveDescriptorTable(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint8\+\_\+t Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Active\+Descriptor\+Table (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gacd5c5496e4c6525848481d23d3d47907}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gacd5c5496e4c6525848481d23d3d47907}
+
+
+Returns currently active descriptor table being processed. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+the current active descriptor table, 0 or 1 
+\end{DoxyReturn}
+
+
+Definición en la línea 183 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Base\+Clock\+Rate@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Base\+Clock\+Rate}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Base\+Clock\+Rate@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Base\+Clock\+Rate}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Base\+Clock\+Rate(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_GetBaseClockRate(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Base\+Clock\+Rate (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gae05840f7109ac514c0a6c696013c0b4c}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gae05840f7109ac514c0a6c696013c0b4c}
+
+
+Returns the clock rate in Hz for the H\+S\+A\+DC. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+clock rate in Hz for the H\+S\+A\+DC 
+\end{DoxyReturn}
+
+
+Definición en la línea 559 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Enabled\+Ints@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Enabled\+Ints}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Enabled\+Ints@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Enabled\+Ints}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Enabled\+Ints(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t int\+Grp)}{Chip_HSADC_GetEnabledInts(LPC_HSADC_T *pHSADC, uint8_t intGrp)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Enabled\+Ints (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{int\+Grp}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga7147bf5e39b3a6d90e949381b950e632}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga7147bf5e39b3a6d90e949381b950e632}
+
+
+Returns enabled interrupt for H\+S\+A\+DC interrupt group 0 or 1. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em int\+Grp} & \+: Interrupt group 0 or 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+enabled interrupts for the selected group 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Mask the return value with a H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+$\ast$ macro for group 0 or H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+$\ast$ values for group 1 to determine which interrupts are enabled. 
+\end{DoxyNote}
+
+
+Definición en la línea 510 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+FO@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+FO}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+FO@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+FO}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+F\+O(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_GetFIFO(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga0c89dc698fbb5f5c70b471bad3c15ae4}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga0c89dc698fbb5f5c70b471bad3c15ae4}
+
+
+Reads the H\+S\+A\+DC F\+I\+FO. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+H\+S\+A\+DC F\+I\+FO value 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function reads and pops the H\+S\+A\+DC F\+I\+FO. The F\+I\+FO contents can be determined by using the H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+$\ast$ macros. If F\+I\+FO packing is enabled, this may contain 2 samples. Use the H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+\+S\+H\+I\+F\+T\+P\+A\+C\+K\+ED macro to shift packed sample data into a variable that can be used with the H\+S\+A\+D\+C\+\_\+\+F\+I\+F\+O\+\_\+$\ast$ macros. Note that even if packing is enabled, the packed sample may not be valid. 
+\end{DoxyNote}
+
+
+Definición en la línea 402 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+F\+O\+Level@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+F\+O\+Level}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+F\+O\+Level@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+F\+O\+Level}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+F\+O\+Level(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_GetFIFOLevel(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+F\+I\+F\+O\+Level (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga217f6d1396eb48c4a17232b837fda910}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga217f6d1396eb48c4a17232b837fda910}
+
+
+Returns current H\+S\+A\+DC F\+I\+FO fill level. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+F\+I\+FO level, 0 for empty, 1 to 15, or 16 for full 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+W\+Hat is this used for? 
+\end{DoxyNote}
+
+
+Definición en la línea 125 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Int\+Status@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Int\+Status}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Int\+Status@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Int\+Status}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Int\+Status(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t int\+Grp)}{Chip_HSADC_GetIntStatus(LPC_HSADC_T *pHSADC, uint8_t intGrp)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Int\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{int\+Grp}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gabbda546278f45c736514ca6491a7c3fd}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gabbda546278f45c736514ca6491a7c3fd}
+
+
+Returns status for H\+S\+A\+DC interrupt group 0 or 1. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em int\+Grp} & \+: Interrupt group 0 or 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+interrupt (pending) status for the selected group 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Mask the return value with a H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+$\ast$ macro for group 0 or H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+$\ast$ values for group 1 to determine which statuses are active. 
+\end{DoxyNote}
+
+
+Definición en la línea 523 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Last\+Sample@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Last\+Sample}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Last\+Sample@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Last\+Sample}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Last\+Sample(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t channel)}{Chip_HSADC_GetLastSample(LPC_HSADC_T *pHSADC, uint8_t channel)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Get\+Last\+Sample (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{channel}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga6bcc415a97846f5d97ebd62a7606606f}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga6bcc415a97846f5d97ebd62a7606606f}
+
+
+Read a A\+DC last sample register. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em channel} & \+: Last sample register to read, 0-\/5 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Current raw value of the indexed last sample register 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function returns the raw value of the indexed last sample register and clears the sample\textquotesingle{}s D\+O\+NE and O\+V\+E\+R\+R\+UN statuses if set. You can determine the overrun and datavalid status for the sample by masking the return value with H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+O\+NE or H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+O\+V\+E\+R\+R\+UN. To get the data value for the sample, use the \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga59cfae9793b32fc984aa56b25e579e85}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+D\+A\+T\+A(sample)} macro. The threshold range and crossing results can be determined by using the \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gab8577fad41f87c7822073b4b0e1b40c3}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E(sample)} and \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gabe3b261486872f47b15142374e8ba513}{H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G(sample)} macros and comparing the result against the H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+R\+A\+N\+G\+E\+\_\+$\ast$ or H\+S\+A\+D\+C\+\_\+\+L\+S\+\_\+\+C\+R\+O\+S\+S\+I\+N\+G\+\_\+$\ast$ definitions.~\newline
+ 
+\end{DoxyNote}
+
+
+Definición en la línea 305 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Init@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Init}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Init@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Init}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Init(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_Init(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gad72fb94bbb485c84687a4e75c63090ea}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gad72fb94bbb485c84687a4e75c63090ea}
+
+
+Initialize the High speed A\+DC. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 65 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Load\+D\+M\+A\+Desc@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Load\+D\+M\+A\+Desc}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Load\+D\+M\+A\+Desc@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Load\+D\+M\+A\+Desc}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Load\+D\+M\+A\+Desc(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_LoadDMADesc(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Load\+D\+M\+A\+Desc (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gab01d315ee383688f0dea4aa939e5220f}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gab01d315ee383688f0dea4aa939e5220f}
+
+
+Load a descriptor table from memory by requesting a D\+MA write. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+W\+Hat is this used for? 
+\end{DoxyNote}
+
+
+Definición en la línea 114 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+A\+C\+D\+C\+Bias@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+A\+C\+D\+C\+Bias}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+A\+C\+D\+C\+Bias@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+A\+C\+D\+C\+Bias}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+A\+C\+D\+C\+Bias(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t channel, H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+\+T dc\+In\+Neg, H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+\+T dc\+In\+Pos)}{Chip_HSADC_SetACDCBias(LPC_HSADC_T *pHSADC, uint8_t channel, HSADC_DCBIAS_T dcInNeg, HSADC_DCBIAS_T dcInPos)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+A\+C\+D\+C\+Bias (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{channel, }
+\item[{{\bf H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T}}]{dc\+In\+Neg, }
+\item[{{\bf H\+S\+A\+D\+C\+\_\+\+D\+C\+B\+I\+A\+S\+\_\+T}}]{dc\+In\+Pos}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gaf754b858ff1c0c0d2993aaedad394867}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gaf754b858ff1c0c0d2993aaedad394867}
+
+
+Setup A\+C-\/\+DC coupling selection for a channel. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em channel} & \+: Input to set, 0-\/5 \\
+\hline
+{\em dc\+In\+Neg} & \+: A\+C-\/\+DC coupling selection on vin\+\_\+neg side \\
+\hline
+{\em dc\+In\+Pos} & \+: A\+C-\/\+DC coupling selection on vin\+\_\+pos side \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function sets up the H\+S\+A\+DC current/power/speed settings that apply to all H\+S\+A\+DC channels (inputs). Based on the H\+S\+A\+DC clock rate, it will automatically setup the best current setting (C\+RS) and speed settings (D\+G\+EC) for all channels. (See user manual).~\newline
+ This function is also used to set the data format of the sampled data. It is recommended to call this function if the H\+S\+A\+DC sample rate changes. 
+\end{DoxyNote}
+
+
+Definición en la línea 166 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Active\+Descriptor@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Active\+Descriptor}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Active\+Descriptor@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Active\+Descriptor}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Active\+Descriptor(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t table, uint8\+\_\+t desc)}{Chip_HSADC_SetActiveDescriptor(LPC_HSADC_T *pHSADC, uint8_t table, uint8_t desc)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Active\+Descriptor (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{table, }
+\item[{uint8\+\_\+t}]{desc}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gaebc1767d0184f03d21ecaf84510b81f9}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gaebc1767d0184f03d21ecaf84510b81f9}
+
+
+Set active table descriptor index and number. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+{\em table} & \+: Table index, 0 or 1 \\
+\hline
+{\em desc} & \+: Descriptor index, 0 to 7 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function can be used to set active descriptor table and active descriptor entry values. The new values will be updated immediately. This should only be updated when descriptors are not running (halted). 
+\end{DoxyNote}
+
+
+Definición en la línea 163 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Int\+Status@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Int\+Status}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Int\+Status@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Int\+Status}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Int\+Status(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t int\+Grp, uint32\+\_\+t sts\+Mask)}{Chip_HSADC_SetIntStatus(LPC_HSADC_T *pHSADC, uint8_t intGrp, uint32_t stsMask)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Int\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{int\+Grp, }
+\item[{uint32\+\_\+t}]{sts\+Mask}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga4594b318a86bb5a6532fbba4f8f70b2f}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga4594b318a86bb5a6532fbba4f8f70b2f}
+
+
+Sets a status for H\+S\+A\+DC interrupt group 0 or 1. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em int\+Grp} & \+: Interrupt group 0 or 1 \\
+\hline
+{\em sts\+Mask} & \+: Statuses to set, use H\+S\+A\+D\+C\+\_\+\+I\+N\+T0\+\_\+$\ast$ for group 0 and H\+S\+A\+D\+C\+\_\+\+I\+N\+T1\+\_\+$\ast$ values for group 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 549 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Power\+Speed@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Power\+Speed}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Power\+Speed@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Power\+Speed}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Power\+Speed(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, bool comp2)}{Chip_HSADC_SetPowerSpeed(LPC_HSADC_T *pHSADC, bool comp2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Power\+Speed (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{bool}]{comp2}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga776d07e6bc51347515f92ed36a9da561}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga776d07e6bc51347515f92ed36a9da561}
+
+
+Setup (common) H\+S\+A\+DC power and speed settings. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em comp2} & \+: True sets up for 2\textquotesingle{}s complement, false sets up for offset binary data format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function sets up the H\+S\+A\+DC current/power/speed settings that apply to all H\+S\+A\+DC channels (inputs). Based on the H\+S\+A\+DC clock rate, it will automatically setup the best current setting (C\+RS) and speed settings (D\+G\+EC) for all channels. (See user manual).~\newline
+ This function is also used to set the data format of the sampled data. It is recommended to call this function if the H\+S\+A\+DC sample rate changes. 
+\end{DoxyNote}
+
+
+Definición en la línea 130 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Speed@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Speed}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Speed@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Speed}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Speed(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t channel, uint8\+\_\+t speed)}{Chip_HSADC_SetSpeed(LPC_HSADC_T *pHSADC, uint8_t channel, uint8_t speed)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Speed (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{channel, }
+\item[{uint8\+\_\+t}]{speed}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga70b879056a35cdf9cc6f9c2928883973}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga70b879056a35cdf9cc6f9c2928883973}
+
+
+Setup speed for a input channel. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em channel} & \+: Input to set, 0-\/5 \\
+\hline
+{\em speed} & \+: Speed value to set (0xF, 0xE, or 0x0), see user manual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+It is recommended not to use this function, as the values needed for this register will be setup with the \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga776d07e6bc51347515f92ed36a9da561}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Power\+Speed()} function. 
+\end{DoxyNote}
+
+
+Definición en la línea 121 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+High\+Value@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+High\+Value}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+High\+Value@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+High\+Value}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+High\+Value(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t thrnum, uint16\+\_\+t value)}{Chip_HSADC_SetThrHighValue(LPC_HSADC_T *pHSADC, uint8_t thrnum, uint16_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+High\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{thrnum, }
+\item[{uint16\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga0690a0edb51bd4070384c35196f1a73d}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga0690a0edb51bd4070384c35196f1a73d}
+
+
+Set H\+S\+A\+DC Threshold high value. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+{\em thrnum} & \+: Threshold register value (0 for threshold register A, 1 for threshold register B) \\
+\hline
+{\em value} & \+: Threshold high data value (should be 12-\/bit value) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 112 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+Low\+Value@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+Low\+Value}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+Low\+Value@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+Low\+Value}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+Low\+Value(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t thrnum, uint16\+\_\+t value)}{Chip_HSADC_SetThrLowValue(LPC_HSADC_T *pHSADC, uint8_t thrnum, uint16_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Set\+Thr\+Low\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{thrnum, }
+\item[{uint16\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga86ed5ab3da9ea3a6bbfd138530d5d73d}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga86ed5ab3da9ea3a6bbfd138530d5d73d}
+
+
+Set H\+S\+A\+DC Threshold low value. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+{\em thrnum} & \+: Threshold register value (0 for threshold register A, 1 for threshold register B) \\
+\hline
+{\em value} & \+: Threshold low data value (should be 12-\/bit value) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 103 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+Desc\+Entry@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+Desc\+Entry}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+Desc\+Entry@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+Desc\+Entry}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+Desc\+Entry(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t table, uint8\+\_\+t desc\+No, uint32\+\_\+t desc)}{Chip_HSADC_SetupDescEntry(LPC_HSADC_T *pHSADC, uint8_t table, uint8_t descNo, uint32_t desc)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+Desc\+Entry (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{table, }
+\item[{uint8\+\_\+t}]{desc\+No, }
+\item[{uint32\+\_\+t}]{desc}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gaaa3661b82ab37e1cb31e248713451705}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gaaa3661b82ab37e1cb31e248713451705}
+
+
+Sets up a raw H\+S\+A\+DC descriptor entry. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em table} & \+: Descriptor table number, 0 or 1 \\
+\hline
+{\em desc\+No} & \+: Descriptor number to setup, 0 to 7 \\
+\hline
+{\em desc} & \+: Raw descriptor value (see notes) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function sets up a descriptor table entry. To setup a descriptor entry, select a OR\textquotesingle{}ed combination of the H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+CH, H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+H\+A\+LT, H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+I\+NT, H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+P\+O\+W\+E\+R\+D\+O\+WN, one of H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+B\+R\+A\+N\+C\+H\+\_\+$\ast$, H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+M\+A\+T\+CH, one of H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+$\ast$, and H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+ER definitions.~\newline
+ Example for setting up a table 0, descriptor number 4 entry for input 0\+:~\newline
+ Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+Desc\+Entry(L\+P\+C\+\_\+\+H\+S\+A\+DC, 0, 4, (\hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_ga02a0ec797250b260c4ffa4e52e256a44}{H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+C\+H(0)} $\vert$ H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+H\+A\+LT $\vert$ H\+S\+A\+D\+C\+\_\+\+D\+E\+S\+C\+\_\+\+I\+NT)); 
+\end{DoxyNote}
+
+
+Definición en la línea 438 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+F\+I\+FO@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+F\+I\+FO}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+F\+I\+FO@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+F\+I\+FO}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+F\+I\+F\+O(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t trip, bool packed)}{Chip_HSADC_SetupFIFO(LPC_HSADC_T *pHSADC, uint8_t trip, bool packed)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+F\+I\+FO (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{trip, }
+\item[{bool}]{packed}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gaafa52aef03cf64be7d329895ad90ac40}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gaafa52aef03cf64be7d329895ad90ac40}
+
+
+Sets up H\+S\+A\+DC F\+I\+FO trip level and packing. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+{\em trip} & \+: H\+S\+A\+DC F\+I\+FO trip point (1 to 15 samples) \\
+\hline
+{\em packed} & \+: true to pack samples, false for no packing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+The F\+I\+FO trip point is used for the D\+MA or interrupt level. Sample packging allows packing 2 samples into a single 32-\/bit word. 
+\end{DoxyNote}
+
+
+Definición en la línea 92 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+S\+W\+Trigger@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+S\+W\+Trigger}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+S\+W\+Trigger@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+S\+W\+Trigger}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+S\+W\+Trigger(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C)}{Chip_HSADC_SWTrigger(LPC_HSADC_T *pHSADC)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+S\+W\+Trigger (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_gace987c7627a672a963e26ecdf03b1dda}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_gace987c7627a672a963e26ecdf03b1dda}
+
+
+Starts a manual (software) trigger of H\+S\+A\+DC descriptors. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of H\+S\+A\+DC peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 147 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}!Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Update\+Desc\+Table@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Update\+Desc\+Table}}
+\index{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Update\+Desc\+Table@{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Update\+Desc\+Table}!C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver@{C\+H\+I\+P\+:  L\+P\+C18xx/43xx High speed A\+D\+C driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Update\+Desc\+Table(\+L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+\+T $\ast$p\+H\+S\+A\+D\+C, uint8\+\_\+t table)}{Chip_HSADC_UpdateDescTable(LPC_HSADC_T *pHSADC, uint8_t table)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Update\+Desc\+Table (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+H\+S\+A\+D\+C\+\_\+T} $\ast$}]{p\+H\+S\+A\+DC, }
+\item[{uint8\+\_\+t}]{table}
+\end{DoxyParamCaption}
+)}\hypertarget{group___h_s_a_d_c__18_x_x__43_x_x_ga61445a76cda41f938d5be8f291caa520}{}\label{group___h_s_a_d_c__18_x_x__43_x_x_ga61445a76cda41f938d5be8f291caa520}
+
+
+Update all descriptors of a table. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+H\+S\+A\+DC} & \+: The base of A\+DC peripheral on the chip \\
+\hline
+{\em table} & \+: Descriptor table number, 0 or 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Updates descriptor table with all 8 descriptors. This function should be used after all descriptors are setup with the \hyperlink{group___h_s_a_d_c__18_x_x__43_x_x_gaaa3661b82ab37e1cb31e248713451705}{Chip\+\_\+\+H\+S\+A\+D\+C\+\_\+\+Setup\+Desc\+Entry()} function. 
+\end{DoxyNote}
+
+
+Definición en la línea 453 del archivo hsadc\+\_\+18xx\+\_\+43xx.\+h.
+

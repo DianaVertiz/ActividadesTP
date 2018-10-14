@@ -1,0 +1,99 @@
+.TH "adc_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+adc_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBgetFullConvClk\fP (void)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP \fBChip_ADC_GetClockIndex\fP (\fBLPC_ADC_T\fP *pADC)"
+.br
+.ti -1c
+.RI "\fBSTATIC\fP uint8_t \fBgetClkDiv\fP (\fBLPC_ADC_T\fP *pADC, bool burstMode, uint32_t adcRate, uint8_t clks)"
+.br
+.ti -1c
+.RI "void \fBsetStartMode\fP (\fBLPC_ADC_T\fP *pADC, uint8_t start_mode)"
+.br
+.ti -1c
+.RI "\fBStatus\fP \fBreadAdcVal\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, uint16_t *data)"
+.br
+.ti -1c
+.RI "void \fBChip_ADC_Init\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CLOCK_SETUP_T\fP *ADCSetup)"
+.br
+.RI "\fIInitialize the ADC peripheral and the ADC setup structure to default value\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_DeInit\fP (\fBLPC_ADC_T\fP *pADC)"
+.br
+.RI "\fIShutdown ADC\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_ADC_ReadValue\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, uint16_t *data)"
+.br
+.RI "\fIRead the ADC value from a channel\&. \fP"
+.ti -1c
+.RI "\fBFlagStatus\fP \fBChip_ADC_ReadStatus\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, uint32_t StatusType)"
+.br
+.RI "\fIRead the ADC channel status\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_Int_SetChannelCmd\fP (\fBLPC_ADC_T\fP *pADC, uint8_t channel, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable/Disable interrupt for ADC channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetStartMode\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_START_MODE_T\fP mode, \fBADC_EDGE_CFG_T\fP EdgeOption)"
+.br
+.RI "\fISelect the mode starting the AD conversion\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetSampleRate\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CLOCK_SETUP_T\fP *ADCSetup, uint32_t rate)"
+.br
+.RI "\fISet the ADC Sample rate\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetResolution\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CLOCK_SETUP_T\fP *ADCSetup, \fBADC_RESOLUTION_T\fP resolution)"
+.br
+.RI "\fISet the ADC accuracy bits\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_EnableChannel\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CHANNEL_T\fP channel, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable or disable the ADC channel on ADC peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_ADC_SetBurstCmd\fP (\fBLPC_ADC_T\fP *pADC, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIEnable burst mode\&. \fP"
+.ti -1c
+.RI "\fBStatus\fP \fBChip_ADC_ReadByte\fP (\fBLPC_ADC_T\fP *pADC, \fBADC_CHANNEL_T\fP channel, uint8_t *data)"
+.br
+.RI "\fIRead the ADC value and convert it to 8bits value\&. \fP"
+.in -1c
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBCHIP_CCU_CLK_T\fP Chip_ADC_GetClockIndex (\fBLPC_ADC_T\fP * pADC)"
+
+.PP
+Definición en la línea 53 del archivo adc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP uint8_t getClkDiv (\fBLPC_ADC_T\fP * pADC, bool burstMode, uint32_t adcRate, uint8_t clks)"
+
+.PP
+Definición en la línea 68 del archivo adc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t getFullConvClk (void)"
+
+.PP
+Definición en la línea 47 del archivo adc_18xx_43xx\&.c\&.
+.SS "\fBStatus\fP readAdcVal (\fBLPC_ADC_T\fP * pADC, uint8_t channel, uint16_t * data)"
+
+.PP
+Definición en la línea 102 del archivo adc_18xx_43xx\&.c\&.
+.SS "void setStartMode (\fBLPC_ADC_T\fP * pADC, uint8_t start_mode)"
+
+.PP
+Definición en la línea 94 del archivo adc_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

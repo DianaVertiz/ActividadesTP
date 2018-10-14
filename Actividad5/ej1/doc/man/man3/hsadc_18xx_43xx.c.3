@@ -1,0 +1,57 @@
+.TH "hsadc_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hsadc_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCRSDCEG_T\fP"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_HSADC_Init\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIInitialize the High speed ADC\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_DeInit\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIShutdown HSADC\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetupFIFO\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t trip, bool packed)"
+.br
+.RI "\fISets up HSADC FIFO trip level and packing\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetThrLowValue\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t thrnum, uint16_t value)"
+.br
+.RI "\fISet HSADC Threshold low value\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetThrHighValue\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t thrnum, uint16_t value)"
+.br
+.RI "\fISet HSADC Threshold high value\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetSpeed\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t channel, uint8_t speed)"
+.br
+.RI "\fISetup speed for a input channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetPowerSpeed\fP (\fBLPC_HSADC_T\fP *pHSADC, bool comp2)"
+.br
+.RI "\fISetup (common) HSADC power and speed settings\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetACDCBias\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t channel, \fBHSADC_DCBIAS_T\fP dcInNeg, \fBHSADC_DCBIAS_T\fP dcInPos)"
+.br
+.RI "\fISetup AC-DC coupling selection for a channel\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,329 @@
+.TH "RITIMER_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RITIMER_18XX_43XX \- CHIP: LPC18xx/43xx Repetitive Interrupt Timer driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_RITIMER_T\fP"
+.br
+.RI "\fIRepetitive Interrupt Timer register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRIT_CTRL_INT\fP   ((uint32_t) (1))"
+.br
+.ti -1c
+.RI "#define \fBRIT_CTRL_ENCLR\fP   ((uint32_t) \fB_BIT\fP(1))"
+.br
+.ti -1c
+.RI "#define \fBRIT_CTRL_ENBR\fP   ((uint32_t) \fB_BIT\fP(2))"
+.br
+.ti -1c
+.RI "#define \fBRIT_CTRL_TEN\fP   ((uint32_t) \fB_BIT\fP(3))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_RIT_Init\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIInitialize the RIT\&. \fP"
+.ti -1c
+.RI "void \fBChip_RIT_DeInit\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIShutdown the RIT\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_Enable\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIEnable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_Disable\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIDisable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_TimerDebugEnable\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIEnable timer debug\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_TimerDebugDisable\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIDisable timer debug\&. \fP"
+.ti -1c
+.RI "\fBIntStatus\fP \fBChip_RIT_GetIntStatus\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fICheck whether interrupt flag is set or not\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_SetCOMPVAL\fP (\fBLPC_RITIMER_T\fP *pRITimer, uint32_t val)"
+.br
+.RI "\fISet a tick value for the interrupt to time out\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_EnableCTRL\fP (\fBLPC_RITIMER_T\fP *pRITimer, uint32_t val)"
+.br
+.RI "\fIEnables or clears the RIT or interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_RIT_ClearInt\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIClears the RIT interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_RIT_GetCounter\fP (\fBLPC_RITIMER_T\fP *pRITimer)"
+.br
+.RI "\fIReturns the current RIT Counter value\&. \fP"
+.ti -1c
+.RI "void \fBChip_RIT_SetTimerInterval\fP (\fBLPC_RITIMER_T\fP *pRITimer, uint32_t time_interval)"
+.br
+.RI "\fISet timer interval value\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define RIT_CTRL_ENBR   ((uint32_t) \fB_BIT\fP(2))"
+Set timer enable on debug 
+.PP
+Definición en la línea 66 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "#define RIT_CTRL_ENCLR   ((uint32_t) \fB_BIT\fP(1))"
+Set timer enable clear to 0 when the counter value equals the masked compare value 
+.PP
+Definición en la línea 64 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "#define RIT_CTRL_INT   ((uint32_t) (1))"
+Set by H/W when the counter value equals the masked compare value 
+.PP
+Definición en la línea 62 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "#define RIT_CTRL_TEN   ((uint32_t) \fB_BIT\fP(3))"
+Set timer enable 
+.PP
+Definición en la línea 68 del archivo ritimer_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RIT_ClearInt (\fBLPC_RITIMER_T\fP * pRITimer)"
+
+.PP
+Clears the RIT interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 158 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "void Chip_RIT_DeInit (\fBLPC_RITIMER_T\fP * pRITimer)"
+
+.PP
+Shutdown the RIT\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 61 del archivo ritimer_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RIT_Disable (\fBLPC_RITIMER_T\fP * pRITimer)"
+
+.PP
+Disable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 99 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RIT_Enable (\fBLPC_RITIMER_T\fP * pRITimer)"
+
+.PP
+Enable Timer\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 89 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RIT_EnableCTRL (\fBLPC_RITIMER_T\fP * pRITimer, uint32_t val)"
+
+.PP
+Enables or clears the RIT or interrupt\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.br
+\fIval\fP : RIT to be set, one or more RIT_CTRL_* values 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 148 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_RIT_GetCounter (\fBLPC_RITIMER_T\fP * pRITimer)"
+
+.PP
+Returns the current RIT Counter value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+the current timer counter value 
+.RE
+.PP
+
+.PP
+Definición en la línea 168 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "\fBIntStatus\fP Chip_RIT_GetIntStatus (\fBLPC_RITIMER_T\fP * pRITimer)"
+
+.PP
+Check whether interrupt flag is set or not\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current interrupt status, either ET or UNSET 
+.RE
+.PP
+
+.PP
+Definición en la línea 84 del archivo ritimer_18xx_43xx\&.c\&.
+.SS "void Chip_RIT_Init (\fBLPC_RITIMER_T\fP * pRITimer)"
+
+.PP
+Initialize the RIT\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 51 del archivo ritimer_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RIT_SetCOMPVAL (\fBLPC_RITIMER_T\fP * pRITimer, uint32_t val)"
+
+.PP
+Set a tick value for the interrupt to time out\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.br
+\fIval\fP : value (in ticks) of the interrupt to be set 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 137 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "void Chip_RIT_SetTimerInterval (\fBLPC_RITIMER_T\fP * pRITimer, uint32_t time_interval)"
+
+.PP
+Set timer interval value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.br
+\fItime_interval\fP : timer interval value (ms) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 68 del archivo ritimer_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RIT_TimerDebugDisable (\fBLPC_RITIMER_T\fP * pRITimer)"
+
+.PP
+Disable timer debug\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 119 del archivo ritimer_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_RIT_TimerDebugEnable (\fBLPC_RITIMER_T\fP * pRITimer)"
+
+.PP
+Enable timer debug\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpRITimer\fP : RITimer peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 109 del archivo ritimer_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

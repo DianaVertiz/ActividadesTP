@@ -1,0 +1,217 @@
+\hypertarget{group___c_r_e_g__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx C\+R\+EG driver}
+\label{group___c_r_e_g__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___c_r_e_g___t}{L\+P\+C\+\_\+\+C\+R\+E\+G\+\_\+T}
+\begin{DoxyCompactList}\small\item\em C\+R\+EG Register Block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___c_r_e_g__18_x_x__43_x_x_gaecbf266e1dc43b19d1cca3b7cc800786}{C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+T} \{ \\*
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786aeb017487ff6fd051dfc885ba063415a3}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+20\+M\+H\+Z\+\_\+\+C\+PU} = 0, 
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a617391e132f72d731806d6af10863407}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+40\+M\+H\+Z\+\_\+\+C\+PU} = 1, 
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786af482ee6a465905fd232ff2da7f993514}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+60\+M\+H\+Z\+\_\+\+C\+PU} = 2, 
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786aff2c5410ad123adc43eb1a781f71ffe8}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+80\+M\+H\+Z\+\_\+\+C\+PU} = 3, 
+\\*
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786af386ac4dceedf99032479736a40c7257}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+100\+M\+H\+Z\+\_\+\+C\+PU} = 4, 
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a747d8440c3924f3546bbb895b101e085}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+120\+M\+H\+Z\+\_\+\+C\+PU} = 5, 
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a938acf28b85b3a7f7a0c7d543e2bc2ac}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+150\+M\+H\+Z\+\_\+\+C\+PU} = 6, 
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786aca428852c818cf09b2446215c186a758}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+170\+M\+H\+Z\+\_\+\+C\+PU} = 7, 
+\\*
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a999b78e7a379308f5428c46e7908941f}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+190\+M\+H\+Z\+\_\+\+C\+PU} = 8, 
+\hyperlink{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a769f5cbe41f1f487aeaf3ca300be86fb}{F\+L\+A\+S\+H\+T\+I\+M\+\_\+\+S\+A\+F\+E\+\_\+\+S\+E\+T\+T\+I\+NG} = 9
+ \}\begin{DoxyCompactList}\small\item\em F\+L\+A\+SH Access time definitions. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___c_r_e_g__18_x_x__43_x_x_gaa6600641bde2e510902377f8c62dec80}{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+On\+Chip\+Flash\+Is\+Present} (void)
+\begin{DoxyCompactList}\small\item\em Identifies whether on-\/chip flash is present. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_r_e_g__18_x_x__43_x_x_gabe245d16e605579542492b553eb482ee}{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+Flash\+Acceleration} (uint32\+\_\+t Hz)
+\begin{DoxyCompactList}\small\item\em Configures the onboard Flash Accelerator in flash-\/based L\+P\+C18xx/\+L\+P\+C43xx parts. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_r_e_g__18_x_x__43_x_x_ga8135e31d06c710b645e0752ec909308d}{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+F\+L\+A\+S\+H\+Access} (\hyperlink{group___c_r_e_g__18_x_x__43_x_x_gaecbf266e1dc43b19d1cca3b7cc800786}{C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+T} clks)
+\begin{DoxyCompactList}\small\item\em Set F\+L\+A\+SH memory access time in clocks. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_r_e_g__18_x_x__43_x_x_gad0c399884bc0c82c8f38832eb7dee9c9}{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Enable\+U\+S\+B0\+Phy} (void)
+\begin{DoxyCompactList}\small\item\em Enables the U\+S\+B0 high-\/speed P\+HY on L\+P\+C18xx/\+L\+P\+C43xx parts. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_r_e_g__18_x_x__43_x_x_ga604f1e681ee7fcd16b9fe57c12e3e135}{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Disable\+U\+S\+B0\+Phy} (void)
+\begin{DoxyCompactList}\small\item\em Disable the U\+S\+B0 high-\/speed P\+HY on L\+P\+C18xx/\+L\+P\+C43xx parts. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_r_e_g__18_x_x__43_x_x_ga060a0c5a349e123114449c22e91b495f}{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Configure\+B\+O\+DaR} (uint32\+\_\+t B\+O\+D\+VL, uint32\+\_\+t B\+O\+R\+VL)
+\begin{DoxyCompactList}\small\item\em Configures the B\+OD and Reset on L\+P\+C18xx/\+L\+P\+C43xx parts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de las enumeraciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+T@{C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+T}}
+\index{C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+T@{C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}
+\subsubsection[{\texorpdfstring{C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+T}{CREG_FLASHTIM_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+T}}\hypertarget{group___c_r_e_g__18_x_x__43_x_x_gaecbf266e1dc43b19d1cca3b7cc800786}{}\label{group___c_r_e_g__18_x_x__43_x_x_gaecbf266e1dc43b19d1cca3b7cc800786}
+
+
+F\+L\+A\+SH Access time definitions. 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+20\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+20\+M\+H\+Z\+\_\+\+C\+PU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+20\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+20\+M\+H\+Z\+\_\+\+C\+PU}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+20\+M\+H\+Z\+\_\+\+C\+PU\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786aeb017487ff6fd051dfc885ba063415a3}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786aeb017487ff6fd051dfc885ba063415a3}
+}]Flash accesses use 1 C\+PU clocks. Use for up to 20 M\+Hz C\+PU clock \index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+40\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+40\+M\+H\+Z\+\_\+\+C\+PU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+40\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+40\+M\+H\+Z\+\_\+\+C\+PU}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+40\+M\+H\+Z\+\_\+\+C\+PU\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a617391e132f72d731806d6af10863407}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a617391e132f72d731806d6af10863407}
+}]Flash accesses use 2 C\+PU clocks. Use for up to 40 M\+Hz C\+PU clock \index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+60\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+60\+M\+H\+Z\+\_\+\+C\+PU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+60\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+60\+M\+H\+Z\+\_\+\+C\+PU}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+60\+M\+H\+Z\+\_\+\+C\+PU\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786af482ee6a465905fd232ff2da7f993514}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786af482ee6a465905fd232ff2da7f993514}
+}]Flash accesses use 3 C\+PU clocks. Use for up to 60 M\+Hz C\+PU clock \index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+80\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+80\+M\+H\+Z\+\_\+\+C\+PU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+80\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+80\+M\+H\+Z\+\_\+\+C\+PU}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+80\+M\+H\+Z\+\_\+\+C\+PU\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786aff2c5410ad123adc43eb1a781f71ffe8}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786aff2c5410ad123adc43eb1a781f71ffe8}
+}]Flash accesses use 4 C\+PU clocks. Use for up to 80 M\+Hz C\+PU clock \index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+100\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+100\+M\+H\+Z\+\_\+\+C\+PU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+100\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+100\+M\+H\+Z\+\_\+\+C\+PU}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+100\+M\+H\+Z\+\_\+\+C\+PU\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786af386ac4dceedf99032479736a40c7257}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786af386ac4dceedf99032479736a40c7257}
+}]Flash accesses use 5 C\+PU clocks. Use for up to 100 M\+Hz C\+PU clock \index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+120\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+120\+M\+H\+Z\+\_\+\+C\+PU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+120\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+120\+M\+H\+Z\+\_\+\+C\+PU}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+120\+M\+H\+Z\+\_\+\+C\+PU\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a747d8440c3924f3546bbb895b101e085}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a747d8440c3924f3546bbb895b101e085}
+}]Flash accesses use 6 C\+PU clocks. Use for up to 120 M\+Hz C\+PU clock \index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+150\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+150\+M\+H\+Z\+\_\+\+C\+PU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+150\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+150\+M\+H\+Z\+\_\+\+C\+PU}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+150\+M\+H\+Z\+\_\+\+C\+PU\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a938acf28b85b3a7f7a0c7d543e2bc2ac}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a938acf28b85b3a7f7a0c7d543e2bc2ac}
+}]Flash accesses use 7 C\+PU clocks. Use for up to 150 Mhz C\+PU clock \index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+170\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+170\+M\+H\+Z\+\_\+\+C\+PU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+170\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+170\+M\+H\+Z\+\_\+\+C\+PU}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+170\+M\+H\+Z\+\_\+\+C\+PU\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786aca428852c818cf09b2446215c186a758}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786aca428852c818cf09b2446215c186a758}
+}]Flash accesses use 8 C\+PU clocks. Use for up to 170 M\+Hz C\+PU clock \index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+190\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+190\+M\+H\+Z\+\_\+\+C\+PU}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+190\+M\+H\+Z\+\_\+\+C\+PU@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+190\+M\+H\+Z\+\_\+\+C\+PU}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+190\+M\+H\+Z\+\_\+\+C\+PU\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a999b78e7a379308f5428c46e7908941f}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a999b78e7a379308f5428c46e7908941f}
+}]Flash accesses use 9 C\+PU clocks. Use for up to 190 M\+Hz C\+PU clock \index{F\+L\+A\+S\+H\+T\+I\+M\+\_\+\+S\+A\+F\+E\+\_\+\+S\+E\+T\+T\+I\+NG@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+\+S\+A\+F\+E\+\_\+\+S\+E\+T\+T\+I\+NG}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!F\+L\+A\+S\+H\+T\+I\+M\+\_\+\+S\+A\+F\+E\+\_\+\+S\+E\+T\+T\+I\+NG@{F\+L\+A\+S\+H\+T\+I\+M\+\_\+\+S\+A\+F\+E\+\_\+\+S\+E\+T\+T\+I\+NG}}\item[{\em 
+F\+L\+A\+S\+H\+T\+I\+M\+\_\+\+S\+A\+F\+E\+\_\+\+S\+E\+T\+T\+I\+NG\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a769f5cbe41f1f487aeaf3ca300be86fb}{}\label{group___c_r_e_g__18_x_x__43_x_x_ggaecbf266e1dc43b19d1cca3b7cc800786a769f5cbe41f1f487aeaf3ca300be86fb}
+}]Flash accesses use 10 C\+PU clocks. Safe setting for any allowed conditions \end{description}
+\end{Desc}
+
+
+Definición en la línea 119 del archivo creg\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Configure\+B\+O\+DaR@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Configure\+B\+O\+DaR}}
+\index{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Configure\+B\+O\+DaR@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Configure\+B\+O\+DaR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Configure\+B\+O\+Da\+R(uint32\+\_\+t B\+O\+D\+V\+L, uint32\+\_\+t B\+O\+R\+V\+L)}{Chip_CREG_ConfigureBODaR(uint32_t BODVL, uint32_t BORVL)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Configure\+B\+O\+DaR (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{B\+O\+D\+VL, }
+\item[{uint32\+\_\+t}]{B\+O\+R\+VL}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ga060a0c5a349e123114449c22e91b495f}{}\label{group___c_r_e_g__18_x_x__43_x_x_ga060a0c5a349e123114449c22e91b495f}
+
+
+Configures the B\+OD and Reset on L\+P\+C18xx/\+L\+P\+C43xx parts. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em B\+O\+D\+VL} & \+: Brown-\/\+Out Detect voltage level (0-\/3) \\
+\hline
+{\em B\+O\+R\+VL} & \+: Brown-\/\+Out Reset voltage level (0-\/3) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 176 del archivo creg\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Disable\+U\+S\+B0\+Phy@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Disable\+U\+S\+B0\+Phy}}
+\index{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Disable\+U\+S\+B0\+Phy@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Disable\+U\+S\+B0\+Phy}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Disable\+U\+S\+B0\+Phy(void)}{Chip_CREG_DisableUSB0Phy(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Disable\+U\+S\+B0\+Phy (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ga604f1e681ee7fcd16b9fe57c12e3e135}{}\label{group___c_r_e_g__18_x_x__43_x_x_ga604f1e681ee7fcd16b9fe57c12e3e135}
+
+
+Disable the U\+S\+B0 high-\/speed P\+HY on L\+P\+C18xx/\+L\+P\+C43xx parts. 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+The U\+S\+B0 P\+LL \& clock should be configured before calling this function. This function should be called before the U\+S\+B0 registers are accessed. 
+\end{DoxyNote}
+
+
+Definición en la línea 165 del archivo creg\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Enable\+U\+S\+B0\+Phy@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Enable\+U\+S\+B0\+Phy}}
+\index{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Enable\+U\+S\+B0\+Phy@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Enable\+U\+S\+B0\+Phy}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Enable\+U\+S\+B0\+Phy(void)}{Chip_CREG_EnableUSB0Phy(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Enable\+U\+S\+B0\+Phy (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_r_e_g__18_x_x__43_x_x_gad0c399884bc0c82c8f38832eb7dee9c9}{}\label{group___c_r_e_g__18_x_x__43_x_x_gad0c399884bc0c82c8f38832eb7dee9c9}
+
+
+Enables the U\+S\+B0 high-\/speed P\+HY on L\+P\+C18xx/\+L\+P\+C43xx parts. 
+
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+The U\+S\+B0 P\+LL \& clock should be configured before calling this function. This function should be called before the U\+S\+B0 registers are accessed. 
+\end{DoxyNote}
+
+
+Definición en la línea 154 del archivo creg\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!Chip\+\_\+\+C\+R\+E\+G\+\_\+\+On\+Chip\+Flash\+Is\+Present@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+On\+Chip\+Flash\+Is\+Present}}
+\index{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+On\+Chip\+Flash\+Is\+Present@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+On\+Chip\+Flash\+Is\+Present}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+On\+Chip\+Flash\+Is\+Present(void)}{Chip_CREG_OnChipFlashIsPresent(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+C\+R\+E\+G\+\_\+\+On\+Chip\+Flash\+Is\+Present (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_r_e_g__18_x_x__43_x_x_gaa6600641bde2e510902377f8c62dec80}{}\label{group___c_r_e_g__18_x_x__43_x_x_gaa6600641bde2e510902377f8c62dec80}
+
+
+Identifies whether on-\/chip flash is present. 
+
+\begin{DoxyReturn}{Devuelve}
+true if on chip flash is available, otherwise false 
+\end{DoxyReturn}
+
+
+Definición en la línea 95 del archivo creg\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+Flash\+Acceleration@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+Flash\+Acceleration}}
+\index{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+Flash\+Acceleration@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+Flash\+Acceleration}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+Flash\+Acceleration(uint32\+\_\+t Hz)}{Chip_CREG_SetFlashAcceleration(uint32_t Hz)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+Flash\+Acceleration (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{Hz}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_r_e_g__18_x_x__43_x_x_gabe245d16e605579542492b553eb482ee}{}\label{group___c_r_e_g__18_x_x__43_x_x_gabe245d16e605579542492b553eb482ee}
+
+
+Configures the onboard Flash Accelerator in flash-\/based L\+P\+C18xx/\+L\+P\+C43xx parts. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Hz} & \+: Current frequency in Hz of the C\+PU \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing This function should be called with the higher frequency before the clock frequency is increased and it should be called with the new lower value after the clock frequency is decreased. 
+\end{DoxyReturn}
+
+
+Definición en la línea 108 del archivo creg\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}!Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+F\+L\+A\+S\+H\+Access@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+F\+L\+A\+S\+H\+Access}}
+\index{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+F\+L\+A\+S\+H\+Access@{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+F\+L\+A\+S\+H\+Access}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+R\+E\+G driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+F\+L\+A\+S\+H\+Access(\+C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+\+T clks)}{Chip_CREG_SetFLASHAccess(CREG_FLASHTIM_T clks)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+R\+E\+G\+\_\+\+Set\+F\+L\+A\+S\+H\+Access (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+E\+G\+\_\+\+F\+L\+A\+S\+H\+T\+I\+M\+\_\+T}}]{clks}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_r_e_g__18_x_x__43_x_x_ga8135e31d06c710b645e0752ec909308d}{}\label{group___c_r_e_g__18_x_x__43_x_x_ga8135e31d06c710b645e0752ec909308d}
+
+
+Set F\+L\+A\+SH memory access time in clocks. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em clks} & \+: F\+L\+A\+SH access speed rating \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 137 del archivo creg\+\_\+18xx\+\_\+43xx.\+h.
+

@@ -1,0 +1,247 @@
+.TH "LPC_USART_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_USART_T \- USART register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <uart_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBDLL\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBTHR\fP"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBRBR\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBIER\fP"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBDLM\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBFCR\fP"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBIIR\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBLCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMCR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBLSR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBACR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBICR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFDR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBOSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTER1\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [3]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBHDEN\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP [1]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCICTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRS485CTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRS485ADRMATCH\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRS485DLY\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBSYNCCTRL\fP"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBFIFOLVL\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTER2\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+USART register block structure\&. 
+.PP
+Definición en la línea 49 del archivo uart_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "union { \&.\&.\&. } "
+< USARTn Structure 
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "\fB__IO\fP uint32_t ACR"
+Auto-baud Control Register\&. Contains controls for the auto-baud feature\&. 
+.PP
+Definición en la línea 72 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DLL"
+Divisor Latch LSB\&. Least significant byte of the baud rate divisor value\&. The full divisor is used to generate a baud rate from the fractional rate divider (DLAB = 1)\&. 
+.PP
+Definición en la línea 52 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DLM"
+Divisor Latch MSB\&. Most significant byte of the baud rate divisor value\&. The full divisor is used to generate a baud rate from the fractional rate divider (DLAB = 1)\&. 
+.PP
+Definición en la línea 59 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t FCR"
+FIFO Control Register\&. Controls UART FIFO usage and modes\&. 
+.PP
+Definición en la línea 63 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FDR"
+Fractional Divider Register\&. Generates a clock input for the baud rate divider\&. 
+.PP
+Definición en la línea 74 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t FIFOLVL"
+FIFO Level register\&. Provides the current fill levels of the transmit and receive FIFOs\&. 
+.PP
+Definición en la línea 88 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t HDEN"
+Half-duplex enable Register- only on some UARTs 
+.PP
+Definición en la línea 78 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t ICR"
+IrDA control register (not all UARTS) 
+.PP
+Definición en la línea 73 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t IER"
+Interrupt Enable Register\&. Contains individual interrupt enable bits for the 7 potential UART interrupts (DLAB = 0)\&. 
+.PP
+Definición en la línea 58 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t IIR"
+Interrupt ID Register\&. Identifies which interrupt(s) are pending\&. 
+.PP
+Definición en la línea 64 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t LCR"
+Line Control Register\&. Contains controls for frame formatting and break generation\&. 
+.PP
+Definición en la línea 67 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t LSR"
+Line Status Register\&. Contains flags for transmit and receive status, including line errors\&. 
+.PP
+Definición en la línea 69 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t MCR"
+Modem Control Register\&. Only present on USART ports with full modem support\&. 
+.PP
+Definición en la línea 68 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t MSR"
+Modem Status Register\&. Only present on USART ports with full modem support\&. 
+.PP
+Definición en la línea 70 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t OSR"
+Oversampling Register\&. Controls the degree of oversampling during each bit time\&. Only on some UARTS\&. 
+.PP
+Definición en la línea 75 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RBR"
+Receiver Buffer Register\&. Contains the next received character to be read (DLAB = 0)\&. 
+.PP
+Definición en la línea 54 del archivo uart_18xx_43xx\&.h\&.
+.SS "uint32_t RESERVED0[3]"
+
+.PP
+Definición en la línea 77 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1[1]"
+
+.PP
+Definición en la línea 79 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RS485ADRMATCH"
+RS-485/EIA-485 address match\&. Contains the address match value for RS-485/EIA-485 mode\&. 
+.PP
+Definición en la línea 83 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RS485CTRL"
+RS-485/EIA-485 Control\&. Contains controls to configure various aspects of RS-485/EIA-485 modes\&. 
+.PP
+Definición en la línea 82 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RS485DLY"
+RS-485/EIA-485 direction control delay\&. 
+.PP
+Definición en la línea 84 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SCICTRL"
+Smart card interface control register- only on some UARTs 
+.PP
+Definición en la línea 80 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SCR"
+Scratch Pad Register\&. Eight-bit temporary storage for software\&. 
+.PP
+Definición en la línea 71 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t SYNCCTRL"
+Synchronous mode control register\&. Only on USARTs\&. 
+.PP
+Definición en la línea 87 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TER1"
+Transmit Enable Register\&. Turns off USART transmitter for use with software flow control\&. 
+.PP
+Definición en la línea 76 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TER2"
+Transmit Enable Register\&. Only on LPC177X_8X UART4 and LPC18XX/43XX USART0/2/3\&. 
+.PP
+Definición en la línea 91 del archivo uart_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t THR"
+Transmit Holding Register\&. The next character to be transmitted is written here (DLAB = 0)\&. 
+.PP
+Definición en la línea 53 del archivo uart_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

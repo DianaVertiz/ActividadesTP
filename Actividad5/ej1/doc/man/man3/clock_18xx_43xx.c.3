@@ -1,0 +1,163 @@
+.TH "clock_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+clock_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCLK_PERIPH_TO_BASE_T\fP"
+.br
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCRYSTAL_32K_FREQ_IN\fP   (32 * 1024)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBABS\fP (int val)"
+.br
+.ti -1c
+.RI "void \fBChip_Clock_EnableCrystal\fP (void)"
+.br
+.RI "\fIEnables the crystal oscillator\&. \fP"
+.ti -1c
+.RI "int \fBChip_Clock_CalcMainPLLValue\fP (uint32_t freq, \fBPLL_PARAM_T\fP *ppll)"
+.br
+.RI "\fICalculate main PLL Pre, Post and M div values\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_DisableCrystal\fP (void)"
+.br
+.RI "\fIDisables the crystal oscillator\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_Clock_SetupMainPLLHz\fP (\fBCHIP_CGU_CLKIN_T\fP Input, uint32_t MinHz, uint32_t DesiredHz, uint32_t MaxHz)"
+.br
+.RI "\fIConfigures the main PLL\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_Clock_SetupMainPLLMult\fP (\fBCHIP_CGU_CLKIN_T\fP Input, uint32_t mult)"
+.br
+.RI "\fIDirectly set the PLL multipler\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_Clock_GetMainPLLHz\fP (void)"
+.br
+.RI "\fIReturns the frequency of the main PLL\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_SetDivider\fP (\fBCHIP_CGU_IDIV_T\fP Divider, \fBCHIP_CGU_CLKIN_T\fP Input, uint32_t Divisor)"
+.br
+.RI "\fISets up a CGU clock divider and it's input clock\&. \fP"
+.ti -1c
+.RI "\fBCHIP_CGU_CLKIN_T\fP \fBChip_Clock_GetDividerSource\fP (\fBCHIP_CGU_IDIV_T\fP Divider)"
+.br
+.RI "\fIGets a CGU clock divider source\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_Clock_GetDividerDivisor\fP (\fBCHIP_CGU_IDIV_T\fP Divider)"
+.br
+.RI "\fIGets a CGU clock divider divisor\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_Clock_GetClockInputHz\fP (\fBCHIP_CGU_CLKIN_T\fP input)"
+.br
+.RI "\fIReturns the frequency of the specified input clock source\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_Clock_GetBaseClocktHz\fP (\fBCHIP_CGU_BASE_CLK_T\fP clock)"
+.br
+.RI "\fIReturns the frequency of the specified base clock source\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_SetBaseClock\fP (\fBCHIP_CGU_BASE_CLK_T\fP BaseClock, \fBCHIP_CGU_CLKIN_T\fP Input, bool autoblocken, bool powerdn)"
+.br
+.RI "\fISets a CGU Base Clock clock source\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_GetBaseClockOpts\fP (\fBCHIP_CGU_BASE_CLK_T\fP BaseClock, \fBCHIP_CGU_CLKIN_T\fP *Input, bool *autoblocken, bool *powerdn)"
+.br
+.RI "\fIGet CGU Base Clock clock source information\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_EnableBaseClock\fP (\fBCHIP_CGU_BASE_CLK_T\fP BaseClock)"
+.br
+.RI "\fIEnables a base clock source\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_DisableBaseClock\fP (\fBCHIP_CGU_BASE_CLK_T\fP BaseClock)"
+.br
+.RI "\fIDisables a base clock source\&. \fP"
+.ti -1c
+.RI "bool \fBChip_Clock_IsBaseClockEnabled\fP (\fBCHIP_CGU_BASE_CLK_T\fP BaseClock)"
+.br
+.RI "\fIReturns base clock enable state\&. \fP"
+.ti -1c
+.RI "\fBCHIP_CGU_CLKIN_T\fP \fBChip_Clock_GetBaseClock\fP (\fBCHIP_CGU_BASE_CLK_T\fP BaseClock)"
+.br
+.RI "\fIGets a CGU Base Clock clock source\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_EnableOpts\fP (\fBCHIP_CCU_CLK_T\fP clk, bool autoen, bool wakeupen, int div)"
+.br
+.RI "\fIEnables a peripheral clock and sets clock states\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_Enable\fP (\fBCHIP_CCU_CLK_T\fP clk)"
+.br
+.RI "\fIEnables a peripheral clock\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_RTCEnable\fP (void)"
+.br
+.RI "\fIEnables RTCclock\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_Disable\fP (\fBCHIP_CCU_CLK_T\fP clk)"
+.br
+.RI "\fIDisables a peripheral clock\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_StartPowerDown\fP (void)"
+.br
+.RI "\fIStart the power down sequence by disabling the branch output clocks with wake up mechanism (Only the clocks which wake up mechanism bit enabled will be disabled) \fP"
+.ti -1c
+.RI "void \fBChip_Clock_ClearPowerDown\fP (void)"
+.br
+.RI "\fIClear the power down mode bit & proceed normal operation of branch output clocks (Only the clocks which wake up mechanism bit enabled will be enabled after the wake up event) \fP"
+.ti -1c
+.RI "uint32_t \fBChip_Clock_GetRate\fP (\fBCHIP_CCU_CLK_T\fP clk)"
+.br
+.RI "\fIReturns a peripheral clock rate\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_Clock_GetEMCRate\fP (void)"
+.br
+.RI "\fIReturns EMC clock rate\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_SetupPLL\fP (\fBCHIP_CGU_CLKIN_T\fP Input, \fBCHIP_CGU_USB_AUDIO_PLL_T\fP pllnum, const \fBCGU_USBAUDIO_PLL_SETUP_T\fP *pPLLSetup)"
+.br
+.RI "\fISets up the audio or USB PLL\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_EnablePLL\fP (\fBCHIP_CGU_USB_AUDIO_PLL_T\fP pllnum)"
+.br
+.RI "\fIEnables the audio or USB PLL\&. \fP"
+.ti -1c
+.RI "void \fBChip_Clock_DisablePLL\fP (\fBCHIP_CGU_USB_AUDIO_PLL_T\fP pllnum)"
+.br
+.RI "\fIDisables the audio or USB PLL\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_Clock_GetPLLStatus\fP (\fBCHIP_CGU_USB_AUDIO_PLL_T\fP pllnum)"
+.br
+.RI "\fIReturns the PLL status\&. \fP"
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define CRYSTAL_32K_FREQ_IN   (32 * 1024)"
+
+.PP
+Definición en la línea 68 del archivo clock_18xx_43xx\&.c\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "__STATIC_INLINE uint32_t ABS (int val)"
+
+.PP
+Definición en la línea 80 del archivo clock_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,83 @@
+.TH "evrt_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+evrt_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_EVRT_T\fP"
+.br
+.RI "\fIEvent Router register structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPARAM_EVRT_SOURCE\fP(n)"
+.br
+.RI "\fIMacro for checking for a valid EVRT source\&. \fP"
+.ti -1c
+.RI "#define \fBPARAM_EVRT_SOURCE_ACTIVE_TYPE\fP(n)"
+.br
+.RI "\fIMacro for checking for a valid EVRT state type\&. \fP"
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBCHIP_EVRT_SRC\fP \fBCHIP_EVRT_SRC_T\fP"
+.br
+.RI "\fIEVRT input sources\&. \fP"
+.ti -1c
+.RI "typedef enum \fBCHIP_EVRT_SRC_ACTIVE\fP \fBCHIP_EVRT_SRC_ACTIVE_T\fP"
+.br
+.RI "\fIEVRT input state detecting type\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_EVRT_SRC\fP { \fBEVRT_SRC_WAKEUP0\fP, \fBEVRT_SRC_WAKEUP1\fP, \fBEVRT_SRC_WAKEUP2\fP, \fBEVRT_SRC_WAKEUP3\fP, \fBEVRT_SRC_ATIMER\fP, \fBEVRT_SRC_RTC\fP, \fBEVRT_SRC_BOD1\fP, \fBEVRT_SRC_WWDT\fP, \fBEVRT_SRC_ETHERNET\fP, \fBEVRT_SRC_USB0\fP, \fBEVRT_SRC_USB1\fP, \fBEVRT_SRC_SDIO\fP, \fBEVRT_SRC_CCAN\fP, \fBEVRT_SRC_COMBINE_TIMER2\fP, \fBEVRT_SRC_COMBINE_TIMER6\fP, \fBEVRT_SRC_QEI\fP, \fBEVRT_SRC_COMBINE_TIMER14\fP, \fBEVRT_SRC_RESERVED1\fP, \fBEVRT_SRC_RESERVED2\fP, \fBEVRT_SRC_RESET\fP, \fBEVRT_SRC_BOD_RESET\fP, \fBEVRT_SRC_DEEP_POWER_DOWN\fP }
+.RI "\fIEVRT input sources\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBCHIP_EVRT_SRC_ACTIVE\fP { \fBEVRT_SRC_ACTIVE_LOW_LEVEL\fP, \fBEVRT_SRC_ACTIVE_HIGH_LEVEL\fP, \fBEVRT_SRC_ACTIVE_FALLING_EDGE\fP, \fBEVRT_SRC_ACTIVE_RISING_EDGE\fP }
+.RI "\fIEVRT input state detecting type\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_EVRT_Init\fP (void)"
+.br
+.RI "\fIInitialize the EVRT\&. \fP"
+.ti -1c
+.RI "void \fBChip_EVRT_ConfigIntSrcActiveType\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src, \fBCHIP_EVRT_SRC_ACTIVE_T\fP type)"
+.br
+.RI "\fISet up the type of interrupt type for a source to EVRT\&. \fP"
+.ti -1c
+.RI "\fBIntStatus\fP \fBChip_EVRT_IsSourceInterrupting\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src)"
+.br
+.RI "\fICheck if a source is sending interrupt to EVRT\&. \fP"
+.ti -1c
+.RI "void \fBChip_EVRT_SetUpIntSrc\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src, \fBFunctionalState\fP state)"
+.br
+.RI "\fIEnable or disable interrupt sources to EVRT\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EVRT_DeInit\fP (void)"
+.br
+.RI "\fIDe-initializes the EVRT peripheral\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_EVRT_ClrPendIntSrc\fP (\fBCHIP_EVRT_SRC_T\fP EVRT_Src)"
+.br
+.RI "\fIClear pending interrupt EVRT source\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

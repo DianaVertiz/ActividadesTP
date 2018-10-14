@@ -1,0 +1,54 @@
+.TH "LPC_CCU2_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_CCU2_T \- CCU2 register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <cguccu_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPM\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBBASE_STAT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [62]"
+.br
+.ti -1c
+.RI "\fBCCU_CFGSTAT_T\fP \fBCLKCCU\fP [\fBCLK_CCU2_LAST\fP\-\fBCLK_CCU1_LAST\fP]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+CCU2 register block structure\&. 
+.PP
+Definición en la línea 99 del archivo cguccu_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__I\fP uint32_t BASE_STAT"
+(@ 0x40052004) CCU base clocks status register 
+.PP
+Definición en la línea 101 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fBCCU_CFGSTAT_T\fP CLKCCU[\fBCLK_CCU2_LAST\fP\-\fBCLK_CCU1_LAST\fP]"
+(@ 0x40052100) Start of CCU2 clock registers 
+.PP
+Definición en la línea 103 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PM"
+< (@ 0x40052000) CCU2 Structure (@ 0x40052000) Power mode register 
+.PP
+Definición en la línea 100 del archivo cguccu_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[62]"
+
+.PP
+Definición en la línea 102 del archivo cguccu_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

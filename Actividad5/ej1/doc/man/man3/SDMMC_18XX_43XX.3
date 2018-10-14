@@ -1,0 +1,439 @@
+.TH "SDMMC_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SDMMC_18XX_43XX \- CHIP: LPC18xx/43xx SD/MMC driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_mci_card_struct\fP"
+.br
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCMD_MASK_RESP\fP   (0x3UL << 28)"
+.br
+.ti -1c
+.RI "#define \fBCMD_RESP\fP(r)   (((r) & 0x3) << 28)"
+.br
+.ti -1c
+.RI "#define \fBCMD_RESP_R0\fP   (0 << 28)"
+.br
+.ti -1c
+.RI "#define \fBCMD_RESP_R1\fP   (1 << 28)"
+.br
+.ti -1c
+.RI "#define \fBCMD_RESP_R2\fP   (2 << 28)"
+.br
+.ti -1c
+.RI "#define \fBCMD_RESP_R3\fP   (3 << 28)"
+.br
+.ti -1c
+.RI "#define \fBCMD_BIT_AUTO_STOP\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBCMD_BIT_APP\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBCMD_BIT_INIT\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBCMD_BIT_BUSY\fP   (1 << 21)"
+.br
+.ti -1c
+.RI "#define \fBCMD_BIT_LS\fP   (1 << 20)	/* Low speed, used during acquire */"
+.br
+.ti -1c
+.RI "#define \fBCMD_BIT_DATA\fP   (1 << 19)"
+.br
+.ti -1c
+.RI "#define \fBCMD_BIT_WRITE\fP   (1 << 18)"
+.br
+.ti -1c
+.RI "#define \fBCMD_BIT_STREAM\fP   (1 << 17)"
+.br
+.ti -1c
+.RI "#define \fBCMD_MASK_CMD\fP   (0xff)"
+.br
+.ti -1c
+.RI "#define \fBCMD_SHIFT_CMD\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBCMD\fP(c,  r)   ( ((c) &  \fBCMD_MASK_CMD\fP) | \fBCMD_RESP\fP((r)) )"
+.br
+.ti -1c
+.RI "#define \fBCMD_IDLE\fP   \fBCMD\fP(\fBMMC_GO_IDLE_STATE\fP, 0) | \fBCMD_BIT_LS\fP    | \fBCMD_BIT_INIT\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_SD_OP_COND\fP   \fBCMD\fP(\fBSD_APP_OP_COND\fP, 1)      | \fBCMD_BIT_LS\fP | \fBCMD_BIT_APP\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_SD_SEND_IF_COND\fP   \fBCMD\fP(\fBSD_CMD8\fP, 1)      | \fBCMD_BIT_LS\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_MMC_OP_COND\fP   \fBCMD\fP(\fBMMC_SEND_OP_COND\fP, 3)    | \fBCMD_BIT_LS\fP | \fBCMD_BIT_INIT\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_ALL_SEND_CID\fP   \fBCMD\fP(\fBMMC_ALL_SEND_CID\fP, 2)    | \fBCMD_BIT_LS\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_MMC_SET_RCA\fP   \fBCMD\fP(\fBMMC_SET_RELATIVE_ADDR\fP, 1) | \fBCMD_BIT_LS\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_SD_SEND_RCA\fP   \fBCMD\fP(\fBSD_SEND_RELATIVE_ADDR\fP, 1) | \fBCMD_BIT_LS\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_SEND_CSD\fP   \fBCMD\fP(\fBMMC_SEND_CSD\fP, 2) | \fBCMD_BIT_LS\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_SEND_EXT_CSD\fP   \fBCMD\fP(\fBMMC_SEND_EXT_CSD\fP, 1) | \fBCMD_BIT_LS\fP | \fBCMD_BIT_DATA\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_DESELECT_CARD\fP   \fBCMD\fP(\fBMMC_SELECT_CARD\fP, 0)"
+.br
+.ti -1c
+.RI "#define \fBCMD_SELECT_CARD\fP   \fBCMD\fP(\fBMMC_SELECT_CARD\fP, 1)"
+.br
+.ti -1c
+.RI "#define \fBCMD_SET_BLOCKLEN\fP   \fBCMD\fP(\fBMMC_SET_BLOCKLEN\fP, 1)"
+.br
+.ti -1c
+.RI "#define \fBCMD_SEND_STATUS\fP   \fBCMD\fP(\fBMMC_SEND_STATUS\fP, 1)"
+.br
+.ti -1c
+.RI "#define \fBCMD_READ_SINGLE\fP   \fBCMD\fP(\fBMMC_READ_SINGLE_BLOCK\fP, 1) | \fBCMD_BIT_DATA\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_READ_MULTIPLE\fP   \fBCMD\fP(\fBMMC_READ_MULTIPLE_BLOCK\fP, 1) | \fBCMD_BIT_DATA\fP | \fBCMD_BIT_AUTO_STOP\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_SD_SET_WIDTH\fP   \fBCMD\fP(\fBSD_APP_SET_BUS_WIDTH\fP, 1) | \fBCMD_BIT_APP\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_STOP\fP   \fBCMD\fP(\fBMMC_STOP_TRANSMISSION\fP, 1) | \fBCMD_BIT_BUSY\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_WRITE_SINGLE\fP   \fBCMD\fP(\fBMMC_WRITE_BLOCK\fP, 1) | \fBCMD_BIT_DATA\fP | \fBCMD_BIT_WRITE\fP"
+.br
+.ti -1c
+.RI "#define \fBCMD_WRITE_MULTIPLE\fP   \fBCMD\fP(\fBMMC_WRITE_MULTIPLE_BLOCK\fP, 1) | \fBCMD_BIT_DATA\fP | \fBCMD_BIT_WRITE\fP | \fBCMD_BIT_AUTO_STOP\fP"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fB_mci_card_struct\fP \fBmci_card_struct\fP"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBChip_SDMMC_GetState\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIGet card's current state (idle, transfer, program, etc\&.) \fP"
+.ti -1c
+.RI "uint32_t \fBChip_SDMMC_Acquire\fP (\fBLPC_SDMMC_T\fP *pSDMMC, \fBmci_card_struct\fP *pcardinfo)"
+.br
+.RI "\fIFunction to enumerate the SD/MMC/SDHC/MMC+ cards\&. \fP"
+.ti -1c
+.RI "uint64_t \fBChip_SDMMC_GetDeviceSize\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIGet the device size of SD/MMC card (after enumeration) \fP"
+.ti -1c
+.RI "int32_t \fBChip_SDMMC_GetDeviceBlocks\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIGet the number of device blocks of SD/MMC card (after enumeration) Since Chip_SDMMC_GetDeviceSize is limited to 32 bits cards with greater than 2 GBytes of data will not be correct, in such cases users can use this function to get the size of the card in blocks\&. \fP"
+.ti -1c
+.RI "int32_t \fBChip_SDMMC_ReadBlocks\fP (\fBLPC_SDMMC_T\fP *pSDMMC, void *buffer, int32_t start_block, int32_t num_blocks)"
+.br
+.RI "\fIPerforms the read of data from the SD/MMC card\&. \fP"
+.ti -1c
+.RI "int32_t \fBChip_SDMMC_WriteBlocks\fP (\fBLPC_SDMMC_T\fP *pSDMMC, void *buffer, int32_t start_block, int32_t num_blocks)"
+.br
+.RI "\fIPerforms write of data to the SD/MMC card\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define CMD(c, r)   ( ((c) &  \fBCMD_MASK_CMD\fP) | \fBCMD_RESP\fP((r)) )"
+
+.PP
+Definición en la línea 63 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_ALL_SEND_CID   \fBCMD\fP(\fBMMC_ALL_SEND_CID\fP, 2)    | \fBCMD_BIT_LS\fP"
+
+.PP
+Definición en la línea 69 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_BIT_APP   (1 << 23)"
+
+.PP
+Definición en la línea 53 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_BIT_AUTO_STOP   (1 << 24)"
+
+.PP
+Definición en la línea 52 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_BIT_BUSY   (1 << 21)"
+
+.PP
+Definición en la línea 55 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_BIT_DATA   (1 << 19)"
+
+.PP
+Definición en la línea 57 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_BIT_INIT   (1 << 22)"
+
+.PP
+Definición en la línea 54 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_BIT_LS   (1 << 20)	/* Low speed, used during acquire */"
+
+.PP
+Definición en la línea 56 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_BIT_STREAM   (1 << 17)"
+
+.PP
+Definición en la línea 59 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_BIT_WRITE   (1 << 18)"
+
+.PP
+Definición en la línea 58 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_DESELECT_CARD   \fBCMD\fP(\fBMMC_SELECT_CARD\fP, 0)"
+
+.PP
+Definición en la línea 74 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_IDLE   \fBCMD\fP(\fBMMC_GO_IDLE_STATE\fP, 0) | \fBCMD_BIT_LS\fP    | \fBCMD_BIT_INIT\fP"
+
+.PP
+Definición en la línea 65 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_MASK_CMD   (0xff)"
+
+.PP
+Definición en la línea 60 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_MASK_RESP   (0x3UL << 28)"
+
+.PP
+Definición en la línea 46 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_MMC_OP_COND   \fBCMD\fP(\fBMMC_SEND_OP_COND\fP, 3)    | \fBCMD_BIT_LS\fP | \fBCMD_BIT_INIT\fP"
+
+.PP
+Definición en la línea 68 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_MMC_SET_RCA   \fBCMD\fP(\fBMMC_SET_RELATIVE_ADDR\fP, 1) | \fBCMD_BIT_LS\fP"
+
+.PP
+Definición en la línea 70 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_READ_MULTIPLE   \fBCMD\fP(\fBMMC_READ_MULTIPLE_BLOCK\fP, 1) | \fBCMD_BIT_DATA\fP | \fBCMD_BIT_AUTO_STOP\fP"
+
+.PP
+Definición en la línea 79 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_READ_SINGLE   \fBCMD\fP(\fBMMC_READ_SINGLE_BLOCK\fP, 1) | \fBCMD_BIT_DATA\fP"
+
+.PP
+Definición en la línea 78 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_RESP(r)   (((r) & 0x3) << 28)"
+
+.PP
+Definición en la línea 47 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_RESP_R0   (0 << 28)"
+
+.PP
+Definición en la línea 48 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_RESP_R1   (1 << 28)"
+
+.PP
+Definición en la línea 49 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_RESP_R2   (2 << 28)"
+
+.PP
+Definición en la línea 50 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_RESP_R3   (3 << 28)"
+
+.PP
+Definición en la línea 51 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SD_OP_COND   \fBCMD\fP(\fBSD_APP_OP_COND\fP, 1)      | \fBCMD_BIT_LS\fP | \fBCMD_BIT_APP\fP"
+
+.PP
+Definición en la línea 66 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SD_SEND_IF_COND   \fBCMD\fP(\fBSD_CMD8\fP, 1)      | \fBCMD_BIT_LS\fP"
+
+.PP
+Definición en la línea 67 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SD_SEND_RCA   \fBCMD\fP(\fBSD_SEND_RELATIVE_ADDR\fP, 1) | \fBCMD_BIT_LS\fP"
+
+.PP
+Definición en la línea 71 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SD_SET_WIDTH   \fBCMD\fP(\fBSD_APP_SET_BUS_WIDTH\fP, 1) | \fBCMD_BIT_APP\fP"
+
+.PP
+Definición en la línea 80 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SELECT_CARD   \fBCMD\fP(\fBMMC_SELECT_CARD\fP, 1)"
+
+.PP
+Definición en la línea 75 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SEND_CSD   \fBCMD\fP(\fBMMC_SEND_CSD\fP, 2) | \fBCMD_BIT_LS\fP"
+
+.PP
+Definición en la línea 72 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SEND_EXT_CSD   \fBCMD\fP(\fBMMC_SEND_EXT_CSD\fP, 1) | \fBCMD_BIT_LS\fP | \fBCMD_BIT_DATA\fP"
+
+.PP
+Definición en la línea 73 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SEND_STATUS   \fBCMD\fP(\fBMMC_SEND_STATUS\fP, 1)"
+
+.PP
+Definición en la línea 77 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SET_BLOCKLEN   \fBCMD\fP(\fBMMC_SET_BLOCKLEN\fP, 1)"
+
+.PP
+Definición en la línea 76 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_SHIFT_CMD   (0)"
+
+.PP
+Definición en la línea 61 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_STOP   \fBCMD\fP(\fBMMC_STOP_TRANSMISSION\fP, 1) | \fBCMD_BIT_BUSY\fP"
+
+.PP
+Definición en la línea 81 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_WRITE_MULTIPLE   \fBCMD\fP(\fBMMC_WRITE_MULTIPLE_BLOCK\fP, 1) | \fBCMD_BIT_DATA\fP | \fBCMD_BIT_WRITE\fP | \fBCMD_BIT_AUTO_STOP\fP"
+
+.PP
+Definición en la línea 83 del archivo sdmmc_18xx_43xx\&.h\&.
+.SS "#define CMD_WRITE_SINGLE   \fBCMD\fP(\fBMMC_WRITE_BLOCK\fP, 1) | \fBCMD_BIT_DATA\fP | \fBCMD_BIT_WRITE\fP"
+
+.PP
+Definición en la línea 82 del archivo sdmmc_18xx_43xx\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef struct \fB_mci_card_struct\fP  \fBmci_card_struct\fP"
+
+.SH "Documentación de las funciones"
+.PP 
+.SS "uint32_t Chip_SDMMC_Acquire (\fBLPC_SDMMC_T\fP * pSDMMC, \fBmci_card_struct\fP * pcardinfo)"
+
+.PP
+Function to enumerate the SD/MMC/SDHC/MMC+ cards\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSDMMC\fP : SDMMC peripheral selected 
+.br
+\fIpcardinfo\fP : Pointer to pre-allocated card info structure 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+1 if a card is acquired, otherwise 0 
+.RE
+.PP
+
+.PP
+Definición en la línea 322 del archivo sdmmc_18xx_43xx\&.c\&.
+.SS "int32_t Chip_SDMMC_GetDeviceBlocks (\fBLPC_SDMMC_T\fP * pSDMMC)"
+
+.PP
+Get the number of device blocks of SD/MMC card (after enumeration) Since Chip_SDMMC_GetDeviceSize is limited to 32 bits cards with greater than 2 GBytes of data will not be correct, in such cases users can use this function to get the size of the card in blocks\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSDMMC\fP : SDMMC peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of 512 bytes blocks in the card 
+.RE
+.PP
+
+.PP
+Definición en la línea 490 del archivo sdmmc_18xx_43xx\&.c\&.
+.SS "uint64_t Chip_SDMMC_GetDeviceSize (\fBLPC_SDMMC_T\fP * pSDMMC)"
+
+.PP
+Get the device size of SD/MMC card (after enumeration) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSDMMC\fP : SDMMC peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Card size in number of bytes (capacity) 
+.RE
+.PP
+
+.PP
+Definición en la línea 484 del archivo sdmmc_18xx_43xx\&.c\&.
+.SS "int32_t Chip_SDMMC_GetState (\fBLPC_SDMMC_T\fP * pSDMMC)"
+
+.PP
+Get card's current state (idle, transfer, program, etc\&.) 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSDMMC\fP : SDMMC peripheral selected 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current SD card transfer state 
+.RE
+.PP
+
+.PP
+Definición en la línea 307 del archivo sdmmc_18xx_43xx\&.c\&.
+.SS "int32_t Chip_SDMMC_ReadBlocks (\fBLPC_SDMMC_T\fP * pSDMMC, void * buffer, int32_t start_block, int32_t num_blocks)"
+
+.PP
+Performs the read of data from the SD/MMC card\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSDMMC\fP : SDMMC peripheral selected 
+.br
+\fIbuffer\fP : Pointer to data buffer to copy to 
+.br
+\fIstart_block\fP : Start block number 
+.br
+\fInum_blocks\fP : Number of block to read 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Bytes read, or 0 on error 
+.RE
+.PP
+
+.PP
+Definición en la línea 496 del archivo sdmmc_18xx_43xx\&.c\&.
+.SS "int32_t Chip_SDMMC_WriteBlocks (\fBLPC_SDMMC_T\fP * pSDMMC, void * buffer, int32_t start_block, int32_t num_blocks)"
+
+.PP
+Performs write of data to the SD/MMC card\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpSDMMC\fP : SDMMC peripheral selected 
+.br
+\fIbuffer\fP : Pointer to data buffer to copy to 
+.br
+\fIstart_block\fP : Start block number 
+.br
+\fInum_blocks\fP : Number of block to write 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Number of bytes actually written, or 0 on error 
+.RE
+.PP
+
+.PP
+Definición en la línea 543 del archivo sdmmc_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

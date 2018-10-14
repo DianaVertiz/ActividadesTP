@@ -1,0 +1,51 @@
+.TH "CMSIS_Core_SysTickFunctions" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_Core_SysTickFunctions \- SysTick Functions
+.PP
+Functions that configure the System\&.  
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBSysTick_Config\fP (uint32_t ticks)"
+.br
+.RI "\fISystem Tick Configuration\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Functions that configure the System\&. 
+
+
+.SH "Documentación de las funciones"
+.PP 
+.SS "__STATIC_INLINE uint32_t SysTick_Config (uint32_t ticks)"
+
+.PP
+System Tick Configuration\&. The function initializes the System Timer and its interrupt, and starts the System Tick Timer\&. Counter is in free running mode to generate periodic interrupts\&.
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIticks\fP Number of ticks between two interrupts\&.
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+0 Function succeeded\&. 
+.PP
+1 Function failed\&.
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+When the variable \fB__Vendor_SysTickConfig\fP is set to 1, then the function \fBSysTick_Config\fP is not included\&. In this case, the file \fB\fIdevice\fP\&.h\fP must contain a vendor-specific implementation of this function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 656 del archivo core_cm0\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

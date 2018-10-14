@@ -1,0 +1,103 @@
+.TH "AES_API_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AES_API_T \- LPC18XX_43XX AES API structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <romapi_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint32_t(* \fBInit\fP )(void)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBSetMode\fP )(uint32_t mode)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBLoadKey1\fP )(void)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBLoadKey2\fP )(void)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBLoadKeyRNG\fP )(void)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBLoadKeySW\fP )(uint8_t *pKey)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBLoadIV_SW\fP )(uint8_t *pVector)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBLoadIV_IC\fP )(void)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBOperate\fP )(uint8_t *pOutput, uint8_t *pInput, uint32_t size)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgramKey1\fP )(uint8_t *pKey)"
+.br
+.ti -1c
+.RI "uint32_t(* \fBProgramKey2\fP )(uint8_t *pKey)"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+LPC18XX_43XX AES API structure\&. 
+.PP
+Definición en la línea 70 del archivo romapi_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint32_t(* Init) (void)"
+
+.PP
+Definición en la línea 71 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* LoadIV_IC) (void)"
+
+.PP
+Definición en la línea 78 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* LoadIV_SW) (uint8_t *pVector)"
+
+.PP
+Definición en la línea 77 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* LoadKey1) (void)"
+
+.PP
+Definición en la línea 73 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* LoadKey2) (void)"
+
+.PP
+Definición en la línea 74 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* LoadKeyRNG) (void)"
+
+.PP
+Definición en la línea 75 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* LoadKeySW) (uint8_t *pKey)"
+
+.PP
+Definición en la línea 76 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* Operate) (uint8_t *pOutput, uint8_t *pInput, uint32_t size)"
+
+.PP
+Definición en la línea 79 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgramKey1) (uint8_t *pKey)"
+
+.PP
+Definición en la línea 80 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* ProgramKey2) (uint8_t *pKey)"
+
+.PP
+Definición en la línea 81 del archivo romapi_18xx_43xx\&.h\&.
+.SS "uint32_t(* SetMode) (uint32_t mode)"
+
+.PP
+Definición en la línea 72 del archivo romapi_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;TP5_ej1_2/inc/inicializaciones.h&apos; to &apos;inicializaciones_h&apos;" description="Rename resource &apos;inicializaciones.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="inc/inicializaciones.h" name="inicializaciones_h" stamp="1537025758877" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;TP5_ej1_2/src/inicializaciones.c&apos; to &apos;inicializaciones_c&apos;" description="Rename resource &apos;inicializaciones.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/inicializaciones.c" name="inicializaciones_c" stamp="1537025768076" updateReferences="true"/>
+</session>

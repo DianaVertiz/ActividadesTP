@@ -1,0 +1,95 @@
+.TH "RTC_UT" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RTC_UT \- CHIP: RTC tick to (a more) Universal Time conversion functions
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTM_YEAR_BASE\fP   (1900)"
+.br
+.ti -1c
+.RI "#define \fBTM_DAYOFWEEK\fP   (1)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBConvertRtcTime\fP (uint32_t rtcTick, struct tm *pTime)"
+.br
+.RI "\fIConverts a RTC tick time to Universal time\&. \fP"
+.ti -1c
+.RI "void \fBConvertTimeRtc\fP (struct tm *pTime, uint32_t *rtcTick)"
+.br
+.RI "\fIConverts a Universal time to RTC tick time\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+This driver converts between a RTC 1-second tick value and a Universal time format in a structure of type 'struct tm'\&. 
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define TM_DAYOFWEEK   (1)"
+
+.PP
+Definición en la línea 54 del archivo rtc_ut\&.h\&.
+.SS "#define TM_YEAR_BASE   (1900)"
+
+.PP
+Definición en la línea 53 del archivo rtc_ut\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "void ConvertRtcTime (uint32_t rtcTick, struct tm * pTime)"
+
+.PP
+Converts a RTC tick time to Universal time\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIrtcTick\fP : Current RTC time value 
+.br
+\fIpTime\fP : Pointer to time structure to fill 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+When setting time, the 'tm_wday', 'tm_yday', and 'tm_isdst' fields are not used\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 130 del archivo rtc_ut\&.c\&.
+.SS "void ConvertTimeRtc (struct tm * pTime, uint32_t * rtcTick)"
+
+.PP
+Converts a Universal time to RTC tick time\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpTime\fP : Pointer to time structure to use 
+.br
+\fIrtcTick\fP : Pointer to RTC time value to fill 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+When converting time, the 'tm_isdst' field is not populated by the conversion function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 154 del archivo rtc_ut\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,25 @@
+.TH "inv_clarke" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inv_clarke \- Vector Inverse Clarke Transform
+.SH "Descripción detallada"
+.PP 
+Inverse Clarke transform converts the two-coordinate time invariant vector into instantaneous stator phases\&.
+.PP
+The function operates on a single sample of data and each call to the function returns the processed output\&. The library provides separate functions for Q31 and floating-point data types\&. 
+.PP
+\fBAlgorithm\fP
+.RS 4
+ where \fCpIa\fP and \fCpIb\fP are the instantaneous stator phases and \fCIalpha\fP and \fCIbeta\fP are the two coordinates of time invariant vector\&. 
+.RE
+.PP
+\fBFixed-Point Behavior\fP
+.RS 4
+Care must be taken when using the Q31 version of the Clarke transform\&. In particular, the overflow and saturation behavior of the accumulator used must be considered\&. Refer to the function specific documentation below for usage guidelines\&. 
+.RE
+.PP
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

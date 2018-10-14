@@ -1,0 +1,14 @@
+16:58:58 **** Build of configuration Default for project ej2_2 ****
+make all 
+Compilando librería liblpcopen...terminado
+  - hardware.c...ok
+  - startUp.c...ok
+  - crp.c...ok
+  - main.c...ok
+  - lanzamiento.c...ok
+  - utils.c...ok
+   text	   data	    bss	    dec	    hex	filename
+   9524	   1072	   1112	  11708	   2dbc	out/firmware.elf
+
+16:59:02 Build Finished (took 4s.529ms)
+

@@ -1,0 +1,57 @@
+.TH "fmc_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+fmc_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_FMC_T\fP"
+.br
+.RI "\fIFLASH Memory Controller Unit register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFMC_FLASHSIG_BUSY\fP   (1UL << 17)"
+.br
+.ti -1c
+.RI "#define \fBFMC_FLASHSIG_STAT\fP   (1 << 2)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "__STATIC_INLINE \fBLPC_FMC_T\fP * \fBChip_FMC_BaseAddr\fP (uint8_t bank)"
+.br
+.RI "\fIGets the base address of given bank\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_FMC_ComputeSignature\fP (uint8_t bank, uint32_t start, uint32_t stop)"
+.br
+.RI "\fIStart computation of a signature for a FLASH memory range\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_FMC_ComputeSignatureBlocks\fP (uint8_t bank, uint32_t start, uint32_t blocks)"
+.br
+.RI "\fIStart computation of a signature for a FLASH memory address and block count\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_FMC_ClearSignatureBusy\fP (uint8_t bank)"
+.br
+.RI "\fIClear signature generation completion flag\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP bool \fBChip_FMC_IsSignatureBusy\fP (uint8_t bank)"
+.br
+.RI "\fICheck for signature generation completion\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_FMC_GetSignature\fP (uint8_t bank, int index)"
+.br
+.RI "\fIReturns the generated FLASH signature value\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

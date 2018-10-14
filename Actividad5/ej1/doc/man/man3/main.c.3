@@ -1,0 +1,107 @@
+.TH "main.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+main.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'hardware\&.h'\fP
+.br
+\fC#include 'utils\&.h'\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include 'registro\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBGPIO1_IRQHandler\fP (void)"
+.br
+.ti -1c
+.RI "void \fBGPIO2_IRQHandler\fP (void)"
+.br
+.ti -1c
+.RI "void \fBGPIO4_IRQHandler\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSysTick_Handler\fP (void)"
+.br
+.ti -1c
+.RI "int \fBmain\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBcuentas\fP = 0"
+.br
+.ti -1c
+.RI "uint8_t \fBhabilitado\fP = 0"
+.br
+.ti -1c
+.RI "uint8_t \fBflag_refresco\fP = 0"
+.br
+.ti -1c
+.RI "char \fBstr\fP [100]"
+.br
+.in -1c
+.SH "Documentación de las funciones"
+.PP 
+.SS "void GPIO1_IRQHandler (void)"
+
+.PP
+Definición en la línea 35 del archivo main\&.c\&.
+.SS "void GPIO2_IRQHandler (void)"
+
+.PP
+Definición en la línea 44 del archivo main\&.c\&.
+.SS "void GPIO4_IRQHandler (void)"
+
+.PP
+Definición en la línea 65 del archivo main\&.c\&.
+.SS "int main (void)"
+
+.PP
+Definición en la línea 87 del archivo main\&.c\&.
+.SS "void SysTick_Handler (void)"
+
+.PP
+Definición en la línea 73 del archivo main\&.c\&.
+.SH "Documentación de las variables"
+.PP 
+.SS "uint8_t cuentas = 0"
+\\ mainpage Una p´a gina principal
+.PP
+\\ section genDesc Descripci ´on general
+.PP
+Lorem ipsum dolor sit amet , consectetur adipiscing elit \&. Sed vel augue ut tortor Nam dolor metus , tincidunt eget consequat sit amet , ultricies consectetur dolor \&. Praesent ultrices orci at risus auctor placerat \&. Sed eget ultricies tortor \&.
+.PP
+\\ subsection subSec01 Una subsecci ´on Phasellus at sapien sollicitudin , posuere arcu nec , blandit ante \&. egestas ex , at consequat quam fringilla sit amet \&. Vestibulum ante ultrices posuere cubilia Curae ; Nulla vestibulum felis in ullamcorper rhoncus fringilla \&.
+.PP
+\\ section doc Documentaci ´on Quisque laoreet tempor libero , at varius velit scelerisque a\&. Praesent ultrices orci at risus auctor placerat \&. Sed eget ultricies tortor \&. Maecenas sed neque id justo aliquet ornare vel , placerat quis felis \&. Nunc nec interdum mauris \&. 
+.PP
+Definición en la línea 30 del archivo main\&.c\&.
+.SS "uint8_t flag_refresco = 0"
+
+.PP
+Definición en la línea 32 del archivo main\&.c\&.
+.SS "uint8_t habilitado = 0"
+
+.PP
+Definición en la línea 31 del archivo main\&.c\&.
+.SS "char str[100]"
+
+.PP
+Definición en la línea 33 del archivo main\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

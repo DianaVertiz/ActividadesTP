@@ -1,0 +1,103 @@
+.TH "i2cm_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+i2cm_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'i2c_common_18xx_43xx\&.h'\fP
+.br
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBI2CM_XFER_T\fP"
+.br
+.RI "\fIMaster transfer data structure definitions\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.PP
+.RI "\fB\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "#define \fBI2CM_XFER_OPTION_IGNORE_NACK\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBI2CM_XFER_OPTION_LAST_RX_ACK\fP   0x02"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fB\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "#define \fBI2CM_STATUS_OK\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_ERROR\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_NAK\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_BUS_ERROR\fP   0x03"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_SLAVE_NAK\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_ARBLOST\fP   0x05"
+.br
+.ti -1c
+.RI "#define \fBI2CM_STATUS_BUSY\fP   0xFF"
+.br
+.in -1c
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_I2CM_Init\fP (\fBLPC_I2C_T\fP *pI2C)"
+.br
+.RI "\fIInitialize I2C Interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2CM_DeInit\fP (\fBLPC_I2C_T\fP *pI2C)"
+.br
+.RI "\fIShutdown I2C Interface\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2CM_SetBusSpeed\fP (\fBLPC_I2C_T\fP *pI2C, uint32_t busSpeed)"
+.br
+.RI "\fISet up bus speed for LPC_I2C controller\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_XferHandler\fP (\fBLPC_I2C_T\fP *pI2C, \fBI2CM_XFER_T\fP *xfer)"
+.br
+.RI "\fITransfer state change handler handler\&. \fP"
+.ti -1c
+.RI "void \fBChip_I2CM_Xfer\fP (\fBLPC_I2C_T\fP *pI2C, \fBI2CM_XFER_T\fP *xfer)"
+.br
+.RI "\fITransmit and Receive data in master mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_XferBlocking\fP (\fBLPC_I2C_T\fP *pI2C, \fBI2CM_XFER_T\fP *xfer)"
+.br
+.RI "\fITransmit and Receive data in master mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_Write\fP (\fBLPC_I2C_T\fP *pI2C, const uint8_t *buff, uint32_t len)"
+.br
+.RI "\fIWrite given buffer of data to I2C interface\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_I2CM_Read\fP (\fBLPC_I2C_T\fP *pI2C, uint8_t *buff, uint32_t len)"
+.br
+.RI "\fIRead data from I2C slave to given buffer\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

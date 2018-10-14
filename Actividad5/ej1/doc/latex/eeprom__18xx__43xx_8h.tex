@@ -1,0 +1,71 @@
+\hypertarget{eeprom__18xx__43xx_8h}{}\section{Referencia del Archivo eeprom\+\_\+18xx\+\_\+43xx.\+h}
+\label{eeprom__18xx__43xx_8h}\index{eeprom\+\_\+18xx\+\_\+43xx.\+h@{eeprom\+\_\+18xx\+\_\+43xx.\+h}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T}
+\begin{DoxyCompactList}\small\item\em E\+E\+P\+R\+OM register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga19220ff77b3f420a71eddcfcb2534a52}{E\+E\+P\+R\+O\+M\+\_\+\+S\+T\+A\+RT}~(0x20040000)
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gaddfda15f5f3ec6f8f325f48be50c548a}{E\+E\+P\+R\+O\+M\+\_\+\+P\+A\+G\+E\+\_\+\+S\+I\+ZE}~(128)
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gafb110eded8c7e52bf0826c2bedfd90cd}{E\+E\+P\+R\+O\+M\+\_\+\+P\+A\+G\+E\+\_\+\+N\+UM}~(128)
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga7ee5cba0bfcfb004dfba1245a977c216}{E\+E\+P\+R\+O\+M\+\_\+\+A\+D\+D\+R\+E\+SS}(page,  offset)~(\hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga19220ff77b3f420a71eddcfcb2534a52}{E\+E\+P\+R\+O\+M\+\_\+\+S\+T\+A\+RT} + (\hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gaddfda15f5f3ec6f8f325f48be50c548a}{E\+E\+P\+R\+O\+M\+\_\+\+P\+A\+G\+E\+\_\+\+S\+I\+ZE} $\ast$ (page)) + offset)
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gad60e60fac4934de0ea5ad45fc6035fbc}{E\+E\+P\+R\+O\+M\+\_\+\+C\+L\+O\+C\+K\+\_\+\+D\+IV}~1500000
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gae7c4f0b2db03d7cd7a036158e88346b8}{E\+E\+P\+R\+O\+M\+\_\+\+R\+E\+A\+D\+\_\+\+W\+A\+I\+T\+\_\+\+S\+T\+A\+T\+E\+\_\+\+V\+AL}~0x58
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga33a1933987e17e85216abe94ff29e4d3}{E\+E\+P\+R\+O\+M\+\_\+\+W\+A\+I\+T\+\_\+\+S\+T\+A\+T\+E\+\_\+\+V\+AL}~0x232
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga6d6a26f6d387d9bc636c56c07994f0b6}{E\+E\+P\+R\+O\+M\+\_\+\+C\+M\+D\+\_\+\+E\+R\+A\+S\+E\+\_\+\+P\+R\+G\+\_\+\+P\+A\+GE}~(6)
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga3b420badc39c2adf9780d44a74faa45a}{E\+E\+P\+R\+O\+M\+\_\+\+A\+U\+T\+O\+P\+R\+O\+G\+\_\+\+O\+FF}~(0)
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga707dd1e49eb23a4e804d58d2d19bba52}{E\+E\+P\+R\+O\+M\+\_\+\+A\+U\+T\+O\+P\+R\+O\+G\+\_\+\+A\+F\+T\+\_\+1\+W\+O\+R\+D\+W\+R\+I\+T\+T\+EN}~(1)
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga6c353fc9ef8b0be089c548ccd58c6388}{E\+E\+P\+R\+O\+M\+\_\+\+A\+U\+T\+O\+P\+R\+O\+G\+\_\+\+A\+F\+T\+\_\+\+L\+A\+S\+T\+W\+O\+R\+D\+W\+R\+I\+T\+T\+EN}~(2)
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga71f23d0464d767653aad1e73d30a14dc}{E\+E\+P\+R\+O\+M\+\_\+\+P\+W\+R\+D\+WN}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga6cbd8a7a267a151c2d6d324d2bac4eea}{E\+E\+P\+R\+O\+M\+\_\+\+I\+N\+T\+\_\+\+E\+N\+D\+O\+F\+P\+R\+OG}~(1 $<$$<$ 2)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gacce700347262d143041848308f8f3f6f}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Enable\+Power\+Down} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\begin{DoxyCompactList}\small\item\em Put E\+E\+P\+R\+OM device in power down mode. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga6cf4052474abe94b3c47ce09b67bb03f}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Disable\+Power\+Down} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\begin{DoxyCompactList}\small\item\em Bring E\+E\+P\+R\+OM device out of power down mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga6f3f3f16f0e24eaa45bbfd7089ed43bb}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Init} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\begin{DoxyCompactList}\small\item\em Initializes E\+E\+P\+R\+OM. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga8b179a01d2c806ab4797712c3fc47098}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\begin{DoxyCompactList}\small\item\em De-\/initializes E\+E\+P\+R\+OM. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga7a562f00e3404a06569a4b7c61ade80f}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Set\+Auto\+Prog} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Set Auto program mode. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gaebadf781a37193e0cc84746da5c96b12}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Set\+Read\+Wait\+State} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t ws)
+\begin{DoxyCompactList}\small\item\em Set E\+E\+P\+R\+OM Read Wait State. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga2288ea4bc7ca2c7802c0880e5e347952}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Set\+Wait\+State} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t ws)
+\begin{DoxyCompactList}\small\item\em Set E\+E\+P\+R\+OM wait state. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gaf8f467bf5d3c7141bbad5244a15a889e}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Set\+Cmd} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em Select an E\+E\+P\+R\+OM command. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga9bd675e4d0579705d04c2948cc22cfe0}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Erase\+Program\+Page} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\begin{DoxyCompactList}\small\item\em Erase/\+Program an E\+E\+P\+R\+OM page. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga9bf344a5bd3a2035573b2d080f11c484}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Wait\+For\+Int\+Status} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Wait for interrupt occurs. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gad2c0da142f469adc4467b4d230b5532b}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Enable\+Int} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Enable E\+E\+P\+R\+OM interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gac506ec65d1c63a4f2f8bfc7175bea68c}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Disable\+Int} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Disable E\+E\+P\+R\+OM interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gabc5dffbf26c343bfccd25bface186de0}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Get\+Int\+Enable} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\begin{DoxyCompactList}\small\item\em Get the value of the E\+E\+P\+R\+OM interrupt enable register. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_ga19e670ed83dcab5cc21237a3150ff082}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Get\+Int\+Status} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM)
+\begin{DoxyCompactList}\small\item\em Get E\+E\+P\+R\+OM interrupt status. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gacebf288107d6f4a68f805a063205cf8e}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Set\+Int\+Status} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Set E\+E\+P\+R\+OM interrupt status. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_e_p_r_o_m__18_x_x__43_x_x_gae551204eb5e0c647ea853bc3a19aa33c}{Chip\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+Clear\+Int\+Status} (\hyperlink{struct_l_p_c___e_e_p_r_o_m___t}{L\+P\+C\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+T} $\ast$p\+E\+E\+P\+R\+OM, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Clear E\+E\+P\+R\+OM interrupt status. \end{DoxyCompactList}\end{DoxyCompactItemize}

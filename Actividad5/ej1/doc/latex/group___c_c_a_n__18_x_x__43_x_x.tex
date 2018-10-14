@@ -1,0 +1,1446 @@
+\hypertarget{group___c_c_a_n__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx C\+C\+AN driver}
+\label{group___c_c_a_n__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_c_c_a_n___i_f___t}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+T}
+\begin{DoxyCompactList}\small\item\em C\+C\+AN message interface register block structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T}
+\begin{DoxyCompactList}\small\item\em C\+C\+AN Controller Area Network register block structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T}
+\begin{DoxyCompactList}\small\item\em C\+AN message object structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga67343de48aecd561cc46691a58fe1aa2}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+IT}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa4d20674c2eed8d630afd662d12fecc8}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa0de0b1c4b72f922d1e69d3849830928}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE}~(1 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga7227d00cb5d6ab0055f183f272ee647c}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE}~(1 $<$$<$ 3)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga372744b6be07f3fea89ada4ea3de4d9d}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+D\+AR}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa65884720eb6b15b0acbff51e6be75b6}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+C\+CE}~(1 $<$$<$ 6)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga24b5503f3d90fa98a3ecb0e8f4e23bfa}{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+T\+E\+ST}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8ba9703a5b17eaefa9c4840455774a34}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+L\+E\+C\+\_\+\+M\+A\+SK}~(0x07)		/$\ast$ Mask for Last Error Code $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga89b5bd7c2e8a0593d1d4b325e1d04a2f}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+T\+X\+OK}~(1 $<$$<$ 3)	/$\ast$ Transmitted a message successfully $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gad3b3105c74981a041f4d3515e989bfbd}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+R\+X\+OK}~(1 $<$$<$ 4)	/$\ast$ Received a message successfully $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga86acb18cb4751429d866c9fb8f119d44}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+P\+A\+SS}~(1 $<$$<$ 5)	/$\ast$ The C\+AN controller is in the \hyperlink{group__utils_gaad9796c174f7ef5d226cd169f2520fd5}{error} passive state$\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1775fca8e7a3c3c5b4572f4a60be573b}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+W\+A\+RN}~(1 $<$$<$ 6)	/$\ast$At least one of the \hyperlink{group__utils_gaad9796c174f7ef5d226cd169f2520fd5}{error} counters in the EC has reached the \hyperlink{group__utils_gaad9796c174f7ef5d226cd169f2520fd5}{error} warning limit of 96.$\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf5bda007aa17c3fe3f8a8417dd5feb1e}{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+B\+O\+FF}~(1 $<$$<$ 7)	/$\ast$The C\+AN controller is in busoff state.$\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6729e4f8bb1311806c9437247ba43b09}{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+N\+O\+\_\+\+P\+E\+N\+D\+I\+NG}~0
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa3060227684cfad8ba747a13eae24bdc}{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+S\+T\+A\+T\+US}~0x8000
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga070e17d49a2c87d14452ff17fcbf212e}{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+M\+S\+G\+\_\+\+N\+UM}(n)~(n)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga5b82b859cbcbfbea3ee778cfdcde0e85}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+B\+A\+S\+I\+C\+\_\+\+M\+O\+DE}~(1 $<$$<$ 2)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga106d940b349f6405cd9b29fb96e7be2c}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+S\+I\+L\+E\+N\+T\+\_\+\+M\+O\+DE}~(1 $<$$<$ 3)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga9ee2a6a2c209e479ef82adb269ac3919}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+DE}~(1 $<$$<$ 4)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf071106b7661b748890a07ebdeeba2f2}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+ED}~(0)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaab61e1f43219a34dc6dd86a0c1c367b8}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+M\+O\+N\+I\+T\+O\+R\+ED}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gacc375f1ade23712882d71808600ad0f2}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}~(2 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gab0d2186b5d8b7936ee151e406422ac1c}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}~(3 $<$$<$ 5)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga26893920c44fae47b780aadb6f60f793}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}~(0)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gae528570ba4469a074747eb03f90f246a}{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga33b5235b82cb4fbf0d9741a8b30fff3e}{C\+C\+A\+N\+\_\+\+S\+E\+G1\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}~5
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga74a3eea2e682a68876147a57d5c39698}{C\+C\+A\+N\+\_\+\+S\+E\+G2\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}~4
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8c1b9b8c1870fc3056da0debea8a4c49}{C\+C\+A\+N\+\_\+\+S\+J\+W\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}~0
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1b19a6ba9e51a4c56063942efb73bcb0}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+N\+UM}~32
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gafd89f40b1906826e3e6be2fa6158a15e}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+M\+S\+G\+\_\+\+N\+UM}(n)~(n)			/$\ast$ Message number (1-\/$>$20) $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga18ef1013a0028ca27030b764c755a483}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+B\+U\+SY}~0x8000			/$\ast$ 1 is writing is progress, cleared when R\+D/\+W\+R done $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga51b44e8b4e1dc3c1701fb6b352ce200a}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AB}~(1 $<$$<$ 0)		/$\ast$$\ast$ 1 is transfer data byte 4-\/7 to message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6c0cbbac4aa6768663bde8a577bba92a}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AA}~(1 $<$$<$ 1)		/$\ast$$\ast$ 1 is transfer data byte 0-\/3 to message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gace17a9473722068a46e84170e18232c1}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+W\+\_\+\+T\+X\+R\+Q\+ST}~(1 $<$$<$ 2)		/$\ast$$\ast$ Request a transmission. Set the T\+X\+R\+Q\+ST bit I\+F1/2\+\_\+\+M\+C\+T\+R\+L. $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga3f2ce5805ce3c394b21fcb8408708267}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+N\+E\+W\+D\+AT}~(1 $<$$<$ 2)		/$\ast$$\ast$ Clear N\+E\+W\+D\+AT bit in the message object $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga2feaf55f7b8b6c0807fe1b2dd5525c97}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+C\+L\+R\+I\+N\+T\+P\+ND}~(1 $<$$<$ 3)		/$\ast$$\ast$ Clear I\+N\+T\+P\+ND bit in the message object. $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa2862e76860e6f72b4ce8b60f0b059ed}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+C\+T\+RL}~(1 $<$$<$ 4)		/$\ast$$\ast$ 1 is transfer the C\+T\+RL bit to the message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga568752f6d7905cff72c156242b34f381}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+A\+RB}~(1 $<$$<$ 5)		/$\ast$$\ast$ 1 is transfer the A\+RB bits to the message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga673357c85c5be8938668a77bcfed270b}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+M\+A\+SK}~(1 $<$$<$ 6)		/$\ast$$\ast$ 1 is transfer the M\+A\+SK bit to the message object, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga753800ac9b7d98b25887b12e7c3dd71a}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+WR}~(1 $<$$<$ 7)		/$\ast$  Tranfer direction\+: Write $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gada076fb09a2b3ce5d331f6f9beae6eec}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+RD}~(0)				/$\ast$  Tranfer direction\+: Read $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga482a5f777327c83363e30dd9c8b99be3}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+A\+LL}
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6d6f28a44e97ee35c0a119c631caf1fd}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+X\+TD}~(1 $<$$<$ 15)				/$\ast$ 1 is extended identifier bit is used in the RX filter unit, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gab718018bc148b04ebecd0c26959ff893}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+D\+IR}(n)~(((n) \& 0x01) $<$$<$  14)	/$\ast$ 1 is direction bit is used in the R\+X filter unit, 0 is not $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga0bc000e496f46b34316ba9271c177fcc}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+D\+IR}(n)~(((n) \& 0x01) $<$$<$ 13)	/$\ast$ 1\+: Dir = transmit, 0\+: Dir = receive $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga5da2db0d7aa00bea000fe1fb0be9c3ff}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+X\+TD}~(1 $<$$<$ 14)		/$\ast$ Extended identifier bit is used$\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga11ed203f0f2890790f98a3a03f411755}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+M\+S\+G\+V\+AL}~(1 $<$$<$ 15)		/$\ast$ Message valid bit, 1 is valid in the MO handler, 0 is ignored $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8f4338ea37e765187c00106b7491482b}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+D\+L\+C\+\_\+\+M\+SK}~0x000\+F			/$\ast$ bit mask for D\+L\+C $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga31daef8dcd1bbf0747588f87d62f84e0}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+E\+OB}~(1 $<$$<$ 7)		/$\ast$ End of buffer, always write to 1 $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga46f7cf2fc1d4b31ca113aa5de5c178b2}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+RQ}~(1 $<$$<$ 8)		/$\ast$ 1 is Tx\+Rqst enabled $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf83e3b00cb47a292c183aae1248d7a8d}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+M\+T\+EN}(n)~(((n) \& 1\+U\+L) $<$$<$ 9)	/$\ast$ 1 is remote frame enabled $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1412ab53713b6ac3d16c1422b40df96b}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+X\+IE}~(1 $<$$<$ 10)		/$\ast$ 1 is RX interrupt enabled $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gabde8e5b20439ed42cefecf0f42d79795}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+IE}~(1 $<$$<$ 11)		/$\ast$ 1 is TX interrupt enabled $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga9d4b7ef7ab984451466e90942380cb7c}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+U\+M\+SK}~(1 $<$$<$ 12)		/$\ast$ 1 is to use the mask for the receive filter mask. $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1e55aa393304c0d4f1bca6099f086479}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+I\+N\+TP}~(1 $<$$<$ 13)		/$\ast$ 1 indicates message object is an interrupt source $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga1505ed25fd25085b10a3812ad54bc7d5}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+M\+L\+ST}~(1 $<$$<$ 14)		/$\ast$ 1 indicates a message loss. $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga056b3ce9b31967dfc3ff0e0ed9d08b1d}{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+N\+E\+WD}~(1 $<$$<$ 15)		/$\ast$ 1 indicates new data is in the message buffer.  $\ast$/
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gae864613dd1c5ac9e12e46a9665d0f2a0}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+S\+T\+D\+\_\+\+M\+A\+SK}~0x07\+FF
+\item 
+\#define \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga18d999c2df35107e1c3fbaba681b54b5}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+E\+X\+T\+\_\+\+M\+A\+SK}~0x1\+F\+F\+F\+F\+F\+FF
+\end{DoxyCompactItemize}
+\subsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gad7a3e9e736dfb04f5faff4954a01591a}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+T} \{ \\*
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa0f85936863162c77305b1561506af2e4}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa0f2bbf091c125bc5a3800089ce41d32f}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+S\+T\+U\+F\+F\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aac23e3d0c0180164aa01c8058e682d95a}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+F\+O\+R\+M\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aaaa28041d8c7ea3816e20198e56a91449}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+A\+C\+K\+\_\+\+E\+R\+R\+OR}, 
+\\*
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa064ab8e719bb679a9be161469a1ef085}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T1\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa123dfabe703e6396a0334598bcae266e}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T0\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa9b75109a2824295f6739961e1b110367}{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+C\+R\+C\+\_\+\+E\+R\+R\+OR}
+ \}\begin{DoxyCompactList}\small\item\em Last Error Code definition. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T} \{ \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a20cb141be8468d07983601deedd9f726}{C\+C\+A\+N\+\_\+\+R\+X\+\_\+\+D\+IR}, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a03c25f707e2e0857392c2def9e8cef20}{C\+C\+A\+N\+\_\+\+T\+X\+\_\+\+D\+IR}
+ \}\begin{DoxyCompactList}\small\item\em C\+C\+AN Transfer direction definition. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} \{ \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac90da0138c430750d2d7d55d4448cae7aa0eb1a2b0eac4bdb8a9c8dba09d42b26}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F1} = 0, 
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac90da0138c430750d2d7d55d4448cae7a45267f491cc7247be1a624489ce31c2c}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F2} = 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga06bb34ff1e211fa5153a7f699b9ba599}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Int} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Enable C\+C\+AN Interrupts. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf4667bd6b992eabb841d91e9b6a753be}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Int} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Disable C\+C\+AN Interrupts. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga0f994d17cbfb6859384c4f4896a23156}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Int\+ID} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Get the source ID of an interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac5ea5e28fefe41244766c8cd9b8dce6d}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Status} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Get the C\+C\+AN status register. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga005c87851b2e901216b170b46e08861c}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Status} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Set the C\+C\+AN status. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gad4ec595674d4ae4f357abf9df843fd7a}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Status} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Clear the status of C\+C\+AN bus. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint8\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf986db27eac49a8f9042584e86c7dd6f}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Err\+Counter} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T} dir)
+\begin{DoxyCompactList}\small\item\em Get the current value of the transmit/receive error counter. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8fdfcf8865fca9748ae26a391842e720}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Test\+Mode} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Enable test mode in C\+C\+AN. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa04519b3acfd8302eb601fc9b2927c8d}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Test\+Mode} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Enable test mode in C\+C\+AN. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6348cfc02990a10658e6b3b800c2d702}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Config\+Test\+Mode} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t cfg)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable test mode in C\+C\+AN. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gadbb66ec94ce472bee4289fa891c86417}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Auto\+Retransmit} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Enable automatic retransmission. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gab97933336f93abffde9ad630c0ad487d}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Auto\+Retransmit} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Disable automatic retransmission. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga277f2c98eba48fdf57e8444d8f151782}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Tx\+R\+Q\+ST} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Get the transmit repuest bit in all message objects. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga8525e3ffe5b5b3f1cccd4ef0823db123}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Init} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Initialize the C\+C\+AN peripheral, free all message object in R\+AM. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga480bb72b3278473a3946718e6c54917b}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em De-\/initialize the C\+C\+AN peripheral. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___types_ga67a0db04d321a74b7e7fcfd3f1a3f70b}{Status} \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga5174d447093a6f3854255a97ae222a85}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Bit\+Rate} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, uint32\+\_\+t bit\+Rate)
+\begin{DoxyCompactList}\small\item\em Select bit rate for C\+C\+AN bus. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf3ac11ce8aadaefebd96a7f6ffcb7a1f}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Transfer\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint32\+\_\+t mask, uint32\+\_\+t msg\+Num)
+\begin{DoxyCompactList}\small\item\em Tranfer message object between IF registers and Message R\+AM. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga15f704e1c960d69aaaa2ea17c0247048}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T} dir, bool remote\+Frame, uint8\+\_\+t msg\+Num, const \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$p\+Msg\+Obj)
+\begin{DoxyCompactList}\small\item\em Set a message into the message object in message R\+AM. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gadab63c8847a26eae41257f5a89334b92}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Msg\+Object} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num, \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$p\+Msg\+Obj)
+\begin{DoxyCompactList}\small\item\em Get a message object in message R\+AM into the message buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga3418e9cdab81c5c8d7fb18d4afa0bd6e}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Valid\+Msg} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num, bool valid)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable the message object to valid. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaf3e7cad0a5b86b9857d20f24531f779a}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Valid\+Msg} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN)
+\begin{DoxyCompactList}\small\item\em Check the message objects is valid or not. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6cb155fe27766aa2a654d1eb34fce1f6}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Msg\+Int\+Pend} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T} dir)
+\begin{DoxyCompactList}\small\item\em Clear the pending message interrupt. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gad65e3ea736abec38609387aa349c6c6f}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+New\+Data\+Flag} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint8\+\_\+t msg\+Num)
+\begin{DoxyCompactList}\small\item\em Clear new data flag bit in the message object. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga80123249d183199b1bff05316f6b6c32}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Send} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, bool remote\+Frame, \hyperlink{struct_c_c_a_n___m_s_g___o_b_j___t}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$p\+Msg\+Obj)
+\begin{DoxyCompactList}\small\item\em Send a message. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac0622af68b92aff26c9843d7536224c2}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Add\+Receive\+ID} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Register a message ID for receiving. \end{DoxyCompactList}\item 
+void \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga58ab5f836908b1611bd07ea9476172d6}{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Delete\+Receive\+ID} (\hyperlink{struct_l_p_c___c_c_a_n___t}{L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$p\+C\+C\+AN, \hyperlink{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T} I\+F\+Sel, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Remove a registered message ID from receiving. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+C\+CE@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+C\+CE}}
+\index{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+C\+CE@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+C\+CE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+C\+CE}{CCAN_CTRL_CCE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+C\+CE~(1 $<$$<$ 6)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaa65884720eb6b15b0acbff51e6be75b6}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaa65884720eb6b15b0acbff51e6be75b6}
+The C\+PU has write access to the C\+A\+N\+BT register while the I\+N\+IT bit is one. 
+
+Definición en la línea 97 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+D\+AR@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+D\+AR}}
+\index{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+D\+AR@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+D\+AR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+D\+AR}{CCAN_CTRL_DAR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+D\+AR~(1 $<$$<$ 5)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga372744b6be07f3fea89ada4ea3de4d9d}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga372744b6be07f3fea89ada4ea3de4d9d}
+Automatic retransmission disabled. 
+
+Definición en la línea 96 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE}}
+\index{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE}{CCAN_CTRL_EIE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE~(1 $<$$<$ 3)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga7227d00cb5d6ab0055f183f272ee647c}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga7227d00cb5d6ab0055f183f272ee647c}
+Error Interupt Enable. 
+
+Definición en la línea 95 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE}}
+\index{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE}{CCAN_CTRL_IE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE~(1 $<$$<$ 1)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaa4d20674c2eed8d630afd662d12fecc8}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaa4d20674c2eed8d630afd662d12fecc8}
+Module Interupt Enable. 
+
+Definición en la línea 93 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+IT@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+IT}}
+\index{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+IT@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+IT}{CCAN_CTRL_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+IT~(1 $<$$<$ 0)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga67343de48aecd561cc46691a58fe1aa2}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga67343de48aecd561cc46691a58fe1aa2}
+Initialization is started. 
+
+Definición en la línea 92 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE}}
+\index{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE}{CCAN_CTRL_SIE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE~(1 $<$$<$ 2)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaa0de0b1c4b72f922d1e69d3849830928}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaa0de0b1c4b72f922d1e69d3849830928}
+Status Change Interupt Enable. 
+
+Definición en la línea 94 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+T\+E\+ST@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+T\+E\+ST}}
+\index{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+T\+E\+ST@{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+T\+E\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+T\+E\+ST}{CCAN_CTRL_TEST}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+T\+E\+ST~(1 $<$$<$ 7)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga24b5503f3d90fa98a3ecb0e8f4e23bfa}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga24b5503f3d90fa98a3ecb0e8f4e23bfa}
+Test mode. 
+
+Definición en la línea 98 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+D\+IR@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+D\+IR}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+D\+IR@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+D\+IR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+D\+IR}{CCAN_IF_ARB2_DIR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+D\+IR(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~(((n) \& 0x01) $<$$<$ 13)	/$\ast$ 1\+: Dir = transmit, 0\+: Dir = receive $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga0bc000e496f46b34316ba9271c177fcc}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga0bc000e496f46b34316ba9271c177fcc}
+
+
+Definición en la línea 362 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+M\+S\+G\+V\+AL@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+M\+S\+G\+V\+AL}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+M\+S\+G\+V\+AL@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+M\+S\+G\+V\+AL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+M\+S\+G\+V\+AL}{CCAN_IF_ARB2_MSGVAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+M\+S\+G\+V\+AL~(1 $<$$<$ 15)		/$\ast$ Message valid bit, 1 is valid in the MO handler, 0 is ignored $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga11ed203f0f2890790f98a3a03f411755}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga11ed203f0f2890790f98a3a03f411755}
+
+
+Definición en la línea 364 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+X\+TD@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+X\+TD}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+X\+TD@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+X\+TD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+X\+TD}{CCAN_IF_ARB2_XTD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+A\+R\+B2\+\_\+\+X\+TD~(1 $<$$<$ 14)		/$\ast$ Extended identifier bit is used$\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga5da2db0d7aa00bea000fe1fb0be9c3ff}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga5da2db0d7aa00bea000fe1fb0be9c3ff}
+
+
+Definición en la línea 363 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+A\+RB@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+A\+RB}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+A\+RB@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+A\+RB}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+A\+RB}{CCAN_IF_CMDMSK_ARB}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+A\+RB~(1 $<$$<$ 5)		/$\ast$$\ast$ 1 is transfer the A\+RB bits to the message object, 0 is not $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga568752f6d7905cff72c156242b34f381}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga568752f6d7905cff72c156242b34f381}
+
+
+Definición en la línea 350 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+C\+T\+RL@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+C\+T\+RL}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+C\+T\+RL@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+C\+T\+RL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+C\+T\+RL}{CCAN_IF_CMDMSK_CTRL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+C\+T\+RL~(1 $<$$<$ 4)		/$\ast$$\ast$ 1 is transfer the C\+T\+RL bit to the message object, 0 is not $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaa2862e76860e6f72b4ce8b60f0b059ed}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaa2862e76860e6f72b4ce8b60f0b059ed}
+
+
+Definición en la línea 349 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AA@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AA}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AA@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AA}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AA}{CCAN_IF_CMDMSK_DATAA}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AA~(1 $<$$<$ 1)		/$\ast$$\ast$ 1 is transfer data byte 0-\/3 to message object, 0 is not $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga6c0cbbac4aa6768663bde8a577bba92a}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga6c0cbbac4aa6768663bde8a577bba92a}
+
+
+Definición en la línea 345 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AB@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AB}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AB@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AB}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AB}{CCAN_IF_CMDMSK_DATAB}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+D\+A\+T\+AB~(1 $<$$<$ 0)		/$\ast$$\ast$ 1 is transfer data byte 4-\/7 to message object, 0 is not $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga51b44e8b4e1dc3c1701fb6b352ce200a}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga51b44e8b4e1dc3c1701fb6b352ce200a}
+
+
+Definición en la línea 344 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+M\+A\+SK@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+M\+A\+SK}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+M\+A\+SK@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+M\+A\+SK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+M\+A\+SK}{CCAN_IF_CMDMSK_MASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+M\+A\+SK~(1 $<$$<$ 6)		/$\ast$$\ast$ 1 is transfer the M\+A\+SK bit to the message object, 0 is not $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga673357c85c5be8938668a77bcfed270b}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga673357c85c5be8938668a77bcfed270b}
+
+
+Definición en la línea 351 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+C\+L\+R\+I\+N\+T\+P\+ND@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+C\+L\+R\+I\+N\+T\+P\+ND}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+C\+L\+R\+I\+N\+T\+P\+ND@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+C\+L\+R\+I\+N\+T\+P\+ND}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+C\+L\+R\+I\+N\+T\+P\+ND}{CCAN_IF_CMDMSK_R_CLRINTPND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+C\+L\+R\+I\+N\+T\+P\+ND~(1 $<$$<$ 3)		/$\ast$$\ast$ Clear I\+N\+T\+P\+ND bit in the message object. $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga2feaf55f7b8b6c0807fe1b2dd5525c97}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga2feaf55f7b8b6c0807fe1b2dd5525c97}
+
+
+Definición en la línea 348 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+N\+E\+W\+D\+AT@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+N\+E\+W\+D\+AT}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+N\+E\+W\+D\+AT@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+N\+E\+W\+D\+AT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+N\+E\+W\+D\+AT}{CCAN_IF_CMDMSK_R_NEWDAT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+R\+\_\+\+N\+E\+W\+D\+AT~(1 $<$$<$ 2)		/$\ast$$\ast$ Clear N\+E\+W\+D\+AT bit in the message object $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga3f2ce5805ce3c394b21fcb8408708267}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga3f2ce5805ce3c394b21fcb8408708267}
+
+
+Definición en la línea 347 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+RD@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+RD}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+RD@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+RD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+RD}{CCAN_IF_CMDMSK_RD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+RD~(0)				/$\ast$  Tranfer direction\+: Read $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gada076fb09a2b3ce5d331f6f9beae6eec}{}\label{group___c_c_a_n__18_x_x__43_x_x_gada076fb09a2b3ce5d331f6f9beae6eec}
+
+
+Definición en la línea 353 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+A\+LL@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+A\+LL}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+A\+LL@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+A\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+A\+LL}{CCAN_IF_CMDMSK_TRANSFER_ALL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+A\+LL}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga482a5f777327c83363e30dd9c8b99be3}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga482a5f777327c83363e30dd9c8b99be3}
+{\bfseries Valor\+:}
+\begin{DoxyCode}
+(\hyperlink{group___c_c_a_n__18_x_x__43_x_x_gaa2862e76860e6f72b4ce8b60f0b059ed}{CCAN\_IF\_CMDMSK\_CTRL} | \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga673357c85c5be8938668a77bcfed270b}{CCAN\_IF\_CMDMSK\_MASK} | 
+      \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga568752f6d7905cff72c156242b34f381}{CCAN\_IF\_CMDMSK\_ARB} | \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga51b44e8b4e1dc3c1701fb6b352ce200a}{\(\backslash\)}
+\hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga51b44e8b4e1dc3c1701fb6b352ce200a}{                                     CCAN\_IF\_CMDMSK\_DATAB} | 
+      \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ga6c0cbbac4aa6768663bde8a577bba92a}{CCAN\_IF\_CMDMSK\_DATAA})
+\end{DoxyCode}
+
+
+Definición en la línea 354 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+W\+\_\+\+T\+X\+R\+Q\+ST@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+W\+\_\+\+T\+X\+R\+Q\+ST}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+W\+\_\+\+T\+X\+R\+Q\+ST@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+W\+\_\+\+T\+X\+R\+Q\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+W\+\_\+\+T\+X\+R\+Q\+ST}{CCAN_IF_CMDMSK_W_TXRQST}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+W\+\_\+\+T\+X\+R\+Q\+ST~(1 $<$$<$ 2)		/$\ast$$\ast$ Request a transmission. Set the T\+X\+R\+Q\+ST bit I\+F1/2\+\_\+\+M\+C\+T\+R\+L. $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gace17a9473722068a46e84170e18232c1}{}\label{group___c_c_a_n__18_x_x__43_x_x_gace17a9473722068a46e84170e18232c1}
+
+
+Definición en la línea 346 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+WR@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+WR}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+WR@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+WR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+WR}{CCAN_IF_CMDMSK_WR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+\+WR~(1 $<$$<$ 7)		/$\ast$  Tranfer direction\+: Write $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga753800ac9b7d98b25887b12e7c3dd71a}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga753800ac9b7d98b25887b12e7c3dd71a}
+
+
+Definición en la línea 352 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+B\+U\+SY@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+B\+U\+SY}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+B\+U\+SY@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+B\+U\+SY}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+B\+U\+SY}{CCAN_IF_CMDREQ_BUSY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+B\+U\+SY~0x8000			/$\ast$ 1 is writing is progress, cleared when R\+D/\+W\+R done $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga18ef1013a0028ca27030b764c755a483}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga18ef1013a0028ca27030b764c755a483}
+
+
+Definición en la línea 341 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+M\+S\+G\+\_\+\+N\+UM@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+M\+S\+G\+\_\+\+N\+UM}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+M\+S\+G\+\_\+\+N\+UM@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+M\+S\+G\+\_\+\+N\+UM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+M\+S\+G\+\_\+\+N\+UM}{CCAN_IF_CMDREQ_MSG_NUM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+R\+E\+Q\+\_\+\+M\+S\+G\+\_\+\+N\+UM(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~(n)			/$\ast$ Message number (1-\/$>$20) $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gafd89f40b1906826e3e6be2fa6158a15e}{}\label{group___c_c_a_n__18_x_x__43_x_x_gafd89f40b1906826e3e6be2fa6158a15e}
+
+
+Definición en la línea 340 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+D\+IR@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+D\+IR}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+D\+IR@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+D\+IR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+D\+IR}{CCAN_IF_MASK2_MDIR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+D\+IR(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~(((n) \& 0x01) $<$$<$  14)	/$\ast$ 1 is direction bit is used in the R\+X filter unit, 0 is not $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gab718018bc148b04ebecd0c26959ff893}{}\label{group___c_c_a_n__18_x_x__43_x_x_gab718018bc148b04ebecd0c26959ff893}
+
+
+Definición en la línea 359 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+X\+TD@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+X\+TD}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+X\+TD@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+X\+TD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+X\+TD}{CCAN_IF_MASK2_MXTD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+A\+S\+K2\+\_\+\+M\+X\+TD~(1 $<$$<$ 15)				/$\ast$ 1 is extended identifier bit is used in the RX filter unit, 0 is not $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga6d6f28a44e97ee35c0a119c631caf1fd}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga6d6f28a44e97ee35c0a119c631caf1fd}
+
+
+Definición en la línea 358 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+D\+L\+C\+\_\+\+M\+SK@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+D\+L\+C\+\_\+\+M\+SK}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+D\+L\+C\+\_\+\+M\+SK@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+D\+L\+C\+\_\+\+M\+SK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+D\+L\+C\+\_\+\+M\+SK}{CCAN_IF_MCTRL_DLC_MSK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+D\+L\+C\+\_\+\+M\+SK~0x000\+F			/$\ast$ bit mask for D\+L\+C $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga8f4338ea37e765187c00106b7491482b}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga8f4338ea37e765187c00106b7491482b}
+
+
+Definición en la línea 367 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+E\+OB@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+E\+OB}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+E\+OB@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+E\+OB}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+E\+OB}{CCAN_IF_MCTRL_EOB}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+E\+OB~(1 $<$$<$ 7)		/$\ast$ End of buffer, always write to 1 $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga31daef8dcd1bbf0747588f87d62f84e0}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga31daef8dcd1bbf0747588f87d62f84e0}
+
+
+Definición en la línea 368 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+I\+N\+TP@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+I\+N\+TP}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+I\+N\+TP@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+I\+N\+TP}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+I\+N\+TP}{CCAN_IF_MCTRL_INTP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+I\+N\+TP~(1 $<$$<$ 13)		/$\ast$ 1 indicates message object is an interrupt source $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga1e55aa393304c0d4f1bca6099f086479}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga1e55aa393304c0d4f1bca6099f086479}
+
+
+Definición en la línea 374 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+M\+L\+ST@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+M\+L\+ST}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+M\+L\+ST@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+M\+L\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+M\+L\+ST}{CCAN_IF_MCTRL_MLST}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+M\+L\+ST~(1 $<$$<$ 14)		/$\ast$ 1 indicates a message loss. $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga1505ed25fd25085b10a3812ad54bc7d5}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga1505ed25fd25085b10a3812ad54bc7d5}
+
+
+Definición en la línea 375 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+N\+E\+WD@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+N\+E\+WD}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+N\+E\+WD@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+N\+E\+WD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+N\+E\+WD}{CCAN_IF_MCTRL_NEWD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+N\+E\+WD~(1 $<$$<$ 15)		/$\ast$ 1 indicates new data is in the message buffer.  $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga056b3ce9b31967dfc3ff0e0ed9d08b1d}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga056b3ce9b31967dfc3ff0e0ed9d08b1d}
+
+
+Definición en la línea 376 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+M\+T\+EN@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+M\+T\+EN}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+M\+T\+EN@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+M\+T\+EN}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+M\+T\+EN}{CCAN_IF_MCTRL_RMTEN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+M\+T\+EN(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~(((n) \& 1\+U\+L) $<$$<$ 9)	/$\ast$ 1 is remote frame enabled $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaf83e3b00cb47a292c183aae1248d7a8d}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaf83e3b00cb47a292c183aae1248d7a8d}
+
+
+Definición en la línea 370 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+X\+IE@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+X\+IE}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+X\+IE@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+X\+IE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+X\+IE}{CCAN_IF_MCTRL_RXIE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+R\+X\+IE~(1 $<$$<$ 10)		/$\ast$ 1 is RX interrupt enabled $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga1412ab53713b6ac3d16c1422b40df96b}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga1412ab53713b6ac3d16c1422b40df96b}
+
+
+Definición en la línea 371 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+IE@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+IE}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+IE@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+IE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+IE}{CCAN_IF_MCTRL_TXIE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+IE~(1 $<$$<$ 11)		/$\ast$ 1 is TX interrupt enabled $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gabde8e5b20439ed42cefecf0f42d79795}{}\label{group___c_c_a_n__18_x_x__43_x_x_gabde8e5b20439ed42cefecf0f42d79795}
+
+
+Definición en la línea 372 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+RQ@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+RQ}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+RQ@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+RQ}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+RQ}{CCAN_IF_MCTRL_TXRQ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+T\+X\+RQ~(1 $<$$<$ 8)		/$\ast$ 1 is Tx\+Rqst enabled $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga46f7cf2fc1d4b31ca113aa5de5c178b2}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga46f7cf2fc1d4b31ca113aa5de5c178b2}
+
+
+Definición en la línea 369 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+U\+M\+SK@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+U\+M\+SK}}
+\index{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+U\+M\+SK@{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+U\+M\+SK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+U\+M\+SK}{CCAN_IF_MCTRL_UMSK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+M\+C\+T\+R\+L\+\_\+\+U\+M\+SK~(1 $<$$<$ 12)		/$\ast$ 1 is to use the mask for the receive filter mask. $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga9d4b7ef7ab984451466e90942380cb7c}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga9d4b7ef7ab984451466e90942380cb7c}
+
+
+Definición en la línea 373 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+M\+S\+G\+\_\+\+N\+UM@{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+M\+S\+G\+\_\+\+N\+UM}}
+\index{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+M\+S\+G\+\_\+\+N\+UM@{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+M\+S\+G\+\_\+\+N\+UM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+M\+S\+G\+\_\+\+N\+UM}{CCAN_INT_MSG_NUM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+M\+S\+G\+\_\+\+N\+UM(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~(n)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga070e17d49a2c87d14452ff17fcbf212e}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga070e17d49a2c87d14452ff17fcbf212e}
+Number of messages which caused interrupts 
+
+Definición en la línea 128 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+N\+O\+\_\+\+P\+E\+N\+D\+I\+NG@{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+N\+O\+\_\+\+P\+E\+N\+D\+I\+NG}}
+\index{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+N\+O\+\_\+\+P\+E\+N\+D\+I\+NG@{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+N\+O\+\_\+\+P\+E\+N\+D\+I\+NG}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+N\+O\+\_\+\+P\+E\+N\+D\+I\+NG}{CCAN_INT_NO_PENDING}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+N\+O\+\_\+\+P\+E\+N\+D\+I\+NG~0}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga6729e4f8bb1311806c9437247ba43b09}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga6729e4f8bb1311806c9437247ba43b09}
+No interrupt pending 
+
+Definición en la línea 126 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+S\+T\+A\+T\+US@{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+S\+T\+A\+T\+US}}
+\index{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+S\+T\+A\+T\+US@{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+S\+T\+A\+T\+US}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+S\+T\+A\+T\+US}{CCAN_INT_STATUS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+I\+N\+T\+\_\+\+S\+T\+A\+T\+US~0x8000}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaa3060227684cfad8ba747a13eae24bdc}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaa3060227684cfad8ba747a13eae24bdc}
+Status interrupt 
+
+Definición en la línea 127 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+E\+X\+T\+\_\+\+M\+A\+SK@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+E\+X\+T\+\_\+\+M\+A\+SK}}
+\index{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+E\+X\+T\+\_\+\+M\+A\+SK@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+E\+X\+T\+\_\+\+M\+A\+SK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+E\+X\+T\+\_\+\+M\+A\+SK}{CCAN_MSG_ID_EXT_MASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+E\+X\+T\+\_\+\+M\+A\+SK~0x1\+F\+F\+F\+F\+F\+FF}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga18d999c2df35107e1c3fbaba681b54b5}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga18d999c2df35107e1c3fbaba681b54b5}
+
+
+Definición en la línea 379 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+S\+T\+D\+\_\+\+M\+A\+SK@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+S\+T\+D\+\_\+\+M\+A\+SK}}
+\index{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+S\+T\+D\+\_\+\+M\+A\+SK@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+S\+T\+D\+\_\+\+M\+A\+SK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+S\+T\+D\+\_\+\+M\+A\+SK}{CCAN_MSG_ID_STD_MASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+D\+\_\+\+S\+T\+D\+\_\+\+M\+A\+SK~0x07\+FF}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gae864613dd1c5ac9e12e46a9665d0f2a0}{}\label{group___c_c_a_n__18_x_x__43_x_x_gae864613dd1c5ac9e12e46a9665d0f2a0}
+
+
+Definición en la línea 378 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+N\+UM@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+N\+UM}}
+\index{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+N\+UM@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+N\+UM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+N\+UM}{CCAN_MSG_MAX_NUM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+N\+UM~32}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga1b19a6ba9e51a4c56063942efb73bcb0}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga1b19a6ba9e51a4c56063942efb73bcb0}
+Number of message objects in Message R\+AM 
+
+Definición en la línea 323 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+S\+E\+G1\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL@{C\+C\+A\+N\+\_\+\+S\+E\+G1\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}}
+\index{C\+C\+A\+N\+\_\+\+S\+E\+G1\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL@{C\+C\+A\+N\+\_\+\+S\+E\+G1\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+S\+E\+G1\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}{CCAN_SEG1_DEFAULT_VAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+S\+E\+G1\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL~5}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga33b5235b82cb4fbf0d9741a8b30fff3e}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga33b5235b82cb4fbf0d9741a8b30fff3e}
+
+
+Definición en la línea 141 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+S\+E\+G2\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL@{C\+C\+A\+N\+\_\+\+S\+E\+G2\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}}
+\index{C\+C\+A\+N\+\_\+\+S\+E\+G2\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL@{C\+C\+A\+N\+\_\+\+S\+E\+G2\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+S\+E\+G2\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}{CCAN_SEG2_DEFAULT_VAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+S\+E\+G2\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL~4}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga74a3eea2e682a68876147a57d5c39698}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga74a3eea2e682a68876147a57d5c39698}
+
+
+Definición en la línea 142 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+S\+J\+W\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL@{C\+C\+A\+N\+\_\+\+S\+J\+W\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}}
+\index{C\+C\+A\+N\+\_\+\+S\+J\+W\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL@{C\+C\+A\+N\+\_\+\+S\+J\+W\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+S\+J\+W\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL}{CCAN_SJW_DEFAULT_VAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+S\+J\+W\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+AL~0}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga8c1b9b8c1870fc3056da0debea8a4c49}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga8c1b9b8c1870fc3056da0debea8a4c49}
+
+
+Definición en la línea 143 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+B\+O\+FF@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+B\+O\+FF}}
+\index{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+B\+O\+FF@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+B\+O\+FF}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+B\+O\+FF}{CCAN_STAT_BOFF}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+B\+O\+FF~(1 $<$$<$ 7)	/$\ast$The C\+AN controller is in busoff state.$\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaf5bda007aa17c3fe3f8a8417dd5feb1e}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaf5bda007aa17c3fe3f8a8417dd5feb1e}
+
+
+Definición en la línea 106 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+P\+A\+SS@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+P\+A\+SS}}
+\index{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+P\+A\+SS@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+P\+A\+SS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+P\+A\+SS}{CCAN_STAT_EPASS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+P\+A\+SS~(1 $<$$<$ 5)	/$\ast$ The C\+AN controller is in the {\bf error} passive state$\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga86acb18cb4751429d866c9fb8f119d44}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga86acb18cb4751429d866c9fb8f119d44}
+
+
+Definición en la línea 104 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+W\+A\+RN@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+W\+A\+RN}}
+\index{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+W\+A\+RN@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+W\+A\+RN}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+W\+A\+RN}{CCAN_STAT_EWARN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+E\+W\+A\+RN~(1 $<$$<$ 6)	/$\ast$At least one of the {\bf error} counters in the EC has reached the {\bf error} warning limit of 96.$\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga1775fca8e7a3c3c5b4572f4a60be573b}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga1775fca8e7a3c3c5b4572f4a60be573b}
+
+
+Definición en la línea 105 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+L\+E\+C\+\_\+\+M\+A\+SK@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+L\+E\+C\+\_\+\+M\+A\+SK}}
+\index{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+L\+E\+C\+\_\+\+M\+A\+SK@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+L\+E\+C\+\_\+\+M\+A\+SK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+L\+E\+C\+\_\+\+M\+A\+SK}{CCAN_STAT_LEC_MASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+L\+E\+C\+\_\+\+M\+A\+SK~(0x07)		/$\ast$ Mask for Last Error Code $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga8ba9703a5b17eaefa9c4840455774a34}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga8ba9703a5b17eaefa9c4840455774a34}
+
+
+Definición en la línea 101 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+R\+X\+OK@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+R\+X\+OK}}
+\index{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+R\+X\+OK@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+R\+X\+OK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+R\+X\+OK}{CCAN_STAT_RXOK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+R\+X\+OK~(1 $<$$<$ 4)	/$\ast$ Received a message successfully $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gad3b3105c74981a041f4d3515e989bfbd}{}\label{group___c_c_a_n__18_x_x__43_x_x_gad3b3105c74981a041f4d3515e989bfbd}
+
+
+Definición en la línea 103 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+T\+X\+OK@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+T\+X\+OK}}
+\index{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+T\+X\+OK@{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+T\+X\+OK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+T\+X\+OK}{CCAN_STAT_TXOK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+\+T\+X\+OK~(1 $<$$<$ 3)	/$\ast$ Transmitted a message successfully $\ast$/}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga89b5bd7c2e8a0593d1d4b325e1d04a2f}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga89b5bd7c2e8a0593d1d4b325e1d04a2f}
+
+
+Definición en la línea 102 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+B\+A\+S\+I\+C\+\_\+\+M\+O\+DE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+B\+A\+S\+I\+C\+\_\+\+M\+O\+DE}}
+\index{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+B\+A\+S\+I\+C\+\_\+\+M\+O\+DE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+B\+A\+S\+I\+C\+\_\+\+M\+O\+DE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+B\+A\+S\+I\+C\+\_\+\+M\+O\+DE}{CCAN_TEST_BASIC_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+B\+A\+S\+I\+C\+\_\+\+M\+O\+DE~(1 $<$$<$ 2)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga5b82b859cbcbfbea3ee778cfdcde0e85}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga5b82b859cbcbfbea3ee778cfdcde0e85}
+I\+F1 registers used as TX buffer, I\+F2 registers used as RX buffer. 
+
+Definición en la línea 131 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+DE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+DE}}
+\index{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+DE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+DE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+DE}{CCAN_TEST_LOOPBACK_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+DE~(1 $<$$<$ 4)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga9ee2a6a2c209e479ef82adb269ac3919}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga9ee2a6a2c209e479ef82adb269ac3919}
+Loop back mode is enabled. 
+
+Definición en la línea 133 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}}
+\index{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}{CCAN_TEST_RD_DOMINANT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT~(0)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga26893920c44fae47b780aadb6f60f793}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga26893920c44fae47b780aadb6f60f793}
+The C\+AN bus is dominant (RD = 0). 
+
+Definición en la línea 138 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}}
+\index{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}{CCAN_TEST_RD_RECESSIVE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+R\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE~(1 $<$$<$ 7)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gae528570ba4469a074747eb03f90f246a}{}\label{group___c_c_a_n__18_x_x__43_x_x_gae528570ba4469a074747eb03f90f246a}
+The C\+AN bus is recessive (RD = 1). 
+
+Definición en la línea 139 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+S\+I\+L\+E\+N\+T\+\_\+\+M\+O\+DE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+S\+I\+L\+E\+N\+T\+\_\+\+M\+O\+DE}}
+\index{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+S\+I\+L\+E\+N\+T\+\_\+\+M\+O\+DE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+S\+I\+L\+E\+N\+T\+\_\+\+M\+O\+DE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+S\+I\+L\+E\+N\+T\+\_\+\+M\+O\+DE}{CCAN_TEST_SILENT_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+S\+I\+L\+E\+N\+T\+\_\+\+M\+O\+DE~(1 $<$$<$ 3)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga106d940b349f6405cd9b29fb96e7be2c}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga106d940b349f6405cd9b29fb96e7be2c}
+The module is in silent mode. 
+
+Definición en la línea 132 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+ED@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+ED}}
+\index{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+ED@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+ED}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+ED}{CCAN_TEST_TD_CONTROLLED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+ED~(0)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaf071106b7661b748890a07ebdeeba2f2}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaf071106b7661b748890a07ebdeeba2f2}
+Level at the TD pin is controlled by the C\+AN controller. 
+
+Definición en la línea 134 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}}
+\index{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT}{CCAN_TEST_TD_DOMINANT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+D\+O\+M\+I\+N\+A\+NT~(2 $<$$<$ 5)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gacc375f1ade23712882d71808600ad0f2}{}\label{group___c_c_a_n__18_x_x__43_x_x_gacc375f1ade23712882d71808600ad0f2}
+TD pin is driven L\+O\+W/dominant. 
+
+Definición en la línea 136 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+M\+O\+N\+I\+T\+O\+R\+ED@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+M\+O\+N\+I\+T\+O\+R\+ED}}
+\index{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+M\+O\+N\+I\+T\+O\+R\+ED@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+M\+O\+N\+I\+T\+O\+R\+ED}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+M\+O\+N\+I\+T\+O\+R\+ED}{CCAN_TEST_TD_MONITORED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+M\+O\+N\+I\+T\+O\+R\+ED~(1 $<$$<$ 5)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaab61e1f43219a34dc6dd86a0c1c367b8}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaab61e1f43219a34dc6dd86a0c1c367b8}
+The sample point can be monitored at the TD pin. 
+
+Definición en la línea 135 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}}
+\index{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE@{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE}{CCAN_TEST_TD_RECESSIVE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+\+T\+D\+\_\+\+R\+E\+C\+E\+S\+S\+I\+VE~(3 $<$$<$ 5)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gab0d2186b5d8b7936ee151e406422ac1c}{}\label{group___c_c_a_n__18_x_x__43_x_x_gab0d2186b5d8b7936ee151e406422ac1c}
+TD pin is driven H\+I\+G\+H/recessive. 
+
+Definición en la línea 137 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las enumeraciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+T@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+T}}
+\index{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+T@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+T}{CCAN_LEC_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+T}}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gad7a3e9e736dfb04f5faff4954a01591a}{}\label{group___c_c_a_n__18_x_x__43_x_x_gad7a3e9e736dfb04f5faff4954a01591a}
+
+
+Last Error Code definition. 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}}\item[{\em 
+C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa0f85936863162c77305b1561506af2e4}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa0f85936863162c77305b1561506af2e4}
+}]No error \index{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+S\+T\+U\+F\+F\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+S\+T\+U\+F\+F\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+S\+T\+U\+F\+F\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+S\+T\+U\+F\+F\+\_\+\+E\+R\+R\+OR}}\item[{\em 
+C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+S\+T\+U\+F\+F\+\_\+\+E\+R\+R\+OR\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa0f2bbf091c125bc5a3800089ce41d32f}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa0f2bbf091c125bc5a3800089ce41d32f}
+}]More than 5 equal bits in a sequence have occurred in a part of a received message where this is not allowed. \index{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+F\+O\+R\+M\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+F\+O\+R\+M\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+F\+O\+R\+M\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+F\+O\+R\+M\+\_\+\+E\+R\+R\+OR}}\item[{\em 
+C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+F\+O\+R\+M\+\_\+\+E\+R\+R\+OR\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aac23e3d0c0180164aa01c8058e682d95a}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aac23e3d0c0180164aa01c8058e682d95a}
+}]A fixed format part of a received frame has the wrong format \index{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+A\+C\+K\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+A\+C\+K\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+A\+C\+K\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+A\+C\+K\+\_\+\+E\+R\+R\+OR}}\item[{\em 
+C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+A\+C\+K\+\_\+\+E\+R\+R\+OR\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aaaa28041d8c7ea3816e20198e56a91449}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aaaa28041d8c7ea3816e20198e56a91449}
+}]The message this C\+AN core transmitted was not acknowledged. \index{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T1\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T1\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T1\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T1\+\_\+\+E\+R\+R\+OR}}\item[{\em 
+C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T1\+\_\+\+E\+R\+R\+OR\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa064ab8e719bb679a9be161469a1ef085}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa064ab8e719bb679a9be161469a1ef085}
+}]During the transmission of a message (with the exception of the arbitration field), the device wanted to send a H\+I\+G\+H/recessive level (bit of logical value \char`\"{}1\char`\"{}), but the monitored bus value was L\+O\+W/dominant. \index{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T0\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T0\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T0\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T0\+\_\+\+E\+R\+R\+OR}}\item[{\em 
+C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+B\+I\+T0\+\_\+\+E\+R\+R\+OR\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa123dfabe703e6396a0334598bcae266e}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa123dfabe703e6396a0334598bcae266e}
+}]During the transmission of a message (or acknowledge bit, or active error flag, or overload flag), the device wanted to send a L\+O\+W/dominant level (data or identifier bit logical value \char`\"{}0\char`\"{}), but the monitored Bus value was H\+I\+G\+H/recessive. During busoff recovery this status is set each time a sequence of 11 H\+I\+G\+H/recessive bits has been monitored. This enables the C\+PU to monitor the proceeding of the busoff recovery sequence (indicating the bus is not stuck at L\+O\+W/dominant or continuously disturbed). \index{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+C\+R\+C\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+C\+R\+C\+\_\+\+E\+R\+R\+OR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+C\+R\+C\+\_\+\+E\+R\+R\+OR@{C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+C\+R\+C\+\_\+\+E\+R\+R\+OR}}\item[{\em 
+C\+C\+A\+N\+\_\+\+L\+E\+C\+\_\+\+C\+R\+C\+\_\+\+E\+R\+R\+OR\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa9b75109a2824295f6739961e1b110367}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggad7a3e9e736dfb04f5faff4954a01591aa9b75109a2824295f6739961e1b110367}
+}]The C\+RC checksum was incorrect in the message received. \end{description}
+\end{Desc}
+
+
+Definición en la línea 111 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}
+\index{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}{CCAN_MSG_IF_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}{}\label{group___c_c_a_n__18_x_x__43_x_x_gac90da0138c430750d2d7d55d4448cae7}
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F1@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F1@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F1}}\item[{\em 
+C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F1\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggac90da0138c430750d2d7d55d4448cae7aa0eb1a2b0eac4bdb8a9c8dba09d42b26}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggac90da0138c430750d2d7d55d4448cae7aa0eb1a2b0eac4bdb8a9c8dba09d42b26}
+}]\index{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F2@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F2@{C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F2}}\item[{\em 
+C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F2\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggac90da0138c430750d2d7d55d4448cae7a45267f491cc7247be1a624489ce31c2c}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggac90da0138c430750d2d7d55d4448cae7a45267f491cc7247be1a624489ce31c2c}
+}]\end{description}
+\end{Desc}
+
+
+Definición en la línea 334 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T@{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T}}
+\index{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T@{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T}{CCAN_TRANSFER_DIR_T}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T}}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}{}\label{group___c_c_a_n__18_x_x__43_x_x_gac400be6c4ae22b8b773b0bea6e9c5f02}
+
+
+C\+C\+AN Transfer direction definition. 
+
+\begin{Desc}
+\item[Valores de enumeraciones]\par
+\begin{description}
+\index{C\+C\+A\+N\+\_\+\+R\+X\+\_\+\+D\+IR@{C\+C\+A\+N\+\_\+\+R\+X\+\_\+\+D\+IR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+R\+X\+\_\+\+D\+IR@{C\+C\+A\+N\+\_\+\+R\+X\+\_\+\+D\+IR}}\item[{\em 
+C\+C\+A\+N\+\_\+\+R\+X\+\_\+\+D\+IR\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a20cb141be8468d07983601deedd9f726}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a20cb141be8468d07983601deedd9f726}
+}]\index{C\+C\+A\+N\+\_\+\+T\+X\+\_\+\+D\+IR@{C\+C\+A\+N\+\_\+\+T\+X\+\_\+\+D\+IR}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!C\+C\+A\+N\+\_\+\+T\+X\+\_\+\+D\+IR@{C\+C\+A\+N\+\_\+\+T\+X\+\_\+\+D\+IR}}\item[{\em 
+C\+C\+A\+N\+\_\+\+T\+X\+\_\+\+D\+IR\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a03c25f707e2e0857392c2def9e8cef20}{}\label{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a03c25f707e2e0857392c2def9e8cef20}
+}]\end{description}
+\end{Desc}
+
+
+Definición en la línea 148 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Add\+Receive\+ID@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Add\+Receive\+ID}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Add\+Receive\+ID@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Add\+Receive\+ID}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Add\+Receive\+I\+D(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, uint32\+\_\+t id)}{Chip_CCAN_AddReceiveID(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, uint32_t id)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Add\+Receive\+ID (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{uint32\+\_\+t}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gac0622af68b92aff26c9843d7536224c2}{}\label{group___c_c_a_n__18_x_x__43_x_x_gac0622af68b92aff26c9843d7536224c2}
+
+
+Register a message ID for receiving. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em I\+F\+Sel} & \+: The Message interface to be used \\
+\hline
+{\em id} & \+: Received message ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 288 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Msg\+Int\+Pend@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Msg\+Int\+Pend}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Msg\+Int\+Pend@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Msg\+Int\+Pend}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Msg\+Int\+Pend(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, uint8\+\_\+t msg\+Num, C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+\+T dir)}{Chip_CCAN_ClearMsgIntPend(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, uint8_t msgNum, CCAN_TRANSFER_DIR_T dir)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Msg\+Int\+Pend (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{uint8\+\_\+t}]{msg\+Num, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T}}]{dir}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga6cb155fe27766aa2a654d1eb34fce1f6}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga6cb155fe27766aa2a654d1eb34fce1f6}
+
+
+Clear the pending message interrupt. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em I\+F\+Sel} & \+: The Message interface to be used \\
+\hline
+{\em msg\+Num} & \+: Message number \\
+\hline
+{\em dir} & \+: Select transmit or receive interrupt to be cleared \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 449 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+New\+Data\+Flag@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+New\+Data\+Flag}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+New\+Data\+Flag@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+New\+Data\+Flag}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+New\+Data\+Flag(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, uint8\+\_\+t msg\+Num)}{Chip_CCAN_ClearNewDataFlag(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, uint8_t msgNum)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+New\+Data\+Flag (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{uint8\+\_\+t}]{msg\+Num}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gad65e3ea736abec38609387aa349c6c6f}{}\label{group___c_c_a_n__18_x_x__43_x_x_gad65e3ea736abec38609387aa349c6c6f}
+
+
+Clear new data flag bit in the message object. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em I\+F\+Sel} & \+: The Message interface to be used \\
+\hline
+{\em msg\+Num} & \+: Message number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 464 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Status@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Status}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Status@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Status}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Status(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, uint32\+\_\+t val)}{Chip_CCAN_ClearStatus(LPC_CCAN_T *pCCAN, uint32_t val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Clear\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{uint32\+\_\+t}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gad4ec595674d4ae4f357abf9df843fd7a}{}\label{group___c_c_a_n__18_x_x__43_x_x_gad4ec595674d4ae4f357abf9df843fd7a}
+
+
+Clear the status of C\+C\+AN bus. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em val} & \+: Status to be cleared (or-\/ed bit value of C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+$\ast$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 153 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Config\+Test\+Mode@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Config\+Test\+Mode}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Config\+Test\+Mode@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Config\+Test\+Mode}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Config\+Test\+Mode(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, uint32\+\_\+t cfg)}{Chip_CCAN_ConfigTestMode(LPC_CCAN_T *pCCAN, uint32_t cfg)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Config\+Test\+Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{uint32\+\_\+t}]{cfg}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga6348cfc02990a10658e6b3b800c2d702}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga6348cfc02990a10658e6b3b800c2d702}
+
+
+Enable/\+Disable test mode in C\+C\+AN. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em cfg} & \+: Test function, or-\/ed bit values of C\+C\+A\+N\+\_\+\+T\+E\+S\+T\+\_\+$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Test Mode must be enabled before using Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Test\+Mode function. 
+\end{DoxyNote}
+
+
+Definición en la línea 265 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+De\+Init@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+De\+Init}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+De\+Init@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+De\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+De\+Init(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_DeInit(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+De\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga480bb72b3278473a3946718e6c54917b}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga480bb72b3278473a3946718e6c54917b}
+
+
+De-\/initialize the C\+C\+AN peripheral. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 123 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Delete\+Receive\+ID@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Delete\+Receive\+ID}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Delete\+Receive\+ID@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Delete\+Receive\+ID}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Delete\+Receive\+I\+D(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, uint32\+\_\+t id)}{Chip_CCAN_DeleteReceiveID(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, uint32_t id)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Delete\+Receive\+ID (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{uint32\+\_\+t}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga58ab5f836908b1611bd07ea9476172d6}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga58ab5f836908b1611bd07ea9476172d6}
+
+
+Remove a registered message ID from receiving. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em I\+F\+Sel} & \+: The Message interface to be used \\
+\hline
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em id} & \+: Received message ID to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 300 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Auto\+Retransmit@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Auto\+Retransmit}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Auto\+Retransmit@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Auto\+Retransmit}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Auto\+Retransmit(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_DisableAutoRetransmit(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Auto\+Retransmit (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gab97933336f93abffde9ad630c0ad487d}{}\label{group___c_c_a_n__18_x_x__43_x_x_gab97933336f93abffde9ad630c0ad487d}
+
+
+Disable automatic retransmission. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 285 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Int@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Int}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Int@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Int}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Int(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, uint32\+\_\+t mask)}{Chip_CCAN_DisableInt(LPC_CCAN_T *pCCAN, uint32_t mask)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Int (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{uint32\+\_\+t}]{mask}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaf4667bd6b992eabb841d91e9b6a753be}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaf4667bd6b992eabb841d91e9b6a753be}
+
+
+Disable C\+C\+AN Interrupts. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em mask} & \+: Interrupt mask, or-\/ed bit value of
+\begin{DoxyItemize}
+\item C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE ~\newline
+
+\item C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE ~\newline
+
+\item C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE ~\newline
+ 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 176 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Test\+Mode@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Test\+Mode}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Test\+Mode@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Test\+Mode}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Test\+Mode(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_DisableTestMode(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Disable\+Test\+Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaa04519b3acfd8302eb601fc9b2927c8d}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaa04519b3acfd8302eb601fc9b2927c8d}
+
+
+Enable test mode in C\+C\+AN. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 253 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Auto\+Retransmit@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Auto\+Retransmit}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Auto\+Retransmit@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Auto\+Retransmit}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Auto\+Retransmit(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_EnableAutoRetransmit(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Auto\+Retransmit (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gadbb66ec94ce472bee4289fa891c86417}{}\label{group___c_c_a_n__18_x_x__43_x_x_gadbb66ec94ce472bee4289fa891c86417}
+
+
+Enable automatic retransmission. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 275 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Int@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Int}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Int@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Int}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Int(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, uint32\+\_\+t mask)}{Chip_CCAN_EnableInt(LPC_CCAN_T *pCCAN, uint32_t mask)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Int (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{uint32\+\_\+t}]{mask}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga06bb34ff1e211fa5153a7f699b9ba599}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga06bb34ff1e211fa5153a7f699b9ba599}
+
+
+Enable C\+C\+AN Interrupts. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em mask} & \+: Interrupt mask, or-\/ed bit value of
+\begin{DoxyItemize}
+\item C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+IE ~\newline
+
+\item C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+S\+IE ~\newline
+
+\item C\+C\+A\+N\+\_\+\+C\+T\+R\+L\+\_\+\+E\+IE ~\newline
+ 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 162 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Test\+Mode@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Test\+Mode}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Test\+Mode@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Test\+Mode}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Test\+Mode(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_EnableTestMode(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Enable\+Test\+Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga8fdfcf8865fca9748ae26a391842e720}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga8fdfcf8865fca9748ae26a391842e720}
+
+
+Enable test mode in C\+C\+AN. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 243 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Err\+Counter@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Err\+Counter}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Err\+Counter@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Err\+Counter}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Err\+Counter(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+\+T dir)}{Chip_CCAN_GetErrCounter(LPC_CCAN_T *pCCAN, CCAN_TRANSFER_DIR_T dir)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint8\+\_\+t Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Err\+Counter (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T}}]{dir}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaf986db27eac49a8f9042584e86c7dd6f}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaf986db27eac49a8f9042584e86c7dd6f}
+
+
+Get the current value of the transmit/receive error counter. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em dir} & \+: direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Current value of the transmit/receive error counter 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+When {\itshape dir} is \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a20cb141be8468d07983601deedd9f726}{C\+C\+A\+N\+\_\+\+R\+X\+\_\+\+D\+IR}, then M\+SB (bit-\/7) indicates the receiver error passive level, if the bit is High(1) then the reciever counter has reached error passive level as specified in C\+A\+N2.\+0 specification; else if the bit is Low(0) it indicates that the error counter is below the passive level. Bits from (bit6-\/0) has the actual error count. When {\itshape dir} is \hyperlink{group___c_c_a_n__18_x_x__43_x_x_ggac400be6c4ae22b8b773b0bea6e9c5f02a03c25f707e2e0857392c2def9e8cef20}{C\+C\+A\+N\+\_\+\+T\+X\+\_\+\+D\+IR}, the complete 8-\/bits indicates the number of tx errors. 
+\end{DoxyNote}
+
+
+Definición en la línea 233 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Int\+ID@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Int\+ID}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Int\+ID@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Int\+ID}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Int\+I\+D(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_GetIntID(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Int\+ID (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga0f994d17cbfb6859384c4f4896a23156}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga0f994d17cbfb6859384c4f4896a23156}
+
+
+Get the source ID of an interrupt. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Interrupt source ID 
+\end{DoxyReturn}
+
+
+Definición en la línea 186 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Msg\+Object@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Msg\+Object}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Msg\+Object@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Msg\+Object}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Msg\+Object(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, uint8\+\_\+t msg\+Num, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+\+T $\ast$p\+Msg\+Obj)}{Chip_CCAN_GetMsgObject(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, uint8_t msgNum, CCAN_MSG_OBJ_T *pMsgObj)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Msg\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{uint8\+\_\+t}]{msg\+Num, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$}]{p\+Msg\+Obj}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gadab63c8847a26eae41257f5a89334b92}{}\label{group___c_c_a_n__18_x_x__43_x_x_gadab63c8847a26eae41257f5a89334b92}
+
+
+Get a message object in message R\+AM into the message buffer. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em I\+F\+Sel} & \+: The Message interface to be used \\
+\hline
+{\em msg\+Num} & \+: The number of message object in message R\+AM to be get \\
+\hline
+{\em p\+Msg\+Obj} & \+: Pointer of the message buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 217 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Status@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Status}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Status@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Status}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Status(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_GetStatus(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gac5ea5e28fefe41244766c8cd9b8dce6d}{}\label{group___c_c_a_n__18_x_x__43_x_x_gac5ea5e28fefe41244766c8cd9b8dce6d}
+
+
+Get the C\+C\+AN status register. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+C\+C\+AN status register (or-\/ed bit value of C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+$\ast$) 
+\end{DoxyReturn}
+
+
+Definición en la línea 196 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Tx\+R\+Q\+ST@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Tx\+R\+Q\+ST}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Tx\+R\+Q\+ST@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Tx\+R\+Q\+ST}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Tx\+R\+Q\+S\+T(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_GetTxRQST(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Tx\+R\+Q\+ST (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga277f2c98eba48fdf57e8444d8f151782}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga277f2c98eba48fdf57e8444d8f151782}
+
+
+Get the transmit repuest bit in all message objects. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+A 32 bits value, each bit corresponds to transmit request bit in message objects 
+\end{DoxyReturn}
+
+
+Definición en la línea 295 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Valid\+Msg@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Valid\+Msg}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Valid\+Msg@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Valid\+Msg}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Valid\+Msg(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_GetValidMsg(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} uint32\+\_\+t Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Get\+Valid\+Msg (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaf3e7cad0a5b86b9857d20f24531f779a}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaf3e7cad0a5b86b9857d20f24531f779a}
+
+
+Check the message objects is valid or not. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+A 32 bits value, each bit corresponds to a message objects form 0 to 31 (1 is valid, 0 is invalid) 
+\end{DoxyReturn}
+
+
+Definición en la línea 436 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Init@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Init}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Init@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Init(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N)}{Chip_CCAN_Init(LPC_CCAN_T *pCCAN)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga8525e3ffe5b5b3f1cccd4ef0823db123}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga8525e3ffe5b5b3f1cccd4ef0823db123}
+
+
+Initialize the C\+C\+AN peripheral, free all message object in R\+AM. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 110 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Send@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Send}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Send@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Send}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Send(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, bool remote\+Frame, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+\+T $\ast$p\+Msg\+Obj)}{Chip_CCAN_Send(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, bool remoteFrame, CCAN_MSG_OBJ_T *pMsgObj)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Send (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{bool}]{remote\+Frame, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$}]{p\+Msg\+Obj}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga80123249d183199b1bff05316f6b6c32}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga80123249d183199b1bff05316f6b6c32}
+
+
+Send a message. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em I\+F\+Sel} & \+: The Message interface to be used \\
+\hline
+{\em remote\+Frame} & Enable/\+Disable passives transmit by using remote frame \\
+\hline
+{\em p\+Msg\+Obj} & \+: Message to be transmitted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 273 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Bit\+Rate@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Bit\+Rate}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Bit\+Rate@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Bit\+Rate}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Bit\+Rate(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, uint32\+\_\+t bit\+Rate)}{Chip_CCAN_SetBitRate(LPC_CCAN_T *pCCAN, uint32_t bitRate)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Status} Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Bit\+Rate (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{uint32\+\_\+t}]{bit\+Rate}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga5174d447093a6f3854255a97ae222a85}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga5174d447093a6f3854255a97ae222a85}
+
+
+Select bit rate for C\+C\+AN bus. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em bit\+Rate} & \+: Bit rate to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+S\+U\+C\+C\+E\+S\+S/\+E\+R\+R\+OR 
+\end{DoxyReturn}
+
+
+Definición en la línea 129 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Msg\+Object@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Msg\+Object}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Msg\+Object@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Msg\+Object}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Msg\+Object(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+\+T dir, bool remote\+Frame, uint8\+\_\+t msg\+Num, const C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+\+T $\ast$p\+Msg\+Obj)}{Chip_CCAN_SetMsgObject(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, CCAN_TRANSFER_DIR_T dir, bool remoteFrame, uint8_t msgNum, const CCAN_MSG_OBJ_T *pMsgObj)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Msg\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+D\+I\+R\+\_\+T}}]{dir, }
+\item[{bool}]{remote\+Frame, }
+\item[{uint8\+\_\+t}]{msg\+Num, }
+\item[{const {\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+O\+B\+J\+\_\+T} $\ast$}]{p\+Msg\+Obj}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga15f704e1c960d69aaaa2ea17c0247048}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga15f704e1c960d69aaaa2ea17c0247048}
+
+
+Set a message into the message object in message R\+AM. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em I\+F\+Sel} & \+: The Message interface to be used \\
+\hline
+{\em dir} & \+: transmit/receive \\
+\hline
+{\em remote\+Frame} & Enable/\+Disable passives transmit by using remote frame \\
+\hline
+{\em msg\+Num} & \+: Message number \\
+\hline
+{\em p\+Msg\+Obj} & \+: Pointer of message to be set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 160 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Status@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Status}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Status@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Status}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Status(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, uint32\+\_\+t val)}{Chip_CCAN_SetStatus(LPC_CCAN_T *pCCAN, uint32_t val)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Status (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{uint32\+\_\+t}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga005c87851b2e901216b170b46e08861c}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga005c87851b2e901216b170b46e08861c}
+
+
+Set the C\+C\+AN status. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em val} & \+: Value to be set for status register (or-\/ed bit value of C\+C\+A\+N\+\_\+\+S\+T\+A\+T\+\_\+$\ast$) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 207 del archivo ccan\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Valid\+Msg@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Valid\+Msg}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Valid\+Msg@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Valid\+Msg}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Valid\+Msg(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, uint8\+\_\+t msg\+Num, bool valid)}{Chip_CCAN_SetValidMsg(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, uint8_t msgNum, bool valid)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Set\+Valid\+Msg (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{uint8\+\_\+t}]{msg\+Num, }
+\item[{bool}]{valid}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_ga3418e9cdab81c5c8d7fb18d4afa0bd6e}{}\label{group___c_c_a_n__18_x_x__43_x_x_ga3418e9cdab81c5c8d7fb18d4afa0bd6e}
+
+
+Enable/\+Disable the message object to valid. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em I\+F\+Sel} & \+: The Message interface to be used \\
+\hline
+{\em msg\+Num} & \+: Message number \\
+\hline
+{\em valid} & \+: true\+: valid, false\+: invalide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 257 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}!Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Transfer\+Msg\+Object@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Transfer\+Msg\+Object}}
+\index{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Transfer\+Msg\+Object@{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Transfer\+Msg\+Object}!C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx C\+C\+A\+N driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Transfer\+Msg\+Object(\+L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+\+T $\ast$p\+C\+C\+A\+N, C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+\+T I\+F\+Sel, uint32\+\_\+t mask, uint32\+\_\+t msg\+Num)}{Chip_CCAN_TransferMsgObject(LPC_CCAN_T *pCCAN, CCAN_MSG_IF_T IFSel, uint32_t mask, uint32_t msgNum)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+C\+C\+A\+N\+\_\+\+Transfer\+Msg\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+C\+C\+A\+N\+\_\+T} $\ast$}]{p\+C\+C\+AN, }
+\item[{{\bf C\+C\+A\+N\+\_\+\+M\+S\+G\+\_\+\+I\+F\+\_\+T}}]{I\+F\+Sel, }
+\item[{uint32\+\_\+t}]{mask, }
+\item[{uint32\+\_\+t}]{msg\+Num}
+\end{DoxyParamCaption}
+)}\hypertarget{group___c_c_a_n__18_x_x__43_x_x_gaf3ac11ce8aadaefebd96a7f6ffcb7a1f}{}\label{group___c_c_a_n__18_x_x__43_x_x_gaf3ac11ce8aadaefebd96a7f6ffcb7a1f}
+
+
+Tranfer message object between IF registers and Message R\+AM. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+C\+C\+AN} & \+: The base of C\+C\+AN peripheral on the chip \\
+\hline
+{\em I\+F\+Sel} & \+: The Message interface to be used \\
+\hline
+{\em mask} & \+: command mask (or-\/ed bit value of C\+C\+A\+N\+\_\+\+I\+F\+\_\+\+C\+M\+D\+M\+S\+K\+\_\+$\ast$) \\
+\hline
+{\em msg\+Num} & \+: The number of message object in message R\+AM to be get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nothing 
+\end{DoxyReturn}
+
+
+Definición en la línea 246 del archivo ccan\+\_\+18xx\+\_\+43xx.\+c.
+

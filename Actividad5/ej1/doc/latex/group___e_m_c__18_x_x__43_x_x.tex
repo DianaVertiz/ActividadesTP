@@ -1,0 +1,973 @@
+\hypertarget{group___e_m_c__18_x_x__43_x_x}{}\section{C\+H\+IP\+: L\+P\+C18xx/43xx External Memory Controller driver}
+\label{group___e_m_c__18_x_x__43_x_x}\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___e_m_c___t}{L\+P\+C\+\_\+\+E\+M\+C\+\_\+T}
+\begin{DoxyCompactList}\small\item\em External Memory Controller (E\+MC) register block structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_i_p___e_m_c___d_y_n___d_e_v_i_c_e___c_o_n_f_i_g___t}{I\+P\+\_\+\+E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T}
+\begin{DoxyCompactList}\small\item\em E\+MC Dynamic Device Configuration structure used for IP drivers. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_i_p___e_m_c___d_y_n___c_o_n_f_i_g___t}{I\+P\+\_\+\+E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T}
+\begin{DoxyCompactList}\small\item\em E\+MC Dynamic Configure Struct. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_i_p___e_m_c___s_t_a_t_i_c___c_o_n_f_i_g___t}{I\+P\+\_\+\+E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T}
+\begin{DoxyCompactList}\small\item\em E\+MC Static Configure Structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaefabc84f3652e1bea098a5a2c4d2bba7}{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S0}~(0x28000000)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gad99ea901e664ef1be28e4864d8015888}{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S1}~(0x30000000)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaba0163f1b4a091ec23b7e2523dd126dc}{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S2}~(0x60000000)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga5821429ee664a6885f494cf951085b4a}{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S3}~(0x70000000)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga128f03ce6dd1a7f821d0ab1a53e11ac4}{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S0}~(0x1\+C000000)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga46923aa8eb0091747c2bb16bbb801b4c}{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S1}~(0x1\+D000000)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga75f1c0adaf16b406c3ff78bb872365e1}{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S2}~(0x1\+E000000)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga6e968a46ed51863a410b7069858be043}{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S3}~(0x1\+F000000)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga71bcb83ea9d85aa3cdced2b2200fcd1b}{E\+M\+C\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+P\+L172}
+\begin{DoxyCompactList}\small\item\em E\+MC register support bitfields and mask. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga462cbdd5923b1b220243f96570af6974}{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+L\+I\+T\+T\+LE}~(0)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga7ac66f11798aef973174c398d877d0bf}{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+B\+IG}~(1)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga133b8e3be0dcf6a707bba15b38f69f21}{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+E\+N\+A\+B\+LE}~(1 $<$$<$ 19)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga7880f25f9b3e612d71fea39428629968}{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+W\+R\+I\+T\+E\+\_\+\+P\+R\+O\+T\+E\+CT}~(1 $<$$<$ 20)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gae9156f48d47235676ccad59d8e90b304}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT}~(3)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga3871ea81a7fbff4d53f685f4148e1f88}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+S\+D\+R\+AM}~(0 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_gae9156f48d47235676ccad59d8e90b304}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga7de498eb3f4f650407c8f266ea3b87e5}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+L\+P\+S\+D\+R\+AM}~(1 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_gae9156f48d47235676ccad59d8e90b304}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaa6cb9cf553976072b0aa5993c7304e5f}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+A\+M\+\_\+\+B\+IT}~(12)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga13c9cb74d44d8594fd967c87e4a31a8e}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+AM}~(1 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_gaa6cb9cf553976072b0aa5993c7304e5f}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+A\+M\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaa38270183a865b186fe61134aa5c3146}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+IT}~(9)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga739f046eeda15a2b4cf7eaaef985e9fb}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+16\+Mb}~(0x00 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gab41dd56ed3f05fa1222eebaa560f604f}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+64\+Mb}~(0x01 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaf6a4f9a7622f01f91bb988d643ad241e}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+128\+Mb}~(0x02 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga657b8cd5326c87064cee25fe2d0f4a62}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+256\+Mb}~(0x03 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga4e9dd56fb0ab4e1fcec9b048cfbb3f46}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+512\+Mb}~(0x04 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga9fdf18f00bc1d47bd4c082e95d8f88a4}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+IT}~(7)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga678b237231d74cd04ca440a76f806bac}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+8}~(0x00 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga49c225473843eb5e94e96a10277decec}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+16}~(0x01 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga3f8e37fa7ac9e5baa4a3a1d955a942cc}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+32}~(0x02 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga602bb21c09f90f30e1601e3dd704c03e}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+IT}~(14)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga13cab25a456faee81c5543fe40e07ea6}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+16}~(0x00 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaad1d26871567bad72bee3fd42ef28af4}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+32}~(0x01 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+I\+T)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga03570b983b1a336b50117e8ac60b0d6f}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx8\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}~((0x0 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaab6b50051ea4b8fca15c7c5faf05a3f6}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+1\+Mx16\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}~((0x0 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gad8b82a06bde23ea1d0b5d58eb9c32e44}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}~((0x1 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaaae5ad67c8ceb5166c9984243396fa2d}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}~((0x1 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga02058df43e5d3af2590ef7a85370e3a2}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}~((0x1 $<$$<$ 9) $\vert$ (0x2 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga75312a857f7b6623919b516996e2a977}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}~((0x2 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gac5e4caa395e6c8bc4e97853b305bef9b}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}~((0x2 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gad4657edda883cce527caca810b096aae}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}~((0x2 $<$$<$ 9) $\vert$ (0x2 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gad29d5c194da507127869af2709e3da65}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}~((0x3 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga67d47b20d1a5b31c823cd643f5f8b218}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}~((0x3 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gac1301585c815cb013449a9f2fd065810}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}~((0x3 $<$$<$ 9) $\vert$ (0x2 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gad895d6a24276da0151d1d39cf4bc0f46}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+64\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+11\+C\+O\+LS}~((0x4 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga3fb6ec40a9581704f86ee410274ec7b8}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}~((0x4 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaaa21da61bb29b4113e2baf7015f09200}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+B\+IT}~(0)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga50bbef2b4169ab1a60462f5b61c755d2}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+1}~(0)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga7eb432dfff402a515d2d91b0b60d769f}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+2}~(1)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gae3fb183f628ae25df347eab4eb9b1661}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+4}~(2)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga5fbcdbea0c811adbe5d0c23aaca23c51}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+8}~(3)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga58b5effd01c01c34db40e9e85c124c50}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+F\+U\+LL}~(7)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga1565ec36932d9eb6fcab74bc8d1a73f7}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT}~(3)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaacea06696640056c2865b4052190e5d8}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+E\+Q\+U\+E\+N\+T\+I\+AL}~(0 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga1565ec36932d9eb6fcab74bc8d1a73f7}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaf958769aeac7b6e48484eeca394bea4d}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+VE}~(1 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga1565ec36932d9eb6fcab74bc8d1a73f7}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga4da611359159708fa3892a16eae5c1e2}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT}~(4)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga1b83dbcf7fac80ab7fc70e40509df257}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+1}~(1 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga4da611359159708fa3892a16eae5c1e2}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gac1c31c7c91af016fdeb1e6f9c64993f0}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+2}~(2 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga4da611359159708fa3892a16eae5c1e2}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga1b5beeb5381f1812ec7c7a9f4782177f}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+3}~(3 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga4da611359159708fa3892a16eae5c1e2}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga8eb50a81b4d5000165734d85c5ecd2b3}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+B\+IT}~(7)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gad1a47dd7527a6cabcf3f4a692bcb4abe}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+S\+T\+A\+N\+D\+A\+RD}~(0 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga8eb50a81b4d5000165734d85c5ecd2b3}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gace9c2c7bc7470cb911f27bd4bb93e01c}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT}~(9)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gad7781166a15c5968cfbbc19cf23e6e1e}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+P\+R\+O\+G\+R\+A\+M\+M\+ED}~(0 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_gace9c2c7bc7470cb911f27bd4bb93e01c}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gae4da736414dd77339c4d74811afddc32}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+L\+OC}~(1 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_gace9c2c7bc7470cb911f27bd4bb93e01c}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga5e7e0c7690ffbd44c2a771aadb1af253}{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+E\+N\+A\+B\+LE}~(0x03)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga782a1cc8e53705d8c3be24daf86ad83a}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+8}~(0)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga8307b8893057c7021c32c32ecf00809f}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+16}~(1)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga277e507176dc40984dfbc75a875f8ba3}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+32}~(2)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga38c46fc0d3d5b29a169cb28690aed32b}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+B\+IT}~(3)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga6c5a8222b0448f715b081a298bcbd096}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+A\+B\+LE}~(1 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga38c46fc0d3d5b29a169cb28690aed32b}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga6e3002a7f6d673f21ceda85f1e590df1}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT}~(6)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga900ec8a0fe708fa08ebb65899286d3ee}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+GH}~(1 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga6e3002a7f6d673f21ceda85f1e590df1}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga944930a0aad1bb409162e4b8192cf55f}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+OW}~(0 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga6e3002a7f6d673f21ceda85f1e590df1}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga126ee265222a03705bbd03468ed6f411}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT}~(7)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga42618d8d492e5c451830dd8f9ddfab49}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+H\+I\+GH}~(1 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga126ee265222a03705bbd03468ed6f411}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga7cc7eaeb7da1be9bca88eee8bcfbb94c}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+L\+OW}~(0 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga126ee265222a03705bbd03468ed6f411}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga370c463c17112a5a74f226c55c94f9b4}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT}~(8)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga91f57a23487235910d9a65c7e25c74e9}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+E\+N\+A\+B\+LE}~(1 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga370c463c17112a5a74f226c55c94f9b4}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gabacda615b3bbd01b7a4dba8a63434336}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+D\+I\+S\+A\+B\+LE}~(0 $<$$<$ \hyperlink{group___e_m_c__18_x_x__43_x_x_ga370c463c17112a5a74f226c55c94f9b4}{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT})
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga4160030fc647b9e75d09518b5ff8b532}{Q24\+\_\+8\+\_\+\+FP}(x)~((x) $\ast$ 256)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_ga5f3c9e1004a7d1f292b2baa1e3721b27}{E\+M\+C\+\_\+\+N\+A\+N\+O\+S\+E\+C\+O\+ND}(x)~\hyperlink{group___e_m_c__18_x_x__43_x_x_ga4160030fc647b9e75d09518b5ff8b532}{Q24\+\_\+8\+\_\+\+FP}(x)
+\item 
+\#define \hyperlink{group___e_m_c__18_x_x__43_x_x_gaed230d096cfe13fee4009bee032365c8}{E\+M\+C\+\_\+\+C\+L\+O\+CK}(x)~\hyperlink{group___e_m_c__18_x_x__43_x_x_ga4160030fc647b9e75d09518b5ff8b532}{Q24\+\_\+8\+\_\+\+FP}(-\/(x))
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga8d91e59911be4b9c0f9de5ea24ac54bb}{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Init} (\hyperlink{struct_i_p___e_m_c___d_y_n___c_o_n_f_i_g___t}{I\+P\+\_\+\+E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$Dynamic\+\_\+\+Config)
+\begin{DoxyCompactList}\small\item\em Dyanmic memory setup. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga32ea97990abe55ab52630f80f5354f82}{Chip\+\_\+\+E\+M\+C\+\_\+\+Static\+\_\+\+Init} (\hyperlink{struct_i_p___e_m_c___s_t_a_t_i_c___c_o_n_f_i_g___t}{I\+P\+\_\+\+E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$Static\+\_\+\+Config)
+\begin{DoxyCompactList}\small\item\em Static memory setup. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga321df7291fbf8c56ec0458b50cfa8f33}{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Enable} (uint8\+\_\+t Enable)
+\begin{DoxyCompactList}\small\item\em Enable Dynamic Memory Controller. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_gaaa94b20dd9a20de6f6cf07c29d21a3f8}{Chip\+\_\+\+E\+M\+C\+\_\+\+Mirror} (uint8\+\_\+t Enable)
+\begin{DoxyCompactList}\small\item\em Mirror C\+S1 to C\+S0 and D\+Y\+C\+S0. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga4d9286ae1156d93abdabdb3a0e22ba01}{Chip\+\_\+\+E\+M\+C\+\_\+\+Enable} (uint8\+\_\+t Enable)
+\begin{DoxyCompactList}\small\item\em Enable E\+MC. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga3b8e25a7ed207f79039ea5929dd6a5ab}{Chip\+\_\+\+E\+M\+C\+\_\+\+Low\+Power\+Mode} (uint8\+\_\+t Enable)
+\begin{DoxyCompactList}\small\item\em Set E\+MC Low\+Power Mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga96af5cbd177432e40c687097f5453480}{Chip\+\_\+\+E\+M\+C\+\_\+\+Init} (uint32\+\_\+t Enable, uint32\+\_\+t Clock\+Ratio, uint32\+\_\+t Endian\+Mode)
+\begin{DoxyCompactList}\small\item\em Initialize E\+MC. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___e_m_c__18_x_x__43_x_x_ga6584bd99794783f75a176b8ee3b2cbc9}{Chip\+\_\+\+E\+M\+C\+\_\+\+Set\+Static\+Extended\+Wait} (uint32\+\_\+t Wait16\+Clks)
+\begin{DoxyCompactList}\small\item\em Set Static Memory Extended Wait in Clock. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+The E\+MC interface clocks must be enabled outside this driver prior to calling any function of this driver. 
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S0@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S0}}
+\index{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S0@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S0}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S0}{EMC_ADDRESS_CS0}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S0~(0x1\+C000000)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga128f03ce6dd1a7f821d0ab1a53e11ac4}{}\label{group___e_m_c__18_x_x__43_x_x_ga128f03ce6dd1a7f821d0ab1a53e11ac4}
+Static Chip Select Address 
+
+Definición en la línea 128 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S1@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S1}}
+\index{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S1@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S1}{EMC_ADDRESS_CS1}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S1~(0x1\+D000000)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga46923aa8eb0091747c2bb16bbb801b4c}{}\label{group___e_m_c__18_x_x__43_x_x_ga46923aa8eb0091747c2bb16bbb801b4c}
+
+
+Definición en la línea 129 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S2@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S2}}
+\index{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S2@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S2}{EMC_ADDRESS_CS2}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S2~(0x1\+E000000)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga75f1c0adaf16b406c3ff78bb872365e1}{}\label{group___e_m_c__18_x_x__43_x_x_ga75f1c0adaf16b406c3ff78bb872365e1}
+
+
+Definición en la línea 130 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S3@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S3}}
+\index{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S3@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S3}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S3}{EMC_ADDRESS_CS3}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+C\+S3~(0x1\+F000000)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga6e968a46ed51863a410b7069858be043}{}\label{group___e_m_c__18_x_x__43_x_x_ga6e968a46ed51863a410b7069858be043}
+
+
+Definición en la línea 131 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S0@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S0}}
+\index{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S0@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S0}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S0}{EMC_ADDRESS_DYCS0}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S0~(0x28000000)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaefabc84f3652e1bea098a5a2c4d2bba7}{}\label{group___e_m_c__18_x_x__43_x_x_gaefabc84f3652e1bea098a5a2c4d2bba7}
+Dynamic Chip Select Address 
+
+Definición en la línea 120 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S1@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S1}}
+\index{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S1@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S1}{EMC_ADDRESS_DYCS1}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S1~(0x30000000)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gad99ea901e664ef1be28e4864d8015888}{}\label{group___e_m_c__18_x_x__43_x_x_gad99ea901e664ef1be28e4864d8015888}
+
+
+Definición en la línea 121 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S2@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S2}}
+\index{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S2@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S2}{EMC_ADDRESS_DYCS2}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S2~(0x60000000)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaba0163f1b4a091ec23b7e2523dd126dc}{}\label{group___e_m_c__18_x_x__43_x_x_gaba0163f1b4a091ec23b7e2523dd126dc}
+
+
+Definición en la línea 122 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S3@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S3}}
+\index{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S3@{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S3}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S3}{EMC_ADDRESS_DYCS3}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+Y\+C\+S3~(0x70000000)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga5821429ee664a6885f494cf951085b4a}{}\label{group___e_m_c__18_x_x__43_x_x_ga5821429ee664a6885f494cf951085b4a}
+
+
+Definición en la línea 123 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+C\+L\+O\+CK@{E\+M\+C\+\_\+\+C\+L\+O\+CK}}
+\index{E\+M\+C\+\_\+\+C\+L\+O\+CK@{E\+M\+C\+\_\+\+C\+L\+O\+CK}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+C\+L\+O\+CK}{EMC_CLOCK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+C\+L\+O\+CK(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf Q24\+\_\+8\+\_\+\+FP}(-\/(x))}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaed230d096cfe13fee4009bee032365c8}{}\label{group___e_m_c__18_x_x__43_x_x_gaed230d096cfe13fee4009bee032365c8}
+
+
+Definición en la línea 237 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+E\+N\+A\+B\+LE@{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+E\+N\+A\+B\+LE}}
+\index{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+E\+N\+A\+B\+LE@{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+E\+N\+A\+B\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+E\+N\+A\+B\+LE}{EMC_CONFIG_BUFFER_ENABLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+E\+N\+A\+B\+LE~(1 $<$$<$ 19)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga133b8e3be0dcf6a707bba15b38f69f21}{}\label{group___e_m_c__18_x_x__43_x_x_ga133b8e3be0dcf6a707bba15b38f69f21}
+E\+MC Buffer enable bit in E\+MC Dynamic Configuration register 
+
+Definición en la línea 142 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+B\+IG@{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+B\+IG}}
+\index{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+B\+IG@{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+B\+IG}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+B\+IG}{EMC_CONFIG_ENDIAN_BIG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+B\+IG~(1)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga7ac66f11798aef973174c398d877d0bf}{}\label{group___e_m_c__18_x_x__43_x_x_ga7ac66f11798aef973174c398d877d0bf}
+Value for E\+MC to operate in Big Endian Mode 
+
+Definición en la línea 140 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+L\+I\+T\+T\+LE@{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+L\+I\+T\+T\+LE}}
+\index{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+L\+I\+T\+T\+LE@{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+L\+I\+T\+T\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+L\+I\+T\+T\+LE}{EMC_CONFIG_ENDIAN_LITTLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+L\+I\+T\+T\+LE~(0)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga462cbdd5923b1b220243f96570af6974}{}\label{group___e_m_c__18_x_x__43_x_x_ga462cbdd5923b1b220243f96570af6974}
+Value for E\+MC to operate in Little Endian Mode 
+
+Definición en la línea 139 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+W\+R\+I\+T\+E\+\_\+\+P\+R\+O\+T\+E\+CT@{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+W\+R\+I\+T\+E\+\_\+\+P\+R\+O\+T\+E\+CT}}
+\index{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+W\+R\+I\+T\+E\+\_\+\+P\+R\+O\+T\+E\+CT@{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+W\+R\+I\+T\+E\+\_\+\+P\+R\+O\+T\+E\+CT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+W\+R\+I\+T\+E\+\_\+\+P\+R\+O\+T\+E\+CT}{EMC_CONFIG_WRITE_PROTECT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+W\+R\+I\+T\+E\+\_\+\+P\+R\+O\+T\+E\+CT~(1 $<$$<$ 20)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga7880f25f9b3e612d71fea39428629968}{}\label{group___e_m_c__18_x_x__43_x_x_ga7880f25f9b3e612d71fea39428629968}
+E\+MC Write protect bit in E\+MC Dynamic Configuration register 
+
+Definición en la línea 143 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+9\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+9\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}{EMC_DYN_CONFIG_16Mx16_4BANKS_13ROWS_9COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+9\+C\+O\+LS~((0x3 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga67d47b20d1a5b31c823cd643f5f8b218}{}\label{group___e_m_c__18_x_x__43_x_x_ga67d47b20d1a5b31c823cd643f5f8b218}
+Value for Memory configuration -\/ 16\+Mx16 4 Banks 13 Rows 8 Columns 
+
+Definición en la línea 179 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+10\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+10\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}{EMC_DYN_CONFIG_16Mx8_4BANKS_12ROWS_10COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+16\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+10\+C\+O\+LS~((0x2 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga75312a857f7b6623919b516996e2a977}{}\label{group___e_m_c__18_x_x__43_x_x_ga75312a857f7b6623919b516996e2a977}
+Value for Memory configuration -\/ 16\+Mx8 4 Banks 12 Rows 10 Columns 
+
+Definición en la línea 175 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+1\+Mx16\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+1\+Mx16\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+1\+Mx16\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+1\+Mx16\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+1\+Mx16\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}{EMC_DYN_CONFIG_1Mx16_2BANKS_11ROWS_8COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+1\+Mx16\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS~((0x0 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaab6b50051ea4b8fca15c7c5faf05a3f6}{}\label{group___e_m_c__18_x_x__43_x_x_gaab6b50051ea4b8fca15c7c5faf05a3f6}
+Value for Memory configuration -\/ 1\+Mx16 2 Banks 11 Rows 8 Columns 
+
+Definición en la línea 171 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}{EMC_DYN_CONFIG_2Mx32_4BANKS_11ROWS_8COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+8\+C\+O\+LS~((0x1 $<$$<$ 9) $\vert$ (0x2 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga02058df43e5d3af2590ef7a85370e3a2}{}\label{group___e_m_c__18_x_x__43_x_x_ga02058df43e5d3af2590ef7a85370e3a2}
+Value for Memory configuration -\/ 2\+Mx32 4 Banks 11 Rows 8 Columns 
+
+Definición en la línea 174 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx8\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+9\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx8\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx8\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+9\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx8\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx8\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}{EMC_DYN_CONFIG_2Mx8_2BANKS_11ROWS_9COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+2\+Mx8\+\_\+2\+B\+A\+N\+K\+S\+\_\+11\+R\+O\+W\+S\+\_\+9\+C\+O\+LS~((0x0 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga03570b983b1a336b50117e8ac60b0d6f}{}\label{group___e_m_c__18_x_x__43_x_x_ga03570b983b1a336b50117e8ac60b0d6f}
+Value for Memory configuration -\/ 2\+Mx8 2 Banks 11 Rows 9 Columns 
+
+Definición en la línea 170 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}{EMC_DYN_CONFIG_32Mx16_4BANKS_13ROWS_10COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS~((0x4 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga3fb6ec40a9581704f86ee410274ec7b8}{}\label{group___e_m_c__18_x_x__43_x_x_ga3fb6ec40a9581704f86ee410274ec7b8}
+Value for Memory configuration -\/ 32\+Mx16 4 Banks 13 Rows 10 Columns Dynamic Memory Mode Register Bit Definition 
+
+Definición en la línea 182 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS}{EMC_DYN_CONFIG_32Mx8_4BANKS_13ROWS_10COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+32\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+10\+C\+O\+LS~((0x3 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_gad29d5c194da507127869af2709e3da65}{}\label{group___e_m_c__18_x_x__43_x_x_gad29d5c194da507127869af2709e3da65}
+Value for Memory configuration -\/ 32\+Mx8 4 Banks 13 Rows 10 Columns 
+
+Definición en la línea 178 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}{EMC_DYN_CONFIG_4Mx16_4BANKS_12ROWS_8COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS~((0x1 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaaae5ad67c8ceb5166c9984243396fa2d}{}\label{group___e_m_c__18_x_x__43_x_x_gaaae5ad67c8ceb5166c9984243396fa2d}
+Value for Memory configuration -\/ 4\+Mx16 4 Banks 12 Rows 8 Columns 
+
+Definición en la línea 173 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}{EMC_DYN_CONFIG_4Mx32_4BANKS_12ROWS_8COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+4\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+8\+C\+O\+LS~((0x2 $<$$<$ 9) $\vert$ (0x2 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_gad4657edda883cce527caca810b096aae}{}\label{group___e_m_c__18_x_x__43_x_x_gad4657edda883cce527caca810b096aae}
+Value for Memory configuration -\/ 4\+Mx32 4 Banks 12 Rows 8 Columns 
+
+Definición en la línea 177 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+64\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+11\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+64\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+11\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+64\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+11\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+64\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+11\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+64\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+11\+C\+O\+LS}{EMC_DYN_CONFIG_64Mx8_4BANKS_13ROWS_11COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+64\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+11\+C\+O\+LS~((0x4 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_gad895d6a24276da0151d1d39cf4bc0f46}{}\label{group___e_m_c__18_x_x__43_x_x_gad895d6a24276da0151d1d39cf4bc0f46}
+Value for Memory configuration -\/ 64\+Mx8 4 Banks 13 Rows 11 Columns 
+
+Definición en la línea 181 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}{EMC_DYN_CONFIG_8Mx16_4BANKS_12ROWS_9COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx16\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS~((0x2 $<$$<$ 9) $\vert$ (0x1 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_gac5e4caa395e6c8bc4e97853b305bef9b}{}\label{group___e_m_c__18_x_x__43_x_x_gac5e4caa395e6c8bc4e97853b305bef9b}
+Value for Memory configuration -\/ 8\+Mx16 4 Banks 12 Rows 9 Columns 
+
+Definición en la línea 176 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+8\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+8\+C\+O\+LS}{EMC_DYN_CONFIG_8Mx32_4BANKS_13ROWS_8COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx32\+\_\+4\+B\+A\+N\+K\+S\+\_\+13\+R\+O\+W\+S\+\_\+8\+C\+O\+LS~((0x3 $<$$<$ 9) $\vert$ (0x2 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_gac1301585c815cb013449a9f2fd065810}{}\label{group___e_m_c__18_x_x__43_x_x_gac1301585c815cb013449a9f2fd065810}
+Value for Memory configuration -\/ 8\+Mx32 4 Banks 13 Rows 8 Columns 
+
+Definición en la línea 180 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS}{EMC_DYN_CONFIG_8Mx8_4BANKS_12ROWS_9COLS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+8\+Mx8\+\_\+4\+B\+A\+N\+K\+S\+\_\+12\+R\+O\+W\+S\+\_\+9\+C\+O\+LS~((0x1 $<$$<$ 9) $\vert$ (0x0 $<$$<$ 7))}\hypertarget{group___e_m_c__18_x_x__43_x_x_gad8b82a06bde23ea1d0b5d58eb9c32e44}{}\label{group___e_m_c__18_x_x__43_x_x_gad8b82a06bde23ea1d0b5d58eb9c32e44}
+Value for Memory configuration -\/ 8\+Mx8 4 Banks 12 Rows 9 Columns 
+
+Definición en la línea 172 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+16@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+16}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+16@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+16}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+16}{EMC_DYN_CONFIG_DATA_BUS_16}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+16~(0x00 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga13cab25a456faee81c5543fe40e07ea6}{}\label{group___e_m_c__18_x_x__43_x_x_ga13cab25a456faee81c5543fe40e07ea6}
+Device 16-\/bit data bus width value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 166 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+32@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+32}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+32@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+32}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+32}{EMC_DYN_CONFIG_DATA_BUS_32}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+32~(0x01 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaad1d26871567bad72bee3fd42ef28af4}{}\label{group___e_m_c__18_x_x__43_x_x_gaad1d26871567bad72bee3fd42ef28af4}
+Device 32-\/bit bus width value in E\+MC Dynamic Configuration register Memory configuration values in E\+MC Dynamic Configuration Register 
+
+Definición en la línea 167 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+IT}{EMC_DYN_CONFIG_DATA_BUS_WIDTH_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+A\+T\+A\+\_\+\+B\+U\+S\+\_\+\+W\+I\+D\+T\+H\+\_\+\+B\+IT~(14)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga602bb21c09f90f30e1601e3dd704c03e}{}\label{group___e_m_c__18_x_x__43_x_x_ga602bb21c09f90f30e1601e3dd704c03e}
+Device data bus width starting bit in E\+MC Dynamic Configuration register 
+
+Definición en la línea 165 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+16@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+16}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+16@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+16}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+16}{EMC_DYN_CONFIG_DEV_BUS_16}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+16~(0x01 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga49c225473843eb5e94e96a10277decec}{}\label{group___e_m_c__18_x_x__43_x_x_ga49c225473843eb5e94e96a10277decec}
+Device 16-\/bit bus width value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 162 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+32@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+32}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+32@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+32}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+32}{EMC_DYN_CONFIG_DEV_BUS_32}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+32~(0x02 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga3f8e37fa7ac9e5baa4a3a1d955a942cc}{}\label{group___e_m_c__18_x_x__43_x_x_ga3f8e37fa7ac9e5baa4a3a1d955a942cc}
+Device 32-\/bit bus width value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 163 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+8@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+8}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+8@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+8}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+8}{EMC_DYN_CONFIG_DEV_BUS_8}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+8~(0x00 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga678b237231d74cd04ca440a76f806bac}{}\label{group___e_m_c__18_x_x__43_x_x_ga678b237231d74cd04ca440a76f806bac}
+Device 8-\/bit bus width value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 161 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+IT}{EMC_DYN_CONFIG_DEV_BUS_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+B\+U\+S\+\_\+\+B\+IT~(7)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga9fdf18f00bc1d47bd4c082e95d8f88a4}{}\label{group___e_m_c__18_x_x__43_x_x_ga9fdf18f00bc1d47bd4c082e95d8f88a4}
+Device bus width starting bit in E\+MC Dynamic Configuration register 
+
+Definición en la línea 160 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+128\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+128\+Mb}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+128\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+128\+Mb}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+128\+Mb}{EMC_DYN_CONFIG_DEV_SIZE_128Mb}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+128\+Mb~(0x02 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaf6a4f9a7622f01f91bb988d643ad241e}{}\label{group___e_m_c__18_x_x__43_x_x_gaf6a4f9a7622f01f91bb988d643ad241e}
+128\+Mb Device Size value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 156 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+16\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+16\+Mb}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+16\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+16\+Mb}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+16\+Mb}{EMC_DYN_CONFIG_DEV_SIZE_16Mb}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+16\+Mb~(0x00 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga739f046eeda15a2b4cf7eaaef985e9fb}{}\label{group___e_m_c__18_x_x__43_x_x_ga739f046eeda15a2b4cf7eaaef985e9fb}
+16\+Mb Device Size value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 154 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+256\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+256\+Mb}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+256\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+256\+Mb}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+256\+Mb}{EMC_DYN_CONFIG_DEV_SIZE_256Mb}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+256\+Mb~(0x03 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga657b8cd5326c87064cee25fe2d0f4a62}{}\label{group___e_m_c__18_x_x__43_x_x_ga657b8cd5326c87064cee25fe2d0f4a62}
+256\+Mb Device Size value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 157 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+512\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+512\+Mb}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+512\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+512\+Mb}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+512\+Mb}{EMC_DYN_CONFIG_DEV_SIZE_512Mb}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+512\+Mb~(0x04 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga4e9dd56fb0ab4e1fcec9b048cfbb3f46}{}\label{group___e_m_c__18_x_x__43_x_x_ga4e9dd56fb0ab4e1fcec9b048cfbb3f46}
+512\+Mb Device Size value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 158 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+64\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+64\+Mb}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+64\+Mb@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+64\+Mb}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+64\+Mb}{EMC_DYN_CONFIG_DEV_SIZE_64Mb}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+64\+Mb~(0x01 $<$$<$ E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+I\+T)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gab41dd56ed3f05fa1222eebaa560f604f}{}\label{group___e_m_c__18_x_x__43_x_x_gab41dd56ed3f05fa1222eebaa560f604f}
+64\+Mb Device Size value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 155 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+IT}{EMC_DYN_CONFIG_DEV_SIZE_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+V\+\_\+\+S\+I\+Z\+E\+\_\+\+B\+IT~(9)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaa38270183a865b186fe61134aa5c3146}{}\label{group___e_m_c__18_x_x__43_x_x_gaa38270183a865b186fe61134aa5c3146}
+Device Size starting bit in E\+MC Dynamic Configuration register 
+
+Definición en la línea 153 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+AM@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+AM}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+AM@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+AM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+AM}{EMC_DYN_CONFIG_LPSDRAM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+AM~(1 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+A\+M\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga13c9cb74d44d8594fd967c87e4a31a8e}{}\label{group___e_m_c__18_x_x__43_x_x_ga13c9cb74d44d8594fd967c87e4a31a8e}
+L\+P\+S\+D\+R\+AM value in E\+MC Dynamic Configuration register 
+
+Definición en la línea 151 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+A\+M\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+A\+M\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+A\+M\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+A\+M\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+A\+M\+\_\+\+B\+IT}{EMC_DYN_CONFIG_LPSDRAM_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+L\+P\+S\+D\+R\+A\+M\+\_\+\+B\+IT~(12)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaa6cb9cf553976072b0aa5993c7304e5f}{}\label{group___e_m_c__18_x_x__43_x_x_gaa6cb9cf553976072b0aa5993c7304e5f}
+L\+P\+S\+D\+R\+AM bit in E\+MC Dynamic Configuration register 
+
+Definición en la línea 150 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT}{EMC_DYN_CONFIG_MD_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT~(3)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gae9156f48d47235676ccad59d8e90b304}{}\label{group___e_m_c__18_x_x__43_x_x_gae9156f48d47235676ccad59d8e90b304}
+Memory device bit in E\+MC Dynamic Configuration register 
+
+Definición en la línea 146 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+L\+P\+S\+D\+R\+AM@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+L\+P\+S\+D\+R\+AM}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+L\+P\+S\+D\+R\+AM@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+L\+P\+S\+D\+R\+AM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+L\+P\+S\+D\+R\+AM}{EMC_DYN_CONFIG_MD_LPSDRAM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+L\+P\+S\+D\+R\+AM~(1 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga7de498eb3f4f650407c8f266ea3b87e5}{}\label{group___e_m_c__18_x_x__43_x_x_ga7de498eb3f4f650407c8f266ea3b87e5}
+Select device as L\+P\+S\+D\+R\+AM in E\+MC Dynamic Configuration register 
+
+Definición en la línea 148 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+S\+D\+R\+AM@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+S\+D\+R\+AM}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+S\+D\+R\+AM@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+S\+D\+R\+AM}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+S\+D\+R\+AM}{EMC_DYN_CONFIG_MD_SDRAM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+S\+D\+R\+AM~(0 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+D\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga3871ea81a7fbff4d53f685f4148e1f88}{}\label{group___e_m_c__18_x_x__43_x_x_ga3871ea81a7fbff4d53f685f4148e1f88}
+Select device as S\+D\+R\+AM in E\+MC Dynamic Configuration register 
+
+Definición en la línea 147 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+E\+N\+A\+B\+LE@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+E\+N\+A\+B\+LE}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+E\+N\+A\+B\+LE@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+E\+N\+A\+B\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+E\+N\+A\+B\+LE}{EMC_DYN_CONTROL_ENABLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+E\+N\+A\+B\+LE~(0x03)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga5e7e0c7690ffbd44c2a771aadb1af253}{}\label{group___e_m_c__18_x_x__43_x_x_ga5e7e0c7690ffbd44c2a771aadb1af253}
+Control Enable value Static Memory Configuration Register Bit Definitions 
+
+Definición en la línea 212 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+1@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+1}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+1@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+1}{EMC_DYN_MODE_BURST_LEN_1}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+1~(0)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga50bbef2b4169ab1a60462f5b61c755d2}{}\label{group___e_m_c__18_x_x__43_x_x_ga50bbef2b4169ab1a60462f5b61c755d2}
+Value to set Burst Length to 1 in Dynamic Memory Mode Register 
+
+Definición en la línea 186 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+2@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+2}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+2@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+2}{EMC_DYN_MODE_BURST_LEN_2}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+2~(1)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga7eb432dfff402a515d2d91b0b60d769f}{}\label{group___e_m_c__18_x_x__43_x_x_ga7eb432dfff402a515d2d91b0b60d769f}
+Value to set Burst Length to 2 in Dynamic Memory Mode Register 
+
+Definición en la línea 187 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+4@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+4}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+4@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+4}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+4}{EMC_DYN_MODE_BURST_LEN_4}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+4~(2)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gae3fb183f628ae25df347eab4eb9b1661}{}\label{group___e_m_c__18_x_x__43_x_x_gae3fb183f628ae25df347eab4eb9b1661}
+Value to set Burst Length to 4 in Dynamic Memory Mode Register 
+
+Definición en la línea 188 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+8@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+8}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+8@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+8}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+8}{EMC_DYN_MODE_BURST_LEN_8}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+8~(3)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga5fbcdbea0c811adbe5d0c23aaca23c51}{}\label{group___e_m_c__18_x_x__43_x_x_ga5fbcdbea0c811adbe5d0c23aaca23c51}
+Value to set Burst Length to 8 in Dynamic Memory Mode Register 
+
+Definición en la línea 189 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+B\+IT}{EMC_DYN_MODE_BURST_LEN_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+B\+IT~(0)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaaa21da61bb29b4113e2baf7015f09200}{}\label{group___e_m_c__18_x_x__43_x_x_gaaa21da61bb29b4113e2baf7015f09200}
+Starting bit No. of Burst Length in Dynamic Memory Mode Register 
+
+Definición en la línea 185 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+F\+U\+LL@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+F\+U\+LL}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+F\+U\+LL@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+F\+U\+LL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+F\+U\+LL}{EMC_DYN_MODE_BURST_LEN_FULL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+L\+E\+N\+\_\+\+F\+U\+LL~(7)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga58b5effd01c01c34db40e9e85c124c50}{}\label{group___e_m_c__18_x_x__43_x_x_ga58b5effd01c01c34db40e9e85c124c50}
+Value to set Burst Length to Full in Dynamic Memory Mode Register 
+
+Definición en la línea 190 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT}{EMC_DYN_MODE_BURST_TYPE_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT~(3)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga1565ec36932d9eb6fcab74bc8d1a73f7}{}\label{group___e_m_c__18_x_x__43_x_x_ga1565ec36932d9eb6fcab74bc8d1a73f7}
+Burst Type bit in Dynamic Memory Mode Register 
+
+Definición en la línea 192 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+VE@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+VE}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+VE@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+VE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+VE}{EMC_DYN_MODE_BURST_TYPE_INTERLEAVE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+VE~(1 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaf958769aeac7b6e48484eeca394bea4d}{}\label{group___e_m_c__18_x_x__43_x_x_gaf958769aeac7b6e48484eeca394bea4d}
+Burst Type Interleaved in Dynamic Memory Mode Register C\+AS Latency in Dynamic Mode Register 
+
+Definición en la línea 194 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+E\+Q\+U\+E\+N\+T\+I\+AL@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+E\+Q\+U\+E\+N\+T\+I\+AL}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+E\+Q\+U\+E\+N\+T\+I\+AL@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+E\+Q\+U\+E\+N\+T\+I\+AL}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+E\+Q\+U\+E\+N\+T\+I\+AL}{EMC_DYN_MODE_BURST_TYPE_SEQUENTIAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+E\+Q\+U\+E\+N\+T\+I\+AL~(0 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+B\+U\+R\+S\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaacea06696640056c2865b4052190e5d8}{}\label{group___e_m_c__18_x_x__43_x_x_gaacea06696640056c2865b4052190e5d8}
+Burst Type Sequential in Dynamic Memory Mode Register 
+
+Definición en la línea 193 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+1@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+1}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+1@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+1}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+1}{EMC_DYN_MODE_CAS_1}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+1~(1 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga1b83dbcf7fac80ab7fc70e40509df257}{}\label{group___e_m_c__18_x_x__43_x_x_ga1b83dbcf7fac80ab7fc70e40509df257}
+value for C\+AS latency of 1 cycle 
+
+Definición en la línea 198 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+2@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+2}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+2@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+2}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+2}{EMC_DYN_MODE_CAS_2}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+2~(2 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_gac1c31c7c91af016fdeb1e6f9c64993f0}{}\label{group___e_m_c__18_x_x__43_x_x_gac1c31c7c91af016fdeb1e6f9c64993f0}
+value for C\+AS latency of 2 cycle 
+
+Definición en la línea 199 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+3@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+3}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+3@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+3}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+3}{EMC_DYN_MODE_CAS_3}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+3~(3 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga1b5beeb5381f1812ec7c7a9f4782177f}{}\label{group___e_m_c__18_x_x__43_x_x_ga1b5beeb5381f1812ec7c7a9f4782177f}
+value for C\+AS latency of 3 cycle Operation Mode in Dynamic Mode register 
+
+Definición en la línea 200 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT}{EMC_DYN_MODE_CAS_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+C\+A\+S\+\_\+\+B\+IT~(4)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga4da611359159708fa3892a16eae5c1e2}{}\label{group___e_m_c__18_x_x__43_x_x_ga4da611359159708fa3892a16eae5c1e2}
+C\+AS latency starting bit in Dynamic Memory Mode register 
+
+Definición en la línea 197 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+B\+IT}{EMC_DYN_MODE_OPMODE_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+B\+IT~(7)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga8eb50a81b4d5000165734d85c5ecd2b3}{}\label{group___e_m_c__18_x_x__43_x_x_ga8eb50a81b4d5000165734d85c5ecd2b3}
+Dynamic Mode Operation bit 
+
+Definición en la línea 203 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+S\+T\+A\+N\+D\+A\+RD@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+S\+T\+A\+N\+D\+A\+RD}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+S\+T\+A\+N\+D\+A\+RD@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+S\+T\+A\+N\+D\+A\+RD}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+S\+T\+A\+N\+D\+A\+RD}{EMC_DYN_MODE_OPMODE_STANDARD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+S\+T\+A\+N\+D\+A\+RD~(0 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+O\+P\+M\+O\+D\+E\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_gad1a47dd7527a6cabcf3f4a692bcb4abe}{}\label{group___e_m_c__18_x_x__43_x_x_gad1a47dd7527a6cabcf3f4a692bcb4abe}
+Value for Dynamic standard operation Mode Write Burst Mode in Dynamic Mode register 
+
+Definición en la línea 204 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT}{EMC_DYN_MODE_WBMODE_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT~(9)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gace9c2c7bc7470cb911f27bd4bb93e01c}{}\label{group___e_m_c__18_x_x__43_x_x_gace9c2c7bc7470cb911f27bd4bb93e01c}
+Write Burst Mode bit 
+
+Definición en la línea 207 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+P\+R\+O\+G\+R\+A\+M\+M\+ED@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+P\+R\+O\+G\+R\+A\+M\+M\+ED}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+P\+R\+O\+G\+R\+A\+M\+M\+ED@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+P\+R\+O\+G\+R\+A\+M\+M\+ED}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+P\+R\+O\+G\+R\+A\+M\+M\+ED}{EMC_DYN_MODE_WBMODE_PROGRAMMED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+P\+R\+O\+G\+R\+A\+M\+M\+ED~(0 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_gad7781166a15c5968cfbbc19cf23e6e1e}{}\label{group___e_m_c__18_x_x__43_x_x_gad7781166a15c5968cfbbc19cf23e6e1e}
+Write Burst Mode programmed 
+
+Definición en la línea 208 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+L\+OC@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+L\+OC}}
+\index{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+L\+OC@{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+L\+OC}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+L\+OC}{EMC_DYN_MODE_WBMODE_SINGLE_LOC}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+L\+OC~(1 $<$$<$ {\bf E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+M\+O\+D\+E\+\_\+\+W\+B\+M\+O\+D\+E\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_gae4da736414dd77339c4d74811afddc32}{}\label{group___e_m_c__18_x_x__43_x_x_gae4da736414dd77339c4d74811afddc32}
+Write Burst Mode Single L\+OC Dynamic Memory Control Register Bit Definitions 
+
+Definición en la línea 209 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+N\+A\+N\+O\+S\+E\+C\+O\+ND@{E\+M\+C\+\_\+\+N\+A\+N\+O\+S\+E\+C\+O\+ND}}
+\index{E\+M\+C\+\_\+\+N\+A\+N\+O\+S\+E\+C\+O\+ND@{E\+M\+C\+\_\+\+N\+A\+N\+O\+S\+E\+C\+O\+ND}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+N\+A\+N\+O\+S\+E\+C\+O\+ND}{EMC_NANOSECOND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+N\+A\+N\+O\+S\+E\+C\+O\+ND(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf Q24\+\_\+8\+\_\+\+FP}(x)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga5f3c9e1004a7d1f292b2baa1e3721b27}{}\label{group___e_m_c__18_x_x__43_x_x_ga5f3c9e1004a7d1f292b2baa1e3721b27}
+
+
+Definición en la línea 236 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT}{EMC_STATIC_CONFIG_BLS_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT~(7)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga126ee265222a03705bbd03468ed6f411}{}\label{group___e_m_c__18_x_x__43_x_x_ga126ee265222a03705bbd03468ed6f411}
+B\+LS Configuration bit No 
+
+Definición en la línea 226 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+H\+I\+GH@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+H\+I\+GH}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+H\+I\+GH@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+H\+I\+GH}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+H\+I\+GH}{EMC_STATIC_CONFIG_BLS_HIGH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+H\+I\+GH~(1 $<$$<$ {\bf E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga42618d8d492e5c451830dd8f9ddfab49}{}\label{group___e_m_c__18_x_x__43_x_x_ga42618d8d492e5c451830dd8f9ddfab49}
+B\+LS High Configuration value 
+
+Definición en la línea 227 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+L\+OW@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+L\+OW}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+L\+OW@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+L\+OW}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+L\+OW}{EMC_STATIC_CONFIG_BLS_LOW}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+L\+OW~(0 $<$$<$ {\bf E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+B\+L\+S\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga7cc7eaeb7da1be9bca88eee8bcfbb94c}{}\label{group___e_m_c__18_x_x__43_x_x_ga7cc7eaeb7da1be9bca88eee8bcfbb94c}
+B\+LS Low Configuration value 
+
+Definición en la línea 228 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+GH@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+GH}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+GH@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+GH}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+GH}{EMC_STATIC_CONFIG_CS_POL_ACTIVE_HIGH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+H\+I\+GH~(1 $<$$<$ {\bf E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga900ec8a0fe708fa08ebb65899286d3ee}{}\label{group___e_m_c__18_x_x__43_x_x_ga900ec8a0fe708fa08ebb65899286d3ee}
+Chip Select polarity -\/ Active High 
+
+Definición en la línea 223 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+OW@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+OW}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+OW@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+OW}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+OW}{EMC_STATIC_CONFIG_CS_POL_ACTIVE_LOW}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+L\+OW~(0 $<$$<$ {\bf E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga944930a0aad1bb409162e4b8192cf55f}{}\label{group___e_m_c__18_x_x__43_x_x_ga944930a0aad1bb409162e4b8192cf55f}
+Chip Select polarity -\/ Active Low 
+
+Definición en la línea 224 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT}{EMC_STATIC_CONFIG_CS_POL_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+S\+\_\+\+P\+O\+L\+\_\+\+B\+IT~(6)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga6e3002a7f6d673f21ceda85f1e590df1}{}\label{group___e_m_c__18_x_x__43_x_x_ga6e3002a7f6d673f21ceda85f1e590df1}
+Chip Select bit No 
+
+Definición en la línea 222 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT}{EMC_STATIC_CONFIG_EW_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT~(8)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga370c463c17112a5a74f226c55c94f9b4}{}\label{group___e_m_c__18_x_x__43_x_x_ga370c463c17112a5a74f226c55c94f9b4}
+Ext Wait bit No 
+
+Definición en la línea 230 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+D\+I\+S\+A\+B\+LE@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+D\+I\+S\+A\+B\+LE@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+D\+I\+S\+A\+B\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+D\+I\+S\+A\+B\+LE}{EMC_STATIC_CONFIG_EW_DISABLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+D\+I\+S\+A\+B\+LE~(0 $<$$<$ {\bf E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_gabacda615b3bbd01b7a4dba8a63434336}{}\label{group___e_m_c__18_x_x__43_x_x_gabacda615b3bbd01b7a4dba8a63434336}
+Ext Wait Diabled value Q24.\+8 Fixed Point Helper 
+
+Definición en la línea 232 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+E\+N\+A\+B\+LE@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+E\+N\+A\+B\+LE}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+E\+N\+A\+B\+LE@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+E\+N\+A\+B\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+E\+N\+A\+B\+LE}{EMC_STATIC_CONFIG_EW_ENABLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+E\+N\+A\+B\+LE~(1 $<$$<$ {\bf E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+E\+W\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga91f57a23487235910d9a65c7e25c74e9}{}\label{group___e_m_c__18_x_x__43_x_x_ga91f57a23487235910d9a65c7e25c74e9}
+Ext Wait Enabled value 
+
+Definición en la línea 231 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+16@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+16}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+16@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+16}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+16}{EMC_STATIC_CONFIG_MEM_WIDTH_16}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+16~(1)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga8307b8893057c7021c32c32ecf00809f}{}\label{group___e_m_c__18_x_x__43_x_x_ga8307b8893057c7021c32c32ecf00809f}
+Static Memory Configuration -\/ 16-\/bit width 
+
+Definición en la línea 216 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+32@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+32}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+32@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+32}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+32}{EMC_STATIC_CONFIG_MEM_WIDTH_32}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+32~(2)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga277e507176dc40984dfbc75a875f8ba3}{}\label{group___e_m_c__18_x_x__43_x_x_ga277e507176dc40984dfbc75a875f8ba3}
+Static Memory Configuration -\/ 32-\/bit width 
+
+Definición en la línea 217 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+8@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+8}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+8@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+8}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+8}{EMC_STATIC_CONFIG_MEM_WIDTH_8}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+E\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+8~(0)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga782a1cc8e53705d8c3be24daf86ad83a}{}\label{group___e_m_c__18_x_x__43_x_x_ga782a1cc8e53705d8c3be24daf86ad83a}
+Static Memory Configuration -\/ 8-\/bit width 
+
+Definición en la línea 215 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+B\+IT}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+B\+IT@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+B\+IT}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+B\+IT}{EMC_STATIC_CONFIG_PAGE_MODE_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+B\+IT~(3)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga38c46fc0d3d5b29a169cb28690aed32b}{}\label{group___e_m_c__18_x_x__43_x_x_ga38c46fc0d3d5b29a169cb28690aed32b}
+Page Mode bit No 
+
+Definición en la línea 219 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+A\+B\+LE@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+A\+B\+LE}}
+\index{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+A\+B\+LE@{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+A\+B\+LE}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+A\+B\+LE}{EMC_STATIC_CONFIG_PAGE_MODE_ENABLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+A\+B\+LE~(1 $<$$<$ {\bf E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+G\+E\+\_\+\+M\+O\+D\+E\+\_\+\+B\+IT})}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga6c5a8222b0448f715b081a298bcbd096}{}\label{group___e_m_c__18_x_x__43_x_x_ga6c5a8222b0448f715b081a298bcbd096}
+Value to enable Page Mode 
+
+Definición en la línea 220 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!E\+M\+C\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+P\+L172@{E\+M\+C\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+P\+L172}}
+\index{E\+M\+C\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+P\+L172@{E\+M\+C\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+P\+L172}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{E\+M\+C\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+P\+L172}{EMC_SUPPORT_ONLY_PL172}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+C\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+O\+N\+L\+Y\+\_\+\+P\+L172}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga71bcb83ea9d85aa3cdced2b2200fcd1b}{}\label{group___e_m_c__18_x_x__43_x_x_ga71bcb83ea9d85aa3cdced2b2200fcd1b}
+
+
+E\+MC register support bitfields and mask. 
+
+Reserve for extending support to A\+R\+M9 or nextgen L\+PC 
+
+Definición en la línea 137 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!Q24\+\_\+8\+\_\+\+FP@{Q24\+\_\+8\+\_\+\+FP}}
+\index{Q24\+\_\+8\+\_\+\+FP@{Q24\+\_\+8\+\_\+\+FP}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{Q24\+\_\+8\+\_\+\+FP}{Q24_8_FP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q24\+\_\+8\+\_\+\+FP(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~((x) $\ast$ 256)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga4160030fc647b9e75d09518b5ff8b532}{}\label{group___e_m_c__18_x_x__43_x_x_ga4160030fc647b9e75d09518b5ff8b532}
+
+
+Definición en la línea 235 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de las funciones}
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Enable@{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Enable}}
+\index{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Enable@{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Enable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Enable(uint8\+\_\+t Enable)}{Chip_EMC_Dynamic_Enable(uint8_t Enable)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Enable (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{Enable}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga321df7291fbf8c56ec0458b50cfa8f33}{}\label{group___e_m_c__18_x_x__43_x_x_ga321df7291fbf8c56ec0458b50cfa8f33}
+
+
+Enable Dynamic Memory Controller. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Enable} & \+: 1 = Enable Dynamic Memory Controller, 0 = Disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 227 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Init@{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Init}}
+\index{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Init@{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Init(\+I\+P\+\_\+\+E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T $\ast$\+Dynamic\+\_\+\+Config)}{Chip_EMC_Dynamic_Init(IP_EMC_DYN_CONFIG_T *Dynamic_Config)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+M\+C\+\_\+\+Dynamic\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+P\+\_\+\+E\+M\+C\+\_\+\+D\+Y\+N\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$}]{Dynamic\+\_\+\+Config}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga8d91e59911be4b9c0f9de5ea24ac54bb}{}\label{group___e_m_c__18_x_x__43_x_x_ga8d91e59911be4b9c0f9de5ea24ac54bb}
+
+
+Dyanmic memory setup. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Dynamic\+\_\+\+Config} & \+: Pointer to dynamic memory setup data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 216 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!Chip\+\_\+\+E\+M\+C\+\_\+\+Enable@{Chip\+\_\+\+E\+M\+C\+\_\+\+Enable}}
+\index{Chip\+\_\+\+E\+M\+C\+\_\+\+Enable@{Chip\+\_\+\+E\+M\+C\+\_\+\+Enable}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+M\+C\+\_\+\+Enable(uint8\+\_\+t Enable)}{Chip_EMC_Enable(uint8_t Enable)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+M\+C\+\_\+\+Enable (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{Enable}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga4d9286ae1156d93abdabdb3a0e22ba01}{}\label{group___e_m_c__18_x_x__43_x_x_ga4d9286ae1156d93abdabdb3a0e22ba01}
+
+
+Enable E\+MC. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Enable} & \+: 1 = Enable, 0 = Disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 260 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!Chip\+\_\+\+E\+M\+C\+\_\+\+Init@{Chip\+\_\+\+E\+M\+C\+\_\+\+Init}}
+\index{Chip\+\_\+\+E\+M\+C\+\_\+\+Init@{Chip\+\_\+\+E\+M\+C\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+M\+C\+\_\+\+Init(uint32\+\_\+t Enable, uint32\+\_\+t Clock\+Ratio, uint32\+\_\+t Endian\+Mode)}{Chip_EMC_Init(uint32_t Enable, uint32_t ClockRatio, uint32_t EndianMode)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+M\+C\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{Enable, }
+\item[{uint32\+\_\+t}]{Clock\+Ratio, }
+\item[{uint32\+\_\+t}]{Endian\+Mode}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga96af5cbd177432e40c687097f5453480}{}\label{group___e_m_c__18_x_x__43_x_x_ga96af5cbd177432e40c687097f5453480}
+
+
+Initialize E\+MC. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Enable} & \+: 1 = Enable, 0 = Disable \\
+\hline
+{\em Clock\+Ratio} & \+: clock out ratio, 0 = 1\+:1, 1 = 1\+:2 \\
+\hline
+{\em Endian\+Mode} & \+: Endian Mode, 0 = Little, 1 = Big \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 282 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!Chip\+\_\+\+E\+M\+C\+\_\+\+Low\+Power\+Mode@{Chip\+\_\+\+E\+M\+C\+\_\+\+Low\+Power\+Mode}}
+\index{Chip\+\_\+\+E\+M\+C\+\_\+\+Low\+Power\+Mode@{Chip\+\_\+\+E\+M\+C\+\_\+\+Low\+Power\+Mode}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+M\+C\+\_\+\+Low\+Power\+Mode(uint8\+\_\+t Enable)}{Chip_EMC_LowPowerMode(uint8_t Enable)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+M\+C\+\_\+\+Low\+Power\+Mode (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{Enable}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga3b8e25a7ed207f79039ea5929dd6a5ab}{}\label{group___e_m_c__18_x_x__43_x_x_ga3b8e25a7ed207f79039ea5929dd6a5ab}
+
+
+Set E\+MC Low\+Power Mode. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Enable} & \+: 1 = Enable, 0 = Disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+This function should only be called when the memory controller is not busy (bit 0 of the status register is not set). 
+\end{DoxyNote}
+
+
+Definición en la línea 271 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!Chip\+\_\+\+E\+M\+C\+\_\+\+Mirror@{Chip\+\_\+\+E\+M\+C\+\_\+\+Mirror}}
+\index{Chip\+\_\+\+E\+M\+C\+\_\+\+Mirror@{Chip\+\_\+\+E\+M\+C\+\_\+\+Mirror}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+M\+C\+\_\+\+Mirror(uint8\+\_\+t Enable)}{Chip_EMC_Mirror(uint8_t Enable)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+M\+C\+\_\+\+Mirror (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{Enable}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_m_c__18_x_x__43_x_x_gaaa94b20dd9a20de6f6cf07c29d21a3f8}{}\label{group___e_m_c__18_x_x__43_x_x_gaaa94b20dd9a20de6f6cf07c29d21a3f8}
+
+
+Mirror C\+S1 to C\+S0 and D\+Y\+C\+S0. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Enable} & \+: 1 = Mirror, 0 = Normal Memory Map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 249 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!Chip\+\_\+\+E\+M\+C\+\_\+\+Set\+Static\+Extended\+Wait@{Chip\+\_\+\+E\+M\+C\+\_\+\+Set\+Static\+Extended\+Wait}}
+\index{Chip\+\_\+\+E\+M\+C\+\_\+\+Set\+Static\+Extended\+Wait@{Chip\+\_\+\+E\+M\+C\+\_\+\+Set\+Static\+Extended\+Wait}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+M\+C\+\_\+\+Set\+Static\+Extended\+Wait(uint32\+\_\+t Wait16\+Clks)}{Chip_EMC_SetStaticExtendedWait(uint32_t Wait16Clks)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\+T\+A\+T\+IC} {\bf I\+N\+L\+I\+NE} void Chip\+\_\+\+E\+M\+C\+\_\+\+Set\+Static\+Extended\+Wait (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{Wait16\+Clks}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga6584bd99794783f75a176b8ee3b2cbc9}{}\label{group___e_m_c__18_x_x__43_x_x_ga6584bd99794783f75a176b8ee3b2cbc9}
+
+
+Set Static Memory Extended Wait in Clock. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Wait16\+Clks} & \+: Number of \textquotesingle{}16 clock\textquotesingle{} delay cycles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 341 del archivo emc\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}!Chip\+\_\+\+E\+M\+C\+\_\+\+Static\+\_\+\+Init@{Chip\+\_\+\+E\+M\+C\+\_\+\+Static\+\_\+\+Init}}
+\index{Chip\+\_\+\+E\+M\+C\+\_\+\+Static\+\_\+\+Init@{Chip\+\_\+\+E\+M\+C\+\_\+\+Static\+\_\+\+Init}!C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver@{C\+H\+I\+P\+: L\+P\+C18xx/43xx External Memory Controller driver}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+E\+M\+C\+\_\+\+Static\+\_\+\+Init(\+I\+P\+\_\+\+E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T $\ast$\+Static\+\_\+\+Config)}{Chip_EMC_Static_Init(IP_EMC_STATIC_CONFIG_T *Static_Config)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chip\+\_\+\+E\+M\+C\+\_\+\+Static\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+P\+\_\+\+E\+M\+C\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+T} $\ast$}]{Static\+\_\+\+Config}
+\end{DoxyParamCaption}
+)}\hypertarget{group___e_m_c__18_x_x__43_x_x_ga32ea97990abe55ab52630f80f5354f82}{}\label{group___e_m_c__18_x_x__43_x_x_ga32ea97990abe55ab52630f80f5354f82}
+
+
+Static memory setup. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em Static\+\_\+\+Config} & \+: Pointer to static memory setup data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+None 
+\end{DoxyReturn}
+
+
+Definición en la línea 238 del archivo emc\+\_\+18xx\+\_\+43xx.\+c.
+

@@ -1,0 +1,123 @@
+\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w}{}\section{Referencia de la Estructura L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}
+\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w}\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+
+
+S\+P\+I\+FI controller hardware register structure.  
+
+
+
+
+{\ttfamily \#include $<$spifi\+\_\+18xx\+\_\+43xx.\+h$>$}
+
+\subsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint32\+\_\+t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_acc539c9ddc2ca217f7977155acbead90}{C\+T\+RL}
+\item 
+volatile uint32\+\_\+t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a4e290faccf19d747f3cc7ad223da366e}{C\+MD}
+\item 
+volatile uint32\+\_\+t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a01cf153f44f32eb541425633d6c3d3e4}{A\+D\+DR}
+\item 
+volatile uint32\+\_\+t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a614fb7760bd8116f2e4e1f768d0863cb}{D\+A\+T\+I\+N\+TM}
+\item 
+volatile uint32\+\_\+t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a74f7289f74c9a4529929e9ccbf0197d0}{C\+A\+C\+H\+E\+L\+I\+M\+IT}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>volatile uint8\_t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_ada5a1d7176cbf6c6428cc74bb5e3e4c5}{DAT8}\\
+\>volatile uint16\_t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a5190579c5c09890c1714a00a9e984b73}{DAT16}\\
+\>volatile uint32\_t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a47d3b0caad175a985ddcaff5b9189214}{DAT32}\\
+\}; \\
+
+\end{tabbing}\item 
+volatile uint32\+\_\+t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a3be351d2b90c79bc0e1a327bb35b8d6c}{M\+E\+M\+C\+MD}
+\item 
+volatile uint32\+\_\+t \hyperlink{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a600a8724a82efe4028e2b4fd3e8e61fe}{S\+T\+AT}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+S\+P\+I\+FI controller hardware register structure. 
+
+Definición en la línea 62 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+\subsection{Documentación de los campos}
+\subsubsection[{\texorpdfstring{"@62}{@62}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a92ae8fbbbceea43e720232f41e355506}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a92ae8fbbbceea43e720232f41e355506}
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!A\+D\+DR@{A\+D\+DR}}
+\index{A\+D\+DR@{A\+D\+DR}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{A\+D\+DR}{ADDR}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\+\_\+t A\+D\+DR}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a01cf153f44f32eb541425633d6c3d3e4}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a01cf153f44f32eb541425633d6c3d3e4}
+S\+P\+I\+FI address register 
+
+Definición en la línea 65 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!C\+A\+C\+H\+E\+L\+I\+M\+IT@{C\+A\+C\+H\+E\+L\+I\+M\+IT}}
+\index{C\+A\+C\+H\+E\+L\+I\+M\+IT@{C\+A\+C\+H\+E\+L\+I\+M\+IT}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{C\+A\+C\+H\+E\+L\+I\+M\+IT}{CACHELIMIT}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\+\_\+t C\+A\+C\+H\+E\+L\+I\+M\+IT}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a74f7289f74c9a4529929e9ccbf0197d0}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a74f7289f74c9a4529929e9ccbf0197d0}
+S\+P\+I\+FI cache limit register 
+
+Definición en la línea 67 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!C\+MD@{C\+MD}}
+\index{C\+MD@{C\+MD}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{C\+MD}{CMD}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\+\_\+t C\+MD}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a4e290faccf19d747f3cc7ad223da366e}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a4e290faccf19d747f3cc7ad223da366e}
+S\+P\+I\+FI command register 
+
+Definición en la línea 64 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!C\+T\+RL@{C\+T\+RL}}
+\index{C\+T\+RL@{C\+T\+RL}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{C\+T\+RL}{CTRL}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\+\_\+t C\+T\+RL}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_acc539c9ddc2ca217f7977155acbead90}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_acc539c9ddc2ca217f7977155acbead90}
+S\+P\+I\+FI control register 
+
+Definición en la línea 63 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!D\+A\+T16@{D\+A\+T16}}
+\index{D\+A\+T16@{D\+A\+T16}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{D\+A\+T16}{DAT16}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint16\+\_\+t D\+A\+T16}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a5190579c5c09890c1714a00a9e984b73}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a5190579c5c09890c1714a00a9e984b73}
+S\+P\+I\+FI 16 bit data 
+
+Definición en la línea 70 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!D\+A\+T32@{D\+A\+T32}}
+\index{D\+A\+T32@{D\+A\+T32}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{D\+A\+T32}{DAT32}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\+\_\+t D\+A\+T32}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a47d3b0caad175a985ddcaff5b9189214}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a47d3b0caad175a985ddcaff5b9189214}
+S\+P\+I\+FI 32 bit data 
+
+Definición en la línea 71 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!D\+A\+T8@{D\+A\+T8}}
+\index{D\+A\+T8@{D\+A\+T8}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{D\+A\+T8}{DAT8}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\+\_\+t D\+A\+T8}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_ada5a1d7176cbf6c6428cc74bb5e3e4c5}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_ada5a1d7176cbf6c6428cc74bb5e3e4c5}
+S\+P\+I\+FI 8 bit data 
+
+Definición en la línea 69 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!D\+A\+T\+I\+N\+TM@{D\+A\+T\+I\+N\+TM}}
+\index{D\+A\+T\+I\+N\+TM@{D\+A\+T\+I\+N\+TM}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{D\+A\+T\+I\+N\+TM}{DATINTM}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\+\_\+t D\+A\+T\+I\+N\+TM}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a614fb7760bd8116f2e4e1f768d0863cb}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a614fb7760bd8116f2e4e1f768d0863cb}
+S\+P\+I\+FI intermediate data register 
+
+Definición en la línea 66 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!M\+E\+M\+C\+MD@{M\+E\+M\+C\+MD}}
+\index{M\+E\+M\+C\+MD@{M\+E\+M\+C\+MD}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{M\+E\+M\+C\+MD}{MEMCMD}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\+\_\+t M\+E\+M\+C\+MD}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a3be351d2b90c79bc0e1a327bb35b8d6c}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a3be351d2b90c79bc0e1a327bb35b8d6c}
+S\+P\+I\+FI memory command register 
+
+Definición en la línea 74 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+\index{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}!S\+T\+AT@{S\+T\+AT}}
+\index{S\+T\+AT@{S\+T\+AT}!L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW@{L\+P\+C\+\_\+\+S\+P\+I\+F\+I\+\_\+\+C\+H\+I\+P\+HW}}
+\subsubsection[{\texorpdfstring{S\+T\+AT}{STAT}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint32\+\_\+t S\+T\+AT}\hypertarget{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a600a8724a82efe4028e2b4fd3e8e61fe}{}\label{struct_l_p_c___s_p_i_f_i___c_h_i_p_h_w_a600a8724a82efe4028e2b4fd3e8e61fe}
+S\+P\+I\+FI status register 
+
+Definición en la línea 75 del archivo spifi\+\_\+18xx\+\_\+43xx.\+h.
+
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spifi__18xx__43xx_8h}{spifi\+\_\+18xx\+\_\+43xx.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+07:20:08 **** Build of configuration Default for project ej01 ****
+make all 
+Compilando librería liblpcopen...terminado
+  - hardware.c...ok
+  - startUp.c...ok
+  - crp.c...ok
+  - main.c...ok
+  - utils.c...ok
+   text	   data	    bss	    dec	    hex	filename
+   4360	      0	   1092	   5452	   154c	out/firmware.elf
+07:20:27 **** Incremental Build of configuration Default for project ej01 ****
+make all 
+make: No se hace nada para 'all'.
+07:28:09 **** Incremental Build of configuration Default for project ej01 ****
+make all 
+make: No se hace nada para 'all'.
+07:32:26 **** Incremental Build of configuration Default for project ej01 ****
+make all 
+make: No se hace nada para 'all'.
+07:32:57 **** Incremental Build of configuration Default for project ej01 ****
+make all 
+make: No se hace nada para 'all'.
+07:35:07 **** Incremental Build of configuration Default for project ej01 ****
+make all 
+make: No se hace nada para 'all'.

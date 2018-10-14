@@ -1,0 +1,63 @@
+.TH "sdmmc_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sdmmc_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+\fC#include 'string\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSD_INT_ERROR\fP"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBChip_SDMMC_GetState\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIGet card's current state (idle, transfer, program, etc\&.) \fP"
+.ti -1c
+.RI "uint32_t \fBChip_SDMMC_Acquire\fP (\fBLPC_SDMMC_T\fP *pSDMMC, \fBmci_card_struct\fP *pcardinfo)"
+.br
+.RI "\fIFunction to enumerate the SD/MMC/SDHC/MMC+ cards\&. \fP"
+.ti -1c
+.RI "uint64_t \fBChip_SDMMC_GetDeviceSize\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIGet the device size of SD/MMC card (after enumeration) \fP"
+.ti -1c
+.RI "int32_t \fBChip_SDMMC_GetDeviceBlocks\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fIGet the number of device blocks of SD/MMC card (after enumeration) Since Chip_SDMMC_GetDeviceSize is limited to 32 bits cards with greater than 2 GBytes of data will not be correct, in such cases users can use this function to get the size of the card in blocks\&. \fP"
+.ti -1c
+.RI "int32_t \fBChip_SDMMC_ReadBlocks\fP (\fBLPC_SDMMC_T\fP *pSDMMC, void *buffer, int32_t start_block, int32_t num_blocks)"
+.br
+.RI "\fIPerforms the read of data from the SD/MMC card\&. \fP"
+.ti -1c
+.RI "int32_t \fBChip_SDMMC_WriteBlocks\fP (\fBLPC_SDMMC_T\fP *pSDMMC, void *buffer, int32_t start_block, int32_t num_blocks)"
+.br
+.RI "\fIPerforms write of data to the SD/MMC card\&. \fP"
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define SD_INT_ERROR"
+\fBValor:\fP
+.PP
+.nf
+(MCI_INT_RESP_ERR | MCI_INT_RCRC | MCI_INT_DCRC | \\
+					  MCI_INT_RTO | MCI_INT_DTO | MCI_INT_HTO | MCI_INT_FRUN | MCI_INT_HLE | \\
+					  MCI_INT_SBE | MCI_INT_EBE)
+.fi
+.PP
+Definición en la línea 43 del archivo sdmmc_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

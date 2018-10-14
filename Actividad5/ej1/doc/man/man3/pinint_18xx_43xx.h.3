@@ -1,0 +1,118 @@
+.TH "pinint_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pinint_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_PIN_INT_T\fP"
+.br
+.RI "\fILPC18xx/43xx Pin Interrupt and Pattern Match register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPININTCH0\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH1\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH2\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH3\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH4\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH5\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH6\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH7\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH\fP(ch)   (1 << (ch))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_Init\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIInitialize Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_DeInit\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIDe-Initialize Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_SetPinModeEdge\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIConfigure the pins as edge sensitive in Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_SetPinModeLevel\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIConfigure the pins as level sensitive in Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetHighEnabled\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIReturn current PININT rising edge or high level interrupt enable state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_EnableIntHigh\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIEnable high edge/level PININT interrupts for pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_DisableIntHigh\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIDisable high edge/level PININT interrupts for pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetLowEnabled\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIReturn current PININT falling edge or low level interrupt enable state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_EnableIntLow\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIEnable low edge/level PININT interrupts for pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_DisableIntLow\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIDisable low edge/level PININT interrupts for pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetRiseStates\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIReturn pin states that have a detected latched high edge (RISE) state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_ClearRiseStates\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIClears pin states that had a latched high edge (RISE) state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetFallStates\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIReturn pin states that have a detected latched falling edge (FALL) state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_ClearFallStates\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIClears pin states that had a latched falling edge (FALL) state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetIntStatus\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIGet interrupt status from Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_ClearIntStatus\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIClear interrupt status in Pin interrupt block\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

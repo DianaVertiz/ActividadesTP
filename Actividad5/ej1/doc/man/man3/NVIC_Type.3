@@ -1,0 +1,126 @@
+.TH "NVIC_Type" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NVIC_Type \- Structure type to access the Nested Vectored Interrupt Controller (NVIC)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm0\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBISER\fP [1]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [31]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBICER\fP [1]"
+.br
+.ti -1c
+.RI "uint32_t \fBRSERVED1\fP [31]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBISPR\fP [1]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [31]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBICPR\fP [1]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED3\fP [31]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED4\fP [64]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIP\fP [8]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIABR\fP [8]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBIP\fP [240]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED5\fP [644]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSTIR\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Structure type to access the Nested Vectored Interrupt Controller (NVIC)\&. 
+.PP
+Definición en la línea 280 del archivo core_cm0\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t IABR"
+Offset: 0x200 (R/W) Interrupt Active bit Register 
+.PP
+Definición en la línea 306 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t ICER"
+Offset: 0x080 (R/W) Interrupt Clear Enable Register 
+.PP
+Definición en la línea 284 del archivo core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t ICPR"
+Offset: 0x180 (R/W) Interrupt Clear Pending Register 
+.PP
+Definición en la línea 288 del archivo core_cm0\&.h\&.
+.SS "\fB__IO\fP uint8_t IP"
+Offset: 0x300 (R/W) Interrupt Priority Register
+.PP
+Offset: 0x300 (R/W) Interrupt Priority Register (8Bit wide) 
+.PP
+Definición en la línea 291 del archivo core_cm0\&.h\&.
+.SS "\fB__IO\fP uint8_t IP[240]"
+Offset: 0x300 (R/W) Interrupt Priority Register (8Bit wide) 
+.PP
+Definición en la línea 308 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t ISER"
+Offset: 0x000 (R/W) Interrupt Set Enable Register 
+.PP
+Definición en la línea 282 del archivo core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t ISPR"
+Offset: 0x100 (R/W) Interrupt Set Pending Register 
+.PP
+Definición en la línea 286 del archivo core_cm0\&.h\&.
+.SS "uint32_t RESERVED0"
+
+.PP
+Definición en la línea 283 del archivo core_cm0\&.h\&.
+.SS "uint32_t RESERVED2"
+
+.PP
+Definición en la línea 287 del archivo core_cm0\&.h\&.
+.SS "uint32_t RESERVED3"
+
+.PP
+Definición en la línea 289 del archivo core_cm0\&.h\&.
+.SS "uint32_t RESERVED4"
+
+.PP
+Definición en la línea 290 del archivo core_cm0\&.h\&.
+.SS "uint32_t RESERVED5"
+
+.PP
+Definición en la línea 309 del archivo core_cm3\&.h\&.
+.SS "uint32_t RSERVED1"
+
+.PP
+Definición en la línea 285 del archivo core_cm0\&.h\&.
+.SS "\fB__O\fP uint32_t STIR"
+Offset: 0xE00 ( /W) Software Trigger Interrupt Register 
+.PP
+Definición en la línea 310 del archivo core_cm3\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

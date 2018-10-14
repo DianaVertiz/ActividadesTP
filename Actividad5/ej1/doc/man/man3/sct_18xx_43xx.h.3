@@ -1,0 +1,200 @@
+.TH "sct_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sct_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_SCT_T\fP"
+.br
+.RI "\fIState Configurable Timer register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCONFIG_SCT_nEV\fP   (16)"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_SCT_nRG\fP   (16)"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_SCT_nOU\fP   (16)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_16BIT_COUNTER\fP   0x00000000"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_32BIT_COUNTER\fP   0x00000001"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_CLKMODE_BUSCLK\fP   (0x0 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_CLKMODE_SCTCLK\fP   (0x1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_CLKMODE_INCLK\fP   (0x2 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_CLKMODE_INEDGECLK\fP   (0x3 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_NORELOADL_U\fP   (0x1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_NORELOADH\fP   (0x1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_AUTOLIMIT_L\fP   (0x1 << 17)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CONFIG_AUTOLIMIT_H\fP   (0x1 << 18)"
+.br
+.ti -1c
+.RI "#define \fBCOUNTUP_TO_LIMIT_THEN_CLEAR_TO_ZERO\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCOUNTUP_TO\fP   LIMIT_THEN_COUNTDOWN_TO_ZERO 1"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_STOP_L\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_HALT_L\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_CLRCTR_L\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_BIDIR_L\fP(x)   (((x) & 0x01) << 4)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_PRE_L\fP(x)   (((x) & 0xFF) << 5)"
+.br
+.ti -1c
+.RI "#define \fBCOUNTUP_TO_LIMIT_THEN_CLEAR_TO_ZERO\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCOUNTUP_TO\fP   LIMIT_THEN_COUNTDOWN_TO_ZERO 1"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_STOP_H\fP   (1 << 17)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_HALT_H\fP   (1 << 18)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_CLRCTR_H\fP   (1 << 19)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_BIDIR_H\fP(x)   (((x) & 0x01) << 20)"
+.br
+.ti -1c
+.RI "#define \fBSCT_CTRL_PRE_H\fP(x)   (((x) & 0xFF) << 21)"
+.br
+.ti -1c
+.RI "#define \fBSCT_RES_NOCHANGE\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBSCT_RES_SET_OUTPUT\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBSCT_RES_CLEAR_OUTPUT\fP   (2)"
+.br
+.ti -1c
+.RI "#define \fBSCT_RES_TOGGLE_OUTPUT\fP   (3)"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBCHIP_SCT_MATCH_REG\fP \fBCHIP_SCT_MATCH_REG_T\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCHIP_SCT_EVENT\fP \fBCHIP_SCT_EVENT_T\fP"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_SCT_MATCH_REG\fP { \fBSCT_MATCH_0\fP = 0, \fBSCT_MATCH_1\fP = 1, \fBSCT_MATCH_2\fP = 2, \fBSCT_MATCH_3\fP = 3, \fBSCT_MATCH_4\fP = 4 }"
+.br
+.ti -1c
+.RI "enum \fBCHIP_SCT_EVENT\fP { \fBSCT_EVT_0\fP = (1 << 0), \fBSCT_EVT_1\fP = (1 << 1), \fBSCT_EVT_2\fP = (1 << 2), \fBSCT_EVT_3\fP = (1 << 3), \fBSCT_EVT_4\fP = (1 << 4) }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_Config\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t value)"
+.br
+.RI "\fIConfigures the State Configurable Timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCT_SetClrControl\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t value, \fBFunctionalState\fP ena)"
+.br
+.RI "\fISet or Clear the Control register\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCT_SetConflictResolution\fP (\fBLPC_SCT_T\fP *pSCT, uint8_t outnum, uint8_t value)"
+.br
+.RI "\fISet the conflict resolution\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetCount\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t count)"
+.br
+.RI "\fISet unified count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetCountL\fP (\fBLPC_SCT_T\fP *pSCT, uint16_t count)"
+.br
+.RI "\fISet lower count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetCountH\fP (\fBLPC_SCT_T\fP *pSCT, uint16_t count)"
+.br
+.RI "\fISet higher count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetMatchCount\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_MATCH_REG_T\fP n, uint32_t value)"
+.br
+.RI "\fISet unified match count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetControl\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t value)"
+.br
+.RI "\fISet control register in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_ClearControl\fP (\fBLPC_SCT_T\fP *pSCT, uint32_t value)"
+.br
+.RI "\fIClear control register in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_SetMatchReload\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_MATCH_REG_T\fP n, uint32_t value)"
+.br
+.RI "\fISet unified match reload count value in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_EnableEventInt\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_EVENT_T\fP evt)"
+.br
+.RI "\fIEnable the interrupt for the specified event in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_DisableEventInt\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_EVENT_T\fP evt)"
+.br
+.RI "\fIDisable the interrupt for the specified event in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCT_ClearEventFlag\fP (\fBLPC_SCT_T\fP *pSCT, \fBCHIP_SCT_EVENT_T\fP evt)"
+.br
+.RI "\fIClear the specified event flag in State Configurable Timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCT_Init\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIInitializes the State Configurable Timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_SCT_DeInit\fP (\fBLPC_SCT_T\fP *pSCT)"
+.br
+.RI "\fIDeinitializes the State Configurable Timer\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

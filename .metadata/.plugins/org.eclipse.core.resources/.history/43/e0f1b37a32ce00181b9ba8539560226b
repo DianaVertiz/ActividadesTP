@@ -1,0 +1,34 @@
+#include "chip.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stopwatch.h>
+#include "sysUtils.h"
+
+
+void UART2_IRQHandler(void)
+{
+
+	Chip_UART_IRQRBHandler(LPC_USART2, &rxRing, &txRing);
+}
+
+
+int main ( int argc , char * argv [])
+{
+	inicializar_sistema();
+	inicializar_leds();
+	inicializar_teclado();
+	inicializar_USART();
+	init_interrupciones();
+
+	while (1)
+	{
+
+
+		__WFI();
+
+	}
+
+
+	return 0;
+}
+

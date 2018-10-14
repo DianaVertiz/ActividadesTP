@@ -1,0 +1,136 @@
+.TH "CMSIS_core_DebugFunctions" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_core_DebugFunctions \- ITM Functions
+.PP
+Functions that access the ITM debug interface\&.  
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBITM_RXBUFFER_EMPTY\fP   0x5AA55AA5"
+.br
+.ti -1c
+.RI "#define \fBITM_RXBUFFER_EMPTY\fP   0x5AA55AA5"
+.br
+.ti -1c
+.RI "#define \fBITM_RXBUFFER_EMPTY\fP   0x5AA55AA5"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBITM_SendChar\fP (uint32_t ch)"
+.br
+.RI "\fIITM Send Character\&. \fP"
+.ti -1c
+.RI "__STATIC_INLINE int32_t \fBITM_ReceiveChar\fP (void)"
+.br
+.RI "\fIITM Receive Character\&. \fP"
+.ti -1c
+.RI "__STATIC_INLINE int32_t \fBITM_CheckChar\fP (void)"
+.br
+.RI "\fIITM Check Character\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "volatile int32_t \fBITM_RxBuffer\fP"
+.br
+.ti -1c
+.RI "volatile int32_t \fBITM_RxBuffer\fP"
+.br
+.ti -1c
+.RI "volatile int32_t \fBITM_RxBuffer\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Functions that access the ITM debug interface\&. 
+
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define ITM_RXBUFFER_EMPTY   0x5AA55AA5"
+Value identifying \fBITM_RxBuffer\fP is ready for next character\&. 
+.PP
+Definición en la línea 1530 del archivo core_sc300\&.h\&.
+.SS "#define ITM_RXBUFFER_EMPTY   0x5AA55AA5"
+Value identifying \fBITM_RxBuffer\fP is ready for next character\&. 
+.PP
+Definición en la línea 1559 del archivo core_cm3\&.h\&.
+.SS "#define ITM_RXBUFFER_EMPTY   0x5AA55AA5"
+Value identifying \fBITM_RxBuffer\fP is ready for next character\&. 
+.PP
+Definición en la línea 1704 del archivo core_cm4\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "__STATIC_INLINE int32_t ITM_CheckChar (void)"
+
+.PP
+ITM Check Character\&. The function checks whether a character is pending for reading in the variable \fBITM_RxBuffer\fP\&.
+.PP
+\fBDevuelve:\fP
+.RS 4
+0 No character available\&. 
+.PP
+1 Character available\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 1610 del archivo core_cm3\&.h\&.
+.SS "__STATIC_INLINE int32_t ITM_ReceiveChar (void)"
+
+.PP
+ITM Receive Character\&. The function inputs a character via the external variable \fBITM_RxBuffer\fP\&.
+.PP
+\fBDevuelve:\fP
+.RS 4
+Received character\&. 
+.PP
+-1 No character pending\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 1591 del archivo core_cm3\&.h\&.
+.SS "__STATIC_INLINE uint32_t ITM_SendChar (uint32_t ch)"
+
+.PP
+ITM Send Character\&. The function transmits a character via the ITM channel 0, and 
+.PD 0
+
+.IP "\(bu" 2
+Just returns when no debugger is connected that has booked the output\&. 
+.IP "\(bu" 2
+Is blocking when a debugger is connected, but the previous character sent has not been transmitted\&.
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIch\fP Character to transmit\&.
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Character to transmit\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 1572 del archivo core_cm3\&.h\&.
+.SH "Documentación de las variables"
+.PP 
+.SS "volatile int32_t ITM_RxBuffer"
+External variable to receive characters\&. 
+.SS "volatile int32_t ITM_RxBuffer"
+External variable to receive characters\&. 
+.SS "volatile int32_t ITM_RxBuffer"
+External variable to receive characters\&. 
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

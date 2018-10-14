@@ -1,0 +1,199 @@
+.TH "scu_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+scu_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPINMUX_GRP_T\fP"
+.br
+.RI "\fIArray of pin definitions passed to \fBChip_SCU_SetPinMuxing()\fP must be in this format\&. \fP"
+.ti -1c
+.RI "struct \fBLPC_SCU_T\fP"
+.br
+.RI "\fISystem Control Unit register block\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSCU_MODE_PULLUP\fP   (0x0 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_REPEATER\fP   (0x1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_INACT\fP   (0x2 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_PULLDOWN\fP   (0x3 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_HIGHSPEEDSLEW_EN\fP   (0x1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_INBUFF_EN\fP   (0x1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_ZIF_DIS\fP   (0x1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_4MA_DRIVESTR\fP   (0x0 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_8MA_DRIVESTR\fP   (0x1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_14MA_DRIVESTR\fP   (0x2 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_20MA_DRIVESTR\fP   (0x3 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC0\fP   0x0"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC1\fP   0x1"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC2\fP   0x2"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC3\fP   0x3"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC4\fP   0x4"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC5\fP   0x5"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC6\fP   0x6"
+.br
+.ti -1c
+.RI "#define \fBSCU_MODE_FUNC7\fP   0x7"
+.br
+.ti -1c
+.RI "#define \fBSCU_PINIO_FAST\fP   (\fBSCU_MODE_INACT\fP | \fBSCU_MODE_HIGHSPEEDSLEW_EN\fP | \fBSCU_MODE_INBUFF_EN\fP | \fBSCU_MODE_ZIF_DIS\fP)"
+.br
+.ti -1c
+.RI "#define \fBMD_PUP\fP   (0x0 << 3)		/** Enable pull\-up resistor at pad */"
+.br
+.ti -1c
+.RI "#define \fBMD_BUK\fP   (0x1 << 3)		/** Enable pull\-down and pull\-up resistor at resistor at pad (repeater mode) */"
+.br
+.ti -1c
+.RI "#define \fBMD_PLN\fP   (0x2 << 3)		/** Disable pull\-down and pull\-up resistor at resistor at pad */"
+.br
+.ti -1c
+.RI "#define \fBMD_PDN\fP   (0x3 << 3)		/** Enable pull\-down resistor at pad */"
+.br
+.ti -1c
+.RI "#define \fBMD_EHS\fP   (0x1 << 5)		/** Enable fast slew rate */"
+.br
+.ti -1c
+.RI "#define \fBMD_EZI\fP   (0x1 << 6)		/** Input buffer enable */"
+.br
+.ti -1c
+.RI "#define \fBMD_ZI\fP   (0x1 << 7)		/** Disable input glitch filter */"
+.br
+.ti -1c
+.RI "#define \fBMD_EHD0\fP   (0x1 << 8)		/** EHD driver strength low bit */"
+.br
+.ti -1c
+.RI "#define \fBMD_EHD1\fP   (0x1 << 8)		/** EHD driver strength high bit */"
+.br
+.ti -1c
+.RI "#define \fBMD_PLN_FAST\fP   (\fBMD_PLN\fP | \fBMD_EZI\fP | \fBMD_ZI\fP | \fBMD_EHS\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C0_STANDARD_FAST_MODE\fP   (1 << 3 | 1 << 11)	/** Pin configuration for STANDARD/FAST mode I2C */"
+.br
+.ti -1c
+.RI "#define \fBI2C0_FAST_MODE_PLUS\fP   (2 << 1 | 1 << 3 | 1 << 7 | 1 << 10 | 1 << 11)	/** Pin configuration for Fast\-mode Plus I2C */"
+.br
+.ti -1c
+.RI "#define \fBFUNC0\fP   0x0				/** Pin function 0 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC1\fP   0x1				/** Pin function 1 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC2\fP   0x2				/** Pin function 2 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC3\fP   0x3				/** Pin function 3 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC4\fP   0x4				/** Pin function 4 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC5\fP   0x5				/** Pin function 5 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC6\fP   0x6				/** Pin function 6 */"
+.br
+.ti -1c
+.RI "#define \fBFUNC7\fP   0x7				/** Pin function 7 */"
+.br
+.ti -1c
+.RI "#define \fBPORT_OFFSET\fP   0x80			/** Port offset definition */"
+.br
+.ti -1c
+.RI "#define \fBPIN_OFFSET\fP   0x04			/** Pin offset definition */"
+.br
+.ti -1c
+.RI "#define \fBLPC_SCU_PIN\fP(\fBLPC_SCU_BASE\fP,  po,  pi)   (*(volatile int *) ((\fBLPC_SCU_BASE\fP) + ((po) * 0x80) + ((pi) * 0x4))"
+.br
+.ti -1c
+.RI "#define \fBLPC_SCU_CLK\fP(\fBLPC_SCU_BASE\fP,  c)   (*(volatile int *) ((\fBLPC_SCU_BASE\fP) +0xC00 + ((c) * 0x4)))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_PinMuxSet\fP (uint8_t port, uint8_t pin, uint16_t modefunc)"
+.br
+.RI "\fISets I/O Control pin mux\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_PinMux\fP (uint8_t port, uint8_t pin, uint16_t mode, uint8_t func)"
+.br
+.RI "\fIConfigure pin function\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_ClockPinMuxSet\fP (uint8_t clknum, uint16_t modefunc)"
+.br
+.RI "\fIConfigure clock pin function (pins SFSCLKx) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_ClockPinMux\fP (uint8_t clknum, uint16_t mode, uint8_t func)"
+.br
+.RI "\fIConfigure clock pin function (pins SFSCLKx) \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_GPIOIntPinSel\fP (uint8_t PortSel, uint8_t PortNum, uint8_t PinNum)"
+.br
+.RI "\fIGPIO Interrupt Pin Select\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_I2C0PinConfig\fP (uint32_t I2C0Mode)"
+.br
+.RI "\fII2C Pin Configuration\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_ADC_Channel_Config\fP (uint32_t ADC_ID, uint8_t channel)"
+.br
+.RI "\fIADC Pin Configuration\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_DAC_Analog_Config\fP (void)"
+.br
+.RI "\fIDAC Pin Configuration\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_SCU_SetPinMuxing\fP (const \fBPINMUX_GRP_T\fP *pinArray, uint32_t arrayLength)"
+.br
+.RI "\fISet all I/O Control pin muxing\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,44 @@
+.TH "cmsis_43xx_m0app.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cmsis_43xx_m0app.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'core_cm0\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__MPU_PRESENT\fP   0"
+.br
+.ti -1c
+.RI "#define \fB__NVIC_PRIO_BITS\fP   2"
+.br
+.ti -1c
+.RI "#define \fB__Vendor_SysTickConfig\fP   0"
+.br
+.ti -1c
+.RI "#define \fB__FPU_PRESENT\fP   0"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBLPC43XX_M0_IRQn_Type\fP \fBIRQn_Type\fP"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBLPC43XX_M0_IRQn_Type\fP { \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBRTC_IRQn\fP = 0, \fBM4_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBFLASHEEPROM_IRQn\fP = 4, \fBATIMER_IRQn\fP = 4, \fBETHERNET_IRQn\fP = 5, \fBSDIO_IRQn\fP = 6, \fBLCD_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBWWDT_IRQn\fP = 11, \fBTIMER0_IRQn\fP = 12, \fBGINT1_IRQn\fP = 13, \fBPIN_INT4_IRQn\fP = 14, \fBTIMER3_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 18, \fBSGPIO_INT_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBDAC_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 22, \fBEVENTROUTER_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBC_CAN1_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 28, \fBQEI_IRQn\fP = 28, \fBC_CAN0_IRQn\fP = 29, \fBADCHS_IRQn\fP = 30, \fBM0SUB_IRQn\fP = 31, \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBDAC_IRQn\fP = 0, \fBM4_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBSGPIO_INPUT_IRQn\fP = 4, \fBSGPIO_MATCH_IRQn\fP = 5, \fBSGPIO_SHIFT_IRQn\fP = 6, \fBSGPIO_POS_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBGINT1_IRQn\fP = 12, \fBTIMER1_IRQn\fP = 13, \fBTIMER2_IRQn\fP = 14, \fBPIN_INT5_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 22, \fBEVENTROUTER_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBC_CAN1_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 28, \fBC_CAN0_IRQn\fP = 29, \fBADCHS_IRQn\fP = 30, \fBM0APP_IRQn\fP = 31, \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBRTC_IRQn\fP = 0, \fBM4_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBFLASHEEPROM_IRQn\fP = 4, \fBATIMER_IRQn\fP = 4, \fBETHERNET_IRQn\fP = 5, \fBSDIO_IRQn\fP = 6, \fBLCD_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBWWDT_IRQn\fP = 11, \fBTIMER0_IRQn\fP = 12, \fBGINT1_IRQn\fP = 13, \fBPIN_INT4_IRQn\fP = 14, \fBTIMER3_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 18, \fBSGPIO_INT_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBDAC_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 22, \fBEVENTROUTER_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBC_CAN1_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 28, \fBQEI_IRQn\fP = 28, \fBC_CAN0_IRQn\fP = 29, \fBADCHS_IRQn\fP = 30, \fBM0SUB_IRQn\fP = 31, \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBSVCall_IRQn\fP = -5, \fBDebugMonitor_IRQn\fP = -4, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBDAC_IRQn\fP = 0, \fBM4_IRQn\fP = 1, \fBDMA_IRQn\fP = 2, \fBRESERVED1_IRQn\fP = 3, \fBSGPIO_INPUT_IRQn\fP = 4, \fBSGPIO_MATCH_IRQn\fP = 5, \fBSGPIO_SHIFT_IRQn\fP = 6, \fBSGPIO_POS_IRQn\fP = 7, \fBUSB0_IRQn\fP = 8, \fBUSB1_IRQn\fP = 9, \fBSCT_IRQn\fP = 10, \fBRITIMER_IRQn\fP = 11, \fBGINT1_IRQn\fP = 12, \fBTIMER1_IRQn\fP = 13, \fBTIMER2_IRQn\fP = 14, \fBPIN_INT5_IRQn\fP = 15, \fBMCPWM_IRQn\fP = 16, \fBADC0_IRQn\fP = 17, \fBI2C0_IRQn\fP = 18, \fBI2C1_IRQn\fP = 19, \fBSPI_INT_IRQn\fP = 20, \fBADC1_IRQn\fP = 21, \fBSSP0_IRQn\fP = 22, \fBSSP1_IRQn\fP = 22, \fBEVENTROUTER_IRQn\fP = 23, \fBUSART0_IRQn\fP = 24, \fBUART1_IRQn\fP = 25, \fBUSART2_IRQn\fP = 26, \fBC_CAN1_IRQn\fP = 26, \fBUSART3_IRQn\fP = 27, \fBI2S0_IRQn\fP = 28, \fBI2S1_IRQn\fP = 28, \fBC_CAN0_IRQn\fP = 29, \fBADCHS_IRQn\fP = 30, \fBM0APP_IRQn\fP = 31 }"
+.br
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

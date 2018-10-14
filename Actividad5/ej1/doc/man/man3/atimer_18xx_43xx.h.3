@@ -1,0 +1,55 @@
+.TH "atimer_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+atimer_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_ATIMER_T\fP"
+.br
+.RI "\fIAlarm Timer register block structure\&. \fP"
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_ATIMER_Init\fP (\fBLPC_ATIMER_T\fP *pATIMER, uint32_t PresetValue)"
+.br
+.RI "\fIInitialize Alarm Timer\&. \fP"
+.ti -1c
+.RI "void \fBChip_ATIMER_DeInit\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIClose ATIMER device\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_IntEnable\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIEnable ATIMER Interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_IntDisable\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIDisable ATIMER Interrupt\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_ClearIntStatus\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIClear ATIMER Interrupt Status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_SetIntStatus\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fISet ATIMER Interrupt Status\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_ATIMER_UpdatePresetValue\fP (\fBLPC_ATIMER_T\fP *pATIMER, uint32_t PresetValue)"
+.br
+.RI "\fIUpdate Preset value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_ATIMER_GetPresetValue\fP (\fBLPC_ATIMER_T\fP *pATIMER)"
+.br
+.RI "\fIRead value of preset register\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

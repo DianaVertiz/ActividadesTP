@@ -1,0 +1,42 @@
+/*
+ * comandos.c
+ *
+ *  Created on: 13 oct. 2018
+ *      Author: root
+ */
+
+#include "comandos.h"
+
+const cmdItem menu[] =
+{
+		{ "help", help },
+		{ "led1On", led1On },
+		{ "led2On", led2On },
+		{ "led3On", led3On },
+		{ "led4On", led4On },
+
+		{ "led1Off", led1Off },
+		{ "led2Off", led2Off },
+		{ "led3Off", led3Off },
+		{ "led4Off", led4Off },
+
+		{"secuencia_1", sec1 },
+		{"secuencia_2", sec2 },
+		{"cls", cls}
+};
+
+
+cmdItem *getMenuItems(void)
+{
+	return &menu[0];
+}
+
+unsigned int getMenuItemsCount(void)
+{
+	return (sizeof(menu)/sizeof(cmdItem));
+}
+
+void cls(int argc, const char * const * argv)
+{
+	print("\033[2J\033[;f");
+}

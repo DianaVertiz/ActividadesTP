@@ -1,0 +1,89 @@
+.TH "LPC_ATIMER_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_ATIMER_T \- Alarm Timer register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <atimer_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDOWNCOUNTER\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPRESET\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP [1012]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCLR_EN\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSET_EN\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSTATUS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBENABLE\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCLR_STAT\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSET_STAT\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Alarm Timer register block structure\&. 
+.PP
+Definición en la línea 47 del archivo atimer_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__O\fP uint32_t CLR_EN"
+Interrupt clear enable register 
+.PP
+Definición en la línea 51 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t CLR_STAT"
+Clear register 
+.PP
+Definición en la línea 55 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DOWNCOUNTER"
+< ATIMER Structure Downcounter register 
+.PP
+Definición en la línea 48 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t ENABLE"
+Enable register 
+.PP
+Definición en la línea 54 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PRESET"
+Preset value register 
+.PP
+Definición en la línea 49 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0[1012]"
+
+.PP
+Definición en la línea 50 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t SET_EN"
+Interrupt set enable register 
+.PP
+Definición en la línea 52 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t SET_STAT"
+Set register 
+.PP
+Definición en la línea 56 del archivo atimer_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t STATUS"
+Status register 
+.PP
+Definición en la línea 53 del archivo atimer_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

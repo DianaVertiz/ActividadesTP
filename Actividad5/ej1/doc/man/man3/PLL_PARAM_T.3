@@ -1,0 +1,82 @@
+.TH "PLL_PARAM_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PLL_PARAM_T \- PLL Parameter strucutre\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <clock_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "int \fBctrl\fP"
+.br
+.ti -1c
+.RI "\fBCHIP_CGU_CLKIN_T\fP \fBsrcin\fP"
+.br
+.ti -1c
+.RI "int \fBnsel\fP"
+.br
+.ti -1c
+.RI "int \fBpsel\fP"
+.br
+.ti -1c
+.RI "int \fBmsel\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBfin\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBfout\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBfcco\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+PLL Parameter strucutre\&. 
+.PP
+Definición en la línea 80 del archivo clock_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "int ctrl"
+Control register value 
+.PP
+Definición en la línea 81 del archivo clock_18xx_43xx\&.h\&.
+.SS "uint32_t fcco"
+CCO frequency 
+.PP
+Definición en la línea 88 del archivo clock_18xx_43xx\&.h\&.
+.SS "uint32_t fin"
+Input frequency 
+.PP
+Definición en la línea 86 del archivo clock_18xx_43xx\&.h\&.
+.SS "uint32_t fout"
+Output frequency 
+.PP
+Definición en la línea 87 del archivo clock_18xx_43xx\&.h\&.
+.SS "int msel"
+M-Div value 
+.PP
+Definición en la línea 85 del archivo clock_18xx_43xx\&.h\&.
+.SS "int nsel"
+Pre-Div value 
+.PP
+Definición en la línea 83 del archivo clock_18xx_43xx\&.h\&.
+.SS "int psel"
+Post-Div Value 
+.PP
+Definición en la línea 84 del archivo clock_18xx_43xx\&.h\&.
+.SS "\fBCHIP_CGU_CLKIN_T\fP srcin"
+Input clock Source see \fBCHIP_CGU_CLKIN_T\fP 
+.PP
+Definición en la línea 82 del archivo clock_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

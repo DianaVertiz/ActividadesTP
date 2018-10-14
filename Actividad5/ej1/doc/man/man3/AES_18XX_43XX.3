@@ -1,0 +1,323 @@
+.TH "AES_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AES_18XX_43XX \- CHIP: LPC18xx/43xx AES Engine driver
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBCHIP_AES_OP_MODE\fP \fBCHIP_AES_OP_MODE_T\fP"
+.br
+.RI "\fIAES Engine operation mode\&. \fP"
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCHIP_AES_OP_MODE\fP { \fBCHIP_AES_API_CMD_ENCODE_ECB\fP, \fBCHIP_AES_API_CMD_DECODE_ECB\fP, \fBCHIP_AES_API_CMD_ENCODE_CBC\fP, \fBCHIP_AES_API_CMD_DECODE_CBC\fP }
+.RI "\fIAES Engine operation mode\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_AES_Init\fP (void)"
+.br
+.RI "\fIInitialize the AES Engine function\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_SetMode\fP (\fBCHIP_AES_OP_MODE_T\fP AesMode)"
+.br
+.RI "\fISet operation mode in AES Engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadKey\fP (uint32_t keyNum)"
+.br
+.RI "\fILoad 128-bit AES user key in AES Engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadKeyRNG\fP (void)"
+.br
+.RI "\fILoad randomly generated key in AES engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadKeySW\fP (uint8_t *pKey)"
+.br
+.RI "\fILoad 128-bit AES software defined user key in AES Engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadIV_SW\fP (uint8_t *pVector)"
+.br
+.RI "\fILoad 128-bit AES initialization vector in AES Engine\&. \fP"
+.ti -1c
+.RI "void \fBChip_AES_LoadIV_IC\fP (void)"
+.br
+.RI "\fILoad IC specific 128-bit AES initialization vector in AES Engine\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_Operate\fP (uint8_t *pDatOut, uint8_t *pDatIn, uint32_t Size)"
+.br
+.RI "\fIOperate AES Engine\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_ProgramKey\fP (uint32_t KeyNum, uint8_t *pKey)"
+.br
+.RI "\fIProgram 128-bit AES Key in OTP\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_Config_DMA\fP (uint32_t channel_id)"
+.br
+.RI "\fIChecks for valid AES configuration of the chip and setup DMA channel to process an AES data block\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_OperateDMA\fP (uint32_t channel_id, uint8_t *dataOutAddr, uint8_t *dataInAddr, uint32_t size)"
+.br
+.RI "\fIChecks for valid AES configuration of the chip and enables DMA channel to process an AES data block\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_AES_GetStatusDMA\fP (uint32_t channel_id)"
+.br
+.RI "\fIRead status of DMA channels that process an AES data block\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef enum \fBCHIP_AES_OP_MODE\fP  \fBCHIP_AES_OP_MODE_T\fP"
+
+.PP
+AES Engine operation mode\&. 
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBCHIP_AES_OP_MODE\fP"
+
+.PP
+AES Engine operation mode\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fICHIP_AES_API_CMD_ENCODE_ECB \fP\fP
+ECB Encode mode 
+.TP
+\fB\fICHIP_AES_API_CMD_DECODE_ECB \fP\fP
+ECB Decode mode 
+.TP
+\fB\fICHIP_AES_API_CMD_ENCODE_CBC \fP\fP
+CBC Encode mode 
+.TP
+\fB\fICHIP_AES_API_CMD_DECODE_CBC \fP\fP
+CBC Decode mode 
+.PP
+Definición en la línea 47 del archivo aes_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "uint32_t Chip_AES_Config_DMA (uint32_t channel_id)"
+
+.PP
+Checks for valid AES configuration of the chip and setup DMA channel to process an AES data block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIchannel_id\fP : channel id 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Status 
+.RE
+.PP
+
+.PP
+Definición en la línea 159 del archivo aes_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_AES_GetStatusDMA (uint32_t channel_id)"
+
+.PP
+Read status of DMA channels that process an AES data block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIchannel_id\fP : channel id 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Status 
+.RE
+.PP
+
+.PP
+Definición en la línea 171 del archivo aes_18xx_43xx\&.c\&.
+.SS "void Chip_AES_Init (void)"
+
+.PP
+Initialize the AES Engine function\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+None This function will initialize all the AES Engine driver function pointers and call the AES Engine Initialization function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 73 del archivo aes_18xx_43xx\&.c\&.
+.SS "void Chip_AES_LoadIV_IC (void)"
+
+.PP
+Load IC specific 128-bit AES initialization vector in AES Engine\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+None This loads 128-bit AES IC specific initialization vector, which is used to decrypt a boot image 
+.RE
+.PP
+
+.PP
+Definición en la línea 133 del archivo aes_18xx_43xx\&.c\&.
+.SS "void Chip_AES_LoadIV_SW (uint8_t * pVector)"
+
+.PP
+Load 128-bit AES initialization vector in AES Engine\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpVector\fP : Pointer to 16 byte Initialisation vector 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 127 del archivo aes_18xx_43xx\&.c\&.
+.SS "void Chip_AES_LoadKey (uint32_t keyNum)"
+
+.PP
+Load 128-bit AES user key in AES Engine\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIkeyNum\fP 0 - Load AES 128-bit user key 1, else load user key2 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 104 del archivo aes_18xx_43xx\&.c\&.
+.SS "void Chip_AES_LoadKeyRNG (void)"
+
+.PP
+Load randomly generated key in AES engine\&. 
+.PP
+\fBDevuelve:\fP
+.RS 4
+None To update the RNG and load a new random number, the API call Chip_OTP_GenRand should be used 
+.RE
+.PP
+
+.PP
+Definición en la línea 115 del archivo aes_18xx_43xx\&.c\&.
+.SS "void Chip_AES_LoadKeySW (uint8_t * pKey)"
+
+.PP
+Load 128-bit AES software defined user key in AES Engine\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpKey\fP : Pointer to 16 byte user key 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 121 del archivo aes_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_AES_Operate (uint8_t * pDatOut, uint8_t * pDatIn, uint32_t Size)"
+
+.PP
+Operate AES Engine\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpDatOut\fP : Pointer to output data stream 
+.br
+\fIpDatIn\fP : Pointer to input data stream 
+.br
+\fISize\fP : Size of the data stream (128-bit) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Status This function performs the AES operation after the AES mode has been set using Chip_AES_SetMode and the appropriate keys and init vectors have been loaded 
+.RE
+.PP
+
+.PP
+Definición en la línea 139 del archivo aes_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_AES_OperateDMA (uint32_t channel_id, uint8_t * dataOutAddr, uint8_t * dataInAddr, uint32_t size)"
+
+.PP
+Checks for valid AES configuration of the chip and enables DMA channel to process an AES data block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIchannel_id\fP : channel_id 
+.br
+\fIdataOutAddr\fP : destination address(16 x size of consecutive bytes) 
+.br
+\fIdataInAddr\fP : source address(16 x size of consecutive bytes) 
+.br
+\fIsize\fP : number of 128 bit AES blocks 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Status 
+.RE
+.PP
+
+.PP
+Definición en la línea 165 del archivo aes_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_AES_ProgramKey (uint32_t KeyNum, uint8_t * pKey)"
+
+.PP
+Program 128-bit AES Key in OTP\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIKeyNum\fP : Key Number (Select 0 or 1) 
+.br
+\fIpKey\fP : Pointer to AES Key (16 bytes required) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Status When calling the aes_ProgramKey2 function, ensure that VPP = 2\&.7 V to 3\&.6 V\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 145 del archivo aes_18xx_43xx\&.c\&.
+.SS "uint32_t Chip_AES_SetMode (\fBCHIP_AES_OP_MODE_T\fP AesMode)"
+
+.PP
+Set operation mode in AES Engine\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIAesMode\fP : AES Operation Mode 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Status 
+.RE
+.PP
+
+.PP
+Definición en la línea 98 del archivo aes_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

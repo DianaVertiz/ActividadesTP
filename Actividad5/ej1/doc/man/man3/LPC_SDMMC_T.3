@@ -1,0 +1,299 @@
+.TH "LPC_SDMMC_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_SDMMC_T \- SD/MMC & SDIO register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <sdif_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPWREN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCLKDIV\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCLKSRC\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCLKENA\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTMOUT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCTYPE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBLKSIZ\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBYTCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBINTMASK\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCMDARG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCMD\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESP0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESP1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESP2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESP3\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMINTSTS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRINTSTS\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSTATUS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFIFOTH\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCDETECT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBWRTPRT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBGPIO\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTCBCNT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTBBCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDEBNCE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBUSRID\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBVERID\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBUHS_REG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRST_N\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBMOD\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPLDMND\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDBADDR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIDSTS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIDINTEN\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDSCADDR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBBUFADDR\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+SD/MMC & SDIO register block structure\&. 
+.PP
+Definición en la línea 47 del archivo sdif_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t BLKSIZ"
+Block Size Register 
+.PP
+Definición en la línea 55 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t BMOD"
+Bus Mode Register 
+.PP
+Definición en la línea 80 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t BUFADDR"
+Current Buffer Descriptor Address Register 
+.PP
+Definición en la línea 86 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t BYTCNT"
+Byte Count Register 
+.PP
+Definición en la línea 56 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t CDETECT"
+Card Detect Register 
+.PP
+Definición en la línea 68 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CLKDIV"
+Clock Divider Register 
+.PP
+Definición en la línea 50 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CLKENA"
+Clock Enable Register 
+.PP
+Definición en la línea 52 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CLKSRC"
+SD Clock Source Register 
+.PP
+Definición en la línea 51 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CMD"
+Command Register 
+.PP
+Definición en la línea 59 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CMDARG"
+Command Argument Register 
+.PP
+Definición en la línea 58 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTRL"
+< SDMMC Structure Control Register 
+.PP
+Definición en la línea 48 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t CTYPE"
+Card Type Register 
+.PP
+Definición en la línea 54 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DBADDR"
+Descriptor List Base Address Register 
+.PP
+Definición en la línea 82 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DEBNCE"
+Debounce Count Register 
+.PP
+Definición en la línea 73 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t DSCADDR"
+Current Host Descriptor Address Register 
+.PP
+Definición en la línea 85 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t FIFOTH"
+FIFO Threshold Watermark Register 
+.PP
+Definición en la línea 67 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t GPIO"
+General Purpose Input/Output Register 
+.PP
+Definición en la línea 70 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t IDINTEN"
+Internal DMAC Interrupt Enable Register 
+.PP
+Definición en la línea 84 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t IDSTS"
+Internal DMAC Status Register 
+.PP
+Definición en la línea 83 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t INTMASK"
+Interrupt Mask Register 
+.PP
+Definición en la línea 57 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t MINTSTS"
+Masked Interrupt Status Register 
+.PP
+Definición en la línea 64 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t PLDMND"
+Poll Demand Register 
+.PP
+Definición en la línea 81 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t PWREN"
+Power Enable Register 
+.PP
+Definición en la línea 49 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0"
+
+.PP
+Definición en la línea 76 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED1"
+
+.PP
+Definición en la línea 79 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESP0"
+Response Register 0 
+.PP
+Definición en la línea 60 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESP1"
+Response Register 1 
+.PP
+Definición en la línea 61 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESP2"
+Response Register 2 
+.PP
+Definición en la línea 62 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESP3"
+Response Register 3 
+.PP
+Definición en la línea 63 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RINTSTS"
+Raw Interrupt Status Register 
+.PP
+Definición en la línea 65 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RST_N"
+Hardware Reset 
+.PP
+Definición en la línea 78 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t STATUS"
+Status Register 
+.PP
+Definición en la línea 66 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t TBBCNT"
+Transferred Host to BIU-FIFO Byte Count Register 
+.PP
+Definición en la línea 72 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t TCBCNT"
+Transferred CIU Card Byte Count Register 
+.PP
+Definición en la línea 71 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TMOUT"
+Timeout Register 
+.PP
+Definición en la línea 53 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t UHS_REG"
+UHS-1 Register 
+.PP
+Definición en la línea 77 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t USRID"
+User ID Register 
+.PP
+Definición en la línea 74 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t VERID"
+Version ID Register 
+.PP
+Definición en la línea 75 del archivo sdif_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t WRTPRT"
+Write Protect Register 
+.PP
+Definición en la línea 69 del archivo sdif_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

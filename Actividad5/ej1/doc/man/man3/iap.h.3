@@ -1,0 +1,162 @@
+.TH "iap.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+iap.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBIAP_PREWRRITE_CMD\fP   50"
+.br
+.ti -1c
+.RI "#define \fBIAP_WRISECTOR_CMD\fP   51"
+.br
+.ti -1c
+.RI "#define \fBIAP_ERSSECTOR_CMD\fP   52"
+.br
+.ti -1c
+.RI "#define \fBIAP_BLANK_CHECK_SECTOR_CMD\fP   53"
+.br
+.ti -1c
+.RI "#define \fBIAP_REPID_CMD\fP   54"
+.br
+.ti -1c
+.RI "#define \fBIAP_READ_BOOT_CODE_CMD\fP   55"
+.br
+.ti -1c
+.RI "#define \fBIAP_COMPARE_CMD\fP   56"
+.br
+.ti -1c
+.RI "#define \fBIAP_REINVOKE_ISP_CMD\fP   57"
+.br
+.ti -1c
+.RI "#define \fBIAP_READ_UID_CMD\fP   58"
+.br
+.ti -1c
+.RI "#define \fBIAP_ERASE_PAGE_CMD\fP   59"
+.br
+.ti -1c
+.RI "#define \fBIAP_EEPROM_WRITE\fP   61"
+.br
+.ti -1c
+.RI "#define \fBIAP_EEPROM_READ\fP   62"
+.br
+.ti -1c
+.RI "#define \fBIAP_CMD_SUCCESS\fP   0"
+.br
+.ti -1c
+.RI "#define \fBIAP_INVALID_COMMAND\fP   1"
+.br
+.ti -1c
+.RI "#define \fBIAP_SRC_ADDR_ERROR\fP   2"
+.br
+.ti -1c
+.RI "#define \fBIAP_DST_ADDR_ERROR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBIAP_SRC_ADDR_NOT_MAPPED\fP   4"
+.br
+.ti -1c
+.RI "#define \fBIAP_DST_ADDR_NOT_MAPPED\fP   5"
+.br
+.ti -1c
+.RI "#define \fBIAP_COUNT_ERROR\fP   6"
+.br
+.ti -1c
+.RI "#define \fBIAP_INVALID_SECTOR\fP   7"
+.br
+.ti -1c
+.RI "#define \fBIAP_SECTOR_NOT_BLANK\fP   8"
+.br
+.ti -1c
+.RI "#define \fBIAP_SECTOR_NOT_PREPARED\fP   9"
+.br
+.ti -1c
+.RI "#define \fBIAP_COMPARE_ERROR\fP   10"
+.br
+.ti -1c
+.RI "#define \fBIAP_BUSY\fP   11"
+.br
+.ti -1c
+.RI "#define \fBIAP_PARAM_ERROR\fP   12"
+.br
+.ti -1c
+.RI "#define \fBIAP_ADDR_ERROR\fP   13"
+.br
+.ti -1c
+.RI "#define \fBIAP_ADDR_NOT_MAPPED\fP   14"
+.br
+.ti -1c
+.RI "#define \fBIAP_CMD_LOCKED\fP   15"
+.br
+.ti -1c
+.RI "#define \fBIAP_INVALID_CODE\fP   16"
+.br
+.ti -1c
+.RI "#define \fBIAP_INVALID_BAUD_RATE\fP   17"
+.br
+.ti -1c
+.RI "#define \fBIAP_INVALID_STOP_BIT\fP   18"
+.br
+.ti -1c
+.RI "#define \fBIAP_CRP_ENABLED\fP   19"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBIAP_ENTRY_T\fP) (unsigned int[], unsigned int[])"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBChip_IAP_PreSectorForReadWrite\fP (uint32_t strSector, uint32_t endSector)"
+.br
+.RI "\fIPrepare sector for write operation\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_CopyRamToFlash\fP (uint32_t dstAdd, uint32_t *srcAdd, uint32_t byteswrt)"
+.br
+.RI "\fICopy RAM to flash\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_EraseSector\fP (uint32_t strSector, uint32_t endSector)"
+.br
+.RI "\fIErase sector\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_BlankCheckSector\fP (uint32_t strSector, uint32_t endSector)"
+.br
+.RI "\fIBlank check a sector or multiples sector of on-chip flash memory\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_IAP_ReadPID\fP (void)"
+.br
+.RI "\fIRead part identification number\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_IAP_ReadBootCode\fP (void)"
+.br
+.RI "\fIRead boot code version number\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_Compare\fP (uint32_t dstAdd, uint32_t srcAdd, uint32_t bytescmp)"
+.br
+.RI "\fICompare the memory contents at two locations\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_ReinvokeISP\fP (void)"
+.br
+.RI "\fIIAP reinvoke ISP to invoke the bootloader in ISP mode\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_IAP_ReadUID\fP (uint32_t *uid)"
+.br
+.RI "\fIRead the unique ID\&. \fP"
+.ti -1c
+.RI "uint8_t \fBChip_IAP_ErasePage\fP (uint32_t strPage, uint32_t endPage)"
+.br
+.RI "\fIErase a page or multiple papers of on-chip flash memory\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,239 @@
+.TH "LPC_Types_Public_Types" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_Types_Public_Types \- LPC Public Types
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTRUE\fP   (1)"
+.br
+.RI "\fIBoolean Type definition\&. \fP"
+.ti -1c
+.RI "#define \fBFALSE\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBPARAM_SETSTATE\fP(State)   ((State == \fBRESET\fP) || (State == \fBSET\fP))"
+.br
+.ti -1c
+.RI "#define \fBPARAM_FUNCTIONALSTATE\fP(State)   ((State == \fBDISABLE\fP) || (State == \fBENABLE\fP))"
+.br
+.ti -1c
+.RI "#define \fBINLINE\fP   inline"
+.br
+.in -1c
+.SS "'typedefs'"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBFlagStatus\fP \fBIntStatus\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBFlagStatus\fP \fBSetState\fP"
+.br
+.ti -1c
+.RI "typedef void(* \fBPFV\fP) ()"
+.br
+.ti -1c
+.RI "typedef int32_t(* \fBPFI\fP) ()"
+.br
+.ti -1c
+.RI "typedef char \fBCHAR\fP"
+.br
+.ti -1c
+.RI "typedef uint8_t \fBUNS_8\fP"
+.br
+.ti -1c
+.RI "typedef int8_t \fBINT_8\fP"
+.br
+.ti -1c
+.RI "typedef uint16_t \fBUNS_16\fP"
+.br
+.ti -1c
+.RI "typedef int16_t \fBINT_16\fP"
+.br
+.ti -1c
+.RI "typedef uint32_t \fBUNS_32\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBINT_32\fP"
+.br
+.ti -1c
+.RI "typedef int64_t \fBINT_64\fP"
+.br
+.ti -1c
+.RI "typedef uint64_t \fBUNS_64\fP"
+.br
+.ti -1c
+.RI "typedef bool \fBBOOL_32\fP"
+.br
+.ti -1c
+.RI "typedef bool \fBBOOL_16\fP"
+.br
+.ti -1c
+.RI "typedef bool \fBBOOL_8\fP"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBFlagStatus\fP { \fBRESET\fP = 0, \fBSET\fP = !RESET }
+.RI "\fIBoolean Type definition\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBFunctionalState\fP { \fBDISABLE\fP = 0, \fBENABLE\fP = !DISABLE }
+.RI "\fIFunctional State Definition\&. \fP""
+.br
+.ti -1c
+.RI "enum \fBStatus\fP { \fBERROR\fP = 0, \fBSUCCESS\fP = !ERROR }"
+.br
+.ti -1c
+.RI "enum \fBTRANSFER_BLOCK_T\fP { \fBNONE_BLOCKING\fP = 0, \fBBLOCKING\fP }"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define FALSE   (0)"
+
+.PP
+Definición en la línea 55 del archivo lpc_types\&.h\&.
+.SS "#define INLINE   inline"
+
+.PP
+Definición en la línea 211 del archivo lpc_types\&.h\&.
+.SS "#define PARAM_FUNCTIONALSTATE(State)   ((State == \fBDISABLE\fP) || (State == \fBENABLE\fP))"
+
+.PP
+Definición en la línea 75 del archivo lpc_types\&.h\&.
+.SS "#define PARAM_SETSTATE(State)   ((State == \fBRESET\fP) || (State == \fBSET\fP))"
+
+.PP
+Definición en la línea 69 del archivo lpc_types\&.h\&.
+.SS "#define TRUE   (1)"
+
+.PP
+Boolean Type definition\&. 
+.PP
+Definición en la línea 52 del archivo lpc_types\&.h\&.
+.SH "Documentación de los 'typedefs'"
+.PP 
+.SS "typedef bool \fBBOOL_16\fP"
+16 bit boolean type 
+.PP
+Definición en la línea 202 del archivo lpc_types\&.h\&.
+.SS "typedef bool \fBBOOL_32\fP"
+32 bit boolean type 
+.PP
+Definición en la línea 199 del archivo lpc_types\&.h\&.
+.SS "typedef bool \fBBOOL_8\fP"
+8 bit boolean type 
+.PP
+Definición en la línea 205 del archivo lpc_types\&.h\&.
+.SS "typedef char \fBCHAR\fP"
+LPC type for character type 
+.PP
+Definición en la línea 167 del archivo lpc_types\&.h\&.
+.SS "typedef int16_t \fBINT_16\fP"
+LPC type for 16 bit signed value 
+.PP
+Definición en la línea 179 del archivo lpc_types\&.h\&.
+.SS "typedef int32_t \fBINT_32\fP"
+LPC type for 32 bit signed value 
+.PP
+Definición en la línea 185 del archivo lpc_types\&.h\&.
+.SS "typedef int64_t \fBINT_64\fP"
+LPC type for 64 bit signed value 
+.PP
+Definición en la línea 188 del archivo lpc_types\&.h\&.
+.SS "typedef int8_t \fBINT_8\fP"
+LPC type for 8 bit signed value 
+.PP
+Definición en la línea 173 del archivo lpc_types\&.h\&.
+.SS "typedef  enum \fBFlagStatus\fP  \fBIntStatus\fP"
+
+.SS "typedef int32_t(* PFI) ()"
+Pointer to Function returning int32_t (any number of parameters) 
+.PP
+Definición en la línea 94 del archivo lpc_types\&.h\&.
+.SS "typedef void(* PFV) ()"
+Pointer to Function returning Void (any number of parameters) 
+.PP
+Definición en la línea 91 del archivo lpc_types\&.h\&.
+.SS "typedef  enum \fBFlagStatus\fP  \fBSetState\fP"
+
+.SS "typedef uint16_t \fBUNS_16\fP"
+LPC type for 16 bit unsigned value 
+.PP
+Definición en la línea 176 del archivo lpc_types\&.h\&.
+.SS "typedef uint32_t \fBUNS_32\fP"
+LPC type for 32 bit unsigned value 
+.PP
+Definición en la línea 182 del archivo lpc_types\&.h\&.
+.SS "typedef uint64_t \fBUNS_64\fP"
+LPC type for 64 bit unsigned value 
+.PP
+Definición en la línea 191 del archivo lpc_types\&.h\&.
+.SS "typedef uint8_t \fBUNS_8\fP"
+LPC type for 8 bit unsigned value 
+.PP
+Definición en la línea 170 del archivo lpc_types\&.h\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBFlagStatus\fP"
+
+.PP
+Boolean Type definition\&. Flag Status and Interrupt Flag Status type definition 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIRESET \fP\fP
+.TP
+\fB\fISET \fP\fP
+.PP
+Definición en la línea 68 del archivo lpc_types\&.h\&.
+.SS "enum \fBFunctionalState\fP"
+
+.PP
+Functional State Definition\&. 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIDISABLE \fP\fP
+.TP
+\fB\fIENABLE \fP\fP
+.PP
+Definición en la línea 74 del archivo lpc_types\&.h\&.
+.SS "enum \fBStatus\fP"
+@ Status type definition 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIERROR \fP\fP
+.TP
+\fB\fISUCCESS \fP\fP
+.PP
+Definición en la línea 80 del archivo lpc_types\&.h\&.
+.SS "enum \fBTRANSFER_BLOCK_T\fP"
+Read/Write transfer type mode (Block or non-block) 
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fINONE_BLOCKING \fP\fP
+None Blocking type 
+.TP
+\fB\fIBLOCKING \fP\fP
+Blocking type 
+.PP
+Definición en la línea 85 del archivo lpc_types\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

@@ -1,0 +1,68 @@
+.TH "LPC_ADC_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_ADC_T \- 10 or 12-bit ADC register block structure  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <adc_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBGDR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRESERVED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBINTEN\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDR\fP [8]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSTAT\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+10 or 12-bit ADC register block structure 
+.PP
+Definición en la línea 51 del archivo adc_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t CR"
+< ADCn Structure A/D Control Register\&. The AD0CR register must be written to select the operating mode before A/D conversion can occur\&. 
+.PP
+Definición en la línea 52 del archivo adc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t DR[8]"
+A/D Channel Data Register\&. This register contains the result of the most recent conversion completed on channel n\&. 
+.PP
+Definición en la línea 56 del archivo adc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t GDR"
+A/D Global Data Register\&. Contains the result of the most recent A/D conversion\&. 
+.PP
+Definición en la línea 53 del archivo adc_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t INTEN"
+A/D Interrupt Enable Register\&. This register contains enable bits that allow the DONE flag of each A/D channel to be included or excluded from contributing to the generation of an A/D interrupt\&. 
+.PP
+Definición en la línea 55 del archivo adc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RESERVED0"
+
+.PP
+Definición en la línea 54 del archivo adc_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t STAT"
+A/D Status Register\&. This register contains DONE and OVERRUN flags for all of the A/D channels, as well as the A/D interrupt flag\&. 
+.PP
+Definición en la línea 57 del archivo adc_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

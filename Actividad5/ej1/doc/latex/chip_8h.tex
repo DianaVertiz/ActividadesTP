@@ -1,0 +1,62 @@
+\hypertarget{chip_8h}{}\section{Referencia del Archivo chip.\+h}
+\label{chip_8h}\index{chip.\+h@{chip.\+h}}
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cmsis.\+h\char`\"{}}\\*
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{chip_8h_ad89ee1baac6d3ed9dd81945e1e853965}{Chip\+\_\+\+U\+S\+B\+\_\+\+Init}~\hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga3d92558011a1b37fdc6a0687691127c4}{Chip\+\_\+\+U\+S\+B0\+\_\+\+Init}
+\item 
+\#define \hyperlink{chip_8h_a86d500a34c624c2cae56bc25a31b12f3}{U\+N\+U\+S\+ED}(x)~(void)(x)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_gae0c36a9591fe6e9c45ecb21a794f0f0f}{System\+Core\+Clock\+Update} (void)
+\begin{DoxyCompactList}\small\item\em Update system core clock rate, should be called if the system has a clock rate change. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga3d92558011a1b37fdc6a0687691127c4}{Chip\+\_\+\+U\+S\+B0\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em U\+S\+B0 Pin and clock initialization Calling this function will initialize the U\+S\+B0 pins and the clock. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga89df58e269eb3a9001c3eeafbbc95473}{Chip\+\_\+\+U\+S\+B1\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em U\+S\+B1 Pin and clock initialization Calling this function will initialize the U\+S\+B0 pins and the clock. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga3450fa020f6b569cc2deb69c11e11b7c}{Chip\+\_\+\+System\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Set up and initialize hardware prior to call to \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()} \end{DoxyCompactList}\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga54251628aeac543524d98d4db12c39f9}{Chip\+\_\+\+Setup\+Core\+Clock} (\hyperlink{group___c_l_o_c_k__18_x_x__43_x_x_ga0975326707efebf2b074283e6c602f18}{C\+H\+I\+P\+\_\+\+C\+G\+U\+\_\+\+C\+L\+K\+I\+N\+\_\+T} clkin, uint32\+\_\+t core\+\_\+freq, bool setbase)
+\begin{DoxyCompactList}\small\item\em Clock and P\+LL initialization based input given in {\itshape clkin}. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga18737e4a022570724c77c5cdea9c0258}{Chip\+\_\+\+Setup\+Xtal\+Clocking} (void)
+\begin{DoxyCompactList}\small\item\em Clock and P\+LL initialization based on the external oscillator. \end{DoxyCompactList}\item 
+void \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_ga6eff97a8da15798119eada6c5f000404}{Chip\+\_\+\+Setup\+Irc\+Clocking} (void)
+\begin{DoxyCompactList}\small\item\em Clock and P\+LL initialization based on the internal oscillator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{group___s_u_p_p_o_r_t__18_x_x__43_x_x___f_u_n_c_gaa3cd3e43291e81e795d642b79b6088e6}{System\+Core\+Clock}
+\begin{DoxyCompactList}\small\item\em Current system clock rate, mainly used for sys\+Tick. \end{DoxyCompactList}\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \hyperlink{group__hardware_ga2e84f0502f9a7fdd271b97c588696e6f}{Osc\+Rate\+In}
+\begin{DoxyCompactList}\small\item\em System oscillator rate This value is defined externally to the chip layer and contains the value in Hz for the external oscillator for the board. If using the internal oscillator, this rate can be 0. \end{DoxyCompactList}\item 
+const uint32\+\_\+t \hyperlink{group__hardware_ga74ceed751e84a920be263a7fe3da67f0}{Ext\+Rate\+In}
+\begin{DoxyCompactList}\small\item\em Clock rate on the C\+L\+K\+IN pin This value is defined externally to the chip layer and contains the value in Hz for the C\+L\+K\+IN pin for the board. If this pin isn\textquotesingle{}t used, this rate can be 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+
+\subsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\index{chip.\+h@{chip.\+h}!Chip\+\_\+\+U\+S\+B\+\_\+\+Init@{Chip\+\_\+\+U\+S\+B\+\_\+\+Init}}
+\index{Chip\+\_\+\+U\+S\+B\+\_\+\+Init@{Chip\+\_\+\+U\+S\+B\+\_\+\+Init}!chip.\+h@{chip.\+h}}
+\subsubsection[{\texorpdfstring{Chip\+\_\+\+U\+S\+B\+\_\+\+Init}{Chip_USB_Init}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Chip\+\_\+\+U\+S\+B\+\_\+\+Init~{\bf Chip\+\_\+\+U\+S\+B0\+\_\+\+Init}}\hypertarget{chip_8h_ad89ee1baac6d3ed9dd81945e1e853965}{}\label{chip_8h_ad89ee1baac6d3ed9dd81945e1e853965}
+
+
+Definición en la línea 46 del archivo chip.\+h.
+
+\index{chip.\+h@{chip.\+h}!U\+N\+U\+S\+ED@{U\+N\+U\+S\+ED}}
+\index{U\+N\+U\+S\+ED@{U\+N\+U\+S\+ED}!chip.\+h@{chip.\+h}}
+\subsubsection[{\texorpdfstring{U\+N\+U\+S\+ED}{UNUSED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+N\+U\+S\+ED(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(void)(x)}\hypertarget{chip_8h_a86d500a34c624c2cae56bc25a31b12f3}{}\label{chip_8h_a86d500a34c624c2cae56bc25a31b12f3}
+
+
+Definición en la línea 53 del archivo chip.\+h.
+

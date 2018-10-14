@@ -1,0 +1,194 @@
+.TH "TPI_Type" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TPI_Type \- Structure type to access the Trace Port Interface Register (TPI)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm3\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSSPSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCSPSR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBACPR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [55]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSPPR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [131]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBFFSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFFCR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBFSCR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED3\fP [759]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTRIGGER\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBFIFO0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITATBCTR2\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED4\fP [1]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITATBCTR0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBFIFO1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBITCTRL\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED5\fP [39]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCLAIMSET\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCLAIMCLR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED7\fP [8]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDEVID\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDEVTYPE\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Structure type to access the Trace Port Interface Register (TPI)\&. 
+.PP
+Definición en la línea 886 del archivo core_cm3\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t ACPR"
+Offset: 0x010 (R/W) Asynchronous Clock Prescaler Register 
+.PP
+Definición en la línea 891 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t CLAIMCLR"
+Offset: 0xFA4 (R/W) Claim tag clear 
+.PP
+Definición en la línea 908 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t CLAIMSET"
+Offset: 0xFA0 (R/W) Claim tag set 
+.PP
+Definición en la línea 907 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t CSPSR"
+Offset: 0x004 (R/W) Current Parallel Port Size Register 
+.PP
+Definición en la línea 889 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t DEVID"
+Offset: 0xFC8 (R/ ) TPIU_DEVID 
+.PP
+Definición en la línea 910 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t DEVTYPE"
+Offset: 0xFCC (R/ ) TPIU_DEVTYPE 
+.PP
+Definición en la línea 911 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t FFCR"
+Offset: 0x304 (R/W) Formatter and Flush Control Register 
+.PP
+Definición en la línea 896 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t FFSR"
+Offset: 0x300 (R/ ) Formatter and Flush Status Register 
+.PP
+Definición en la línea 895 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t FIFO0"
+Offset: 0xEEC (R/ ) Integration ETM Data 
+.PP
+Definición en la línea 900 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t FIFO1"
+Offset: 0xEFC (R/ ) Integration ITM Data 
+.PP
+Definición en la línea 904 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t FSCR"
+Offset: 0x308 (R/ ) Formatter Synchronization Counter Register 
+.PP
+Definición en la línea 897 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t ITATBCTR0"
+Offset: 0xEF8 (R/ ) ITATBCTR0 
+.PP
+Definición en la línea 903 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t ITATBCTR2"
+Offset: 0xEF0 (R/ ) ITATBCTR2 
+.PP
+Definición en la línea 901 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t ITCTRL"
+Offset: 0xF00 (R/W) Integration Mode Control 
+.PP
+Definición en la línea 905 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED0"
+
+.PP
+Definición en la línea 890 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED1"
+
+.PP
+Definición en la línea 892 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED2"
+
+.PP
+Definición en la línea 894 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED3"
+
+.PP
+Definición en la línea 898 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED4"
+
+.PP
+Definición en la línea 902 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED5"
+
+.PP
+Definición en la línea 906 del archivo core_cm3\&.h\&.
+.SS "uint32_t RESERVED7"
+
+.PP
+Definición en la línea 909 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t SPPR"
+Offset: 0x0F0 (R/W) Selected Pin Protocol Register 
+.PP
+Definición en la línea 893 del archivo core_cm3\&.h\&.
+.SS "\fB__IO\fP uint32_t SSPSR"
+Offset: 0x000 (R/ ) Supported Parallel Port Size Register 
+.PP
+Definición en la línea 888 del archivo core_cm3\&.h\&.
+.SS "\fB__I\fP uint32_t TRIGGER"
+Offset: 0xEE8 (R/ ) TRIGGER 
+.PP
+Definición en la línea 899 del archivo core_cm3\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

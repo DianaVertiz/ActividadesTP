@@ -1,0 +1,1628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Ejercicio 1 - TP 5: Globales</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="ciaaLogo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ejercicio 1 - TP 5
+   </div>
+   <div id="projectbrief">contadores e interrupciones</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="modules.html"><span>Módulos</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li class="current"><a href="globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="globals.html"><span>Todo</span></a></li>
+      <li><a href="globals_func.html"><span>Funciones</span></a></li>
+      <li><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_type.html"><span>'typedefs'</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumeraciones</span></a></li>
+      <li><a href="globals_eval.html"><span>Valores&#160;de&#160;enumeraciones</span></a></li>
+      <li class="current"><a href="globals_defs.html"><span>'defines'</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="globals_defs.html#index__"><span>_</span></a></li>
+      <li><a href="globals_defs_a.html#index_a"><span>a</span></a></li>
+      <li><a href="globals_defs_b.html#index_b"><span>b</span></a></li>
+      <li><a href="globals_defs_c.html#index_c"><span>c</span></a></li>
+      <li><a href="globals_defs_d.html#index_d"><span>d</span></a></li>
+      <li><a href="globals_defs_e.html#index_e"><span>e</span></a></li>
+      <li><a href="globals_defs_f.html#index_f"><span>f</span></a></li>
+      <li><a href="globals_defs_g.html#index_g"><span>g</span></a></li>
+      <li><a href="globals_defs_h.html#index_h"><span>h</span></a></li>
+      <li><a href="globals_defs_i.html#index_i"><span>i</span></a></li>
+      <li><a href="globals_defs_l.html#index_l"><span>l</span></a></li>
+      <li><a href="globals_defs_m.html#index_m"><span>m</span></a></li>
+      <li><a href="globals_defs_n.html#index_n"><span>n</span></a></li>
+      <li><a href="globals_defs_o.html#index_o"><span>o</span></a></li>
+      <li><a href="globals_defs_p.html#index_p"><span>p</span></a></li>
+      <li><a href="globals_defs_q.html#index_q"><span>q</span></a></li>
+      <li><a href="globals_defs_r.html#index_r"><span>r</span></a></li>
+      <li class="current"><a href="globals_defs_s.html#index_s"><span>s</span></a></li>
+      <li><a href="globals_defs_t.html#index_t"><span>t</span></a></li>
+      <li><a href="globals_defs_u.html#index_u"><span>u</span></a></li>
+      <li><a href="globals_defs_w.html#index_w"><span>w</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals_defs_s.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SCB
+: <a class="el" href="group___c_m_s_i_s__core__base.html#gaaaf6477c2bde2f00f99e3c2fd1060b01">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gaaaf6477c2bde2f00f99e3c2fd1060b01">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gaaaf6477c2bde2f00f99e3c2fd1060b01">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gaaaf6477c2bde2f00f99e3c2fd1060b01">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gaaaf6477c2bde2f00f99e3c2fd1060b01">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gaaaf6477c2bde2f00f99e3c2fd1060b01">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_ENDIANESS_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f571f93d3d4a6eac9a3040756d3d951">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f571f93d3d4a6eac9a3040756d3d951">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f571f93d3d4a6eac9a3040756d3d951">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f571f93d3d4a6eac9a3040756d3d951">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f571f93d3d4a6eac9a3040756d3d951">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f571f93d3d4a6eac9a3040756d3d951">core_cm0.h</a>
+</li>
+<li>SCB_AIRCR_ENDIANESS_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad31dec98fbc0d33ace63cb1f1a927923">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad31dec98fbc0d33ace63cb1f1a927923">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad31dec98fbc0d33ace63cb1f1a927923">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad31dec98fbc0d33ace63cb1f1a927923">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad31dec98fbc0d33ace63cb1f1a927923">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad31dec98fbc0d33ace63cb1f1a927923">core_cm3.h</a>
+</li>
+<li>SCB_AIRCR_PRIGROUP_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga8be60fff03f48d0d345868060dc6dae7">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga8be60fff03f48d0d345868060dc6dae7">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga8be60fff03f48d0d345868060dc6dae7">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_PRIGROUP_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaca155deccdeca0f2c76b8100d24196c8">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaca155deccdeca0f2c76b8100d24196c8">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaca155deccdeca0f2c76b8100d24196c8">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_SYSRESETREQ_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaae1181119559a5bd36e62afa373fa720">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaae1181119559a5bd36e62afa373fa720">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaae1181119559a5bd36e62afa373fa720">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaae1181119559a5bd36e62afa373fa720">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaae1181119559a5bd36e62afa373fa720">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaae1181119559a5bd36e62afa373fa720">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_SYSRESETREQ_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaffb2737eca1eac0fc1c282a76a40953c">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaffb2737eca1eac0fc1c282a76a40953c">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaffb2737eca1eac0fc1c282a76a40953c">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaffb2737eca1eac0fc1c282a76a40953c">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaffb2737eca1eac0fc1c282a76a40953c">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaffb2737eca1eac0fc1c282a76a40953c">core_cm0.h</a>
+</li>
+<li>SCB_AIRCR_VECTCLRACTIVE_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga212c5ab1c1c82c807d30d2307aa8d218">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga212c5ab1c1c82c807d30d2307aa8d218">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga212c5ab1c1c82c807d30d2307aa8d218">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga212c5ab1c1c82c807d30d2307aa8d218">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga212c5ab1c1c82c807d30d2307aa8d218">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga212c5ab1c1c82c807d30d2307aa8d218">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_VECTCLRACTIVE_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa30a12e892bb696e61626d71359a9029">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa30a12e892bb696e61626d71359a9029">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa30a12e892bb696e61626d71359a9029">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa30a12e892bb696e61626d71359a9029">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa30a12e892bb696e61626d71359a9029">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa30a12e892bb696e61626d71359a9029">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_VECTKEY_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga90c7cf0c490e7ae55f9503a7fda1dd22">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga90c7cf0c490e7ae55f9503a7fda1dd22">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga90c7cf0c490e7ae55f9503a7fda1dd22">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga90c7cf0c490e7ae55f9503a7fda1dd22">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga90c7cf0c490e7ae55f9503a7fda1dd22">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga90c7cf0c490e7ae55f9503a7fda1dd22">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_VECTKEY_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaaa27c0ba600bf82c3da08c748845b640">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaaa27c0ba600bf82c3da08c748845b640">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaaa27c0ba600bf82c3da08c748845b640">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaaa27c0ba600bf82c3da08c748845b640">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaaa27c0ba600bf82c3da08c748845b640">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaaa27c0ba600bf82c3da08c748845b640">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_VECTKEYSTAT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gabacedaefeefc73d666bbe59ece904493">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gabacedaefeefc73d666bbe59ece904493">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gabacedaefeefc73d666bbe59ece904493">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gabacedaefeefc73d666bbe59ece904493">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gabacedaefeefc73d666bbe59ece904493">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gabacedaefeefc73d666bbe59ece904493">core_cm3.h</a>
+</li>
+<li>SCB_AIRCR_VECTKEYSTAT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaec404750ff5ca07f499a3c06b62051ef">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaec404750ff5ca07f499a3c06b62051ef">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaec404750ff5ca07f499a3c06b62051ef">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaec404750ff5ca07f499a3c06b62051ef">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaec404750ff5ca07f499a3c06b62051ef">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaec404750ff5ca07f499a3c06b62051ef">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_VECTRESET_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3006e31968bb9725e7b4ee0784d99f7f">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3006e31968bb9725e7b4ee0784d99f7f">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3006e31968bb9725e7b4ee0784d99f7f">core_sc300.h</a>
+</li>
+<li>SCB_AIRCR_VECTRESET_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga0d483d9569cd9d1b46ec0d171b1f18d8">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga0d483d9569cd9d1b46ec0d171b1f18d8">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga0d483d9569cd9d1b46ec0d171b1f18d8">core_sc300.h</a>
+</li>
+<li>SCB_BASE
+: <a class="el" href="group___c_m_s_i_s__core__base.html#gad55a7ddb8d4b2398b0c1cfec76c0d9fd">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gad55a7ddb8d4b2398b0c1cfec76c0d9fd">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gad55a7ddb8d4b2398b0c1cfec76c0d9fd">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gad55a7ddb8d4b2398b0c1cfec76c0d9fd">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gad55a7ddb8d4b2398b0c1cfec76c0d9fd">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gad55a7ddb8d4b2398b0c1cfec76c0d9fd">core_sc300.h</a>
+</li>
+<li>SCB_CCR_BFHFNMIGN_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga89a28cc31cfc7d52d9d7a8fcc69c7eac">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga89a28cc31cfc7d52d9d7a8fcc69c7eac">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga89a28cc31cfc7d52d9d7a8fcc69c7eac">core_sc300.h</a>
+</li>
+<li>SCB_CCR_BFHFNMIGN_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4010a4f9e2a745af1b58abe1f791ebbf">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4010a4f9e2a745af1b58abe1f791ebbf">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4010a4f9e2a745af1b58abe1f791ebbf">core_sc300.h</a>
+</li>
+<li>SCB_CCR_DIV_0_TRP_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gabb9aeac71b3abd8586d0297070f61dcb">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gabb9aeac71b3abd8586d0297070f61dcb">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gabb9aeac71b3abd8586d0297070f61dcb">core_sc300.h</a>
+</li>
+<li>SCB_CCR_DIV_0_TRP_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac8d512998bb8cd9333fb7627ddf59bba">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac8d512998bb8cd9333fb7627ddf59bba">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac8d512998bb8cd9333fb7627ddf59bba">core_sc300.h</a>
+</li>
+<li>SCB_CCR_NONBASETHRDENA_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafe0f6be81b35d72d0736a0a1e3b4fbb3">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafe0f6be81b35d72d0736a0a1e3b4fbb3">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafe0f6be81b35d72d0736a0a1e3b4fbb3">core_sc300.h</a>
+</li>
+<li>SCB_CCR_NONBASETHRDENA_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab4615f7deb07386350365b10240a3c83">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab4615f7deb07386350365b10240a3c83">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab4615f7deb07386350365b10240a3c83">core_sc300.h</a>
+</li>
+<li>SCB_CCR_STKALIGN_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga33cf22d3d46af158a03aad25ddea1bcb">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga33cf22d3d46af158a03aad25ddea1bcb">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga33cf22d3d46af158a03aad25ddea1bcb">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga33cf22d3d46af158a03aad25ddea1bcb">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga33cf22d3d46af158a03aad25ddea1bcb">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga33cf22d3d46af158a03aad25ddea1bcb">core_sc300.h</a>
+</li>
+<li>SCB_CCR_STKALIGN_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac2d20a250960a432cc74da59d20e2f86">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac2d20a250960a432cc74da59d20e2f86">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac2d20a250960a432cc74da59d20e2f86">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac2d20a250960a432cc74da59d20e2f86">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac2d20a250960a432cc74da59d20e2f86">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac2d20a250960a432cc74da59d20e2f86">core_sc300.h</a>
+</li>
+<li>SCB_CCR_UNALIGN_TRP_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga68c96ad594af70c007923979085c99e0">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga68c96ad594af70c007923979085c99e0">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga68c96ad594af70c007923979085c99e0">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga68c96ad594af70c007923979085c99e0">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga68c96ad594af70c007923979085c99e0">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga68c96ad594af70c007923979085c99e0">core_sc300.h</a>
+</li>
+<li>SCB_CCR_UNALIGN_TRP_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac4e4928b864ea10fc24dbbc57d976229">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac4e4928b864ea10fc24dbbc57d976229">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac4e4928b864ea10fc24dbbc57d976229">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac4e4928b864ea10fc24dbbc57d976229">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac4e4928b864ea10fc24dbbc57d976229">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac4e4928b864ea10fc24dbbc57d976229">core_sc300.h</a>
+</li>
+<li>SCB_CCR_USERSETMPEND_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4cf59b6343ca962c80e1885710da90aa">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4cf59b6343ca962c80e1885710da90aa">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4cf59b6343ca962c80e1885710da90aa">core_cm3.h</a>
+</li>
+<li>SCB_CCR_USERSETMPEND_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga789e41f45f59a8cd455fd59fa7652e5e">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga789e41f45f59a8cd455fd59fa7652e5e">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga789e41f45f59a8cd455fd59fa7652e5e">core_sc300.h</a>
+</li>
+<li>SCB_CFSR_BUSFAULTSR_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga26dc1ddfdc37a6b92597a6f7e498c1d6">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga26dc1ddfdc37a6b92597a6f7e498c1d6">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga26dc1ddfdc37a6b92597a6f7e498c1d6">core_sc300.h</a>
+</li>
+<li>SCB_CFSR_BUSFAULTSR_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga555a24f4f57d199f91d1d1ab7c8c3c8a">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga555a24f4f57d199f91d1d1ab7c8c3c8a">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga555a24f4f57d199f91d1d1ab7c8c3c8a">core_sc300.h</a>
+</li>
+<li>SCB_CFSR_MEMFAULTSR_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad46716159a3808c9e7da22067d6bec98">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad46716159a3808c9e7da22067d6bec98">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad46716159a3808c9e7da22067d6bec98">core_sc300.h</a>
+</li>
+<li>SCB_CFSR_MEMFAULTSR_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga91f41491cec5b5acca3fbc94efbd799e">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga91f41491cec5b5acca3fbc94efbd799e">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga91f41491cec5b5acca3fbc94efbd799e">core_sc300.h</a>
+</li>
+<li>SCB_CFSR_USGFAULTSR_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga565807b1a3f31891f1f967d0fa30d03f">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga565807b1a3f31891f1f967d0fa30d03f">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga565807b1a3f31891f1f967d0fa30d03f">core_sc300.h</a>
+</li>
+<li>SCB_CFSR_USGFAULTSR_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac8e4197b295c8560e68e2d71285c7879">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac8e4197b295c8560e68e2d71285c7879">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac8e4197b295c8560e68e2d71285c7879">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_ARCHITECTURE_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafae4a1f27a927338ae9dc51a0e146213">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafae4a1f27a927338ae9dc51a0e146213">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafae4a1f27a927338ae9dc51a0e146213">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafae4a1f27a927338ae9dc51a0e146213">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafae4a1f27a927338ae9dc51a0e146213">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafae4a1f27a927338ae9dc51a0e146213">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_ARCHITECTURE_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf8b3236b08fb8e840efb682645fb0e98">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf8b3236b08fb8e840efb682645fb0e98">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf8b3236b08fb8e840efb682645fb0e98">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf8b3236b08fb8e840efb682645fb0e98">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf8b3236b08fb8e840efb682645fb0e98">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf8b3236b08fb8e840efb682645fb0e98">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_IMPLEMENTER_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga0932b31faafd47656a03ced75a31d99b">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga0932b31faafd47656a03ced75a31d99b">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga0932b31faafd47656a03ced75a31d99b">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga0932b31faafd47656a03ced75a31d99b">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga0932b31faafd47656a03ced75a31d99b">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga0932b31faafd47656a03ced75a31d99b">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_IMPLEMENTER_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga58686b88f94f789d4e6f429fe1ff58cf">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga58686b88f94f789d4e6f429fe1ff58cf">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga58686b88f94f789d4e6f429fe1ff58cf">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga58686b88f94f789d4e6f429fe1ff58cf">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga58686b88f94f789d4e6f429fe1ff58cf">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga58686b88f94f789d4e6f429fe1ff58cf">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_PARTNO_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga98e581423ca016680c238c469aba546d">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga98e581423ca016680c238c469aba546d">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga98e581423ca016680c238c469aba546d">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga98e581423ca016680c238c469aba546d">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga98e581423ca016680c238c469aba546d">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga98e581423ca016680c238c469aba546d">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_PARTNO_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga705f68eaa9afb042ca2407dc4e4629ac">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga705f68eaa9afb042ca2407dc4e4629ac">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga705f68eaa9afb042ca2407dc4e4629ac">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga705f68eaa9afb042ca2407dc4e4629ac">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga705f68eaa9afb042ca2407dc4e4629ac">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga705f68eaa9afb042ca2407dc4e4629ac">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_REVISION_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2ec0448b6483f77e7f5d08b4b81d85df">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2ec0448b6483f77e7f5d08b4b81d85df">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2ec0448b6483f77e7f5d08b4b81d85df">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2ec0448b6483f77e7f5d08b4b81d85df">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2ec0448b6483f77e7f5d08b4b81d85df">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2ec0448b6483f77e7f5d08b4b81d85df">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_REVISION_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3c3d9071e574de11fb27ba57034838b1">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3c3d9071e574de11fb27ba57034838b1">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3c3d9071e574de11fb27ba57034838b1">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3c3d9071e574de11fb27ba57034838b1">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3c3d9071e574de11fb27ba57034838b1">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3c3d9071e574de11fb27ba57034838b1">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_VARIANT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad358dfbd04300afc1824329d128b99e8">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad358dfbd04300afc1824329d128b99e8">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad358dfbd04300afc1824329d128b99e8">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad358dfbd04300afc1824329d128b99e8">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad358dfbd04300afc1824329d128b99e8">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad358dfbd04300afc1824329d128b99e8">core_sc300.h</a>
+</li>
+<li>SCB_CPUID_VARIANT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga104462bd0815391b4044a70bd15d3a71">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga104462bd0815391b4044a70bd15d3a71">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga104462bd0815391b4044a70bd15d3a71">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga104462bd0815391b4044a70bd15d3a71">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga104462bd0815391b4044a70bd15d3a71">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga104462bd0815391b4044a70bd15d3a71">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_BKPT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga609edf8f50bc49adb51ae28bcecefe1f">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga609edf8f50bc49adb51ae28bcecefe1f">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga609edf8f50bc49adb51ae28bcecefe1f">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_BKPT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf28fdce48655f0dcefb383aebf26b050">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf28fdce48655f0dcefb383aebf26b050">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf28fdce48655f0dcefb383aebf26b050">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_DWTTRAP_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3f7384b8a761704655fd45396a305663">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3f7384b8a761704655fd45396a305663">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3f7384b8a761704655fd45396a305663">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_DWTTRAP_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaccf82364c6d0ed7206f1084277b7cc61">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaccf82364c6d0ed7206f1084277b7cc61">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaccf82364c6d0ed7206f1084277b7cc61">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_EXTERNAL_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3cba2ec1f588ce0b10b191d6b0d23399">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3cba2ec1f588ce0b10b191d6b0d23399">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3cba2ec1f588ce0b10b191d6b0d23399">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_EXTERNAL_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga13f502fb5ac673df9c287488c40b0c1d">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga13f502fb5ac673df9c287488c40b0c1d">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga13f502fb5ac673df9c287488c40b0c1d">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_HALTED_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga200bcf918d57443b5e29e8ce552e4bdf">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga200bcf918d57443b5e29e8ce552e4bdf">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga200bcf918d57443b5e29e8ce552e4bdf">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_HALTED_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaef4ec28427f9f88ac70a13ae4e541378">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaef4ec28427f9f88ac70a13ae4e541378">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaef4ec28427f9f88ac70a13ae4e541378">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_VCATCH_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gacbb931575c07b324ec793775b7c44d05">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gacbb931575c07b324ec793775b7c44d05">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gacbb931575c07b324ec793775b7c44d05">core_sc300.h</a>
+</li>
+<li>SCB_DFSR_VCATCH_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad02d3eaf062ac184c18a7889c9b6de57">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad02d3eaf062ac184c18a7889c9b6de57">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad02d3eaf062ac184c18a7889c9b6de57">core_sc300.h</a>
+</li>
+<li>SCB_HFSR_DEBUGEVT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gababd60e94756bb33929d5e6f25d8dba3">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gababd60e94756bb33929d5e6f25d8dba3">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gababd60e94756bb33929d5e6f25d8dba3">core_sc300.h</a>
+</li>
+<li>SCB_HFSR_DEBUGEVT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga300c90cfb7b35c82b4d44ad16c757ffb">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga300c90cfb7b35c82b4d44ad16c757ffb">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga300c90cfb7b35c82b4d44ad16c757ffb">core_sc300.h</a>
+</li>
+<li>SCB_HFSR_FORCED_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga6560d97ed043bc01152a7247bafa3157">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga6560d97ed043bc01152a7247bafa3157">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga6560d97ed043bc01152a7247bafa3157">core_sc300.h</a>
+</li>
+<li>SCB_HFSR_FORCED_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab361e54183a378474cb419ae2a55d6f4">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab361e54183a378474cb419ae2a55d6f4">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab361e54183a378474cb419ae2a55d6f4">core_sc300.h</a>
+</li>
+<li>SCB_HFSR_VECTTBL_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaac5e289211d0a63fe879a9691cb9e1a9">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaac5e289211d0a63fe879a9691cb9e1a9">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaac5e289211d0a63fe879a9691cb9e1a9">core_sc300.h</a>
+</li>
+<li>SCB_HFSR_VECTTBL_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga77993da8de35adea7bda6a4475f036ab">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga77993da8de35adea7bda6a4475f036ab">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga77993da8de35adea7bda6a4475f036ab">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_ISRPENDING_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga056d74fd538e5d36d3be1f28d399c877">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga056d74fd538e5d36d3be1f28d399c877">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga056d74fd538e5d36d3be1f28d399c877">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga056d74fd538e5d36d3be1f28d399c877">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga056d74fd538e5d36d3be1f28d399c877">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga056d74fd538e5d36d3be1f28d399c877">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_ISRPENDING_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga10749d92b9b744094b845c2eb46d4319">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga10749d92b9b744094b845c2eb46d4319">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga10749d92b9b744094b845c2eb46d4319">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga10749d92b9b744094b845c2eb46d4319">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga10749d92b9b744094b845c2eb46d4319">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga10749d92b9b744094b845c2eb46d4319">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_ISRPREEMPT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa966600396290808d596fe96e92ca2b5">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa966600396290808d596fe96e92ca2b5">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa966600396290808d596fe96e92ca2b5">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa966600396290808d596fe96e92ca2b5">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa966600396290808d596fe96e92ca2b5">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa966600396290808d596fe96e92ca2b5">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_ISRPREEMPT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga11cb5b1f9ce167b81f31787a77e575df">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga11cb5b1f9ce167b81f31787a77e575df">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga11cb5b1f9ce167b81f31787a77e575df">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga11cb5b1f9ce167b81f31787a77e575df">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga11cb5b1f9ce167b81f31787a77e575df">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga11cb5b1f9ce167b81f31787a77e575df">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_NMIPENDSET_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga340e3f79e9c3607dee9f2c048b6b22e8">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga340e3f79e9c3607dee9f2c048b6b22e8">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga340e3f79e9c3607dee9f2c048b6b22e8">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga340e3f79e9c3607dee9f2c048b6b22e8">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga340e3f79e9c3607dee9f2c048b6b22e8">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga340e3f79e9c3607dee9f2c048b6b22e8">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_NMIPENDSET_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga750d4b52624a46d71356db4ea769573b">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga750d4b52624a46d71356db4ea769573b">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga750d4b52624a46d71356db4ea769573b">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga750d4b52624a46d71356db4ea769573b">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga750d4b52624a46d71356db4ea769573b">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga750d4b52624a46d71356db4ea769573b">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_PENDSTCLR_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab241827d2a793269d8cd99b9b28c2157">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab241827d2a793269d8cd99b9b28c2157">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab241827d2a793269d8cd99b9b28c2157">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab241827d2a793269d8cd99b9b28c2157">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab241827d2a793269d8cd99b9b28c2157">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab241827d2a793269d8cd99b9b28c2157">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_PENDSTCLR_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gadbe25e4b333ece1341beb1a740168fdc">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gadbe25e4b333ece1341beb1a740168fdc">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gadbe25e4b333ece1341beb1a740168fdc">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gadbe25e4b333ece1341beb1a740168fdc">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gadbe25e4b333ece1341beb1a740168fdc">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gadbe25e4b333ece1341beb1a740168fdc">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_PENDSTSET_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga7325b61ea0ec323ef2d5c893b112e546">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga7325b61ea0ec323ef2d5c893b112e546">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga7325b61ea0ec323ef2d5c893b112e546">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga7325b61ea0ec323ef2d5c893b112e546">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga7325b61ea0ec323ef2d5c893b112e546">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga7325b61ea0ec323ef2d5c893b112e546">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_PENDSTSET_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9dbb3358c6167c9c3f85661b90fb2794">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9dbb3358c6167c9c3f85661b90fb2794">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9dbb3358c6167c9c3f85661b90fb2794">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9dbb3358c6167c9c3f85661b90fb2794">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9dbb3358c6167c9c3f85661b90fb2794">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9dbb3358c6167c9c3f85661b90fb2794">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_PENDSVCLR_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4a901ace381d3c1c74ac82b22fae2e1e">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4a901ace381d3c1c74ac82b22fae2e1e">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4a901ace381d3c1c74ac82b22fae2e1e">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4a901ace381d3c1c74ac82b22fae2e1e">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4a901ace381d3c1c74ac82b22fae2e1e">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga4a901ace381d3c1c74ac82b22fae2e1e">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_PENDSVCLR_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae218d9022288f89faf57187c4d542ecd">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae218d9022288f89faf57187c4d542ecd">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae218d9022288f89faf57187c4d542ecd">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae218d9022288f89faf57187c4d542ecd">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae218d9022288f89faf57187c4d542ecd">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae218d9022288f89faf57187c4d542ecd">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_PENDSVSET_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga1e40d93efb402763c8c00ddcc56724ff">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga1e40d93efb402763c8c00ddcc56724ff">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga1e40d93efb402763c8c00ddcc56724ff">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga1e40d93efb402763c8c00ddcc56724ff">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga1e40d93efb402763c8c00ddcc56724ff">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga1e40d93efb402763c8c00ddcc56724ff">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_PENDSVSET_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab5ded23d2ab1d5ff7cc7ce746205e9fe">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab5ded23d2ab1d5ff7cc7ce746205e9fe">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab5ded23d2ab1d5ff7cc7ce746205e9fe">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab5ded23d2ab1d5ff7cc7ce746205e9fe">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab5ded23d2ab1d5ff7cc7ce746205e9fe">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab5ded23d2ab1d5ff7cc7ce746205e9fe">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_RETTOBASE_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaca6fc3f79bb550f64fd7df782ed4a5f6">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaca6fc3f79bb550f64fd7df782ed4a5f6">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaca6fc3f79bb550f64fd7df782ed4a5f6">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_RETTOBASE_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga403d154200242629e6d2764bfc12a7ec">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga403d154200242629e6d2764bfc12a7ec">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga403d154200242629e6d2764bfc12a7ec">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_VECTACTIVE_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga5533791a4ecf1b9301c883047b3e8396">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga5533791a4ecf1b9301c883047b3e8396">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga5533791a4ecf1b9301c883047b3e8396">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga5533791a4ecf1b9301c883047b3e8396">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga5533791a4ecf1b9301c883047b3e8396">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga5533791a4ecf1b9301c883047b3e8396">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_VECTACTIVE_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae4f602c7c5c895d5fb687b71b0979fc3">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae4f602c7c5c895d5fb687b71b0979fc3">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae4f602c7c5c895d5fb687b71b0979fc3">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae4f602c7c5c895d5fb687b71b0979fc3">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae4f602c7c5c895d5fb687b71b0979fc3">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae4f602c7c5c895d5fb687b71b0979fc3">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_VECTPENDING_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gacb6992e7c7ddc27a370f62878a21ef72">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gacb6992e7c7ddc27a370f62878a21ef72">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gacb6992e7c7ddc27a370f62878a21ef72">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gacb6992e7c7ddc27a370f62878a21ef72">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gacb6992e7c7ddc27a370f62878a21ef72">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gacb6992e7c7ddc27a370f62878a21ef72">core_sc300.h</a>
+</li>
+<li>SCB_ICSR_VECTPENDING_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gada60c92bf88d6fd21a8f49efa4a127b8">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gada60c92bf88d6fd21a8f49efa4a127b8">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gada60c92bf88d6fd21a8f49efa4a127b8">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gada60c92bf88d6fd21a8f49efa4a127b8">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gada60c92bf88d6fd21a8f49efa4a127b8">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gada60c92bf88d6fd21a8f49efa4a127b8">core_sc300.h</a>
+</li>
+<li>SCB_SCR_SEVONPEND_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafb98656644a14342e467505f69a997c9">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafb98656644a14342e467505f69a997c9">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafb98656644a14342e467505f69a997c9">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafb98656644a14342e467505f69a997c9">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafb98656644a14342e467505f69a997c9">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafb98656644a14342e467505f69a997c9">core_sc300.h</a>
+</li>
+<li>SCB_SCR_SEVONPEND_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3bddcec40aeaf3d3a998446100fa0e44">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3bddcec40aeaf3d3a998446100fa0e44">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3bddcec40aeaf3d3a998446100fa0e44">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3bddcec40aeaf3d3a998446100fa0e44">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3bddcec40aeaf3d3a998446100fa0e44">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3bddcec40aeaf3d3a998446100fa0e44">core_sc300.h</a>
+</li>
+<li>SCB_SCR_SLEEPDEEP_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga77c06a69c63f4b3f6ec1032e911e18e7">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga77c06a69c63f4b3f6ec1032e911e18e7">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga77c06a69c63f4b3f6ec1032e911e18e7">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga77c06a69c63f4b3f6ec1032e911e18e7">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga77c06a69c63f4b3f6ec1032e911e18e7">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga77c06a69c63f4b3f6ec1032e911e18e7">core_sc300.h</a>
+</li>
+<li>SCB_SCR_SLEEPDEEP_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab304f6258ec03bd9a6e7a360515c3cfe">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab304f6258ec03bd9a6e7a360515c3cfe">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab304f6258ec03bd9a6e7a360515c3cfe">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab304f6258ec03bd9a6e7a360515c3cfe">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab304f6258ec03bd9a6e7a360515c3cfe">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab304f6258ec03bd9a6e7a360515c3cfe">core_sc300.h</a>
+</li>
+<li>SCB_SCR_SLEEPONEXIT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga50a243e317b9a70781b02758d45b05ee">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga50a243e317b9a70781b02758d45b05ee">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga50a243e317b9a70781b02758d45b05ee">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga50a243e317b9a70781b02758d45b05ee">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga50a243e317b9a70781b02758d45b05ee">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga50a243e317b9a70781b02758d45b05ee">core_sc300.h</a>
+</li>
+<li>SCB_SCR_SLEEPONEXIT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3680a15114d7fdc1e25043b881308fe9">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3680a15114d7fdc1e25043b881308fe9">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3680a15114d7fdc1e25043b881308fe9">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3680a15114d7fdc1e25043b881308fe9">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3680a15114d7fdc1e25043b881308fe9">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3680a15114d7fdc1e25043b881308fe9">core_sc300.h</a>
+</li>
+<li>SCB_SFCR_SECKEY_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga63204e0b29702db1986965cd501e0261">core_sc000.h</a>
+</li>
+<li>SCB_SFCR_SECKEY_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga31abd05f0bad22a4b2fe09f8b046bde6">core_sc000.h</a>
+</li>
+<li>SCB_SFCR_UNIBRTIMING_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga396f038c53d08de0020bdbe4f8cd5bea">core_sc000.h</a>
+</li>
+<li>SCB_SFCR_UNIBRTIMING_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3b905441d170f29da1d5f6f8ba8d797d">core_sc000.h</a>
+</li>
+<li>SCB_SHCSR_BUSFAULTACT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9d7a8b1054b655ad08d85c3c535d4f73">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9d7a8b1054b655ad08d85c3c535d4f73">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9d7a8b1054b655ad08d85c3c535d4f73">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_BUSFAULTACT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf272760f2df9ecdd8a5fbbd65c0b767a">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf272760f2df9ecdd8a5fbbd65c0b767a">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf272760f2df9ecdd8a5fbbd65c0b767a">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_BUSFAULTENA_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga43e8cbe619c9980e0d1aacc85d9b9e47">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga43e8cbe619c9980e0d1aacc85d9b9e47">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga43e8cbe619c9980e0d1aacc85d9b9e47">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_BUSFAULTENA_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3d32edbe4a5c0335f808cfc19ec7e844">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3d32edbe4a5c0335f808cfc19ec7e844">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3d32edbe4a5c0335f808cfc19ec7e844">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_BUSFAULTPENDED_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga677c23749c4d348f30fb471d1223e783">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga677c23749c4d348f30fb471d1223e783">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga677c23749c4d348f30fb471d1223e783">core_cm4.h</a>
+</li>
+<li>SCB_SHCSR_BUSFAULTPENDED_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa22551e24a72b65f1e817f7ab462203b">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa22551e24a72b65f1e817f7ab462203b">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaa22551e24a72b65f1e817f7ab462203b">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_MEMFAULTACT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9147fd4e1b12394ae26eadf900a023a3">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9147fd4e1b12394ae26eadf900a023a3">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9147fd4e1b12394ae26eadf900a023a3">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_MEMFAULTACT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga7c856f79a75dcc1d1517b19a67691803">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga7c856f79a75dcc1d1517b19a67691803">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga7c856f79a75dcc1d1517b19a67691803">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_MEMFAULTENA_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf084424fa1f69bea36a1c44899d83d17">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf084424fa1f69bea36a1c44899d83d17">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaf084424fa1f69bea36a1c44899d83d17">core_cm4.h</a>
+</li>
+<li>SCB_SHCSR_MEMFAULTENA_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga685b4564a8760b4506f14ec4307b7251">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga685b4564a8760b4506f14ec4307b7251">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga685b4564a8760b4506f14ec4307b7251">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_MEMFAULTPENDED_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9abc6c2e395f9e5af4ce05fc420fb04c">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9abc6c2e395f9e5af4ce05fc420fb04c">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9abc6c2e395f9e5af4ce05fc420fb04c">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_MEMFAULTPENDED_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaceb60fe2d8a8cb17fcd1c1f6b5aa924f">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaceb60fe2d8a8cb17fcd1c1f6b5aa924f">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaceb60fe2d8a8cb17fcd1c1f6b5aa924f">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_MONITORACT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaad09b4bc36e9bccccc2e110d20b16e1a">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaad09b4bc36e9bccccc2e110d20b16e1a">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaad09b4bc36e9bccccc2e110d20b16e1a">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_MONITORACT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga8b71cf4c61803752a41c96deb00d26af">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga8b71cf4c61803752a41c96deb00d26af">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga8b71cf4c61803752a41c96deb00d26af">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_PENDSVACT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae0e837241a515d4cbadaaae1faa8e039">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae0e837241a515d4cbadaaae1faa8e039">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae0e837241a515d4cbadaaae1faa8e039">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_PENDSVACT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9b9fa69ce4c5ce7fe0861dbccfb15939">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9b9fa69ce4c5ce7fe0861dbccfb15939">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga9b9fa69ce4c5ce7fe0861dbccfb15939">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_SVCALLACT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga634c0f69a233475289023ae5cb158fdf">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga634c0f69a233475289023ae5cb158fdf">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga634c0f69a233475289023ae5cb158fdf">core_cm4.h</a>
+</li>
+<li>SCB_SHCSR_SVCALLACT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga977f5176be2bc8b123873861b38bc02f">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga977f5176be2bc8b123873861b38bc02f">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga977f5176be2bc8b123873861b38bc02f">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_SVCALLPENDED_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga6095a7acfbad66f52822b1392be88652">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga6095a7acfbad66f52822b1392be88652">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga6095a7acfbad66f52822b1392be88652">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga6095a7acfbad66f52822b1392be88652">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga6095a7acfbad66f52822b1392be88652">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga6095a7acfbad66f52822b1392be88652">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_SVCALLPENDED_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f93ec9b243f94cdd3e94b8f0bf43641">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f93ec9b243f94cdd3e94b8f0bf43641">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f93ec9b243f94cdd3e94b8f0bf43641">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f93ec9b243f94cdd3e94b8f0bf43641">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f93ec9b243f94cdd3e94b8f0bf43641">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga2f93ec9b243f94cdd3e94b8f0bf43641">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_SYSTICKACT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafef530088dc6d6bfc9f1893d52853684">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafef530088dc6d6bfc9f1893d52853684">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gafef530088dc6d6bfc9f1893d52853684">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_SYSTICKACT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaec9ca3b1213c49e2442373445e1697de">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaec9ca3b1213c49e2442373445e1697de">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gaec9ca3b1213c49e2442373445e1697de">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_USGFAULTACT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab3166103b5a5f7931d0df90949c47dfe">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab3166103b5a5f7931d0df90949c47dfe">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gab3166103b5a5f7931d0df90949c47dfe">core_cm4.h</a>
+</li>
+<li>SCB_SHCSR_USGFAULTACT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae06f54f5081f01ed3f6824e451ad3656">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae06f54f5081f01ed3f6824e451ad3656">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae06f54f5081f01ed3f6824e451ad3656">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_USGFAULTENA_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga056fb6be590857bbc029bed48b21dd79">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga056fb6be590857bbc029bed48b21dd79">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga056fb6be590857bbc029bed48b21dd79">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_USGFAULTENA_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae71949507636fda388ec11d5c2d30b52">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae71949507636fda388ec11d5c2d30b52">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gae71949507636fda388ec11d5c2d30b52">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_USGFAULTPENDED_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga122b4f732732010895e438803a29d3cc">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga122b4f732732010895e438803a29d3cc">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga122b4f732732010895e438803a29d3cc">core_sc300.h</a>
+</li>
+<li>SCB_SHCSR_USGFAULTPENDED_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3cf03acf1fdc2edc3b047ddd47ebbf87">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3cf03acf1fdc2edc3b047ddd47ebbf87">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga3cf03acf1fdc2edc3b047ddd47ebbf87">core_sc300.h</a>
+</li>
+<li>SCB_VTOR_TBLBASE_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga778dd0ba178466b2a8877a6b8aa345ee">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga778dd0ba178466b2a8877a6b8aa345ee">core_sc300.h</a>
+</li>
+<li>SCB_VTOR_TBLBASE_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad9720a44320c053883d03b883b955751">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gad9720a44320c053883d03b883b955751">core_sc300.h</a>
+</li>
+<li>SCB_VTOR_TBLOFF_Msk
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga75e395ed74042923e8c93edf50f0996c">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga75e395ed74042923e8c93edf50f0996c">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga75e395ed74042923e8c93edf50f0996c">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#ga75e395ed74042923e8c93edf50f0996c">core_sc300.h</a>
+</li>
+<li>SCB_VTOR_TBLOFF_Pos
+: <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac6a55451ddd38bffcff5a211d29cea78">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac6a55451ddd38bffcff5a211d29cea78">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac6a55451ddd38bffcff5a211d29cea78">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_c_b.html#gac6a55451ddd38bffcff5a211d29cea78">core_cm3.h</a>
+</li>
+<li>SCnSCB
+: <a class="el" href="group___c_m_s_i_s__core__base.html#ga9fe0cd2eef83a8adad94490d9ecca63f">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga9fe0cd2eef83a8adad94490d9ecca63f">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga9fe0cd2eef83a8adad94490d9ecca63f">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga9fe0cd2eef83a8adad94490d9ecca63f">core_sc300.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISDEFWBUF_Msk
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga6cda7b7219232a008ec52cc8e89d5d08">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga6cda7b7219232a008ec52cc8e89d5d08">core_cm3.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISDEFWBUF_Pos
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gafa2eb37493c0f8dae77cde81ecf80f77">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gafa2eb37493c0f8dae77cde81ecf80f77">core_cm4.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISFOLD_Msk
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gaa9dd2d4a2350499188f438d0aa9fd982">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gaa9dd2d4a2350499188f438d0aa9fd982">core_cm3.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISFOLD_Pos
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gaab395870643a0bee78906bb15ca5bd02">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gaab395870643a0bee78906bb15ca5bd02">core_cm4.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISFPCA_Msk
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga10d5aa4a196dcde6f476016ece2c1b69">core_cm4.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISFPCA_Pos
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gaa194809383bc72ecf3416d85709281d7">core_cm4.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISMCYCINT_Msk
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga2a2818f0489ad10b6ea2964e899d4cbc">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga2a2818f0489ad10b6ea2964e899d4cbc">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga2a2818f0489ad10b6ea2964e899d4cbc">core_sc000.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISMCYCINT_Pos
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gaaa3e79f5ead4a32c0ea742b2a9ffc0cd">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gaaa3e79f5ead4a32c0ea742b2a9ffc0cd">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gaaa3e79f5ead4a32c0ea742b2a9ffc0cd">core_sc000.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISOOFP_Msk
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga1ecd6adafa43464d7097b132c19e8640">core_cm4.h</a>
+</li>
+<li>SCnSCB_ACTLR_DISOOFP_Pos
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#gaff0b57464c60fea8182b903676f8de49">core_cm4.h</a>
+</li>
+<li>SCnSCB_ICTR_INTLINESNUM_Msk
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga3efa0f5210051464e1034b19fc7b33c7">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga3efa0f5210051464e1034b19fc7b33c7">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga3efa0f5210051464e1034b19fc7b33c7">core_sc300.h</a>
+</li>
+<li>SCnSCB_ICTR_INTLINESNUM_Pos
+: <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga0777ddf379af50f9ca41d40573bfffc5">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga0777ddf379af50f9ca41d40573bfffc5">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___s_cn_s_c_b.html#ga0777ddf379af50f9ca41d40573bfffc5">core_sc300.h</a>
+</li>
+<li>SCS_BASE
+: <a class="el" href="group___c_m_s_i_s__core__base.html#ga3c14ed93192c8d9143322bbf77ebf770">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga3c14ed93192c8d9143322bbf77ebf770">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga3c14ed93192c8d9143322bbf77ebf770">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga3c14ed93192c8d9143322bbf77ebf770">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga3c14ed93192c8d9143322bbf77ebf770">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga3c14ed93192c8d9143322bbf77ebf770">core_cm0.h</a>
+</li>
+<li>SCT_CONFIG_16BIT_COUNTER
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga441708986d2cd57043b0603801c21450">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CONFIG_32BIT_COUNTER
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga579cb78a05f4c680e9ec5463dc5aeafd">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CONFIG_AUTOLIMIT_H
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#gade673779ab8ecd446b29251467328b6e">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CONFIG_AUTOLIMIT_L
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#gac727f3a2843844006cad343e832f2986">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CONFIG_CLKMODE_BUSCLK
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga54bd229bccde8e742610b8363d7f7a25">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CONFIG_CLKMODE_INCLK
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga969d9166f635eeaab7fa6873fa2c6cc9">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CONFIG_CLKMODE_INEDGECLK
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga52bfacd5bd4daeda54ef29b9f11e400a">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CONFIG_CLKMODE_SCTCLK
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga2ef1357ae9969a9a1be753ab199e1aa1">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CONFIG_NORELOADH
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga80da6c633fb897af2ee19bded9e43844">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CONFIG_NORELOADL_U
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga94c6dc388017b5e8038ad1dea8e32a3f">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_BIDIR_H
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga9d96e3f51e16487c6f8c652cbbdc050b">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_BIDIR_L
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga8cf518b4240ce7d11e5bf552a49f7092">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_CLRCTR_H
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga792f39bf995d1a7397bb4600e44dc7f7">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_CLRCTR_L
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga75edacff186a48ac4193bf5069e03fba">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_HALT_H
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga19527730d0cdbf041987ab3510a0ee16">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_HALT_L
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga40704e7d46713ea4b4c84e07a80a482e">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_PRE_H
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga399f28b3b6a93cb14b19db3df66a565d">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_PRE_L
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#gac781c2ccd9053038834cebc3f0ea6ec6">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_STOP_H
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#gae0f0598ff2c22b1db06e3590c03280ea">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_CTRL_STOP_L
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga630d5421762974f255537a14d391b0be">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_RES_CLEAR_OUTPUT
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#gaaa994f1d7b3ec39640563bf1f3a5e2ac">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_RES_NOCHANGE
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#ga9f704972cc5fefff30694a1c103ee272">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_RES_SET_OUTPUT
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#gaf5512f6f59ea7b5b7af86a50a85408dc">sct_18xx_43xx.h</a>
+</li>
+<li>SCT_RES_TOGGLE_OUTPUT
+: <a class="el" href="group___s_c_t__18_x_x__43_x_x.html#gab7f416d617a424072cc0f29413f8e419">sct_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_14MA_DRIVESTR
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gadf7d955c410140acacca5c0223420f59">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_20MA_DRIVESTR
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga6d08e27351b19971ac5d8dcd3a73f635">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_4MA_DRIVESTR
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gafc1e75b357677ff26cef511c0db63024">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_8MA_DRIVESTR
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gad8cd05fe91f6618f288a6a44a04b0f54">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_FUNC0
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gaec79b551b98008d8986e719926f254bc">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_FUNC1
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga60d35d65061196255b1470e3b9610fda">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_FUNC2
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga6712e3f281a36fca627e7250bb50c0fe">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_FUNC3
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga8f81cddf83d0f16413003431a5576034">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_FUNC4
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gaf1b58bdd83fd9b8331aaa1d54420a656">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_FUNC5
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga074766e720367afb95f704af9ba1ea2f">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_FUNC6
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gad58509d54177d5acbd01b86edb8c0054">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_FUNC7
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga801a72581d27aa13d27f0d6bee3cd8b2">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_HIGHSPEEDSLEW_EN
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gaae9b7437fda7df4f7e0266d62df1ead1">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_INACT
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga9e19fc80ad4c70d25069566be9dccf53">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_INBUFF_EN
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga66123729d389bc3191481392d4063290">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_PULLDOWN
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gad9c9eb3ee857ec8d0917d257db190e79">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_PULLUP
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gae75af2f0fdc362837d997ad5613d4a59">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_REPEATER
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#gac20d21e00fdd121d25725066cd02c41f">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_MODE_ZIF_DIS
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga240a8e7d216587a3dcb1989274cb73a8">scu_18xx_43xx.h</a>
+</li>
+<li>SCU_PINIO_FAST
+: <a class="el" href="group___s_c_u__18_x_x__43_x_x.html#ga092912eb475816a97971f97890e2d4a4">scu_18xx_43xx.h</a>
+</li>
+<li>SD_APP_OP_COND
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga612ec5173527128c99c16e0f4bb2299d">sdmmc.h</a>
+</li>
+<li>SD_APP_SEND_SCR
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga3f7fddd85b54689da83a09fb0226a7ae">sdmmc.h</a>
+</li>
+<li>SD_APP_SET_BUS_WIDTH
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga4789af331712cf3fa2e7574f8f6665a3">sdmmc.h</a>
+</li>
+<li>SD_CMD8
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga43d18e10a9e461ee16164a7e315df427">sdmmc.h</a>
+</li>
+<li>SD_ERASE
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gac3983bddcc22da81f3c50b2c40f990ea">sdmmc.h</a>
+</li>
+<li>SD_ERASE_WR_BLK_END
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga008a20c6f234c1ca2e8f2dc5a3b1d5f7">sdmmc.h</a>
+</li>
+<li>SD_ERASE_WR_BLK_START
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga3e62d48cb09891f071b8554d3a4ed401">sdmmc.h</a>
+</li>
+<li>SD_FIFO_SZ
+: <a class="el" href="group___s_d_i_f__18_x_x__43_x_x.html#ga0d66904f341d1c57bee0192d058993e2">sdif_18xx_43xx.h</a>
+</li>
+<li>SD_INT_ERROR
+: <a class="el" href="sdmmc__18xx__43xx_8c.html#a7a1384fa803a44ead4367141b9ee824d">sdmmc_18xx_43xx.c</a>
+</li>
+<li>SD_MAX_CLOCK
+: <a class="el" href="group___s_d_i_f__18_x_x__43_x_x.html#ga50ae496516159edcb24dde1c947f1865">sdif_18xx_43xx.h</a>
+, <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga50ae496516159edcb24dde1c947f1865">sdmmc.h</a>
+</li>
+<li>SD_MMC_ENUM_CLOCK
+: <a class="el" href="group___s_d_i_f__18_x_x__43_x_x.html#ga495b4ec71ba467ec70b848dd658f0733">sdif_18xx_43xx.h</a>
+, <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga495b4ec71ba467ec70b848dd658f0733">sdmmc.h</a>
+</li>
+<li>SD_SEND_IF_ARG
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga68165be37eead48db1f60d2a58f802c3">sdmmc.h</a>
+</li>
+<li>SD_SEND_IF_ECHO_MSK
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gaf88a2c05cd91f10749d2f712e91021c1">sdmmc.h</a>
+</li>
+<li>SD_SEND_IF_RESP
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga81cf2c72aa340c62eaf44979006196a4">sdmmc.h</a>
+</li>
+<li>SD_SEND_RELATIVE_ADDR
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gaa736c1b1cdeaadb038ed76511c1d0e8b">sdmmc.h</a>
+</li>
+<li>SDC_OCR_20_21
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga22f9a95fb2cb0b0442a8e15e85c02309">sdmmc.h</a>
+</li>
+<li>SDC_OCR_21_22
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga4859335686cfb475044c3f295e22ad41">sdmmc.h</a>
+</li>
+<li>SDC_OCR_22_23
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga89420303e5206b28f7f7fe9d712682dc">sdmmc.h</a>
+</li>
+<li>SDC_OCR_23_24
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gad6d151374e65c4ec33ae2cd44e2da6bc">sdmmc.h</a>
+</li>
+<li>SDC_OCR_24_25
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gaa3d37d5080f2b5ac3a627a684fae00ad">sdmmc.h</a>
+</li>
+<li>SDC_OCR_25_26
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga6cac4e4e0b70df4e109de1dca8af1726">sdmmc.h</a>
+</li>
+<li>SDC_OCR_26_27
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga1c71bab9362e057b2b3bb0bd515c0932">sdmmc.h</a>
+</li>
+<li>SDC_OCR_27_28
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga3b86b17c962cfd53a506a5cdf66d6d80">sdmmc.h</a>
+</li>
+<li>SDC_OCR_27_36
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gab6841170140c531e91c8203558e8045b">sdmmc.h</a>
+</li>
+<li>SDC_OCR_28_29
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga2216100efbb6771651505ef3e52cd8de">sdmmc.h</a>
+</li>
+<li>SDC_OCR_29_30
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gaca5e2d08e3ca92f47754e682ca33b3fa">sdmmc.h</a>
+</li>
+<li>SDC_OCR_30_31
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gac8ac6e078fd87273ccf1414c8a973eda">sdmmc.h</a>
+</li>
+<li>SDC_OCR_31_32
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gabb0e4fcb66d89b85b06b3a582a3ff7fc">sdmmc.h</a>
+</li>
+<li>SDC_OCR_32_33
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga1fe47ee34f21cef7c1540f0b00862715">sdmmc.h</a>
+</li>
+<li>SDC_OCR_33_34
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gaa73ce3a3ac92f7b8af424feb1da0f244">sdmmc.h</a>
+</li>
+<li>SDC_OCR_34_35
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga0c33b5b93a1ac282472eb94658f45682">sdmmc.h</a>
+</li>
+<li>SDC_OCR_35_36
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gaecffa97c6d53b409d41f8d81ab52eb59">sdmmc.h</a>
+</li>
+<li>SDC_OCR_BUSY
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga457a04e9259c7c26b56a96c87f628ae2">sdmmc.h</a>
+</li>
+<li>SDC_OCR_HC_CCS
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#ga864b7a2a5b9f0d803ed81711fb881cc8">sdmmc.h</a>
+</li>
+<li>SDC_OCR_IDLE
+: <a class="el" href="group___c_h_i_p___s_d_m_m_c___definitions.html#gafbd1a2494d5d3895abdd1eec304e6c68">sdmmc.h</a>
+</li>
+<li>SDIO_AREA_CIA
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga618b5f21869d50e819000ef9377a8152">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_BUS_WIDTH
+: <a class="el" href="group___s_d_i_f__18_x_x__43_x_x.html#gadf0203becc22d5e88d858933cc32f734">sdif_18xx_43xx.h</a>
+</li>
+<li>SDIO_CARD_INT_MSK
+: <a class="el" href="sdio__18xx__43xx_8c.html#a2b72e4d2ff86daa6fc5aa38327fd2bec">sdio_18xx_43xx.c</a>
+</li>
+<li>SDIO_CCCR_4BLS
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gaab122ffdb55c066575c38ac3e402c620">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CCCR_LSC
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gab1e79e46eaea4a43810230d107ed09da">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CLK_FULLSPEED
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga5a1465ced1676ff1c5dc92ebacfc52eb">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CLK_HISPEED
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gaec2d2c3efcd5b586c08200fcde226286">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CLK_LOWSPEED
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gad8b898cc4b30fc31323109add873f8e7">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CMD_CRC
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga7faeb5b3ae0de2806d36876b625cded6">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CMD_DATA
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gaca11da76712b05c2717f87d22cb595ec">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CMD_INT_MSK
+: <a class="el" href="sdio__18xx__43xx_8c.html#af4d6976278a6d38a17a3e0c91a8f1cbb">sdio_18xx_43xx.c</a>
+</li>
+<li>SDIO_CMD_RESP_R1
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga74936e4059fa646fdd3a62c68252e3bc">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CMD_RESP_R2
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gae08429760806cb077de3a65bf22fc11a">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CMD_RESP_R3
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga14bb18c3444739c3d43704fc8cb341e1">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CMD_RESP_R4
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga16e699b4a068de39f712e5605e730260">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CMD_RESP_R5
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga6fa4ac27f75edbdf59f840cecd675f9f">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_CMD_RESP_R6
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga935f51abdef49f44cde7c6978b829618">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_DATA_INT_MSK
+: <a class="el" href="sdio__18xx__43xx_8c.html#a238c3acbf5e8df6b8b856dfca7c7caae">sdio_18xx_43xx.c</a>
+</li>
+<li>SDIO_ERR_FNUM
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga6f79f991e7b930ac27704feade59a3d6">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_ERR_INVARG
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga2f5a9d212a1e07e45bb141e3202a104b">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_ERR_INVFUNC
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga96b531be916d9edd9190f3cdfc7bfcc1">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_ERR_RCA
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga9fa8f3cb769952116adde0a9d94213b4">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_ERR_READWRITE
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga66fa67187ef08b5e46bbbc37bc8f617a">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_ERR_VOLT
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gaf48a8666f04e6fc2132bcb6ad7b72234">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_ERROR
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga4a2fc3d864c16f1ddea88220e19b15a1">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_MODE_BLOCK
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gaf7c4f9dbe3ed7f3e4f98c8e811bf0658">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_MODE_BUFFER
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gacfb2f991cf5339b325520be169aa90d8">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_POWER_INIT
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#ga5a20ad7b551a63146fb59ab17418a097">sdio_18xx_43xx.h</a>
+</li>
+<li>SDIO_VOLT_3_3
+: <a class="el" href="group___s_d_i_o__18_x_x__43_x_x.html#gaaf155138523c5eeac75f915883f6de2e">sdio_18xx_43xx.h</a>
+</li>
+<li>SECSPERDAY
+: <a class="el" href="rtc__ut_8c.html#a0711b3fc9ababc38239df227d1bd1e62">rtc_ut.c</a>
+</li>
+<li>SECSPERHOUR
+: <a class="el" href="rtc__ut_8c.html#a235e72e63a254ecde04f29148b3333fb">rtc_ut.c</a>
+</li>
+<li>SECSPERMIN
+: <a class="el" href="rtc__ut_8c.html#a4fbe1b6bbb5e5f3ff7300e9ea9991f36">rtc_ut.c</a>
+</li>
+<li>SET_OP_RETRIES
+: <a class="el" href="group___s_d_i_f__18_x_x__43_x_x.html#ga4a275cd0d77af6a3ec9fa04f040c8d99">sdif_18xx_43xx.h</a>
+</li>
+<li>SLAVE_ACTIVE
+: <a class="el" href="i2c__18xx__43xx_8c.html#a5e0f45ab7d0384aca4e43b03f6b2759a">i2c_18xx_43xx.c</a>
+</li>
+<li>SPIFI_CMD_DATALEN
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga219e33d9f9b85778db628b90809100b3">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CMD_DOUT
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gaf42dda7aced397d5d66a91e53a7ac59e">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CMD_FIELDFORM
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga3fa2803ce803501ed89aeb51a9ff1715">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CMD_FRAMEFORM
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga588e2c6094c256d799970bdad73cfd6a">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CMD_INTER
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga6ba616a9213dff16023f9b5b52c0f07e">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CMD_OPCODE
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga39b31bb8811dbd645fcbc13e3260bdad">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CMD_POLLRS
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga449d4320c92e867b827ca0ac35a4345c">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_CSHI
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga97562b0e2b41883d0f15e129f4b96cd7">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_DATA_PREFETCH_DISABLE
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gaa87d14cdbb5575d56021c4fe68ec3d9f">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_DMAEN
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gab58259ae0278e7d9b67794189eab3267">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_DUAL
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga8d532e0a2c0eb178d12e6bddcb404258">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_FBCLK
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gabfd85e2aff4c3555e6fc18bda821ad06">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_INTEN
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga3b934a3fc067d9b8676c6de1b4fe5f8f">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_MODE3
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga9b92eaf07dc9eea3aed22b1e624965b2">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_PREFETCH_DISABLE
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gaba671674e51b96229b672241cefb237a">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_RFCLK
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gae4723057aa3654dc684a0bd8064b43bc">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_CTRL_TO
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga96d43de9db048410b9d6d57de97a708d">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_STAT_CMD
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gad955fdb12bb88d2101f849d26a904e01">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_STAT_INTRQ
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gadfdb72835ddc68c37bfb1ffa717c5ff9">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_STAT_MCINIT
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#ga9ea174bcbe5ba8a6fa264bae5d53d04b">spifi_18xx_43xx.h</a>
+</li>
+<li>SPIFI_STAT_RESET
+: <a class="el" href="group___l_p_c_s_p_i_f_i_l_i_b___h_w___p_r_i_m.html#gaf442534842b5a9acbcbd5de592cfda45">spifi_18xx_43xx.h</a>
+</li>
+<li>SRC_PER_CONTROLLER
+: <a class="el" href="group___g_p_d_m_a__18_x_x__43_x_x.html#ga850a296f501c6a30228f8df251b73767">gpdma_18xx_43xx.h</a>
+</li>
+<li>SSP_CPHA_FIRST
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga6333b5eaf9d5301431fc0399c0d417d5">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CPHA_SECOND
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga04ad38295445819979f55503eed5c177">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CPOL_HI
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gaf64aec37a92ca6c14c23af6fc0052ccb">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CPOL_LO
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga1e10eccdb2b293607764028aab1b98a9">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CPSR_BITMASK
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gad90cbeb91495d457ae2dd8bda909a2a9">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_BITMASK
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga90be93bebdbdfee011d90ea6e054260a">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_CPHA_FIRST
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gaee3465bdb33add1970f6ce7f7bc638c4">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_CPHA_SECOND
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gae4150d0b2513ff70568be15c2170c9ea">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_CPOL_HI
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga36d7ad75edb14d318d710f964384f466">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_CPOL_LO
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gab4353fed07ef845a3796e154397f7e76">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_DSS
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga691ba9dbc6a0722a81ed4734c7f7ac8f">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_FRF_MICROWIRE
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga7ca858fcf0f529a38e1e1bf0a69d4486">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_FRF_SPI
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga4f0f58a8f4b87af0f18e84b981c31a74">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_FRF_TI
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga54c718a1a75a1e5e06417b9f8267ee27">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR0_SCR
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga10f56047b6024ff848675f9463f1b989">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR1_BITMASK
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gad90a9c1c97a5c4e19e048e9686a4d8fa">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR1_LBM_EN
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gac0e5bef37b94df5ad96bf270aa802dcd">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR1_MASTER_EN
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gaa8e064b00be6db00e597ad2509a633c3">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR1_SLAVE_EN
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga483d570ffc25bc917c99b3e8ece75649">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR1_SO_DISABLE
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gaf8cd75ca0bf07a236b992cca4769b4dc">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_CR1_SSP_EN
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gaad500ed8cec6c1734a12a7f55ff6ec26">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_DR_BITMASK
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gaca7cab2d530cc7dbaa9e9d3e9dc61b53">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_ICR_BITMASK
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga5ce108586bfd5b77c849aa9969c8973c">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_MASTER_MODE
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga3c9cbd4f4b8169253d26f4d40cdc414d">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_SLAVE_MODE
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#gac6bc4b92810caa934b2d7116390098c6">ssp_18xx_43xx.h</a>
+</li>
+<li>SSP_SR_BITMASK
+: <a class="el" href="group___s_s_p__18_x_x__43_x_x.html#ga0fe66130dd87296b6e16cd9fbcf7daf1">ssp_18xx_43xx.h</a>
+</li>
+<li>STATIC
+: <a class="el" href="group___l_p_c___types___public___macros.html#ga10b2d890d871e1489bb02b7e70d9bdfb">lpc_types.h</a>
+</li>
+<li>SysTick
+: <a class="el" href="group___c_m_s_i_s__core__base.html#gacd96c53beeaff8f603fcda425eb295de">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gacd96c53beeaff8f603fcda425eb295de">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gacd96c53beeaff8f603fcda425eb295de">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gacd96c53beeaff8f603fcda425eb295de">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gacd96c53beeaff8f603fcda425eb295de">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#gacd96c53beeaff8f603fcda425eb295de">core_cm4.h</a>
+</li>
+<li>SysTick_BASE
+: <a class="el" href="group___c_m_s_i_s__core__base.html#ga58effaac0b93006b756d33209e814646">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga58effaac0b93006b756d33209e814646">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga58effaac0b93006b756d33209e814646">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga58effaac0b93006b756d33209e814646">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga58effaac0b93006b756d33209e814646">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s__core__base.html#ga58effaac0b93006b756d33209e814646">core_cm0.h</a>
+</li>
+<li>SysTick_CALIB_NOREF_Msk
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3af0d891fdd99bcc8d8912d37830edb6">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3af0d891fdd99bcc8d8912d37830edb6">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3af0d891fdd99bcc8d8912d37830edb6">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3af0d891fdd99bcc8d8912d37830edb6">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3af0d891fdd99bcc8d8912d37830edb6">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3af0d891fdd99bcc8d8912d37830edb6">core_cm3.h</a>
+</li>
+<li>SysTick_CALIB_NOREF_Pos
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga534dbe414e7a46a6ce4c1eca1fbff409">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga534dbe414e7a46a6ce4c1eca1fbff409">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga534dbe414e7a46a6ce4c1eca1fbff409">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga534dbe414e7a46a6ce4c1eca1fbff409">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga534dbe414e7a46a6ce4c1eca1fbff409">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga534dbe414e7a46a6ce4c1eca1fbff409">core_cm0plus.h</a>
+</li>
+<li>SysTick_CALIB_SKEW_Msk
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga8a6a85a87334776f33d77fd147587431">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga8a6a85a87334776f33d77fd147587431">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga8a6a85a87334776f33d77fd147587431">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga8a6a85a87334776f33d77fd147587431">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga8a6a85a87334776f33d77fd147587431">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga8a6a85a87334776f33d77fd147587431">core_sc000.h</a>
+</li>
+<li>SysTick_CALIB_SKEW_Pos
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadd0c9cd6641b9f6a0c618e7982954860">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadd0c9cd6641b9f6a0c618e7982954860">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadd0c9cd6641b9f6a0c618e7982954860">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadd0c9cd6641b9f6a0c618e7982954860">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadd0c9cd6641b9f6a0c618e7982954860">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadd0c9cd6641b9f6a0c618e7982954860">core_cm0plus.h</a>
+</li>
+<li>SysTick_CALIB_TENMS_Msk
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf1e68865c5aece2ad58971225bd3e95e">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf1e68865c5aece2ad58971225bd3e95e">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf1e68865c5aece2ad58971225bd3e95e">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf1e68865c5aece2ad58971225bd3e95e">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf1e68865c5aece2ad58971225bd3e95e">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf1e68865c5aece2ad58971225bd3e95e">core_cm3.h</a>
+</li>
+<li>SysTick_CALIB_TENMS_Pos
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#gacae558f6e75a0bed5d826f606d8e695e">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gacae558f6e75a0bed5d826f606d8e695e">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gacae558f6e75a0bed5d826f606d8e695e">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gacae558f6e75a0bed5d826f606d8e695e">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gacae558f6e75a0bed5d826f606d8e695e">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gacae558f6e75a0bed5d826f606d8e695e">core_sc000.h</a>
+</li>
+<li>SysTick_CTRL_CLKSOURCE_Msk
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaa41d06039797423a46596bd313d57373">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaa41d06039797423a46596bd313d57373">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaa41d06039797423a46596bd313d57373">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaa41d06039797423a46596bd313d57373">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaa41d06039797423a46596bd313d57373">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaa41d06039797423a46596bd313d57373">core_cm4.h</a>
+</li>
+<li>SysTick_CTRL_CLKSOURCE_Pos
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga24fbc69a5f0b78d67fda2300257baff1">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga24fbc69a5f0b78d67fda2300257baff1">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga24fbc69a5f0b78d67fda2300257baff1">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga24fbc69a5f0b78d67fda2300257baff1">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga24fbc69a5f0b78d67fda2300257baff1">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga24fbc69a5f0b78d67fda2300257baff1">core_cm0plus.h</a>
+</li>
+<li>SysTick_CTRL_COUNTFLAG_Msk
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga1bf3033ecccf200f59baefe15dbb367c">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga1bf3033ecccf200f59baefe15dbb367c">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga1bf3033ecccf200f59baefe15dbb367c">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga1bf3033ecccf200f59baefe15dbb367c">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga1bf3033ecccf200f59baefe15dbb367c">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga1bf3033ecccf200f59baefe15dbb367c">core_sc300.h</a>
+</li>
+<li>SysTick_CTRL_COUNTFLAG_Pos
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadbb65d4a815759649db41df216ed4d60">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadbb65d4a815759649db41df216ed4d60">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadbb65d4a815759649db41df216ed4d60">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadbb65d4a815759649db41df216ed4d60">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadbb65d4a815759649db41df216ed4d60">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gadbb65d4a815759649db41df216ed4d60">core_cm4.h</a>
+</li>
+<li>SysTick_CTRL_ENABLE_Msk
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga16c9fee0ed0235524bdeb38af328fd1f">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga16c9fee0ed0235524bdeb38af328fd1f">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga16c9fee0ed0235524bdeb38af328fd1f">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga16c9fee0ed0235524bdeb38af328fd1f">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga16c9fee0ed0235524bdeb38af328fd1f">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga16c9fee0ed0235524bdeb38af328fd1f">core_cm0.h</a>
+</li>
+<li>SysTick_CTRL_ENABLE_Pos
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga0b48cc1e36d92a92e4bf632890314810">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga0b48cc1e36d92a92e4bf632890314810">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga0b48cc1e36d92a92e4bf632890314810">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga0b48cc1e36d92a92e4bf632890314810">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga0b48cc1e36d92a92e4bf632890314810">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga0b48cc1e36d92a92e4bf632890314810">core_sc000.h</a>
+</li>
+<li>SysTick_CTRL_TICKINT_Msk
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga95bb984266ca764024836a870238a027">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga95bb984266ca764024836a870238a027">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga95bb984266ca764024836a870238a027">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga95bb984266ca764024836a870238a027">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga95bb984266ca764024836a870238a027">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga95bb984266ca764024836a870238a027">core_cm0plus.h</a>
+</li>
+<li>SysTick_CTRL_TICKINT_Pos
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga88f45bbb89ce8df3cd2b2613c7b48214">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga88f45bbb89ce8df3cd2b2613c7b48214">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga88f45bbb89ce8df3cd2b2613c7b48214">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga88f45bbb89ce8df3cd2b2613c7b48214">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga88f45bbb89ce8df3cd2b2613c7b48214">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga88f45bbb89ce8df3cd2b2613c7b48214">core_cm3.h</a>
+</li>
+<li>SysTick_LOAD_RELOAD_Msk
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga265912a7962f0e1abd170336e579b1b1">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga265912a7962f0e1abd170336e579b1b1">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga265912a7962f0e1abd170336e579b1b1">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga265912a7962f0e1abd170336e579b1b1">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga265912a7962f0e1abd170336e579b1b1">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga265912a7962f0e1abd170336e579b1b1">core_sc000.h</a>
+</li>
+<li>SysTick_LOAD_RELOAD_Pos
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf44d10df359dc5bf5752b0894ae3bad2">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf44d10df359dc5bf5752b0894ae3bad2">core_sc300.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf44d10df359dc5bf5752b0894ae3bad2">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf44d10df359dc5bf5752b0894ae3bad2">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf44d10df359dc5bf5752b0894ae3bad2">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gaf44d10df359dc5bf5752b0894ae3bad2">core_cm0plus.h</a>
+</li>
+<li>SysTick_VAL_CURRENT_Msk
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#gafc77b56d568930b49a2474debc75ab45">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gafc77b56d568930b49a2474debc75ab45">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gafc77b56d568930b49a2474debc75ab45">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gafc77b56d568930b49a2474debc75ab45">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gafc77b56d568930b49a2474debc75ab45">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#gafc77b56d568930b49a2474debc75ab45">core_sc300.h</a>
+</li>
+<li>SysTick_VAL_CURRENT_Pos
+: <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3208104c3b019b5de35ae8c21d5c34dd">core_cm0plus.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3208104c3b019b5de35ae8c21d5c34dd">core_cm3.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3208104c3b019b5de35ae8c21d5c34dd">core_cm4.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3208104c3b019b5de35ae8c21d5c34dd">core_cm0.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3208104c3b019b5de35ae8c21d5c34dd">core_sc000.h</a>
+, <a class="el" href="group___c_m_s_i_s___sys_tick.html#ga3208104c3b019b5de35ae8c21d5c34dd">core_sc300.h</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

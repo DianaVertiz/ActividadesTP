@@ -1,0 +1,117 @@
+.TH "LPC_I2S_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LPC_I2S_T \- I2S register block structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <i2s_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDAO\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDAI\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBTXFIFO\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRXFIFO\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSTATE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDMA\fP [\fBI2S_DMA_REQUEST_CHANNEL_NUM\fP]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIRQ\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTXRATE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRXRATE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTXBITRATE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRXBITRATE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTXMODE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBRXMODE\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+I2S register block structure\&. 
+.PP
+Definición en la línea 56 del archivo i2s_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "\fB__IO\fP uint32_t DAI"
+I2S Digital Audio Input Register\&. Contains control bits for the I2S receive channel 
+.PP
+Definición en la línea 58 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DAO"
+< I2S Structure I2S Digital Audio Output Register\&. Contains control bits for the I2S transmit channel 
+.PP
+Definición en la línea 57 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t DMA[\fBI2S_DMA_REQUEST_CHANNEL_NUM\fP]"
+I2S DMA Configuration Registers\&. Contains control information for DMA request channels 
+.PP
+Definición en la línea 62 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t IRQ"
+I2S Interrupt Request Control Register\&. Contains bits that control how the I2S interrupt request is generated 
+.PP
+Definición en la línea 63 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RXBITRATE"
+I2S Receive bit rate divider\&. This register determines the I2S receive bit rate by specifying the value to divide RX_MCLK by in order to produce the receive bit clock 
+.PP
+Definición en la línea 67 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t RXFIFO"
+I2S Receive FIFO\&. Access register for the 8 x 32-bit receiver FIFO 
+.PP
+Definición en la línea 60 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RXMODE"
+I2S Receive mode control 
+.PP
+Definición en la línea 69 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t RXRATE"
+I2S Receive MCLK divider\&. This register determines the I2S RX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK 
+.PP
+Definición en la línea 65 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__I\fP uint32_t STATE"
+I2S Status Feedback Register\&. Contains status information about the I2S interface 
+.PP
+Definición en la línea 61 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TXBITRATE"
+I2S Transmit bit rate divider\&. This register determines the I2S transmit bit rate by specifying the value to divide TX_MCLK by in order to produce the transmit bit clock 
+.PP
+Definición en la línea 66 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__O\fP uint32_t TXFIFO"
+I2S Transmit FIFO\&. Access register for the 8 x 32-bit transmitter FIFO 
+.PP
+Definición en la línea 59 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TXMODE"
+I2S Transmit mode control 
+.PP
+Definición en la línea 68 del archivo i2s_18xx_43xx\&.h\&.
+.SS "\fB__IO\fP uint32_t TXRATE"
+I2S Transmit MCLK divider\&. This register determines the I2S TX MCLK rate by specifying the value to divide PCLK by in order to produce MCLK 
+.PP
+Definición en la línea 64 del archivo i2s_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

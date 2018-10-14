@@ -1,0 +1,41 @@
+.TH "sysinit_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sysinit_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCLK_BASE_STATES\fP"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_SetupCoreClock\fP (\fBCHIP_CGU_CLKIN_T\fP clkin, uint32_t core_freq, bool setbase)"
+.br
+.RI "\fIClock and PLL initialization based input given in \fIclkin\fP\&. \fP"
+.ti -1c
+.RI "void \fBChip_SetupXtalClocking\fP (void)"
+.br
+.RI "\fIClock and PLL initialization based on the external oscillator\&. \fP"
+.ti -1c
+.RI "void \fBChip_SetupIrcClocking\fP (void)"
+.br
+.RI "\fIClock and PLL initialization based on the internal oscillator\&. \fP"
+.ti -1c
+.RI "void \fBChip_SystemInit\fP (void)"
+.br
+.RI "\fISet up and initialize hardware prior to call to \fBmain()\fP \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

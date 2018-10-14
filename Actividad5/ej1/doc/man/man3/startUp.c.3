@@ -1,0 +1,136 @@
+.TH "startUp.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+startUp.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBWEAK\fP   \fB__attribute__\fP ((weak))"
+.br
+.ti -1c
+.RI "#define \fBALIAS\fP(f)   \fB__attribute__\fP ((weak, alias (#f)))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBResetISR\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBNMI_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBHardFault_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBMemManage_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBBusFault_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBUsageFault_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBSVC_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBDebugMon_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBPendSV_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBSysTick_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fBWEAK\fP void \fBIntDefaultHandler\fP (void)"
+.br
+.ti -1c
+.RI "void \fBDAC_IRQHandler\fP (void M0CORE_IRQHandler() \fBALIAS\fP(\fBIntDefaultHandler\fP) void)"
+.br
+.ti -1c
+.RI "\fB__attribute__\fP ((section('\&.after_vectors')))"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "unsigned int \fB__data_section_table_\fP"
+.br
+.ti -1c
+.RI "unsigned int \fB__data_section_table_end_\fP"
+.br
+.ti -1c
+.RI "unsigned int \fB__bss_section_table_\fP"
+.br
+.ti -1c
+.RI "unsigned int \fB__bss_section_table_end_\fP"
+.br
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define ALIAS(f)   \fB__attribute__\fP ((weak, alias (#f)))"
+
+.PP
+Definición en la línea 2 del archivo startUp\&.c\&.
+.SS "#define WEAK   \fB__attribute__\fP ((weak))"
+
+.PP
+Definición en la línea 1 del archivo startUp\&.c\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "__attribute__ ((section('\&.after_vectors')))"
+
+.PP
+Definición en la línea 177 del archivo startUp\&.c\&.
+.SS "\fBWEAK\fP void BusFault_Handler (void)"
+
+.SS "void DAC_IRQHandler (void M0CORE_IRQHandler() \fBALIAS\fP(\fBIntDefaultHandler\fP) void)"
+
+.PP
+Definición en la línea 31 del archivo startUp\&.c\&.
+.SS "\fBWEAK\fP void DebugMon_Handler (void)"
+
+.SS "\fBWEAK\fP void HardFault_Handler (void)"
+
+.SS "\fBWEAK\fP void IntDefaultHandler (void)"
+
+.SS "\fBWEAK\fP void MemManage_Handler (void)"
+
+.SS "\fBWEAK\fP void NMI_Handler (void)"
+
+.SS "\fBWEAK\fP void PendSV_Handler (void)"
+
+.SS "void ResetISR (void)"
+
+.PP
+Definición en la línea 199 del archivo startUp\&.c\&.
+.SS "\fBWEAK\fP void SVC_Handler (void)"
+
+.SS "\fBWEAK\fP void SysTick_Handler (void)"
+
+.PP
+Definición en la línea 73 del archivo main\&.c\&.
+.SS "\fBWEAK\fP void UsageFault_Handler (void)"
+
+.SH "Documentación de las variables"
+.PP 
+.SS "unsigned int __bss_section_table_"
+
+.SS "unsigned int __bss_section_table_end_"
+
+.SS "unsigned int __data_section_table_"
+
+.SS "unsigned int __data_section_table_end_"
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

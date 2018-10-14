@@ -1,0 +1,29 @@
+\hypertarget{fmc__18xx__43xx_8h}{}\section{Referencia del Archivo fmc\+\_\+18xx\+\_\+43xx.\+h}
+\label{fmc__18xx__43xx_8h}\index{fmc\+\_\+18xx\+\_\+43xx.\+h@{fmc\+\_\+18xx\+\_\+43xx.\+h}}
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_l_p_c___f_m_c___t}{L\+P\+C\+\_\+\+F\+M\+C\+\_\+T}
+\begin{DoxyCompactList}\small\item\em F\+L\+A\+SH Memory Controller Unit register block structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___f_m_c__18_x_x__43_x_x_ga1c732efb3127d9e699c46b4a89706639}{F\+M\+C\+\_\+\+F\+L\+A\+S\+H\+S\+I\+G\+\_\+\+B\+U\+SY}~(1\+U\+L $<$$<$ 17)
+\item 
+\#define \hyperlink{group___f_m_c__18_x_x__43_x_x_ga3d2c7a30422c68c08d48b4e4f03a2787}{F\+M\+C\+\_\+\+F\+L\+A\+S\+H\+S\+I\+G\+\_\+\+S\+T\+AT}~(1 $<$$<$ 2)
+\end{DoxyCompactItemize}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE \hyperlink{struct_l_p_c___f_m_c___t}{L\+P\+C\+\_\+\+F\+M\+C\+\_\+T} $\ast$ \hyperlink{group___f_m_c__18_x_x__43_x_x_ga0108061af4fc0814b1d3e2b5b1fc5579}{Chip\+\_\+\+F\+M\+C\+\_\+\+Base\+Addr} (uint8\+\_\+t bank)
+\begin{DoxyCompactList}\small\item\em Gets the base address of given bank. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___f_m_c__18_x_x__43_x_x_ga743dd8b5f2e568d1bcf6d641b4587a3c}{Chip\+\_\+\+F\+M\+C\+\_\+\+Compute\+Signature} (uint8\+\_\+t bank, uint32\+\_\+t start, uint32\+\_\+t stop)
+\begin{DoxyCompactList}\small\item\em Start computation of a signature for a F\+L\+A\+SH memory range. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___f_m_c__18_x_x__43_x_x_ga413d32194e2866d17bcc98d942fc4dd1}{Chip\+\_\+\+F\+M\+C\+\_\+\+Compute\+Signature\+Blocks} (uint8\+\_\+t bank, uint32\+\_\+t start, uint32\+\_\+t blocks)
+\begin{DoxyCompactList}\small\item\em Start computation of a signature for a F\+L\+A\+SH memory address and block count. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} void \hyperlink{group___f_m_c__18_x_x__43_x_x_ga270a1f9bf6a1c70415a84ebd7c0065fe}{Chip\+\_\+\+F\+M\+C\+\_\+\+Clear\+Signature\+Busy} (uint8\+\_\+t bank)
+\begin{DoxyCompactList}\small\item\em Clear signature generation completion flag. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} bool \hyperlink{group___f_m_c__18_x_x__43_x_x_gaaa287615692d7b693b16ea2b92bb5763}{Chip\+\_\+\+F\+M\+C\+\_\+\+Is\+Signature\+Busy} (uint8\+\_\+t bank)
+\begin{DoxyCompactList}\small\item\em Check for signature generation completion. \end{DoxyCompactList}\item 
+\hyperlink{group___l_p_c___types___public___macros_ga10b2d890d871e1489bb02b7e70d9bdfb}{S\+T\+A\+T\+IC} \hyperlink{spifi__18xx__43xx_8h_a2eb6f9e0395b47b8d5e3eeae4fe0c116}{I\+N\+L\+I\+NE} uint32\+\_\+t \hyperlink{group___f_m_c__18_x_x__43_x_x_gae1022883a7bf2e9094d76e2a9b0aafc6}{Chip\+\_\+\+F\+M\+C\+\_\+\+Get\+Signature} (uint8\+\_\+t bank, int index)
+\begin{DoxyCompactList}\small\item\em Returns the generated F\+L\+A\+SH signature value. \end{DoxyCompactList}\end{DoxyCompactItemize}

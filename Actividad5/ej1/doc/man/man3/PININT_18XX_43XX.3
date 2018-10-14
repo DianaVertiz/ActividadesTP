@@ -1,0 +1,469 @@
+.TH "PININT_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PININT_18XX_43XX \- CHIP: LPC18xx/43xx Pin Interrupt and Pattern Match driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLPC_PIN_INT_T\fP"
+.br
+.RI "\fILPC18xx/43xx Pin Interrupt and Pattern Match register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPININTCH0\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH1\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH2\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH3\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH4\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH5\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH6\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH7\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBPININTCH\fP(ch)   (1 << (ch))"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_Init\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIInitialize Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_DeInit\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIDe-Initialize Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_SetPinModeEdge\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIConfigure the pins as edge sensitive in Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_SetPinModeLevel\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIConfigure the pins as level sensitive in Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetHighEnabled\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIReturn current PININT rising edge or high level interrupt enable state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_EnableIntHigh\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIEnable high edge/level PININT interrupts for pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_DisableIntHigh\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIDisable high edge/level PININT interrupts for pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetLowEnabled\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIReturn current PININT falling edge or low level interrupt enable state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_EnableIntLow\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIEnable low edge/level PININT interrupts for pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_DisableIntLow\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIDisable low edge/level PININT interrupts for pins\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetRiseStates\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIReturn pin states that have a detected latched high edge (RISE) state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_ClearRiseStates\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIClears pin states that had a latched high edge (RISE) state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetFallStates\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIReturn pin states that have a detected latched falling edge (FALL) state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_ClearFallStates\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIClears pin states that had a latched falling edge (FALL) state\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_PININT_GetIntStatus\fP (\fBLPC_PIN_INT_T\fP *pPININT)"
+.br
+.RI "\fIGet interrupt status from Pin interrupt block\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_PININT_ClearIntStatus\fP (\fBLPC_PIN_INT_T\fP *pPININT, uint32_t pins)"
+.br
+.RI "\fIClear interrupt status in Pin interrupt block\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define PININTCH(ch)   (1 << (ch))"
+
+.PP
+Definición en la línea 72 del archivo pinint_18xx_43xx\&.h\&.
+.SS "#define PININTCH0   (1 << 0)"
+LPC18xx/43xx Pin Interrupt channel values 
+.PP
+Definición en la línea 64 del archivo pinint_18xx_43xx\&.h\&.
+.SS "#define PININTCH1   (1 << 1)"
+
+.PP
+Definición en la línea 65 del archivo pinint_18xx_43xx\&.h\&.
+.SS "#define PININTCH2   (1 << 2)"
+
+.PP
+Definición en la línea 66 del archivo pinint_18xx_43xx\&.h\&.
+.SS "#define PININTCH3   (1 << 3)"
+
+.PP
+Definición en la línea 67 del archivo pinint_18xx_43xx\&.h\&.
+.SS "#define PININTCH4   (1 << 4)"
+
+.PP
+Definición en la línea 68 del archivo pinint_18xx_43xx\&.h\&.
+.SS "#define PININTCH5   (1 << 5)"
+
+.PP
+Definición en la línea 69 del archivo pinint_18xx_43xx\&.h\&.
+.SS "#define PININTCH6   (1 << 6)"
+
+.PP
+Definición en la línea 70 del archivo pinint_18xx_43xx\&.h\&.
+.SS "#define PININTCH7   (1 << 7)"
+
+.PP
+Definición en la línea 71 del archivo pinint_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_ClearFallStates (\fBLPC_PIN_INT_T\fP * pPININT, uint32_t pins)"
+
+.PP
+Clears pin states that had a latched falling edge (FALL) state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.br
+\fIpins\fP : Pins with latched states to clear 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 218 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_ClearIntStatus (\fBLPC_PIN_INT_T\fP * pPININT, uint32_t pins)"
+
+.PP
+Clear interrupt status in Pin interrupt block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.br
+\fIpins\fP : Pin interrupts to clear (ORed value of PININTCH*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 239 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_ClearRiseStates (\fBLPC_PIN_INT_T\fP * pPININT, uint32_t pins)"
+
+.PP
+Clears pin states that had a latched high edge (RISE) state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.br
+\fIpins\fP : Pins with latched states to clear 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 197 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_DeInit (\fBLPC_PIN_INT_T\fP * pPININT)"
+
+.PP
+De-Initialize Pin interrupt block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 87 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_DisableIntHigh (\fBLPC_PIN_INT_T\fP * pPININT, uint32_t pins)"
+
+.PP
+Disable high edge/level PININT interrupts for pins\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.br
+\fIpins\fP : Pins to disable (ORed value of PININTCH*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 141 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_DisableIntLow (\fBLPC_PIN_INT_T\fP * pPININT, uint32_t pins)"
+
+.PP
+Disable low edge/level PININT interrupts for pins\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.br
+\fIpins\fP : Pins to disable (ORed value of PININTCH*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 176 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_EnableIntHigh (\fBLPC_PIN_INT_T\fP * pPININT, uint32_t pins)"
+
+.PP
+Enable high edge/level PININT interrupts for pins\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.br
+\fIpins\fP : Pins to enable (ORed value of PININTCH*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 130 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_EnableIntLow (\fBLPC_PIN_INT_T\fP * pPININT, uint32_t pins)"
+
+.PP
+Enable low edge/level PININT interrupts for pins\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.br
+\fIpins\fP : Pins to enable (ORed value of PININTCH*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 165 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_PININT_GetFallStates (\fBLPC_PIN_INT_T\fP * pPININT)"
+
+.PP
+Return pin states that have a detected latched falling edge (FALL) state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+PININT states (bit n = high) with a latched rise state detected 
+.RE
+.PP
+
+.PP
+Definición en la línea 207 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_PININT_GetHighEnabled (\fBLPC_PIN_INT_T\fP * pPININT)"
+
+.PP
+Return current PININT rising edge or high level interrupt enable state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+A bifield containing the high edge/level interrupt enables for each interrupt\&. Bit 0 = PININT0, 1 = PININT1, etc\&. For each bit, a 0 means the high edge/level interrupt is disabled, while a 1 means it's enabled\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 119 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_PININT_GetIntStatus (\fBLPC_PIN_INT_T\fP * pPININT)"
+
+.PP
+Get interrupt status from Pin interrupt block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Interrupt status (bit n for PININTn = high means interrupt ie pending) 
+.RE
+.PP
+
+.PP
+Definición en la línea 228 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_PININT_GetLowEnabled (\fBLPC_PIN_INT_T\fP * pPININT)"
+
+.PP
+Return current PININT falling edge or low level interrupt enable state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+A bifield containing the low edge/level interrupt enables for each interrupt\&. Bit 0 = PININT0, 1 = PININT1, etc\&. For each bit, a 0 means the low edge/level interrupt is disabled, while a 1 means it's enabled\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 154 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_PININT_GetRiseStates (\fBLPC_PIN_INT_T\fP * pPININT)"
+
+.PP
+Return pin states that have a detected latched high edge (RISE) state\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+PININT states (bit n = high) with a latched rise state detected 
+.RE
+.PP
+
+.PP
+Definición en la línea 186 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_Init (\fBLPC_PIN_INT_T\fP * pPININT)"
+
+.PP
+Initialize Pin interrupt block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function should be used after the \fBChip_GPIO_Init()\fP function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 80 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_SetPinModeEdge (\fBLPC_PIN_INT_T\fP * pPININT, uint32_t pins)"
+
+.PP
+Configure the pins as edge sensitive in Pin interrupt block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.br
+\fIpins\fP : Pins (ORed value of PININTCH*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 95 del archivo pinint_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_PININT_SetPinModeLevel (\fBLPC_PIN_INT_T\fP * pPININT, uint32_t pins)"
+
+.PP
+Configure the pins as level sensitive in Pin interrupt block\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpPININT\fP : The base address of Pin interrupt block 
+.br
+\fIpins\fP : Pins (ORed value of PININTCH*) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 106 del archivo pinint_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

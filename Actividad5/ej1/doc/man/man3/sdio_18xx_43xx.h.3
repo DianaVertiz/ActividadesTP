@@ -1,0 +1,178 @@
+.TH "sdio_18xx_43xx.h" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sdio_18xx_43xx.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSDIO_CMD_RESP_R1\fP   (1UL << 6)"
+.br
+.RI "\fISDIO Command Responses\&. \fP"
+.ti -1c
+.RI "#define \fBSDIO_CMD_RESP_R2\fP   (3UL << 6)"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CMD_RESP_R3\fP   (1UL << 6)"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CMD_RESP_R4\fP   (1UL << 6)"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CMD_RESP_R5\fP   (1UL << 6)"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CMD_RESP_R6\fP   (1UL << 6)"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CMD_CRC\fP   (1UL << 8)  /**! Response must have a valid CRC */"
+.br
+.RI "\fISDIO Command misc options\&. \fP"
+.ti -1c
+.RI "#define \fBSDIO_CMD_DATA\fP   (1UL << 9)  /**! Command is a data transfer command */"
+.br
+.ti -1c
+.RI "#define \fBCMD0\fP   (0 | (1 << 15))"
+.br
+.RI "\fIList of commands\&. \fP"
+.ti -1c
+.RI "#define \fBCMD5\fP   (5 | \fBSDIO_CMD_RESP_R4\fP)"
+.br
+.ti -1c
+.RI "#define \fBCMD3\fP   (3 | \fBSDIO_CMD_RESP_R6\fP)"
+.br
+.ti -1c
+.RI "#define \fBCMD7\fP   (7 | \fBSDIO_CMD_RESP_R1\fP)"
+.br
+.ti -1c
+.RI "#define \fBCMD52\fP   (52 | \fBSDIO_CMD_RESP_R5\fP | \fBSDIO_CMD_CRC\fP)"
+.br
+.ti -1c
+.RI "#define \fBCMD53\fP   (53 | \fBSDIO_CMD_RESP_R5\fP | \fBSDIO_CMD_DATA\fP | \fBSDIO_CMD_CRC\fP)"
+.br
+.ti -1c
+.RI "#define \fBSDIO_ERROR\fP   \-1 /**! General SDIO Error */"
+.br
+.RI "\fISDIO Error numbers\&. \fP"
+.ti -1c
+.RI "#define \fBSDIO_ERR_FNUM\fP   \-2 /**! Error getting Number of functions supported */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_ERR_READWRITE\fP   \-3 /**! Error when performing Read/write of data */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_ERR_VOLT\fP   \-4 /**! Error Reading or setting up the voltage to 3v3 */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_ERR_RCA\fP   \-5 /**! Error during RCA phase */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_ERR_INVFUNC\fP   \-6 /**! Invalid function argument */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_ERR_INVARG\fP   \-7 /**! Invalid argument supplied to function */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_VOLT_3_3\fP   0x00100000UL  /* for CMD5 */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_MODE_BLOCK\fP   (1UL << 27)"
+.br
+.RI "\fIBlock mode transfer flag\&. \fP"
+.ti -1c
+.RI "#define \fBSDIO_MODE_BUFFER\fP   (1UL << 26)"
+.br
+.RI "\fIBuffer mode transfer flag\&. \fP"
+.ti -1c
+.RI "#define \fBSDIO_AREA_CIA\fP   0			/* function 0 */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CCCR_LSC\fP   0x40u		/* card is low\-speed cards */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CCCR_4BLS\fP   0x80u		/* 4\-bit support for low\-speed cards */"
+.br
+.ti -1c
+.RI "#define \fBSDIO_POWER_INIT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CLK_HISPEED\fP   33000000UL    /* High\-Speed Clock	*/"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CLK_FULLSPEED\fP   16000000UL    /* Full\-Speed Clock	*/"
+.br
+.ti -1c
+.RI "#define \fBSDIO_CLK_LOWSPEED\fP   400000        /* Low\-Speed Clock	*/"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSDIO_EVENT\fP { \fBSDIO_START_COMMAND\fP, \fBSDIO_START_DATA\fP, \fBSDIO_WAIT_DELAY\fP, \fBSDIO_WAIT_COMMAND\fP, \fBSDIO_WAIT_DATA\fP, \fBSDIO_CARD_DETECT\fP, \fBSDIO_CMD_ERR\fP, \fBSDIO_CMD_DONE\fP, \fBSDIO_DATA_ERR\fP, \fBSDIO_DATA_DONE\fP, \fBSDIO_CARD_INT\fP }
+.RI "\fISDIO Driver events\&. \fP""
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "int \fBSDIO_Card_Init\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t freq)"
+.br
+.RI "\fIInitialize the SDIO card\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Write_Direct\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t addr, uint32_t data)"
+.br
+.RI "\fIWrite 8-Bit register from SDIO register space\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_WriteRead_Direct\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t addr, uint32_t *data)"
+.br
+.RI "\fIWrite 8-Bit register from SDIO register space and read the register back\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Read_Direct\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t addr, uint32_t *data)"
+.br
+.RI "\fIRead an 8-Bit register from SDIO register space\&. \fP"
+.ti -1c
+.RI "void \fBSDIO_Setup_Callback\fP (\fBLPC_SDMMC_T\fP *pSDMMC, void(*\fBwake_evt\fP)(\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t event, void *arg), uint32_t(*\fBwait_evt\fP)(\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t event, void *arg))"
+.br
+.RI "\fISetup SDIO wait and wakeup callbacks\&. \fP"
+.ti -1c
+.RI "void \fBSDIO_Handler\fP (\fBLPC_SDMMC_T\fP *pSDMMC)"
+.br
+.RI "\fISDIO Event handler [Should be called from SDIO interrupt handler]\&. \fP"
+.ti -1c
+.RI "uint32_t \fBSDIO_Send_Command\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t cmd, uint32_t arg)"
+.br
+.RI "\fISends a command to the SDIO Card [Example CMD52]\&. \fP"
+.ti -1c
+.RI "uint32_t \fBSDIO_Card_GetBlockSize\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func)"
+.br
+.RI "\fIGets the block size of a given function\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_SetBlockSize\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t blkSize)"
+.br
+.RI "\fISets the block size of a given function\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_WriteData\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint32_t dest_addr, const uint8_t *src_addr, uint32_t size, uint32_t flags)"
+.br
+.RI "\fIWrites stream or block of data to the SDIO card [Using CMD53]\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_ReadData\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func, uint8_t *dest_addr, uint32_t src_addr, uint32_t size, uint32_t flags)"
+.br
+.RI "\fIReads stream or block of data from the SDIO card [Using CMD53]\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_DisableInt\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func)"
+.br
+.RI "\fIDisable SDIO interrupt for a given function\&. \fP"
+.ti -1c
+.RI "int \fBSDIO_Card_EnableInt\fP (\fBLPC_SDMMC_T\fP *pSDMMC, uint32_t func)"
+.br
+.RI "\fIEnable SDIO interrupt for a given function\&. \fP"
+.in -1c
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

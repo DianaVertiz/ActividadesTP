@@ -1,0 +1,54 @@
+\hypertarget{i2cm__18xx__43xx_8h}{}\section{Referencia del Archivo i2cm\+\_\+18xx\+\_\+43xx.\+h}
+\label{i2cm__18xx__43xx_8h}\index{i2cm\+\_\+18xx\+\_\+43xx.\+h@{i2cm\+\_\+18xx\+\_\+43xx.\+h}}
+{\ttfamily \#include \char`\"{}i2c\+\_\+common\+\_\+18xx\+\_\+43xx.\+h\char`\"{}}\\*
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T}
+\begin{DoxyCompactList}\small\item\em Master transfer data structure definitions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\textquotesingle{}defines\textquotesingle{}}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga6a74607429c3695a49c0eac54032bf0c}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+N\+A\+CK}~0x01
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_gacf3efc16aa194fd73190c47dc2930a0c}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+A\+S\+T\+\_\+\+R\+X\+\_\+\+A\+CK}~0x02
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_gaef5f7d87e3e3b72c200d978bb19205c5}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK}~0x00
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga18079f14167837fa204f54eef0c02c92}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+E\+R\+R\+OR}~0x01
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga3e37de80881a617b1fadceabbd9dc19f}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+AK}~0x02
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga5ae3667cc900825fac506866f9a509d2}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+S\+\_\+\+E\+R\+R\+OR}~0x03
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga5260bc325f40a9218d0596173c996f35}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+L\+A\+V\+E\+\_\+\+N\+AK}~0x04
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga390dc8a114c6577c494108394dad633d}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+R\+B\+L\+O\+ST}~0x05
+\item 
+\#define \hyperlink{group___i2_c_m__18_x_x__43_x_x_gafdf5fab1c97f34b2bdb9afd743822f42}{I2\+C\+M\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}~0x\+FF
+\end{DoxyCompactItemize}
+
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___i2_c_m__18_x_x__43_x_x_gaa54fd5277f67ad6a319f010ee47107be}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Init} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\begin{DoxyCompactList}\small\item\em Initialize I2C Interface. \end{DoxyCompactList}\item 
+void \hyperlink{group___i2_c_m__18_x_x__43_x_x_gaf4c9d08157514e8cc0d2bf4a870e85c5}{Chip\+\_\+\+I2\+C\+M\+\_\+\+De\+Init} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C)
+\begin{DoxyCompactList}\small\item\em Shutdown I2C Interface. \end{DoxyCompactList}\item 
+void \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga741eebe9ada749637e7ee24bf1f7f392}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Set\+Bus\+Speed} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, uint32\+\_\+t bus\+Speed)
+\begin{DoxyCompactList}\small\item\em Set up bus speed for L\+P\+C\+\_\+\+I2C controller. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga75095468463ed3ce0eb368165537780b}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Handler} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer)
+\begin{DoxyCompactList}\small\item\em Transfer state change handler handler. \end{DoxyCompactList}\item 
+void \hyperlink{group___i2_c_m__18_x_x__43_x_x_gad4b7e6761dd2450e45463a5acef9ee1a}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer)
+\begin{DoxyCompactList}\small\item\em Transmit and Receive data in master mode. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga3d8a7e3de0a4e192e4f40790b164869a}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Xfer\+Blocking} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, \hyperlink{struct_i2_c_m___x_f_e_r___t}{I2\+C\+M\+\_\+\+X\+F\+E\+R\+\_\+T} $\ast$xfer)
+\begin{DoxyCompactList}\small\item\em Transmit and Receive data in master mode. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga6f18f520e51c790fef5009e9446f74d5}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Write} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, const uint8\+\_\+t $\ast$buff, uint32\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Write given buffer of data to I2C interface. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___i2_c_m__18_x_x__43_x_x_ga2b5c5865a132ea7ec17c13f496304474}{Chip\+\_\+\+I2\+C\+M\+\_\+\+Read} (\hyperlink{struct_l_p_c___i2_c___t}{L\+P\+C\+\_\+\+I2\+C\+\_\+T} $\ast$p\+I2C, uint8\+\_\+t $\ast$buff, uint32\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Read data from I2C slave to given buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}

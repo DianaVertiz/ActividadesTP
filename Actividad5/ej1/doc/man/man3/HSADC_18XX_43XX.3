@@ -1,0 +1,1286 @@
+.TH "HSADC_18XX_43XX" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HSADC_18XX_43XX \- CHIP: LPC18xx/43xx High speed ADC driver
+.SS "Estructuras de datos"
+
+.in +1c
+.ti -1c
+.RI "struct \fBHSADCINTCTRL_T\fP"
+.br
+.RI "\fIHigh speed ADC interrupt control structure\&. \fP"
+.ti -1c
+.RI "struct \fBLPC_HSADC_T\fP"
+.br
+.RI "\fIHSADC register block structure\&. \fP"
+.in -1c
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBHSADC_MAX_SAMPLEVAL\fP   0xFFF"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_DONE\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_OVERRUN\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_RANGE_IN\fP   (0 << 2)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_RANGE_BELOW\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_RANGE_ABOVE\fP   (2 << 2)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_RANGE\fP(val)   ((val) & 0xC)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_CROSSING_NONE\fP   (0 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_CROSSING_DOWN\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_CROSSING_UP\fP   (2 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_CROSSING\fP(val)   ((val) & 0x30)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_LS_DATA\fP(val)   ((val) >> 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_SAMPLE_MASK\fP   (0xFFF)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_SAMPLE\fP(val)   ((val) & 0xFFF)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_CHAN_ID_MASK\fP   (0x7000)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_CHAN_ID\fP(val)   (((val) >> 12) & 0x7)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_EMPTY\fP   (0x1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_SHIFTPACKED\fP(val)   ((val) >> 16)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_FIFO_PACKEDMASK\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_CH\fP(ch)   (ch)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_HALT\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_INT\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_POWERDOWN\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_BRANCH_NEXT\fP   (0 << 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_BRANCH_FIRST\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_BRANCH_SWAP\fP   (2 << 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_MATCH\fP(val)   ((val) << 8)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_THRESH_NONE\fP   (0 << 22)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_THRESH_A\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_THRESH_B\fP   (2 << 22)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_RESET_TIMER\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_DESC_UPDATE_TABLE\fP   (1UL << 31)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_FIFO_FULL\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_FIFO_EMPTY\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_FIFO_OVERFLOW\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_DSCR_DONE\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_DSCR_ERROR\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_ADC_OVF\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT0_ADC_UNF\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_THCMP_BRANGE\fP(ch)   (1 << ((ch * 5) + 0))"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_THCMP_ARANGE\fP(ch)   (1 << ((ch * 5) + 1))"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_THCMP_DCROSS\fP(ch)   (1 << ((ch * 5) + 2))"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_THCMP_UCROSS\fP(ch)   (1 << ((ch * 5) + 3))"
+.br
+.ti -1c
+.RI "#define \fBHSADC_INT1_OVERRUN\fP(ch)   (1 << ((ch * 5) + 4))"
+.br
+.in -1c
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBHSADC_TRIGGER_MASK_T\fP { \fBHSADC_CONFIG_TRIGGER_OFF\fP = 0, \fBHSADC_CONFIG_TRIGGER_SW\fP = 1, \fBHSADC_CONFIG_TRIGGER_EXT\fP = 2, \fBHSADC_CONFIG_TRIGGER_BOTH\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBHSADC_TRIGGER_MODE_T\fP { \fBHSADC_CONFIG_TRIGGER_RISEEXT\fP = (0 << 2), \fBHSADC_CONFIG_TRIGGER_FALLEXT\fP = (1 << 2), \fBHSADC_CONFIG_TRIGGER_LOWEXT\fP = (2 << 2), \fBHSADC_CONFIG_TRIGGER_HIGHEXT\fP = (3 << 2) }"
+.br
+.ti -1c
+.RI "enum \fBHSADC_TRIGGER_SYNC_T\fP { \fBHSADC_CONFIG_TRIGGER_NOEXTSYNC\fP = (0 << 4), \fBHSADC_CONFIG_TRIGGER_EXTSYNC\fP = (1 << 4) }"
+.br
+.ti -1c
+.RI "enum \fBHSADC_CHANNEL_ID_EN_T\fP { \fBHSADC_CHANNEL_ID_EN_NONE\fP = (0 << 5), \fBHSADC_CHANNEL_ID_EN_ADD\fP = (1 << 5) }"
+.br
+.ti -1c
+.RI "enum \fBHSADC_DCBIAS_T\fP { \fBHSADC_CHANNEL_NODCBIAS\fP = 0, \fBHSADC_CHANNEL_DCBIAS\fP = 1 }"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBChip_HSADC_Init\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIInitialize the High speed ADC\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_DeInit\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIShutdown HSADC\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_FlushFIFO\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIFlush High speed ADC FIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_LoadDMADesc\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fILoad a descriptor table from memory by requesting a DMA write\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetFIFOLevel\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReturns current HSADC FIFO fill level\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetupFIFO\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t trip, bool packed)"
+.br
+.RI "\fISets up HSADC FIFO trip level and packing\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_SWTrigger\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIStarts a manual (software) trigger of HSADC descriptors\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_SetActiveDescriptor\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t table, uint8_t desc)"
+.br
+.RI "\fISet active table descriptor index and number\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_HSADC_GetActiveDescriptorIndex\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReturns currently active descriptor index being processed\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint8_t \fBChip_HSADC_GetActiveDescriptorTable\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReturns currently active descriptor table being processed\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_EnablePowerDownMode\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIEnables ADC power down mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_DisablePowerDownMode\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIDisables ADC power down mode\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_ConfigureTrigger\fP (\fBLPC_HSADC_T\fP *pHSADC, \fBHSADC_TRIGGER_MASK_T\fP mask, \fBHSADC_TRIGGER_MODE_T\fP mode, \fBHSADC_TRIGGER_SYNC_T\fP sync, \fBHSADC_CHANNEL_ID_EN_T\fP chID, uint16_t recoveryTime)"
+.br
+.RI "\fIConfigure HSADC trigger source and recovery time\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetThrLowValue\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t thrnum, uint16_t value)"
+.br
+.RI "\fISet HSADC Threshold low value\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetThrHighValue\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t thrnum, uint16_t value)"
+.br
+.RI "\fISet HSADC Threshold high value\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetLastSample\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t channel)"
+.br
+.RI "\fIRead a ADC last sample register\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetSpeed\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t channel, uint8_t speed)"
+.br
+.RI "\fISetup speed for a input channel\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetPowerSpeed\fP (\fBLPC_HSADC_T\fP *pHSADC, bool comp2)"
+.br
+.RI "\fISetup (common) HSADC power and speed settings\&. \fP"
+.ti -1c
+.RI "void \fBChip_HSADC_SetACDCBias\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t channel, \fBHSADC_DCBIAS_T\fP dcInNeg, \fBHSADC_DCBIAS_T\fP dcInPos)"
+.br
+.RI "\fISetup AC-DC coupling selection for a channel\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_EnablePower\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIEnable HSADC power control and band gap reference\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_DisablePower\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIDisable HSADC power control and band gap reference\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetFIFO\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReads the HSADC FIFO\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_SetupDescEntry\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t table, uint8_t descNo, uint32_t desc)"
+.br
+.RI "\fISets up a raw HSADC descriptor entry\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_UpdateDescTable\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t table)"
+.br
+.RI "\fIUpdate all descriptors of a table\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_EnableInts\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp, uint32_t intMask)"
+.br
+.RI "\fIEnable an interrupt for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_DisableInts\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp, uint32_t intMask)"
+.br
+.RI "\fIDisables an interrupt for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetEnabledInts\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp)"
+.br
+.RI "\fIReturns enabled interrupt for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetIntStatus\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp)"
+.br
+.RI "\fIReturns status for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_ClearIntStatus\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp, uint32_t stsMask)"
+.br
+.RI "\fIClear a status for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP void \fBChip_HSADC_SetIntStatus\fP (\fBLPC_HSADC_T\fP *pHSADC, uint8_t intGrp, uint32_t stsMask)"
+.br
+.RI "\fISets a status for HSADC interrupt group 0 or 1\&. \fP"
+.ti -1c
+.RI "\fBSTATIC\fP \fBINLINE\fP uint32_t \fBChip_HSADC_GetBaseClockRate\fP (\fBLPC_HSADC_T\fP *pHSADC)"
+.br
+.RI "\fIReturns the clock rate in Hz for the HSADC\&. \fP"
+.in -1c
+.SH "Descripción detallada"
+.PP 
+
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define HSADC_DESC_BRANCH_FIRST   (1 << 6)"
+Branch to the first descriptor 
+.PP
+Definición en la línea 413 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_BRANCH_NEXT   (0 << 6)"
+Continue with next descriptor 
+.PP
+Definición en la línea 412 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_BRANCH_SWAP   (2 << 6)"
+Swap tables and branch to the first descriptor of the new table 
+.PP
+Definición en la línea 414 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_CH(ch)   (ch)"
+HSADC descriptor registers bit fields and support macros Converter input channel 
+.PP
+Definición en la línea 408 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_HALT   (1 << 3)"
+Descriptor halt after conversion bit 
+.PP
+Definición en la línea 409 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_INT   (1 << 4)"
+Raise interrupt when ADC result is available bit 
+.PP
+Definición en la línea 410 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_MATCH(val)   ((val) << 8)"
+Match value used to trigger a descriptor 
+.PP
+Definición en la línea 415 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_POWERDOWN   (1 << 5)"
+Power down after this conversion bit 
+.PP
+Definición en la línea 411 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_RESET_TIMER   (1 << 24)"
+Reset descriptor timer 
+.PP
+Definición en la línea 419 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_THRESH_A   (1 << 22)"
+Use A threshold detection 
+.PP
+Definición en la línea 417 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_THRESH_B   (2 << 22)"
+Use B threshold detection 
+.PP
+Definición en la línea 418 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_THRESH_NONE   (0 << 22)"
+No threshold detection performed 
+.PP
+Definición en la línea 416 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_DESC_UPDATE_TABLE   (1UL << 31)"
+Update table with all 8 descriptors of this table 
+.PP
+Definición en la línea 420 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_FIFO_CHAN_ID(val)   (((val) >> 12) & 0x7)"
+Macro for stripping out sample data 
+.PP
+Definición en la línea 386 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_FIFO_CHAN_ID_MASK   (0x7000)"
+Channel ID mask 
+.PP
+Definición en la línea 385 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_FIFO_EMPTY   (0x1 << 15)"
+FIFO empty (invalid sample) 
+.PP
+Definición en la línea 387 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_FIFO_PACKEDMASK   (1UL << 31)"
+Packed sample check mask 
+.PP
+Definición en la línea 389 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_FIFO_SAMPLE(val)   ((val) & 0xFFF)"
+Macro for stripping out unpacked sample data 
+.PP
+Definición en la línea 384 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_FIFO_SAMPLE_MASK   (0xFFF)"
+HSADC FIFO registers bit fields for unpacked sample in lower 16 bits 12-bit sample mask (unpacked) 
+.PP
+Definición en la línea 383 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_FIFO_SHIFTPACKED(val)   ((val) >> 16)"
+Shifts the packed FIFO sample into the lower 16-bits of a word 
+.PP
+Definición en la línea 388 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT0_ADC_OVF   (1 << 5)"
+Converted sample value was over range of the 12 bit output code 
+.PP
+Definición en la línea 465 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT0_ADC_UNF   (1 << 6)"
+Converted sample value was under range of the 12 bit output code 
+.PP
+Definición en la línea 466 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT0_DSCR_DONE   (1 << 3)"
+The descriptor INTERRUPT field was enabled and its sample is converted 
+.PP
+Definición en la línea 463 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT0_DSCR_ERROR   (1 << 4)"
+The ADC was not fully woken up when a sample was converted and the conversion results is unreliable 
+.PP
+Definición en la línea 464 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT0_FIFO_EMPTY   (1 << 1)"
+FIFO is empty 
+.PP
+Definición en la línea 461 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT0_FIFO_FULL   (1 << 0)"
+number of samples in FIFO is more than FIFO_LEVEL 
+.PP
+Definición en la línea 460 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT0_FIFO_OVERFLOW   (1 << 2)"
+FIFO was full; conversion sample is not stored and lost 
+.PP
+Definición en la línea 462 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT1_OVERRUN(ch)   (1 << ((ch * 5) + 4))"
+New conversion on channel completed and has overwritten the previous contents of register LAST_SAMPLE [0] before it has been read 
+.PP
+Definición en la línea 474 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT1_THCMP_ARANGE(ch)   (1 << ((ch * 5) + 1))"
+Input channel result above range 
+.PP
+Definición en la línea 471 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT1_THCMP_BRANGE(ch)   (1 << ((ch * 5) + 0))"
+Input channel result below range 
+.PP
+Definición en la línea 470 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT1_THCMP_DCROSS(ch)   (1 << ((ch * 5) + 2))"
+Input channel result downward threshold crossing detected 
+.PP
+Definición en la línea 472 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_INT1_THCMP_UCROSS(ch)   (1 << ((ch * 5) + 3))"
+Input channel result upward threshold crossing detected 
+.PP
+Definición en la línea 473 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_CROSSING(val)   ((val) & 0x30)"
+Mask for threshold crossing comparison result 
+.PP
+Definición en la línea 288 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_CROSSING_DOWN   (1 << 4)"
+Downward threshold crossing detected 
+.PP
+Definición en la línea 286 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_CROSSING_NONE   (0 << 4)"
+No threshold crossing detected 
+.PP
+Definición en la línea 285 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_CROSSING_UP   (2 << 4)"
+Upward threshold crossing detected 
+.PP
+Definición en la línea 287 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_DATA(val)   ((val) >> 6)"
+Mask data value out of sample 
+.PP
+Definición en la línea 289 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_DONE   (1 << 0)"
+HSADC last sample registers bit fields Sample conversion complete bit 
+.PP
+Definición en la línea 279 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_OVERRUN   (1 << 1)"
+Sample overrun bit 
+.PP
+Definición en la línea 280 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_RANGE(val)   ((val) & 0xC)"
+Mask for threshold crossing comparison result 
+.PP
+Definición en la línea 284 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_RANGE_ABOVE   (2 << 2)"
+Threshold range comparison is above range 
+.PP
+Definición en la línea 283 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_RANGE_BELOW   (1 << 2)"
+Threshold range comparison is below range 
+.PP
+Definición en la línea 282 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_LS_RANGE_IN   (0 << 2)"
+Threshold range comparison is in range 
+.PP
+Definición en la línea 281 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "#define HSADC_MAX_SAMPLEVAL   0xFFF"
+
+.PP
+Definición en la línea 82 del archivo hsadc_18xx_43xx\&.h\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBHSADC_CHANNEL_ID_EN_T\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIHSADC_CHANNEL_ID_EN_NONE \fP\fP
+do not add channel ID to FIFO output data 
+.TP
+\fB\fIHSADC_CHANNEL_ID_EN_ADD \fP\fP
+add channel ID to FIFO output data 
+.PP
+Definición en la línea 235 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "enum \fBHSADC_DCBIAS_T\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIHSADC_CHANNEL_NODCBIAS \fP\fP
+No DC bias 
+.TP
+\fB\fIHSADC_CHANNEL_DCBIAS \fP\fP
+DC bias on vin_neg side 
+.PP
+Definición en la línea 336 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "enum \fBHSADC_TRIGGER_MASK_T\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_OFF \fP\fP
+ADCHS triggers off 
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_SW \fP\fP
+ADCHS software trigger only 
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_EXT \fP\fP
+ADCHS external trigger only 
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_BOTH \fP\fP
+ADCHS both software and external triggers allowed 
+.PP
+Definición en la línea 213 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "enum \fBHSADC_TRIGGER_MODE_T\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_RISEEXT \fP\fP
+ADCHS rising external trigger 
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_FALLEXT \fP\fP
+ADCHS falling external trigger 
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_LOWEXT \fP\fP
+ADCHS low external trigger 
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_HIGHEXT \fP\fP
+ADCHS high external trigger 
+.PP
+Definición en la línea 221 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "enum \fBHSADC_TRIGGER_SYNC_T\fP"
+
+.PP
+\fBValores de enumeraciones\fP
+.in +1c
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_NOEXTSYNC \fP\fP
+do not synchronize external trigger input 
+.TP
+\fB\fIHSADC_CONFIG_TRIGGER_EXTSYNC \fP\fP
+synchronize external trigger input 
+.PP
+Definición en la línea 229 del archivo hsadc_18xx_43xx\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_ClearIntStatus (\fBLPC_HSADC_T\fP * pHSADC, uint8_t intGrp, uint32_t stsMask)"
+
+.PP
+Clear a status for HSADC interrupt group 0 or 1\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIintGrp\fP : Interrupt group 0 or 1 
+.br
+\fIstsMask\fP : Statuses to clear, use HSADC_INT0_* for group 0 and HSADC_INT1_* values for group 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 536 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_ConfigureTrigger (\fBLPC_HSADC_T\fP * pHSADC, \fBHSADC_TRIGGER_MASK_T\fP mask, \fBHSADC_TRIGGER_MODE_T\fP mode, \fBHSADC_TRIGGER_SYNC_T\fP sync, \fBHSADC_CHANNEL_ID_EN_T\fP chID, uint16_t recoveryTime)"
+
+.PP
+Configure HSADC trigger source and recovery time\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.br
+\fImask\fP : HSADC trigger configuration mask type 
+.br
+\fImode\fP : HSADC trigger configuration mode type 
+.br
+\fIsync\fP : HSADC trigger configuration sync type 
+.br
+\fIchID\fP : HSADC trigger configuration channel ID enable 
+.br
+\fIrecoveryTime\fP : ADC recovery time (in HSADC clocks) from powerdown (255 max) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 250 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "void Chip_HSADC_DeInit (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Shutdown HSADC\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 78 del archivo hsadc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_DisableInts (\fBLPC_HSADC_T\fP * pHSADC, uint8_t intGrp, uint32_t intMask)"
+
+.PP
+Disables an interrupt for HSADC interrupt group 0 or 1\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIintGrp\fP : Interrupt group 0 or 1 
+.br
+\fIintMask\fP : Interrupts to disable, use HSADC_INT0_* for group 0 and HSADC_INT1_* values for group 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 497 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_DisablePower (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Disable HSADC power control and band gap reference\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function disables both the HSADC power and band gap reference\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 377 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_DisablePowerDownMode (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Disables ADC power down mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+In most cases, this function doesn't need to be used as the descriptors control power as needed\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 207 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_EnableInts (\fBLPC_HSADC_T\fP * pHSADC, uint8_t intGrp, uint32_t intMask)"
+
+.PP
+Enable an interrupt for HSADC interrupt group 0 or 1\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIintGrp\fP : Interrupt group 0 or 1 
+.br
+\fIintMask\fP : Interrupts to enable, use HSADC_INT0_* for group 0 and HSADC_INT1_* values for group 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 484 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_EnablePower (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Enable HSADC power control and band gap reference\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function enables both the HSADC power and band gap reference\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 365 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_EnablePowerDownMode (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Enables ADC power down mode\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+In most cases, this function doesn't need to be used as the descriptors control power as needed\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 195 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_FlushFIFO (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Flush High speed ADC FIFO\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 103 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_HSADC_GetActiveDescriptorIndex (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Returns currently active descriptor index being processed\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+the current active descriptor index, 0 to 7 
+.RE
+.PP
+
+.PP
+Definición en la línea 173 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint8_t Chip_HSADC_GetActiveDescriptorTable (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Returns currently active descriptor table being processed\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+the current active descriptor table, 0 or 1 
+.RE
+.PP
+
+.PP
+Definición en la línea 183 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_HSADC_GetBaseClockRate (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Returns the clock rate in Hz for the HSADC\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+clock rate in Hz for the HSADC 
+.RE
+.PP
+
+.PP
+Definición en la línea 559 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_HSADC_GetEnabledInts (\fBLPC_HSADC_T\fP * pHSADC, uint8_t intGrp)"
+
+.PP
+Returns enabled interrupt for HSADC interrupt group 0 or 1\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIintGrp\fP : Interrupt group 0 or 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+enabled interrupts for the selected group 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Mask the return value with a HSADC_INT0_* macro for group 0 or HSADC_INT1_* values for group 1 to determine which interrupts are enabled\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 510 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_HSADC_GetFIFO (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Reads the HSADC FIFO\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+HSADC FIFO value 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function reads and pops the HSADC FIFO\&. The FIFO contents can be determined by using the HSADC_FIFO_* macros\&. If FIFO packing is enabled, this may contain 2 samples\&. Use the HSADC_FIFO_SHIFTPACKED macro to shift packed sample data into a variable that can be used with the HSADC_FIFO_* macros\&. Note that even if packing is enabled, the packed sample may not be valid\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 402 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_HSADC_GetFIFOLevel (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Returns current HSADC FIFO fill level\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+FIFO level, 0 for empty, 1 to 15, or 16 for full 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+WHat is this used for? 
+.RE
+.PP
+
+.PP
+Definición en la línea 125 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_HSADC_GetIntStatus (\fBLPC_HSADC_T\fP * pHSADC, uint8_t intGrp)"
+
+.PP
+Returns status for HSADC interrupt group 0 or 1\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIintGrp\fP : Interrupt group 0 or 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+interrupt (pending) status for the selected group 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Mask the return value with a HSADC_INT0_* macro for group 0 or HSADC_INT1_* values for group 1 to determine which statuses are active\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 523 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP uint32_t Chip_HSADC_GetLastSample (\fBLPC_HSADC_T\fP * pHSADC, uint8_t channel)"
+
+.PP
+Read a ADC last sample register\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIchannel\fP : Last sample register to read, 0-5 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Current raw value of the indexed last sample register 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function returns the raw value of the indexed last sample register and clears the sample's DONE and OVERRUN statuses if set\&. You can determine the overrun and datavalid status for the sample by masking the return value with HSADC_LS_DONE or HSADC_LS_OVERRUN\&. To get the data value for the sample, use the \fBHSADC_LS_DATA(sample)\fP macro\&. The threshold range and crossing results can be determined by using the \fBHSADC_LS_RANGE(sample)\fP and \fBHSADC_LS_CROSSING(sample)\fP macros and comparing the result against the HSADC_LS_RANGE_* or HSADC_LS_CROSSING_* definitions\&.
+.br
+ 
+.RE
+.PP
+
+.PP
+Definición en la línea 305 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "void Chip_HSADC_Init (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Initialize the High speed ADC\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 65 del archivo hsadc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_LoadDMADesc (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Load a descriptor table from memory by requesting a DMA write\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+WHat is this used for? 
+.RE
+.PP
+
+.PP
+Definición en la línea 114 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "void Chip_HSADC_SetACDCBias (\fBLPC_HSADC_T\fP * pHSADC, uint8_t channel, \fBHSADC_DCBIAS_T\fP dcInNeg, \fBHSADC_DCBIAS_T\fP dcInPos)"
+
+.PP
+Setup AC-DC coupling selection for a channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIchannel\fP : Input to set, 0-5 
+.br
+\fIdcInNeg\fP : AC-DC coupling selection on vin_neg side 
+.br
+\fIdcInPos\fP : AC-DC coupling selection on vin_pos side 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function sets up the HSADC current/power/speed settings that apply to all HSADC channels (inputs)\&. Based on the HSADC clock rate, it will automatically setup the best current setting (CRS) and speed settings (DGEC) for all channels\&. (See user manual)\&.
+.br
+ This function is also used to set the data format of the sampled data\&. It is recommended to call this function if the HSADC sample rate changes\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 166 del archivo hsadc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_SetActiveDescriptor (\fBLPC_HSADC_T\fP * pHSADC, uint8_t table, uint8_t desc)"
+
+.PP
+Set active table descriptor index and number\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.br
+\fItable\fP : Table index, 0 or 1 
+.br
+\fIdesc\fP : Descriptor index, 0 to 7 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function can be used to set active descriptor table and active descriptor entry values\&. The new values will be updated immediately\&. This should only be updated when descriptors are not running (halted)\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 163 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_SetIntStatus (\fBLPC_HSADC_T\fP * pHSADC, uint8_t intGrp, uint32_t stsMask)"
+
+.PP
+Sets a status for HSADC interrupt group 0 or 1\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIintGrp\fP : Interrupt group 0 or 1 
+.br
+\fIstsMask\fP : Statuses to set, use HSADC_INT0_* for group 0 and HSADC_INT1_* values for group 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 549 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "void Chip_HSADC_SetPowerSpeed (\fBLPC_HSADC_T\fP * pHSADC, bool comp2)"
+
+.PP
+Setup (common) HSADC power and speed settings\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIcomp2\fP : True sets up for 2's complement, false sets up for offset binary data format 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function sets up the HSADC current/power/speed settings that apply to all HSADC channels (inputs)\&. Based on the HSADC clock rate, it will automatically setup the best current setting (CRS) and speed settings (DGEC) for all channels\&. (See user manual)\&.
+.br
+ This function is also used to set the data format of the sampled data\&. It is recommended to call this function if the HSADC sample rate changes\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 130 del archivo hsadc_18xx_43xx\&.c\&.
+.SS "void Chip_HSADC_SetSpeed (\fBLPC_HSADC_T\fP * pHSADC, uint8_t channel, uint8_t speed)"
+
+.PP
+Setup speed for a input channel\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fIchannel\fP : Input to set, 0-5 
+.br
+\fIspeed\fP : Speed value to set (0xF, 0xE, or 0x0), see user manual 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+It is recommended not to use this function, as the values needed for this register will be setup with the \fBChip_HSADC_SetPowerSpeed()\fP function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 121 del archivo hsadc_18xx_43xx\&.c\&.
+.SS "void Chip_HSADC_SetThrHighValue (\fBLPC_HSADC_T\fP * pHSADC, uint8_t thrnum, uint16_t value)"
+
+.PP
+Set HSADC Threshold high value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.br
+\fIthrnum\fP : Threshold register value (0 for threshold register A, 1 for threshold register B) 
+.br
+\fIvalue\fP : Threshold high data value (should be 12-bit value) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 112 del archivo hsadc_18xx_43xx\&.c\&.
+.SS "void Chip_HSADC_SetThrLowValue (\fBLPC_HSADC_T\fP * pHSADC, uint8_t thrnum, uint16_t value)"
+
+.PP
+Set HSADC Threshold low value\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.br
+\fIthrnum\fP : Threshold register value (0 for threshold register A, 1 for threshold register B) 
+.br
+\fIvalue\fP : Threshold low data value (should be 12-bit value) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definición en la línea 103 del archivo hsadc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_SetupDescEntry (\fBLPC_HSADC_T\fP * pHSADC, uint8_t table, uint8_t descNo, uint32_t desc)"
+
+.PP
+Sets up a raw HSADC descriptor entry\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fItable\fP : Descriptor table number, 0 or 1 
+.br
+\fIdescNo\fP : Descriptor number to setup, 0 to 7 
+.br
+\fIdesc\fP : Raw descriptor value (see notes) 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+This function sets up a descriptor table entry\&. To setup a descriptor entry, select a OR'ed combination of the HSADC_DESC_CH, HSADC_DESC_HALT, HSADC_DESC_INT, HSADC_DESC_POWERDOWN, one of HSADC_DESC_BRANCH_*, HSADC_DESC_MATCH, one of HSADC_DESC_THRESH_*, and HSADC_DESC_RESET_TIMER definitions\&.
+.br
+ Example for setting up a table 0, descriptor number 4 entry for input 0:
+.br
+ Chip_HSADC_SetupDescEntry(LPC_HSADC, 0, 4, (\fBHSADC_DESC_CH(0)\fP | HSADC_DESC_HALT | HSADC_DESC_INT)); 
+.RE
+.PP
+
+.PP
+Definición en la línea 438 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "void Chip_HSADC_SetupFIFO (\fBLPC_HSADC_T\fP * pHSADC, uint8_t trip, bool packed)"
+
+.PP
+Sets up HSADC FIFO trip level and packing\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.br
+\fItrip\fP : HSADC FIFO trip point (1 to 15 samples) 
+.br
+\fIpacked\fP : true to pack samples, false for no packing 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+The FIFO trip point is used for the DMA or interrupt level\&. Sample packging allows packing 2 samples into a single 32-bit word\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 92 del archivo hsadc_18xx_43xx\&.c\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_SWTrigger (\fBLPC_HSADC_T\fP * pHSADC)"
+
+.PP
+Starts a manual (software) trigger of HSADC descriptors\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of HSADC peripheral on the chip 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+
+.PP
+Definición en la línea 147 del archivo hsadc_18xx_43xx\&.h\&.
+.SS "\fBSTATIC\fP \fBINLINE\fP void Chip_HSADC_UpdateDescTable (\fBLPC_HSADC_T\fP * pHSADC, uint8_t table)"
+
+.PP
+Update all descriptors of a table\&. 
+.PP
+\fBParámetros:\fP
+.RS 4
+\fIpHSADC\fP : The base of ADC peripheral on the chip 
+.br
+\fItable\fP : Descriptor table number, 0 or 1 
+.RE
+.PP
+\fBDevuelve:\fP
+.RS 4
+Nothing 
+.RE
+.PP
+\fBNota:\fP
+.RS 4
+Updates descriptor table with all 8 descriptors\&. This function should be used after all descriptors are setup with the \fBChip_HSADC_SetupDescEntry()\fP function\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 453 del archivo hsadc_18xx_43xx\&.h\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

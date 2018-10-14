@@ -1,0 +1,95 @@
+.TH "rtc_ut.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rtc_ut.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'rtc_ut\&.h'\fP
+.br
+
+.SS "'defines'"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSECSPERMIN\fP   (60)"
+.br
+.ti -1c
+.RI "#define \fBMINSPERHOUR\fP   (60)"
+.br
+.ti -1c
+.RI "#define \fBSECSPERHOUR\fP   (\fBSECSPERMIN\fP * \fBMINSPERHOUR\fP)"
+.br
+.ti -1c
+.RI "#define \fBHOURSPERDAY\fP   (24)"
+.br
+.ti -1c
+.RI "#define \fBSECSPERDAY\fP   (\fBSECSPERMIN\fP * \fBMINSPERHOUR\fP * \fBHOURSPERDAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBDAYSPERWEEK\fP   (7)"
+.br
+.ti -1c
+.RI "#define \fBMONETHSPERYEAR\fP   (12)"
+.br
+.ti -1c
+.RI "#define \fBDAYSPERYEAR\fP   (365)"
+.br
+.ti -1c
+.RI "#define \fBDAYSPERLEAPYEAR\fP   (366)"
+.br
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "void \fBConvertRtcTime\fP (uint32_t rtcTick, struct tm *pTime)"
+.br
+.RI "\fIConverts a RTC tick time to Universal time\&. \fP"
+.ti -1c
+.RI "void \fBConvertTimeRtc\fP (struct tm *pTime, uint32_t *rtcTick)"
+.br
+.RI "\fIConverts a Universal time to RTC tick time\&. \fP"
+.in -1c
+.SH "Documentación de los 'defines'"
+.PP 
+.SS "#define DAYSPERLEAPYEAR   (366)"
+
+.PP
+Definición en la línea 48 del archivo rtc_ut\&.c\&.
+.SS "#define DAYSPERWEEK   (7)"
+
+.PP
+Definición en la línea 45 del archivo rtc_ut\&.c\&.
+.SS "#define DAYSPERYEAR   (365)"
+
+.PP
+Definición en la línea 47 del archivo rtc_ut\&.c\&.
+.SS "#define HOURSPERDAY   (24)"
+
+.PP
+Definición en la línea 43 del archivo rtc_ut\&.c\&.
+.SS "#define MINSPERHOUR   (60)"
+
+.PP
+Definición en la línea 41 del archivo rtc_ut\&.c\&.
+.SS "#define MONETHSPERYEAR   (12)"
+
+.PP
+Definición en la línea 46 del archivo rtc_ut\&.c\&.
+.SS "#define SECSPERDAY   (\fBSECSPERMIN\fP * \fBMINSPERHOUR\fP * \fBHOURSPERDAY\fP)"
+
+.PP
+Definición en la línea 44 del archivo rtc_ut\&.c\&.
+.SS "#define SECSPERHOUR   (\fBSECSPERMIN\fP * \fBMINSPERHOUR\fP)"
+
+.PP
+Definición en la línea 42 del archivo rtc_ut\&.c\&.
+.SS "#define SECSPERMIN   (60)"
+
+.PP
+Definición en la línea 40 del archivo rtc_ut\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

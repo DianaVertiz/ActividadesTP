@@ -1,0 +1,92 @@
+\hypertarget{structarm__pid__instance__q31}{}\section{Referencia de la Estructura arm\+\_\+pid\+\_\+instance\+\_\+q31}
+\label{structarm__pid__instance__q31}\index{arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}}
+
+
+Instance structure for the Q31 P\+ID Control.  
+
+
+
+
+{\ttfamily \#include $<$arm\+\_\+math.\+h$>$}
+
+\subsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{arm__math_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t} \hyperlink{structarm__pid__instance__q31_ab58496a4137da4c667915a5fc0ef57ef}{A0}
+\item 
+\hyperlink{arm__math_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t} \hyperlink{structarm__pid__instance__q31_aeb897c84724b56948e4222aca8d0e1f4}{A1}
+\item 
+\hyperlink{arm__math_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t} \hyperlink{structarm__pid__instance__q31_a4ae945f839719fb2c04c978724b78ebb}{A2}
+\item 
+\hyperlink{arm__math_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t} \hyperlink{structarm__pid__instance__q31_af0a2da4da9a94af652873ec7e7be4880}{state} \mbox{[}3\mbox{]}
+\item 
+\hyperlink{arm__math_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t} \hyperlink{structarm__pid__instance__q31_a6ec4b37fe2246a7e017dd07578fe5bbd}{Kp}
+\item 
+\hyperlink{arm__math_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t} \hyperlink{structarm__pid__instance__q31_a84a6c05c16369c905193da0d5fc9a7b0}{Ki}
+\item 
+\hyperlink{arm__math_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t} \hyperlink{structarm__pid__instance__q31_a213bbf14da7ea536998f611977173552}{Kd}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Instance structure for the Q31 P\+ID Control. 
+
+Definición en la línea 1752 del archivo arm\+\_\+math.\+h.
+
+
+
+\subsection{Documentación de los campos}
+\index{arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}!A0@{A0}}
+\index{A0@{A0}!arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}}
+\subsubsection[{\texorpdfstring{A0}{A0}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf q31\+\_\+t} A0}\hypertarget{structarm__pid__instance__q31_ab58496a4137da4c667915a5fc0ef57ef}{}\label{structarm__pid__instance__q31_ab58496a4137da4c667915a5fc0ef57ef}
+The derived gain, A0 = Kp + Ki + Kd . 
+
+Definición en la línea 1754 del archivo arm\+\_\+math.\+h.
+
+\index{arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}!A1@{A1}}
+\index{A1@{A1}!arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}}
+\subsubsection[{\texorpdfstring{A1}{A1}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf q31\+\_\+t} A1}\hypertarget{structarm__pid__instance__q31_aeb897c84724b56948e4222aca8d0e1f4}{}\label{structarm__pid__instance__q31_aeb897c84724b56948e4222aca8d0e1f4}
+The derived gain, A1 = -\/\+Kp -\/ 2\+Kd. 
+
+Definición en la línea 1755 del archivo arm\+\_\+math.\+h.
+
+\index{arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}!A2@{A2}}
+\index{A2@{A2}!arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}}
+\subsubsection[{\texorpdfstring{A2}{A2}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf q31\+\_\+t} A2}\hypertarget{structarm__pid__instance__q31_a4ae945f839719fb2c04c978724b78ebb}{}\label{structarm__pid__instance__q31_a4ae945f839719fb2c04c978724b78ebb}
+The derived gain, A2 = Kd . 
+
+Definición en la línea 1756 del archivo arm\+\_\+math.\+h.
+
+\index{arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}!Kd@{Kd}}
+\index{Kd@{Kd}!arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}}
+\subsubsection[{\texorpdfstring{Kd}{Kd}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf q31\+\_\+t} Kd}\hypertarget{structarm__pid__instance__q31_a213bbf14da7ea536998f611977173552}{}\label{structarm__pid__instance__q31_a213bbf14da7ea536998f611977173552}
+The derivative gain. 
+
+Definición en la línea 1760 del archivo arm\+\_\+math.\+h.
+
+\index{arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}!Ki@{Ki}}
+\index{Ki@{Ki}!arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}}
+\subsubsection[{\texorpdfstring{Ki}{Ki}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf q31\+\_\+t} Ki}\hypertarget{structarm__pid__instance__q31_a84a6c05c16369c905193da0d5fc9a7b0}{}\label{structarm__pid__instance__q31_a84a6c05c16369c905193da0d5fc9a7b0}
+The integral gain. 
+
+Definición en la línea 1759 del archivo arm\+\_\+math.\+h.
+
+\index{arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}!Kp@{Kp}}
+\index{Kp@{Kp}!arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}}
+\subsubsection[{\texorpdfstring{Kp}{Kp}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf q31\+\_\+t} Kp}\hypertarget{structarm__pid__instance__q31_a6ec4b37fe2246a7e017dd07578fe5bbd}{}\label{structarm__pid__instance__q31_a6ec4b37fe2246a7e017dd07578fe5bbd}
+The proportional gain. 
+
+Definición en la línea 1758 del archivo arm\+\_\+math.\+h.
+
+\index{arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}!state@{state}}
+\index{state@{state}!arm\+\_\+pid\+\_\+instance\+\_\+q31@{arm\+\_\+pid\+\_\+instance\+\_\+q31}}
+\subsubsection[{\texorpdfstring{state}{state}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf q31\+\_\+t} state\mbox{[}3\mbox{]}}\hypertarget{structarm__pid__instance__q31_af0a2da4da9a94af652873ec7e7be4880}{}\label{structarm__pid__instance__q31_af0a2da4da9a94af652873ec7e7be4880}
+The state array of length 3. 
+
+Definición en la línea 1757 del archivo arm\+\_\+math.\+h.
+
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{arm__math_8h}{arm\+\_\+math.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,104 @@
+.TH "uart_18xx_43xx.c" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+uart_18xx_43xx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'chip\&.h'\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP void \fBChip_UART_ABIntHandler\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.ti -1c
+.RI "void \fBChip_UART_Init\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIInitializes the pUART peripheral\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_DeInit\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIDe-initializes the pUART peripheral\&. \fP"
+.ti -1c
+.RI "int \fBChip_UART_Send\fP (\fBLPC_USART_T\fP *pUART, const void *data, int numBytes)"
+.br
+.RI "\fITransmit a byte array through the UART peripheral (non-blocking) \fP"
+.ti -1c
+.RI "\fBFlagStatus\fP \fBChip_UART_CheckBusy\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fICheck whether if UART is busy or not\&. \fP"
+.ti -1c
+.RI "int \fBChip_UART_SendBlocking\fP (\fBLPC_USART_T\fP *pUART, const void *data, int numBytes)"
+.br
+.RI "\fITransmit a byte array through the UART peripheral (blocking) \fP"
+.ti -1c
+.RI "int \fBChip_UART_Read\fP (\fBLPC_USART_T\fP *pUART, void *data, int numBytes)"
+.br
+.RI "\fIRead data through the UART peripheral (non-blocking) \fP"
+.ti -1c
+.RI "int \fBChip_UART_ReadBlocking\fP (\fBLPC_USART_T\fP *pUART, void *data, int numBytes)"
+.br
+.RI "\fIRead data through the UART peripheral (blocking) \fP"
+.ti -1c
+.RI "uint32_t \fBChip_UART_SetBaud\fP (\fBLPC_USART_T\fP *pUART, uint32_t baudrate)"
+.br
+.RI "\fISets best dividers to get a target bit rate (without fractional divider) \fP"
+.ti -1c
+.RI "void \fBChip_UART_RXIntHandlerRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB)"
+.br
+.RI "\fIUART receive-only interrupt handler for ring buffers\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_TXIntHandlerRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB)"
+.br
+.RI "\fIUART transmit-only interrupt handler for ring buffers\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_UART_SendRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB, const void *data, int bytes)"
+.br
+.RI "\fIPopulate a transmit ring buffer and start UART transmit\&. \fP"
+.ti -1c
+.RI "int \fBChip_UART_ReadRB\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRB, void *data, int bytes)"
+.br
+.RI "\fICopy data from a receive ring buffer\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_IRQRBHandler\fP (\fBLPC_USART_T\fP *pUART, \fBRINGBUFF_T\fP *pRXRB, \fBRINGBUFF_T\fP *pTXRB)"
+.br
+.RI "\fIUART receive/transmit interrupt handler for ring buffers\&. \fP"
+.ti -1c
+.RI "uint32_t \fBChip_UART_SetBaudFDR\fP (\fBLPC_USART_T\fP *pUART, uint32_t baud)"
+.br
+.RI "\fISets best dividers to get a target bit rate (with fractional divider) \fP"
+.ti -1c
+.RI "\fBFlagStatus\fP \fBChip_UART_GetABEOStatus\fP (\fBLPC_USART_T\fP *pUART)"
+.br
+.RI "\fIReturns the Auto Baud status\&. \fP"
+.ti -1c
+.RI "void \fBChip_UART_ABCmd\fP (\fBLPC_USART_T\fP *pUART, uint32_t mode, bool autorestart, \fBFunctionalState\fP NewState)"
+.br
+.RI "\fIStart/stop autobaud operation\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBSTATIC\fP volatile \fBFlagStatus\fP \fBABsyncSts\fP = \fBRESET\fP"
+.br
+.in -1c
+.SH "Documentación de las funciones"
+.PP 
+.SS "\fBSTATIC\fP void Chip_UART_ABIntHandler (\fBLPC_USART_T\fP * pUART)"
+
+.PP
+Definición en la línea 73 del archivo uart_18xx_43xx\&.c\&.
+.SH "Documentación de las variables"
+.PP 
+.SS "\fBSTATIC\fP volatile \fBFlagStatus\fP ABsyncSts = \fBRESET\fP"
+
+.PP
+Definición en la línea 39 del archivo uart_18xx_43xx\&.c\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.

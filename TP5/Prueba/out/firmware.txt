@@ -1,0 +1,434 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           ARM
+  Version:                           0x1
+  Entry point address:               0x1a000601
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          298480 (bytes into file)
+  Flags:                             0x5000200, Version5 EABI, soft-float ABI
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         2
+  Size of section headers:           40 (bytes)
+  Number of section headers:         20
+  Section header string table index: 19
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        1a000000 010000 002080 00  AX  0   0  4
+  [ 2] .init             PROGBITS        1a002080 012080 000004 00  AX  0   0  4
+  [ 3] .fini             PROGBITS        1a002084 012084 000004 00  AX  0   0  4
+  [ 4] .data             PROGBITS        10000000 012088 000000 00  WA  0   0  4
+  [ 5] .bss              NOBITS          10000000 020000 0000e0 00  WA  0   0  4
+  [ 6] .uninit_RESERVED  PROGBITS        10000000 012088 000000 00   W  0   0  4
+  [ 7] .ARM.attributes   ARM_ATTRIBUTES  00000000 012088 00002e 00      0   0  1
+  [ 8] .comment          PROGBITS        00000000 0120b6 00007f 01  MS  0   0  1
+  [ 9] .debug_frame      PROGBITS        00000000 012138 0014f0 00      0   0  4
+  [10] .debug_info       PROGBITS        00000000 013628 00849d 00      0   0  1
+  [11] .debug_abbrev     PROGBITS        00000000 01bac5 0016f1 00      0   0  1
+  [12] .debug_aranges    PROGBITS        00000000 01d1b6 000598 00      0   0  1
+  [13] .debug_ranges     PROGBITS        00000000 01d74e 0004f0 00      0   0  1
+  [14] .debug_macro      PROGBITS        00000000 01dc3e 007805 00      0   0  1
+  [15] .debug_line       PROGBITS        00000000 025443 005893 00      0   0  1
+  [16] .debug_str        PROGBITS        00000000 02acd6 01bdcb 01  MS  0   0  1
+  [17] .symtab           SYMTAB          00000000 046aa4 0015c0 10     18 220  4
+  [18] .strtab           STRTAB          00000000 048064 000cc1 00      0   0  1
+  [19] .shstrtab         STRTAB          00000000 048d25 0000ca 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  y (purecode), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x010000 0x1a000000 0x1a000000 0x02088 0x02088 R E 0x10000
+  LOAD           0x020000 0x10000000 0x1a002088 0x00000 0x000e0 RW  0x10000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .text .init .fini 
+   01     .bss 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+There are no unwind sections in this file.
+
+Symbol table '.symtab' contains 348 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 1a000000     0 SECTION LOCAL  DEFAULT    1 
+     2: 1a002080     0 SECTION LOCAL  DEFAULT    2 
+     3: 1a002084     0 SECTION LOCAL  DEFAULT    3 
+     4: 10000000     0 SECTION LOCAL  DEFAULT    4 
+     5: 10000000     0 SECTION LOCAL  DEFAULT    5 
+     6: 10000000     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000     0 SECTION LOCAL  DEFAULT    7 
+     8: 00000000     0 SECTION LOCAL  DEFAULT    8 
+     9: 00000000     0 SECTION LOCAL  DEFAULT    9 
+    10: 00000000     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000     0 SECTION LOCAL  DEFAULT   11 
+    12: 00000000     0 SECTION LOCAL  DEFAULT   12 
+    13: 00000000     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000     0 SECTION LOCAL  DEFAULT   14 
+    15: 00000000     0 SECTION LOCAL  DEFAULT   15 
+    16: 00000000     0 SECTION LOCAL  DEFAULT   16 
+    17: 00000000     0 FILE    LOCAL  DEFAULT  ABS startUp.c
+    18: 1a000000     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    19: 1a000128     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    20: 1a000600     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    21: 1a0006a4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    22: 00000000     0 FILE    LOCAL  DEFAULT  ABS crp.c
+    23: 1a0002fc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    24: 00000000     0 FILE    LOCAL  DEFAULT  ABS memset.c
+    25: 1a000300     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    26: 00000000     0 FILE    LOCAL  DEFAULT  ABS hardware.c
+    27: 1a000394     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    28: 1a000395    52 FUNC    LOCAL  DEFAULT    1 Chip_SCU_PinMuxSet
+    29: 1a0003c4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    30: 1a0003c8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    31: 1a0003c9    58 FUNC    LOCAL  DEFAULT    1 Chip_SCU_PinMux
+    32: 1a000402     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    33: 1a000403    56 FUNC    LOCAL  DEFAULT    1 Chip_GPIO_SetPinState
+    34: 1a00043a     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    35: 1a00043b    62 FUNC    LOCAL  DEFAULT    1 Chip_GPIO_SetPinDIROutput
+    36: 1a000478     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    37: 1a000479    64 FUNC    LOCAL  DEFAULT    1 Chip_GPIO_SetPinDIRInput
+    38: 1a001f48     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    39: 1a001f4c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    40: 1a0004b8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    41: 1a0005fc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    42: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
+    43: 1a0006c0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    44: 1a0006c1    52 FUNC    LOCAL  DEFAULT    1 NVIC_EnableIRQ
+    45: 1a0006f0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    46: 1a0006f4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    47: 1a0006f5    52 FUNC    LOCAL  DEFAULT    1 NVIC_DisableIRQ
+    48: 1a000724     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    49: 1a000728     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    50: 1a000729    84 FUNC    LOCAL  DEFAULT    1 NVIC_SetPriority
+    51: 1a000774     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    52: 1a00077c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    53: 1a00077d    52 FUNC    LOCAL  DEFAULT    1 Chip_SCU_PinMuxSet
+    54: 1a0007ac     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    55: 1a0007b0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    56: 1a0007b1    26 FUNC    LOCAL  DEFAULT    1 Chip_UART_TXEnable
+    57: 1a0007ca     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    58: 1a0007cb    34 FUNC    LOCAL  DEFAULT    1 Chip_UART_IntEnable
+    59: 1a0007ec     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    60: 1a0007ed    28 FUNC    LOCAL  DEFAULT    1 Chip_UART_SetupFIFOS
+    61: 1a000808     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    62: 1a000809    28 FUNC    LOCAL  DEFAULT    1 Chip_UART_ConfigData
+    63: 10000000     0 NOTYPE  LOCAL  DEFAULT    5 $d
+    64: 10000000    20 OBJECT  LOCAL  DEFAULT    5 txring
+    65: 10000014     0 NOTYPE  LOCAL  DEFAULT    5 $d
+    66: 10000014    20 OBJECT  LOCAL  DEFAULT    5 rxring
+    67: 10000028     0 NOTYPE  LOCAL  DEFAULT    5 $d
+    68: 10000028    32 OBJECT  LOCAL  DEFAULT    5 rxbuff
+    69: 10000048     0 NOTYPE  LOCAL  DEFAULT    5 $d
+    70: 10000048   128 OBJECT  LOCAL  DEFAULT    5 txbuff
+    71: 1a001f50     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    72: 1a001f80     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    73: 1a000824     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    74: 1a0008f8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    75: 00000000     0 FILE    LOCAL  DEFAULT  ABS fpu_init.c
+    76: 1a000914     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    77: 1a000974     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    78: 00000000     0 FILE    LOCAL  DEFAULT  ABS sysinit_18xx_43xx.c
+    79: 1a000988     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    80: 1a000989    32 FUNC    LOCAL  DEFAULT    1 Chip_Clock_DisableMainPLL
+    81: 1a0009a4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    82: 1a0009a8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    83: 1a0009a9    72 FUNC    LOCAL  DEFAULT    1 Chip_Clock_SetupMainPLL
+    84: 1a0009ec     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    85: 1a0009f0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    86: 1a0009f1    36 FUNC    LOCAL  DEFAULT    1 Chip_Clock_MainPLLLocked
+    87: 1a000a10     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    88: 1a001fb0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    89: 1a001fb0    72 OBJECT  LOCAL  DEFAULT    1 InitClkStates
+    90: 1a000a14     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    91: 1a000b54     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    92: 1a000b5c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    93: 1a000b70     0 NOTYPE  LOCAL  DEFAULT    1 $d
+    94: 00000000     0 FILE    LOCAL  DEFAULT  ABS uart_18xx_43xx.c
+    95: 1a000b74     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    96: 1a000b75    42 FUNC    LOCAL  DEFAULT    1 RingBuffer_IsEmpty
+    97: 1a000b9e     0 NOTYPE  LOCAL  DEFAULT    1 $t
+    98: 1a000b9f    26 FUNC    LOCAL  DEFAULT    1 Chip_UART_TXDisable
+    99: 1a000bb8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   100: 1a000bb9    30 FUNC    LOCAL  DEFAULT    1 Chip_UART_SendByte
+   101: 1a000bd6     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   102: 1a000bd7    34 FUNC    LOCAL  DEFAULT    1 Chip_UART_IntEnable
+   103: 1a000bf8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   104: 1a000bf9    36 FUNC    LOCAL  DEFAULT    1 Chip_UART_IntDisable
+   105: 1a000c1c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   106: 1a000c1d    28 FUNC    LOCAL  DEFAULT    1 Chip_UART_SetupFIFOS
+   107: 1a000c38     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   108: 1a000c39    28 FUNC    LOCAL  DEFAULT    1 Chip_UART_ConfigData
+   109: 1a000c54     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   110: 1a000c55    32 FUNC    LOCAL  DEFAULT    1 Chip_UART_EnableDivisorAc
+   111: 1a000c74     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   112: 1a000c75    32 FUNC    LOCAL  DEFAULT    1 Chip_UART_DisableDivisorA
+   113: 1a000c94     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   114: 1a000c95    40 FUNC    LOCAL  DEFAULT    1 Chip_UART_SetDivisorLatch
+   115: 1a000cbc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   116: 1a000cbd    24 FUNC    LOCAL  DEFAULT    1 Chip_UART_ReadLineStatus
+   117: 1a001ff8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   118: 1a001ff8     8 OBJECT  LOCAL  DEFAULT    1 UART_PClock
+   119: 1a002000     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   120: 1a002000     8 OBJECT  LOCAL  DEFAULT    1 UART_BClock
+   121: 1a000cd4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   122: 1a000cd5    96 FUNC    LOCAL  DEFAULT    1 Chip_UART_GetIndex
+   123: 1a000d24     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   124: 1a000d34     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   125: 1a000db4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   126: 1a000dbc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   127: 1a000de8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   128: 1a000dec     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   129: 1a000e58     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   130: 1a000e5c     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   131: 1a000eb0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   132: 1a000f10     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   133: 00000000     0 FILE    LOCAL  DEFAULT  ABS stopwatch_18xx_43xx.c
+   134: 1a000f32     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   135: 1a000f33    32 FUNC    LOCAL  DEFAULT    1 Chip_TIMER_Enable
+   136: 1a000f52     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   137: 1a000f53    28 FUNC    LOCAL  DEFAULT    1 Chip_TIMER_PrescaleSet
+   138: 100000c8     0 NOTYPE  LOCAL  DEFAULT    5 $d
+   139: 100000c8     4 OBJECT  LOCAL  DEFAULT    5 ticksPerSecond
+   140: 100000cc     0 NOTYPE  LOCAL  DEFAULT    5 $d
+   141: 100000cc     4 OBJECT  LOCAL  DEFAULT    5 ticksPerMs
+   142: 100000d0     0 NOTYPE  LOCAL  DEFAULT    5 $d
+   143: 100000d0     4 OBJECT  LOCAL  DEFAULT    5 ticksPerUs
+   144: 1a000f70     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   145: 1a000fcc     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   146: 00000000     0 FILE    LOCAL  DEFAULT  ABS ring_buffer.c
+   147: 1a000fe4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   148: 1a000fe5    34 FUNC    LOCAL  DEFAULT    1 RingBuffer_GetCount
+   149: 1a001006     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   150: 1a001007    30 FUNC    LOCAL  DEFAULT    1 RingBuffer_GetFree
+   151: 1a001024     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   152: 1a001025    38 FUNC    LOCAL  DEFAULT    1 RingBuffer_IsFull
+   153: 1a00104a     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   154: 1a00104b    42 FUNC    LOCAL  DEFAULT    1 RingBuffer_IsEmpty
+   155: 1a001074     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   156: 1a0010b0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   157: 1a0011d2     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   158: 1a00122e     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   159: 00000000     0 FILE    LOCAL  DEFAULT  ABS clock_18xx_43xx.c
+   160: 1a002008     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   161: 1a002008   108 OBJECT  LOCAL  DEFAULT    1 periph_to_base
+   162: 100000d4     0 NOTYPE  LOCAL  DEFAULT    5 $d
+   163: 100000d4     8 OBJECT  LOCAL  DEFAULT    5 audio_usb_pll_freq
+   164: 1a001350     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   165: 1a001351    34 FUNC    LOCAL  DEFAULT    1 ABS
+   166: 1a001374     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   167: 1a001375   292 FUNC    LOCAL  DEFAULT    1 pll_calc_divs
+   168: 1a001490     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   169: 1a001498     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   170: 1a001499   384 FUNC    LOCAL  DEFAULT    1 pll_get_frac
+   171: 1a001614     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   172: 1a001618     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   173: 1a001619    64 FUNC    LOCAL  DEFAULT    1 Chip_Clock_GetDivRate
+   174: 1a001658     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   175: 1a001659   144 FUNC    LOCAL  DEFAULT    1 Chip_Clock_FindBaseClock
+   176: 1a0016e4     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   177: 1a0016e8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   178: 1a00174c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   179: 1a001758     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   180: 1a001824     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   181: 1a002074     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   182: 1a001830     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   183: 1a0018e8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   184: 1a0018f0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   185: 1a00192c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   186: 1a001930     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   187: 1a001960     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   188: 1a001968     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   189: 1a001984     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   190: 1a0019cc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   191: 1a001a8c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   192: 1a001aa8     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   193: 1a001acc     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   194: 1a001b60     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   195: 1a001b68     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   196: 1a001bb0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   197: 1a001bb4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   198: 1a001c28     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   199: 1a001c30     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   200: 1a001c88     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   201: 1a001c90     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   202: 1a001ce8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   203: 1a001cf0     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   204: 1a001d70     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   205: 00000000     0 FILE    LOCAL  DEFAULT  ABS chip_18xx_43xx.c
+   206: 1a001d78     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   207: 1a001d8c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   208: 00000000     0 FILE    LOCAL  DEFAULT  ABS gpio_18xx_43xx.c
+   209: 1a001d90     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   210: 00000000     0 FILE    LOCAL  DEFAULT  ABS timer_18xx_43xx.c
+   211: 1a001da4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   212: 1a001da5    80 FUNC    LOCAL  DEFAULT    1 Chip_TIMER_GetClockIndex
+   213: 1a001de8     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   214: 1a001df4     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   215: 00000000     0 FILE    LOCAL  DEFAULT  ABS lib_a-memcpy.o
+   216: 1a001e14     0 NOTYPE  LOCAL  DEFAULT    1 $t
+   217: 00000000     0 FILE    LOCAL  DEFAULT  ABS /home/diana/CursoEmbebido
+   218: 1a002080     0 NOTYPE  LOCAL  DEFAULT    2 $t
+   219: 1a002084     0 NOTYPE  LOCAL  DEFAULT    3 $t
+   220: 1a0018f1    64 FUNC    GLOBAL DEFAULT    1 Chip_Clock_GetDividerSour
+   221: 1a0001db     6 FUNC    WEAK   DEFAULT    1 TIMER2_IRQHandler
+   222: 1a0001c9     6 FUNC    WEAK   DEFAULT    1 DebugMon_Handler
+   223: 1a0001db     6 FUNC    WEAK   DEFAULT    1 RIT_IRQHandler
+   224: 1a0001db     6 FUNC    WEAK   DEFAULT    1 FLASH_EEPROM_IRQHandler
+   225: 1a000120     0 NOTYPE  GLOBAL DEFAULT    1 __data_section_table_end_
+   226: 1a0001db     6 FUNC    WEAK   DEFAULT    1 I2C0_IRQHandler
+   227: 1a0001ab     6 FUNC    WEAK   DEFAULT    1 HardFault_Handler
+   228: 1a000000     0 NOTYPE  GLOBAL DEFAULT  ABS __vectors_start__
+   229: 1a0011d3    92 FUNC    GLOBAL DEFAULT    1 RingBuffer_Pop
+   230: 1a0001d5     6 FUNC    WEAK   DEFAULT    1 SysTick_Handler
+   231: 1a000ded   112 FUNC    GLOBAL DEFAULT    1 Chip_UART_SetBaud
+   232: 1a0001db     6 FUNC    WEAK   DEFAULT    1 SDIO_IRQHandler
+   233: 1a0001db     6 FUNC    WEAK   DEFAULT    1 ATIMER_IRQHandler
+   234: 1a0001cf     6 FUNC    WEAK   DEFAULT    1 PendSV_Handler
+   235: 1a0001a5     6 FUNC    WEAK   DEFAULT    1 NMI_Handler
+   236: 1a002088     0 NOTYPE  GLOBAL DEFAULT    3 __exidx_end
+   237: 1a0001db     6 FUNC    WEAK   DEFAULT    1 I2C1_IRQHandler
+   238: 1a0001db     6 FUNC    WEAK   DEFAULT    1 UART1_IRQHandler
+   239: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GPIO5_IRQHandler
+   240: 1a0001db     6 FUNC    WEAK   DEFAULT    1 CAN1_IRQHandler
+   241: 1a002088     0 NOTYPE  GLOBAL DEFAULT    3 _etext
+   242: 1a0001db     6 FUNC    WEAK   DEFAULT    1 USB1_IRQHandler
+   243: 1a0001db     6 FUNC    WEAK   DEFAULT    1 I2S0_IRQHandler
+   244: 1a0001db     6 FUNC    WEAK   DEFAULT    1 TIMER3_IRQHandler
+   245: 1a001aa9    36 FUNC    GLOBAL DEFAULT    1 Chip_Clock_GetBaseClocktH
+   246: 1a0001db     6 FUNC    WEAK   DEFAULT    1 UART0_IRQHandler
+   247: 1a00016d    56 FUNC    GLOBAL DEFAULT    1 bss_init
+   248: 1a000f11    34 FUNC    GLOBAL DEFAULT    1 Chip_UART_ReadRB
+   249: 1a001e15   308 FUNC    GLOBAL DEFAULT    1 memcpy
+   250: 1a0001db     6 FUNC    WEAK   DEFAULT    1 SGPIO_IRQHandler
+   251: 100000e0     0 NOTYPE  GLOBAL DEFAULT    6 _noinit
+   252: 100000dc     4 OBJECT  GLOBAL DEFAULT    5 SystemCoreClock
+   253: 1a000d35   136 FUNC    GLOBAL DEFAULT    1 Chip_UART_Init
+   254: 1a0001db     6 FUNC    WEAK   DEFAULT    1 ADC0_IRQHandler
+   255: 1a0010b1   290 FUNC    GLOBAL DEFAULT    1 RingBuffer_InsertMult
+   256: 1a0001bd     6 FUNC    WEAK   DEFAULT    1 UsageFault_Handler
+   257: 1a001cf1   136 FUNC    GLOBAL DEFAULT    1 Chip_Clock_GetRate
+   258: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GPIO6_IRQHandler
+   259: 10008000     0 NOTYPE  GLOBAL DEFAULT  ABS __top_stack
+   260: 1a001f48     4 OBJECT  GLOBAL DEFAULT    1 ExtRateIn
+   261: 1a0001db     6 FUNC    WEAK   DEFAULT    1 IntDefaultHandler
+   262: 1a000300     0 NOTYPE  GLOBAL DEFAULT    1 __CRP_WORD_END__
+   263: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GPIO1_IRQHandler
+   264: 1a0001db     6 FUNC    WEAK   DEFAULT    1 SSP0_IRQHandler
+   265: 1a002088     0 NOTYPE  GLOBAL DEFAULT    3 __exidx_start
+   266: 1a0002fc     4 OBJECT  GLOBAL DEFAULT    1 CRP_WORD
+   267: 1a0001db     6 FUNC    WEAK   DEFAULT    1 ADC1_IRQHandler
+   268: 1a002081     0 FUNC    GLOBAL DEFAULT    2 _init
+   269: 1a0001db     6 FUNC    WEAK   DEFAULT    1 RTC_IRQHandler
+   270: 100000e0     0 NOTYPE  GLOBAL DEFAULT    5 _ebss
+   271: 1a0001db     6 FUNC    WEAK   DEFAULT    1 TIMER0_IRQHandler
+   272: 1a0001db     6 FUNC    WEAK   DEFAULT    1 SPI_IRQHandler
+   273: 1a0001db     6 FUNC    WEAK   DEFAULT    1 LCD_IRQHandler
+   274: 1a0016e9   112 FUNC    GLOBAL DEFAULT    1 Chip_Clock_EnableCrystal
+   275: 1a0001db     6 FUNC    WEAK   DEFAULT    1 VADC_IRQHandler
+   276: 1a000129    68 FUNC    GLOBAL DEFAULT    1 data_init
+   277: 1a000f71   116 FUNC    GLOBAL DEFAULT    1 StopWatch_Init
+   278: 1a0001db     6 FUNC    WEAK   DEFAULT    1 TIMER1_IRQHandler
+   279: 1a0001db     6 FUNC    WEAK   DEFAULT    1 UART2_IRQHandler
+   280: 1a001831   192 FUNC    GLOBAL DEFAULT    1 Chip_Clock_GetMainPLLHz
+   281: 1a000dbd    48 FUNC    GLOBAL DEFAULT    1 Chip_UART_DeInit
+   282: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GPIO2_IRQHandler
+   283: 1a001b69    76 FUNC    GLOBAL DEFAULT    1 Chip_Clock_GetBaseClock
+   284: 1a000eb1    96 FUNC    GLOBAL DEFAULT    1 Chip_UART_SendRB
+   285: 10000000     0 NOTYPE  GLOBAL DEFAULT    5 _bss
+   286: 1a000120     0 NOTYPE  GLOBAL DEFAULT    1 __bss_section_table_
+   287: 1a0001db     6 FUNC    WEAK   DEFAULT    1 I2S1_IRQHandler
+   288: 1a001d91    20 FUNC    GLOBAL DEFAULT    1 Chip_GPIO_Init
+   289: 1a001f4c     4 OBJECT  GLOBAL DEFAULT    1 OscRateIn
+   290: 100000e0     0 NOTYPE  GLOBAL DEFAULT    6 _end_noinit
+   291: 10008000     0 NOTYPE  GLOBAL DEFAULT  ABS _vStackTop
+   292: 1a0001db     6 FUNC    WEAK   DEFAULT    1 SSP1_IRQHandler
+   293: 1a001df5    30 FUNC    GLOBAL DEFAULT    1 Chip_TIMER_Init
+   294: 100000e0     0 NOTYPE  GLOBAL DEFAULT    6 _vStackBottom
+   295: 1a00122f   290 FUNC    GLOBAL DEFAULT    1 RingBuffer_PopMult
+   296: 1a0001db     6 FUNC    WEAK   DEFAULT    1 USB0_IRQHandler
+   297: 1a001c91    96 FUNC    GLOBAL DEFAULT    1 Chip_Clock_Disable
+   298: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GPIO3_IRQHandler
+   299: 1a0001db     6 FUNC    WEAK   DEFAULT    1 SCT_IRQHandler
+   300: 1a001931    56 FUNC    GLOBAL DEFAULT    1 Chip_Clock_GetDividerDivi
+   301: 1a0002fc     0 NOTYPE  GLOBAL DEFAULT    1 __CRP_WORD_START__
+   302: 1a000301   148 FUNC    GLOBAL DEFAULT    1 memset
+   303: 1a0001b1     6 FUNC    WEAK   DEFAULT    1 MemManage_Handler
+   304: 1a000825   240 FUNC    GLOBAL DEFAULT    1 main
+   305: 1a0001db     6 FUNC    WEAK   DEFAULT    1 WDT_IRQHandler
+   306: 1a0001c3     6 FUNC    WEAK   DEFAULT    1 SVC_Handler
+   307: 1a000b5d    24 FUNC    GLOBAL DEFAULT    1 Chip_SetupXtalClocking
+   308: 1a001bb5   124 FUNC    GLOBAL DEFAULT    1 Chip_Clock_EnableOpts
+   309: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GPIO7_IRQHandler
+   310: 1a001969   320 FUNC    GLOBAL DEFAULT    1 Chip_Clock_GetClockInputH
+   311: 1a000915   116 FUNC    GLOBAL DEFAULT    1 fpuInit
+   312: 1a001759   216 FUNC    GLOBAL DEFAULT    1 Chip_Clock_CalcMainPLLVal
+   313: 1a0001db     6 FUNC    WEAK   DEFAULT    1 SPIFI_IRQHandler
+   314: 1a0001db     6 FUNC    WEAK   DEFAULT    1 QEI_IRQHandler
+   315: 1a002085     0 FUNC    GLOBAL DEFAULT    3 _fini
+   316: 1a0001db     6 FUNC    WEAK   DEFAULT    1 ETH_IRQHandler
+   317: 1a0001db     6 FUNC    WEAK   DEFAULT    1 M0CORE_IRQHandler
+   318: 10000000     0 NOTYPE  GLOBAL DEFAULT    6 _end_uninit_RESERVED
+   319: 1a0001db     6 FUNC    WEAK   DEFAULT    1 CAN0_IRQHandler
+   320: 10000000     0 NOTYPE  GLOBAL DEFAULT    4 _data
+   321: 1a000128     0 NOTYPE  GLOBAL DEFAULT    1 __section_table_end
+   322: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GINT0_IRQHandler
+   323: 1a0004b9   328 FUNC    GLOBAL DEFAULT    1 systemInit
+   324: 1a0001db     6 FUNC    WEAK   DEFAULT    1 DAC_IRQHandler
+   325: 1a001f80    45 OBJECT  GLOBAL DEFAULT    1 inst2
+   326: 10000000     0 NOTYPE  GLOBAL DEFAULT    4 _edata
+   327: 1a000114     0 NOTYPE  GLOBAL DEFAULT    1 __section_table_start_
+   328: 1a0001db     6 FUNC    WEAK   DEFAULT    1 M0SUB_IRQHandler
+   329: 1a000a15   328 FUNC    GLOBAL DEFAULT    1 Chip_SetupCoreClock
+   330: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GPIO0_IRQHandler
+   331: 1a000128     0 NOTYPE  GLOBAL DEFAULT    1 __bss_section_table_end_
+   332: 1a000601   192 FUNC    GLOBAL DEFAULT    1 ResetISR
+   333: 1a001d79    24 FUNC    GLOBAL DEFAULT    1 SystemCoreClockUpdate
+   334: 1a000000   276 OBJECT  GLOBAL DEFAULT    1 isrVector
+   335: 1a0001db     6 FUNC    WEAK   DEFAULT    1 DMA_IRQHandler
+   336: 1a0001db     6 FUNC    WEAK   DEFAULT    1 EVRT_IRQHandler
+   337: 1a001075    60 FUNC    GLOBAL DEFAULT    1 RingBuffer_Init
+   338: 1a000e5d    84 FUNC    GLOBAL DEFAULT    1 Chip_UART_TXIntHandlerRB
+   339: 1a0001b7     6 FUNC    WEAK   DEFAULT    1 BusFault_Handler
+   340: 1a001c31    96 FUNC    GLOBAL DEFAULT    1 Chip_Clock_Enable
+   341: 1a0001db     6 FUNC    WEAK   DEFAULT    1 UART3_IRQHandler
+   342: 1a001f50    47 OBJECT  GLOBAL DEFAULT    1 inst1
+   343: 1a0001db     6 FUNC    WEAK   DEFAULT    1 MCPWM_IRQHandler
+   344: 1a000114     0 NOTYPE  GLOBAL DEFAULT    1 __data_section_table_
+   345: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GINT1_IRQHandler
+   346: 1a001acd   156 FUNC    GLOBAL DEFAULT    1 Chip_Clock_SetBaseClock
+   347: 1a0001db     6 FUNC    WEAK   DEFAULT    1 GPIO4_IRQHandler
+
+No version information found in this file.
+Attribute Section: aeabi
+File Attributes
+  Tag_CPU_name: "7E-M"
+  Tag_CPU_arch: v7E-M
+  Tag_CPU_arch_profile: Microcontroller
+  Tag_THUMB_ISA_use: Thumb-2
+  Tag_FP_arch: VFPv4-D16
+  Tag_ABI_PCS_wchar_t: 4
+  Tag_ABI_FP_denormal: Needed
+  Tag_ABI_FP_exceptions: Needed
+  Tag_ABI_FP_number_model: IEEE 754
+  Tag_ABI_align_needed: 8-byte
+  Tag_ABI_enum_size: small
+  Tag_ABI_HardFP_use: SP only
+  Tag_CPU_unaligned_access: v6

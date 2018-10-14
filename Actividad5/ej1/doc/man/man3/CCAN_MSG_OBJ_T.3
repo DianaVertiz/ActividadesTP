@@ -1,0 +1,47 @@
+.TH "CCAN_MSG_OBJ_T" 3 "Viernes, 14 de Septiembre de 2018" "Ejercicio 1 - TP 5" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CCAN_MSG_OBJ_T \- CAN message object structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ccan_18xx_43xx\&.h>\fP
+.SS "Campos de datos"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBid\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBdlc\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBdata\fP [8]"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+CAN message object structure\&. 
+.PP
+Definición en la línea 328 del archivo ccan_18xx_43xx\&.h\&.
+.SH "Documentación de los campos"
+.PP 
+.SS "uint8_t data[8]"
+Message data 
+.PP
+Definición en la línea 331 del archivo ccan_18xx_43xx\&.h\&.
+.SS "uint32_t dlc"
+Message data length 
+.PP
+Definición en la línea 330 del archivo ccan_18xx_43xx\&.h\&.
+.SS "uint32_t id"
+ID of message, if bit 30 is set then this is extended frame 
+.PP
+Definición en la línea 329 del archivo ccan_18xx_43xx\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para Ejercicio 1 - TP 5 del código fuente\&.
