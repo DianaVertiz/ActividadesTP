@@ -1,7 +1,18 @@
-19:16:13 **** Clean-only build of configuration Debug for project TP1_ej1 ****
-make clean 
-rm -rf  ./main.o  ./main.d  TP1_ej1
+21:52:01 **** Incremental Build of configuration Debug for project TP1_ej1 ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+../main.c:90:1: warning: "/*" within comment [-Wcomment]
+ /**************************************************/
+ ^
+Finished building: ../main.c
+ 
+Building target: TP1_ej1
+Invoking: GCC C++ Linker
+g++  -o "TP1_ej1"  ./main.o   
+Finished building target: TP1_ej1
  
 
-19:16:13 Build Finished (took 430ms)
+21:52:02 Build Finished (took 519ms)
 
