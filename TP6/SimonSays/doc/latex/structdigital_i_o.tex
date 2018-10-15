@@ -1,0 +1,51 @@
+\hypertarget{structdigital_i_o}{}\section{digital\+IO Struct Reference}
+\label{structdigital_i_o}\index{digital\+IO@{digital\+IO}}
+
+
+Estructuta utilizada para identificar los G\+P\+IO en la E\+D\+U-\/\+C\+I\+AA N\+XP, válido para los leds y los pulsadores Esta estructura permite definir un array de leds para simplificar la inicialización de los mismos, haciendo\+:  
+
+
+
+
+{\ttfamily \#include $<$operaciones.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t {\bfseries hw\+Port}
+\item 
+uint8\+\_\+t {\bfseries hw\+Pin}
+\item 
+uint8\+\_\+t {\bfseries gpio\+Port}
+\item 
+uint8\+\_\+t {\bfseries gpio\+Pin}
+\item 
+uint16\+\_\+t {\bfseries modo}
+\item 
+uint16\+\_\+t {\bfseries func}
+\item 
+uint8\+\_\+t {\bfseries pinsel}
+\item 
+uint8\+\_\+t {\bfseries nvic\+\_\+mask}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estructuta utilizada para identificar los G\+P\+IO en la E\+D\+U-\/\+C\+I\+AA N\+XP, válido para los leds y los pulsadores Esta estructura permite definir un array de leds para simplificar la inicialización de los mismos, haciendo\+: 
+
+
+\begin{DoxyCode}
+ \textcolor{keyword}{const} \hyperlink{structdigital_i_o}{digitalIO} leds[] = \{...........\}
+
+\textcolor{keywordflow}{for}(i=0; i<\textcolor{keyword}{sizeof}(\hyperlink{group__operaciones_ga9b625a8f4af05b1e2bdb0230a6440c77}{leds})/ \textcolor{keyword}{sizeof}(\hyperlink{structdigital_i_o}{digitalIO}); i++)
+\{
+        Chip\_SCU\_PinMuxSet (leds[i].hwPort , leds[i].hwPin , leds[i].modo);
+        Chip\_GPIO\_SetPinDIROutput (LPC\_GPIO\_PORT, leds[i].gpioPort, leds[i].gpioPin);
+        Chip\_GPIO\_SetPortOutLow (LPC\_GPIO\_PORT , leds[i].gpioPort , leds[i].gpioPin );
+    \}
+\end{DoxyCode}
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/\hyperlink{operaciones_8h}{operaciones.\+h}\end{DoxyCompactItemize}

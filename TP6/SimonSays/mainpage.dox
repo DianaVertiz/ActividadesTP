@@ -1,0 +1,12 @@
+/*! \mainpage Juego SimonSays 
+ * \section El juego Simón dice o sigan al lider consiste en que uno de los jugadores realiza un movimiento y los demás jugadores deben copiarlo. Si alguno de los jugadores no lo imita de forma adecuada o demora su respuesta, pierde. 
+ * <I> 
+ * La versión electrónica de este juego consiste en un dispositivo con cuatro luces de colores (rojo,
+ * amarillo, azul y verde) que se encienden utilizando una secuencia aleatoria. Al comenzar el juego
+ * se enciende una luz y el jugador debe presionar en el pulsador asociado al mismo. Si presiona en el
+ * pulsador correcto pasa a la siguiente etapa, donde se encienden dos luces y el jugador debe pulsar
+ * en el orden correcto los pulsadores asociados. Según contesta correctamente, se agrega una luz a
+ * la secuencia y se disminuye el tiempo de encendido de cada luz. Si el jugador presiona un pulsador
+ * que no se corresponde con la secuencia indicada, pierde el juego.
+ * </I>
+ */

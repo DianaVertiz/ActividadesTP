@@ -7,15 +7,18 @@
 #include "operaciones.h"
 #include "hardware.h"
 
+/** @addtogroup operaciones
+ *  @{
+ */
 
-volatile uint8_t PressedTEC1 = 0;/*TEC1 no esta pulsada*/
-volatile uint8_t PressedTEC2 = 0;
-volatile uint8_t PressedTEC3 = 0;
-volatile uint8_t PressedTEC4 = 0;
+volatile uint8_t PressedTEC1 = 0;/**< Flag que indica que TEC1 no esta pulsada*/
+volatile uint8_t PressedTEC2 = 0;/**< Flag que indica que TEC2 no esta pulsada*/
+volatile uint8_t PressedTEC3 = 0;/**< Flag que indica que TEC3 no esta pulsada*/
+volatile uint8_t PressedTEC4 = 0;/**< Flag que indica que TEC4 no esta pulsada*/
 
-char str[100];
+//char str[100];
 static char valor [10];
-uint8_t key;
+uint8_t key; /**< Variable que almacena el valor recibido por la terminal */
 
 
 const digitalIO leds[] =

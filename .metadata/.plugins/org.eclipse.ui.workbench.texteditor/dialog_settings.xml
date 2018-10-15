@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="execute" key="selection"/>
+		<item value="str" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="str"/>
 			<item value="Sys"/>
 			<item value="sys"/>
 			<item value="split"/>
@@ -22,7 +23,6 @@
 			<item value="tog"/>
 			<item value="setle|d"/>
 			<item value="setled"/>
-			<item value="configurar_SysTick"/>
 		</list>
 		<list key="replacehistory">
 		</list>

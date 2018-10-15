@@ -1,6 +1,5 @@
 #include "chip.h"
 #include <stopwatch.h>
-//#include "hardware.h"
 #include "operaciones.h"
 
 volatile uint8_t inicio = 0;
