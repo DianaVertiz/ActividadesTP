@@ -11088,3 +11088,9 @@ Command-line arguments:  -data file:/home/diana/CursoEmbebidos/ActividadesTP/ -o
 
 !ENTRY org.eclipse.launchbar.core 2 0 2018-10-15 11:23:52.817
 !MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-10-15 17:27:44.524
+!MESSAGE Indexed 'TP8' (51 sources, 236 headers) in 6,51 sec: 17.706 declarations; 33.633 references; 2 unresolved inclusions; 1.458 syntax errors; 608 unresolved names (1,2 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-10-15 17:30:33.263
+!MESSAGE Indexed 'TP8' (50 sources, 181 headers) in 3,54 sec: 15.014 declarations; 23.726 references; 23 unresolved inclusions; 1.548 syntax errors; 3.202 unresolved names (7,6 %)
