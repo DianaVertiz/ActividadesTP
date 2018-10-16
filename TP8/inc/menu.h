@@ -25,69 +25,69 @@ typedef  struct{
 /**
  * @brief Función para retornar la dirección de memoria del menú principal
  */
-menuItem * getMainMenu(void);
+void * getMainMenu(void);
 /**
  * @brief Función para volver al menú principal
  */
-menuItem * backMainMenu(void);
+void * backMainMenu(void);
 
 /**
  * @brief Función para volver al menú RGB
  */
-menuItem * backMenuRGB(void);
+void * backMenuRGB(void);
 
 
 /*Opciones de menú de primer nivel (menú principal)*/
 
-menuItem * menuLed1(void);
-menuItem * menuLed2(void);
-menuItem * menuLed3(void);
-menuItem * menuLedrgb(void);
+void * menuLed1(void);
+void * menuLed2(void);
+void * menuLed3(void);
+void * menuLedrgb(void);
 
 /* Opciones de segundo nivel*/
 
-menuItem * menuLedr(void);
-menuItem * menuLedg(void);
-menuItem * menuLedb(void);
+void * menuLedr(void);
+void * menuLedg(void);
+void * menuLedb(void);
 
 /* Opciones asociadas al led1*/
 
-menuItem * led1On(void);
-menuItem * led1Off(void);
-menuItem * led1Toggle(void);
+void * led1On(void);
+void * led1Off(void);
+void * led1Toggle(void);
 
 /* Opciones asociadas al led2*/
 
-menuItem * led2On(void);
-menuItem * led2Off(void);
-menuItem * led2Toggle(void);
+void * led2On(void);
+void * led2Off(void);
+void * led2Toggle(void);
 
 /* Opciones asociadas al led3*/
 
-menuItem * led3On(void);
-menuItem * led3Off(void);
-menuItem * led3Toggle(void);
+void * led3On(void);
+void * led3Off(void);
+void * led3Toggle(void);
 
 /* Opciones asociadas al ledRGB_red*/
 
-menuItem * ledrOn(void);
-menuItem * ledrOff(void);
-menuItem * ledrToggle(void);
+void * ledrOn(void);
+void * ledrOff(void);
+void * ledrToggle(void);
 
 /* Opciones asociadas al ledRGB_green*/
 
-menuItem * ledgOn(void);
-menuItem * ledgOff(void);
-menuItem * ledgToggle(void);
+void * ledgOn(void);
+void * ledgOff(void);
+void * ledgToggle(void);
 
 /* Opciones asociadas al ledRGB_blue*/
 
-menuItem * ledbOn(void);
-menuItem * ledbOff(void);
-menuItem * ledbToggle(void);
+void * ledbOn(void);
+void * ledbOff(void);
+void * ledbToggle(void);
 
 /* Función para reiniciar el la edu-ciaa*/
-menuItem * doReset (void);
+void * doReset (void);
 
 
 

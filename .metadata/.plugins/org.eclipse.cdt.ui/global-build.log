@@ -1,8 +1,2 @@
-00:29:42 **** Incremental Build of configuration Default for project TP8 ****
-make all 
-  - main.c...ok
-   text	   data	    bss	    dec	    hex	filename
-  10124	      0	   1200	  11324	   2c3c	out/firmware.elf
-00:29:53 **** Incremental Build of configuration Default for project TP8 ****
-make all 
-make: No se hace nada para 'all'.
+20:22:39 **** Clean-only build of configuration Default for project TP8 ****
+make clean 

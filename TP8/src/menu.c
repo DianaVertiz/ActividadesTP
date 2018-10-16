@@ -83,174 +83,174 @@ const menuItem mainMenu[] =
 		{NULL , NULL}
 };
 
-menuItem * getMainMenu(void)
+void * getMainMenu(void)
 {
 	return mainMenu;
 }
 
-menuItem * backMainMenu(void)
+void * backMainMenu(void)
 {
-	return &mainMenu[0];
+	return mainMenu;
 }
 
-menuItem * backMenuRGB(void)
-{
-	return &menuledrgb[0];
-}
-
-menuItem * menuLed1(void)
-{
-	return &menuled1[0];
-}
-
-menuItem * led1On(void)
-{
-	// perform led 1 activation
-	Chip_GPIO_SetPinState(LPC_GPIO_PORT,leds[1].gpioPort,leds[1].gpioPin, TRUE);
-	return &menuled1[0];
-}
-
-menuItem * led1Off(void)
-{
-	// perform led 1 deactivation
-	Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT,leds[1].gpioPort, leds[1].gpioPin);
-	return &menuled1[0];
-}
-
-menuItem * led1Toggle(void)
-{
-	// perform led 1 teggle
-	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT,leds[1].gpioPort, leds[1].gpioPin);
-	return &menuled1[0];
-}
-
-menuItem * menuLed2(void)
-{
-	return &menuled2[0];
-}
-
-menuItem * led2On(void)
-{
-	// perform led 2 activation
-	Chip_GPIO_SetPinState(LPC_GPIO_PORT,leds[2].gpioPort,leds[2].gpioPin, TRUE);
-	return &menuled2[0];
-}
-
-menuItem * led2Off(void)
-{
-	// perform led 2 deactivation
-	Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT,leds[2].gpioPort, leds[2].gpioPin);
-	return &menuled2[0];
-}
-
-menuItem * led2Toggle(void)
-{
-	// perform led 2 toggle
-	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT,leds[2].gpioPort, leds[2].gpioPin);
-	return &menuled2[0];
-}
-
-menuItem * menuLed3(void)
-{
-	return &menuled3[0];
-}
-
-menuItem * led3On(void)
-{
-	// perform led 3 activation
-	Chip_GPIO_SetPinState(LPC_GPIO_PORT,leds[3].gpioPort,leds[3].gpioPin, TRUE);
-	return &menuled3[0];
-}
-
-menuItem * led3Off(void)
-{
-	// perform led 3 deactivation
-	Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT,leds[3].gpioPort, leds[3].gpioPin);
-	return &menuled3[0];
-}
-
-menuItem * led3Toggle(void)
-{
-	// perform led 3 toggle
-	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT,leds[3].gpioPort, leds[3].gpioPin);
-	return &menuled3[0];
-}
-
-menuItem * menuLedrgb(void)
+void * backMenuRGB(void)
 {
 	return menuledrgb;
 }
 
-menuItem * menuLedr(void)
+void * menuLed1(void)
 {
-	return &menuledr[0];
+	return menuled1;
 }
 
-menuItem * ledrOn(void)
+void * led1On(void)
+{
+	// perform led 1 activation
+	Chip_GPIO_SetPinState(LPC_GPIO_PORT,leds[1].gpioPort,leds[1].gpioPin, TRUE);
+	return menuled1;
+}
+
+void * led1Off(void)
+{
+	// perform led 1 deactivation
+	Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT,leds[1].gpioPort, leds[1].gpioPin);
+	return menuled1;
+}
+
+void * led1Toggle(void)
+{
+	// perform led 1 teggle
+	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT,leds[1].gpioPort, leds[1].gpioPin);
+	return menuled1;
+}
+
+void * menuLed2(void)
+{
+	return menuled2;
+}
+
+void * led2On(void)
+{
+	// perform led 2 activation
+	Chip_GPIO_SetPinState(LPC_GPIO_PORT,leds[2].gpioPort,leds[2].gpioPin, TRUE);
+	return menuled2;
+}
+
+void * led2Off(void)
+{
+	// perform led 2 deactivation
+	Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT,leds[2].gpioPort, leds[2].gpioPin);
+	return menuled2;
+}
+
+void * led2Toggle(void)
+{
+	// perform led 2 toggle
+	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT,leds[2].gpioPort, leds[2].gpioPin);
+	return menuled2;
+}
+
+void * menuLed3(void)
+{
+	return menuled3;
+}
+
+void * led3On(void)
+{
+	// perform led 3 activation
+	Chip_GPIO_SetPinState(LPC_GPIO_PORT,leds[3].gpioPort,leds[3].gpioPin, TRUE);
+	return menuled3;
+}
+
+void * led3Off(void)
+{
+	// perform led 3 deactivation
+	Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT,leds[3].gpioPort, leds[3].gpioPin);
+	return menuled3;
+}
+
+void * led3Toggle(void)
+{
+	// perform led 3 toggle
+	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT,leds[3].gpioPort, leds[3].gpioPin);
+	return menuled3;
+}
+
+void * menuLedrgb(void)
+{
+	return menuledrgb;
+}
+
+void * menuLedr(void)
+{
+	return menuledr;
+}
+
+void * ledrOn(void)
 {
 	Chip_GPIO_SetPinState(LPC_GPIO_PORT,leds[4].gpioPort,leds[4].gpioPin, TRUE);
-	return &menuledr[0];
+	return menuledr;
 }
 
-menuItem * ledrOff(void)
+void * ledrOff(void)
 {
 	Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT,leds[4].gpioPort, leds[4].gpioPin);
-	return &menuledr[0];
+	return menuledr;
 }
 
-menuItem * ledrToggle(void)
+void * ledrToggle(void)
 {
 	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT,leds[4].gpioPort, leds[4].gpioPin);
-	return &menuledr[0];
+	return menuledr;
 }
 
 
-menuItem * menuLedg(void)
+void * menuLedg(void)
 {
-	return &menuledg[0];
+	return menuledg;
 }
 
-menuItem * ledgOn(void)
+void * ledgOn(void)
 {
 	Chip_GPIO_SetPinState(LPC_GPIO_PORT,leds[5].gpioPort,leds[5].gpioPin, TRUE);
-	return &menuledg[0];
+	return menuledg;
 }
 
-menuItem * ledgOff(void)
+void * ledgOff(void)
 {
 	Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT,leds[5].gpioPort, leds[5].gpioPin);
-	return &menuledg[0];
+	return menuledg;
 }
 
-menuItem * ledgToggle(void)
+void * ledgToggle(void)
 {
 	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT,leds[5].gpioPort, leds[5].gpioPin);
-	return &menuledg[0];
+	return menuledg;
 }
 
-menuItem * menuLedb(void)
+void * menuLedb(void)
 {
-	return &menuledb[0];
+	return menuledb;
 }
 
-menuItem *  ledbOn(void)
+void *  ledbOn(void)
 {
 	Chip_GPIO_SetPinState(LPC_GPIO_PORT,leds[0].gpioPort,leds[0].gpioPin, TRUE);
-	return &menuledb[0];
+	return menuledb;
 }
 
-menuItem *  ledbOff(void)
+void *  ledbOff(void)
 {
 	Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT,leds[0].gpioPort, leds[0].gpioPin);
-	return &menuledb[0];
+	return menuledb;
 }
-menuItem *  ledbToggle(void)
+void *  ledbToggle(void)
 {
 	Chip_GPIO_SetPinToggle(LPC_GPIO_PORT,leds[0].gpioPort, leds[0].gpioPin);
-	return &menuledb[0];
+	return menuledb;
 }
 
-menuItem * doReset (void)
+void * doReset (void)
 {
 	Chip_RGU_TriggerReset ( RGU_CORE_RST );
 	return mainMenu;

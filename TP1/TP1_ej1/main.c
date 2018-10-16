@@ -25,13 +25,20 @@ int devolver_digitos(int numero)
 int devolver_significativos(int numero, int ndig)
 {
 	int aux = devolver_digitos(numero);
-	aux = aux-ndig;
 
-	while(aux!=0)
+	int expo;
+
+	if(aux>ndig)
 	{
-		numero/=10;
-		aux--;
+		expo = aux-ndig;
 	}
+	else
+	{
+		expo = 0;
+	}
+
+	numero = numero/(pow(10,expo));
+
 	return numero;
 }
 
@@ -93,7 +100,7 @@ void show32bits(uint32_t x) {
 int main(int argc, char * argv[])
 {
 	int32_t oDato = 150;
-	uint8_t ndig = 2;
+	uint8_t ndig = 4;
 	int32_t resultado, digitos = 1;
 
 	resultado = devolver_digitos(oDato);
