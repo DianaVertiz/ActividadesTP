@@ -80,21 +80,25 @@ int main(void)
 
 	uint8_t op;
 	uint8_t i = 0;
-	uint8_t data;
+	uint8_t data = 0;
 	menuItem * m = getMainMenu(); /*tiene la direccion de memoria del menú principal*/
-	print (" -= Implementación de un menú jerárquico =-\n");
+	print (" -= Implementación de un menú jerárquico =-\n\r");
 
   while (1)
   {
 
-		while( m[i].doAction() != NULL )
+		while( m[i].txt != NULL )
 		{
 			print(m[i].txt);
 			i++; /*i llega en el menú principal hasta 5*/
 		}
 
-		Chip_UART_ReadBlocking ( LPC_USART2 , &data , 1);
 
+
+		while(!Chip_UART_ReadBlocking ( LPC_USART2 , &data , 1))
+		{
+
+		}
 
 	  	op = ((uint8_t)data - '0'); /*las opciones son 1, 2, 3, 4 o 5*/
 
