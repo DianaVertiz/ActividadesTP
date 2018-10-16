@@ -84,7 +84,7 @@ void configurar_SysTick(void);
 
 void disable_SysTick(void);
 
-void cmdExecute(int argc, const char * const * argv);
+//void cmdExecute(int argc, const char * const * argv);
 
 void sigint (void);
 

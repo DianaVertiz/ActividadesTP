@@ -5,7 +5,7 @@
  *      Author: root
  */
 #include "sysUtils.h"
-#include "comandos.h"
+
 
 static flagCoincidencia = 0;
 
@@ -146,8 +146,6 @@ void USARTSendInt(uint8_t entero)
 {
 	itoa(entero, valor, 10);
 	Chip_UART_SendBlocking ( LPC_USART2 ,strcat(valor,"\n\r"), sizeof(valor));
-
-
 }
 
 uint8_t serialRead(uint8_t *data, uint8_t maxData)
@@ -188,7 +186,7 @@ void disable_SysTick(void)
 	SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_ENABLE_Msk;
 
 }
-
+/*
 void cmdExecute(int argc, const char * const * argv)
 {
 	cmdItem * pointer = getMenuItems();
@@ -216,7 +214,7 @@ void cmdExecute(int argc, const char * const * argv)
 			if(iter >= cantidad-1)
 			{
 				/*no encontró coincidencia*/
-				print ("error, opción incorrecta");
+/*				print ("error, opción incorrecta");
 				flagCoincidencia = 1;
 			}
 
@@ -230,7 +228,7 @@ void cmdExecute(int argc, const char * const * argv)
 	flagCoincidencia = 0;
 	print("\r");
 }
-
+*/
 void sigint (void)
 {
 	Chip_RGU_TriggerReset(RGU_CORE_RST);

@@ -10,7 +10,7 @@
 
 #include "chip.h"
 #include  <stdint.h>
-#include "sysInit.h"
+#include "sysUtils.h"
 
 typedef  void* (* action )(void); /* <puntero a una función que retorna un puntero*/
 
@@ -22,23 +22,33 @@ typedef  struct{
 	action  doAction;	/** < Función a ejecutar al elegir la opción */
 } menuItem;
 
-/*Opciones de menú de primer nivel (menú principal)*/
-
-menuItem * led1(void);
-menuItem * led2(void);
-menuItem * led3(void);
-menuItem * ledrgb(void);
+/**
+ * @brief Función para retornar la dirección de memoria del menú principal
+ */
+menuItem * getMainMenu(void);
+/**
+ * @brief Función para volver al menú principal
+ */
+menuItem * backMainMenu(void);
 
 /**
- * Función para volver al menú principal
+ * @brief Función para volver al menú RGB
  */
-menuItem * BackMainMenu(void);
+menuItem * backMenuRGB(void);
+
+
+/*Opciones de menú de primer nivel (menú principal)*/
+
+menuItem * menuLed1(void);
+menuItem * menuLed2(void);
+menuItem * menuLed3(void);
+menuItem * menuLedrgb(void);
 
 /* Opciones de segundo nivel*/
 
-menuItem * ledr(void);
-menuItem * ledg(void);
-menuItem * ledb(void);
+menuItem * menuLedr(void);
+menuItem * menuLedg(void);
+menuItem * menuLedb(void);
 
 /* Opciones asociadas al led1*/
 
@@ -76,6 +86,8 @@ menuItem * ledbOn(void);
 menuItem * ledbOff(void);
 menuItem * ledbToggle(void);
 
+/* Función para reiniciar el la edu-ciaa*/
+menuItem * doReset (void);
 
 
 

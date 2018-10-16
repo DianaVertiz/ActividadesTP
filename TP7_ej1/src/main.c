@@ -64,7 +64,6 @@ void SysTick_Handler (void)
 
 void UART2_IRQHandler(void)
 {
-
 	uint8_t data = Chip_UART_ReadByte(LPC_USART2);
 	microrl_insert_char(&rl, data);
 }

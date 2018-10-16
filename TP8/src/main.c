@@ -1,12 +1,13 @@
-#include "sysUtils.h"
+
 #include "chip.h"
 #include "hardware.h"
-#include "secuencia.h"
-#include "microrl.h"
+#include "sysUtils.h"
+#include "menu.h"
+
 
 #define delay 1000
 
-microrl_t rl;
+
 extern uint8_t finCuentaMs = 0;
 volatile uint8_t habilitado = 0;
 volatile uint8_t flag_refresco = 0;
@@ -64,9 +65,7 @@ void SysTick_Handler (void)
 
 void UART2_IRQHandler(void)
 {
-
 	uint8_t data = Chip_UART_ReadByte(LPC_USART2);
-	microrl_insert_char(&rl, data);
 }
 
 int main(void)
@@ -79,19 +78,44 @@ int main(void)
 	init_interrupciones();
 	inicializar_USART();
 
-	//print (msg1);
-
-	microrl_init(&rl, print);
-	microrl_set_execute_callback(&rl, cmdExecute);
-	microrl_set_sigint_callback(&rl, sigint);
-	secuencia(1, 3, 1000);
-	//secuencia(1, 3, 1000);
+	uint8_t op;
+	uint8_t i = 0;
+	uint8_t data;
+	menuItem * m = getMainMenu(); /*tiene la direccion de memoria del menú principal*/
+	print (" -= Implementación de un menú jerárquico =-\n");
 
   while (1)
   {
 
+		while( m[i].doAction() != NULL )
+		{
+			print(m[i].txt);
+			i++; /*i llega en el menú principal hasta 5*/
+		}
 
-	  __WFI();
+		Chip_UART_ReadBlocking ( LPC_USART2 , &data , 1);
+
+
+	  	op = ((uint8_t)data - '0'); /*las opciones son 1, 2, 3, 4 o 5*/
+
+	  	print("\n\r");
+
+	  	op--; 			/*para llevarlo a 0,1,2,3 o 4*/
+	  	if((op < i) && (op >= 0))
+	  	{
+	  		m = m[op].doAction(); /*la dirección de memoria cambia a la del submenú
+	  		 	 	 	 	 	 	 de la opción seleccionada*/
+	  	}
+	  	else
+	  	{
+	  		print("Opción inválida\n\r");
+	  	}
+
+	  	i=0;
+
+
   }
+
   return 0;
+
 }
