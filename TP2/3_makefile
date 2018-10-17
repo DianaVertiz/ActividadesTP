@@ -1,0 +1,24 @@
+
+SRCDIR:=src/
+
+srclist:= $(wildcard $(SRCDIR)*.c)
+
+#fileExists := $(wildcard $(srclist))
+
+fNameLst:= $(subst $(SRCDIR),,$(srclist))
+# substr lo_q_quiero_sacar,lo_q_quiero_poner,de_donde
+
+
+ifeq (,$(srclist))
+	msg := "Error: En el directorio $(SRCDIR) no  hay archivos *.c [Fail]"
+else
+	msg:= "$(SRCDIR) [Ok]"
+endif
+.PHONY: all
+
+
+all:
+	@echo $(msg)
+	@echo $(sort $(fNameLst))
+
+

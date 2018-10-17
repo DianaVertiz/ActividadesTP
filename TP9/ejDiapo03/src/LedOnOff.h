@@ -15,9 +15,11 @@ extern "C" {
 typedef enum
 {
 	LedOnOff_main_region_led0,
+	LedOnOff_main_region_led0_r1_encendido,
+	LedOnOff_main_region_led0_r1_apagado,
 	LedOnOff_main_region_led3,
-	LedOnOff_main_region_led1,
-	LedOnOff_main_region_led2,
+	LedOnOff_main_region_led3_r1_encendido,
+	LedOnOff_main_region_led3_r1_apagado,
 	LedOnOff_last_state
 } LedOnOffStates;
 
@@ -26,6 +28,21 @@ typedef struct
 {
 	sc_boolean keyPress_raised;
 } LedOnOffIface;
+
+/*! Type definition of the data structure for the LedOnOffInternal interface scope. */
+typedef struct
+{
+	sc_integer cnt;
+} LedOnOffInternal;
+
+/*! Type definition of the data structure for the LedOnOffTimeEvents interface scope. */
+typedef struct
+{
+	sc_boolean ledOnOff_main_region_led0_r1_encendido_tev0_raised;
+	sc_boolean ledOnOff_main_region_led0_r1_apagado_tev0_raised;
+	sc_boolean ledOnOff_main_region_led3_r1_encendido_tev0_raised;
+	sc_boolean ledOnOff_main_region_led3_r1_apagado_tev0_raised;
+} LedOnOffTimeEvents;
 
 
 /*! Define dimension of the state configuration vector for orthogonal states. */
@@ -41,6 +58,8 @@ typedef struct
 	sc_ushort stateConfVectorPosition; 
 	
 	LedOnOffIface iface;
+	LedOnOffInternal internal;
+	LedOnOffTimeEvents timeEvents;
 } LedOnOff;
 
 /*! Initializes the LedOnOff state machine data structures. Must be called before first usage.*/
@@ -55,6 +74,8 @@ extern void ledOnOff_exit(LedOnOff* handle);
 /*! Performs a 'run to completion' step. */
 extern void ledOnOff_runCycle(LedOnOff* handle);
 
+/*! Raises a time event. */
+extern void ledOnOff_raiseTimeEvent(const LedOnOff* handle, sc_eventid evid);
 
 /*! Raises the in event 'keyPress' that is defined in the default interface scope. */ 
 extern void ledOnOffIface_raise_keyPress(LedOnOff* handle);

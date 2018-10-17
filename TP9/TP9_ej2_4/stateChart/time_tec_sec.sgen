@@ -1,0 +1,11 @@
+GeneratorModel for yakindu::c {
+
+	statechart ledOnOff {
+
+		feature Outlet {
+			targetProject = "TP9_ej2_3"
+			targetFolder = "src"
+			libraryTargetFolder = "src"
+		}
+	}
+}
