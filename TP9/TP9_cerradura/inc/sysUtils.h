@@ -9,11 +9,9 @@
 #define INC_SYSUTILS_H_
 
 #include <stdint.h>
-#define WORDLENGTH 6
+#include "stopwatch.h"
 
-uint8_t iter;
-uint8_t clave[WORDLENGTH];
-uint8_t claveIngresada[WORDLENGTH];
+
 
 typedef struct
 {
@@ -64,7 +62,7 @@ void SysTick_Handler(void);
 uint8_t getSysTickEv(void);
 void rstSysTickEv(void);
 
-uint8_t getKeyPressed(void);
+//uint8_t getKeyPressed(void);
 void rstKeyPressed(void);
 
 #endif /* INC_SYSUTILS_H_ */

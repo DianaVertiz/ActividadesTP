@@ -5,11 +5,11 @@
 #include "LedOnOff.h"
 #include "timerTicks.h"
 
-#define NOF_TIMERS (sizeof(LedOnOffTimeEvents)/sizeof(sc_boolean))
+//#define NOF_TIMERS (sizeof(LedOnOffTimeEvents)/sizeof(sc_boolean))
 
 
-static TimerTicks ticks[NOF_TIMERS];
-
+//static TimerTicks ticks[NOF_TIMERS];
+/*
 void ledOnOff_setTimer(LedOnOff* handle, const sc_eventid evid,
 		const sc_integer time_ms, const sc_boolean periodic){
 	SetNewTimerTick(ticks, NOF_TIMERS, evid, time_ms, periodic);
@@ -19,7 +19,7 @@ void ledOnOff_setTimer(LedOnOff* handle, const sc_eventid evid,
 void ledOnOff_unsetTimer(LedOnOff* handle, const sc_eventid evid)
 {
 	UnsetTimerTick(ticks, NOF_TIMERS, evid);
-}
+}*/
 
 
 void ledOnOffIface_ledOn(const LedOnOff* handle, const sc_integer led)
@@ -45,7 +45,7 @@ int main(void)
   while(1){
 
     __WFI();
-
+/*
     if(getSysTickEv())
     {
       rstSysTickEv();
@@ -61,19 +61,8 @@ int main(void)
         }
       }
 
-	}
+	}*/
 
-    switch(getKeyPressed())
-    {
-    	case 1:
-    		ledOnOffIface_raise_keyPress1(&estados); break;
-    	case 2:
-    		ledOnOffIface_raise_keyPress2(&estados); break;
-    	case 3:
-    		ledOnOffIface_raise_keyPress3(&estados); break;
-    	case 4:
-    		ledOnOffIface_raise_keyPress4(&estados); break;
-    }
 	ledOnOff_runCycle(&estados);
   }
   return 0;
