@@ -2,50 +2,53 @@
 #include "sysUtils.h"
 #include "chip.h"
 #include "sc_types.h"
-#include "LedOnOff.h"
+#include "Cerradura.h"
 #include "timerTicks.h"
 
-//#define NOF_TIMERS (sizeof(LedOnOffTimeEvents)/sizeof(sc_boolean))
+#define NOF_TIMERS (sizeof(CerraduraTimeEvents)/sizeof(sc_boolean))
 
 
-//static TimerTicks ticks[NOF_TIMERS];
-/*
-void ledOnOff_setTimer(LedOnOff* handle, const sc_eventid evid,
+static TimerTicks ticks[NOF_TIMERS];
+
+void cerradura_setTimer(Cerradura* handle, const sc_eventid evid,
 		const sc_integer time_ms, const sc_boolean periodic){
 	SetNewTimerTick(ticks, NOF_TIMERS, evid, time_ms, periodic);
 }
 
 
-void ledOnOff_unsetTimer(LedOnOff* handle, const sc_eventid evid)
+void cerradura_unsetTimer(Cerradura* handle, const sc_eventid evid)
 {
 	UnsetTimerTick(ticks, NOF_TIMERS, evid);
-}*/
-
-
-void ledOnOffIface_ledOn(const LedOnOff* handle, const sc_integer led)
-{
-	ledOn(led);
 }
 
-void ledOnOffIface_ledOff(
-		const LedOnOff* handle, const sc_integer led)
+void cerraduraIface_setLedFromMask(const Cerradura* handle, const sc_integer ledMask)
 {
-	ledOff(led);
+	setLedFromMask(ledMask);
+}
+
+sc_integer cerraduraIface_getKeyPressed(const Cerradura* handle)
+{
+	return getKeyPressed();
+}
+
+void cerraduraIface_delayMs(const Cerradura* handle, const sc_integer time)
+{
+	StopWatch_DelayMs(time);
 }
 
 int main(void)
 {
   int i;
   //uint8_t key = 0;
-  LedOnOff estados;
+  Cerradura keyLock;
   sysInit();
-  ledOnOff_init(&estados);
-  ledOnOff_enter(&estados);
+  cerradura_init(&keyLock);
+  cerradura_enter(&keyLock);
 
   while(1){
 
     __WFI();
-/*
+
     if(getSysTickEv())
     {
       rstSysTickEv();
@@ -56,14 +59,19 @@ int main(void)
       {
         if (IsPendEvent(ticks, NOF_TIMERS, ticks[i].evid))
         {
-          ledOnOff_raiseTimeEvent(&estados, ticks[i].evid);
+          cerradura_raiseTimeEvent(&keyLock, ticks[i].evid);
           MarkAsAttEvent(ticks, NOF_TIMERS, ticks[i].evid);
         }
       }
 
-	}*/
+	}
+    if(getKeyPressed())
+    {
+    	cerraduraIface_raise_keyPressed(&keyLock);
+    	rstKeyPressed();
+    }
 
-	ledOnOff_runCycle(&estados);
+    cerradura_runCycle(&keyLock);
   }
   return 0;
 }

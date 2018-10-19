@@ -2,7 +2,7 @@
 #include "chip.h"
 #include <lpc_types.h>
 #include "sysUtils.h"
-#include "LedOnOff.h"
+#include "Cerradura.h"
 const uint32_t ExtRateIn = 0;
 const uint32_t OscRateIn = 12000000;
 
@@ -34,7 +34,7 @@ const digitalIO
 
 
 
-void ledOnOffIface_setLedFromMask(const LedOnOff* handle, const sc_integer ledMask)
+void setLedFromMask(uint8_t ledMask)
 {
 
 	ledOff(0);
@@ -60,7 +60,7 @@ void ledOnOffIface_setLedFromMask(const LedOnOff* handle, const sc_integer ledMa
 
 }
 
-sc_integer ledOnOffIface_getKeyPressed(const LedOnOff* handle)
+uint8_t getKeyPressed()
 {
 	return keyPressed;
 }
@@ -167,23 +167,27 @@ void GPIO0_IRQHandler(void)
 {
 	keyPressed = 1;
 	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(0));
+	StopWatch_DelayMs(300);
 }
 
 void GPIO1_IRQHandler(void)
 {
 	keyPressed = 2;
 	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(1));
+	StopWatch_DelayMs(300);
 }
 void GPIO2_IRQHandler(void)
 {
 	keyPressed = 3;
 	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(2));
+	StopWatch_DelayMs(300);
 }
 
 void GPIO3_IRQHandler(void)
 {
 	keyPressed = 4;
 	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(3));
+	StopWatch_DelayMs(300);
 }
 
 /*
@@ -197,7 +201,4 @@ void rstKeyPressed(void)
 	keyPressed = 0;
 }
 
-void ledOnOffIface_delayMs(const LedOnOff* handle, const sc_integer time)
-{
-	StopWatch_DelayMs(time);
-}
+

@@ -1,0 +1,11 @@
+GeneratorModel for yakindu::c {
+
+	statechart cerradura {
+
+		feature Outlet {
+			targetProject = "TP9_cerradura"
+			targetFolder = "src"
+			libraryTargetFolder = "src"
+		}
+	}
+}

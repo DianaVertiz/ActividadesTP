@@ -17,6 +17,11 @@
 #include "sysUtils.h"
 
 
+uint16_t delay;
+uint8_t repeticiones;
+uint8_t nroSec;
+uint8_t firstTime;
+
 typedef void (*doAction)(int, const char * const *); /** <puntero a una función que no retorna nada*/
 
 /**

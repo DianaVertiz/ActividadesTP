@@ -13,6 +13,7 @@
 #include <string.h>
 #include "sysUtils.h"
 
+
 const cmdItem menu[] =
 {
 		{ "help", help },
@@ -42,6 +43,8 @@ const char* printMenu[] =
 		"led2Off - Apagar led2\n\r",
 		"led3Off - Apagar led3\n\r",
 		"led4Off - Apagar led4\n\r",
+		"secuencia_1 - secuencia nro 1\n\r",
+		"secuencia_2 - secuencia nro 2\n\r"
 };
 
 
@@ -49,32 +52,32 @@ extern const digitalIO leds[];
 
 void help(int argc, const char * const * argv)
 {
-	print("\r");
+	print("\r\n");
 	for(uint8_t i=0; i<sizeof(printMenu)/sizeof(char); i++)
 	{
 		print(printMenu[i]);
 	}
+	print("\r\n");
 }
 
 void sec1(int argc, const char * const * argv)
 {
-	uint8_t cRep;
-	uint16_t delay;
-	cRep = atoi(argv[1]);
+
+	nroSec = 1;
+	repeticiones = atoi(argv[1]);
 	delay = atoi(argv[2]);
-	//configurar_SysTick();
-	SystemCoreClockUpdate();
-	secuencia(1, cRep, delay);
-	//disable_SysTick();
+	firstTime = 1;
+	configurar_SysTick();
+
 }
 
 void sec2(int argc, const char * const * argv)
 {
-	uint8_t cRep;
-	uint16_t delay;
-	cRep = atoi(argv[1]);
+	nroSec = 2;
+	repeticiones = atoi(argv[1]);
 	delay = atoi(argv[2]);
-	secuencia(2, cRep, delay);
+	firstTime = 1;
+	configurar_SysTick();
 
 }
 

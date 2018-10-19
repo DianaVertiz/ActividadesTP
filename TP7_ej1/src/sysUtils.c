@@ -108,6 +108,9 @@ void init_interrupciones()
 	NVIC_EnableIRQ (PIN_INT2_IRQn);
 	NVIC_EnableIRQ (PIN_INT4_IRQn);
 
+
+
+
 }
 
 void displayCounter(uint8_t v)
@@ -200,12 +203,12 @@ void cmdExecute(int argc, const char * const * argv)
 
 	while(!flagCoincidencia)
 	{
-		aux = memcmp ( argv[0], (pointer[iter].cmdName), strlen(pointer[iter].cmdName) );
+		aux = strcmp ( argv[0], pointer[iter].cmdName );
 
 		if(aux == 0)
 		{
 
-			(pointer[iter]).cmdAct(argc,argv);
+			pointer[iter].cmdAct(argc,argv);
 
 			flagCoincidencia = 1;
 			print(argv[0]);

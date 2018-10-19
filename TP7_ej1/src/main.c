@@ -4,7 +4,10 @@
 #include "secuencia.h"
 #include "microrl.h"
 
-#define delay 1000
+extern uint16_t delay;
+extern uint8_t repeticiones;
+extern uint8_t nroSec;
+extern uint8_t firstTime;
 
 microrl_t rl;
 extern uint8_t finCuentaMs = 0;
@@ -46,19 +49,7 @@ void GPIO4_IRQHandler(void)
 
 void SysTick_Handler (void)
 {
-	static uint32_t cntTick = 0;
-
-	/*cada milisegundo se incrementa la variable*/
-	cntTick++;
-
-	/*cuando se alacanza el tiempo de retardo se inicializa el
-	 * contador y se actualiza la secuencia*/
-	if(cntTick >= delay)
-	{
-		finCuentaMs = 1;
-		cntTick = 0;
-	}
-
+	secuencia(nroSec, repeticiones, delay);
 
 }
 
@@ -75,21 +66,16 @@ int main(void)
 	inicializar_sistema();
 	inicializar_leds();
 	inicializar_teclado();
+	firstTime = 1;
 	init_interrupciones();
 	inicializar_USART();
-
-	//print (msg1);
 
 	microrl_init(&rl, print);
 	microrl_set_execute_callback(&rl, cmdExecute);
 	microrl_set_sigint_callback(&rl, sigint);
-	secuencia(1, 3, 1000);
-	//secuencia(1, 3, 1000);
 
   while (1)
   {
-
-
 	  __WFI();
   }
   return 0;

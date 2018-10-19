@@ -1,2 +1,5 @@
-16:54:35 **** Clean-only build of configuration Default for project TP9_ej2_4 ****
-make clean 
+17:46:55 **** Incremental Build of configuration Default for project TP7_ej1 ****
+make all 
+  - comandos.c...ok
+   text	   data	    bss	    dec	    hex	filename
+  16004	   1484	   1424	  18912	   49e0	out/firmware.elf
