@@ -6,6 +6,29 @@
  */
 #include "operaciones.h"
 
+volatile uint8_t PressedTEC1 = 0;/*TEC1 no esta pulsada*/
+volatile uint8_t PressedTEC2 = 0;
+volatile uint8_t PressedTEC3 = 0;
+volatile uint8_t PressedTEC4 = 0;
+
+const digitalIO leds[] =
+{
+		{PORT_PIN_RGB, PIN_RGB_RED, GPIO_PORT_RGB, GPIO_PIN_RED, SCU_MODE_INACT | SCU_MODE_FUNC4},
+		{PORT_PIN_LED1, PIN_LED1, GPIO_PORT_LED1, GPIO_PIN_LED1, SCU_MODE_INACT | SCU_MODE_FUNC0},
+		{PORT_PIN_LED2, PIN_LED2, GPIO_PORT_LED2, GPIO_PIN_LED2, SCU_MODE_INACT | SCU_MODE_FUNC0},
+		{PORT_PIN_LED3, PIN_LED3, GPIO_PORT_LED3, GPIO_PIN_LED3, SCU_MODE_INACT | SCU_MODE_FUNC0},
+		{PORT_PIN_RGB, PIN_RGB_GRN, GPIO_PORT_RGB, GPIO_PIN_GRN, SCU_MODE_INACT | SCU_MODE_FUNC4},
+		{PORT_PIN_RGB, PIN_RGB_BLU, GPIO_PORT_RGB, GPIO_PIN_BLU, SCU_MODE_INACT | SCU_MODE_FUNC4}
+};
+
+const digitalIO keys[] =
+{
+		{PORT_PIN_KEY1, PIN_KEY1, GPIO_PORT_KEY1, GPIO_PIN_KEY1, MD_EZI|MD_ZI, FUNC0, TEC1_IRQ, PIN_INT1_IRQn},
+		{PORT_PIN_KEY2, PIN_KEY2, GPIO_PORT_KEY2, GPIO_PIN_KEY2, MD_EZI|MD_ZI, FUNC0, TEC2_IRQ, PIN_INT2_IRQn},
+		{PORT_PIN_KEY3, PIN_KEY3, GPIO_PORT_KEY3, GPIO_PIN_KEY3, MD_EZI|MD_ZI, FUNC0, TEC3_IRQ, PIN_INT3_IRQn},
+		{PORT_PIN_KEY4, PIN_KEY4, GPIO_PORT_KEY4, GPIO_PIN_KEY4, MD_EZI|MD_ZI, FUNC0, TEC4_IRQ, PIN_INT4_IRQn},
+};
+
 void inicializar_sistema()
 {
 	Chip_SetupXtalClocking();
@@ -274,9 +297,9 @@ void mostrar_secuencia()
 	setLedFromMsk(0);
 	for(i = 0; i < pos_secuencia; i++)
 	{
-		LedOn(secuencia.leds[i].gpioPort,secuencia.leds[i].gpioPin);
+		ledOn(secuencia.leds[i].gpioPort,secuencia.leds[i].gpioPin);
 		delayMs(secuencia.periodo-pos_secuencia*10);
-		LedOff(secuencia.leds[i].gpioPort,secuencia.leds[i].gpioPin);
+		ledOff(secuencia.leds[i].gpioPort,secuencia.leds[i].gpioPin);
 		delayMs(secuencia.periodo-pos_secuencia*10);
 	}
 	pos_ingreso = 0;

@@ -1,6 +1,6 @@
 /*! \mainpage EJERCICIO CERRADURA DIGITAL
  * \date 09/09/2018
- * \author Diana C. Vertiz del Valle
+ * \author
  * \section
  */
 

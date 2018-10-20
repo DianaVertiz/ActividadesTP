@@ -76,6 +76,8 @@ uint32_t genera_semilla()
 {
 	uint32_t tstart = 0;
 	uint32_t telapsed = 0;
+	/*Inicia stopwatch para el conteo de ticks
+	 * hasta que se pulsa TEC2*/
 	tstart = StopWatch_Start();
 	while(!PressedTEC2)
 	{
@@ -102,6 +104,7 @@ uint32_t genera_semilla()
 
 void inicia_juego()
 {
+	/*empiezan a parpadear los leds rojo y verde*/
 	if(PressedTEC3 == 0 && PressedTEC4 == 0 && inicia_cara_cruz == 0 && fin_del_juego == 0)
 	{
 		ledOn(GPIO_PORT_LED2, GPIO_PIN_LED2);
@@ -113,7 +116,7 @@ void inicia_juego()
 		PressedTEC2 = 0;
 	}
 	else
-	{
+	{	/*Al pulsarse TEC3 o TEC4 se selecciona cara o cruz y se inicia el juego*/
 		if(PressedTEC3 && fin_del_juego == 0)
 		{
 			ledOff(GPIO_PORT_LED3, GPIO_PIN_LED3);
@@ -142,7 +145,8 @@ void inicia_juego()
 void cara_cruz(void)
 {
 	if(inicia_cara_cruz)
-	{
+	{	/*al iniciar el juego se define el tiempo aleatorio
+	 	 del lanzamiento de la moneda*/
 		ledOff(GPIO_PORT_LED2, GPIO_PIN_LED2);
 		ledOff(GPIO_PORT_LED3, GPIO_PIN_LED3);
 		ledOff(GPIO_PORT_RGB, GPIO_PIN_RED);
@@ -183,7 +187,7 @@ void cara_cruz(void)
 			}
 
 		}
-
+		/*finaliza el lanzamiento*/
 		inicia_cara_cruz=0;
 		fin_del_juego = 1;
 		delayMs(250);

@@ -4,7 +4,7 @@
 #include "operaciones.h"
 
 volatile uint8_t inicio = 0;
-
+extern const digitalIO leds[];
 
 void respuesta_teclado(uint8_t tecla)
 {

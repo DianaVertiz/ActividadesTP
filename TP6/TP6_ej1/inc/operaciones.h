@@ -39,10 +39,6 @@ uint8_t pos_ingreso;
 unsigned char rxBuff[BUFFSize]; /**< Vector para contener los datos asociados el buffer de entrada */
 unsigned char txBuff[BUFFSize]; /**< Vector para contener los datos asociados el buffer de salida */
 
-volatile uint8_t PressedTEC1 = 0;/*TEC1 no esta pulsada*/
-volatile uint8_t PressedTEC2 = 0;
-volatile uint8_t PressedTEC3 = 0;
-volatile uint8_t PressedTEC4 = 0;
 
 RINGBUFF_T txRing; /**< Estructura asociado al buffer circular de transmisión. */
 RINGBUFF_T rxRing; /**< Estructura asociada al buffer circular de recepción.  */
@@ -79,23 +75,6 @@ typedef struct
 	uint8_t sentido;
 } estado_anticipacion;
 
-const digitalIO leds[] =
-{
-		{PORT_PIN_RGB, PIN_RGB_RED, GPIO_PORT_RGB, GPIO_PIN_RED, SCU_MODE_INACT | SCU_MODE_FUNC4},
-		{PORT_PIN_LED1, PIN_LED1, GPIO_PORT_LED1, GPIO_PIN_LED1, SCU_MODE_INACT | SCU_MODE_FUNC0},
-		{PORT_PIN_LED2, PIN_LED2, GPIO_PORT_LED2, GPIO_PIN_LED2, SCU_MODE_INACT | SCU_MODE_FUNC0},
-		{PORT_PIN_LED3, PIN_LED3, GPIO_PORT_LED3, GPIO_PIN_LED3, SCU_MODE_INACT | SCU_MODE_FUNC0},
-		{PORT_PIN_RGB, PIN_RGB_GRN, GPIO_PORT_RGB, GPIO_PIN_GRN, SCU_MODE_INACT | SCU_MODE_FUNC4},
-		{PORT_PIN_RGB, PIN_RGB_BLU, GPIO_PORT_RGB, GPIO_PIN_BLU, SCU_MODE_INACT | SCU_MODE_FUNC4}
-};
-
-const digitalIO keys[] =
-{
-		{PORT_PIN_KEY1, PIN_KEY1, GPIO_PORT_KEY1, GPIO_PIN_KEY1, MD_EZI|MD_ZI, FUNC0, TEC1_IRQ, PIN_INT1_IRQn},
-		{PORT_PIN_KEY2, PIN_KEY2, GPIO_PORT_KEY2, GPIO_PIN_KEY2, MD_EZI|MD_ZI, FUNC0, TEC2_IRQ, PIN_INT2_IRQn},
-		{PORT_PIN_KEY3, PIN_KEY3, GPIO_PORT_KEY3, GPIO_PIN_KEY3, MD_EZI|MD_ZI, FUNC0, TEC3_IRQ, PIN_INT3_IRQn},
-		{PORT_PIN_KEY4, PIN_KEY4, GPIO_PORT_KEY4, GPIO_PIN_KEY4, MD_EZI|MD_ZI, FUNC0, TEC4_IRQ, PIN_INT4_IRQn},
-};
 
 secuencia_t secuencia , secuencia_ingresada;
 

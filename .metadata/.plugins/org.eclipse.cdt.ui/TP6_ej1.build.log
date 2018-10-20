@@ -1,5 +1,6 @@
-19:17:25 **** Clean-only build of configuration Default for project TP6_ej1 ****
-make clean 
+07:26:30 **** Incremental Build of configuration Default for project TP6_ej1 ****
+make all 
+make: No se hace nada para 'all'.
 
-19:17:25 Build Finished (took 479ms)
+07:26:30 Build Finished (took 427ms)
 

@@ -66,11 +66,11 @@ void show32bits(uint32_t x) {
 /*** ejercicico 1 Reflexión de bits****/
 /**************************************/
 
-/*int main(int argc, char * argv[])
+int main(int argc, char * argv[])
 {
 
 	char aux, rDato, oDato = 0x32;
-	rDato =0;
+	rDato =50;
 	aux = oDato;
 	char k = 0;
 	printf("Reflexión de datos\r\n");
@@ -96,7 +96,7 @@ void show32bits(uint32_t x) {
 
 /**************************************************/
 /****Ejercicio 2***********************************/
-
+/*
 int main(int argc, char * argv[])
 {
 	int32_t oDato = 150;
@@ -112,3 +112,4 @@ int main(int argc, char * argv[])
 	show32bits(oDato);
 	return 0;
 }
+*/

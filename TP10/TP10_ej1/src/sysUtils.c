@@ -2,7 +2,22 @@
 #include "chip.h"
 #include <lpc_types.h>
 #include "sysUtils.h"
-#include "LedOnOff.h"
+// manejo de heap
+#include  <errno.h>
+#include  <stdint.h>
+#include <reent.h>
+#include <stdlib.h>
+
+#undef  errno
+extern  int  errno;
+
+extern  char * __bot_heap;
+extern  char * __top_heap;
+char *__env [1] = { 0 };
+char **  environ = __env;
+// manejo de heap
+
+
 const uint32_t ExtRateIn = 0;
 const uint32_t OscRateIn = 12000000;
 
@@ -29,34 +44,6 @@ const digitalIO
 	{0x01, 0x06, 0x01, 0x09, SCU_MODE_INACT | SCU_MODE_FUNC0 | SCU_MODE_INBUFF_EN}
   };
 
-
-
-
-void ledOnOffIface_setLedFromMask(const LedOnOff* handle, const sc_integer ledMask)
-{
-
-	ledOff(0);
-	ledOff(5);
-	ledOff(4);
-	ledOff(3);
-	ledOff(2);
-	ledOff(1);
-	if (ledMask & led1) ledOn(1);
-
-	  if (ledMask & led2) ledOn(2);
-
-
-	  if (ledMask & led3) ledOn(3);
-
-	  if (ledMask & led4) ledOn(4);
-
-
-	  if (ledMask & led5) ledOn(5);
-
-
-	  if (ledMask & led6) ledOn(0);
-
-}
 
 
 void sysInit(void)
@@ -175,14 +162,59 @@ void GPIO3_IRQHandler(void)
 	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(3));
 }
 
-
+/*
 uint8_t getKeyPressed(void)
 {
 	return keyPressed;
 }
-
+*/
 void rstKeyPressed(void)
 {
 	keyPressed = 0;
 }
+
+
+void * _sbrk(int  incr)
+{
+	char * prev_heap_end;
+	static  char * lastHeapAssigned = (char  *)& __bot_heap;
+	prev_heap_end   = lastHeapAssigned;
+	lastHeapAssigned  += incr;
+	if( lastHeapAssigned  >= (char *) (& __top_heap ))
+	{
+		lastHeapAssigned = prev_heap_end;
+		errno = ENOMEM;
+		abort ();
+	}
+	return (void *)  prev_heap_end;
+}
+
+int  _kill(int pid , int  sig)
+{
+	errno = EINVAL;
+	return  -1;
+}
+
+int  _getpid(void)
+{
+return  1;
+}
+
+void _exit(int code)
+{
+	_Exit(code);
+}
+/*
+int  _fork(void)
+{
+	errno = EAGAIN;
+	return  -1;
+}
+int  _execve(char *name , char **argv , char **env) {
+	errno = ENOMEM;
+	return  -1;
+}*/
+
+
+
 

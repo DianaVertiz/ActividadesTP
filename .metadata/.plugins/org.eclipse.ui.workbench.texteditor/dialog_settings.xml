@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="tty" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="LedOnOffInternal"/>
-			<item value="menuItem"/>
-			<item value="str"/>
-			<item value="Sys"/>
-			<item value="sys"/>
-			<item value="split"/>
-			<item value="cmdE"/>
-			<item value="setle"/>
-			<item value="pos_ingreso"/>
-			<item value="periodo"/>
-			<item value="pressed"/>
-			<item value="re"/>
-			<item value="ledon"/>
-			<item value="PressedTEC1"/>
-			<item value="tog"/>
+			<item value="tty"/>
+			<item value="read"/>
+			<item value="wai"/>
+			<item value="kill"/>
+			<item value="exit"/>
+			<item value="mallinfo"/>
+			<item value="getKeyPressed"/>
+			<item value="execute"/>
+			<item value="echo"/>
+			<item value="claveingre"/>
+			<item value="raise"/>
+			<item value="operate"/>
+			<item value="validate"/>
+			<item value="cerradura_react_main_region_Cerrado_r1_Validate"/>
+			<item value="cerradura_check_main_region_Cerrado_r1_Validate_tr0_tr0"/>
 		</list>
 		<list key="replacehistory">
 			<item value="void"/>
@@ -32,7 +32,7 @@
 		<item value="344" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="435" key="DIALOG_HEIGHT"/>
-		<item value="740" key="DIALOG_X_ORIGIN"/>
-		<item value="261" key="DIALOG_Y_ORIGIN"/>
+		<item value="871" key="DIALOG_X_ORIGIN"/>
+		<item value="281" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

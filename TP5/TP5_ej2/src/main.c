@@ -15,7 +15,7 @@ const char msg2[] = "Número de pruebas aprobadas: ";
 const char msg3[] = "Tiempo de conmutación inicial: ";
 const char msg4[] = "Tiempo de conmutación final: ";
 
-volatile estado_anticipacion estado = {.intervalo =500, .led_activo = primer_led, .sentido = 0};
+volatile estado_anticipacion estado = {.intervalo =500, .led_activo = primer_led, .sentido = 0}; /*sentido = 0 de izq a der*/
 
 /**
  * Manejo de interrupciones asociadas a la tecla 1
