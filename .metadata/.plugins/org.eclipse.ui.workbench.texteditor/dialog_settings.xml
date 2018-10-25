@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="tty" key="selection"/>
+		<item value="iter" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="tty"/>
-			<item value="read"/>
-			<item value="wai"/>
-			<item value="kill"/>
-			<item value="exit"/>
-			<item value="mallinfo"/>
-			<item value="getKeyPressed"/>
-			<item value="execute"/>
-			<item value="echo"/>
-			<item value="claveingre"/>
-			<item value="raise"/>
-			<item value="operate"/>
-			<item value="validate"/>
-			<item value="cerradura_react_main_region_Cerrado_r1_Validate"/>
-			<item value="cerradura_check_main_region_Cerrado_r1_Validate_tr0_tr0"/>
+			<item value="iter"/>
+			<item value="handle-&gt;internal.aux = 0;"/>
+			<item value="aux = 0"/>
+			<item value="aux ="/>
+			<item value="aux"/>
+			<item value="claveIn"/>
+			<item value="clave"/>
+			<item value="keyPressed_value"/>
+			<item value="generar_secuencia"/>
+			<item value="respuesta_"/>
+			<item value="evaluar_secuencia"/>
+			<item value="inicio"/>
+			<item value="evaluar"/>
+			<item value="setLed"/>
+			<item value="pos_secuencia"/>
 		</list>
 		<list key="replacehistory">
 			<item value="void"/>

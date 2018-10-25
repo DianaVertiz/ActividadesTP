@@ -28,7 +28,7 @@
 #define tercer_led 16
 #define ultimo_led 32
 
-#define max_iter 11
+#define max_iter 10
 
 /**
  * @brief Enumeración utilizada para identificar los pulsadores presentes en la EDU-CIAA NXP

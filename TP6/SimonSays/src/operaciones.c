@@ -15,9 +15,11 @@ volatile uint8_t PressedTEC1 = 0;/**< Flag que indica que TEC1 no esta pulsada*/
 volatile uint8_t PressedTEC2 = 0;/**< Flag que indica que TEC2 no esta pulsada*/
 volatile uint8_t PressedTEC3 = 0;/**< Flag que indica que TEC3 no esta pulsada*/
 volatile uint8_t PressedTEC4 = 0;/**< Flag que indica que TEC4 no esta pulsada*/
-
+extern uint8_t inicio;
 //char str[100];
 static char valor [10];
+uint32_t tstart = 0;
+
 uint8_t key; /**< Variable que almacena el valor recibido por la terminal */
 
 
@@ -109,6 +111,7 @@ void init_interrupciones()
 		NVIC_ClearPendingIRQ(keys[i].nvic_mask);
 		NVIC_EnableIRQ(keys[i].nvic_mask);
 	}
+	tstart = StopWatch_Start();
 
 }
 
@@ -177,21 +180,20 @@ void disable_SysTick()
 
 uint32_t genera_semilla()
 {
-	uint32_t tstart = 0;
 	uint32_t telapsed = 0;
 	pos_ingreso = 0;
-	pos_secuencia = 2;
-	tstart = StopWatch_Start();
-	while(!PressedTEC1)
-	{
-		escanear_teclado();
+	pos_secuencia = 0;
+	//while(!PressedTEC1)
+	//{
+		//escanear_teclado();
+		PressedTEC1 = 0;
 		PressedTEC2 = 0;
 		PressedTEC3 = 0;
 		PressedTEC4 = 0;
-	}
+	//}
 	telapsed = StopWatch_TicksToMs(StopWatch_Elapsed(tstart));
 
-	PressedTEC1 = 0;
+//	PressedTEC1 = 0;
 	return telapsed;
 }
 
@@ -199,9 +201,10 @@ void generar_secuencia()
 {
 	uint8_t k;
 	secuencia.periodo = 500;
+	/*Un total de 10 niveles*/
 	for(k=0; k<max_iter; k++)
 	{
-		secuencia_ingresada.leds[k] = keys[0];
+		//secuencia_ingresada.leds[k] = keys[0];
 
 		switch(rand()%4)
 		{
@@ -215,6 +218,7 @@ void generar_secuencia()
 				secuencia.leds[k] = leds[3]; break;
 		}
 	}
+	pos_secuencia = 1;
 }
 
 
@@ -286,6 +290,7 @@ void evaluar_secuencia()
 			i = pos_secuencia;
 			titilar(leds[0],250, 5); // titila el led rojo del rgb
 			pos_secuencia = 1;
+			generar_secuencia();
 		}
 		i++;
 	}

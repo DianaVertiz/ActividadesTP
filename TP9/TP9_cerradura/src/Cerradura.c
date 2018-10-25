@@ -8,129 +8,101 @@
 */
 
 /* prototypes of all internal functions */
-static sc_boolean cerradura_check_main_region_Inicio_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Cerrado_r1_wait_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Cerrado_r1_getKey_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Cerrado_r1_operate_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Cerrado_r1_operate_tr1_tr1(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Cerrado_r1_Validate_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Cerrado_r1_Validate_tr1_tr1(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Abierto_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Abierto_r1_wait_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Abierto_r1_getKey_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Abierto_r1_operate_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Abierto_r1_init_tr0_tr0(const Cerradura* handle);
 static sc_boolean cerradura_check_main_region_led0_tr0_tr0(const Cerradura* handle);
 static sc_boolean cerradura_check_main_region_led0_r1_encendido_tr0_tr0(const Cerradura* handle);
 static sc_boolean cerradura_check_main_region_led0_r1_apagado_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Copy_1_led0_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Copy_1_led0_r1_encendido_tr0_tr0(const Cerradura* handle);
-static sc_boolean cerradura_check_main_region_Copy_1_led0_r1_apagado_tr0_tr0(const Cerradura* handle);
-static void cerradura_effect_main_region_Inicio_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Cerrado_r1_wait_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Cerrado_r1_getKey_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Cerrado_r1_operate_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Cerrado_r1_operate_tr1(Cerradura* handle);
-static void cerradura_effect_main_region_Cerrado_r1_Validate_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Cerrado_r1_Validate_tr1(Cerradura* handle);
-static void cerradura_effect_main_region_Abierto_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Abierto_r1_wait_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Abierto_r1_getKey_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Abierto_r1_operate_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Abierto_r1_init_tr0(Cerradura* handle);
+static sc_boolean cerradura_check_main_region_led1_tr0_tr0(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_led1_r1_encendido_tr0_tr0(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_led1_r1_apagado_tr0_tr0(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_Closed_tr0_tr0(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_Closed_tr1_tr1(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_Closed__region0_Wait_tr0_tr0(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_Closed__region0_getKey_tr0_tr0(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_Locked_tr0_tr0(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_Unlocked_tr0_tr0(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_Unlocked__region0_Wait_tr0_tr0(const Cerradura* handle);
+static sc_boolean cerradura_check_main_region_Unlocked__region0_getKey_tr0_tr0(const Cerradura* handle);
 static void cerradura_effect_main_region_led0_tr0(Cerradura* handle);
 static void cerradura_effect_main_region_led0_r1_encendido_tr0(Cerradura* handle);
 static void cerradura_effect_main_region_led0_r1_apagado_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Copy_1_led0_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Copy_1_led0_r1_encendido_tr0(Cerradura* handle);
-static void cerradura_effect_main_region_Copy_1_led0_r1_apagado_tr0(Cerradura* handle);
-static void cerradura_enact_main_region_Inicio_r1_resetSystem(Cerradura* handle);
-static void cerradura_enact_main_region_Cerrado(Cerradura* handle);
-static void cerradura_enact_main_region_Cerrado_r1_wait(Cerradura* handle);
-static void cerradura_enact_main_region_Cerrado_r1_getKey(Cerradura* handle);
-static void cerradura_enact_main_region_Cerrado_r1_operate(Cerradura* handle);
-static void cerradura_enact_main_region_Cerrado_r1_Validate(Cerradura* handle);
-static void cerradura_enact_main_region_Abierto_r1_wait(Cerradura* handle);
-static void cerradura_enact_main_region_Abierto_r1_getKey(Cerradura* handle);
-static void cerradura_enact_main_region_Abierto_r1_operate(Cerradura* handle);
-static void cerradura_enact_main_region_Abierto_r1_init(Cerradura* handle);
+static void cerradura_effect_main_region_led1_tr0(Cerradura* handle);
+static void cerradura_effect_main_region_led1_r1_encendido_tr0(Cerradura* handle);
+static void cerradura_effect_main_region_led1_r1_apagado_tr0(Cerradura* handle);
+static void cerradura_effect_main_region_Closed_tr0(Cerradura* handle);
+static void cerradura_effect_main_region_Closed_tr1(Cerradura* handle);
+static void cerradura_effect_main_region_Closed__region0_Wait_tr0(Cerradura* handle);
+static void cerradura_effect_main_region_Closed__region0_getKey_tr0(Cerradura* handle);
+static void cerradura_effect_main_region_Locked_tr0(Cerradura* handle);
+static void cerradura_effect_main_region_Unlocked_tr0(Cerradura* handle);
+static void cerradura_effect_main_region_Unlocked__region0_Wait_tr0(Cerradura* handle);
+static void cerradura_effect_main_region_Unlocked__region0_getKey_tr0(Cerradura* handle);
 static void cerradura_enact_main_region_led0(Cerradura* handle);
 static void cerradura_enact_main_region_led0_r1_encendido(Cerradura* handle);
 static void cerradura_enact_main_region_led0_r1_apagado(Cerradura* handle);
-static void cerradura_enact_main_region_Copy_1_led0(Cerradura* handle);
-static void cerradura_enact_main_region_Copy_1_led0_r1_encendido(Cerradura* handle);
-static void cerradura_enact_main_region_Copy_1_led0_r1_apagado(Cerradura* handle);
+static void cerradura_enact_main_region_led1(Cerradura* handle);
+static void cerradura_enact_main_region_led1_r1_encendido(Cerradura* handle);
+static void cerradura_enact_main_region_led1_r1_apagado(Cerradura* handle);
+static void cerradura_enact_main_region_Closed(Cerradura* handle);
+static void cerradura_enact_main_region_Closed__region0_Wait(Cerradura* handle);
+static void cerradura_enact_main_region_Closed__region0_getKey(Cerradura* handle);
+static void cerradura_enact_main_region_Locked(Cerradura* handle);
+static void cerradura_enact_main_region_Unlocked(Cerradura* handle);
+static void cerradura_enact_main_region_Unlocked__region0_Wait(Cerradura* handle);
+static void cerradura_enact_main_region_Unlocked__region0_getKey(Cerradura* handle);
 static void cerradura_exact_main_region_led0_r1_encendido(Cerradura* handle);
 static void cerradura_exact_main_region_led0_r1_apagado(Cerradura* handle);
-static void cerradura_exact_main_region_Copy_1_led0_r1_encendido(Cerradura* handle);
-static void cerradura_exact_main_region_Copy_1_led0_r1_apagado(Cerradura* handle);
-static void cerradura_enseq_main_region_Inicio_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Inicio_r1_resetSystem_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Cerrado_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Cerrado_r1_wait_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Cerrado_r1_getKey_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Cerrado_r1_operate_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Cerrado_r1_Validate_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Abierto_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Abierto_r1_wait_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Abierto_r1_getKey_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Abierto_r1_operate_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Abierto_r1_init_default(Cerradura* handle);
+static void cerradura_exact_main_region_led1_r1_encendido(Cerradura* handle);
+static void cerradura_exact_main_region_led1_r1_apagado(Cerradura* handle);
 static void cerradura_enseq_main_region_led0_default(Cerradura* handle);
 static void cerradura_enseq_main_region_led0_r1_encendido_default(Cerradura* handle);
 static void cerradura_enseq_main_region_led0_r1_apagado_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Copy_1_led0_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Copy_1_led0_r1_encendido_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Copy_1_led0_r1_apagado_default(Cerradura* handle);
+static void cerradura_enseq_main_region_led1_default(Cerradura* handle);
+static void cerradura_enseq_main_region_led1_r1_encendido_default(Cerradura* handle);
+static void cerradura_enseq_main_region_led1_r1_apagado_default(Cerradura* handle);
+static void cerradura_enseq_main_region_Closed_default(Cerradura* handle);
+static void cerradura_enseq_main_region_Closed__region0_Wait_default(Cerradura* handle);
+static void cerradura_enseq_main_region_Closed__region0_getKey_default(Cerradura* handle);
+static void cerradura_enseq_main_region_Locked_default(Cerradura* handle);
+static void cerradura_enseq_main_region_Unlocked_default(Cerradura* handle);
+static void cerradura_enseq_main_region_Unlocked__region0_Wait_default(Cerradura* handle);
+static void cerradura_enseq_main_region_Unlocked__region0_getKey_default(Cerradura* handle);
 static void cerradura_enseq_main_region_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Inicio_r1_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Cerrado_r1_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Abierto_r1_default(Cerradura* handle);
 static void cerradura_enseq_main_region_led0_r1_default(Cerradura* handle);
-static void cerradura_enseq_main_region_Copy_1_led0_r1_default(Cerradura* handle);
-static void cerradura_exseq_main_region_Inicio(Cerradura* handle);
-static void cerradura_exseq_main_region_Inicio_r1_resetSystem(Cerradura* handle);
-static void cerradura_exseq_main_region_Cerrado(Cerradura* handle);
-static void cerradura_exseq_main_region_Cerrado_r1_wait(Cerradura* handle);
-static void cerradura_exseq_main_region_Cerrado_r1_getKey(Cerradura* handle);
-static void cerradura_exseq_main_region_Cerrado_r1_operate(Cerradura* handle);
-static void cerradura_exseq_main_region_Cerrado_r1_Validate(Cerradura* handle);
-static void cerradura_exseq_main_region_Abierto(Cerradura* handle);
-static void cerradura_exseq_main_region_Abierto_r1_wait(Cerradura* handle);
-static void cerradura_exseq_main_region_Abierto_r1_getKey(Cerradura* handle);
-static void cerradura_exseq_main_region_Abierto_r1_operate(Cerradura* handle);
-static void cerradura_exseq_main_region_Abierto_r1_init(Cerradura* handle);
+static void cerradura_enseq_main_region_led1_r1_default(Cerradura* handle);
+static void cerradura_enseq_main_region_Closed__region0_default(Cerradura* handle);
+static void cerradura_enseq_main_region_Unlocked__region0_default(Cerradura* handle);
 static void cerradura_exseq_main_region_led0(Cerradura* handle);
 static void cerradura_exseq_main_region_led0_r1_encendido(Cerradura* handle);
 static void cerradura_exseq_main_region_led0_r1_apagado(Cerradura* handle);
-static void cerradura_exseq_main_region_Copy_1_led0(Cerradura* handle);
-static void cerradura_exseq_main_region_Copy_1_led0_r1_encendido(Cerradura* handle);
-static void cerradura_exseq_main_region_Copy_1_led0_r1_apagado(Cerradura* handle);
+static void cerradura_exseq_main_region_led1(Cerradura* handle);
+static void cerradura_exseq_main_region_led1_r1_encendido(Cerradura* handle);
+static void cerradura_exseq_main_region_led1_r1_apagado(Cerradura* handle);
+static void cerradura_exseq_main_region_Closed(Cerradura* handle);
+static void cerradura_exseq_main_region_Closed__region0_Wait(Cerradura* handle);
+static void cerradura_exseq_main_region_Closed__region0_getKey(Cerradura* handle);
+static void cerradura_exseq_main_region_Locked(Cerradura* handle);
+static void cerradura_exseq_main_region_Unlocked(Cerradura* handle);
+static void cerradura_exseq_main_region_Unlocked__region0_Wait(Cerradura* handle);
+static void cerradura_exseq_main_region_Unlocked__region0_getKey(Cerradura* handle);
 static void cerradura_exseq_main_region(Cerradura* handle);
-static void cerradura_exseq_main_region_Inicio_r1(Cerradura* handle);
-static void cerradura_exseq_main_region_Cerrado_r1(Cerradura* handle);
-static void cerradura_exseq_main_region_Abierto_r1(Cerradura* handle);
 static void cerradura_exseq_main_region_led0_r1(Cerradura* handle);
-static void cerradura_exseq_main_region_Copy_1_led0_r1(Cerradura* handle);
-static void cerradura_react_main_region_Inicio_r1_resetSystem(Cerradura* handle);
-static void cerradura_react_main_region_Cerrado_r1_wait(Cerradura* handle);
-static void cerradura_react_main_region_Cerrado_r1_getKey(Cerradura* handle);
-static void cerradura_react_main_region_Cerrado_r1_operate(Cerradura* handle);
-static void cerradura_react_main_region_Cerrado_r1_Validate(Cerradura* handle);
-static void cerradura_react_main_region_Abierto_r1_wait(Cerradura* handle);
-static void cerradura_react_main_region_Abierto_r1_getKey(Cerradura* handle);
-static void cerradura_react_main_region_Abierto_r1_operate(Cerradura* handle);
-static void cerradura_react_main_region_Abierto_r1_init(Cerradura* handle);
+static void cerradura_exseq_main_region_led1_r1(Cerradura* handle);
+static void cerradura_exseq_main_region_Closed__region0(Cerradura* handle);
+static void cerradura_exseq_main_region_Unlocked__region0(Cerradura* handle);
 static void cerradura_react_main_region_led0_r1_encendido(Cerradura* handle);
 static void cerradura_react_main_region_led0_r1_apagado(Cerradura* handle);
-static void cerradura_react_main_region_Copy_1_led0_r1_encendido(Cerradura* handle);
-static void cerradura_react_main_region_Copy_1_led0_r1_apagado(Cerradura* handle);
+static void cerradura_react_main_region_led1_r1_encendido(Cerradura* handle);
+static void cerradura_react_main_region_led1_r1_apagado(Cerradura* handle);
+static void cerradura_react_main_region_Closed__region0_Wait(Cerradura* handle);
+static void cerradura_react_main_region_Closed__region0_getKey(Cerradura* handle);
+static void cerradura_react_main_region_Locked(Cerradura* handle);
+static void cerradura_react_main_region_Unlocked__region0_Wait(Cerradura* handle);
+static void cerradura_react_main_region_Unlocked__region0_getKey(Cerradura* handle);
 static void cerradura_react_main_region__entry_Default(Cerradura* handle);
-static void cerradura_react_main_region_Inicio_r1__entry_Default(Cerradura* handle);
-static void cerradura_react_main_region_Cerrado_r1__entry_Default(Cerradura* handle);
-static void cerradura_react_main_region_Abierto_r1__entry_Default(Cerradura* handle);
 static void cerradura_react_main_region_led0_r1__entry_Default(Cerradura* handle);
-static void cerradura_react_main_region_Copy_1_led0_r1__entry_Default(Cerradura* handle);
+static void cerradura_react_main_region_led1_r1__entry_Default(Cerradura* handle);
+static void cerradura_react_main_region_Closed__region0__entry_Default(Cerradura* handle);
+static void cerradura_react_main_region_Unlocked__region0__entry_Default(Cerradura* handle);
 static void cerradura_clearInEvents(Cerradura* handle);
 static void cerradura_clearOutEvents(Cerradura* handle);
 
@@ -151,14 +123,14 @@ void cerradura_init(Cerradura* handle)
 	cerradura_clearOutEvents(handle);
 
 	/* Default init sequence for statechart cerradura */
-	handle->internal.valid = 0;
-	handle->internal.clave = 0;
-	handle->internal.claveIngresada = 0;
+	handle->internal.claveAux = 0;
+	handle->internal.claveIn = 0;
+	handle->internal.claveDefault = 123321;
 	handle->internal.aux = 0;
 	handle->internal.aux2 = 0;
 	handle->internal.iter = 0;
 	handle->internal.iter2 = 0;
-	handle->internal.wLen = 0;
+	handle->internal.wLen = 6;
 	handle->internal.cnt = 0;
 
 }
@@ -202,8 +174,8 @@ static void cerradura_clearInEvents(Cerradura* handle)
 	handle->iface.keyPressed_raised = bool_false;
 	handle->timeEvents.cerradura_main_region_led0_r1_encendido_tev0_raised = bool_false;
 	handle->timeEvents.cerradura_main_region_led0_r1_apagado_tev0_raised = bool_false;
-	handle->timeEvents.cerradura_main_region_Copy_1_led0_r1_encendido_tev0_raised = bool_false;
-	handle->timeEvents.cerradura_main_region_Copy_1_led0_r1_apagado_tev0_raised = bool_false;
+	handle->timeEvents.cerradura_main_region_led1_r1_encendido_tev0_raised = bool_false;
+	handle->timeEvents.cerradura_main_region_led1_r1_apagado_tev0_raised = bool_false;
 }
 
 static void cerradura_clearOutEvents(Cerradura* handle)
@@ -222,51 +194,6 @@ void cerradura_runCycle(Cerradura* handle)
 			
 		switch (handle->stateConfVector[handle->stateConfVectorPosition])
 		{
-		case Cerradura_main_region_Inicio_r1_resetSystem :
-		{
-			cerradura_react_main_region_Inicio_r1_resetSystem(handle);
-			break;
-		}
-		case Cerradura_main_region_Cerrado_r1_wait :
-		{
-			cerradura_react_main_region_Cerrado_r1_wait(handle);
-			break;
-		}
-		case Cerradura_main_region_Cerrado_r1_getKey :
-		{
-			cerradura_react_main_region_Cerrado_r1_getKey(handle);
-			break;
-		}
-		case Cerradura_main_region_Cerrado_r1_operate :
-		{
-			cerradura_react_main_region_Cerrado_r1_operate(handle);
-			break;
-		}
-		case Cerradura_main_region_Cerrado_r1_Validate :
-		{
-			cerradura_react_main_region_Cerrado_r1_Validate(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_wait :
-		{
-			cerradura_react_main_region_Abierto_r1_wait(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_getKey :
-		{
-			cerradura_react_main_region_Abierto_r1_getKey(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_operate :
-		{
-			cerradura_react_main_region_Abierto_r1_operate(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_init :
-		{
-			cerradura_react_main_region_Abierto_r1_init(handle);
-			break;
-		}
 		case Cerradura_main_region_led0_r1_encendido :
 		{
 			cerradura_react_main_region_led0_r1_encendido(handle);
@@ -277,14 +204,39 @@ void cerradura_runCycle(Cerradura* handle)
 			cerradura_react_main_region_led0_r1_apagado(handle);
 			break;
 		}
-		case Cerradura_main_region_Copy_1_led0_r1_encendido :
+		case Cerradura_main_region_led1_r1_encendido :
 		{
-			cerradura_react_main_region_Copy_1_led0_r1_encendido(handle);
+			cerradura_react_main_region_led1_r1_encendido(handle);
 			break;
 		}
-		case Cerradura_main_region_Copy_1_led0_r1_apagado :
+		case Cerradura_main_region_led1_r1_apagado :
 		{
-			cerradura_react_main_region_Copy_1_led0_r1_apagado(handle);
+			cerradura_react_main_region_led1_r1_apagado(handle);
+			break;
+		}
+		case Cerradura_main_region_Closed__region0_Wait :
+		{
+			cerradura_react_main_region_Closed__region0_Wait(handle);
+			break;
+		}
+		case Cerradura_main_region_Closed__region0_getKey :
+		{
+			cerradura_react_main_region_Closed__region0_getKey(handle);
+			break;
+		}
+		case Cerradura_main_region_Locked :
+		{
+			cerradura_react_main_region_Locked(handle);
+			break;
+		}
+		case Cerradura_main_region_Unlocked__region0_Wait :
+		{
+			cerradura_react_main_region_Unlocked__region0_Wait(handle);
+			break;
+		}
+		case Cerradura_main_region_Unlocked__region0_getKey :
+		{
+			cerradura_react_main_region_Unlocked__region0_getKey(handle);
 			break;
 		}
 		default:
@@ -309,54 +261,6 @@ sc_boolean cerradura_isStateActive(const Cerradura* handle, CerraduraStates stat
 	sc_boolean result = bool_false;
 	switch (state)
 	{
-		case Cerradura_main_region_Inicio :
-			result = (sc_boolean) (handle->stateConfVector[0] >= Cerradura_main_region_Inicio
-				&& handle->stateConfVector[0] <= Cerradura_main_region_Inicio_r1_resetSystem);
-			break;
-		case Cerradura_main_region_Inicio_r1_resetSystem :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Inicio_r1_resetSystem
-			);
-			break;
-		case Cerradura_main_region_Cerrado :
-			result = (sc_boolean) (handle->stateConfVector[0] >= Cerradura_main_region_Cerrado
-				&& handle->stateConfVector[0] <= Cerradura_main_region_Cerrado_r1_Validate);
-			break;
-		case Cerradura_main_region_Cerrado_r1_wait :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Cerrado_r1_wait
-			);
-			break;
-		case Cerradura_main_region_Cerrado_r1_getKey :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Cerrado_r1_getKey
-			);
-			break;
-		case Cerradura_main_region_Cerrado_r1_operate :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Cerrado_r1_operate
-			);
-			break;
-		case Cerradura_main_region_Cerrado_r1_Validate :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Cerrado_r1_Validate
-			);
-			break;
-		case Cerradura_main_region_Abierto :
-			result = (sc_boolean) (handle->stateConfVector[0] >= Cerradura_main_region_Abierto
-				&& handle->stateConfVector[0] <= Cerradura_main_region_Abierto_r1_init);
-			break;
-		case Cerradura_main_region_Abierto_r1_wait :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Abierto_r1_wait
-			);
-			break;
-		case Cerradura_main_region_Abierto_r1_getKey :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Abierto_r1_getKey
-			);
-			break;
-		case Cerradura_main_region_Abierto_r1_operate :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Abierto_r1_operate
-			);
-			break;
-		case Cerradura_main_region_Abierto_r1_init :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Abierto_r1_init
-			);
-			break;
 		case Cerradura_main_region_led0 :
 			result = (sc_boolean) (handle->stateConfVector[0] >= Cerradura_main_region_led0
 				&& handle->stateConfVector[0] <= Cerradura_main_region_led0_r1_apagado);
@@ -369,16 +273,44 @@ sc_boolean cerradura_isStateActive(const Cerradura* handle, CerraduraStates stat
 			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_led0_r1_apagado
 			);
 			break;
-		case Cerradura_main_region_Copy_1_led0 :
-			result = (sc_boolean) (handle->stateConfVector[0] >= Cerradura_main_region_Copy_1_led0
-				&& handle->stateConfVector[0] <= Cerradura_main_region_Copy_1_led0_r1_apagado);
+		case Cerradura_main_region_led1 :
+			result = (sc_boolean) (handle->stateConfVector[0] >= Cerradura_main_region_led1
+				&& handle->stateConfVector[0] <= Cerradura_main_region_led1_r1_apagado);
 			break;
-		case Cerradura_main_region_Copy_1_led0_r1_encendido :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Copy_1_led0_r1_encendido
+		case Cerradura_main_region_led1_r1_encendido :
+			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_led1_r1_encendido
 			);
 			break;
-		case Cerradura_main_region_Copy_1_led0_r1_apagado :
-			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Copy_1_led0_r1_apagado
+		case Cerradura_main_region_led1_r1_apagado :
+			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_led1_r1_apagado
+			);
+			break;
+		case Cerradura_main_region_Closed :
+			result = (sc_boolean) (handle->stateConfVector[0] >= Cerradura_main_region_Closed
+				&& handle->stateConfVector[0] <= Cerradura_main_region_Closed__region0_getKey);
+			break;
+		case Cerradura_main_region_Closed__region0_Wait :
+			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Closed__region0_Wait
+			);
+			break;
+		case Cerradura_main_region_Closed__region0_getKey :
+			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Closed__region0_getKey
+			);
+			break;
+		case Cerradura_main_region_Locked :
+			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Locked
+			);
+			break;
+		case Cerradura_main_region_Unlocked :
+			result = (sc_boolean) (handle->stateConfVector[0] >= Cerradura_main_region_Unlocked
+				&& handle->stateConfVector[0] <= Cerradura_main_region_Unlocked__region0_getKey);
+			break;
+		case Cerradura_main_region_Unlocked__region0_Wait :
+			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Unlocked__region0_Wait
+			);
+			break;
+		case Cerradura_main_region_Unlocked__region0_getKey :
+			result = (sc_boolean) (handle->stateConfVector[0] == Cerradura_main_region_Unlocked__region0_getKey
 			);
 			break;
 		default:
@@ -398,66 +330,6 @@ void cerraduraIface_raise_keyPressed(Cerradura* handle, sc_integer value)
 
 /* implementations of all internal functions */
 
-static sc_boolean cerradura_check_main_region_Inicio_tr0_tr0(const Cerradura* handle)
-{
-	return bool_true;
-}
-
-static sc_boolean cerradura_check_main_region_Cerrado_r1_wait_tr0_tr0(const Cerradura* handle)
-{
-	return handle->iface.keyPressed_raised;
-}
-
-static sc_boolean cerradura_check_main_region_Cerrado_r1_getKey_tr0_tr0(const Cerradura* handle)
-{
-	return bool_true;
-}
-
-static sc_boolean cerradura_check_main_region_Cerrado_r1_operate_tr0_tr0(const Cerradura* handle)
-{
-	return (handle->internal.iter < handle->internal.wLen) ? bool_true : bool_false;
-}
-
-static sc_boolean cerradura_check_main_region_Cerrado_r1_operate_tr1_tr1(const Cerradura* handle)
-{
-	return (handle->internal.iter >= handle->internal.wLen) ? bool_true : bool_false;
-}
-
-static sc_boolean cerradura_check_main_region_Cerrado_r1_Validate_tr0_tr0(const Cerradura* handle)
-{
-	return (handle->internal.claveIngresada == handle->internal.clave) ? bool_true : bool_false;
-}
-
-static sc_boolean cerradura_check_main_region_Cerrado_r1_Validate_tr1_tr1(const Cerradura* handle)
-{
-	return (handle->internal.claveIngresada != handle->internal.clave) ? bool_true : bool_false;
-}
-
-static sc_boolean cerradura_check_main_region_Abierto_tr0_tr0(const Cerradura* handle)
-{
-	return (handle->internal.iter2 >= handle->internal.wLen) ? bool_true : bool_false;
-}
-
-static sc_boolean cerradura_check_main_region_Abierto_r1_wait_tr0_tr0(const Cerradura* handle)
-{
-	return handle->iface.keyPressed_raised;
-}
-
-static sc_boolean cerradura_check_main_region_Abierto_r1_getKey_tr0_tr0(const Cerradura* handle)
-{
-	return bool_true;
-}
-
-static sc_boolean cerradura_check_main_region_Abierto_r1_operate_tr0_tr0(const Cerradura* handle)
-{
-	return (handle->internal.iter2 < handle->internal.wLen) ? bool_true : bool_false;
-}
-
-static sc_boolean cerradura_check_main_region_Abierto_r1_init_tr0_tr0(const Cerradura* handle)
-{
-	return bool_true;
-}
-
 static sc_boolean cerradura_check_main_region_led0_tr0_tr0(const Cerradura* handle)
 {
 	return (handle->internal.cnt >= 4) ? bool_true : bool_false;
@@ -473,97 +345,65 @@ static sc_boolean cerradura_check_main_region_led0_r1_apagado_tr0_tr0(const Cerr
 	return ((handle->timeEvents.cerradura_main_region_led0_r1_apagado_tev0_raised) && (handle->internal.cnt < 4)) ? bool_true : bool_false;
 }
 
-static sc_boolean cerradura_check_main_region_Copy_1_led0_tr0_tr0(const Cerradura* handle)
+static sc_boolean cerradura_check_main_region_led1_tr0_tr0(const Cerradura* handle)
 {
 	return (handle->internal.cnt >= 4) ? bool_true : bool_false;
 }
 
-static sc_boolean cerradura_check_main_region_Copy_1_led0_r1_encendido_tr0_tr0(const Cerradura* handle)
+static sc_boolean cerradura_check_main_region_led1_r1_encendido_tr0_tr0(const Cerradura* handle)
 {
-	return handle->timeEvents.cerradura_main_region_Copy_1_led0_r1_encendido_tev0_raised;
+	return handle->timeEvents.cerradura_main_region_led1_r1_encendido_tev0_raised;
 }
 
-static sc_boolean cerradura_check_main_region_Copy_1_led0_r1_apagado_tr0_tr0(const Cerradura* handle)
+static sc_boolean cerradura_check_main_region_led1_r1_apagado_tr0_tr0(const Cerradura* handle)
 {
-	return ((handle->timeEvents.cerradura_main_region_Copy_1_led0_r1_apagado_tev0_raised) && (handle->internal.cnt < 4)) ? bool_true : bool_false;
+	return ((handle->timeEvents.cerradura_main_region_led1_r1_apagado_tev0_raised) && (handle->internal.cnt < 4)) ? bool_true : bool_false;
 }
 
-static void cerradura_effect_main_region_Inicio_tr0(Cerradura* handle)
+static sc_boolean cerradura_check_main_region_Closed_tr0_tr0(const Cerradura* handle)
 {
-	cerradura_exseq_main_region_Inicio(handle);
-	cerradura_enseq_main_region_Cerrado_default(handle);
+	return ((handle->internal.claveIn != handle->internal.claveAux) && (handle->internal.iter == handle->internal.wLen)) ? bool_true : bool_false;
 }
 
-static void cerradura_effect_main_region_Cerrado_r1_wait_tr0(Cerradura* handle)
+static sc_boolean cerradura_check_main_region_Closed_tr1_tr1(const Cerradura* handle)
 {
-	cerradura_exseq_main_region_Cerrado_r1_wait(handle);
-	cerradura_enseq_main_region_Cerrado_r1_getKey_default(handle);
+	return (handle->internal.claveIn == handle->internal.claveAux) ? bool_true : bool_false;
 }
 
-static void cerradura_effect_main_region_Cerrado_r1_getKey_tr0(Cerradura* handle)
+static sc_boolean cerradura_check_main_region_Closed__region0_Wait_tr0_tr0(const Cerradura* handle)
 {
-	cerradura_exseq_main_region_Cerrado_r1_getKey(handle);
-	cerradura_enseq_main_region_Cerrado_r1_operate_default(handle);
+	return handle->iface.keyPressed_raised;
 }
 
-static void cerradura_effect_main_region_Cerrado_r1_operate_tr0(Cerradura* handle)
+static sc_boolean cerradura_check_main_region_Closed__region0_getKey_tr0_tr0(const Cerradura* handle)
 {
-	cerradura_exseq_main_region_Cerrado_r1_operate(handle);
-	cerradura_enseq_main_region_Cerrado_r1_wait_default(handle);
+	return (handle->internal.iter < handle->internal.wLen) ? bool_true : bool_false;
 }
 
-static void cerradura_effect_main_region_Cerrado_r1_operate_tr1(Cerradura* handle)
+static sc_boolean cerradura_check_main_region_Locked_tr0_tr0(const Cerradura* handle)
 {
-	cerradura_exseq_main_region_Cerrado_r1_operate(handle);
-	cerradura_enseq_main_region_Cerrado_r1_Validate_default(handle);
+	return (handle->internal.iter == 0) ? bool_true : bool_false;
 }
 
-static void cerradura_effect_main_region_Cerrado_r1_Validate_tr0(Cerradura* handle)
+static sc_boolean cerradura_check_main_region_Unlocked_tr0_tr0(const Cerradura* handle)
 {
-	cerradura_exseq_main_region_Cerrado(handle);
-	cerradura_enseq_main_region_Copy_1_led0_default(handle);
+	return (handle->internal.iter == handle->internal.wLen) ? bool_true : bool_false;
 }
 
-static void cerradura_effect_main_region_Cerrado_r1_Validate_tr1(Cerradura* handle)
+static sc_boolean cerradura_check_main_region_Unlocked__region0_Wait_tr0_tr0(const Cerradura* handle)
 {
-	cerradura_exseq_main_region_Cerrado(handle);
-	cerradura_enseq_main_region_led0_default(handle);
+	return handle->iface.keyPressed_raised;
 }
 
-static void cerradura_effect_main_region_Abierto_tr0(Cerradura* handle)
+static sc_boolean cerradura_check_main_region_Unlocked__region0_getKey_tr0_tr0(const Cerradura* handle)
 {
-	cerradura_exseq_main_region_Abierto(handle);
-	cerradura_enseq_main_region_Cerrado_default(handle);
-}
-
-static void cerradura_effect_main_region_Abierto_r1_wait_tr0(Cerradura* handle)
-{
-	cerradura_exseq_main_region_Abierto_r1_wait(handle);
-	cerradura_enseq_main_region_Abierto_r1_getKey_default(handle);
-}
-
-static void cerradura_effect_main_region_Abierto_r1_getKey_tr0(Cerradura* handle)
-{
-	cerradura_exseq_main_region_Abierto_r1_getKey(handle);
-	cerradura_enseq_main_region_Abierto_r1_operate_default(handle);
-}
-
-static void cerradura_effect_main_region_Abierto_r1_operate_tr0(Cerradura* handle)
-{
-	cerradura_exseq_main_region_Abierto_r1_operate(handle);
-	cerradura_enseq_main_region_Abierto_r1_wait_default(handle);
-}
-
-static void cerradura_effect_main_region_Abierto_r1_init_tr0(Cerradura* handle)
-{
-	cerradura_exseq_main_region_Abierto_r1_init(handle);
-	cerradura_enseq_main_region_Abierto_r1_wait_default(handle);
+	return (handle->internal.iter < handle->internal.wLen) ? bool_true : bool_false;
 }
 
 static void cerradura_effect_main_region_led0_tr0(Cerradura* handle)
 {
 	cerradura_exseq_main_region_led0(handle);
-	cerradura_enseq_main_region_Cerrado_default(handle);
+	cerradura_enseq_main_region_Locked_default(handle);
 }
 
 static void cerradura_effect_main_region_led0_r1_encendido_tr0(Cerradura* handle)
@@ -578,104 +418,70 @@ static void cerradura_effect_main_region_led0_r1_apagado_tr0(Cerradura* handle)
 	cerradura_enseq_main_region_led0_r1_encendido_default(handle);
 }
 
-static void cerradura_effect_main_region_Copy_1_led0_tr0(Cerradura* handle)
+static void cerradura_effect_main_region_led1_tr0(Cerradura* handle)
 {
-	cerradura_exseq_main_region_Copy_1_led0(handle);
-	cerradura_enseq_main_region_Abierto_default(handle);
+	cerradura_exseq_main_region_led1(handle);
+	cerradura_enseq_main_region_Unlocked_default(handle);
 }
 
-static void cerradura_effect_main_region_Copy_1_led0_r1_encendido_tr0(Cerradura* handle)
+static void cerradura_effect_main_region_led1_r1_encendido_tr0(Cerradura* handle)
 {
-	cerradura_exseq_main_region_Copy_1_led0_r1_encendido(handle);
-	cerradura_enseq_main_region_Copy_1_led0_r1_apagado_default(handle);
+	cerradura_exseq_main_region_led1_r1_encendido(handle);
+	cerradura_enseq_main_region_led1_r1_apagado_default(handle);
 }
 
-static void cerradura_effect_main_region_Copy_1_led0_r1_apagado_tr0(Cerradura* handle)
+static void cerradura_effect_main_region_led1_r1_apagado_tr0(Cerradura* handle)
 {
-	cerradura_exseq_main_region_Copy_1_led0_r1_apagado(handle);
-	cerradura_enseq_main_region_Copy_1_led0_r1_encendido_default(handle);
+	cerradura_exseq_main_region_led1_r1_apagado(handle);
+	cerradura_enseq_main_region_led1_r1_encendido_default(handle);
 }
 
-/* Entry action for state 'resetSystem'. */
-static void cerradura_enact_main_region_Inicio_r1_resetSystem(Cerradura* handle)
+static void cerradura_effect_main_region_Closed_tr0(Cerradura* handle)
 {
-	/* Entry action for state 'resetSystem'. */
-	cerraduraIface_setLedFromMask(handle, 0);
-	handle->internal.iter = 0;
-	handle->internal.wLen = 6;
-	handle->internal.clave = 123321;
-	handle->internal.claveIngresada = 0;
+	cerradura_exseq_main_region_Closed(handle);
+	cerradura_enseq_main_region_led0_default(handle);
 }
 
-/* Entry action for state 'Cerrado'. */
-static void cerradura_enact_main_region_Cerrado(Cerradura* handle)
+static void cerradura_effect_main_region_Closed_tr1(Cerradura* handle)
 {
-	/* Entry action for state 'Cerrado'. */
-	handle->internal.claveIngresada = 0;
+	cerradura_exseq_main_region_Closed(handle);
+	cerradura_enseq_main_region_led1_default(handle);
 }
 
-/* Entry action for state 'wait'. */
-static void cerradura_enact_main_region_Cerrado_r1_wait(Cerradura* handle)
+static void cerradura_effect_main_region_Closed__region0_Wait_tr0(Cerradura* handle)
 {
-	/* Entry action for state 'wait'. */
-	cerraduraIface_setLedFromMask(handle, 8);
-	handle->internal.claveIngresada *= 10;
+	cerradura_exseq_main_region_Closed__region0_Wait(handle);
+	cerradura_enseq_main_region_Closed__region0_getKey_default(handle);
 }
 
-/* Entry action for state 'getKey'. */
-static void cerradura_enact_main_region_Cerrado_r1_getKey(Cerradura* handle)
+static void cerradura_effect_main_region_Closed__region0_getKey_tr0(Cerradura* handle)
 {
-	/* Entry action for state 'getKey'. */
-	handle->internal.aux = handle->iface.keyPressed_value;
+	cerradura_exseq_main_region_Closed__region0_getKey(handle);
+	cerradura_enseq_main_region_Closed__region0_Wait_default(handle);
 }
 
-/* Entry action for state 'operate'. */
-static void cerradura_enact_main_region_Cerrado_r1_operate(Cerradura* handle)
+static void cerradura_effect_main_region_Locked_tr0(Cerradura* handle)
 {
-	/* Entry action for state 'operate'. */
-	handle->internal.iter = handle->internal.iter + 1;
-	handle->internal.claveIngresada = handle->internal.claveIngresada + handle->internal.aux;
+	cerradura_exseq_main_region_Locked(handle);
+	cerradura_enseq_main_region_Closed_default(handle);
 }
 
-/* Entry action for state 'Validate'. */
-static void cerradura_enact_main_region_Cerrado_r1_Validate(Cerradura* handle)
+static void cerradura_effect_main_region_Unlocked_tr0(Cerradura* handle)
 {
-	/* Entry action for state 'Validate'. */
-	handle->internal.iter = 0;
-	handle->internal.aux = 0;
+	cerradura_exseq_main_region_Unlocked(handle);
+	cerradura_enseq_main_region_Locked_default(handle);
 }
 
-/* Entry action for state 'wait'. */
-static void cerradura_enact_main_region_Abierto_r1_wait(Cerradura* handle)
+static void cerradura_effect_main_region_Unlocked__region0_Wait_tr0(Cerradura* handle)
 {
-	/* Entry action for state 'wait'. */
-	cerraduraIface_setLedFromMask(handle, 16);
-	handle->internal.clave *= 10;
+	cerradura_exseq_main_region_Unlocked__region0_Wait(handle);
+	cerradura_enseq_main_region_Unlocked__region0_getKey_default(handle);
 }
 
-/* Entry action for state 'getKey'. */
-static void cerradura_enact_main_region_Abierto_r1_getKey(Cerradura* handle)
+static void cerradura_effect_main_region_Unlocked__region0_getKey_tr0(Cerradura* handle)
 {
-	/* Entry action for state 'getKey'. */
-	handle->internal.aux2 = cerraduraIface_getKeyPressed(handle);
-}
-
-/* Entry action for state 'operate'. */
-static void cerradura_enact_main_region_Abierto_r1_operate(Cerradura* handle)
-{
-	/* Entry action for state 'operate'. */
-	handle->internal.iter2 = handle->internal.iter2 + 1;
-	handle->internal.clave += handle->internal.aux2;
-}
-
-/* Entry action for state 'init'. */
-static void cerradura_enact_main_region_Abierto_r1_init(Cerradura* handle)
-{
-	/* Entry action for state 'init'. */
-	handle->internal.claveIngresada = 0;
-	handle->internal.clave = 0;
-	handle->internal.aux2 = 0;
-	handle->internal.iter2 = 0;
+	cerradura_exseq_main_region_Unlocked__region0_getKey(handle);
+	cerradura_enseq_main_region_Unlocked__region0_Wait_default(handle);
 }
 
 /* Entry action for state 'led0'. */
@@ -703,29 +509,91 @@ static void cerradura_enact_main_region_led0_r1_apagado(Cerradura* handle)
 	cerraduraIface_setLedFromMask(handle, 0);
 }
 
-/* Entry action for state 'Copy_1_led0'. */
-static void cerradura_enact_main_region_Copy_1_led0(Cerradura* handle)
+/* Entry action for state 'led1'. */
+static void cerradura_enact_main_region_led1(Cerradura* handle)
 {
-	/* Entry action for state 'Copy_1_led0'. */
+	/* Entry action for state 'led1'. */
 	cerraduraIface_setLedFromMask(handle, 32);
 	handle->internal.cnt = 0;
 }
 
 /* Entry action for state 'encendido'. */
-static void cerradura_enact_main_region_Copy_1_led0_r1_encendido(Cerradura* handle)
+static void cerradura_enact_main_region_led1_r1_encendido(Cerradura* handle)
 {
 	/* Entry action for state 'encendido'. */
-	cerradura_setTimer(handle, (sc_eventid) &(handle->timeEvents.cerradura_main_region_Copy_1_led0_r1_encendido_tev0_raised) , 250, bool_false);
+	cerradura_setTimer(handle, (sc_eventid) &(handle->timeEvents.cerradura_main_region_led1_r1_encendido_tev0_raised) , 250, bool_false);
 	cerraduraIface_setLedFromMask(handle, 8);
 	handle->internal.cnt = handle->internal.cnt + 1;
 }
 
 /* Entry action for state 'apagado'. */
-static void cerradura_enact_main_region_Copy_1_led0_r1_apagado(Cerradura* handle)
+static void cerradura_enact_main_region_led1_r1_apagado(Cerradura* handle)
 {
 	/* Entry action for state 'apagado'. */
-	cerradura_setTimer(handle, (sc_eventid) &(handle->timeEvents.cerradura_main_region_Copy_1_led0_r1_apagado_tev0_raised) , 250, bool_false);
+	cerradura_setTimer(handle, (sc_eventid) &(handle->timeEvents.cerradura_main_region_led1_r1_apagado_tev0_raised) , 250, bool_false);
 	cerraduraIface_setLedFromMask(handle, 0);
+}
+
+/* Entry action for state 'Closed'. */
+static void cerradura_enact_main_region_Closed(Cerradura* handle)
+{
+	/* Entry action for state 'Closed'. */
+	cerraduraIface_setLedFromMask(handle, 0);
+	handle->internal.iter = 0;
+	handle->internal.claveIn = 0;
+	handle->internal.claveAux = handle->internal.claveDefault;
+}
+
+/* Entry action for state 'Wait'. */
+static void cerradura_enact_main_region_Closed__region0_Wait(Cerradura* handle)
+{
+	/* Entry action for state 'Wait'. */
+	handle->internal.claveIn = 10 * handle->internal.claveIn;
+}
+
+/* Entry action for state 'getKey'. */
+static void cerradura_enact_main_region_Closed__region0_getKey(Cerradura* handle)
+{
+	/* Entry action for state 'getKey'. */
+	handle->internal.iter = handle->internal.iter + 1;
+	handle->internal.aux = cerraduraIface_getKeyPressed(handle);
+	handle->internal.claveIn = handle->internal.claveIn + handle->internal.aux;
+}
+
+/* Entry action for state 'Locked'. */
+static void cerradura_enact_main_region_Locked(Cerradura* handle)
+{
+	/* Entry action for state 'Locked'. */
+	handle->internal.claveIn = 0;
+	handle->internal.aux = 0;
+	handle->internal.iter = 0;
+}
+
+/* Entry action for state 'Unlocked'. */
+static void cerradura_enact_main_region_Unlocked(Cerradura* handle)
+{
+	/* Entry action for state 'Unlocked'. */
+	cerraduraIface_setLedFromMask(handle, 0);
+	handle->internal.iter = 0;
+	handle->internal.aux = 0;
+	handle->internal.claveDefault = 0;
+	handle->internal.claveIn = 0;
+}
+
+/* Entry action for state 'Wait'. */
+static void cerradura_enact_main_region_Unlocked__region0_Wait(Cerradura* handle)
+{
+	/* Entry action for state 'Wait'. */
+	handle->internal.claveDefault = 10 * handle->internal.claveDefault;
+}
+
+/* Entry action for state 'getKey'. */
+static void cerradura_enact_main_region_Unlocked__region0_getKey(Cerradura* handle)
+{
+	/* Entry action for state 'getKey'. */
+	handle->internal.iter = handle->internal.iter + 1;
+	handle->internal.aux = cerraduraIface_getKeyPressed(handle);
+	handle->internal.claveDefault = handle->internal.claveDefault + handle->internal.aux;
 }
 
 /* Exit action for state 'encendido'. */
@@ -743,120 +611,17 @@ static void cerradura_exact_main_region_led0_r1_apagado(Cerradura* handle)
 }
 
 /* Exit action for state 'encendido'. */
-static void cerradura_exact_main_region_Copy_1_led0_r1_encendido(Cerradura* handle)
+static void cerradura_exact_main_region_led1_r1_encendido(Cerradura* handle)
 {
 	/* Exit action for state 'encendido'. */
-	cerradura_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.cerradura_main_region_Copy_1_led0_r1_encendido_tev0_raised) );		
+	cerradura_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.cerradura_main_region_led1_r1_encendido_tev0_raised) );		
 }
 
 /* Exit action for state 'apagado'. */
-static void cerradura_exact_main_region_Copy_1_led0_r1_apagado(Cerradura* handle)
+static void cerradura_exact_main_region_led1_r1_apagado(Cerradura* handle)
 {
 	/* Exit action for state 'apagado'. */
-	cerradura_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.cerradura_main_region_Copy_1_led0_r1_apagado_tev0_raised) );		
-}
-
-/* 'default' enter sequence for state Inicio */
-static void cerradura_enseq_main_region_Inicio_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state Inicio */
-	cerradura_enseq_main_region_Inicio_r1_default(handle);
-}
-
-/* 'default' enter sequence for state resetSystem */
-static void cerradura_enseq_main_region_Inicio_r1_resetSystem_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state resetSystem */
-	cerradura_enact_main_region_Inicio_r1_resetSystem(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Inicio_r1_resetSystem;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* 'default' enter sequence for state Cerrado */
-static void cerradura_enseq_main_region_Cerrado_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state Cerrado */
-	cerradura_enact_main_region_Cerrado(handle);
-	cerradura_enseq_main_region_Cerrado_r1_default(handle);
-}
-
-/* 'default' enter sequence for state wait */
-static void cerradura_enseq_main_region_Cerrado_r1_wait_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state wait */
-	cerradura_enact_main_region_Cerrado_r1_wait(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Cerrado_r1_wait;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* 'default' enter sequence for state getKey */
-static void cerradura_enseq_main_region_Cerrado_r1_getKey_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state getKey */
-	cerradura_enact_main_region_Cerrado_r1_getKey(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Cerrado_r1_getKey;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* 'default' enter sequence for state operate */
-static void cerradura_enseq_main_region_Cerrado_r1_operate_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state operate */
-	cerradura_enact_main_region_Cerrado_r1_operate(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Cerrado_r1_operate;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* 'default' enter sequence for state Validate */
-static void cerradura_enseq_main_region_Cerrado_r1_Validate_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state Validate */
-	cerradura_enact_main_region_Cerrado_r1_Validate(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Cerrado_r1_Validate;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* 'default' enter sequence for state Abierto */
-static void cerradura_enseq_main_region_Abierto_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state Abierto */
-	cerradura_enseq_main_region_Abierto_r1_default(handle);
-}
-
-/* 'default' enter sequence for state wait */
-static void cerradura_enseq_main_region_Abierto_r1_wait_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state wait */
-	cerradura_enact_main_region_Abierto_r1_wait(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Abierto_r1_wait;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* 'default' enter sequence for state getKey */
-static void cerradura_enseq_main_region_Abierto_r1_getKey_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state getKey */
-	cerradura_enact_main_region_Abierto_r1_getKey(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Abierto_r1_getKey;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* 'default' enter sequence for state operate */
-static void cerradura_enseq_main_region_Abierto_r1_operate_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state operate */
-	cerradura_enact_main_region_Abierto_r1_operate(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Abierto_r1_operate;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* 'default' enter sequence for state init */
-static void cerradura_enseq_main_region_Abierto_r1_init_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for state init */
-	cerradura_enact_main_region_Abierto_r1_init(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Abierto_r1_init;
-	handle->stateConfVectorPosition = 0;
+	cerradura_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.cerradura_main_region_led1_r1_apagado_tev0_raised) );		
 }
 
 /* 'default' enter sequence for state led0 */
@@ -885,29 +650,90 @@ static void cerradura_enseq_main_region_led0_r1_apagado_default(Cerradura* handl
 	handle->stateConfVectorPosition = 0;
 }
 
-/* 'default' enter sequence for state Copy_1_led0 */
-static void cerradura_enseq_main_region_Copy_1_led0_default(Cerradura* handle)
+/* 'default' enter sequence for state led1 */
+static void cerradura_enseq_main_region_led1_default(Cerradura* handle)
 {
-	/* 'default' enter sequence for state Copy_1_led0 */
-	cerradura_enact_main_region_Copy_1_led0(handle);
-	cerradura_enseq_main_region_Copy_1_led0_r1_default(handle);
+	/* 'default' enter sequence for state led1 */
+	cerradura_enact_main_region_led1(handle);
+	cerradura_enseq_main_region_led1_r1_default(handle);
 }
 
 /* 'default' enter sequence for state encendido */
-static void cerradura_enseq_main_region_Copy_1_led0_r1_encendido_default(Cerradura* handle)
+static void cerradura_enseq_main_region_led1_r1_encendido_default(Cerradura* handle)
 {
 	/* 'default' enter sequence for state encendido */
-	cerradura_enact_main_region_Copy_1_led0_r1_encendido(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Copy_1_led0_r1_encendido;
+	cerradura_enact_main_region_led1_r1_encendido(handle);
+	handle->stateConfVector[0] = Cerradura_main_region_led1_r1_encendido;
 	handle->stateConfVectorPosition = 0;
 }
 
 /* 'default' enter sequence for state apagado */
-static void cerradura_enseq_main_region_Copy_1_led0_r1_apagado_default(Cerradura* handle)
+static void cerradura_enseq_main_region_led1_r1_apagado_default(Cerradura* handle)
 {
 	/* 'default' enter sequence for state apagado */
-	cerradura_enact_main_region_Copy_1_led0_r1_apagado(handle);
-	handle->stateConfVector[0] = Cerradura_main_region_Copy_1_led0_r1_apagado;
+	cerradura_enact_main_region_led1_r1_apagado(handle);
+	handle->stateConfVector[0] = Cerradura_main_region_led1_r1_apagado;
+	handle->stateConfVectorPosition = 0;
+}
+
+/* 'default' enter sequence for state Closed */
+static void cerradura_enseq_main_region_Closed_default(Cerradura* handle)
+{
+	/* 'default' enter sequence for state Closed */
+	cerradura_enact_main_region_Closed(handle);
+	cerradura_enseq_main_region_Closed__region0_default(handle);
+}
+
+/* 'default' enter sequence for state Wait */
+static void cerradura_enseq_main_region_Closed__region0_Wait_default(Cerradura* handle)
+{
+	/* 'default' enter sequence for state Wait */
+	cerradura_enact_main_region_Closed__region0_Wait(handle);
+	handle->stateConfVector[0] = Cerradura_main_region_Closed__region0_Wait;
+	handle->stateConfVectorPosition = 0;
+}
+
+/* 'default' enter sequence for state getKey */
+static void cerradura_enseq_main_region_Closed__region0_getKey_default(Cerradura* handle)
+{
+	/* 'default' enter sequence for state getKey */
+	cerradura_enact_main_region_Closed__region0_getKey(handle);
+	handle->stateConfVector[0] = Cerradura_main_region_Closed__region0_getKey;
+	handle->stateConfVectorPosition = 0;
+}
+
+/* 'default' enter sequence for state Locked */
+static void cerradura_enseq_main_region_Locked_default(Cerradura* handle)
+{
+	/* 'default' enter sequence for state Locked */
+	cerradura_enact_main_region_Locked(handle);
+	handle->stateConfVector[0] = Cerradura_main_region_Locked;
+	handle->stateConfVectorPosition = 0;
+}
+
+/* 'default' enter sequence for state Unlocked */
+static void cerradura_enseq_main_region_Unlocked_default(Cerradura* handle)
+{
+	/* 'default' enter sequence for state Unlocked */
+	cerradura_enact_main_region_Unlocked(handle);
+	cerradura_enseq_main_region_Unlocked__region0_default(handle);
+}
+
+/* 'default' enter sequence for state Wait */
+static void cerradura_enseq_main_region_Unlocked__region0_Wait_default(Cerradura* handle)
+{
+	/* 'default' enter sequence for state Wait */
+	cerradura_enact_main_region_Unlocked__region0_Wait(handle);
+	handle->stateConfVector[0] = Cerradura_main_region_Unlocked__region0_Wait;
+	handle->stateConfVectorPosition = 0;
+}
+
+/* 'default' enter sequence for state getKey */
+static void cerradura_enseq_main_region_Unlocked__region0_getKey_default(Cerradura* handle)
+{
+	/* 'default' enter sequence for state getKey */
+	cerradura_enact_main_region_Unlocked__region0_getKey(handle);
+	handle->stateConfVector[0] = Cerradura_main_region_Unlocked__region0_getKey;
 	handle->stateConfVectorPosition = 0;
 }
 
@@ -919,27 +745,6 @@ static void cerradura_enseq_main_region_default(Cerradura* handle)
 }
 
 /* 'default' enter sequence for region r1 */
-static void cerradura_enseq_main_region_Inicio_r1_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for region r1 */
-	cerradura_react_main_region_Inicio_r1__entry_Default(handle);
-}
-
-/* 'default' enter sequence for region r1 */
-static void cerradura_enseq_main_region_Cerrado_r1_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for region r1 */
-	cerradura_react_main_region_Cerrado_r1__entry_Default(handle);
-}
-
-/* 'default' enter sequence for region r1 */
-static void cerradura_enseq_main_region_Abierto_r1_default(Cerradura* handle)
-{
-	/* 'default' enter sequence for region r1 */
-	cerradura_react_main_region_Abierto_r1__entry_Default(handle);
-}
-
-/* 'default' enter sequence for region r1 */
 static void cerradura_enseq_main_region_led0_r1_default(Cerradura* handle)
 {
 	/* 'default' enter sequence for region r1 */
@@ -947,103 +752,24 @@ static void cerradura_enseq_main_region_led0_r1_default(Cerradura* handle)
 }
 
 /* 'default' enter sequence for region r1 */
-static void cerradura_enseq_main_region_Copy_1_led0_r1_default(Cerradura* handle)
+static void cerradura_enseq_main_region_led1_r1_default(Cerradura* handle)
 {
 	/* 'default' enter sequence for region r1 */
-	cerradura_react_main_region_Copy_1_led0_r1__entry_Default(handle);
+	cerradura_react_main_region_led1_r1__entry_Default(handle);
 }
 
-/* Default exit sequence for state Inicio */
-static void cerradura_exseq_main_region_Inicio(Cerradura* handle)
+/* 'default' enter sequence for region null */
+static void cerradura_enseq_main_region_Closed__region0_default(Cerradura* handle)
 {
-	/* Default exit sequence for state Inicio */
-	cerradura_exseq_main_region_Inicio_r1(handle);
+	/* 'default' enter sequence for region null */
+	cerradura_react_main_region_Closed__region0__entry_Default(handle);
 }
 
-/* Default exit sequence for state resetSystem */
-static void cerradura_exseq_main_region_Inicio_r1_resetSystem(Cerradura* handle)
+/* 'default' enter sequence for region null */
+static void cerradura_enseq_main_region_Unlocked__region0_default(Cerradura* handle)
 {
-	/* Default exit sequence for state resetSystem */
-	handle->stateConfVector[0] = Cerradura_last_state;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* Default exit sequence for state Cerrado */
-static void cerradura_exseq_main_region_Cerrado(Cerradura* handle)
-{
-	/* Default exit sequence for state Cerrado */
-	cerradura_exseq_main_region_Cerrado_r1(handle);
-}
-
-/* Default exit sequence for state wait */
-static void cerradura_exseq_main_region_Cerrado_r1_wait(Cerradura* handle)
-{
-	/* Default exit sequence for state wait */
-	handle->stateConfVector[0] = Cerradura_last_state;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* Default exit sequence for state getKey */
-static void cerradura_exseq_main_region_Cerrado_r1_getKey(Cerradura* handle)
-{
-	/* Default exit sequence for state getKey */
-	handle->stateConfVector[0] = Cerradura_last_state;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* Default exit sequence for state operate */
-static void cerradura_exseq_main_region_Cerrado_r1_operate(Cerradura* handle)
-{
-	/* Default exit sequence for state operate */
-	handle->stateConfVector[0] = Cerradura_last_state;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* Default exit sequence for state Validate */
-static void cerradura_exseq_main_region_Cerrado_r1_Validate(Cerradura* handle)
-{
-	/* Default exit sequence for state Validate */
-	handle->stateConfVector[0] = Cerradura_last_state;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* Default exit sequence for state Abierto */
-static void cerradura_exseq_main_region_Abierto(Cerradura* handle)
-{
-	/* Default exit sequence for state Abierto */
-	cerradura_exseq_main_region_Abierto_r1(handle);
-}
-
-/* Default exit sequence for state wait */
-static void cerradura_exseq_main_region_Abierto_r1_wait(Cerradura* handle)
-{
-	/* Default exit sequence for state wait */
-	handle->stateConfVector[0] = Cerradura_last_state;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* Default exit sequence for state getKey */
-static void cerradura_exseq_main_region_Abierto_r1_getKey(Cerradura* handle)
-{
-	/* Default exit sequence for state getKey */
-	handle->stateConfVector[0] = Cerradura_last_state;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* Default exit sequence for state operate */
-static void cerradura_exseq_main_region_Abierto_r1_operate(Cerradura* handle)
-{
-	/* Default exit sequence for state operate */
-	handle->stateConfVector[0] = Cerradura_last_state;
-	handle->stateConfVectorPosition = 0;
-}
-
-/* Default exit sequence for state init */
-static void cerradura_exseq_main_region_Abierto_r1_init(Cerradura* handle)
-{
-	/* Default exit sequence for state init */
-	handle->stateConfVector[0] = Cerradura_last_state;
-	handle->stateConfVectorPosition = 0;
+	/* 'default' enter sequence for region null */
+	cerradura_react_main_region_Unlocked__region0__entry_Default(handle);
 }
 
 /* Default exit sequence for state led0 */
@@ -1071,29 +797,83 @@ static void cerradura_exseq_main_region_led0_r1_apagado(Cerradura* handle)
 	cerradura_exact_main_region_led0_r1_apagado(handle);
 }
 
-/* Default exit sequence for state Copy_1_led0 */
-static void cerradura_exseq_main_region_Copy_1_led0(Cerradura* handle)
+/* Default exit sequence for state led1 */
+static void cerradura_exseq_main_region_led1(Cerradura* handle)
 {
-	/* Default exit sequence for state Copy_1_led0 */
-	cerradura_exseq_main_region_Copy_1_led0_r1(handle);
+	/* Default exit sequence for state led1 */
+	cerradura_exseq_main_region_led1_r1(handle);
 }
 
 /* Default exit sequence for state encendido */
-static void cerradura_exseq_main_region_Copy_1_led0_r1_encendido(Cerradura* handle)
+static void cerradura_exseq_main_region_led1_r1_encendido(Cerradura* handle)
 {
 	/* Default exit sequence for state encendido */
 	handle->stateConfVector[0] = Cerradura_last_state;
 	handle->stateConfVectorPosition = 0;
-	cerradura_exact_main_region_Copy_1_led0_r1_encendido(handle);
+	cerradura_exact_main_region_led1_r1_encendido(handle);
 }
 
 /* Default exit sequence for state apagado */
-static void cerradura_exseq_main_region_Copy_1_led0_r1_apagado(Cerradura* handle)
+static void cerradura_exseq_main_region_led1_r1_apagado(Cerradura* handle)
 {
 	/* Default exit sequence for state apagado */
 	handle->stateConfVector[0] = Cerradura_last_state;
 	handle->stateConfVectorPosition = 0;
-	cerradura_exact_main_region_Copy_1_led0_r1_apagado(handle);
+	cerradura_exact_main_region_led1_r1_apagado(handle);
+}
+
+/* Default exit sequence for state Closed */
+static void cerradura_exseq_main_region_Closed(Cerradura* handle)
+{
+	/* Default exit sequence for state Closed */
+	cerradura_exseq_main_region_Closed__region0(handle);
+}
+
+/* Default exit sequence for state Wait */
+static void cerradura_exseq_main_region_Closed__region0_Wait(Cerradura* handle)
+{
+	/* Default exit sequence for state Wait */
+	handle->stateConfVector[0] = Cerradura_last_state;
+	handle->stateConfVectorPosition = 0;
+}
+
+/* Default exit sequence for state getKey */
+static void cerradura_exseq_main_region_Closed__region0_getKey(Cerradura* handle)
+{
+	/* Default exit sequence for state getKey */
+	handle->stateConfVector[0] = Cerradura_last_state;
+	handle->stateConfVectorPosition = 0;
+}
+
+/* Default exit sequence for state Locked */
+static void cerradura_exseq_main_region_Locked(Cerradura* handle)
+{
+	/* Default exit sequence for state Locked */
+	handle->stateConfVector[0] = Cerradura_last_state;
+	handle->stateConfVectorPosition = 0;
+}
+
+/* Default exit sequence for state Unlocked */
+static void cerradura_exseq_main_region_Unlocked(Cerradura* handle)
+{
+	/* Default exit sequence for state Unlocked */
+	cerradura_exseq_main_region_Unlocked__region0(handle);
+}
+
+/* Default exit sequence for state Wait */
+static void cerradura_exseq_main_region_Unlocked__region0_Wait(Cerradura* handle)
+{
+	/* Default exit sequence for state Wait */
+	handle->stateConfVector[0] = Cerradura_last_state;
+	handle->stateConfVectorPosition = 0;
+}
+
+/* Default exit sequence for state getKey */
+static void cerradura_exseq_main_region_Unlocked__region0_getKey(Cerradura* handle)
+{
+	/* Default exit sequence for state getKey */
+	handle->stateConfVector[0] = Cerradura_last_state;
+	handle->stateConfVectorPosition = 0;
 }
 
 /* Default exit sequence for region main region */
@@ -1103,51 +883,6 @@ static void cerradura_exseq_main_region(Cerradura* handle)
 	/* Handle exit of all possible states (of cerradura.main_region) at position 0... */
 	switch(handle->stateConfVector[ 0 ])
 	{
-		case Cerradura_main_region_Inicio_r1_resetSystem :
-		{
-			cerradura_exseq_main_region_Inicio_r1_resetSystem(handle);
-			break;
-		}
-		case Cerradura_main_region_Cerrado_r1_wait :
-		{
-			cerradura_exseq_main_region_Cerrado_r1_wait(handle);
-			break;
-		}
-		case Cerradura_main_region_Cerrado_r1_getKey :
-		{
-			cerradura_exseq_main_region_Cerrado_r1_getKey(handle);
-			break;
-		}
-		case Cerradura_main_region_Cerrado_r1_operate :
-		{
-			cerradura_exseq_main_region_Cerrado_r1_operate(handle);
-			break;
-		}
-		case Cerradura_main_region_Cerrado_r1_Validate :
-		{
-			cerradura_exseq_main_region_Cerrado_r1_Validate(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_wait :
-		{
-			cerradura_exseq_main_region_Abierto_r1_wait(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_getKey :
-		{
-			cerradura_exseq_main_region_Abierto_r1_getKey(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_operate :
-		{
-			cerradura_exseq_main_region_Abierto_r1_operate(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_init :
-		{
-			cerradura_exseq_main_region_Abierto_r1_init(handle);
-			break;
-		}
 		case Cerradura_main_region_led0_r1_encendido :
 		{
 			cerradura_exseq_main_region_led0_r1_encendido(handle);
@@ -1158,92 +893,39 @@ static void cerradura_exseq_main_region(Cerradura* handle)
 			cerradura_exseq_main_region_led0_r1_apagado(handle);
 			break;
 		}
-		case Cerradura_main_region_Copy_1_led0_r1_encendido :
+		case Cerradura_main_region_led1_r1_encendido :
 		{
-			cerradura_exseq_main_region_Copy_1_led0_r1_encendido(handle);
+			cerradura_exseq_main_region_led1_r1_encendido(handle);
 			break;
 		}
-		case Cerradura_main_region_Copy_1_led0_r1_apagado :
+		case Cerradura_main_region_led1_r1_apagado :
 		{
-			cerradura_exseq_main_region_Copy_1_led0_r1_apagado(handle);
+			cerradura_exseq_main_region_led1_r1_apagado(handle);
 			break;
 		}
-		default: break;
-	}
-}
-
-/* Default exit sequence for region r1 */
-static void cerradura_exseq_main_region_Inicio_r1(Cerradura* handle)
-{
-	/* Default exit sequence for region r1 */
-	/* Handle exit of all possible states (of cerradura.main_region.Inicio.r1) at position 0... */
-	switch(handle->stateConfVector[ 0 ])
-	{
-		case Cerradura_main_region_Inicio_r1_resetSystem :
+		case Cerradura_main_region_Closed__region0_Wait :
 		{
-			cerradura_exseq_main_region_Inicio_r1_resetSystem(handle);
+			cerradura_exseq_main_region_Closed__region0_Wait(handle);
 			break;
 		}
-		default: break;
-	}
-}
-
-/* Default exit sequence for region r1 */
-static void cerradura_exseq_main_region_Cerrado_r1(Cerradura* handle)
-{
-	/* Default exit sequence for region r1 */
-	/* Handle exit of all possible states (of cerradura.main_region.Cerrado.r1) at position 0... */
-	switch(handle->stateConfVector[ 0 ])
-	{
-		case Cerradura_main_region_Cerrado_r1_wait :
+		case Cerradura_main_region_Closed__region0_getKey :
 		{
-			cerradura_exseq_main_region_Cerrado_r1_wait(handle);
+			cerradura_exseq_main_region_Closed__region0_getKey(handle);
 			break;
 		}
-		case Cerradura_main_region_Cerrado_r1_getKey :
+		case Cerradura_main_region_Locked :
 		{
-			cerradura_exseq_main_region_Cerrado_r1_getKey(handle);
+			cerradura_exseq_main_region_Locked(handle);
 			break;
 		}
-		case Cerradura_main_region_Cerrado_r1_operate :
+		case Cerradura_main_region_Unlocked__region0_Wait :
 		{
-			cerradura_exseq_main_region_Cerrado_r1_operate(handle);
+			cerradura_exseq_main_region_Unlocked__region0_Wait(handle);
 			break;
 		}
-		case Cerradura_main_region_Cerrado_r1_Validate :
+		case Cerradura_main_region_Unlocked__region0_getKey :
 		{
-			cerradura_exseq_main_region_Cerrado_r1_Validate(handle);
-			break;
-		}
-		default: break;
-	}
-}
-
-/* Default exit sequence for region r1 */
-static void cerradura_exseq_main_region_Abierto_r1(Cerradura* handle)
-{
-	/* Default exit sequence for region r1 */
-	/* Handle exit of all possible states (of cerradura.main_region.Abierto.r1) at position 0... */
-	switch(handle->stateConfVector[ 0 ])
-	{
-		case Cerradura_main_region_Abierto_r1_wait :
-		{
-			cerradura_exseq_main_region_Abierto_r1_wait(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_getKey :
-		{
-			cerradura_exseq_main_region_Abierto_r1_getKey(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_operate :
-		{
-			cerradura_exseq_main_region_Abierto_r1_operate(handle);
-			break;
-		}
-		case Cerradura_main_region_Abierto_r1_init :
-		{
-			cerradura_exseq_main_region_Abierto_r1_init(handle);
+			cerradura_exseq_main_region_Unlocked__region0_getKey(handle);
 			break;
 		}
 		default: break;
@@ -1272,137 +954,65 @@ static void cerradura_exseq_main_region_led0_r1(Cerradura* handle)
 }
 
 /* Default exit sequence for region r1 */
-static void cerradura_exseq_main_region_Copy_1_led0_r1(Cerradura* handle)
+static void cerradura_exseq_main_region_led1_r1(Cerradura* handle)
 {
 	/* Default exit sequence for region r1 */
-	/* Handle exit of all possible states (of cerradura.main_region.Copy_1_led0.r1) at position 0... */
+	/* Handle exit of all possible states (of cerradura.main_region.led1.r1) at position 0... */
 	switch(handle->stateConfVector[ 0 ])
 	{
-		case Cerradura_main_region_Copy_1_led0_r1_encendido :
+		case Cerradura_main_region_led1_r1_encendido :
 		{
-			cerradura_exseq_main_region_Copy_1_led0_r1_encendido(handle);
+			cerradura_exseq_main_region_led1_r1_encendido(handle);
 			break;
 		}
-		case Cerradura_main_region_Copy_1_led0_r1_apagado :
+		case Cerradura_main_region_led1_r1_apagado :
 		{
-			cerradura_exseq_main_region_Copy_1_led0_r1_apagado(handle);
+			cerradura_exseq_main_region_led1_r1_apagado(handle);
 			break;
 		}
 		default: break;
 	}
 }
 
-/* The reactions of state resetSystem. */
-static void cerradura_react_main_region_Inicio_r1_resetSystem(Cerradura* handle)
+/* Default exit sequence for region null */
+static void cerradura_exseq_main_region_Closed__region0(Cerradura* handle)
 {
-	/* The reactions of state resetSystem. */
-	cerradura_effect_main_region_Inicio_tr0(handle);
-}
-
-/* The reactions of state wait. */
-static void cerradura_react_main_region_Cerrado_r1_wait(Cerradura* handle)
-{
-	/* The reactions of state wait. */
-	if (cerradura_check_main_region_Cerrado_r1_wait_tr0_tr0(handle) == bool_true)
-	{ 
-		cerradura_effect_main_region_Cerrado_r1_wait_tr0(handle);
-	} 
-}
-
-/* The reactions of state getKey. */
-static void cerradura_react_main_region_Cerrado_r1_getKey(Cerradura* handle)
-{
-	/* The reactions of state getKey. */
-	cerradura_effect_main_region_Cerrado_r1_getKey_tr0(handle);
-}
-
-/* The reactions of state operate. */
-static void cerradura_react_main_region_Cerrado_r1_operate(Cerradura* handle)
-{
-	/* The reactions of state operate. */
-	if (cerradura_check_main_region_Cerrado_r1_operate_tr0_tr0(handle) == bool_true)
-	{ 
-		cerradura_effect_main_region_Cerrado_r1_operate_tr0(handle);
-	}  else
+	/* Default exit sequence for region null */
+	/* Handle exit of all possible states (of cerradura.main_region.Closed._region0) at position 0... */
+	switch(handle->stateConfVector[ 0 ])
 	{
-		if (cerradura_check_main_region_Cerrado_r1_operate_tr1_tr1(handle) == bool_true)
-		{ 
-			cerradura_effect_main_region_Cerrado_r1_operate_tr1(handle);
-		} 
+		case Cerradura_main_region_Closed__region0_Wait :
+		{
+			cerradura_exseq_main_region_Closed__region0_Wait(handle);
+			break;
+		}
+		case Cerradura_main_region_Closed__region0_getKey :
+		{
+			cerradura_exseq_main_region_Closed__region0_getKey(handle);
+			break;
+		}
+		default: break;
 	}
 }
 
-/* The reactions of state Validate. */
-static void cerradura_react_main_region_Cerrado_r1_Validate(Cerradura* handle)
+/* Default exit sequence for region null */
+static void cerradura_exseq_main_region_Unlocked__region0(Cerradura* handle)
 {
-	/* The reactions of state Validate. */
-	if (cerradura_check_main_region_Cerrado_r1_Validate_tr0_tr0(handle) == bool_true)
-	{ 
-		cerradura_effect_main_region_Cerrado_r1_Validate_tr0(handle);
-	}  else
+	/* Default exit sequence for region null */
+	/* Handle exit of all possible states (of cerradura.main_region.Unlocked._region0) at position 0... */
+	switch(handle->stateConfVector[ 0 ])
 	{
-		if (cerradura_check_main_region_Cerrado_r1_Validate_tr1_tr1(handle) == bool_true)
-		{ 
-			cerradura_effect_main_region_Cerrado_r1_Validate_tr1(handle);
-		} 
-	}
-}
-
-/* The reactions of state wait. */
-static void cerradura_react_main_region_Abierto_r1_wait(Cerradura* handle)
-{
-	/* The reactions of state wait. */
-	if (cerradura_check_main_region_Abierto_tr0_tr0(handle) == bool_true)
-	{ 
-		cerradura_effect_main_region_Abierto_tr0(handle);
-	}  else
-	{
-		if (cerradura_check_main_region_Abierto_r1_wait_tr0_tr0(handle) == bool_true)
-		{ 
-			cerradura_effect_main_region_Abierto_r1_wait_tr0(handle);
-		} 
-	}
-}
-
-/* The reactions of state getKey. */
-static void cerradura_react_main_region_Abierto_r1_getKey(Cerradura* handle)
-{
-	/* The reactions of state getKey. */
-	if (cerradura_check_main_region_Abierto_tr0_tr0(handle) == bool_true)
-	{ 
-		cerradura_effect_main_region_Abierto_tr0(handle);
-	}  else
-	{
-		cerradura_effect_main_region_Abierto_r1_getKey_tr0(handle);
-	}
-}
-
-/* The reactions of state operate. */
-static void cerradura_react_main_region_Abierto_r1_operate(Cerradura* handle)
-{
-	/* The reactions of state operate. */
-	if (cerradura_check_main_region_Abierto_tr0_tr0(handle) == bool_true)
-	{ 
-		cerradura_effect_main_region_Abierto_tr0(handle);
-	}  else
-	{
-		if (cerradura_check_main_region_Abierto_r1_operate_tr0_tr0(handle) == bool_true)
-		{ 
-			cerradura_effect_main_region_Abierto_r1_operate_tr0(handle);
-		} 
-	}
-}
-
-/* The reactions of state init. */
-static void cerradura_react_main_region_Abierto_r1_init(Cerradura* handle)
-{
-	/* The reactions of state init. */
-	if (cerradura_check_main_region_Abierto_tr0_tr0(handle) == bool_true)
-	{ 
-		cerradura_effect_main_region_Abierto_tr0(handle);
-	}  else
-	{
-		cerradura_effect_main_region_Abierto_r1_init_tr0(handle);
+		case Cerradura_main_region_Unlocked__region0_Wait :
+		{
+			cerradura_exseq_main_region_Unlocked__region0_Wait(handle);
+			break;
+		}
+		case Cerradura_main_region_Unlocked__region0_getKey :
+		{
+			cerradura_exseq_main_region_Unlocked__region0_getKey(handle);
+			break;
+		}
+		default: break;
 	}
 }
 
@@ -1439,33 +1049,119 @@ static void cerradura_react_main_region_led0_r1_apagado(Cerradura* handle)
 }
 
 /* The reactions of state encendido. */
-static void cerradura_react_main_region_Copy_1_led0_r1_encendido(Cerradura* handle)
+static void cerradura_react_main_region_led1_r1_encendido(Cerradura* handle)
 {
 	/* The reactions of state encendido. */
-	if (cerradura_check_main_region_Copy_1_led0_tr0_tr0(handle) == bool_true)
+	if (cerradura_check_main_region_led1_tr0_tr0(handle) == bool_true)
 	{ 
-		cerradura_effect_main_region_Copy_1_led0_tr0(handle);
+		cerradura_effect_main_region_led1_tr0(handle);
 	}  else
 	{
-		if (cerradura_check_main_region_Copy_1_led0_r1_encendido_tr0_tr0(handle) == bool_true)
+		if (cerradura_check_main_region_led1_r1_encendido_tr0_tr0(handle) == bool_true)
 		{ 
-			cerradura_effect_main_region_Copy_1_led0_r1_encendido_tr0(handle);
+			cerradura_effect_main_region_led1_r1_encendido_tr0(handle);
 		} 
 	}
 }
 
 /* The reactions of state apagado. */
-static void cerradura_react_main_region_Copy_1_led0_r1_apagado(Cerradura* handle)
+static void cerradura_react_main_region_led1_r1_apagado(Cerradura* handle)
 {
 	/* The reactions of state apagado. */
-	if (cerradura_check_main_region_Copy_1_led0_tr0_tr0(handle) == bool_true)
+	if (cerradura_check_main_region_led1_tr0_tr0(handle) == bool_true)
 	{ 
-		cerradura_effect_main_region_Copy_1_led0_tr0(handle);
+		cerradura_effect_main_region_led1_tr0(handle);
 	}  else
 	{
-		if (cerradura_check_main_region_Copy_1_led0_r1_apagado_tr0_tr0(handle) == bool_true)
+		if (cerradura_check_main_region_led1_r1_apagado_tr0_tr0(handle) == bool_true)
 		{ 
-			cerradura_effect_main_region_Copy_1_led0_r1_apagado_tr0(handle);
+			cerradura_effect_main_region_led1_r1_apagado_tr0(handle);
+		} 
+	}
+}
+
+/* The reactions of state Wait. */
+static void cerradura_react_main_region_Closed__region0_Wait(Cerradura* handle)
+{
+	/* The reactions of state Wait. */
+	if (cerradura_check_main_region_Closed_tr0_tr0(handle) == bool_true)
+	{ 
+		cerradura_effect_main_region_Closed_tr0(handle);
+	}  else
+	{
+		if (cerradura_check_main_region_Closed_tr1_tr1(handle) == bool_true)
+		{ 
+			cerradura_effect_main_region_Closed_tr1(handle);
+		}  else
+		{
+			if (cerradura_check_main_region_Closed__region0_Wait_tr0_tr0(handle) == bool_true)
+			{ 
+				cerradura_effect_main_region_Closed__region0_Wait_tr0(handle);
+			} 
+		}
+	}
+}
+
+/* The reactions of state getKey. */
+static void cerradura_react_main_region_Closed__region0_getKey(Cerradura* handle)
+{
+	/* The reactions of state getKey. */
+	if (cerradura_check_main_region_Closed_tr0_tr0(handle) == bool_true)
+	{ 
+		cerradura_effect_main_region_Closed_tr0(handle);
+	}  else
+	{
+		if (cerradura_check_main_region_Closed_tr1_tr1(handle) == bool_true)
+		{ 
+			cerradura_effect_main_region_Closed_tr1(handle);
+		}  else
+		{
+			if (cerradura_check_main_region_Closed__region0_getKey_tr0_tr0(handle) == bool_true)
+			{ 
+				cerradura_effect_main_region_Closed__region0_getKey_tr0(handle);
+			} 
+		}
+	}
+}
+
+/* The reactions of state Locked. */
+static void cerradura_react_main_region_Locked(Cerradura* handle)
+{
+	/* The reactions of state Locked. */
+	if (cerradura_check_main_region_Locked_tr0_tr0(handle) == bool_true)
+	{ 
+		cerradura_effect_main_region_Locked_tr0(handle);
+	} 
+}
+
+/* The reactions of state Wait. */
+static void cerradura_react_main_region_Unlocked__region0_Wait(Cerradura* handle)
+{
+	/* The reactions of state Wait. */
+	if (cerradura_check_main_region_Unlocked_tr0_tr0(handle) == bool_true)
+	{ 
+		cerradura_effect_main_region_Unlocked_tr0(handle);
+	}  else
+	{
+		if (cerradura_check_main_region_Unlocked__region0_Wait_tr0_tr0(handle) == bool_true)
+		{ 
+			cerradura_effect_main_region_Unlocked__region0_Wait_tr0(handle);
+		} 
+	}
+}
+
+/* The reactions of state getKey. */
+static void cerradura_react_main_region_Unlocked__region0_getKey(Cerradura* handle)
+{
+	/* The reactions of state getKey. */
+	if (cerradura_check_main_region_Unlocked_tr0_tr0(handle) == bool_true)
+	{ 
+		cerradura_effect_main_region_Unlocked_tr0(handle);
+	}  else
+	{
+		if (cerradura_check_main_region_Unlocked__region0_getKey_tr0_tr0(handle) == bool_true)
+		{ 
+			cerradura_effect_main_region_Unlocked__region0_getKey_tr0(handle);
 		} 
 	}
 }
@@ -1474,28 +1170,7 @@ static void cerradura_react_main_region_Copy_1_led0_r1_apagado(Cerradura* handle
 static void cerradura_react_main_region__entry_Default(Cerradura* handle)
 {
 	/* Default react sequence for initial entry  */
-	cerradura_enseq_main_region_Inicio_default(handle);
-}
-
-/* Default react sequence for initial entry  */
-static void cerradura_react_main_region_Inicio_r1__entry_Default(Cerradura* handle)
-{
-	/* Default react sequence for initial entry  */
-	cerradura_enseq_main_region_Inicio_r1_resetSystem_default(handle);
-}
-
-/* Default react sequence for initial entry  */
-static void cerradura_react_main_region_Cerrado_r1__entry_Default(Cerradura* handle)
-{
-	/* Default react sequence for initial entry  */
-	cerradura_enseq_main_region_Cerrado_r1_wait_default(handle);
-}
-
-/* Default react sequence for initial entry  */
-static void cerradura_react_main_region_Abierto_r1__entry_Default(Cerradura* handle)
-{
-	/* Default react sequence for initial entry  */
-	cerradura_enseq_main_region_Abierto_r1_init_default(handle);
+	cerradura_enseq_main_region_Closed_default(handle);
 }
 
 /* Default react sequence for initial entry  */
@@ -1506,10 +1181,24 @@ static void cerradura_react_main_region_led0_r1__entry_Default(Cerradura* handle
 }
 
 /* Default react sequence for initial entry  */
-static void cerradura_react_main_region_Copy_1_led0_r1__entry_Default(Cerradura* handle)
+static void cerradura_react_main_region_led1_r1__entry_Default(Cerradura* handle)
 {
 	/* Default react sequence for initial entry  */
-	cerradura_enseq_main_region_Copy_1_led0_r1_encendido_default(handle);
+	cerradura_enseq_main_region_led1_r1_encendido_default(handle);
+}
+
+/* Default react sequence for initial entry  */
+static void cerradura_react_main_region_Closed__region0__entry_Default(Cerradura* handle)
+{
+	/* Default react sequence for initial entry  */
+	cerradura_enseq_main_region_Closed__region0_Wait_default(handle);
+}
+
+/* Default react sequence for initial entry  */
+static void cerradura_react_main_region_Unlocked__region0__entry_Default(Cerradura* handle)
+{
+	/* Default react sequence for initial entry  */
+	cerradura_enseq_main_region_Unlocked__region0_Wait_default(handle);
 }
 
 

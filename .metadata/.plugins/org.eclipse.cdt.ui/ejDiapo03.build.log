@@ -1,5 +1,6 @@
-16:54:17 **** Clean-only build of configuration Default for project ejDiapo03 ****
-make clean 
+18:46:58 **** Incremental Build of configuration Default for project ejDiapo03 ****
+make all 
+make: No se hace nada para 'all'.
 
-16:54:17 Build Finished (took 580ms)
+18:46:58 Build Finished (took 389ms)
 

@@ -14,24 +14,19 @@ extern "C" {
 /*! Enumeration of all states */ 
 typedef enum
 {
-	Cerradura_main_region_Inicio,
-	Cerradura_main_region_Inicio_r1_resetSystem,
-	Cerradura_main_region_Cerrado,
-	Cerradura_main_region_Cerrado_r1_wait,
-	Cerradura_main_region_Cerrado_r1_getKey,
-	Cerradura_main_region_Cerrado_r1_operate,
-	Cerradura_main_region_Cerrado_r1_Validate,
-	Cerradura_main_region_Abierto,
-	Cerradura_main_region_Abierto_r1_wait,
-	Cerradura_main_region_Abierto_r1_getKey,
-	Cerradura_main_region_Abierto_r1_operate,
-	Cerradura_main_region_Abierto_r1_init,
 	Cerradura_main_region_led0,
 	Cerradura_main_region_led0_r1_encendido,
 	Cerradura_main_region_led0_r1_apagado,
-	Cerradura_main_region_Copy_1_led0,
-	Cerradura_main_region_Copy_1_led0_r1_encendido,
-	Cerradura_main_region_Copy_1_led0_r1_apagado,
+	Cerradura_main_region_led1,
+	Cerradura_main_region_led1_r1_encendido,
+	Cerradura_main_region_led1_r1_apagado,
+	Cerradura_main_region_Closed,
+	Cerradura_main_region_Closed__region0_Wait,
+	Cerradura_main_region_Closed__region0_getKey,
+	Cerradura_main_region_Locked,
+	Cerradura_main_region_Unlocked,
+	Cerradura_main_region_Unlocked__region0_Wait,
+	Cerradura_main_region_Unlocked__region0_getKey,
 	Cerradura_last_state
 } CerraduraStates;
 
@@ -45,9 +40,9 @@ typedef struct
 /*! Type definition of the data structure for the CerraduraInternal interface scope. */
 typedef struct
 {
-	sc_integer valid;
-	sc_integer clave;
-	sc_integer claveIngresada;
+	sc_integer claveAux;
+	sc_integer claveIn;
+	sc_integer claveDefault;
 	sc_integer aux;
 	sc_integer aux2;
 	sc_integer iter;
@@ -61,8 +56,8 @@ typedef struct
 {
 	sc_boolean cerradura_main_region_led0_r1_encendido_tev0_raised;
 	sc_boolean cerradura_main_region_led0_r1_apagado_tev0_raised;
-	sc_boolean cerradura_main_region_Copy_1_led0_r1_encendido_tev0_raised;
-	sc_boolean cerradura_main_region_Copy_1_led0_r1_apagado_tev0_raised;
+	sc_boolean cerradura_main_region_led1_r1_encendido_tev0_raised;
+	sc_boolean cerradura_main_region_led1_r1_apagado_tev0_raised;
 } CerraduraTimeEvents;
 
 

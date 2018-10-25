@@ -67,11 +67,11 @@ int main(void)
 	}
     if(getKeyPressed())
     {
-    	cerraduraIface_raise_keyPressed(&keyLock);
-    	rstKeyPressed();
-    }
+    	cerraduraIface_raise_keyPressed(&keyLock,getKeyPressed());
 
+    }
     cerradura_runCycle(&keyLock);
+    rstKeyPressed();
   }
   return 0;
 }
