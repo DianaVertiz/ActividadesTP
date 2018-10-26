@@ -166,35 +166,33 @@ void rstSysTickEv(void)
 void GPIO0_IRQHandler(void)
 {
 	keyPressed = 1;
-	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(0));
 	StopWatch_DelayMs(300);
+	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(0));
+
 }
 
 void GPIO1_IRQHandler(void)
 {
 	keyPressed = 2;
-	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(1));
 	StopWatch_DelayMs(300);
+	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(1));
+
 }
 void GPIO2_IRQHandler(void)
 {
 	keyPressed = 3;
-	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(2));
 	StopWatch_DelayMs(300);
+	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(2));
+
 }
 
 void GPIO3_IRQHandler(void)
 {
 	keyPressed = 4;
-	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(3));
 	StopWatch_DelayMs(300);
-}
+	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(3));
 
-/*
-uint8_t getKeyPressed(void)
-{
-	return keyPressed;
-}*/
+}
 
 void rstKeyPressed(void)
 {

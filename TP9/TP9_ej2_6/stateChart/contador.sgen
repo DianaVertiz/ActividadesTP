@@ -1,0 +1,11 @@
+GeneratorModel for yakindu::c {
+
+	statechart contador {
+
+		feature Outlet {
+			targetProject = "TP9_ej2_6"
+			targetFolder = "src"
+			libraryTargetFolder = "src"
+		}
+	}
+}

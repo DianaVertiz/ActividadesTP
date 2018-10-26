@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="iter" key="selection"/>
+		<item value="runC" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="runc"/>
 			<item value="iter"/>
 			<item value="handle-&gt;internal.aux = 0;"/>
 			<item value="aux = 0"/>
@@ -22,7 +23,6 @@
 			<item value="inicio"/>
 			<item value="evaluar"/>
 			<item value="setLed"/>
-			<item value="pos_secuencia"/>
 		</list>
 		<list key="replacehistory">
 			<item value="void"/>

@@ -68,10 +68,10 @@ int main(void)
     if(getKeyPressed())
     {
     	cerraduraIface_raise_keyPressed(&keyLock,getKeyPressed());
-
+    	rstKeyPressed();
     }
     cerradura_runCycle(&keyLock);
-    rstKeyPressed();
+
   }
   return 0;
 }
