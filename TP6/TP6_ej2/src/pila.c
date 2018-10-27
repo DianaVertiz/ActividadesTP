@@ -10,9 +10,6 @@
 
 //#define numero_pilas 2
 
-
-
-
 void pilaInit (pilaData *p, void * buffer, uint8_t bufLen, uint8_t dataSize)
 {
 	p->dataSize = dataSize;
@@ -35,7 +32,7 @@ uint8_t pilaEmpty ( pilaData *p)
 
 uint8_t pilaFull ( pilaData *p)
 {
-	if((p->pos) >= (((p->dataCount) -1)*sizeof(uint8_t)) )
+	if((p->pos) >= (((p->dataCount))*sizeof(uint8_t)) )
 	{
 		return 1;
 	}

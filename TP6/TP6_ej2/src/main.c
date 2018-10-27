@@ -6,32 +6,54 @@
 #include "operaciones.h"
 #include "pila.h"
 
-//extern uint8_t * buff1 = &pila1;
-//extern uint8_t * buff2 = &pila2;
-uint32_t pila1[20];
-uint32_t pila2[50];
+#define NUM 12345
 
-/*pilaData stacks[] =
-{
-		{0,2,20,&pila1[0]},
-		{0,4,50,&pila2[0]}
-};*/
 
-pilaData stack1 =
+int devolver_digitos(int numero)
 {
-		.pos = 0,
-		.dataSize = 4,
-		.dataCount = 20,
-		.buf = pila1
-};
+	int digitos = 0;
 
-pilaData stack2 =
+	while(numero>=1)
+	{
+		digitos++;
+		numero/=10;
+	}
+
+	return digitos;
+}
+
+void showInt(uint32_t numero)
 {
-		.pos = 0,
-		.dataSize = 4,
-		.dataCount = 50,
-		.buf = pila2
-};
+	uint8_t dig = devolver_digitos(numero);
+	uint8_t pila[dig];
+	uint8_t aux;
+
+	pilaData stack1 =
+	{
+			.pos = 0,
+			.dataSize = 1,
+			.dataCount = dig,
+			.buf = pila
+	};
+
+	pilaInit (&stack1, stack1.buf, stack1.dataCount, stack1.dataSize);
+
+	for(uint8_t i= 0; i< dig; i++)
+	{
+		aux = numero%10;
+		pilaPush (&stack1,&aux);
+		numero/=10;
+	}
+
+	for(uint8_t j = 0; j <dig; j++ )
+	{
+		pilaPop(&stack1,&aux);
+		putChr(aux + 48);
+
+	}
+
+	putChr('\n\r');
+}
 
 
 void UART2_IRQHandler(void)
@@ -47,28 +69,12 @@ int main ( int argc , char * argv [])
 	inicializar_sistema();
 	inicializar_leds();
 	inicializar_USART();
-	//configurar_SysTick();
-	pilaInit (&stack1, stack1.buf, stack1.dataCount, stack1.dataSize);
-	pilaInit (&stack2, stack2.buf, stack2.dataCount, stack2.dataSize);
 
-	for(uint8_t i=0; i<20; i++)
-	{
-		aux++;
-		pilaPush (&stack1,&aux);
-	}
-
-	for(uint8_t j=0; j<20; j++)
-		{
-			pilaPop (&stack1,&aux);
-			pilaPush (&stack2,&aux);
-		}
+	showInt(NUM);
 
 	while (1)
 	{
-
-
 		//__WFI();
-
 	}
 
 

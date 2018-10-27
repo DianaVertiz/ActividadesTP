@@ -42,6 +42,38 @@ int devolver_significativos(int numero, int ndig)
 	return numero;
 }
 
+uint8_t menos_significativo(uint32_t numero)
+{
+	uint8_t aux = 0;
+
+	if(devolver_digitos(numero))
+	{
+		aux = numero%10;
+	}
+
+	return aux;
+}
+
+void showInt(uint32_t numero)
+{
+	uint8_t dig = devolver_digitos(numero);
+	uint8_t array[dig];
+	char aux;
+
+	for(uint8_t i=dig; i>0; i--)
+	{
+		array[i-1] = menos_significativo(numero);
+		numero/=10;
+	}
+
+	for(uint8_t j = 0; j <dig; j++ )
+	{
+		aux = (array[j]) + 48;
+		putchar(aux);
+	}
+	 printf("\n");
+}
+
 
 
 void showbits(unsigned char x) {
@@ -65,7 +97,7 @@ void show32bits(uint32_t x) {
 /************************************ */
 /*** ejercicico 1 Reflexión de bits****/
 /**************************************/
-
+/*
 int main(int argc, char * argv[])
 {
 
@@ -92,24 +124,29 @@ int main(int argc, char * argv[])
 	showbits(rDato);
 
 	return 0;
-}
+}*/
 
 /**************************************************/
 /****Ejercicio 2***********************************/
-/*
+
 int main(int argc, char * argv[])
 {
-	int32_t oDato = 150;
+	int32_t oDato = 15327;
 	uint8_t ndig = 4;
 	int32_t resultado, digitos = 1;
-
+	uint8_t lessSig = 0;
 	resultado = devolver_digitos(oDato);
 	digitos = devolver_significativos(oDato, ndig);
+	lessSig = menos_significativo(oDato);
 
-	printf("Dato Original: %d \r\nnúmero de dígitos: %d \r\n", oDato, resultado );
+	printf("Dato Original: %d \r\número de dígitos: %d \r\n", oDato, resultado );
 	printf("%d dígitos más significativos: %d \r\n", ndig, digitos );
 	printf("Representación en base 2: \r\n");
 	show32bits(oDato);
+	printf("Representación ASCII del menos significativo: %d \r\n", lessSig + 48);
+	printf("Representación del número usando putchar:\r\n");
+	showInt(oDato);
+
 	return 0;
 }
-*/
+

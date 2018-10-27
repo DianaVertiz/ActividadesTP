@@ -39,7 +39,7 @@ typedef struct
  * \param p Representación de una pila
  * \param buffer Vector de almacenamiento
  * \param bufLen Tamaño del arreglo
- * \param dataSize Tamaño de cada dato en el arreglo
+ * \param dataSize Tamaño de cada dato en el arreglo 1 uint8_t, 2 uint16_t, 4 uint32_t
  */
 void pilaInit ( pilaData *p, void * buffer, uint8_t bufLen, uint8_t dataSize);
 
