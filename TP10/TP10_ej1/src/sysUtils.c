@@ -162,18 +162,11 @@ void GPIO3_IRQHandler(void)
 	Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(3));
 }
 
-/*
-uint8_t getKeyPressed(void)
-{
-	return keyPressed;
-}
-*/
-void rstKeyPressed(void)
-{
-	keyPressed = 0;
-}
 
-
+/* Aloja memoria para ser utilizada a través de  la función malloc,
+ * si incr>0 aloja espacio a continuación del último alojamiento
+ * Retorna la dirección de memoria donde empieza el bloque alojado.
+ */
 void * _sbrk(int  incr)
 {
 	char * prev_heap_end;
@@ -189,31 +182,30 @@ void * _sbrk(int  incr)
 	return (void *)  prev_heap_end;
 }
 
+/*Envía una señal (sig) a un proceso determinado (pid). */
 int  _kill(int pid , int  sig)
 {
 	errno = EINVAL;
 	return  -1;
 }
 
+/*
+ * Retorna un valor entero que identifica el proceso desde el que se realiza
+ * la invocación a la función
+ */
 int  _getpid(void)
 {
 return  1;
 }
 
+/*
+ * Se invoca cuando la aplicación debe finalizar
+ */
 void _exit(int code)
 {
 	_Exit(code);
 }
-/*
-int  _fork(void)
-{
-	errno = EAGAIN;
-	return  -1;
-}
-int  _execve(char *name , char **argv , char **env) {
-	errno = ENOMEM;
-	return  -1;
-}*/
+
 
 
 

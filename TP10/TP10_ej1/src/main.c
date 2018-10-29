@@ -25,21 +25,23 @@ int main(void)
 	uint8_t * pVal2;
 	uint8_t * pVal3;
 
+	void * ptr;
+
 	struct mallinfo mi;
 	mi = mallinfo();
 	pVal1 = malloc(sizeof(uint8_t));
+	//pVal1 = malloc(4096*sizeof(uint8_t));
 	pVal2 = malloc(sizeof(uint8_t));
-	pVal3 = malloc(sizeof(uint8_t)*100);
+	pVal3 = malloc(sizeof(uint8_t));
+	mi = mallinfo();
 	*pVal1 = 0xA;
-	*pVal2 = 0xCD;
+	 pVal2[0] = 5;
 	*pVal3 = 0x87;
-	uint8_t i;
-	for (i = 1; i < 100; i++){
-		pVal3[i] = i;
-	}
-
+	 //ptr = _sbrk(0); /*??*/
 
 	mi = mallinfo();
+
+
 	free(pVal1);
 	free(pVal2);
 	free(pVal3);

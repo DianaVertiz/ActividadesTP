@@ -57,9 +57,5 @@ void GPIO3_IRQHandler(void);
 
 void SysTick_Handler(void);
 uint8_t getSysTickEv(void);
-void rstSysTickEv(void);
-
-//uint8_t getKeyPressed(void);
-void rstKeyPressed(void);
 
 #endif /* INC_SYSUTILS_H_ */

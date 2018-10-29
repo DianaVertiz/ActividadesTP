@@ -9,3 +9,16 @@ __top_stack = 0x10000000 + 0x8000;
 __bot_heap  = 0x10080000;
 __top_heap  = 0x10080000 + 0xA000;
 
+__endFlashFs =0x1a000000+0x80000;
+__startFlashFs = endFlashFs - 0x10000;
+
+.text : ALIGN(4)
+{
+  *(.text*)
+  *(.rodata .rodata.* .constdata .constdata.*)
+  . = ALIGN(4);
+  PROVIDE(etext = .);
+  PROVIDE(startFlashFs = .);
+  *(.flashFs*)
+  PROVIDE(endFlashFs = .);
+} > flash
