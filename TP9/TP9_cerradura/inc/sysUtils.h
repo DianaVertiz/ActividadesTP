@@ -64,5 +64,5 @@ void rstSysTickEv(void);
 
 //uint8_t getKeyPressed(void);
 void rstKeyPressed(void);
-
+void titilar(uint8_t key);
 #endif /* INC_SYSUTILS_H_ */

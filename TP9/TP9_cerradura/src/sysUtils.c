@@ -6,7 +6,7 @@
 const uint32_t ExtRateIn = 0;
 const uint32_t OscRateIn = 12000000;
 
-static uint8_t keyPressed = 0;
+volatile static uint8_t keyPressed = 0;
 
 uint8_t clave[] = {1, 2, 3, 3, 2, 1};
 
@@ -199,4 +199,22 @@ void rstKeyPressed(void)
 	keyPressed = 0;
 }
 
+
+void titilar(uint8_t key)
+{
+	switch(key)
+	{
+		case 1:
+			ledOn(0); break;
+		case 2:
+			ledOn(1); break;
+		case 3:
+			ledOn(2); break;
+		case 4:
+			ledOn(3); break;
+	}
+
+	delayMs(500);
+	setLedFromMask(0);
+}
 

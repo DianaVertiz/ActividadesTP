@@ -20,6 +20,8 @@ are defined.
 This state machine makes use of operations declared in the state machines interface or internal scopes. Thus the function prototypes:
 	- cerraduraIface_setLedFromMask
 	- cerraduraIface_getKeyPressed
+	- cerraduraIface_titilar
+	- cerraduraIface_ledOn
 	- cerraduraIface_delayMs
 are defined.
 
@@ -31,6 +33,8 @@ There are some constraints that have to be considered for the implementation of 
 */
 extern void cerraduraIface_setLedFromMask(const Cerradura* handle, const sc_integer ledMask);
 extern sc_integer cerraduraIface_getKeyPressed(const Cerradura* handle);
+extern void cerraduraIface_titilar(const Cerradura* handle, const sc_integer key);
+extern void cerraduraIface_ledOn(const Cerradura* handle, const sc_integer led);
 extern void cerraduraIface_delayMs(const Cerradura* handle, const sc_integer time);
 
 

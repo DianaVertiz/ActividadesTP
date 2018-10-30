@@ -23,10 +23,12 @@ typedef enum
 	Cerradura_main_region_Closed,
 	Cerradura_main_region_Closed__region0_Wait,
 	Cerradura_main_region_Closed__region0_getKey,
-	Cerradura_main_region_Locked,
 	Cerradura_main_region_Unlocked,
 	Cerradura_main_region_Unlocked__region0_Wait,
 	Cerradura_main_region_Unlocked__region0_getKey,
+	Cerradura_main_region_Leds,
+	Cerradura_main_region_Leds_r1_encendido,
+	Cerradura_main_region_Leds_r1_apagado,
 	Cerradura_last_state
 } CerraduraStates;
 
@@ -58,6 +60,8 @@ typedef struct
 	sc_boolean cerradura_main_region_led0_r1_apagado_tev0_raised;
 	sc_boolean cerradura_main_region_led1_r1_encendido_tev0_raised;
 	sc_boolean cerradura_main_region_led1_r1_apagado_tev0_raised;
+	sc_boolean cerradura_main_region_Leds_r1_encendido_tev0_raised;
+	sc_boolean cerradura_main_region_Leds_r1_apagado_tev0_raised;
 } CerraduraTimeEvents;
 
 

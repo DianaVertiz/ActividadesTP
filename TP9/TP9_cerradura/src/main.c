@@ -36,6 +36,16 @@ void cerraduraIface_delayMs(const Cerradura* handle, const sc_integer time)
 	StopWatch_DelayMs(time);
 }
 
+void cerraduraIface_titilar(const Cerradura* handle, const sc_integer key)
+{
+	titilar(key);
+}
+
+void cerraduraIface_ledOn(const Cerradura* handle, const sc_integer led)
+{
+	ledOn(led);
+}
+
 int main(void)
 {
   int i;
@@ -68,9 +78,13 @@ int main(void)
     if(getKeyPressed())
     {
     	cerraduraIface_raise_keyPressed(&keyLock,getKeyPressed());
-    	rstKeyPressed();
+
     }
     cerradura_runCycle(&keyLock);
+    if(getKeyPressed())
+    {
+    	rstKeyPressed();
+    }
 
   }
   return 0;
