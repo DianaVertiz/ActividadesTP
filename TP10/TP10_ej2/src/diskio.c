@@ -26,7 +26,7 @@ DSTATUS disk_status (
 	BYTE pdrv		/* Physical drive nmuber to identify the drive */
 )
 {
-	DSTATUS stat;
+	/*DSTATUS stat;
 	int result;
 
 	switch (pdrv) {
@@ -51,7 +51,8 @@ DSTATUS disk_status (
 
 		return stat;
 	}
-	return STA_NOINIT;
+	return STA_NOINIT;*/
+	return RES_OK;
 }
 
 
@@ -64,7 +65,7 @@ DSTATUS disk_initialize (
 	BYTE pdrv				/* Physical drive nmuber to identify the drive */
 )
 {
-	DSTATUS stat;
+	/*DSTATUS stat;
 	int result;
 
 	switch (pdrv) {
@@ -89,7 +90,8 @@ DSTATUS disk_initialize (
 
 		return stat;
 	}
-	return STA_NOINIT;
+	return STA_NOINIT;*/
+	return RES_OK;
 }
 
 

@@ -153,7 +153,7 @@ int main ( void )
 	FATFS FatFs ;
 	FIL Fil ;
 	FILINFO fno ;
-	char fSize [20];
+	char fSize [20] = {0};
 	if ( FR_OK != f_mount (&FatFs , "", 1))
 		error ("Error montando driver \r\n");
 	f_opendir (&dp , "/" );
@@ -167,17 +167,18 @@ int main ( void )
 		}
 		else
 		{
-			uint10ToStr ( fno.fsize , fSize );
+			uint10ToStr ( fno.fsize , fSize);
 			print ("\t\t");
-			print ( fSize );
+			print (fSize);
 		}
 		print ("\r\n");
 	}
 	f_closedir (&dp );
 	print ("Lectura desde el archivo : \r\n");
-	f_open (&fil , "miArchivo.txt ", FA_READ );
-	while ( f_gets (line , sizeof ( line ), &fil ))
-		print ( line );
+	f_open (&fil , "A", FA_READ );
+	while (f_gets(line , sizeof (line), &fil))
+		print (line);
+	print ("\r\n");
 	f_close (&fil );
 	while (1);
 	return 0;

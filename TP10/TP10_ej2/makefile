@@ -22,7 +22,7 @@ erase
 all: $(OUTDIR)/firmware.elf
 
 $(OUTDIR)/firmware.elf: $(OUTDIR)/liblpcopen.a $(objLst)
-	@$(GCC) $(LDFLAGS) $(objLst) -L$(OUTDIR) -llpcopen -lc -lm -o $(OUTDIR)/firmware.elf
+	@$(GCC) $(LDFLAGS) myFileSystem.o $(objLst) -L$(OUTDIR) -llpcopen -lc -lm -o $(OUTDIR)/firmware.elf
 	@$(COPY) -O binary $(OUTDIR)/firmware.elf $(OUTDIR)/firmware.bin
 	@$(COPY) -O ihex $(OUTDIR)/firmware.elf $(OUTDIR)/firmware.hex
 	@$(READELF) -a $(OUTDIR)/firmware.elf > $(OUTDIR)/firmware.txt

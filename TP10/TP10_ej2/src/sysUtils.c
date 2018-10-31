@@ -17,7 +17,6 @@ char *__env [1] = { 0 };
 char **  environ = __env;
 // manejo de heap
 
-
 const uint32_t ExtRateIn = 0;
 const uint32_t OscRateIn = 12000000;
 
@@ -215,6 +214,57 @@ return  1;
 void _exit(int code)
 {
 	_Exit(code);
+}
+
+void error(void)
+{
+	char txt[] = "error de lectura\n\r";
+	Chip_UART_SendBlocking(LPC_USART2, (const void*) txt, strlen(txt));
+}
+
+int devolver_digitos(int numero)
+{
+	int digitos = 0;
+
+	while(numero>=1)
+	{
+		digitos++;
+		numero/=10;
+	}
+
+	return digitos;
+}
+
+uint8_t menos_significativo(uint32_t numero)
+{
+	uint8_t aux = 0;
+
+	if(devolver_digitos(numero))
+	{
+		aux = numero%10;
+	}
+
+	return aux;
+}
+
+void uint10ToStr(uint32_t numero, char * aux)
+{
+	uint8_t dig = devolver_digitos(numero);
+	uint8_t array[dig];
+	//char aux;
+
+	for(uint8_t i=dig; i>0; i--)
+	{
+		array[i-1] = menos_significativo(numero);
+		numero/=10;
+	}
+
+	for(uint8_t j = 0; j <dig; j++ )
+	{
+		aux[j] = (array[j]) + 48;
+		//putchar(aux);
+	}
+	 //printf("\n");
 }
 
 /*
