@@ -60,6 +60,11 @@ void inicializar_teclado()
 	{
 		Chip_SCU_PinMuxSet (keys[i].hwPort , keys[i].hwPin , keys[i].modo);
 		Chip_GPIO_SetPinDIRInput (LPC_GPIO_PORT, keys[i].gpioPort, keys[i].gpioPin);
+		// estas incializaciones no estaban aca y si estaban en el de la cerradura
+		Chip_SCU_GPIOIntPinSel(i, keys[i].gpioPort, keys[i].gpioPin);
+		Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(i));
+		Chip_PININT_SetPinModeEdge(LPC_GPIO_PIN_INT, PININTCH(i));
+		Chip_PININT_EnableIntLow(LPC_GPIO_PIN_INT, PININTCH(i));
 	}
 }
 
@@ -78,7 +83,63 @@ void inicializar_USART(void)
 	Chip_UART_IntEnable(LPC_USART2, (UART_IER_RBRINT | UART_IER_RLSINT));
 	NVIC_EnableIRQ(USART2_IRQn); /*máscara en el cmsis_43xx.h*/
 	Chip_UART_TXEnable(LPC_USART2);
+}
 
+
+void sysInit(void)
+{
+
+  int i;
+  Chip_SetupXtalClocking();
+  SystemCoreClockUpdate();
+  StopWatch_Init();
+  fpuInit();
+  Chip_GPIO_Init(LPC_GPIO_PORT);
+
+  for(i = 0; i < sizeof(leds)/sizeof(digitalIO); i++)
+  {
+	  Chip_SCU_PinMuxSet(leds[i].hwPort, leds[i].hwPin, leds[i].modo);
+	  Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, leds[i].gpioPort, leds[i].gpioPin);
+	  Chip_GPIO_SetPinOutLow(LPC_GPIO_PORT, leds[i].gpioPort, leds[i].gpioPin);
+  }
+
+  for(i = 0; i < sizeof(keys)/sizeof(digitalIO); i++)
+  {
+	  Chip_SCU_PinMuxSet(keys[i].hwPort, keys[i].hwPin, keys[i].modo);
+	  Chip_GPIO_SetPinDIRInput(LPC_GPIO_PORT, keys[i].gpioPort, keys[i].gpioPin);
+  }
+
+
+  Chip_SCU_PinMuxSet(7, 1, SCU_MODE_PULLDOWN | SCU_MODE_FUNC6);
+  Chip_SCU_PinMuxSet(7, 2, SCU_MODE_INACT | SCU_MODE_INBUFF_EN | SCU_MODE_ZIF_DIS | SCU_MODE_FUNC6);
+  Chip_UART_Init(LPC_USART2);
+  Chip_UART_ConfigData(LPC_USART2, UART_LCR_WLEN8 | UART_LCR_SBS_1BIT | UART_LCR_PARITY_DIS);
+  Chip_UART_SetBaud(LPC_USART2, 115200);
+  Chip_UART_SetupFIFOS(LPC_USART2, (UART_FCR_FIFO_EN | UART_FCR_RX_RS |	UART_FCR_TX_RS | UART_FCR_TRG_LEV3));
+  Chip_UART_IntEnable(LPC_USART2, UART_IER_RBRINT);
+
+  for(i=0; i < 4; i++)
+  {
+	  Chip_SCU_GPIOIntPinSel(i, keys[i].gpioPort, keys[i].gpioPin);
+	  Chip_PININT_ClearIntStatus(LPC_GPIO_PIN_INT, PININTCH(i));
+	  Chip_PININT_SetPinModeEdge(LPC_GPIO_PIN_INT, PININTCH(i));
+	  Chip_PININT_EnableIntLow(LPC_GPIO_PIN_INT, PININTCH(i));
+  }
+
+  NVIC_ClearPendingIRQ(PIN_INT0_IRQn);
+  NVIC_ClearPendingIRQ(PIN_INT1_IRQn);
+  NVIC_ClearPendingIRQ(PIN_INT2_IRQn);
+  NVIC_ClearPendingIRQ(PIN_INT3_IRQn);
+
+  NVIC_EnableIRQ(PIN_INT0_IRQn);
+  NVIC_EnableIRQ(PIN_INT1_IRQn);
+  NVIC_EnableIRQ(PIN_INT2_IRQn);
+  NVIC_EnableIRQ(PIN_INT3_IRQn);
+
+
+  NVIC_EnableIRQ(USART2_IRQn);
+  Chip_UART_TXEnable(LPC_USART2);
+  SysTick_Config(SystemCoreClock / 1000);
 
 }
 

@@ -1,7 +1,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "sc_types.h"
+#include "../src/sc_types.h"
 #include "Contador.h"
 #include "ContadorRequired.h"
 /*! \file Implementation of the state machine 'contador'
@@ -16,7 +16,6 @@ static sc_boolean contador_check_main_region_lockToggle_tr0_tr0(const Contador* 
 static sc_boolean contador_check_main_region_decode_tr0_tr0(const Contador* handle);
 static sc_boolean contador_check_main_region_decode_tr1_tr1(const Contador* handle);
 static sc_boolean contador_check_main_region_decode_tr2_tr2(const Contador* handle);
-static sc_boolean contador_check_main_region_decode_tr3_tr3(const Contador* handle);
 static void contador_effect_main_region_Init_tr0(Contador* handle);
 static void contador_effect_main_region_wait_tr0(Contador* handle);
 static void contador_effect_main_region_Increment_tr0(Contador* handle);
@@ -25,7 +24,6 @@ static void contador_effect_main_region_lockToggle_tr0(Contador* handle);
 static void contador_effect_main_region_decode_tr0(Contador* handle);
 static void contador_effect_main_region_decode_tr1(Contador* handle);
 static void contador_effect_main_region_decode_tr2(Contador* handle);
-static void contador_effect_main_region_decode_tr3(Contador* handle);
 static void contador_enact_main_region_Init(Contador* handle);
 static void contador_enact_main_region_wait(Contador* handle);
 static void contador_enact_main_region_Increment(Contador* handle);
@@ -209,9 +207,8 @@ sc_boolean contador_isStateActive(const Contador* handle, ContadorStates state)
 	return result;
 }
 
-void contadorIface_raise_keyPress(Contador* handle, sc_integer value)
+void contadorIface_raise_keyPress(Contador* handle)
 {
-	handle->iface.keyPress_value = value;
 	handle->iface.keyPress_raised = bool_true;
 }
 
@@ -257,11 +254,6 @@ static sc_boolean contador_check_main_region_decode_tr1_tr1(const Contador* hand
 static sc_boolean contador_check_main_region_decode_tr2_tr2(const Contador* handle)
 {
 	return (handle->internal.aux == 4) ? bool_true : bool_false;
-}
-
-static sc_boolean contador_check_main_region_decode_tr3_tr3(const Contador* handle)
-{
-	return (((handle->internal.aux != 1) && (handle->internal.aux != 2) && (handle->internal.aux != 4)) || ((handle->internal.aux == 1) && handle->internal.locked == 1)) ? bool_true : bool_false;
 }
 
 static void contador_effect_main_region_Init_tr0(Contador* handle)
@@ -312,12 +304,6 @@ static void contador_effect_main_region_decode_tr2(Contador* handle)
 	contador_enseq_main_region_rstCnt_default(handle);
 }
 
-static void contador_effect_main_region_decode_tr3(Contador* handle)
-{
-	contador_exseq_main_region_decode(handle);
-	contador_enseq_main_region_wait_default(handle);
-}
-
 /* Entry action for state 'Init'. */
 static void contador_enact_main_region_Init(Contador* handle)
 {
@@ -332,7 +318,7 @@ static void contador_enact_main_region_Init(Contador* handle)
 static void contador_enact_main_region_wait(Contador* handle)
 {
 	/* Entry action for state 'wait'. */
-	handle->internal.aux = 0;
+	handle->internal.aux = 9;
 }
 
 /* Entry action for state 'Increment'. */
@@ -579,13 +565,7 @@ static void contador_react_main_region_decode(Contador* handle)
 			if (contador_check_main_region_decode_tr2_tr2(handle) == bool_true)
 			{ 
 				contador_effect_main_region_decode_tr2(handle);
-			}  else
-			{
-				if (contador_check_main_region_decode_tr3_tr3(handle) == bool_true)
-				{ 
-					contador_effect_main_region_decode_tr3(handle);
-				} 
-			}
+			} 
 		}
 	}
 }

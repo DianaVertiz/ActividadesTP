@@ -2,7 +2,7 @@
 #ifndef CONTADOR_H_
 #define CONTADOR_H_
 
-#include "sc_types.h"
+#include "../src/sc_types.h"
 		
 #ifdef __cplusplus
 extern "C" { 

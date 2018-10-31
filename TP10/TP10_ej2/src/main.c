@@ -175,7 +175,7 @@ int main ( void )
 	}
 	f_closedir (&dp );
 	print ("Lectura desde el archivo : \r\n");
-	f_open (&fil , "A", FA_READ );
+	f_open (&fil , "AA", FA_READ );
 	while (f_gets(line , sizeof (line), &fil))
 		print (line);
 	print ("\r\n");

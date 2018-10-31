@@ -2,7 +2,7 @@
 #ifndef CONTADOR_H_
 #define CONTADOR_H_
 
-#include "sc_types.h"
+#include "../src/sc_types.h"
 		
 #ifdef __cplusplus
 extern "C" { 
@@ -27,7 +27,6 @@ typedef enum
 typedef struct
 {
 	sc_boolean keyPress_raised;
-	sc_integer keyPress_value;
 } ContadorIface;
 
 /*! Type definition of the data structure for the ContadorInternal interface scope. */
@@ -69,7 +68,7 @@ extern void contador_runCycle(Contador* handle);
 
 
 /*! Raises the in event 'keyPress' that is defined in the default interface scope. */ 
-extern void contadorIface_raise_keyPress(Contador* handle, sc_integer value);
+extern void contadorIface_raise_keyPress(Contador* handle);
 
 
 /*!

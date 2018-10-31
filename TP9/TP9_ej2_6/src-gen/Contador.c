@@ -1,7 +1,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "sc_types.h"
+#include "../src/sc_types.h"
 #include "Contador.h"
 #include "ContadorRequired.h"
 /*! \file Implementation of the state machine 'contador'
