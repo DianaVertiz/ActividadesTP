@@ -30,7 +30,7 @@ $(OUTDIR)/firmware.elf: $(OUTDIR)/liblpcopen.a $(objLst)
 
 $(appBldDir)/%.o: src/%.c
 	@echo -n "  -" $(notdir $<)...
-	@$(GCC) -c -w $(CFLAGS) -Iinc -Isrc $< -o $@
+	@$(GCC) -c -w $(CFLAGS) -Iinc $< -o $@
 	@echo ok
 
 $(OUTDIR)/liblpcopen.a:

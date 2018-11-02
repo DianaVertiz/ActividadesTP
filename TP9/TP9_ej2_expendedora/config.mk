@@ -1,6 +1,6 @@
 # Path donde se encuentra instalado el compilador 
 # gcc para arm (arm-none-eabi)
-export GCCPATH=/home/sergio/ciaa/arm-eclipse/gcc
+export GCCPATH=/home/diana/CursoEmbebidos/gcc-arm-none-eabi-7-2018-q2-update
 
 # Prefijo del compilador.
 export GCCPREFIX=arm-none-eabi
@@ -14,8 +14,8 @@ export OUTDIR=out
 
 export INCBASEDIR=$(GCCPATH)/$(GCCPREFIX)/include
 
-export OPENOCD_BIN=/opt/bin/openocd
-export OPENOCD_CFG=openocd/lpc4337.cfg
+export OPENOCD_BIN=/home/diana/ciaa-ide/openocd-0.9.0/src/openocd
+export OPENOCD_CFG=/home/diana/ciaa-ide/Firmware/modules/tools/openocd/cfg/cortexM4/lpc43xx/lpc4337/ciaa-nxp.cfg
 
 export BUILDTYPE=debug
 

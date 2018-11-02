@@ -1,0 +1,11 @@
+GeneratorModel for yakindu::c {
+
+	statechart expendedora {
+
+		feature Outlet {
+			targetProject = "TP9_ej2_expendedora"
+			targetFolder = "src"
+			libraryTargetFolder = "src"
+		}
+	}
+}
