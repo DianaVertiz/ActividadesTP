@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="SearchDialog.ScopePart">
-		<item value="2" key="scope"/>
+		<item value="0" key="scope"/>
 	</section>
 	<section name="TextSearchPage">
 		<item value="0" key="HISTORY_SIZE"/>
@@ -36,7 +36,7 @@
 		<item value="true" key="showEnclosingDefinitions"/>
 	</section>
 	<section name="SearchDialog">
-		<item value="org.eclipse.search.internal.ui.text.TextSearchPage" key="PREVIOUS_PAGE"/>
+		<item value="org.eclipse.cdt.ui.pdomSearchPage" key="PREVIOUS_PAGE"/>
 	</section>
 	<section name="DialogBounds_SearchDialog">
 		<item value="711" key="DIALOG_WIDTH"/>

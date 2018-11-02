@@ -12,7 +12,7 @@
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
 		<item value="80" key="size.height"/>
-		<item value="776" key="size.width"/>
+		<item value="764" key="size.width"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
@@ -20,6 +20,9 @@
 		<item value="false" key="caseSensitive"/>
 		<item value="227191" key="searchFlags"/>
 		<list key="previousPatterns">
+			<item value="rstKeyPressed"/>
+			<item value="disk_initialize"/>
+			<item value="diskinitialize"/>
 			<item value="uint16_t"/>
 		</list>
 	</section>

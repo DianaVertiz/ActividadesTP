@@ -365,7 +365,7 @@ static sc_boolean expendedora_check_main_region_entregaGaseosa_tr0_tr0(const Exp
 
 static sc_boolean expendedora_check_main_region_entregaGaseosa_tr1_tr1(const Expendedora* handle)
 {
-	return (handle->internal.credito > 0) ? bool_true : bool_false;
+	return ((handle->internal.credito > 0) && (handle->internal.aux == 0)) ? bool_true : bool_false;
 }
 
 static sc_boolean expendedora_check_main_region_entregaGaseosa_r1_ledOn_tr0_tr0(const Expendedora* handle)
@@ -400,7 +400,7 @@ static sc_boolean expendedora_check_main_region_return_r1_encendido_tr0_tr0(cons
 
 static sc_boolean expendedora_check_main_region_return_r1_apagado_tr0_tr0(const Expendedora* handle)
 {
-	return ((handle->timeEvents.expendedora_main_region_return_r1_apagado_tev0_raised) && (handle->internal.credito >= 0)) ? bool_true : bool_false;
+	return ((handle->timeEvents.expendedora_main_region_return_r1_apagado_tev0_raised) && (handle->internal.credito > 0)) ? bool_true : bool_false;
 }
 
 static void expendedora_effect_main_region_init_tr0(Expendedora* handle)
@@ -539,6 +539,7 @@ static void expendedora_enact_main_region_entregaGaseosa(Expendedora* handle)
 	/* Entry action for state 'entregaGaseosa'. */
 	handle->internal.cantA = handle->internal.cantA - (3 - handle->internal.selected);
 	handle->internal.cantB = handle->internal.cantB - (handle->internal.selected - 2);
+	handle->internal.aux = 1;
 }
 
 /* Entry action for state 'ledOn'. */
@@ -553,8 +554,9 @@ static void expendedora_enact_main_region_entregaGaseosa_r1_ledOn(Expendedora* h
 static void expendedora_enact_main_region_entregaGaseosa_r1_ledOff(Expendedora* handle)
 {
 	/* Entry action for state 'ledOff'. */
-	expendedoraIface_ledOff(handle, handle->internal.led);
 	handle->internal.credito = handle->internal.credito - 6;
+	expendedoraIface_ledOff(handle, handle->internal.led);
+	handle->internal.aux = 0;
 }
 
 /* Entry action for state 'Decode'. */
@@ -587,7 +589,8 @@ static void expendedora_enact_main_region_return_r1_apagado(Expendedora* handle)
 	/* Entry action for state 'apagado'. */
 	expendedora_setTimer(handle, (sc_eventid) &(handle->timeEvents.expendedora_main_region_return_r1_apagado_tev0_raised) , 500, bool_false);
 	expendedoraIface_ledOff(handle, 0);
-	handle->internal.credito = handle->internal.credito - 2;
+	handle->internal.credito = handle->internal.credito - 1;
+	handle->internal.credito = handle->internal.credito - 1;
 }
 
 /* Exit action for state 'ledOn'. */

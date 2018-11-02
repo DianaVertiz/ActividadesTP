@@ -2,36 +2,36 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="runC" key="selection"/>
+		<item value="aux =" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="runc"/>
-			<item value="iter"/>
-			<item value="handle-&gt;internal.aux = 0;"/>
-			<item value="aux = 0"/>
 			<item value="aux ="/>
-			<item value="aux"/>
-			<item value="claveIn"/>
-			<item value="clave"/>
-			<item value="keyPressed_value"/>
-			<item value="generar_secuencia"/>
-			<item value="respuesta_"/>
-			<item value="evaluar_secuencia"/>
-			<item value="inicio"/>
-			<item value="evaluar"/>
-			<item value="setLed"/>
+			<item value="enact_ma"/>
+			<item value="contador_ent"/>
+			<item value="aux = "/>
+			<item value="react_main_reg"/>
+			<item value="runcycle"/>
+			<item value="locked"/>
+			<item value="decode"/>
+			<item value="sysInit"/>
+			<item value="Chip_SCU_PinMuxSet"/>
+			<item value="aux = 9"/>
+			<item value="wait"/>
+			<item value="leng"/>
+			<item value="endFlashFs"/>
+			<item value="myfilesystem"/>
 		</list>
 		<list key="replacehistory">
 			<item value="void"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="344" key="DIALOG_WIDTH"/>
+		<item value="364" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="435" key="DIALOG_HEIGHT"/>
+		<item value="455" key="DIALOG_HEIGHT"/>
 		<item value="871" key="DIALOG_X_ORIGIN"/>
 		<item value="281" key="DIALOG_Y_ORIGIN"/>
 	</section>
